@@ -1,0 +1,25 @@
+# Gradle and Java build output
+.gradle/
+build/
+out/
+*.class
+
+# Local Minecraft development instances and logs
+run/
+runs/
+logs/
+crash-reports/
+*.log
+
+# IDE and operating system files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local environment files
+.env
+.env.*
+!.env.example
