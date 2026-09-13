@@ -64,3 +64,5 @@ python tools/smoke_server.py --accept-eula --settings-pack build/relics-settings
 ```
 
 Die GitHub-Actions-Prüfung baut die Mod unter Linux, führt die Quellcodeprüfungen aus und vergleicht zwei aufeinanderfolgende Builds. Die Minecraft-Laufzeitnachweise stammen aus den beschriebenen lokalen Tests.
+
+Der [erste GitHub-Lauf](https://github.com/Auda29/Relic-Mod/actions/runs/34765846673) bestand Build, alle 16 Tests und den Vergleich der Wiederholungs-Builds. Seine Linux-JAR hat dieselbe oben angegebene Prüfsumme wie die auf Windows getestete und installierte Datei. Sein zusätzlicher Artefakt-Upload scheiterte am ausgeschöpften Actions-Speicherkontingent des Kontos. Der Workflow verzichtet deshalb auf automatische Artefakt-Uploads und schreibt die Paketprüfsumme in die Job-Zusammenfassung. Downloadpakete werden über GitHub-Releases bereitgestellt. Bestehende Konto-Artefakte wurden nicht gelöscht.
