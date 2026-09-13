@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.0-alpha.2
+
+- Obelisk mit durchgehenden Rissen, tieferen Kantenausbrüchen, Sandverwehungen und Trümmern am Sockel.
+- Koloss mit aufgebrochenem Helm, freiliegenden Streben im Brustpanzer, beschädigtem Brustring und Kerben im abgetrennten Arm.
+- Dichtere Moos- und Blattflächen auf einer Seite, ergänzt um Moosspuren an senkrechten Flächen.
+- Der Vorweg beginnt 14 Blöcke weiter innen. Der Zugang ist kurz, unregelmäßig gepflastert und von Erde sowie gefallenen Platten eingefasst. Eine drei Blöcke breite Route zum Maschinenraum bleibt frei.
+- Testserver wählt standardmäßig das Artefakt zur aktuellen Projektversion, damit zurückbehaltene ältere JARs nicht versehentlich geprüft werden.
+
+Die neuen Formen entstehen ausschließlich bei neuer Generierung. Bestehende Relikte werden nicht umgebaut. Abhängigkeiten, Struktur-IDs und Verteilung bleiben unverändert. Nachweise stehen im [Alpha-2-Testbericht](docs/ALPHA_2_TEST_REPORT.md).
+
 ## 0.1.0-alpha.1
 
 Erste implementierte Alpha für Minecraft 26.2 mit Fabric.

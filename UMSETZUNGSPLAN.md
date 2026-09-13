@@ -2,7 +2,7 @@
 
 Stand: 13.09.2026
 
-Status: Entwicklungsplan für die vollständige Version 0.1. Inzwischen entsteht eine erste Alpha für Minecraft 26.2 / Fabric 0.19.5. Der aktuelle Implementierungsstand steht in der [README](README.md), tatsächlich ausgeführte Prüfungen im [Alpha-Testbericht](docs/ALPHA_TEST_REPORT.md). Die nachfolgenden vollständigen Abnahmekriterien sind damit nicht automatisch erfüllt.
+Status: Entwicklungsplan für die vollständige Version 0.1. Alpha 2 für Minecraft 26.2 / Fabric 0.19.5 ergänzt Verfall und Geländeübergänge. Der aktuelle Implementierungsstand steht in der [README](README.md), tatsächlich ausgeführte Prüfungen im [Alpha-2-Testbericht](docs/ALPHA_2_TEST_REPORT.md). Die nachfolgenden vollständigen Abnahmekriterien sind damit nicht automatisch erfüllt.
 
 Dieses Dokument beschreibt Architektur, Bauprozess, Generierung und Abnahme. Die [Lore-Bibel](LORE-BIBLE.md) beschreibt Atmosphäre und gestalterische Anforderungen. Der [ursprüngliche Modplan](Minecraft-Relikte-Modplan.md) bleibt als Ausgangsdokument erhalten. Neue Zahlen und technische Festlegungen unten sind Vorschläge für die Prototypen, keine bereits gemessenen Eigenschaften.
 

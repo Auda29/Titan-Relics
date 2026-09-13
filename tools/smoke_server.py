@@ -213,7 +213,8 @@ def main() -> int:
         return 0
     if not args.accept_eula:
         parser.error("Read https://aka.ms/MinecraftEULA and pass --accept-eula to accept it for this isolated test server")
-    artifact = args.artifact or next(iter(sorted((ROOT / "dist").glob("relics-*.jar"))), None)
+    current_version = json.loads((ROOT / "src/main/resources/fabric.mod.json").read_text(encoding="utf-8"))["version"]
+    artifact = args.artifact or ROOT / "dist" / f"relics-{current_version}+mc26.2.jar"
     if artifact is None or not artifact.is_file():
         parser.error("Build the alpha first or pass --artifact")
     run = smoke / (time.strftime("run-%Y%m%d-%H%M%S") + f"-{time.time_ns() % 1000000:06d}")

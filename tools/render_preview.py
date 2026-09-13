@@ -9,7 +9,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 from relic_assets import AIR, colossus, obelisk
 
-COLORS={"deepslate_tiles":"#4b5556","cracked_deepslate_tiles":"#434e4e","polished_deepslate":"#313d42","polished_basalt":"#6d7070",
+COLORS={"sand":"#d9ca93","deepslate_tiles":"#4b5556","cracked_deepslate_tiles":"#434e4e","polished_deepslate":"#313d42","polished_basalt":"#6d7070",
         "cobbled_deepslate":"#586366","sandstone":"#bd9c65","cut_sandstone":"#a38450","smooth_sandstone":"#d6bc84",
         "waxed_weathered_cut_copper":"#559185","moss_block":"#687e45","azalea_leaves":"#547342","grass_block":"#698250","dirt":"#75604a",
         "black_concrete":"#141f25","oak_log":"#796149","oak_planks":"#a88a5c","crafting_table":"#a67f50"}

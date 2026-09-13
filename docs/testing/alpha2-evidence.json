@@ -1,0 +1,695 @@
+{
+  "version": "0.1.0-alpha.2",
+  "date": "2026-09-13",
+  "minecraft": "26.2",
+  "fabric_loader": "0.19.5",
+  "java": "Zulu 25.0.4.1",
+  "artifact": {
+    "file": "relics-0.1.0-alpha.2+mc26.2.jar",
+    "sha256": "cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa"
+  },
+  "unit_tests": {
+    "passed": 18,
+    "failed": 0
+  },
+  "repeated_local_build_sha256_matches": true,
+  "runs": {
+    "baseline": {
+      "seed": 731204,
+      "run_directory": "build/smoke/run-20260913-174758-451400",
+      "integration": false,
+      "eula_accepted_explicitly": true,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.2+mc26.2.jar",
+          "sha256": "cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa"
+        },
+        {
+          "file": "fabric-api-0.160.0+26.2.jar",
+          "sha256": "5f3dff88e1661166e222213302b25ace6c36dc3683804cbd4b5acf93138ea05e"
+        },
+        {
+          "file": "lithostitched-1.8.0+beta6-fabric-26.2.jar",
+          "sha256": "5743a7e11af1491aab6f4760c7cdce7284e2f0a4a89ffacd4ef43fd46e5e6d43"
+        }
+      ],
+      "passed": true,
+      "expected_natural_structures": [
+        "relics:colossus",
+        "relics:obelisk"
+      ],
+      "startup": "[17:48:08] [Server thread/INFO]: Done (1.759s)! For help, type \"help\"",
+      "manual_placements": [
+        {
+          "structure": "relics:obelisk",
+          "requested_position": [
+            0,
+            180,
+            0
+          ],
+          "method": "place template",
+          "success": true,
+          "response": "[17:48:17] [Server thread/INFO]: Loaded template \"relics:obelisk\" at 0, 180, 0"
+        },
+        {
+          "structure": "relics:colossus",
+          "requested_position": [
+            256,
+            180,
+            0
+          ],
+          "method": "place template",
+          "success": true,
+          "response": "[17:48:19] [Server thread/INFO]: Loaded template \"relics:colossus\" at 256, 180, 0"
+        }
+      ],
+      "locate_results": [
+        {
+          "structure": "relics:obelisk",
+          "response": "[17:48:20] [Server thread/INFO]: The nearest relics:obelisk is at [4512, ~, -7056] (8836 blocks away)",
+          "position": [
+            4512,
+            -7056
+          ]
+        },
+        {
+          "structure": "relics:colossus",
+          "response": "[17:48:51] [Server thread/INFO]: The nearest relics:colossus is at [11568, ~, 7728] (14402 blocks away)",
+          "position": [
+            11568,
+            7728
+          ]
+        }
+      ],
+      "exit_code": 0,
+      "world": {
+        "saved_chunks": 5716,
+        "natural_structure_starts": [
+          {
+            "structure": "relics:colossus",
+            "chunk": [
+              723,
+              483
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                11568,
+                62,
+                7728,
+                11667,
+                127,
+                7803
+              ]
+            ]
+          },
+          {
+            "structure": "relics:obelisk",
+            "chunk": [
+              282,
+              -441
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                4488,
+                68,
+                -7080,
+                4512,
+                137,
+                -7056
+              ]
+            ]
+          }
+        ],
+        "read_errors": []
+      },
+      "world_blocks": {
+        "world": ".\\build\\smoke\\run-20260913-174758-451400\\world",
+        "artifact": ".\\build\\smoke\\run-20260913-174758-451400\\mods\\relics-0.1.0-alpha.2+mc26.2.jar",
+        "artifact_sha256": "cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa",
+        "source": "saved natural structure starts and saved block states, compared with shipped NBT",
+        "nature_exclusions": [
+          "minecraft:azalea_leaves",
+          "minecraft:dirt",
+          "minecraft:grass_block"
+        ],
+        "instances": [
+          {
+            "structure": "relics:colossus",
+            "template": "relics:colossus",
+            "origin": [
+              11568,
+              62,
+              7728
+            ],
+            "rotation": "NONE",
+            "bounding_box": [
+              11568,
+              62,
+              7728,
+              11667,
+              127,
+              7803
+            ],
+            "expected_bounding_box": [
+              11568,
+              62,
+              7728,
+              11667,
+              127,
+              7803
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 82672,
+            "matched_blocks": 82672,
+            "checked_air": 24403,
+            "nature_cells_skipped": 9546,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 23,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "start_chunk": [
+              723,
+              483
+            ]
+          },
+          {
+            "structure": "relics:obelisk",
+            "template": "relics:obelisk",
+            "origin": [
+              4512,
+              68,
+              -7056
+            ],
+            "rotation": "CLOCKWISE_180",
+            "bounding_box": [
+              4488,
+              68,
+              -7080,
+              4512,
+              137,
+              -7056
+            ],
+            "expected_bounding_box": [
+              4488,
+              68,
+              -7080,
+              4512,
+              137,
+              -7056
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 4737,
+            "matched_blocks": 4737,
+            "checked_air": 103,
+            "nature_cells_skipped": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 4,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "start_chunk": [
+              282,
+              -441
+            ]
+          }
+        ],
+        "read_errors": [],
+        "verification_errors": [],
+        "fully_verified_structures": [
+          "relics:colossus",
+          "relics:obelisk"
+        ],
+        "complete_instance_failures": 0,
+        "passed": true
+      },
+      "log_errors": [
+        "[17:48:00] [main/ERROR]: Unable to locate English counter names in registry Perflib 009. Counters may need to be rebuilt:",
+        "com.sun.jna.platform.win32.Win32Exception: Falscher Parameter."
+      ],
+      "environment_diagnostics": [
+        "[17:48:00] [main/ERROR]: Unable to locate English counter names in registry Perflib 009. Counters may need to be rebuilt:",
+        "com.sun.jna.platform.win32.Win32Exception: Falscher Parameter."
+      ],
+      "blocking_log_errors": [],
+      "clean_log": false
+    },
+    "worldgen_integration": {
+      "seed": 731204,
+      "run_directory": "build/smoke/run-20260913-174939-504600",
+      "integration": true,
+      "eula_accepted_explicitly": true,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.2+mc26.2.jar",
+          "sha256": "cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa"
+        },
+        {
+          "file": "fabric-api-0.160.0+26.2.jar",
+          "sha256": "5f3dff88e1661166e222213302b25ace6c36dc3683804cbd4b5acf93138ea05e"
+        },
+        {
+          "file": "lithostitched-1.8.0+beta6-fabric-26.2.jar",
+          "sha256": "5743a7e11af1491aab6f4760c7cdce7284e2f0a4a89ffacd4ef43fd46e5e6d43"
+        },
+        {
+          "file": "tectonic-3.0.26-fabric-26.2.jar",
+          "sha256": "4fa2b27fdccb60da9942af70b2d157feea4609049ad80950ec4c33db36502168"
+        },
+        {
+          "file": "Terralith_26.2_v2.6.4.jar",
+          "sha256": "d867c6f348e869c19e8a5979e9dd2c46ed058c1edb47090f6863c32cce484917"
+        },
+        {
+          "file": "BiomesOPlenty-fabric-26.2-26.2.0.0.28.jar",
+          "sha256": "e3a5571eb77225e800f8fc4334d452904705e945c26767bfb091f42889ae14b4"
+        },
+        {
+          "file": "dungeons-and-taverns-5.3.2.jar",
+          "sha256": "7a1abeacfd6b973d9753928889d765e4002a086f4cb23756d8586e7d347d4bba"
+        },
+        {
+          "file": "GlitchCore-fabric-26.2-26.2.0.0.0.jar",
+          "sha256": "f6c31bd291d1d19322dd0a7ec344df2c88e2d516d1985f09ffe50ef33a34afdc"
+        },
+        {
+          "file": "TerraBlender-fabric-26.2-26.2.0.0.2.jar",
+          "sha256": "e4c54e7490cf6716ccc287f5ef674562666a13c6a4afabdc344d5cb62e9cb584"
+        }
+      ],
+      "passed": true,
+      "expected_natural_structures": [
+        "relics:colossus",
+        "relics:obelisk"
+      ],
+      "startup": "[17:49:56] [Server thread/INFO]: Done (8.455s)! For help, type \"help\"",
+      "manual_placements": [
+        {
+          "structure": "relics:obelisk",
+          "requested_position": [
+            0,
+            180,
+            0
+          ],
+          "method": "place template",
+          "success": true,
+          "response": "[17:50:11] [Server thread/INFO]: Loaded template \"relics:obelisk\" at 0, 180, 0"
+        },
+        {
+          "structure": "relics:colossus",
+          "requested_position": [
+            256,
+            180,
+            0
+          ],
+          "method": "place template",
+          "success": true,
+          "response": "[17:50:19] [Server thread/INFO]: Loaded template \"relics:colossus\" at 256, 180, 0"
+        }
+      ],
+      "locate_results": [
+        {
+          "structure": "relics:obelisk",
+          "response": "[17:50:24] [Server thread/INFO]: The nearest relics:obelisk is at [-4976, ~, -4640] (6803 blocks away)",
+          "position": [
+            -4976,
+            -4640
+          ]
+        },
+        {
+          "structure": "relics:colossus",
+          "response": "[17:50:44] [Server thread/INFO]: The nearest relics:colossus is at [-736, ~, 9056] (9085 blocks away)",
+          "position": [
+            -736,
+            9056
+          ]
+        }
+      ],
+      "exit_code": 0,
+      "world": {
+        "saved_chunks": 5187,
+        "natural_structure_starts": [
+          {
+            "structure": "relics:obelisk",
+            "chunk": [
+              -311,
+              -290
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                -4976,
+                62,
+                -4640,
+                -4952,
+                131,
+                -4616
+              ]
+            ]
+          },
+          {
+            "structure": "relics:colossus",
+            "chunk": [
+              -46,
+              566
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                -736,
+                55,
+                8957,
+                -661,
+                120,
+                9056
+              ]
+            ]
+          }
+        ],
+        "read_errors": []
+      },
+      "world_blocks": {
+        "world": ".\\build\\smoke\\run-20260913-174939-504600\\world",
+        "artifact": ".\\build\\smoke\\run-20260913-174939-504600\\mods\\relics-0.1.0-alpha.2+mc26.2.jar",
+        "artifact_sha256": "cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa",
+        "source": "saved natural structure starts and saved block states, compared with shipped NBT",
+        "nature_exclusions": [
+          "minecraft:azalea_leaves",
+          "minecraft:dirt",
+          "minecraft:grass_block"
+        ],
+        "instances": [
+          {
+            "structure": "relics:obelisk",
+            "template": "relics:obelisk",
+            "origin": [
+              -4976,
+              62,
+              -4640
+            ],
+            "rotation": "NONE",
+            "bounding_box": [
+              -4976,
+              62,
+              -4640,
+              -4952,
+              131,
+              -4616
+            ],
+            "expected_bounding_box": [
+              -4976,
+              62,
+              -4640,
+              -4952,
+              131,
+              -4616
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 4737,
+            "matched_blocks": 4737,
+            "checked_air": 103,
+            "nature_cells_skipped": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 4,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "start_chunk": [
+              -311,
+              -290
+            ]
+          },
+          {
+            "structure": "relics:colossus",
+            "template": "relics:colossus",
+            "origin": [
+              -736,
+              55,
+              9056
+            ],
+            "rotation": "COUNTERCLOCKWISE_90",
+            "bounding_box": [
+              -736,
+              55,
+              8957,
+              -661,
+              120,
+              9056
+            ],
+            "expected_bounding_box": [
+              -736,
+              55,
+              8957,
+              -661,
+              120,
+              9056
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 82672,
+            "matched_blocks": 82672,
+            "checked_air": 24403,
+            "nature_cells_skipped": 9546,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 23,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "start_chunk": [
+              -46,
+              566
+            ]
+          }
+        ],
+        "read_errors": [],
+        "verification_errors": [],
+        "fully_verified_structures": [
+          "relics:colossus",
+          "relics:obelisk"
+        ],
+        "complete_instance_failures": 0,
+        "passed": true
+      },
+      "log_errors": [
+        "[17:49:41] [main/ERROR]: Unable to locate English counter names in registry Perflib 009. Counters may need to be rebuilt:",
+        "com.sun.jna.platform.win32.Win32Exception: Falscher Parameter."
+      ],
+      "environment_diagnostics": [
+        "[17:49:41] [main/ERROR]: Unable to locate English counter names in registry Perflib 009. Counters may need to be rebuilt:",
+        "com.sun.jna.platform.win32.Win32Exception: Falscher Parameter."
+      ],
+      "blocking_log_errors": [],
+      "clean_log": false
+    },
+    "frequent_without_colossus": {
+      "seed": 731204,
+      "run_directory": "build/smoke/run-20260913-175129-900500",
+      "integration": false,
+      "eula_accepted_explicitly": true,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.2+mc26.2.jar",
+          "sha256": "cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa"
+        },
+        {
+          "file": "fabric-api-0.160.0+26.2.jar",
+          "sha256": "5f3dff88e1661166e222213302b25ace6c36dc3683804cbd4b5acf93138ea05e"
+        },
+        {
+          "file": "lithostitched-1.8.0+beta6-fabric-26.2.jar",
+          "sha256": "5743a7e11af1491aab6f4760c7cdce7284e2f0a4a89ffacd4ef43fd46e5e6d43"
+        }
+      ],
+      "passed": true,
+      "expected_natural_structures": [
+        "relics:obelisk"
+      ],
+      "settings_pack": {
+        "file": "relics-settings-alpha2.zip",
+        "sha256": "98c61d8aaf5a647ad9f8af258b8d014631abfdb550a4d641f29f1f53894a30cf",
+        "structure_set_overrides": {
+          "obelisk": {
+            "structures": [
+              {
+                "structure": "relics:obelisk",
+                "weight": 1
+              }
+            ],
+            "placement": {
+              "type": "minecraft:random_spread",
+              "spacing": 32,
+              "separation": 16,
+              "spread_type": "linear",
+              "salt": 206091301
+            }
+          },
+          "colossus": {
+            "structures": [],
+            "placement": {
+              "type": "minecraft:random_spread",
+              "spacing": 40,
+              "separation": 20,
+              "spread_type": "linear",
+              "salt": 206091302
+            }
+          }
+        },
+        "enabled_response": "[17:51:41] [Server thread/INFO]: There are 5 data pack(s) enabled: [vanilla (built-in)], [fabric-convention-tags-v2 (Fabric mod)], [lithostitched (Fabric mod)], [relics (Fabric mod)], [file/relics-settings-alpha2.zip (world)]"
+      },
+      "startup": "[17:51:38] [Server thread/INFO]: Done (1.509s)! For help, type \"help\"",
+      "manual_placements": [
+        {
+          "structure": "relics:obelisk",
+          "requested_position": [
+            0,
+            180,
+            0
+          ],
+          "method": "place template",
+          "success": true,
+          "response": "[17:51:45] [Server thread/INFO]: Loaded template \"relics:obelisk\" at 0, 180, 0"
+        },
+        {
+          "structure": "relics:colossus",
+          "requested_position": [
+            256,
+            180,
+            0
+          ],
+          "method": "place template",
+          "success": true,
+          "response": "[17:51:47] [Server thread/INFO]: Loaded template \"relics:colossus\" at 256, 180, 0"
+        }
+      ],
+      "locate_results": [
+        {
+          "structure": "relics:obelisk",
+          "response": "[17:51:49] [Server thread/INFO]: The nearest relics:obelisk is at [-5584, ~, -2832] (5740 blocks away)",
+          "position": [
+            -5584,
+            -2832
+          ]
+        }
+      ],
+      "disabled_locate_results": [
+        {
+          "structure": "relics:colossus",
+          "response": "[17:51:54] [Server thread/INFO]: Could not find a structure of type \"relics:colossus\" nearby",
+          "passed": true,
+          "elapsed_seconds": 0.047
+        }
+      ],
+      "exit_code": 0,
+      "world": {
+        "saved_chunks": 4195,
+        "natural_structure_starts": [
+          {
+            "structure": "relics:obelisk",
+            "chunk": [
+              -349,
+              -177
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                -5608,
+                100,
+                -2832,
+                -5584,
+                169,
+                -2808
+              ]
+            ]
+          }
+        ],
+        "read_errors": []
+      },
+      "world_blocks": {
+        "world": ".\\build\\smoke\\run-20260913-175129-900500\\world",
+        "artifact": ".\\build\\smoke\\run-20260913-175129-900500\\mods\\relics-0.1.0-alpha.2+mc26.2.jar",
+        "artifact_sha256": "cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa",
+        "source": "saved natural structure starts and saved block states, compared with shipped NBT",
+        "nature_exclusions": [
+          "minecraft:azalea_leaves",
+          "minecraft:dirt",
+          "minecraft:grass_block"
+        ],
+        "instances": [
+          {
+            "structure": "relics:obelisk",
+            "template": "relics:obelisk",
+            "origin": [
+              -5584,
+              100,
+              -2832
+            ],
+            "rotation": "CLOCKWISE_90",
+            "bounding_box": [
+              -5608,
+              100,
+              -2832,
+              -5584,
+              169,
+              -2808
+            ],
+            "expected_bounding_box": [
+              -5608,
+              100,
+              -2832,
+              -5584,
+              169,
+              -2808
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 4737,
+            "matched_blocks": 4737,
+            "checked_air": 103,
+            "nature_cells_skipped": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 4,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "start_chunk": [
+              -349,
+              -177
+            ]
+          }
+        ],
+        "read_errors": [],
+        "verification_errors": [],
+        "fully_verified_structures": [
+          "relics:obelisk"
+        ],
+        "complete_instance_failures": 0,
+        "passed": false
+      },
+      "log_errors": [
+        "[17:51:32] [main/ERROR]: Unable to locate English counter names in registry Perflib 009. Counters may need to be rebuilt:",
+        "com.sun.jna.platform.win32.Win32Exception: Falscher Parameter."
+      ],
+      "environment_diagnostics": [
+        "[17:51:32] [main/ERROR]: Unable to locate English counter names in registry Perflib 009. Counters may need to be rebuilt:",
+        "com.sun.jna.platform.win32.Win32Exception: Falscher Parameter."
+      ],
+      "blocking_log_errors": [],
+      "clean_log": false
+    }
+  }
+}

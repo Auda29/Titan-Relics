@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "relics",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "name": "Relic Mod",
   "description": "Rare monumental ruins: a desert obelisk and an overgrown, explorable colossus. Procedurally authored structure alpha.",
   "authors": [

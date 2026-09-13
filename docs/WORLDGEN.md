@@ -20,6 +20,8 @@ Die tatsächlichen Klassen `StructureTemplate.load`, `JigsawStructure` und `Jigs
 
 ## Bodenhöhe und Drehung
 
+Alpha 2 behält Abmessungen, Biome, Verteilung und Höhenversatz bei. Die neuen Risse und Panzerbrüche sind ausdrücklich gespeicherte Luftzellen. Der Kolosszugang beginnt lokal bei `[40,10,14]` statt `[40,10,0]`. Vor dem kurzen Vorplatz wird kein breiter Luftkorridor mehr ausgeschnitten. Unter den Pflasterresten liegen Erdstützen und eine unregelmäßige Bodenform. Das verbessert den Übergang, ersetzt aber keine Anpassung an jeden einzelnen Geländeblock.
+
 Minecraft wählt eine der vier horizontalen Drehungen. Das gesamte Relikt dreht sich gemeinsam. Es gibt keine Spiegelung und keine zufällige Auswahl einzelner Körperteile.
 
 Der lokale `ground_y` bezeichnet die erste Luftschicht über dem vorgesehenen Boden. Vanilla hat für das Pool-Element einen `groundLevelDelta` von 1. Deshalb gilt für `start_height.absolute` die Formel `1 - ground_y`.

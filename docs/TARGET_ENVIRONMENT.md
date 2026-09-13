@@ -99,3 +99,9 @@ Am 13.09.2026 wurden nach bestandenem isoliertem Basistest genau drei JAR-Dateie
 - `lithostitched-1.8.0+beta6-fabric-26.2.jar`, Prüfsumme wie oben
 
 Alle drei installierten Prüfsummen stimmen mit den geprüften Quelldateien überein. Die zwei Abhängigkeiten wurden aus dem vorhandenen Cacheprofil kopiert; TerraVista wurde nicht verändert. Es wurden keine Spielwelten angelegt oder verändert und keine zusätzlichen Worldgen-Mods in Relic Test installiert. Das Profil wurde noch nicht als Client gestartet. Die abgeschlossenen getrennten Serverprüfungen stehen im [Alpha-Testbericht](ALPHA_TEST_REPORT.md).
+
+## Update auf Alpha 2
+
+Nach den vom Nutzer gezeigten Spielansichten der Alpha 1 wurde am 13.09.2026 die Relic-JAR durch `relics-0.1.0-alpha.2+mc26.2.jar` ersetzt. SHA-256 der installierten Datei: `cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa`. Die vorherige Datei wurde unter `build/profile-backups/alpha2-upgrade/` im Arbeitsverzeichnis gesichert. Im Modordner liegt nur die neue Relic-Version; die beiden Pflichtabhängigkeiten behalten ihre bisherigen Prüfsummen.
+
+Beim Austausch lief kein Minecraft-Client. Spielstände wurden nicht verändert. Neue Formen erscheinen erst bei neuer Generierung. Die [Alpha-2-Prüfungen](ALPHA_2_TEST_REPORT.md) liefen mit eigenen lokalen Testwelten.

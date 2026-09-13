@@ -2,14 +2,14 @@
 
 Seltene, monumentale Entdeckungen für Minecraft: ein Wüstenobelisk und ein überwachsener, begehbarer Maschinenkoloss mit abgetrenntem Arm.
 
-**Aktueller Stand: 0.1.0-alpha.1 für Minecraft 26.2 / Fabric.** Die Bauwerke werden vollständig durch die Python-Generatoren dieses Repositorys erzeugt. Handarbeit in Minecraft ist für den Build nicht nötig. Diese Alpha erprobt Form, Export und natürliche Platzierung; sie ist noch keine gestalterisch und über viele Seeds abgenommene Version 0.1.
+**Aktueller Stand: 0.1.0-alpha.2 für Minecraft 26.2 / Fabric.** Die Bauwerke werden vollständig durch die Python-Generatoren dieses Repositorys erzeugt. Handarbeit in Minecraft ist für den Build nicht nötig. Diese Alpha ergänzt Verfall, Bewuchs und kürzere Geländeübergänge; sie ist noch keine über viele Seeds abgenommene Version 0.1.
 
 ## Inhalt der Alpha
 
 | Relikt | Gesamtabmessungen einschließlich Basis | Gestaltung |
 | --- | --- | --- |
-| Obelisk | 25 × 70 × 25 Blöcke | Schlanker, oben flacher Schaft, steinerne Basis und kleiner Rastplatz |
-| Koloss | 100 × 66 × 76 Blöcke | Helm mit Visier, breite Schultern, geöffneter Brustring, Innenraum, Bewuchs und abgetrennter Arm |
+| Obelisk | 25 × 70 × 25 Blöcke | Zusammenhängende Risse, ausgebrochene Kanten, verwehter Sand am Sockel und kleine Trümmer |
+| Koloss | 100 × 66 × 76 Blöcke | Aufgebrochener Helm und Brustpanzer mit Innenstreben, beschädigter Brustring, dichterer einseitiger Bewuchs, begehbarer Innenraum und abgetrennter Arm |
 
 Beide Relikte bestehen aus Vanilla-Blöcken und generieren in passenden neuen Oberwelt-Chunks. Ihre feste Grundform wird gemeinsam gedreht. Es gibt derzeit eine vorbereitete Variante je Typ. Optionale Biome aus Terralith und Biomes O' Plenty sind zugeordnet; diese Mods sind keine Pflichtabhängigkeiten.
 
@@ -23,13 +23,15 @@ Beide Relikte bestehen aus Vanilla-Blöcken und generieren in passenden neuen Ob
 | Fabric API | 0.160.0+26.2 |
 | Lithostitched | 1.8.0+beta6 für Fabric 26.2 |
 
-Die genaue lokal vorgefundene Umgebung steht in [TARGET_ENVIRONMENT.md](docs/TARGET_ENVIRONMENT.md). Die ausgeführten Prüfungen und ihre Grenzen stehen im [Alpha-Testbericht](docs/ALPHA_TEST_REPORT.md).
+Die genaue lokal vorgefundene Umgebung steht in [TARGET_ENVIRONMENT.md](docs/TARGET_ENVIRONMENT.md). Die ausgeführten Prüfungen und ihre Grenzen stehen im [Alpha-2-Testbericht](docs/ALPHA_2_TEST_REPORT.md).
 
 1. Fabric für Minecraft 26.2 verwenden.
-2. `relics-0.1.0-alpha.1+mc26.2.jar`, Fabric API und Lithostitched in den `mods`-Ordner legen.
+2. `relics-0.1.0-alpha.2+mc26.2.jar`, Fabric API und Lithostitched in den `mods`-Ordner legen.
 3. Eine neue Testwelt mit aktivierter Strukturgenerierung anlegen. Die Alpha fügt keine Relikte in bereits erzeugte Chunks ein.
 
 Die Projektseiten von [Lithostitched](https://modrinth.com/mod/lithostitched) und [Fabric API](https://modrinth.com/mod/fabric-api) bieten die Abhängigkeiten. Diese JARs werden nicht in unserem Release mitverteilt.
+
+Beim Update Minecraft vollständig beenden und die alte Relic-JAR ersetzen. Bereits erzeugte Bauwerke behalten ihre alte Form. Für die neuen Formen eine neue Testwelt oder noch nicht erzeugte Regionen verwenden. Die Struktur-IDs und Verteilungsregeln bleiben gleich; `/locate` kann deshalb weiterhin einen alten Fund zurückgeben.
 
 Mit Cheats beziehungsweise Server-OP lassen sich natürliche Standorte suchen:
 
@@ -94,7 +96,8 @@ Bereits erzeugte Relikte bleiben erhalten. Solange ein Typ deaktiviert ist, find
 - [Technischer Umsetzungsplan](UMSETZUNGSPLAN.md)
 - [Lore-Bibel](LORE-BIBLE.md)
 - [Worldgen-Aufbau und Formatprüfung](docs/WORLDGEN.md)
-- [Alpha-Testbericht](docs/ALPHA_TEST_REPORT.md)
+- [Alpha-2-Testbericht](docs/ALPHA_2_TEST_REPORT.md)
+- [Historischer Alpha-1-Testbericht](docs/ALPHA_TEST_REPORT.md)
 - [Changelog](CHANGELOG.md)
 - [Ursprünglicher Konzept- und Entwicklungsplan](Minecraft-Relikte-Modplan.md)
 

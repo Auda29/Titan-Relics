@@ -78,14 +78,14 @@ class AssetTests(unittest.TestCase):
                 if p not in visited and standable(p): visited.add(p); queue.append(p)
         self.assertIn(goal,visited)
         # Entire authored passage has player height clearance, including tile seams.
-        for z in range(45): self.assertTrue(standable((40,10,z)),z)
+        for z in range(start[2],45): self.assertTrue(standable((40,10,z)),z)
         self.assertGreater(len(visited),250)
 
     def test_design_constraints_and_seed_variation(self):
         ob,co=self.models
         self.assertEqual(ob.landmarks["shaft"]["size"],[7,64,7])
         self.assertEqual(sum(y==69 for x,y,z in ob.blocks),49)
-        self.assertNotIn(AIR,ob.blocks.values())
+        self.assertGreater(sum(b==AIR for b in ob.blocks.values()),70)
         self.assertEqual(co.blocks[(40,26,23)],AIR)
         self.assertNotEqual(co.blocks,colossus(2914).blocks)
         for model in self.models:
@@ -94,6 +94,31 @@ class AssetTests(unittest.TestCase):
             for (x,y,z),b in model.blocks.items():
                 self.assertTrue(0<=x<model.size[0] and 0<=y<model.size[1] and 0<=z<model.size[2])
                 if "leaves" in b: self.assertIn("persistent=true",b)
+
+    def test_worn_approach_preserves_terrain_before_the_short_entrance(self):
+        model=self.models[1]
+        self.assertEqual(model.landmarks["entrance"],[40,10,14])
+        self.assertFalse(any(b==AIR and z<14 for (x,y,z),b in model.blocks.items()))
+        for z in range(14,24):
+            for x in range(39,42):
+                self.assertNotEqual(model.blocks[(x,9,z)],AIR)
+                self.assertEqual(model.blocks[(x,10,z)],AIR)
+                self.assertNotEqual(model.blocks[(x,8,z)],AIR)
+        # Terrain decoration can grow plants on moss even with random ticks off.
+        for z in range(23,45):
+            for x in range(37,44):
+                self.assertNotIn(model.blocks[(x,9,z)],
+                                 {"minecraft:moss_block","minecraft:grass_block","minecraft:dirt"})
+        self.assertLess(sum(y==9 and z<23 and 35<=x<=45 and "deepslate" in b
+                            for (x,y,z),b in model.blocks.items()),100)
+
+    def test_breaches_expose_frame_without_blocking_machine_room(self):
+        model=self.models[1]
+        self.assertEqual(model.blocks[(48,61,33)],AIR)
+        self.assertEqual(model.blocks[(57,34,30)],AIR)
+        self.assertIn("basalt",model.blocks[(57,34,36)])
+        self.assertEqual(model.blocks[(40,10,40)],AIR)
+        self.assertGreater(sum(b=="minecraft:moss_block" for b in model.blocks.values()),200)
 
 
 if __name__=="__main__": unittest.main()

@@ -65,7 +65,7 @@ def obelisk(seed: int = 2913) -> Model:
             if r < .90 + .13*math.sin(x*.6) + .08*math.cos(z):
                 top = max(0, int(3.8 - r*3 + .6*math.sin(x*.4+z*.3)))
                 for y in range(top+1):
-                    m.put(x,y,z,"sandstone" if y<top else "smooth_sandstone")
+                    m.put(x,y,z,"sandstone" if y<top else "sand")
     m.box((7,1,7),(17,3,17),"cut_sandstone")
     m.box((8,4,8),(16,5,16),"smooth_sandstone")
     for x in range(9,16):
@@ -84,7 +84,44 @@ def obelisk(seed: int = 2913) -> Model:
     # A later traveller's low broken shelter, human-sized beside the monument.
     m.box((3,2,15),(3,3,20),"sandstone")
     m.box((4,2,20),(6,2,20),"sandstone")
-    m.landmarks = {"shaft": {"origin":[9,6,9],"size":[7,64,7]}, "resting_place":[5,3,18]}
+    # Connected fractures cut into a darker core instead of random surface speckles.
+    for low, high, phase in ((18, 36, 0), (47, 63, 2)):
+        for y in range(low, high):
+            x = 11 + ((y // 4 + phase) % 4)
+            m.put(x,y,9,AIR)
+            m.put(x,y,10,"polished_basalt")
+            m.put(max(9,x-1),y,9,"cracked_deepslate_tiles")
+            if y % 5 < 2:
+                m.put(min(15,x+1),y,9,AIR)
+    for y in range(30,53):
+        z = 11 + ((y // 5) % 3)
+        m.put(15,y,z,AIR)
+        m.put(14,y,z,"polished_basalt")
+        m.put(15,y,min(15,z+1),"cracked_deepslate_tiles")
+    # Two large edge losses leave the flat-topped monolith recognizable.
+    for y in range(34,42):
+        for x,z in ((9,9),(9,10),(10,9)):
+            if y < 40 or x == z:
+                m.put(x,y,z,AIR)
+    for y in range(63,70):
+        m.put(15,y,15,AIR)
+        if y >= 67:
+            m.put(14,y,15,AIR)
+            m.put(15,y,14,AIR)
+    # Windward sand banks cover parts of the plinth, with supported sand caps.
+    for x in range(4,22):
+        for z in range(4,22):
+            r = ((x-9)/9)**2 + ((z-15)/8)**2
+            top = int(6.5-4*r+.7*math.sin(z*.7))
+            if top < 1 or (9 <= x <= 15 and 9 <= z <= 15):
+                continue
+            for y in range(top+1):
+                if y < 6 or (x,y,z) not in m.blocks:
+                    m.put(x,y,z,"sand" if y == top else "sandstone")
+    for cx,cz in ((18,9),(19,16),(7,6)):
+        m.ellipsoid((cx,3,cz),(2,2,2),"cobbled_deepslate")
+    m.landmarks = {"shaft": {"origin":[9,6,9],"size":[7,64,7]}, "resting_place":[5,3,18],
+                   "fractures":{"front_y":[18,63],"right_y":[30,53]}, "sand_bank":[8,5,15]}
     return m
 
 
@@ -137,8 +174,20 @@ def colossus(seed: int = 2913) -> Model:
                 for z in range(20,33):
                     m.put(x,y,z,AIR)
     # Main accessible entrance stays at one floor height. No jump puzzle needed.
-    m.box((35,9,0),(45,9,44),"cobbled_deepslate")
-    m.box((36,10,0),(44,16,42),AIR)
+    m.box((35,9,23),(45,9,44),"cobbled_deepslate")
+    m.box((36,10,23),(44,16,42),AIR)
+    # Short, worn apron. The three-block central walk remains continuous.
+    for z in range(14,23):
+        half_width = 2 + (z-14)//3
+        for x in range(40-half_width,41+half_width):
+            edge = abs(x-40) > 1
+            if edge and noise(x,9,z,seed) < .36:
+                continue
+            m.put(x,9,z,"cobbled_deepslate" if not edge or noise(x,0,z,seed)>.4 else "moss_block")
+            # Buried support prevents floating pavement on uneven sites.
+            for y in range(9):
+                m.put(x,y,z,"dirt")
+        m.box((39,10,z),(41,12,z),AIR)
     m.box((29,9,31),(51,9,47),"deepslate_tiles")
     m.box((30,10,30),(50,17,47),AIR)
     # Deep internal ribs and a ring lying at the back of the room.
@@ -163,8 +212,9 @@ def colossus(seed: int = 2913) -> Model:
         x = 78+i*5
         m.box((x,3,61),(x+2,6,69-(i%2)*2),"polished_deepslate")
     m.ellipsoid((74,5,57),(3,3,7),"deepslate_tiles")
+    weather_colossus(m)
     # Earth collects around the lower body and forearm, never above the doorway.
-    for cx,cz,rx,rz,peak in ((39,41,31,25,9),(84,45,14,26,5)):
+    for cx,cz,rx,rz,peak in ((39,41,31,25,9),(84,45,14,26,5),(40,23,12,12,9)):
         for x in range(max(0,cx-rx),min(100,cx+rx+1)):
             for z in range(max(0,cz-rz),min(76,cz+rz+1)):
                 r = ((x-cx)/rx)**2+((z-cz)/rz)**2
@@ -176,15 +226,72 @@ def colossus(seed: int = 2913) -> Model:
     # Broad moss patches only on actual upward-facing armour. Leaves are persistent.
     top_surfaces = [p for p,b in m.blocks.items() if b != AIR and m.blocks.get((p[0],p[1]+1,p[2]),AIR)==AIR]
     for x,y,z in top_surfaces:
-        patch = math.sin(x*.21+seed)+math.cos(z*.24)+math.sin(y*.17)
-        if y>17 and z>34 and patch>1.0 and m.blocks[x,y,z] not in ("minecraft:oak_planks",):
+        patch = math.sin(x*.16+seed)+math.cos(z*.19)+math.sin(y*.13)
+        exposed_armor = any(word in m.blocks[x,y,z] for word in ("deepslate", "basalt"))
+        wet_side = ((x-17)/24)**2 + ((z-41)/24)**2 < 1 or (x<44 and z>40)
+        if y>17 and wet_side and patch>-.15 and exposed_armor:
             m.put(x,y,z,"moss_block")
-            if noise(x,y,z,seed)>.80 and y+1<66:
-                m.put(x,y+1,z,"azalea_leaves[persistent=true,distance=1,waterlogged=false]")
+            if noise(x//3,y//3,z//3,seed)>.57 and y+1<66:
+                for dy in range(1, 3 if y<62 else 2):
+                    if y+dy<66 and m.blocks.get((x,y+dy,z),AIR)==AIR:
+                        m.put(x,y+dy,z,"azalea_leaves[persistent=true,distance=1,waterlogged=false]")
+    # Long damp streaks follow exposed surfaces on one side of the torso.
+    for (x,y,z),block in list(m.blocks.items()):
+        if 7<x<29 and 20<y<44 and z<40 and "deepslate" in block:
+            if m.blocks.get((x,y,z-1),AIR)==AIR and math.sin(x*.45)+math.cos(y*.13)>.55:
+                m.put(x,y,z,"moss_block")
     # Reassert the protected walk so later decoration cannot block it.
-    m.box((37,10,0),(43,12,44),AIR)
-    m.landmarks = {"entrance":[40,10,0],"machine_room":[40,10,40],"chest_aperture":[40,26,23],"detached_arm":[85,8,42],"head":[40,55,39],"protected_walk":{"from":[40,10,0],"to":[40,10,44],"width":7,"clearance":3}}
+    m.box((39,10,14),(41,12,22),AIR)
+    m.box((37,10,23),(43,12,44),AIR)
+    m.landmarks = {"entrance":[40,10,14],"machine_room":[40,10,40],"chest_aperture":[40,26,23],"detached_arm":[85,8,42],"head":[40,55,39],"protected_walk":{"from":[40,10,14],"to":[40,10,44],"width":3,"clearance":3},
+                   "armor_breach":[57,34,32],"broken_helmet":[48,59,34]}
     return m
+
+
+def weather_colossus(m: Model) -> None:
+    """Large readable losses, exposed framing and fallen plates, all authored geometry."""
+    # The broken helmet exposes a recessed frame, not another solid front face.
+    m.ellipsoid((48,61,33),(9,8,9),AIR)
+    for x in (43,47):
+        m.box((x,55,38),(x,62,39),"polished_basalt")
+    m.box((42,56,38),(49,56,39),"polished_basalt[axis=x]")
+    for y in range(48,61):
+        x = 33 + (y//4)%3
+        for z in (29,30):
+            if (x,y,z) in m.blocks:
+                m.put(x,y,z,AIR)
+    # Right chest and shoulder have lost a large section of outer armour.
+    m.ellipsoid((57,34,30),(10,11,9),AIR)
+    for x in (52,57,62):
+        m.box((x,26,36),(x+1,39-(x-52)//2,37),"polished_basalt")
+    m.box((51,29,36),(64,30,37),"polished_basalt[axis=x]")
+    m.box((55,31,37),(56,35,38),"waxed_weathered_cut_copper")
+    # A missing arc breaks the otherwise pristine breast ring.
+    for x in range(46,53):
+        for y in range(32,39):
+            for z in (23,24):
+                m.put(x,y,z,AIR)
+    # Gouges run along the detached forearm and expose its longitudinal core.
+    for z in range(32,53):
+        x = 84+(z//5)%3
+        for y in range(11,17):
+            if (x,y,z) in m.blocks:
+                m.put(x,y,z,AIR)
+        m.put(x,10,z,"polished_basalt[axis=z]")
+    # Coherent cracked fields border the breaches. Keep the broad dark palette.
+    for (x,y,z),block in list(m.blocks.items()):
+        if block == "minecraft:deepslate_tiles":
+            fracture = abs(x-(30+(y//5)%4))<=1 and z<35 and 20<y<48
+            if fracture or (x>48 and z<39 and 25<y<45):
+                m.put(x,y,z,"cracked_deepslate_tiles")
+    # Tilted plate fragments sink into the soil outside the protected entrance.
+    for cx,cz,rx,rz in ((29,19,5,4),(53,17,4,5),(69,30,4,3)):
+        for x in range(cx-rx,cx+rx+1):
+            for z in range(cz-rz,cz+rz+1):
+                if ((x-cx)/rx)**2+((z-cz)/rz)**2 < 1+.1*math.sin(z):
+                    top = 8 + (x-cx+rx)//3
+                    for y in range(5,top+1):
+                        m.put(x,y,z,"cracked_deepslate_tiles" if y==top else "cobbled_deepslate")
 
 
 # Minimal NBT writer and reader, kept explicit to make serialization auditable.
