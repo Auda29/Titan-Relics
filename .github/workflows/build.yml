@@ -1,0 +1,29 @@
+name: Build alpha
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Generate structures and build mod
+        run: python tools/build.py
+      - name: Test generators and resources
+        run: python -m unittest discover -s tests -v
+      - name: Check reproducible package
+        run: |
+          cp dist/SHA256SUMS.txt /tmp/relics-first-build.sha256
+          python tools/build.py
+          cmp /tmp/relics-first-build.sha256 dist/SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: relics-alpha-mc26.2
+          path: dist/
+          retention-days: 7

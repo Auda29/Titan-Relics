@@ -1,0 +1,311 @@
+#!/usr/bin/env python3
+"""Generate original Relic alpha block geometry and deterministic Java structure NBT.
+
+No third-party libraries. Coordinates are X/Y/Z, front is negative Z. A missing
+coordinate preserves existing terrain; minecraft:air deliberately removes it.
+"""
+from __future__ import annotations
+
+import argparse
+from collections import Counter, defaultdict
+from dataclasses import dataclass, field
+import gzip
+import hashlib
+import json
+import math
+from pathlib import Path
+import struct
+
+AIR = "minecraft:air"
+Pos = tuple[int, int, int]
+
+
+def noise(x: int, y: int, z: int, seed: int) -> float:
+    """Stable coordinate hash, independent of iteration order and Python hash seed."""
+    n = (x * 374761393 + y * 668265263 + z * 2147483647 + seed * 1274126177) & 0xffffffff
+    n = ((n ^ (n >> 13)) * 1274126177) & 0xffffffff
+    return ((n ^ (n >> 16)) & 0xffffffff) / 4294967296
+
+
+@dataclass
+class Model:
+    id: str
+    size: Pos
+    ground_y: int
+    seed: int
+    blocks: dict[Pos, str] = field(default_factory=dict)
+    landmarks: dict = field(default_factory=dict)
+
+    def put(self, x: int, y: int, z: int, block: str) -> None:
+        if not (0 <= x < self.size[0] and 0 <= y < self.size[1] and 0 <= z < self.size[2]):
+            raise ValueError(f"{self.id}: outside model bounds: {(x,y,z)}")
+        self.blocks[x, y, z] = block if ":" in block else "minecraft:" + block
+
+    def box(self, lo: Pos, hi: Pos, block: str) -> None:
+        for x in range(lo[0], hi[0] + 1):
+            for y in range(lo[1], hi[1] + 1):
+                for z in range(lo[2], hi[2] + 1):
+                    self.put(x, y, z, block)
+
+    def ellipsoid(self, center, radius, block, inner=0.0) -> None:
+        for x in range(max(0, math.floor(center[0]-radius[0])), min(self.size[0], math.ceil(center[0]+radius[0])+1)):
+            for y in range(max(0, math.floor(center[1]-radius[1])), min(self.size[1], math.ceil(center[1]+radius[1])+1)):
+                for z in range(max(0, math.floor(center[2]-radius[2])), min(self.size[2], math.ceil(center[2]+radius[2])+1)):
+                    d = sum(((v-c)/r)**2 for v,c,r in zip((x,y,z),center,radius))
+                    if inner <= d <= 1:
+                        self.put(x,y,z,block(x,y,z,d) if callable(block) else block)
+
+
+def obelisk(seed: int = 2913) -> Model:
+    m = Model("obelisk", (25, 70, 25), 3, seed)
+    # An irregular low sandstone skirt, never a rectangular air clearing.
+    for x in range(25):
+        for z in range(25):
+            r = ((x-12)/12)**2 + ((z-12)/11)**2
+            if r < .90 + .13*math.sin(x*.6) + .08*math.cos(z):
+                top = max(0, int(3.8 - r*3 + .6*math.sin(x*.4+z*.3)))
+                for y in range(top+1):
+                    m.put(x,y,z,"sandstone" if y<top else "smooth_sandstone")
+    m.box((7,1,7),(17,3,17),"cut_sandstone")
+    m.box((8,4,8),(16,5,16),"smooth_sandstone")
+    for x in range(9,16):
+        for y in range(6,70):
+            for z in range(9,16):
+                # Restrained seam on one face; broad uninterrupted planes elsewhere.
+                edge = x in (9,15) and z in (9,15)
+                material = "polished_deepslate" if edge else "deepslate_tiles"
+                if z == 9 and x == 12 and 13 < y < 47:
+                    material = "polished_basalt"
+                if y < 12 and noise(x,y,z,seed) < .13:
+                    material = "cracked_deepslate_tiles"
+                if x == 15 and z == 9 and 50 <= y < 55:
+                    continue
+                m.put(x,y,z,material)
+    # A later traveller's low broken shelter, human-sized beside the monument.
+    m.box((3,2,15),(3,3,20),"sandstone")
+    m.box((4,2,20),(6,2,20),"sandstone")
+    m.landmarks = {"shaft": {"origin":[9,6,9],"size":[7,64,7]}, "resting_place":[5,3,18]}
+    return m
+
+
+def colossus(seed: int = 2913) -> Model:
+    m = Model("colossus", (100, 66, 76), 10, seed)
+
+    def armor(x,y,z,d=0):
+        # Large coherent panel fields rather than per-block metallic confetti.
+        if y % 11 == 0 or x in (27,53):
+            return "polished_deepslate"
+        return "deepslate_tiles" if noise(x//5,y//5,z//5,seed)>.18 else "cracked_deepslate_tiles"
+
+    # Buried waist, barrel chest, two different shoulder states and a neck collar.
+    m.ellipsoid((40,8,39),(22,11,17),armor)
+    m.ellipsoid((40,26,39),(23,22,17),armor)
+    m.ellipsoid((16,36,39),(12,11,13),armor)
+    m.ellipsoid((64,35,39),(10,10,11),"polished_deepslate")
+    # Left upper arm remains attached and rests against the ground.
+    m.ellipsoid((12,20,40),(8,19,10),armor)
+    m.ellipsoid((13,7,34),(9,7,12),"deepslate_tiles")
+    m.ellipsoid((40,45,40),(10,5,10),"polished_deepslate")
+    # Helmet: stepped bevels and a projecting brow, not a spherical cartoon head.
+    for y in range(46,65):
+        bevel = max(0,y-60)
+        for x in range(29+bevel,52-bevel):
+            for z in range(30+bevel//2,51-bevel//2):
+                if abs(x-40)+abs(z-40)<21-bevel:
+                    m.put(x,y,z,armor(x,y,z))
+    m.box((28,55,28),(52,57,31),"polished_deepslate")
+    m.box((31,51,29),(49,54,31),"black_concrete")
+    m.box((38,48,28),(42,52,30),"polished_deepslate")
+    # Asymmetric missing helmet corner exposes a dark layer.
+    for x in range(47,52):
+        for y in range(58,64):
+            for z in range(30,37):
+                m.blocks.pop((x,y,z),None)
+    # Only narrow oxidized metal rings: resources are a visible, limited accent.
+    for x in range(27,54):
+        for y in range(13,39):
+            r = math.hypot(x-40,y-26)
+            if 10.4 < r < 12:
+                m.put(x,y,23,"waxed_weathered_cut_copper")
+                m.put(x,y,24,"polished_deepslate")
+    # Deliberately hollow machine room. Explicit air survives hills at placement.
+    m.ellipsoid((40,26,39),(17,17,12),AIR)
+    # Circular broken chest aperture connects the room to daylight.
+    for x in range(29,52):
+        for y in range(16,37):
+            if (x-40)**2 + (y-26)**2 < 10**2:
+                for z in range(20,33):
+                    m.put(x,y,z,AIR)
+    # Main accessible entrance stays at one floor height. No jump puzzle needed.
+    m.box((35,9,0),(45,9,44),"cobbled_deepslate")
+    m.box((36,10,0),(44,16,42),AIR)
+    m.box((29,9,31),(51,9,47),"deepslate_tiles")
+    m.box((30,10,30),(50,17,47),AIR)
+    # Deep internal ribs and a ring lying at the back of the room.
+    for x in (28,52):
+        m.box((x,10,35),(x+1,28,37),"polished_basalt")
+    for x in range(32,49):
+        for y in range(12,29):
+            if 6 < math.hypot(x-40,y-20) < 8:
+                m.put(x,y,49,"polished_deepslate")
+    # Small later shelter and workbench inside one protected edge. No loot/BE.
+    m.box((30,10,40),(30,13,44),"oak_log")
+    m.box((30,14,40),(34,14,44),"oak_planks")
+    m.put(31,10,43,"crafting_table")
+    # A daylight break in the right upper chest keeps the chamber legible.
+    m.box((45,35,32),(49,44,36),AIR)
+
+    # Detached forearm, with an exposed joint and readable separated fingers.
+    m.ellipsoid((83,9,27),(8,8,10),"polished_deepslate")
+    m.ellipsoid((85,8,42),(8,7,18),armor)
+    m.ellipsoid((85,6,58),(9,5,8),"deepslate_tiles")
+    for i in range(4):
+        x = 78+i*5
+        m.box((x,3,61),(x+2,6,69-(i%2)*2),"polished_deepslate")
+    m.ellipsoid((74,5,57),(3,3,7),"deepslate_tiles")
+    # Earth collects around the lower body and forearm, never above the doorway.
+    for cx,cz,rx,rz,peak in ((39,41,31,25,9),(84,45,14,26,5)):
+        for x in range(max(0,cx-rx),min(100,cx+rx+1)):
+            for z in range(max(0,cz-rz),min(76,cz+rz+1)):
+                r = ((x-cx)/rx)**2+((z-cz)/rz)**2
+                top = int(peak*(1-r)+1.5*math.sin(x*.25+z*.15))
+                if top < 0: continue
+                for y in range(top+1):
+                    if (x,y,z) not in m.blocks:
+                        m.put(x,y,z,"grass_block" if y==top else "dirt")
+    # Broad moss patches only on actual upward-facing armour. Leaves are persistent.
+    top_surfaces = [p for p,b in m.blocks.items() if b != AIR and m.blocks.get((p[0],p[1]+1,p[2]),AIR)==AIR]
+    for x,y,z in top_surfaces:
+        patch = math.sin(x*.21+seed)+math.cos(z*.24)+math.sin(y*.17)
+        if y>17 and z>34 and patch>1.0 and m.blocks[x,y,z] not in ("minecraft:oak_planks",):
+            m.put(x,y,z,"moss_block")
+            if noise(x,y,z,seed)>.80 and y+1<66:
+                m.put(x,y+1,z,"azalea_leaves[persistent=true,distance=1,waterlogged=false]")
+    # Reassert the protected walk so later decoration cannot block it.
+    m.box((37,10,0),(43,12,44),AIR)
+    m.landmarks = {"entrance":[40,10,0],"machine_room":[40,10,40],"chest_aperture":[40,26,23],"detached_arm":[85,8,42],"head":[40,55,39],"protected_walk":{"from":[40,10,0],"to":[40,10,44],"width":7,"clearance":3}}
+    return m
+
+
+# Minimal NBT writer and reader, kept explicit to make serialization auditable.
+# Values are (tag id, payload); Java lists retain their element tag even when empty.
+def named(tag: int, name: str, payload: bytes) -> bytes:
+    raw = name.encode("utf-8")
+    return bytes([tag])+struct.pack(">H",len(raw))+raw+payload
+
+
+def nbt_payload(tag: int, value) -> bytes:
+    if tag == 3: return struct.pack(">i",value)
+    if tag == 8:
+        raw=value.encode("utf-8")
+        return struct.pack(">H",len(raw))+raw
+    if tag == 9:
+        item_tag,values=value
+        return bytes([item_tag])+struct.pack(">i",len(values))+b"".join(nbt_payload(item_tag,v) for v in values)
+    if tag == 10:
+        return b"".join(named(t,k,nbt_payload(t,v)) for k,(t,v) in value.items())+b"\0"
+    raise ValueError(f"Unsupported tag {tag}")
+
+
+def decode_nbt(data: bytes) -> dict:
+    """Small independent cursor reader, useful for export validation."""
+    if data[:2] == b"\x1f\x8b": data=gzip.decompress(data)
+    cursor=0
+    def take(n):
+        nonlocal cursor
+        result=data[cursor:cursor+n]
+        if len(result)!=n: raise ValueError("Truncated NBT")
+        cursor+=n
+        return result
+    def string(): return take(struct.unpack(">H",take(2))[0]).decode("utf-8")
+    def value(tag):
+        if tag==3: return struct.unpack(">i",take(4))[0]
+        if tag==8: return string()
+        if tag==9:
+            element=take(1)[0]; count=struct.unpack(">i",take(4))[0]
+            if count<0: raise ValueError("Negative list length")
+            return [value(element) for _ in range(count)]
+        if tag==10:
+            result={}
+            while True:
+                child=take(1)[0]
+                if child==0: return result
+                key=string(); result[key]=value(child)
+        raise ValueError(f"Unsupported tag {tag}")
+    if take(1)!=b"\x0a": raise ValueError("Expected compound root")
+    string(); result=value(10)
+    if cursor!=len(data): raise ValueError("Trailing NBT data")
+    return result
+
+
+def block_state(block: str) -> dict:
+    name,_,properties=block.partition("[")
+    result={"Name":(8,name)}
+    if properties:
+        result["Properties"]=(10,{k:(8,v) for k,v in (p.split("=",1) for p in properties.rstrip("]").split(","))})
+    return result
+
+
+def encode_structure(blocks: dict[Pos,str], size: Pos, data_version: int) -> bytes:
+    if data_version<=0: raise ValueError("DataVersion must be positive")
+    palette=sorted(set(blocks.values()))
+    lookup={b:i for i,b in enumerate(palette)}
+    root={"DataVersion":(3,data_version),"size":(9,(3,list(size))),"palette":(9,(10,[block_state(b) for b in palette])),
+          "blocks":(9,(10,[{"pos":(9,(3,list(p))),"state":(3,lookup[b])} for p,b in sorted(blocks.items())])),"entities":(9,(10,[]))}
+    data = bytearray(gzip.compress(named(10,"",nbt_payload(10,root)),mtime=0))
+    # Python 3.11/3.12 delegate this header to zlib, whose OS byte varies by host.
+    # 255 means unspecified OS and matches Python 3.13+'s canonical gzip header.
+    data[9] = 255
+    return bytes(data)
+
+
+def tiles(model: Model, tile_size: int=32):
+    if not 1<=tile_size<=128: raise ValueError("tile_size must be 1..128")
+    groups=defaultdict(dict)
+    for pos,block in model.blocks.items():
+        origin=tuple(v//tile_size*tile_size for v in pos)
+        local=tuple(v-o for v,o in zip(pos,origin))
+        groups[origin][local]=block
+    for origin,blocks in sorted(groups.items()):
+        size=tuple(min(tile_size,total-o) for total,o in zip(model.size,origin))
+        yield origin,size,blocks
+
+
+def export_models(output: Path, data_version: int, seed=2913, tile_size=32, single_template=False) -> dict:
+    manifest={"schema_version":1,"generator":"tools/relic_assets.py","seed":seed,"data_version":data_version,"tile_size":tile_size,
+              "coordinate_system":"XYZ; front -Z; tile origins relative to whole structure minimum corner",
+              "air_policy":"Missing coordinates preserve terrain. Explicit minecraft:air clears only designed interior/entrance.","structures":[]}
+    for model in (obelisk(seed),colossus(seed)):
+        parts=[]
+        for origin,size,blocks in tiles(model,tile_size):
+            relative=f"{model.id}/tile_{origin[0]}_{origin[1]}_{origin[2]}.nbt"
+            path=output/relative; path.parent.mkdir(parents=True,exist_ok=True)
+            data=encode_structure(blocks,size,data_version); path.write_bytes(data)
+            parts.append({"path":relative,"origin":list(origin),"size":list(size),"blocks":len(blocks),"sha256":hashlib.sha256(data).hexdigest()})
+        entry={"id":model.id,"size":list(model.size),"ground_y":model.ground_y,"solid_blocks":sum(b!=AIR for b in model.blocks.values()),
+               "explicit_air_blocks":sum(b==AIR for b in model.blocks.values()),"palette_counts":dict(sorted(Counter(model.blocks.values()).items())),"landmarks":model.landmarks,"tiles":parts}
+        if single_template:
+            data=encode_structure(model.blocks,model.size,data_version)
+            path=output/f"{model.id}.nbt"; path.write_bytes(data)
+            entry["single_template"]={"path":path.name,"sha256":hashlib.sha256(data).hexdigest()}
+        manifest["structures"].append(entry)
+    return manifest
+
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output",type=Path,required=True)
+    parser.add_argument("--data-version",type=int,required=True)
+    parser.add_argument("--seed",type=int,default=2913)
+    parser.add_argument("--tile-size",type=int,default=32)
+    parser.add_argument("--manifest",type=Path,default=Path("structures-src/generated/manifest.json"))
+    parser.add_argument("--single-template",action="store_true")
+    args=parser.parse_args()
+    manifest=export_models(args.output,args.data_version,args.seed,args.tile_size,args.single_template)
+    args.manifest.parent.mkdir(parents=True,exist_ok=True)
+    args.manifest.write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
+    for model in manifest["structures"]:
+        print(f"{model['id']}: {model['size']}, {model['solid_blocks']} solid blocks, {len(model['tiles'])} rigid tiles")
+
+
+if __name__=="__main__": main()

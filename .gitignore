@@ -10,6 +10,16 @@ runs/
 logs/
 crash-reports/
 *.log
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated structures, previews and release artifacts are rebuilt from source
+src/main/resources/data/relics/structure/
+structures-src/generated/
+design/generated/
+dist/
+.work/
 
 # IDE and operating system files
 .idea/

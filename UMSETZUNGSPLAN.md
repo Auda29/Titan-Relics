@@ -2,7 +2,7 @@
 
 Stand: 13.09.2026
 
-Status: Entwicklungsentwurf. Es gibt bislang Konzeptunterlagen, aber keine implementierte Mod und keine verifizierte Zielumgebung. Alle Phasen und Prüfungen in diesem Dokument sind noch offen.
+Status: Entwicklungsplan für die vollständige Version 0.1. Inzwischen entsteht eine erste Alpha für Minecraft 26.2 / Fabric 0.19.5. Der aktuelle Implementierungsstand steht in der [README](README.md), tatsächlich ausgeführte Prüfungen im [Alpha-Testbericht](docs/ALPHA_TEST_REPORT.md). Die nachfolgenden vollständigen Abnahmekriterien sind damit nicht automatisch erfüllt.
 
 Dieses Dokument beschreibt Architektur, Bauprozess, Generierung und Abnahme. Die [Lore-Bibel](LORE-BIBLE.md) beschreibt Atmosphäre und gestalterische Anforderungen. Der [ursprüngliche Modplan](Minecraft-Relikte-Modplan.md) bleibt als Ausgangsdokument erhalten. Neue Zahlen und technische Festlegungen unten sind Vorschläge für die Prototypen, keine bereits gemessenen Eigenschaften.
 
@@ -93,6 +93,8 @@ Nach Festlegung des Loaders soll das Repository folgende logische Bereiche erhal
 Registrypfade und Strukturverzeichnisse unterhalb der Ressourcen werden erst anhand der Zielversion festgelegt. Lokale Testwelten und Laufzeitdaten bleiben außerhalb der versionierten Quellen. Referenzvideos dienen der Sichtung und werden nicht mit der Mod ausgeliefert.
 
 ### 4.2 Bau- und Exportablauf
+
+Für die Alpha wurde der Bauprozess auf automatische Erzeugung umgestellt: `tools/relic_assets.py` erstellt Geometrie und NBT-Vorlagen, `tools/render_preview.py` liefert Vorschauen. Änderungen erfolgen zunächst am Generator und werden erneut geprüft. Die unten beschriebene Kreativ-Bauwelt bleibt eine optionale Möglichkeit zur gestalterischen Nacharbeit; Handbau ist keine Voraussetzung für den Alpha-Build.
 
 1. Eine getrennte Kreativ-Bauwelt für die Zielversion anlegen.
 2. Ein Bau- und Exportwerkzeug auswählen und dessen Version dokumentieren. Die erste Entscheidung erfolgt durch einen kleinen Export-und-Import-Versuch.

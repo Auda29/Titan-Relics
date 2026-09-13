@@ -1,0 +1,73 @@
+{
+  "type": "lithostitched:delegating",
+  "delegate": {
+    "type": "minecraft:jigsaw",
+    "biomes": "#relics:has_structure/colossus",
+    "step": "surface_structures",
+    "spawn_overrides": {},
+    "terrain_adaptation": "none",
+    "start_pool": "relics:colossus",
+    "size": 1,
+    "start_height": {
+      "absolute": -9
+    },
+    "project_start_to_heightmap": "WORLD_SURFACE_WG",
+    "max_distance_from_center": 112,
+    "use_expansion_hack": false,
+    "dimension_padding": 8,
+    "liquid_settings": "ignore_waterlogging"
+  },
+  "spawn_condition": {
+    "type": "lithostitched:offset",
+    "offset": [
+      0,
+      9,
+      0
+    ],
+    "condition": {
+      "type": "lithostitched:grid",
+      "radius": 50,
+      "distance_between_points": 25,
+      "allowed_count": 25,
+      "condition": {
+        "type": "lithostitched:all_of",
+        "conditions": [
+          {
+            "heightmap": "WORLD_SURFACE_WG",
+            "type": "lithostitched:height_filter",
+            "permitted_range": {
+              "max_inclusive": 8,
+              "min_inclusive": -8
+            },
+            "range_type": "heightmap_relative"
+          },
+          {
+            "heightmap": "OCEAN_FLOOR_WG",
+            "type": "lithostitched:height_filter",
+            "permitted_range": {
+              "max_inclusive": 230,
+              "min_inclusive": 64
+            },
+            "range_type": "absolute"
+          },
+          {
+            "condition": {
+              "conditions": [
+                {
+                  "biomes": "#minecraft:is_ocean",
+                  "type": "lithostitched:in_biome"
+                },
+                {
+                  "biomes": "#minecraft:is_river",
+                  "type": "lithostitched:in_biome"
+                }
+              ],
+              "type": "lithostitched:any_of"
+            },
+            "type": "lithostitched:not"
+          }
+        ]
+      }
+    }
+  }
+}
