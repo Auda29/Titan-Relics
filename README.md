@@ -37,6 +37,8 @@ Der erste Meilenstein ist eine neue Testwelt, in der Obelisk und Koloss ohne man
 
 Der [Konzept- und Entwicklungsplan](Minecraft-Relikte-Modplan.md) enthält den Motivkatalog, die Bildreferenzen, die Entwicklungsphasen und die Abnahmekriterien für Version 0.1.
 
+Der [technische Umsetzungsplan](UMSETZUNGSPLAN.md) beschreibt Architektur, Strukturerzeugung, Generierung und Prüfungen. Die [Lore-Bibel](LORE-BIBLE.md) beschreibt Atmosphäre, Formensprache und die geplanten Erkundungsorte.
+
 Die Referenzen dienen als gestalterische Inspiration. Die Minecraft-Bauwerke sollen eigene Designs erhalten.
 
 ## Lizenz
