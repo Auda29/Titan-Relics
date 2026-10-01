@@ -20,7 +20,7 @@ from create_blender_colossus import xyz, box, cylinder, subtract, finish
 ROOT = Path(__file__).resolve().parents[1]
 VERSION = 3
 STEM = "colossus-v3"
-OUT = ROOT / "design/generated" / STEM
+OUT = ROOT / "relics/colossus/design/generated" / STEM
 RNG = random.Random(20261001)
 COLORS = {
     "armor": "9b7953", "plate": "927152", "edge": "b48a58",
@@ -356,7 +356,7 @@ def main(version=3):
     global VERSION, STEM, OUT
     VERSION = version
     STEM = f"colossus-v{version}"
-    OUT = ROOT / "design/generated" / STEM
+    OUT = ROOT / "relics/colossus/design/generated" / STEM
     RNG.seed(20261001)
     OUT.mkdir(parents=True, exist_ok=True)
     bpy.ops.object.select_all(action="SELECT")

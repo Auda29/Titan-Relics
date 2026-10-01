@@ -2,6 +2,12 @@
 
 ## Unreleased — asset pipeline and documentation
 
+- Group each relic's design documents, asset configs, Blender/export files, and
+  gameplay decisions under `relics/<relic>/`. Separate shared project, technical,
+  and testing documentation under `docs/`; keep mod sources and tools separate.
+  Update pipeline paths, asset provenance paths, ignore rules, and documentation
+  links without changing geometry or the playable alpha. Add layout/link checks.
+
 - Include generated review sheets, editable source Blender models, whole design
   NBTs, schematics, design/converter metadata, and verification records in version
   control so asset results can be viewed, edited, and downloaded without rebuilding
@@ -36,7 +42,7 @@
 - Added a Sponge v2/v3 converter with explicit air handling, optional tiles, and conversion manifests.
 - Updated project status and translated repository documentation into English.
 
-These are asset-development changes. The new Blender assets are not yet selected by the mod build or natural world generation. Alpha 2 remains the current playable build. Generated files and local reference media are excluded from Git.
+These are asset-development changes. The new Blender assets are not yet selected by the mod build or natural world generation. Alpha 2 remains the current playable build. Selected asset deliverables are tracked; intermediate files and local reference media remain excluded from Git.
 
 ## 0.1.0-alpha.2
 
@@ -46,7 +52,7 @@ These are asset-development changes. The new Blender assets are not yet selected
 - Moved the approach 14 blocks inward. The short, irregularly paved entrance is edged with soil and fallen plates; a three-block-wide route to the machine room stays clear.
 - Made the test server select the current project-version artifact by default, preventing accidental tests of retained older JARs.
 
-New shapes appear only in newly generated areas. Existing relics are not rebuilt. Dependencies, structure IDs, and distribution are unchanged. See the [Alpha 2 test report](docs/ALPHA_2_TEST_REPORT.md).
+New shapes appear only in newly generated areas. Existing relics are not rebuilt. Dependencies, structure IDs, and distribution are unchanged. See the [Alpha 2 test report](docs/testing/ALPHA_2_TEST_REPORT.md).
 
 ## 0.1.0-alpha.1
 
@@ -60,4 +66,4 @@ First implemented alpha for Minecraft 26.2 with Fabric.
 - Added a reproducible data-only Fabric build without custom Java classes.
 - Added geometry previews, tests, and an isolated test-server workflow.
 
-This alpha tests generation and integration. Visual design, terrain transitions, and density require further playtesting. See the [historical Alpha 1 test report](docs/ALPHA_TEST_REPORT.md) for checks actually performed.
+This alpha tests generation and integration. Visual design, terrain transitions, and density require further playtesting. See the [historical Alpha 1 test report](docs/testing/ALPHA_TEST_REPORT.md) for checks actually performed.

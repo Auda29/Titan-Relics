@@ -119,7 +119,7 @@ def head_comparison(renderer, metadata):
     # Keep the exported mound. Removing terrain by palette would expose holes at
     # skull/soil intersections and misrepresent the actual complete structure.
     skull = renderer.blocks_from_nbt()
-    cdir = renderer.ROOT / "design/generated/colossus-v3"
+    cdir = renderer.ROOT / "relics/colossus/design/generated/colossus-v3"
     design = json.loads((cdir / "colossus-v3.design.json").read_text())
     cscale = design["blocks_per_source_unit"]
     low, high = design["source_bounds_blender"]

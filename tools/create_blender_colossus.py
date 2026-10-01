@@ -11,7 +11,7 @@ import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "design/generated/ots"
+OUT = ROOT / "relics/colossus/design/generated/ots"
 COLORS = {
     "armor": "4b5053", "trim": "33383c", "broken": "575b5e",
     "joint": "606568", "dark": "15191f", "copper": "518c79",

@@ -1,0 +1,45 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v24.16.0",
+  "input": "relics/titan-skull/design/generated/titan-skull-v2/titan-skull-v2.obj",
+  "output": "relics/titan-skull/design/generated/titan-skull-v2/titan-skull-v2.schem",
+  "source_sha256": "6d76cbf2ebef0ae13d3a8ed64f89715d553a64c99917853620055643c5a89218",
+  "schematic_sha256": "d90448f3cb699ee8d1ff3d5080c904df082e2bdfa566d30fd2c313607adb7431",
+  "height": 80,
+  "triangles": 227945,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 80,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "bone": "minecraft:dripstone_block",
+    "worn": "minecraft:sandstone",
+    "mineral": "minecraft:tuff",
+    "earth": "minecraft:brown_terracotta",
+    "moss": "minecraft:green_terracotta",
+    "root": "minecraft:rooted_dirt",
+    "turf": "minecraft:moss_block",
+    "soil": "minecraft:dirt",
+    "rock": "minecraft:stone"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:stone": 45198,
+    "minecraft:dripstone_block": 10720,
+    "minecraft:tuff": 1042,
+    "minecraft:sandstone": 897,
+    "minecraft:moss_block": 6719,
+    "minecraft:green_terracotta": 247,
+    "minecraft:dirt": 85071
+  },
+  "fill_enclosed": null,
+  "filled_voxels": 0,
+  "note": "Surface voxelisation. No solid filling, interior-air classification or worldgen integration."
+}

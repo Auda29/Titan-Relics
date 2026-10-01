@@ -13,7 +13,7 @@ import create_titan_skull_v1 as bone
 from create_blender_colossus import xyz
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "design/generated/titan-skull-v3"
+OUT = ROOT / "relics/titan-skull/design/generated/titan-skull-v3"
 
 
 def ground(x, z):

@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from create_blender_colossus import xyz, box, subtract, finish
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "design/generated/obelisk-v2"
+OUT = ROOT / "relics/obelisk/design/generated/obelisk-v2"
 COLORS = {"stone": "987344", "sunward": "d1b97d", "worn": "b99b68", "ochre": "a17151",
           "rust": "674b38", "vein": "73744b", "core": "b69c6a"}
 

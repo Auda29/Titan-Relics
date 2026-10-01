@@ -1,0 +1,18 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "input": "relics/colossus/design/generated/ots/colossus.obj",
+  "output": "relics/colossus/design/generated/ots/colossus.schem",
+  "height": 66,
+  "materials": {
+    "armor": "minecraft:deepslate_tiles",
+    "trim": "minecraft:polished_deepslate",
+    "broken": "minecraft:cobbled_deepslate",
+    "joint": "minecraft:polished_basalt",
+    "dark": "minecraft:black_concrete",
+    "copper": "minecraft:weathered_cut_copper",
+    "moss": "minecraft:moss_block",
+    "earth": "minecraft:dirt",
+    "wood": "minecraft:oak_planks"
+  }
+}

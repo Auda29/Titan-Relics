@@ -1,0 +1,37 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v24.16.0",
+  "input": "relics/obelisk/design/generated/obelisk-v3/obelisk-v3.obj",
+  "output": "relics/obelisk/design/generated/obelisk-v3/obelisk-v3.schem",
+  "source_sha256": "608f7e83ba48f4ea5a6b2005015e3063940c120d8e97b9a310c7a09752e094d6",
+  "schematic_sha256": "579cc0ea3a021b2855c83529591f1904efe7de703903e0244b1e2d7318d74cb1",
+  "height": 185,
+  "triangles": 12,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 185,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "stone": "minecraft:yellow_terracotta",
+    "facet": "minecraft:terracotta",
+    "sunward": "minecraft:smooth_sandstone",
+    "core": "minecraft:sandstone"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:yellow_terracotta": 8884,
+    "minecraft:terracotta": 3133,
+    "minecraft:smooth_sandstone": 1264,
+    "minecraft:sandstone": 79872
+  },
+  "fill_enclosed": "core",
+  "filled_voxels": 79343,
+  "note": "Surface voxelisation plus explicit sealed-volume fill; no worldgen integration."
+}

@@ -19,16 +19,16 @@ src/main/resources/data/relics/structure/
 structures-src/generated/
 # Publish asset reviews, editable sources, usable exports and provenance.
 # Keep render scenes, intermediates, tile manifests and nested tile folders local.
-design/generated/*
-!design/generated/*/
-design/generated/*/*
-!design/generated/*/*review.png
-!design/generated/*/*.nbt
-!design/generated/*/*-source.blend
-!design/generated/*/*.schem
-!design/generated/*/*.design.json
-!design/generated/*/*.ots.json
-!design/generated/*/verification.json
+relics/*/design/generated/*
+!relics/*/design/generated/*/
+relics/*/design/generated/*/*
+!relics/*/design/generated/*/*review.png
+!relics/*/design/generated/*/*.nbt
+!relics/*/design/generated/*/*-source.blend
+!relics/*/design/generated/*/*.schem
+!relics/*/design/generated/*/*.design.json
+!relics/*/design/generated/*/*.ots.json
+!relics/*/design/generated/*/verification.json
 dist/
 .work/
 

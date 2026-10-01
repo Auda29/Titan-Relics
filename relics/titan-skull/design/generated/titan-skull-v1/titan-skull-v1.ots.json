@@ -1,0 +1,39 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v24.16.0",
+  "input": "relics/titan-skull/design/generated/titan-skull-v1/titan-skull-v1.obj",
+  "output": "relics/titan-skull/design/generated/titan-skull-v1/titan-skull-v1.schem",
+  "source_sha256": "0defa11e64fec00dc49ef1393e5d524635f932dfeb9ee52b2c61dc23552e9338",
+  "schematic_sha256": "4843eac6db72e8431e173df027abcd1353074f67bd97cfa7bde68b1b0a1c73d2",
+  "height": 203,
+  "triangles": 125183,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 203,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "bone": "minecraft:dripstone_block",
+    "worn": "minecraft:sandstone",
+    "mineral": "minecraft:tuff",
+    "earth": "minecraft:brown_terracotta",
+    "moss": "minecraft:moss_block",
+    "root": "minecraft:rooted_dirt"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:dripstone_block": 85407,
+    "minecraft:tuff": 8221,
+    "minecraft:sandstone": 7169,
+    "minecraft:moss_block": 3146
+  },
+  "fill_enclosed": null,
+  "filled_voxels": 0,
+  "note": "Surface voxelisation. No solid filling, interior-air classification or worldgen integration."
+}

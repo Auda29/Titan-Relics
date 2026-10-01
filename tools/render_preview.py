@@ -9,6 +9,8 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 from relic_assets import AIR, colossus, obelisk
 
+ROOT = Path(__file__).resolve().parents[1]
+
 COLORS={"sand":"#d9ca93","deepslate_tiles":"#4b5556","cracked_deepslate_tiles":"#434e4e","polished_deepslate":"#313d42","polished_basalt":"#6d7070",
         "cobbled_deepslate":"#586366","sandstone":"#bd9c65","cut_sandstone":"#a38450","smooth_sandstone":"#d6bc84",
         "waxed_weathered_cut_copper":"#559185","moss_block":"#687e45","azalea_leaves":"#547342","grass_block":"#698250","dirt":"#75604a",
@@ -54,13 +56,14 @@ def render(model,out: Path,cutaway=False):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output",type=Path,default=Path("design/generated"))
+    parser.add_argument("--output",type=Path,help="Override the default per-relic preview directories")
     parser.add_argument("--seed",type=int,default=2913)
     args=parser.parse_args()
     for model in (obelisk(args.seed),colossus(args.seed)):
-        render(model,args.output/f"{model.id}.png")
-        if model.id=="colossus": render(model,args.output/"colossus-section.png",True)
-    print(f"Geometry previews written to {args.output}")
+        output=args.output if args.output is not None else ROOT / "relics" / model.id / "design" / "generated" / "alpha"
+        render(model,output/f"{model.id}.png")
+        if model.id=="colossus": render(model,output/"colossus-section.png",True)
+        print(f"{model.id} geometry previews written to {output}")
 
 
 if __name__=="__main__": main()

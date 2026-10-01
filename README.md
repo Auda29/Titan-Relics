@@ -9,9 +9,33 @@ Rare, monumental discoveries for Minecraft: a desert obelisk and an overgrown, e
 **Obelisk v3** revises the shape to a tapered square antiprism with eight triangular
 faces, a 45-degree rotated crown, and only eight blocks of burial.
 
-**[Titan Skull v3](docs/TITAN_SKULL_V3.md)** develops the next asset study: a crowned,
+**[Titan Skull v3](relics/titan-skull/docs/TITAN_SKULL_V3.md)** develops the next asset study: a crowned,
 weathered skull based on the opening of *D.E.A.D.*, now approximately Colossus-head
 scale, with a broken, partly buried spine and its local grassy mound included in the export.
+
+## Repository layout
+
+```text
+relics/
+  colossus/       # README, docs/, design/, gameplay/
+  obelisk/       # README, docs/, design/, gameplay/
+  titan-skull/   # README, docs/, design/, gameplay/
+  ruined-tower/  # Planning folders; no asset yet
+  world-tree/    # Planning folders; no asset yet
+docs/
+  project/       # Shared concept, lore, and implementation plan
+  technical/     # Blender workflow, target environment, and worldgen
+  testing/       # Test reports and evidence
+src/             # Mod source and packaged resources, kept separate
+tools/           # Shared generators, converters, renderers, and build tools
+tests/           # Automated checks
+structures-src/  # Alpha structure-source metadata
+```
+
+Start with the [relic index](relics/README.md) or the
+[shared documentation index](docs/README.md). Each relic groups its design history,
+asset configs, Blender/export files, and gameplay decisions. Moving design exports
+does not select them for the playable mod build.
 
 ## Structures in Alpha 2
 
@@ -32,7 +56,7 @@ Both use vanilla blocks and generate in suitable new Overworld chunks. Each comp
 | Fabric API | 0.160.0+26.2 |
 | Lithostitched | 1.8.0+beta6 for Fabric 26.2 |
 
-See [Target environment](docs/TARGET_ENVIRONMENT.md) for the recorded installation and [Alpha 2 test report](docs/ALPHA_2_TEST_REPORT.md) for completed checks and their limits.
+See [Target environment](docs/technical/TARGET_ENVIRONMENT.md) for the recorded installation and [Alpha 2 test report](docs/testing/ALPHA_2_TEST_REPORT.md) for completed checks and their limits.
 
 1. Install Fabric for Minecraft 26.2.
 2. Put `relics-0.1.0-alpha.2+mc26.2.jar`, Fabric API, and Lithostitched in `mods/`.
@@ -62,7 +86,7 @@ python -m unittest discover -s tests -v
 
 On Windows, `./build.ps1` is also available. It looks for Python in PATH, then the existing Codex Python runtime path; it installs nothing.
 
-Outputs are written to `dist/`, including `SHA256SUMS.txt`. The build regenerates NBT from source and uses fixed archive timestamps. Git tracks generators, worldgen data, and selected asset deliverables directly inside each `design/generated/<asset>/` directory: `*review.png`, `*-source.blend`, whole `.nbt` templates, `.schem` exports, `.design.json`, `.ots.json`, and `verification.json`. Render scenes, Blender backups, OBJ/MTL intermediates, individual renders, tile folders and manifests, build outputs, and local reference media are excluded through `.gitignore`.
+Outputs are written to `dist/`, including `SHA256SUMS.txt`. The build regenerates NBT from source and uses fixed archive timestamps. Git tracks generators, worldgen data, and selected asset deliverables directly inside each `relics/<relic>/design/generated/<asset>/` directory: `*review.png`, `*-source.blend`, whole `.nbt` templates, `.schem` exports, `.design.json`, `.ots.json`, and `verification.json`. Render scenes, Blender backups, OBJ/MTL intermediates, individual renders, tile folders and manifests, build outputs, and local reference media are excluded through `.gitignore`.
 
 The `obelisk()` and `colossus()` functions in [tools/relic_assets.py](tools/relic_assets.py) define the playable alpha's geometry, materials, rooms, and damage. Changes to dimensions or ground level require matching worldgen filter changes. Export manifests record dimensions, ground level, and checksums.
 
@@ -71,20 +95,20 @@ The exporter supports whole templates and rigid tiles. Natural generation uses o
 ## Reference-based Blender assets
 
 Review sheets, editable Blender sources, NBT/Schematic exports, and export metadata are kept in
-[`design/generated/`](design/generated/), grouped by asset version. These are
+each relic's `design/generated/<asset>/` directory under [relics/](relics/README.md), grouped by asset version. These are
 design exports; their presence in the repository does not integrate them into worldgen.
 
-The implemented asset pipeline is **Blender → triangulated OBJ → local, open-source ObjToSchematic 1.0 → Sponge `.schem` → Java `.nbt`**. Worldgen integration is the next step. Setup, materials, air handling, and commands are documented in [Blender workflow](docs/BLENDER_WORKFLOW.md).
+The implemented asset pipeline is **Blender → triangulated OBJ → local, open-source ObjToSchematic 1.0 → Sponge `.schem` → Java `.nbt`**. Worldgen integration is the next step. Setup, materials, air handling, and commands are documented in [Blender workflow](docs/technical/BLENDER_WORKFLOW.md).
 
 | Asset | Dimensions X/Y/Z | Blocks | Design |
 | --- | --- | --- | --- |
-| [Colossus v2](docs/COLOSSUS_V2.md) | 181 × 160 × 227 | 182,734 | Bronze dome helmet, respirator hoses, broad armor, vegetation, and detached arm |
-| [Colossus v3](docs/COLOSSUS_V3.md) | 181 × 209 × 227 | 221,221 | Extends v2 underground to a torn hip; nominal surface at NBT Y ≈ 77 |
-| [Obelisk v2](docs/OBELISK_V2.md) | 23 × 209 × 19 | 90,497 | Flat crown, warm mineral bands, solid sandstone core, and a 32-block buried foot |
-| [Obelisk v3](docs/OBELISK_V3.md) | 25 × 185 × 25 | 93,153 | Tapered square antiprism, rotated crown, solid core, and an 8-block buried foot |
-| [Titan Skull v1](docs/TITAN_SKULL_V1.md) | 185 × 203 × 103 | 103,943 | Organic crown, hollow cranium, open jaw, and curved lateral spur; nominal ground Y ≈ 13 |
-| [Titan Skull v2](docs/TITAN_SKULL_V2.md) | 117 × 80 × 105 | 149,894 | Approximately 76-block skull, complete rear, and solid exported mound; nominal ground Y8 |
-| [Titan Skull v3](docs/TITAN_SKULL_V3.md) | 121 × 79 × 203 | 264,355 | Same skull scale, nine partly buried vertebrae, two fractures, and extended exported hill |
+| [Colossus v2](relics/colossus/docs/COLOSSUS_V2.md) | 181 × 160 × 227 | 182,734 | Bronze dome helmet, respirator hoses, broad armor, vegetation, and detached arm |
+| [Colossus v3](relics/colossus/docs/COLOSSUS_V3.md) | 181 × 209 × 227 | 221,221 | Extends v2 underground to a torn hip; nominal surface at NBT Y ≈ 77 |
+| [Obelisk v2](relics/obelisk/docs/OBELISK_V2.md) | 23 × 209 × 19 | 90,497 | Flat crown, warm mineral bands, solid sandstone core, and a 32-block buried foot |
+| [Obelisk v3](relics/obelisk/docs/OBELISK_V3.md) | 25 × 185 × 25 | 93,153 | Tapered square antiprism, rotated crown, solid core, and an 8-block buried foot |
+| [Titan Skull v1](relics/titan-skull/docs/TITAN_SKULL_V1.md) | 185 × 203 × 103 | 103,943 | Organic crown, hollow cranium, open jaw, and curved lateral spur; nominal ground Y ≈ 13 |
+| [Titan Skull v2](relics/titan-skull/docs/TITAN_SKULL_V2.md) | 117 × 80 × 105 | 149,894 | Approximately 76-block skull, complete rear, and solid exported mound; nominal ground Y8 |
+| [Titan Skull v3](relics/titan-skull/docs/TITAN_SKULL_V3.md) | 121 × 79 × 203 | 264,355 | Same skull scale, nine partly buried vertebrae, two fractures, and extended exported hill |
 
 Dimensions include buried geometry and, for the Colossus, the detached arm. Absolute scale is an artistic estimate from the references. Previews render actual exported NBT blocks in Blender. Titan Skull v2/v3 include their local hills in the export; distant scenery and scale figures are presentation aids. These assets have not been tested in-game. The alpha build still uses `tools/relic_assets.py`.
 
@@ -103,7 +127,7 @@ uses actual NBT geometry at the same block scale.
 Sponge v2/v3 schematics can be converted without Minecraft or extra Python packages:
 
 ```shell
-python tools/schem_to_nbt.py model.schem design/imported/model.nbt --air omit
+python tools/schem_to_nbt.py model.schem relics/colossus/design/imported/model.nbt --air omit
 ```
 
 - `--air omit` skips all air and preserves existing terrain there, including inside modeled rooms.
@@ -124,7 +148,7 @@ python -m pip install Pillow
 python tools/render_preview.py
 ```
 
-Images are written to `design/generated/`. They are geometry previews, not Minecraft screenshots, and are not needed for the mod build. The Blender asset pages provide commands for textured NBT previews and reference comparison sheets.
+Images are written to `relics/<relic>/design/generated/alpha/`. Use `--output <directory>` to collect them in a custom directory instead. They are geometry previews, not Minecraft screenshots, and are not needed for the mod build. The Blender asset pages provide commands for textured NBT previews and reference comparison sheets.
 
 ## Configure density and enabled relics
 
@@ -150,15 +174,17 @@ Existing relics remain. While a type is disabled, `/locate` cannot find its exis
 
 ## Documentation
 
-- [Technical implementation plan](UMSETZUNGSPLAN.md)
-- [Lore bible and design guide](LORE-BIBLE.md)
-- [Concept and reference catalog](Minecraft-Relikte-Modplan.md)
-- [Alpha world generation](docs/WORLDGEN.md)
-- [Blender workflow](docs/BLENDER_WORKFLOW.md)
-- [Alpha 2 test report](docs/ALPHA_2_TEST_REPORT.md)
-- [Historical Alpha 1 test report](docs/ALPHA_TEST_REPORT.md)
+- [Shared documentation index](docs/README.md)
+- [Relic design and gameplay index](relics/README.md)
+- [Technical implementation plan](docs/project/UMSETZUNGSPLAN.md)
+- [Lore bible and design guide](docs/project/LORE-BIBLE.md)
+- [Concept and reference catalog](docs/project/Minecraft-Relikte-Modplan.md)
+- [Alpha world generation](docs/technical/WORLDGEN.md)
+- [Blender workflow](docs/technical/BLENDER_WORKFLOW.md)
+- [Alpha 2 test report](docs/testing/ALPHA_2_TEST_REPORT.md)
+- [Historical Alpha 1 test report](docs/testing/ALPHA_TEST_REPORT.md)
 - [Changelog](CHANGELOG.md)
 
-Documentation is maintained in English. Existing document filenames are retained to preserve links.
+Documentation is maintained in English. Links and pipeline paths follow the per-relic layout above.
 
 An open-source license has not yet been selected; mod metadata uses `All-Rights-Reserved`. Third-party reference images and mod JARs are not included in the published package.

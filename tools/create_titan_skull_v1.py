@@ -14,7 +14,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from create_blender_colossus import xyz, apply, subtract, box, finish
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "design/generated/titan-skull-v1"
+OUT = ROOT / "relics/titan-skull/design/generated/titan-skull-v1"
 COLORS = {"bone": "a99470", "worn": "c5b18c", "mineral": "81755e",
           "earth": "66513d", "moss": "566345", "root": "706044"}
 

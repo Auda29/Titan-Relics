@@ -16,7 +16,7 @@ import create_titan_skull_v1 as source
 from create_blender_colossus import xyz
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "design/generated/titan-skull-v2"
+OUT = ROOT / "relics/titan-skull/design/generated/titan-skull-v2"
 BOTTOM = -8
 
 
@@ -130,9 +130,9 @@ def main(export=True):
     all_bounds = bounds([o for o in bpy.context.scene.objects if o.type == "MESH"])
     low, high = all_bounds
     scale = 79/(high[2]-low[2])
-    colossus = json.loads((ROOT / "design/generated/colossus-v3/colossus-v3.design.json").read_text())
+    colossus = json.loads((ROOT / "relics/colossus/design/generated/colossus-v3/colossus-v3.design.json").read_text())
     # Measure the actual dome shell from the saved Colossus model, after its tilt.
-    blend = ROOT / "design/generated/colossus-v3/colossus-v3-source.blend"
+    blend = ROOT / "relics/colossus/design/generated/colossus-v3/colossus-v3-source.blend"
     with bpy.data.libraries.load(str(blend), link=False) as (available, loaded):
         loaded.objects = [n for n in available.objects if n.startswith("04 | Round diving helmet")]
     assert len(loaded.objects) == 1, "Expected the Colossus dome shell"
