@@ -2,6 +2,10 @@
 
 ## Unreleased — asset pipeline and documentation
 
+- Archived the original Colossus concept under `relics/colossus/archive/first-concept/`
+  as the basis for a second, smaller Colossus. Preserved models and exports and
+  updated reproduction and size-comparison paths.
+
 - Group each relic's design documents, asset configs, Blender/export files, and
   gameplay decisions under `relics/<relic>/`. Separate shared project, technical,
   and testing documentation under `docs/`; keep mod sources and tools separate.

@@ -6,10 +6,20 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 | Relic | Current status |
 | --- | --- |
 | [Colossus](colossus/README.md) | V3 asset exported; core, magnet, and head-trial gameplay specified but not implemented |
-| [Obelisk](obelisk/README.md) | V3 asset exported; gameplay planning remains open |
-| [Titan Skull](titan-skull/README.md) | V3 asset exported; worldgen and gameplay remain open |
+| [Obelisk](obelisk/README.md) | V3 asset exported; archaeology, collectibles, and Colossus maps approved but not implemented |
+| [Titan Skull](titan-skull/README.md) | V3 asset exported; ordinary-mob exploration approved, no special item required; worldgen pending |
 | [Ruined Tower](ruined-tower/README.md) | Concept only |
 | [World Tree](world-tree/README.md) | Concept only |
+
+## Discovery hierarchy and lore
+
+The intended frequency order is **Titan skulls and future bone/skull variants
+(most common) -> Obelisks (clearly rarer) -> Colossi (very rare)**. Rates are not
+yet configured; skull/bone variants share a family-level density target.
+
+The working history connects the three: a Colossus was sent to kill the Titans,
+while Obelisks served as wayfinders or marked destroyed Titans. Details remain
+open in the [lore bible](../docs/project/LORE-BIBLE.md).
 
 ## Folder convention
 

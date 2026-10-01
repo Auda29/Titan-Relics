@@ -85,12 +85,15 @@ especially the opening 0–5 seconds.
 the scale of a landscape feature. A walking person is tiny by comparison.
 
 **Minecraft interpretation:** A weathered titan skull with its lower part buried.
-Eye sockets and mouth become explorable spaces. It may be a petrified body or an
-ancient monument; that question can remain open.
+Eye sockets and mouth become explorable spaces. In the selected working lore,
+these are remains of Titans a Colossus was sent to kill; the wider history remains
+open in the [lore bible](LORE-BIBLE.md).
 
 - Environment: broad valleys and open grasslands.
 - Variants: broken teeth/crown projections, erosion, and vegetation.
 - Discovery: a seemingly geological shape becomes recognizable as a face.
+- Gameplay direction: ordinary mobs inhabit the decaying remains; no exclusive
+  item or custom boss is required. See [gameplay decisions](../../relics/titan-skull/gameplay/README.md).
 - Technical focus: organic block forms and a readable silhouette despite erosion.
 - Current asset study: [Titan Skull v3](../../relics/titan-skull/docs/TITAN_SKULL_V3.md), a roughly
   76-block skull with an organic crown and open jaw, sized as a plausible opponent
@@ -132,6 +135,18 @@ Existing worldgen mods provide large-scale landforms and biomes. Relics should:
 References guide atmosphere, composition, and proportions. Fog, lighting, and
 extreme sightlines are not automatic effects of a Minecraft structure. Block
 design must remain convincing without special shaders.
+
+### Working history and discovery frequency
+
+The agreed lore direction is that a Colossus was sent to the planet to kill the
+Titans. Skull and bone relics are their remains. Obelisks served as wayfinders or
+marked places where Titans had already been destroyed; the precise interpretation
+and builders are not settled.
+
+The intended order is **skull/bone variants most common, Obelisks clearly rarer,
+and Colossi very rare**. Skull/bone variants share a family-level frequency
+budget. This is a design target, not an implemented numeric worldgen change;
+future variants do not exist merely because they are included in this plan.
 
 ## 3. Initial scope
 

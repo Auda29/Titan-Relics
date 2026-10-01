@@ -1,4 +1,4 @@
-"""Build an editable first Blender concept and triangulated OBJ for ObjToSchematic.
+"""Rebuild the archived first Colossus concept and triangulated OBJ.
 
 blender --background --python tools/create_blender_colossus.py
 Design coordinates are Minecraft XYZ, front -Z; Blender uses (X, -Z, Y).
@@ -11,7 +11,7 @@ import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "relics/colossus/design/generated/ots"
+OUT = ROOT / "relics/colossus/archive/first-concept/generated"
 COLORS = {
     "armor": "4b5053", "trim": "33383c", "broken": "575b5e",
     "joint": "606568", "dark": "15191f", "copper": "518c79",

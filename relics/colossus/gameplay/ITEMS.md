@@ -19,8 +19,9 @@ relic, rather than generic stronger equipment. Their working names are:
 | Colossus Key | Colossus-Schlüssel | Dedicated key for the Colossus vault |
 
 Armor trim design is explicitly deferred and is not part of this document.
-The Machine Core is a guaranteed vault reward in the Colossus's head. The
-magnet's drop chance and exact location remain open.
+The Machine Core is a guaranteed vault reward in the Colossus's head. One
+functional Salvage Magnet is guaranteed in a copper chest inside the detached
+arm; the exact chest position and access route remain open.
 
 ### Loot containers and deferred interior design
 
@@ -33,9 +34,24 @@ magnet's drop chance and exact location remain open.
 - Chest count, exact positions, oxidation stages, and remaining loot distribution
   remain open.
 - The detailed interior layout, rooms, exploration routes, and visual treatment
-  will be designed later. Only the head's role as the trial/vault area is fixed.
+  will be designed later. The head is the trial/vault area; the detached arm is
+  the magnet's exploration-based salvage area.
 
 ## Head trial, vault, and Colossus Key
+
+### Rarity and discovery
+
+The Colossus should be **very rare**, reflecting the value of its special items.
+The frequency order is skull/bone variants first, clearly rarer Obelisks second,
+and Colossi as the rarest of these three families. In the
+[working lore](../../../docs/project/LORE-BIBLE.md), a Colossus was sent to the
+planet to kill the Titans; the sender and wider history remain open.
+The [Obelisk's archaeology rewards](../../obelisk/gameplay/README.md) include an
+expedition map to a Colossus so players can seek one deliberately. Maps aid
+discovery; they do not bypass the head trial or vault-key requirement.
+
+Exact generation rates remain open. This is a design goal, not a change to the
+current alpha's worldgen settings.
 
 ### Agreed encounter and reward flow
 
@@ -122,6 +138,32 @@ The intended loop is: **salvage -> restore -> use -> deplete -> recharge**.
 
 ## Salvage Magnet
 
+### Acquisition: exploration inside the detached arm
+
+- Place a copper chest in a former maintenance area inside the **detached arm**,
+  near the hand or its actuator machinery. Exact coordinates and presentation
+  are deferred to the later interior design.
+- An identifiable rupture provides an intended entrance. The chest should not
+  be directly accessible from outside; finding it requires a short exploration
+  of the arm.
+- The chest guarantees **one functional Salvage Magnet**, accompanied by some
+  ordinary technical salvage. Initial durability and additional loot remain to
+  be tuned; the magnet must be usable immediately without an initial repair.
+- No key, second trial, or dedicated guarded combat encounter is required.
+  The Colossus Key remains reserved for the Machine Core vault. Ordinary mob
+  spawning is not ruled out by this design.
+- The intended route should be discoverable without blindly mining the outer
+  shell. Players may still build or mine their own access; do not prohibit normal
+  Minecraft interaction to enforce the route.
+
+The suggested exploration order is **arm -> magnet -> head trial -> Machine
+Core**. This is an invitation, not a progression gate: the magnet is not required
+to reach or complete the head trial.
+
+A normal copper chest has shared, finite contents, unlike a per-player vault.
+Whether multiplayer needs an individual magnet reward remains an open decision;
+no per-player chest system is approved or implemented.
+
 ### Agreed gameplay
 
 - The magnet is **passive while equipped in the offhand** (the shield slot).
@@ -177,7 +219,8 @@ repair**.
 ### Decisions still needed
 
 1. Final item names, models, textures, and feedback effects.
-2. Magnet and ordinary-loot placement/probabilities, and initial item condition.
+2. Exact arm chest placement and access route, ordinary-loot contents, initial
+   core condition, and the functional magnet's starting durability.
 3. Exact core restoration and recharge recipes, and magnet repair costs.
 4. Charge and durability display, such as tooltips and a visible status bar.
 5. Core progress accounting, fuel-slot behavior, and hopper handling.
@@ -189,6 +232,8 @@ repair**.
 ### Acceptance checks
 
 - Both items provide useful convenience without increasing combat strength.
+- The arm's intended access route is identifiable and leads to a copper chest
+  with one immediately usable magnet, without requiring a key or scripted fight.
 - The core processes the intended number of operations without idle drain,
   speed bonuses, or charge-reset exploits.
 - Core state survives transfer, item drops, save/load, and chunk unloads.

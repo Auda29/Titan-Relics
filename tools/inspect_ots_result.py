@@ -12,7 +12,7 @@ from relic_assets import decode_nbt
 from schem_to_nbt import read_schematic
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "relics/colossus/design/generated/ots"
+OUT = ROOT / "relics/colossus/archive/first-concept/generated"
 STEM = "colossus"
 CONFIG = {}
 
@@ -290,7 +290,7 @@ def main():
     global OUT, STEM, CONFIG
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check-only", action="store_true")
-    parser.add_argument("--config", type=Path, default=ROOT / "relics/colossus/design/colossus-ots.json")
+    parser.add_argument("--config", type=Path, default=ROOT / "relics/colossus/archive/first-concept/colossus-ots.json")
     args = parser.parse_args()
     CONFIG = json.loads(args.config.read_text(encoding="utf-8"))
     output = ROOT / CONFIG["output"]

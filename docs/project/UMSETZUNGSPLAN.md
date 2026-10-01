@@ -176,7 +176,9 @@ Dimensions below are X/Y/Z in blocks, including the full export bounds.
 | Titan Skull v2 | 117 × 80 × 105 | Skull at Colossus-head scale plus exported solid mound; 149,894 blocks; integration pending |
 | Titan Skull v3 | 121 × 79 × 203 | Broken, partly buried spine and extended hill; 264,355 blocks; integration pending |
 
-The first Blender experiment remains separately reproducible at 99 × 66 × 71.
+The first Blender experiment remains separately reproducible at 99 × 66 × 71 in
+[`relics/colossus/archive/first-concept/`](../../relics/colossus/archive/first-concept/).
+It is preserved as the basis for a future second, smaller Colossus.
 The asset version names do not change the playable mod version.
 
 The current design pair is Colossus v3 and Obelisk v3. At their nominal surface

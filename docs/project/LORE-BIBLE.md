@@ -3,8 +3,10 @@
 Original design draft: September 13, 2026. Updated: October 1, 2026.
 
 The five main motifs and version 0.1 scope come from the original concept.
-Background history, working names, exploration routes, and small narrative motifs
-remain proposals, not finalized canon. Alpha 2 implements the first two relics;
+The October gameplay decisions establish a relative discovery hierarchy and a
+working history connecting the Colossus, Titan remains, and Obelisks. Detailed
+history, working names, exploration routes, and small narrative motifs remain
+proposals, not finalized canon. Alpha 2 implements the first two relics;
 the newer Colossus v2/v3 and Obelisk v2/v3 are separate reference-based asset designs
 awaiting integration.
 
@@ -32,12 +34,53 @@ and a reachable viewpoint invite exploration.
 
 ### Established concept
 
-- Relics are rare monumental discoveries in the existing Overworld.
+- Relics are discoveries in the existing Overworld with deliberately different
+  frequencies: Titan remains are the most common family, Obelisks are clearly
+  rarer, and Colossi are very rare.
 - The first structures are Obelisk and Colossus. Ruined tower, titan skull, and
   world tree may follow later.
 - Initial structures use regular Minecraft blocks and original designs.
 - Shape, ground contact, and close detail must work without special lighting.
 - Selected areas are explorable. There is initially no mandatory story or new combat mechanic.
+
+### Working history: the Titan conflict
+
+The selected lore direction is that **a mechanical Colossus was sent to the
+planet to kill the Titans**. Skull and bone relics are their weathered remains.
+This supplies a connection between the machine and the organic remnants without
+requiring a present-day Titan fight or an activating Colossus.
+
+Obelisks were built as **wayfinding markers or markers of places where Titans
+had already been destroyed**. These are still alternative interpretations; their
+exact original purpose is not settled. Later excavation sites and expedition
+maps can reflect subsequent visitors investigating this history.
+
+Who sent the Colossus, who built the Obelisks, the reason for the mission, and the
+fate of the machine remain open. The premise does not establish exactly one
+Colossus spawn per world or a single builder for all relic types. Ruined towers
+and world trees are not automatically assigned to this conflict.
+
+### Relative discovery hierarchy
+
+| Relic family | Intended relative frequency | Gameplay role |
+| --- | --- | --- |
+| Titan skulls and future skull/bone variants | Most common of these three families | Decaying remains to explore, with ordinary mobs; no special item required |
+| Obelisks | Clearly rarer than Titan remains, but more accessible than Colossi | Archaeology, a collectible, and a map to a Colossus |
+| Colossi | Very rare | Valuable technical salvage and the head trial |
+
+Frequency is a **family-level** target: adding more skull or bone variants should
+not multiply total encounter density unintentionally. Most common does not mean
+that every landscape should be crowded with giant remains.
+
+No numeric rates or worldgen settings are changed by this decision. Future
+balancing must account for biome eligibility, terrain rejection, and actual
+discovery effort, not only candidate spacing. Skull/bone variants are planned
+extensions; this does not claim that additional models or placements exist yet.
+
+Detailed gameplay decisions are maintained with each relic:
+[Titan Skull](../../relics/titan-skull/gameplay/README.md),
+[Obelisk](../../relics/obelisk/gameplay/README.md), and
+[Colossus](../../relics/colossus/gameplay/ITEMS.md).
 
 ### Proposed guiding idea
 
@@ -50,10 +93,11 @@ Such traces remain limited in version 0.1.
 
 ### Deliberately unanswered questions
 
-- Who built the Colossi, and whether they share the same builders.
-- Whether the skull was a body, a statue, or something between them.
+- Who built and sent the Colossus, and why the Titans were to be killed.
+- The Titans' nature and the details of the conflict.
 - Whether world trees grew, were planted, or were altered.
-- Whether Obelisks were markers, tools, or memorials.
+- Who built the Obelisks and whether they primarily guided travel or marked
+  destroyed Titans.
 - Whether the relics fell in one event or over many ages.
 
 There is no official map of an old empire, fixed list of gods, or global disaster
@@ -167,8 +211,12 @@ ridges during the approach. An exposed corner shows continuation below ground.
 A low, younger stone enclosure on the sheltered side might offer a resting place.
 From there the player looks up an almost uninterrupted wall.
 
-**Narrative core:** Generations have used it as a landmark. Whether it was built
-for navigation remains unknown.
+**Narrative core:** Generations have used it as a landmark. In the working
+history, it was built for wayfinding or to mark the destruction of a Titan; the
+choice between these interpretations remains open.
+
+**Planned gameplay:** Archaeology at its foot yields a collectible and a map to
+the very rare Colossus. See the [gameplay decisions](../../relics/obelisk/gameplay/README.md).
 
 **Variants:** Burial depth and a bounded edge loss; begin with a mostly intact
 form. A hollow tower with regular floors would be a different motif.
@@ -213,7 +261,8 @@ and exposed conduits can suggest a technical purpose. A small younger resting
 place on a sheltered edge may show that someone used the body as lodging.
 
 **Narrative core:** Something overwhelming to humans has itself become ground,
-roof, and path. Its former purpose remains uncertain.
+roof, and path. The working history gives it a mission to kill Titans; its sender,
+the reasons for that mission, and its own fall remain uncertain.
 
 **Variants:** Begin with one pose and a fixed arm position. Later vary armor
 ruptures and controlled vegetation. New poses are separately designed assets.
@@ -266,7 +315,7 @@ The aircraft taking off in the reference is not a fixed annex.
 organic crown, hollow cranium, triangular nose, open jaw, and lateral spurs of v1,
 but reduces the skull to approximately Colossus-head scale. The user's premise is
 that the living titan could have fought the Colossus. This guides relative size
-without adding a fight mechanic or settling the wider world history. V3 includes
+and the working Titan-conflict history without adding a fight mechanic. V3 includes
 a complete posterior wall and a broken nine-vertebra spine, partly buried in an
 extended solid local mound. Two dislocations and loose fragments suggest an
 incomplete fallen skeleton. The exploration route below
@@ -283,8 +332,11 @@ with terrain. Pale bone or stone alternates with soil and growth.
 eye and jaw. The mouth opens into a large hollow; an internal route reaches an
 eye socket framing the landscape like an enormous window.
 
-**Narrative core:** The size of a possibly once-living being is unsettling.
-Material and erosion also permit the interpretation of an ancient monument.
+**Narrative core:** The size of the fallen Titan is unsettling. Weathered skulls
+and bones are the most frequent traces of the conflict in the working history.
+
+**Planned gameplay:** Ordinary mobs inhabit the decaying remains. A special item,
+boss, or trial is not required; see the [gameplay decisions](../../relics/titan-skull/gameplay/README.md).
 
 **Variants:** A missing tooth, broken projection, partly collapsed socket, or
 different burial. Ribs and a full skeleton remain later possibilities.
@@ -356,8 +408,11 @@ The asset version labels are **Colossus v2**, **Colossus v3**, **Obelisk v2**, a
 ### Rewards
 
 Accessible spaces, viewpoints, and striking material forms carry discovery in
-version 0.1; a loot system is unnecessary. Later containers should suit the site's
-younger use and the modpack's balance.
+the current playable alpha; its lack of custom rewards remains unchanged.
+The later gameplay direction differentiates the relics: technical items from the
+Colossus, archaeology and maps from the Obelisk, and exploration with ordinary
+mobs in Titan remains without requiring an exclusive item. Containers should suit
+the site's history and the modpack's balance.
 
 Structures use normal blocks. Consider mining and player reuse when choosing
 materials; artificial indestructibility is not part of this design.

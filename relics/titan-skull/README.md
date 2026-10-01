@@ -7,6 +7,11 @@ spine, and exported local mound. It is not a playable worldgen structure yet.
 - [V2 scale and mound design](docs/TITAN_SKULL_V2.md)
 - [V1 design history](docs/TITAN_SKULL_V1.md)
 - [Design configurations and outputs](design/README.md)
-- [Gameplay planning status](gameplay/README.md)
+- [Ordinary mobs, exploration, and skull/bone-family frequency](gameplay/README.md)
+
+The agreed gameplay direction uses ordinary mobs in the decaying remains, with
+no special reward item required. Skulls and future skull/bone variants should be
+the most common relic family; Obelisks are clearly rarer and Colossi very rare.
+Exact rates and spawn implementation remain open.
 
 Shared setup: [Blender workflow](../../docs/technical/BLENDER_WORKFLOW.md).

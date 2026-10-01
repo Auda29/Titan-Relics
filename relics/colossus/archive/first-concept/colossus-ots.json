@@ -1,8 +1,8 @@
 {
   "repository": ".work/ObjToSchematic",
   "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
-  "input": "relics/colossus/design/generated/ots/colossus.obj",
-  "output": "relics/colossus/design/generated/ots/colossus.schem",
+  "input": "relics/colossus/archive/first-concept/generated/colossus.obj",
+  "output": "relics/colossus/archive/first-concept/generated/colossus.schem",
   "height": 66,
   "materials": {
     "armor": "minecraft:deepslate_tiles",

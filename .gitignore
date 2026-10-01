@@ -29,6 +29,15 @@ relics/*/design/generated/*/*
 !relics/*/design/generated/*/*.design.json
 !relics/*/design/generated/*/*.ots.json
 !relics/*/design/generated/*/verification.json
+# Archived concept outputs follow the same publication policy.
+relics/*/archive/*/generated/*
+!relics/*/archive/*/generated/*review.png
+!relics/*/archive/*/generated/*.nbt
+!relics/*/archive/*/generated/*-source.blend
+!relics/*/archive/*/generated/*.schem
+!relics/*/archive/*/generated/*.design.json
+!relics/*/archive/*/generated/*.ots.json
+!relics/*/archive/*/generated/verification.json
 dist/
 .work/
 

@@ -17,7 +17,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from relic_assets import decode_nbt
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "relics/colossus/design/generated/ots"
+OUT = ROOT / "relics/colossus/archive/first-concept/generated"
 ATLAS = ROOT / ".work/ObjToSchematic/res/atlases"
 STEM = "colossus"
 CONFIG = {}
@@ -144,7 +144,7 @@ def blocks_from_nbt(path=None, predicate=None):
 
 def scale_comparison(main_model):
     preview = CONFIG.get("preview", {})
-    previous = ROOT / preview.get("comparison", "relics/colossus/design/generated/ots/colossus.nbt")
+    previous = ROOT / preview.get("comparison", "relics/colossus/archive/first-concept/generated/colossus.nbt")
     if not previous.exists():
         return
     small = blocks_from_nbt(previous)
@@ -304,7 +304,7 @@ def landscape():
 def main():
     global CONFIG, OUT, STEM, ATLAS
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, default=ROOT / "relics/colossus/design/colossus-ots.json")
+    parser.add_argument("--config", type=Path, default=ROOT / "relics/colossus/archive/first-concept/colossus-ots.json")
     parser.add_argument("--source-only", action="store_true")
     parser.add_argument("--blocks-only", action="store_true")
     parser.add_argument("--landscape-only", action="store_true")
