@@ -21,6 +21,7 @@ commit `b611b52c7a87cad99127908598bab019fe9e7c3f`.
 | [Colossus v3](COLOSSUS_V3.md) | `colossus-v3.json` | 181 × 209 × 227 | 221,221 | 11 | 124 |
 | [Obelisk v2](OBELISK_V2.md) | `obelisk-v2.json` | 23 × 209 × 19 | 90,497 | 6 | 7 |
 | [Obelisk v3](OBELISK_V3.md) | `obelisk-v3.json` | 25 × 185 × 25 | 93,153 | 4 | 6 |
+| [Titan Skull v1](TITAN_SKULL_V1.md) | `titan-skull-v1.json` | 185 × 203 × 103 | 103,943 | 4 | 98 |
 
 Colossus v2 follows the original reference; v3 adds the buried abdomen and torn
 hip while keeping almost the same above-ground scale. Obelisk v2 follows *Painted
@@ -29,6 +30,11 @@ bounds, including the detached arm where applicable.
 
 Obelisk v3 corrects the stele to a tapered square antiprism based on the supplied
 diagrams and reduces burial to eight blocks. Its scale comparison uses the v2 NBT.
+
+Titan Skull v1 follows the opening of *D.E.A.D.* with an organic crown, open jaw,
+and hollow cranial vault. It uses surface voxelization without solid fill, and
+has a separate green-hills presentation and actual-block cutaway. Its asset page
+provides generation commands; its scale comparison requires the Colossus v3 NBT.
 
 Previews render the actual converted NBT with Minecraft textures in Blender.
 They are not in-game evidence.

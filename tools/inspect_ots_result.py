@@ -112,6 +112,27 @@ def check():
             summary["antiprism"] = {"base_and_rotated_crown_checked": True,
                                      "buried_layers": ground, "blocks_below_ground": below,
                                      "buried_block_percent": round(100*below/len(blocks), 2)}
+        if "cavity_probes_source" in design:
+            low, high = design["source_bounds_blender"]
+            scale = design["blocks_per_source_unit"]
+            def local(point):
+                x, y, z = point
+                return (round((x-low[0])*scale), round((y-low[2])*scale), round((z+high[1])*scale))
+            probes = [local(p) for p in design["cavity_probes_source"]]
+            require(all((p[0]+dx, p[1]+dy, p[2]+dz) not in blocks for p in probes
+                        for dx in (-1, 0, 1) for dy in (-1, 0, 1) for dz in (-1, 0, 1)),
+                    "An eye, nose, or mouth cavity is obstructed")
+            start, end = probes[0], probes[2]
+            require(start[:2] == end[:2], "Mouth probes must define a straight inspection channel")
+            require(all((start[0]+dx, start[1]+dy, z) not in blocks
+                        for dx in range(-2, 3) for dy in range(-2, 3)
+                        for z in range(max(0, start[2]), end[2]+1)), "Mouth inspection channel is blocked")
+            ground = design["ground_level_nbt_approx"]
+            summary["skull_cavities"] = {"empty_3x3x3_probes": probes,
+                                        "mouth_channel_cross_section": [5, 5],
+                                        "ground_level": ground,
+                                        "blocks_below_ground": sum(p[1] < ground for p in blocks),
+                                        "terrain_clearing_defined": False}
     (OUT / "verification.json").write_text(json.dumps(summary, indent=2)+"\n")
     print(json.dumps(summary, indent=2))
     return summary

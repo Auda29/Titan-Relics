@@ -206,6 +206,9 @@ def burial_inspection(main_model, center, corners):
 
 def landscape():
     """Reference-style context; all landscape and scale objects are render-only."""
+    if CONFIG.get("preview", {}).get("landscape") == "skull-hills":
+        from render_skull_scene import render_hills
+        return render_hills(sys.modules[__name__])
     if CONFIG.get("preview", {}).get("landscape") == "desert":
         from render_obelisk_scene import render_desert
         return render_desert(sys.modules[__name__])

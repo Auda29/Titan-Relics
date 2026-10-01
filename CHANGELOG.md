@@ -2,6 +2,11 @@
 
 ## Unreleased — asset pipeline and documentation
 
+- Added Titan Skull v1 after the opening of *D.E.A.D.*: organic crown, hollow
+  cranial vault, real eye/nose openings, long open jaw, teeth, and lateral spurs.
+  Added its Blender/OBJ/schematic/NBT pipeline, green-hills presentation, cutaway,
+  scale comparison, and exported cavity checks. Game integration remains pending.
+
 - Added Obelisk v3: a tapered square antiprism with eight triangular faces, a
   45-degree rotated square crown, and an 8-block buried foot. Added full-height
   ground-line inspection and exported base/crown geometry checks.

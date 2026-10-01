@@ -262,6 +262,11 @@ The aircraft taking off in the reference is not a fixed annex.
 
 **Working name:** The Face in the Valley. **Scope:** planned expansion after version 0.1.
 
+**Current asset study:** [Titan Skull v1](docs/TITAN_SKULL_V1.md) follows the opening
+reference with a fused organic crown, hollow cranium, triangular nose, open jaw,
+and uneven lateral spurs. Block exports and previews exist; the exploration route
+described below remains a design goal pending terrain and gameplay integration.
+
 **Mood and silhouette:** An eroded mineral form becomes recognizable as a skull.
 Eye sockets, nose, and mouth determine its shape. A few broken projections suggest
 a crown without explaining its origin.

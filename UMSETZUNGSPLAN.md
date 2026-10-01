@@ -168,6 +168,7 @@ Dimensions below are X/Y/Z in blocks, including the full export bounds.
 | Colossus v3 | 181 × 209 × 227 | Adds buried abdomen/torn hip; 221,221 blocks; nominal surface Y ≈ 77 |
 | Obelisk v2 | 23 × 209 × 19 | Flat crown and solid core; 90,497 blocks; 32-block buried foot |
 | Obelisk v3 | 25 × 185 × 25 | Tapered square antiprism; 93,153 blocks; 8-block buried foot |
+| Titan Skull v1 | 185 × 203 × 103 | Crowned fossil asset study; 103,943 blocks; hollow cranium/open jaw; integration pending |
 
 The first Blender experiment remains separately reproducible at 99 × 66 × 71.
 The asset version names do not change the playable mod version.

@@ -9,6 +9,9 @@ Rare, monumental discoveries for Minecraft: a desert obelisk and an overgrown, e
 **Obelisk v3** revises the shape to a tapered square antiprism with eight triangular
 faces, a 45-degree rotated crown, and only eight blocks of burial.
 
+**[Titan Skull v1](docs/TITAN_SKULL_V1.md)** adds the next asset study: a crowned,
+weathered skull with deep sockets and an open jaw, based on the opening of *D.E.A.D.*.
+
 ## Structures in Alpha 2
 
 | Relic | Overall dimensions, including base (X/Y/Z) | Design |
@@ -74,6 +77,7 @@ The implemented asset pipeline is **Blender → triangulated OBJ → local, open
 | [Colossus v3](docs/COLOSSUS_V3.md) | 181 × 209 × 227 | 221,221 | Extends v2 underground to a torn hip; nominal surface at NBT Y ≈ 77 |
 | [Obelisk v2](docs/OBELISK_V2.md) | 23 × 209 × 19 | 90,497 | Flat crown, warm mineral bands, solid sandstone core, and a 32-block buried foot |
 | [Obelisk v3](docs/OBELISK_V3.md) | 25 × 185 × 25 | 93,153 | Tapered square antiprism, rotated crown, solid core, and an 8-block buried foot |
+| [Titan Skull v1](docs/TITAN_SKULL_V1.md) | 185 × 203 × 103 | 103,943 | Organic crown, hollow cranium, open jaw, and curved lateral spur; nominal ground Y ≈ 13 |
 
 Dimensions include buried geometry and, for the Colossus, the detached arm. Absolute scale is an artistic estimate from the references. Previews render actual exported NBT blocks in Blender; landscapes and scale figures are presentation aids. These assets have not been tested in-game. The alpha build still uses `tools/relic_assets.py`.
 
@@ -129,7 +133,8 @@ Existing relics remain. While a type is disabled, `/locate` cannot find its exis
 - Precise collision checks against Dungeons & Taverns or other structures are not implemented.
 - Shapes are fixed. Seed-dependent generator variants are a development tool, not selected per discovery.
 - There is no new loot, movement mechanic, quest system, or custom sound.
-- The ruined tower, titan skull, and world tree are not implemented.
+- The titan skull is a separate exported asset study, not yet a playable structure.
+  The ruined tower and world tree are not implemented.
 
 ## Documentation
 
