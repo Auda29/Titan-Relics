@@ -1,36 +1,84 @@
-# Alpha 2: Verfall und Geländeübergänge
+# Alpha 2: weathering and terrain transitions
 
-Stand: 13.09.2026. Version `0.1.0-alpha.2` für Minecraft 26.2, Fabric Loader 0.19.5 und Java 25.
+Recorded: September 13, 2026. English translation: October 1, 2026.
+Version: `0.1.0-alpha.2`, Minecraft 26.2, Fabric Loader 0.19.5, Java 25.
+This report covers the procedural alpha assets, not the later Blender designs.
 
-## Änderung und Sichtprüfung
+## Changes and visual inspection
 
-Die vom Nutzer gezeigten Minecraft-Screenshots der Alpha 1 bestätigen die sichtbaren Grundformen. Sie zeigten zugleich große gleichmäßige Flächen und einen langen rechteckigen Vorweg am Koloss. Alpha 2 verändert deshalb die Generatoren:
+The user's Alpha 1 Minecraft screenshots confirmed the visible basic shapes.
+They also showed large uniform surfaces and a long rectangular Colossus approach.
+Alpha 2 therefore changes the generators:
 
-- Der Obelisk erhält zusammenhängende Einschnitte, ausgebrochene Ecken, Sandverwehungen und kleine Trümmer am Sockel.
-- Am Koloss fehlen größere Teile des Helms und Brustpanzers. Dahinter sind zurückgesetzte Basaltstreben sichtbar. Brustring und abgetrennter Unterarm sind beschädigt.
-- Moos und dauerhafte Blattflächen konzentrieren sich auf eine Seite. Die andere Seite bleibt überwiegend dunkel und freigelegt.
-- Die äußere Pflasterung ist nur noch neun Blöcke lang. Ihr Rand ist unregelmäßig und teilweise vermoost. Eine durchgehende Route von drei Blöcken Breite führt vom lokalen Eingang `[40,10,14]` in den Maschinenraum. Erdstützen und Bodenformen fassen die Pflasterreste ein.
+- The Obelisk has connected cuts, broken corners, sand drifts, and small base debris.
+- Larger helmet and chest-armor sections are missing from the Colossus, exposing
+  recessed basalt supports. The chest ring and detached forearm are damaged.
+- Moss and persistent leaves concentrate on one side; the other remains mostly
+  dark and exposed.
+- Outer paving is only nine blocks long, with irregular, partly mossy edges.
+  A continuous three-block-wide route leads from local entrance `[40,10,14]`
+  into the machine room. Soil supports and ground shapes surround the paving.
 
-Die neuen Geometrievorschauen wurden aus den tatsächlich erzeugten Blöcken gerendert und betrachtet. Sie zeigen Form, Schäden und Bewuchs vor der Geländeeinbettung. Sie sind keine neuen Minecraft-Screenshots. Eine visuelle Abnahme der Alpha 2 im Client steht noch aus.
+New geometry previews were rendered from actual generated blocks and inspected.
+They show shape, damage, and vegetation before terrain placement. They are not
+new Minecraft screenshots. Visual Alpha 2 client acceptance remains pending.
 
-## Automatische Prüfungen
+## Automated checks
 
-18 Tests prüfen Export und Wiederholbarkeit, die Rekonstruktion aus Teilvorlagen, Blockzustände, den begehbaren Zugang, die begrenzte Vorplatzfläche und die Öffnungen vor den Innenstreben. Außerdem werden Einstellungs-Datapacks und der Anvil-Weltleser geprüft. Der Testserver wählt jetzt standardmäßig die JAR der aktuellen Metadatenversion, damit eine ältere Datei in `dist/` nicht versehentlich getestet wird.
+**18 tests** cover export repeatability, tile reconstruction, block states,
+walkable access, the bounded forecourt, openings before internal supports,
+settings datapacks, and the Anvil world reader. The server selects the JAR matching
+current project metadata by default, avoiding accidental tests of an older file
+retained in `dist/`.
 
-Die Laufprüfungen verwenden frische lokale Welten mit Seed `731204`, die bereits genehmigte EULA-Zustimmung und den bestehenden Testserver-Harness. Im Basistest werden Fabric API und Lithostitched geladen. Der Integrationstest ergänzt Tectonic, Terralith, Biomes O' Plenty, Dungeons & Taverns und deren Pflichtabhängigkeiten mit den bereits dokumentierten Versionen. Der Einstellungstest prüft häufigere Obelisken und einen deaktivierten Koloss.
+Runtime checks used fresh local worlds with seed `731204`, previously granted
+EULA acceptance, and the existing harness. The base run loaded Fabric API and
+Lithostitched. Integration added Tectonic, Terralith, Biomes O' Plenty, Dungeons &
+Taverns, and required dependencies at the recorded versions. The settings run
+tested more frequent Obelisks and a disabled Colossus.
 
-Jeder Lauf prüft natürliche Starts anhand der gespeicherten Weltblöcke gegen genau die gestartete Mod-JAR. Erde, Grasblöcke und Azaleenblätter bleiben ausdrücklich aus dem strikten Vergleich ausgenommen. Feste Materialien und gespeicherte Luft werden verglichen. Ein vorläufiger Lauf fand Gras auf einer Moosfläche innerhalb der freigehaltenen Eingangsbreite. Die Grenze zwischen äußerer Moosdekoration und innerem Pflaster wurde korrigiert. Der Luftvergleich wurde nicht gelockert.
+Every run compares saved natural-start world blocks with the exact launched JAR.
+Dirt, grass blocks, and azalea leaves remain explicitly excluded from strict
+comparison; fixed materials and stored air are compared. A preliminary run found
+grass on moss within the cleared entrance width. The boundary between exterior
+moss decoration and interior paving was corrected; the air comparison was not relaxed.
 
-Die konkreten Artefaktprüfsummen, Laufkennungen, Ergebnisse und Blockzahlen stehen in [testing/alpha2-evidence.json](testing/alpha2-evidence.json). Der [Alpha-1-Bericht](ALPHA_TEST_REPORT.md) bleibt als historischer Nachweis erhalten.
+Artifact hashes, run IDs, results, and cell counts are in
+[testing/alpha2-evidence.json](testing/alpha2-evidence.json).
+The [Alpha 1 report](ALPHA_TEST_REPORT.md) remains historical evidence.
 
-Alle 18 Tests und die drei abschließenden Serverläufe haben bestanden. Alle Server wurden mit Exit-Code 0 beendet. Basis und Integration bestätigen jeweils 4.737 Obelisk-Zellen und 82.672 Koloss-Zellen ohne Abweichungen oder fehlende Chunks. Im Einstellungstest entsteht der Obelisk vollständig; die Suche nach dem deaktivierten Koloss liefert keinen Fund. Der allgemeine Teilwert `world_blocks.passed` erwartet beide Typen und ist dort deshalb falsch. Der Gesamtwert des Server-Harness berücksichtigt die bewusst deaktivierte Struktur.
+All **18 tests and three final server runs passed**. Every server exited with code
+0. Base and integration each confirmed **4,737 Obelisk cells** and **82,672 Colossus
+cells**, with no mismatches or missing chunks. The settings run produced the full
+Obelisk and no result for the disabled Colossus. Its generic `world_blocks.passed`
+sub-result is false because that checker expects both types; the harness's overall
+result accounts for the intentional deactivation.
 
-Die getestete und im Profil installierte JAR hat SHA-256 `cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa`. Ein vollständiger Wiederholungs-Build erzeugte dieselbe Prüfsumme.
+The tested and installed JAR has SHA-256:
 
-## Update und Grenzen
+```text
+cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa
+```
 
-Die Struktur-IDs, Dimensionen und Standortregeln bleiben gleich. Die neue Version verändert keine schon gespeicherten Bauwerke. Nach dem Austausch der JAR Minecraft vollständig neu starten und eine neue Testwelt oder bislang nicht erzeugte Regionen verwenden. `/locate` kann in einer bestehenden Welt weiterhin einen alten Standort finden.
+A full repeat build produced the same hash. Test counts above describe the
+recorded Alpha 2 run, not a claim about the current repository's expanded suite.
 
-Die Bodenform bleibt eine feste Vorlage. Erdstützen und kurze Ränder verbessern den Übergang, können aber nicht jeden Hang, Wasserlauf oder fremden Bau überschneidungsfrei berücksichtigen. Weitere Seeds, menschliche Sichtprüfung, Shader/LOD und belastbare Leistungsmessungen gehören zur weiteren Abnahme.
+## Updating and remaining limits
 
-Der bekannte Windows-Perflib-Diagnosefehler wird weiterhin separat in den Logs ausgewiesen. Er wurde nicht durch Änderungen am Betriebssystem unterdrückt. Build, 18 Tests und Wiederholungs-Build werden zusätzlich in GitHub Actions unter Linux geprüft. Die CI lädt keine zusätzlichen Actions-Artefakte hoch; Downloads werden als GitHub-Release bereitgestellt.
+Structure IDs, dimensions, and site rules are unchanged. Updating does not alter
+saved structures. Fully restart Minecraft after replacing the JAR, then use a
+fresh test world or ungenerated regions. `/locate` can still return an old site.
+
+Ground geometry remains a fixed template. Soil supports and shorter edges improve
+transitions but cannot accommodate every slope, stream, or third-party building.
+Further seeds, human visual review, shader/LOD checks, and reliable performance
+measurements remain part of acceptance.
+
+The known Windows Perflib diagnostic remains separately identified in logs; it
+was not suppressed through operating-system changes. Build, tests, and repeat-build
+comparison are also covered by Linux GitHub Actions. CI does not upload additional
+Actions artifacts; downloads use GitHub Releases.
+
+The October 2026 Colossus v2/v3 and Obelisk v2 exports were verified separately at
+the asset level. They have not undergone these server/worldgen checks and are not
+part of the recorded Alpha 2 JAR.

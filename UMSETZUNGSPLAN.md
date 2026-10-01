@@ -1,281 +1,347 @@
-# Relic Mod: technischer Umsetzungsplan
+# Relic Mod: technical implementation plan
 
-Stand: 01.10.2026
+Updated: October 1, 2026.
 
-Status: Entwicklungsplan für die vollständige Version 0.1. Alpha 2 für Minecraft 26.2 / Fabric 0.19.5 ergänzt Verfall und Geländeübergänge. Der aktuelle Implementierungsstand steht in der [README](README.md), tatsächlich ausgeführte Prüfungen im [Alpha-2-Testbericht](docs/ALPHA_2_TEST_REPORT.md). Die nachfolgenden vollständigen Abnahmekriterien sind damit nicht automatisch erfüllt.
+This is the implementation and acceptance plan for version 0.1. **The current
+playable build is 0.1.0-alpha.2 for Minecraft 26.2 / Fabric 0.19.5.** It provides
+two procedural relics, weathering, and terrain transitions. New reference-based
+Blender assets have been exported and verified but are not integrated into the
+build or worldgen. Completing individual checks does not satisfy every acceptance
+criterion below.
 
-Dieses Dokument beschreibt Architektur, Bauprozess, Generierung und Abnahme. Die [Lore-Bibel](LORE-BIBLE.md) beschreibt Atmosphäre und gestalterische Anforderungen. Der [ursprüngliche Modplan](Minecraft-Relikte-Modplan.md) bleibt als Ausgangsdokument erhalten. Neue Zahlen und technische Festlegungen unten sind Vorschläge für die Prototypen, keine bereits gemessenen Eigenschaften.
+The [README](README.md) describes current use; the [Alpha 2 report](docs/ALPHA_2_TEST_REPORT.md)
+records actual game-server checks. The [lore bible](LORE-BIBLE.md) defines the
+design goals, and the [concept plan](Minecraft-Relikte-Modplan.md) preserves the
+reference catalog. Proposed tests and future decisions are identified as such.
 
-## 1. Ziel und Umfang
+## 1. Goal and scope
 
-Version 0.1 ergänzt die Oberwelt um zwei seltene, natürlich generierte Strukturen: einen Wüstenobelisk und einen überwachsenen Koloss. Beide bestehen zunächst aus Vanilla-Blöcken. Der Koloss erhält einen zugänglichen Innenraum und ein zugehöriges abgetrenntes Bauteil.
+Version 0.1 adds two rare natural Overworld structures: a desert Obelisk and an
+overgrown Colossus. Both initially use vanilla blocks. The Colossus should have
+an accessible interior and a related detached component.
 
-Die Mod soll sich in das vorhandene Modpack mit Terralith, Tectonic, Biomes O' Plenty und Dungeons & Taverns einfügen. Gelände und Biome bleiben Aufgabe dieser Umgebung. Unsere Arbeit betrifft Strukturvorlagen, Standortwahl, lokale Einbettung und Häufigkeit.
+The intended environment includes Terralith, Tectonic, Biomes O' Plenty, and
+Dungeons & Taverns. Those mods provide large-scale terrain and biomes; this
+project handles templates, site selection, local embedding, and frequency.
 
-| Umfang | Inhalt |
+| Scope | Content |
 | --- | --- |
-| Version 0.1 | Obelisk und Koloss; je eine fertige Grundform; natürliche Generierung; Geländeprüfungen; reproduzierbare Ausrichtung; Auswahl und Dichte konfigurierbar |
-| Nach erfolgreicher Grundform | Je eine zweite kontrollierte Variante, sofern sie mit dem gleichen Prüfaufwand abgenommen werden kann |
-| Späterer Ausbau | Ruinenturm und Titanenschädel, danach gesonderter Weltenbaum-Prototyp |
-| Optionale spätere Ideen | Eigenständig platzierte Maschinenfragmente, eingeschlossener Uralter, gespaltenes Monument |
-| Außerhalb von 0.1 | Bewegliche Mechs, Bosskämpfe, eigene Dimensionen, neue Materialien, Quests, neue Sounds, nachträgliche Generierung in bestehenden Chunks |
+| Version 0.1 | Obelisk and Colossus; one finished base form each; natural generation; terrain checks; reproducible orientation; configurable types and density |
+| After a validated base form | A second controlled variant per type if it can receive equivalent testing |
+| Later expansion | Ruined tower and titan skull, then a separate world-tree prototype |
+| Optional later ideas | Independently placed machine fragments, an enclosed Ancient One, a split monument |
+| Outside 0.1 | Moving mechs, bosses, dimensions, new materials, quests, custom sounds, retroactive generation in existing chunks |
 
-Ein Arm, der zum Koloss gehört, zählt zu dessen Strukturverbund. Ein unabhängig generierter Arm mit eigener Standortwahl wäre ein zusätzlicher Relikttyp und gehört nicht automatisch zu 0.1.
+An arm belonging to a Colossus is part of that structure. An independently
+generated arm with its own site selection would be a separate relic type.
 
-## 2. Zielumgebung verbindlich erfassen
+## 2. Confirmed environment and remaining inventory
 
-Vor Projektgerüst und Exportformaten wird ein aktueller Modpack-Export ausgewertet. Frühere Angaben zu Minecraft 1.21.1 und Fabric bleiben unbestätigt.
+The target is now recorded in [Target environment](docs/TARGET_ENVIRONMENT.md):
+Minecraft **26.2**, Fabric Loader **0.19.5**, Java **25**, Fabric API
+**0.160.0+26.2**, and Lithostitched **1.8.0+beta6**. Earlier Minecraft 1.21.1
+assumptions are superseded. One version/loader combination is supported initially.
 
-| Festlegung | Benötigter Nachweis |
+| Evidence | Status |
 | --- | --- |
-| Minecraft und Loader | Exakte Versionen aus dem aktuellen Profil oder Export |
-| Worldgen-Mods | Dateinamen, Versionen und Abhängigkeiten von Terralith, Tectonic, Biomes O' Plenty und Dungeons & Taverns |
-| Lithostitched | Passende veröffentlichte Version für genau diese Umgebung |
-| Java und Buildwerkzeuge | Anforderungen des gewählten Loaders und reproduzierbar festgeschriebene Versionen |
-| Weltparameter | Weltpreset, Dimension, relevante Worldgen-Konfiguration und vorhandene Datapacks |
-| Clientdarstellung | Tatsächlich verwendete Sichtweite, Grafikmods, LOD-Mods und Shader separat erfassen |
-| Testrechner | CPU, RAM, JVM-Speichergrenze und Datenträger für vergleichbare Laufzeitmessungen |
+| Target profile and game/loader versions | Recorded from the selected profile |
+| Dependency versions and hashes | Recorded; base and selected integration server runs passed |
+| Worldgen format | Checked against target JARs; NBT DataVersion 4903, datapack format 107.1 |
+| Reproducible build | Python data-only packaging implemented; repeat builds checked |
+| Full personal modpack and custom configs | Not fully accepted; integration tests used a selected default-config subset |
+| World preset, extra datapacks, graphics, shaders/LOD | Must be recorded for broader acceptance |
+| Test hardware, JVM memory, storage, performance baseline | Must be fixed before comparative measurements |
 
-Ergebnis ist ein später anzulegender Umgebungsnachweis mit Modliste, relevanten Konfigurationen und SHA-256-Prüfsummen. Zugangsdaten, Kontoinformationen und persönliche Spielstände gehören nicht hinein. Vollständige fremde Mod-JARs werden nicht ins Repository übernommen.
+Do not commit credentials, account data, personal saves, or third-party mod JARs.
+Additional loaders and game versions should follow a working first release.
 
-Zunächst wird genau eine Kombination aus Minecraft-Version und Loader unterstützt. Weitere Versionen oder Loader werden erst nach der ersten funktionierenden Veröffentlichung geplant.
+## 3. Architecture
 
-## 3. Architektur und Entscheidungspunkte
-
-### 3.1 Vorgesehene Aufteilung
-
-| Ebene | Verantwortung |
+| Layer | Current responsibility |
 | --- | --- |
-| Modverpackung | Metadaten, Abhängigkeiten, Ressourcen und gegebenenfalls minimaler Loader-Code |
-| Strukturvorlagen | Blockformen, Innenräume, Anschlusspunkte und feste Varianten |
-| Worldgen-Daten | Biome-Zuordnung, Strukturverbünde, Auswahl, Verteilung und Prozessoren |
-| Lithostitched | Zuerst zu prüfende Grundlage für zusätzliche Platzierungsbedingungen und Strukturzusammensetzung |
-| Eigener Code bei nachgewiesenem Bedarf | Fehlende Standortprüfungen, Konfigurationsanbindung oder geeignete Diagnosemöglichkeiten |
-| Entwicklungswerkzeuge | Export, Prüfung der Ressourcen und reproduzierbare Testabläufe |
+| Mod packaging | Fabric metadata, dependencies, and resources; no custom Java classes |
+| Structure sources | Procedural alpha geometry and separate Blender source generators |
+| Worldgen data | Biomes, rigid template pools, distribution, and placement conditions |
+| Lithostitched | Delegating structure type, grid/height/biome conditions, and jigsaw placement |
+| Development tools | Conversion, manifests, export checks, previews, settings packs, and server/world verification |
+| Custom runtime code | Add only for a demonstrated gap that cannot reasonably be covered by existing facilities |
 
-Die aktuelle Lithostitched-Dokumentation beschreibt unter anderem Rasterprüfungen, Biome- und Höhenbedingungen. Sie belegt damit mögliche Bausteine für die Standortwahl. Sie belegt noch keine vollständige Prüfung unserer konkreten Bauwerksgrundflächen. [Quelle: Placement Conditions](https://github.com/Apollounknowndev/lithostitched/wiki/Placement-Conditions).
+The alpha uses one whole rigid template per relic. No required part depends on a
+random jigsaw connection. See [Worldgen](docs/WORLDGEN.md) for actual codecs,
+offsets, and grid values. Upstream documentation provides context:
+[Placement Conditions](https://github.com/Apollounknowndev/lithostitched/wiki/Placement-Conditions)
+and [Structure Types](https://github.com/Apollounknowndev/lithostitched/wiki/Structure-Types).
+The original documentation review was September 13, 2026; the installed version's
+codecs remain authoritative.
 
-Die Dokumentation beschreibt außerdem einen erweiterten Jigsaw-Strukturtyp und einen delegierenden Strukturtyp für zusätzliche Bedingungen. Ob und wie sie für unsere Zielversion und zusammenhängenden Kolossbauteile geeignet sind, wird am Prototyp geprüft. [Quelle: Structure Types](https://github.com/Apollounknowndev/lithostitched/wiki/Structure-Types).
+### Technical prototype gates
 
-Dokumentationsprüfung: 13.09.2026. Vor Umsetzung sind die tatsächlich verwendete Bibliotheksversion und deren Datenformate maßgeblich. Wiki-Beispiele werden nicht ungeprüft als fertige Projektdateien übernommen.
+The initial prototype asks whether resources load and package correctly, the
+Obelisk generates naturally, the Colossus remains complete across chunks, and
+invalid sites can be rejected without generation loops or long stalls. Alpha
+server evidence addresses these for one seed and selected configurations. It
+does not prove the substantially larger Blender assets work under the same rules.
 
-### 3.2 Technischer Durchstich vor Architekturausbau
+If a requirement cannot be met, record the failed attempt, smallest necessary
+code change, and test cost before expanding the architecture. A successful
+Obelisk does not substitute for testing the Colossus.
 
-Der erste Versuch beantwortet vier konkrete Fragen:
+### Client and server
 
-1. Lassen sich unsere Ressourcen in der gewählten Umgebung laden und als installierbare Mod paketieren?
-2. Entsteht der Obelisk natürlich an passenden Standorten?
-3. Lässt sich die grobe Kolossform vollständig über Chunk-Grenzen platzieren?
-4. Können ungeeignete Standorte verworfen werden, ohne zusätzliche Generierungsschleifen oder lange Stillstände auszulösen?
+Generation must work on both integrated and dedicated servers. Determine minimal
+client dependencies through a connection test. Using vanilla blocks alone does
+not prove that every required mod can be installed server-side only.
 
-Ein bestandener Obelisk-Test ersetzt den Koloss-Test nicht. Erst danach wird entschieden, ob die datenbasierte Architektur genügt. Falls eine Funktion fehlt, dokumentieren wir Anforderung, gescheiterten Versuch, kleinsten erforderlichen Codeumfang und dessen Prüfaufwand.
+## 4. Maintainable structure sources
 
-### 3.3 Client und Server
+### Repository layout
 
-Die Generierung muss auf dem integrierten Server und auf einem dedizierten Server funktionieren. Die minimal benötigten Client-Abhängigkeiten werden durch einen Verbindungstest bestimmt und anschließend dokumentiert. Die Verwendung von Vanilla-Blöcken allein ist noch kein Nachweis, dass jede Modkomponente ausschließlich serverseitig installiert werden kann.
-
-## 4. Bauwerke als wartbare Quelldaten
-
-### 4.1 Vorgeschlagene Projektablage
-
-Nach Festlegung des Loaders soll das Repository folgende logische Bereiche erhalten. Dies ist eine Planung, die Ordner existieren noch nicht:
-
-| Bereich | Inhalt |
+| Area | Role |
 | --- | --- |
-| `docs/` | Umgebungsnachweis, technische Entscheidungen, Bauanleitung und Abnahmeprotokolle |
-| `design/` | Eigene Blockpaletten, Ansichten und Maßstabsstudien |
-| `structures-src/` | Bearbeitbare Exporte eigener Bauwerke und zugehörige Beschreibungsdateien |
-| `src/main/resources/` | Paketierbare Struktur- und Worldgen-Ressourcen im Format der Zielversion |
-| `src/main/java/` | Nur tatsächlich benötigter Programmcode |
-| `tools/` | Reproduzierbare Export- und Validierungsskripte |
-| `test-fixtures/` | Kleine Prüfvorlagen, Seeds und definierte Erkundungsrouten |
+| `docs/` | Environment records, workflows, asset pages, and test evidence |
+| `design/` | Tracked asset configs; ignored generated Blender/export/preview outputs |
+| `structures-src/` | Structure source area; ignored generated alpha manifests |
+| `src/main/resources/` | Packaged Fabric metadata and worldgen resources; generated NBT is ignored |
+| `tools/` | Generators, converters, renderers, validators, build and server tools |
+| `tests/` | Automated tests and synthetic fixtures |
+| `.work/` | Ignored upstream checkout, local reference media, and experiments |
+| `build/`, `dist/` | Ignored runtime/build evidence and packaged output |
 
-Registrypfade und Strukturverzeichnisse unterhalb der Ressourcen werden erst anhand der Zielversion festgelegt. Lokale Testwelten und Laufzeitdaten bleiben außerhalb der versionierten Quellen. Referenzvideos dienen der Sichtung und werden nicht mit der Mod ausgeliefert.
+These areas already exist. A custom `src/main/java/` tree is not needed for the
+current data-only implementation. Local worlds and runtime data remain outside
+tracked sources. Reference media is not shipped with the mod.
 
-### 4.2 Bau- und Exportablauf
+### Build and export workflow
 
-Neue Modelle werden in Blender erstellt und als OBJ an die lokale, quelloffene Version ObjToSchematic 1.0 übergeben. `tools/obj_to_schem.cjs` automatisiert Voxelisierung und Sponge-`.schem`-Export. `tools/schem_to_nbt.py` konvertiert sie in Java-Structure-`.nbt`, optional mit starren Teilvorlagen und Positionsmanifest. Ein erster Koloss wurde so konvertiert und mit tatsächlichen NBT-Blöcken gerendert; VoxelVision ist nicht mehr Voraussetzung. Ein manueller Import und erneuter Export in Minecraft ist nicht erforderlich. Der vollständige Ablauf und seine Grenzen stehen in [docs/BLENDER_WORKFLOW.md](docs/BLENDER_WORKFLOW.md).
+The alpha build uses `tools/relic_assets.py`. New designs use **Blender → triangulated
+OBJ → local ObjToSchematic 1.0 → Sponge `.schem` → Java `.nbt`**, with optional
+rigid tiles and manifests. VoxelVision is not required. See
+[Blender workflow](docs/BLENDER_WORKFLOW.md) for the implemented pipeline.
 
-Der aktuelle Alpha-Build verwendet weiterhin `tools/relic_assets.py` für Geometrie und NBT sowie `tools/render_preview.py` für Vorschauen. Die automatische Übernahme von Blender-Exporten in den Mod-Build ist noch umzusetzen; bis dahin bleiben Konvertierungsergebnisse getrennt von den generierten Alpha-Ressourcen. Der folgende Kreativ-Bauwelt-Ablauf ist eine optionale Alternative zur Gestaltung und Prüfung, nicht der neue Standardworkflow.
+Both pipelines are reproducible from tracked generators/configs. Generated files
+are not authoritative hand-edited sources: copy a model to a maintained source
+location before manual edits, and incorporate intended changes into its generation
+or export process. Repeated exports should preserve geometry; variable metadata
+must be identified and normalized where applicable.
 
-1. Eine getrennte Kreativ-Bauwelt für die Zielversion anlegen.
-2. Ein Bau- und Exportwerkzeug auswählen und dessen Version dokumentieren. Die erste Entscheidung erfolgt durch einen kleinen Export-und-Import-Versuch.
-3. Pro Relikt eine grobe Form ohne Oberflächendetails bauen. Ansichten mit Spielerfigur sowie Breite, Höhe und Tiefe festhalten.
-4. Ursprung, Ausrichtung, Bodenniveau, Eingänge und zusammengehörige Teile markieren.
-5. In einer sauberen Testwelt reimportieren. Blockzustände, Abmessungen und Luftbereiche vergleichen.
-6. Große Bauwerke nur soweit aufteilen, wie Export und Platzierung es benötigen. Übergänge mit einer einfachen Testpalette sichtbar machen.
-7. Aus geprüften Quellen die auszuliefernden Ressourcen erzeugen. Exportwerkzeug, Quellrevision und Dateiprüfsummen dokumentieren.
+An optional creative-world workflow remains available:
 
-Bearbeitbare Exporte sind die maßgebliche Quelle. Änderungen an generierten Ressourcen müssen entweder erneut aus dieser Quelle erzeugt oder ausdrücklich zurückgeführt werden. Ein erneuter Export derselben Quelle soll inhaltlich dasselbe Bauwerk erzeugen; etwaige wechselnde Metadaten werden erkannt und normalisiert.
+1. Use a separate build world for the target version and record the export tool/version.
+2. Establish the silhouette and compare it with a player-sized marker.
+3. Mark origin, facing, ground plane, entrances, and associated parts.
+4. Reimport into a clean world and compare states, dimensions, and air handling.
+5. Split only where export/placement requires it; inspect seams with a simple palette.
+6. Record source revision, export tool, and file hashes for packaged resources.
 
-### 4.3 Beschreibungsdaten pro Bauwerk
+### Per-structure metadata
 
-Vorläufiger Namespace-Vorschlag: `relics`. Vor dem ersten Spielstand mit der Mod auf Namenskonflikte prüfen und festlegen.
+The namespace is **`relics`**, with stable IDs `relics:obelisk` and
+`relics:colossus`. Each maintained design should record:
 
-| Angabe | Zweck |
-| --- | --- |
-| Relikt-ID und Varianten-ID | Dauerhafte Zuordnung zwischen Bauwerk, Worldgen und Prüfbericht |
-| Quellen und Exportversion | Nachvollziehbare Änderungen und reproduzierbare Exporte |
-| Abmessungen und Ursprung | Platzierung ohne versehentliche Versätze |
-| Pflichtteile und optionale Teile | Erkennen unvollständiger Strukturverbünde |
-| Anschlüsse und Transformationen | Definierte Position und Drehung jedes Teils |
-| Kontaktflächen zum Boden | Füße, Rumpfbasis oder Fundament gezielt prüfen |
-| Freizuhaltende Räume | Eingänge, Sichtöffnungen und begehbare Innenräume schützen |
-| Gesamte Prüfgrundfläche | Auch Arm, Geröll und lokale Einbettung berücksichtigen |
-| Zulässige Palette | Unbeabsichtigte Abhängigkeiten und falsche Blockzustände finden |
+- Relic and variant ID, source revision, and export version.
+- Dimensions, origin, nominal ground level, and permitted palette.
+- Required/optional parts and their connections, transforms, and rotations.
+- Ground-contact surfaces and the full footprint, including arm and debris.
+- Entrances, sight openings, and interior volumes that must remain clear.
 
-### 4.4 Luft, Gelände und empfindliche Blöcke
+### Air, terrain, and sensitive blocks
 
-Für jede Vorlage unterscheiden wir Bereiche, in denen vorhandenes Gelände bleiben darf, und Bereiche, die bewusst ausgeräumt werden müssen. Ein großer rechteckiger Export darf nicht unabsichtlich einen rechteckigen Hohlraum in den Hügel schneiden. Die konkrete Behandlung von Luft und ausgelassenen Blöcken wird mit dem gewählten Format getestet.
+Distinguish positions that preserve terrain from explicit clearing volumes. A
+rectangular export must not accidentally carve a rectangular cave into a hill.
+The schematic converter requires `--air omit` or `--air keep`: neither option
+automatically defines a playable interior. Colossus exports currently omit air.
+Obelisk v2 explicitly fills sealed interiors with sandstone before conversion.
 
-Nach Platzierung und Neuladen werden Wasser, fallende Blöcke, Blätter, Ranken und wassergefüllte Blockzustände geprüft. Baublöcke mit laufenden Updates oder Block-Entities werden nur dort verwendet, wo sie einen sichtbaren Zweck erfüllen. Ganze Welten dienen nicht als alleinige Sicherung der Bauwerke.
+Check water, falling blocks, persistent leaves, vines, waterlogging, and copper
+aging after placement and reload. Use ticking blocks and block entities only
+where they serve a visible purpose. Worlds alone are not source backups.
 
-## 5. Prototypen und gestalterische Verträge
+## 5. Current designs and acceptance contracts
 
-Die folgenden Größen sind erste Bauversuche. Sie sind keine Zusage, dass die gewählte Strukturtechnik diese Abmessungen bereits unterstützt. Reihenfolge der Maße: Breite × Höhe × Tiefe, in Blöcken.
+Dimensions below are X/Y/Z in blocks, including the full export bounds.
 
-| ID-Vorschlag | Erster Bauversuch | Muss im Prototyp sichtbar sein | Noch nicht nötig |
-| --- | --- | --- | --- |
-| `relics:obelisk` | Schaft etwa 7 × 64 × 7; lokale Basis bis etwa 25 × 25 Grundfläche | Schlanke, oben flache Silhouette; kontrollierter Bodenkontakt; freier Blick auf mindestens eine breite Seite | Mehrere Paletten, Beute, Effekte |
-| `relics:colossus` | Sichtbarer Körper etwa 80 × 64 × 64; Verbund mit Arm zunächst höchstens etwa 128 × 96 Grundfläche | Erkennbarer Kopf und Rumpf; teilweise begrabener Körper; abgetrennter Arm; ein zugänglicher Innenraum | Mehrere Posen, vollständige Maschinenausstattung, eigenständige Siedlung |
-
-Die Testformen werden aus mehreren Entfernungen in einer flachen Bauwelt und im Zielterrain beurteilt. Scheitert eine Form am Maßstab oder an der Platzierung, werden Größe, Pose oder Aufteilung angepasst, bevor Details entstehen.
-
-Für den Koloss beginnt die Arbeit mit einer festen Pose und einer festen relativen Armposition. Pflichtteile erhalten keine zufällige Auswahl, die sie versehentlich entfallen lassen kann. Eine zweite Pose ist ein eigener Entwurf mit eigener Prüfung.
-
-## 6. Standortwahl und Generierung
-
-### 6.1 Reproduzierbarer Ablauf
-
-Der folgende Ablauf ist ein fachliches Modell. Die konkrete Reihenfolge der Engine-Aufrufe wird anhand der Zielversion umgesetzt:
-
-1. Aus Weltseed und Verteilungsregeln einen Kandidaten bestimmen.
-2. Relikttyp, vorbereitete Variante und Ausrichtung reproduzierbar wählen.
-3. Daraus die vollständige Prüfgrundfläche und alle kritischen Kontaktpunkte ableiten.
-4. Biome, Geländehöhen, Wasserbedingungen, verfügbare Bauhöhe und relevante Abstände prüfen.
-5. Kandidaten bei Verletzung einer Pflichtbedingung verwerfen.
-6. Pflichtteile als zusammenhängenden Verbund platzieren und die definierte lokale Einbettung anwenden.
-7. Optionale Details mit derselben reproduzierbaren Zufallsgrundlage ergänzen.
-
-Die Prüfung muss zur tatsächlich gewählten Variante und Drehung passen. Eine akzeptierte schmale Grundfläche darf nicht nachträglich durch eine ungeprüfte breite Pose ersetzt werden.
-
-Zulässige Drehungen sind anfangs die vier horizontalen Vierteldrehungen. Spiegelungen werden erst nach eigener Prüfung aktiviert. Für Zufallsauswahl werden weder Uhrzeit noch globale, von der Erkundungsreihenfolge abhängige Zufallszustände verwendet.
-
-### 6.2 Geländeregeln
-
-| Bedingung | Obelisk | Koloss |
+| Design | Dimensions | Current status |
 | --- | --- | --- |
-| Umgebung | Trockene, offene Wüsten- oder geeignete Badlands-Flächen | Offene Graslandschaften und breite, mäßig bewegte Hügel |
-| Kontakt zum Boden | Fundament darf teilweise versanden; keine frei schwebende Basis | Rumpfbasis und Armkontakt werden getrennt geprüft |
-| Höhenunterschiede | Kleine Basis erlaubt einen enger begrenzten Bodeneingriff | Gesamte Pose muss zu den Höhen über der großen Grundfläche passen |
-| Wasser | Kein ungewollt überfluteter Sockel | Kein gefluteter Eingang; keine zufällig im Fluss liegenden Pflichtteile |
-| Bauhöhe | Oberkante mit Reserve unter der Dimensionsgrenze | Höchster Teil und tiefste Einbettung innerhalb der Weltgrenzen |
-| Eingänge | Äußerer Erkundungsbereich bleibt erreichbar | Mindestens ein vorgesehener Zugang bleibt offen |
+| Alpha Obelisk | 25 × 70 × 25 | Packaged and server-tested with natural placement |
+| Alpha Colossus | 100 × 66 × 76 | Packaged and server-tested, including arm and interior |
+| Colossus v2 | 181 × 160 × 227 | Reference-based Blender/NBT asset; 182,734 blocks |
+| Colossus v3 | 181 × 209 × 227 | Adds buried abdomen/torn hip; 221,221 blocks; nominal surface Y ≈ 77 |
+| Obelisk v2 | 23 × 209 × 19 | Flat crown and solid core; 90,497 blocks; 32-block buried foot |
 
-Ein Biome-Tag allein belegt weder Trockenheit noch freie Sicht. Höhenabfragen, Biomeprüfungen und Prüfungen tatsächlicher Oberflächenbedingungen sind unterschiedliche Aufgaben. Die verfügbaren Prüfungen werden an Grenzfällen bewertet.
+The first Blender experiment remains separately reproducible at 99 × 66 × 71.
+The asset version names do not change the playable mod version.
 
-Rasterprüfungen werden um gezielte Punkte an Eingängen, Fundamenträndern und Armauflagen ergänzt, soweit die gewählte Technik dies erlaubt. Ein grobes Raster gilt nicht als Garantie, kleine Wasserläufe oder Geländekanten vollständig zu erkennen.
+The Obelisk must preserve a slender flat-topped silhouette, credible ground
+contact, and open views of a major face. The Colossus must retain a readable head
+and torso, a buried lower body, a detached arm, and an accessible main room.
+The reference-based exports have not yet demonstrated the last requirement in terrain.
 
-Abfragen dürfen keine unkontrollierte Erzeugung benachbarter Chunks oder zyklische Abhängigkeiten auslösen. Wenn eine gewünschte Bedingung in der richtigen Generierungsphase nicht verfügbar ist, wird die Anforderung oder Umsetzung ausdrücklich angepasst.
+Review all forms from several distances in a flat test world and in target
+terrain. Adjust pose, scale, or assembly when those fail before multiplying
+variants. Required parts must never disappear through random selection. A new
+pose is a separate design with its own acceptance work.
 
-### 6.3 Einbettung und Überlagerungen
+## 6. Site selection and generation
 
-Die lokale Einbettung gehört zum Entwurf: Sand an der Basis, Erde über dem Unterkörper, Geröll an Bruchkanten und Bewuchs an geschützten Flächen. Ihr räumlicher Umfang wird pro Vorlage begrenzt. Eine großflächige Planierung, um jede Pose passend zu machen, ist nicht vorgesehen.
+### Reproducible sequence
 
-Abstände zwischen unseren Relikten und Überlagerungen mit fremden Strukturen werden getrennt behandelt. Eine mögliche Ausschlussregel zwischen Strukturgruppen ist nicht automatisch eine genaue Kollisionsprüfung ihrer Baukörper. Die verwendete Methode und bekannte Grenzen werden dokumentiert.
+The intended model is:
 
-## 7. Häufigkeit und Konfiguration
+1. Derive a candidate from the world seed and distribution rules.
+2. Select a prepared type/variant/orientation reproducibly.
+3. Derive its complete footprint and critical contact points.
+4. Check biomes, terrain heights, water, vertical clearance, and relevant distances.
+5. Reject any failed mandatory condition.
+6. Place all required parts and their defined local embedding together.
+7. Add optional details from the same reproducible random basis.
 
-Als Bedienkonzept sind das Ein- und Ausschalten einzelner Relikttypen sowie drei Dichteprofile vorgesehen: selten, normal und häufig. Die Profile erhalten erst nach Erkundungstests konkrete Verteilungswerte. Sie garantieren keine feste Zahl von Funden, weil ungeeignete Standorte verworfen werden.
+The actual engine sequence must match target-version APIs. Checks must cover
+the chosen rotated form; a checked narrow footprint cannot later become a wider
+unchecked pose. Initially allow only four horizontal quarter-turns. Mirroring
+needs separate tests. Do not use wall-clock time or global exploration-order-dependent randomness.
 
-Die technische Anbindung wird im Durchstich entschieden: datenbasierte Varianten beziehungsweise Overrides oder eine kleine Konfigurationskomponente. Es wird kein Laufzeitmenü versprochen, bevor dessen Anbindung an die Worldgen-Daten geklärt ist.
+### Terrain requirements
 
-| Verhalten | Geplante Regel |
-| --- | --- |
-| Wirksamkeit | Einstellungen vor Weltstart beziehungsweise Serverstart laden; Änderungen betreffen künftige Generierung |
-| Bestehende Relikte | Bleiben bei späterer Deaktivierung erhalten |
-| Bestehende Welten | Keine Nachgenerierung in bereits erzeugten Chunks |
-| Fehlerhafte Werte | Verständliche Fehlermeldung; Grenzen und Rückfallverhalten dokumentieren |
-| Diagnose | Effektiv verwendetes Profil und aktivierte Relikte protokollieren |
-| Mehrspieler | Servereinstellung bestimmt die Generierung |
-
-Dichteversuche zählen Kandidaten, Ablehnungen und tatsächliche Platzierungen. Geplant sind Ablehnungsgründe wie unpassendes Biom, Wasser, zu große Höhendifferenz, Bauhöhe und Abstand. Falls die Bibliothek diese Daten nicht bereitstellt, wird zunächst ein Entwicklungswerkzeug oder eine begrenzte Diagnoseergänzung geprüft. Die Auswertung ist ein Arbeitspaket, keine bereits vorhandene Fähigkeit.
-
-## 8. Phasen mit überprüfbarem Ergebnis
-
-| Phase | Arbeit | Fertig, wenn … |
+| Condition | Obelisk | Colossus |
 | --- | --- | --- |
-| P0: Zielumgebung | Export auswerten, Versionen festhalten, Testinstanz und Ausgangsmessung vorbereiten | Die dokumentierte Umgebung auf einem frischen Teststand startet |
-| P1: Projekt und Export | Modgerüst, Minimalressource, kleiner Export-und-Import-Versuch | Build erzeugt ein ladbares Artefakt; Vorlage übersteht den Import vollständig |
-| P2: Obelisk | Grobform bauen, natürlich generieren, Basis und Standort prüfen | Mehrere natürliche Exemplare ohne manuelle Korrektur stehen |
-| P3: Koloss-Risiko | Grobform samt Arm zusammensetzen; Drehungen, Chunk-Grenzen und Gelände prüfen | Verbund bleibt vollständig; Eingang und Bodenkontakte funktionieren |
-| P4: Gestaltung | Oberflächen, Innenraum und lokale Spuren ergänzen | Beide Motive erfüllen die Gestaltungskriterien der Lore-Bibel |
-| P5: Verteilung | Dichteprofile, Diagnose und Strukturabstände prüfen | Tatsächliche Fundhäufigkeit und Verwerfungsgründe sind nachvollziehbar |
-| P6: Integration | Vollständiges Modpack, dedizierter Server, Speichern und Neuladen, Leistung | Die Abnahmematrix ist mit konkreten Nachweisen ausgefüllt |
-| P7: Veröffentlichung | Installation, Abhängigkeiten, Lizenzwahl, Changelog und Artefaktprüfung | Genau das geprüfte Artefakt ist nachvollziehbar ausgeliefert |
+| Environment | Open dry desert or suitable badlands | Open grassland and broad moderately rolling hills |
+| Ground contact | Partly buried foundation; no floating base | Torso and arm contact evaluated separately |
+| Height variation | Limited local intervention around a narrow base | Entire pose must suit the large footprint |
+| Water | No unintended flooded base | No flooded entrance or required parts accidentally in a river |
+| Vertical bounds | Crown below the dimension limit with margin | Highest part and deepest burial both fit |
+| Access | Exterior exploration remains reachable | At least one intended entrance remains clear |
 
-Die Koloss-Grobform kann während P2 gestalterisch entstehen. Die technische Platzierung wird spätestens in P3 geprüft und vor seiner Detailgestaltung abgeschlossen. Für P3 gilt: erst Fehlerursache eingrenzen, dann Pose, Maße oder Platzierung ändern. Ein erfolgreicher Obelisk rechtfertigt kein Überspringen dieser Phase.
+Biome tags, height queries, and actual surface conditions are different checks.
+A biome alone proves neither dryness nor an open view. Supplement grids with
+entrance, edge, and arm-contact samples where possible. Coarse sampling cannot
+guarantee detection of small streams or ledges.
 
-## 9. Prüfplan für Version 0.1
+Queries must not trigger uncontrolled neighbor generation or cyclic dependencies.
+If a needed condition is unavailable at the placement stage, explicitly revise
+the requirement or implementation.
 
-### 9.1 Ressourcen und Build
+### Embedding and overlap
 
-- JSON-Syntax und tatsächliches Laden der Daten in der Zielversion prüfen.
-- Fehlende Ressourcenreferenzen, falsche Namespaces und unbekannte Blockzustände erkennen.
-- NBT-Abmessungen, Pflichtteile, Verbindungspunkte und zulässige Paletten prüfen.
-- Aus einem sauberen Checkout bauen und Inhalt des fertigen Artefakts kontrollieren.
-- Den dedizierten Server starten und eine Clientverbindung mit der dokumentierten Installation prüfen.
+Sand, buried armor, soil, fracture debris, and sheltered vegetation belong to
+the design and have bounded extent. Large-scale flattening to fit every pose is
+not intended. Spacing between our relics and collisions with other structures
+are separate issues: a structure-set exclusion is not precise geometry collision.
+Record the chosen approach and remaining limitations.
 
-Automatisierte Tests konzentrieren sich auf selbst implementierte Logik und fehleranfällige Datenbeziehungen. Die optische Abnahme erfolgt in Minecraft.
+## 7. Density and configuration
 
-### 9.2 Generierung und Spielbarkeit
+`tools/configure.py` implements datapack overrides for `rare`, `normal`, and
+`frequent`, plus individual type deactivation. No runtime menu is implemented.
+Current values distribute candidates and still need wider exploration-based tuning.
 
-Vorgeschlagene feste Test-Seeds: `731204`, `-48291736` und `20260913`. Diese Werte sind noch nicht erprobt. Vor Messbeginn wird für jeden Seed dieselbe begrenzte Erkundungsfläche beziehungsweise Route festgelegt.
-
-| Testfall | Vorgehen | Akzeptanz |
-| --- | --- | --- |
-| Natürliche Exemplare | Pro Relikttyp mindestens fünf Exemplare insgesamt, verteilt über mindestens drei Seeds, dokumentieren | Keine Pflichtteile fehlen; Einbettung und Zugang funktionieren |
-| Zu wenige Funde | Gesamte vereinbarte Fläche prüfen und Kandidatenquote auswerten | Ursache erklärt; Dichte oder Regeln vor neuer Abnahme angepasst |
-| Vier Drehungen | Dieselbe Vorlage gezielt in jeder zugelassenen Ausrichtung platzieren | Anschlüsse, Armposition und Zugänge bleiben korrekt |
-| Chunk-Grenzen | Mehrteilige Bauwerke entlang kritischer Übergänge prüfen | Keine abgeschnittenen oder verschobenen Teile |
-| Erkundungsreihenfolge | Gleichen Seed und Bereich in frischen Welten aus unterschiedlichen Richtungen erzeugen | Strukturentscheidung und Geometrie bleiben innerhalb identischer Version und Konfiguration reproduzierbar |
-| Speichern und Neuladen | Teilweise erkundeten Bereich speichern, neu laden und vervollständigen | Keine Lücken, Verdoppelungen oder beschädigten Ressourcenreferenzen |
-| Geländekanten | Flachland, Hang, Wassergrenze und Biome-Übergang gezielt abdecken | Gültige Standorte passen; ungültige werden nachvollziehbar verworfen |
-| Fremde Strukturen | Nähe zu Dungeons & Taverns und weiteren Strukturen untersuchen | Keine beobachteten schweren Überschneidungen; verbleibende Grenzen dokumentiert |
-| Konfiguration | Relikttyp deaktivieren und Profile in jeweils frischen Bereichen prüfen | Effektive Einstellungen stimmen mit beobachteter Generierung überein |
-| Erkundung | Ohne Flugmodus die geplanten Wege begehen | Hauptraum des Kolosses ohne Blockabbau oder Spezialausrüstung erreichbar |
-
-Manuelle Platzierungen dienen gezielten Grenztests. Sie werden im Prüfbericht klar von natürlichen Funden getrennt. Der Suchbereich wird nicht stillschweigend so lange vergrößert, bis eine zu geringe Fundrate verborgen bleibt.
-
-### 9.3 Darstellung und Laufzeit
-
-Beide Bauwerke werden ohne Shader sowie mit dem tatsächlich verwendeten Grafikprofil betrachtet. Prüfentfernungen: zunächst 32, 96 und 192 Blöcke, soweit die eingestellte Sichtweite diese Darstellung ermöglicht. Das sind feste Vergleichspositionen, keine garantierte Renderdistanz.
-
-Für Leistungsmessungen dienen zwei getrennte frische Welten je Seed: vollständiges Modpack ohne unsere Erweiterung und dieselbe Umgebung mit ihr. Route, JVM-Parameter und sonstige Einstellungen bleiben gleich. Nach einem Aufwärmdurchlauf sind drei vergleichbare Messpaare vorgesehen.
-
-Erfasst werden Gesamtzeit für die festgelegte Chunkmenge, Chunkzeiten soweit messbar, auffällige Pausen, maximaler Speicherbedarf und Fehlerprotokolle. Für die Darstellung wird zusätzlich dieselbe Kameraansicht am Relikt verglichen. Messinstrumente und eventuelle Grenzen der Zuordnung werden im Bericht genannt.
-
-Konkrete Zeit- und Speicherbudgets werden nach der Ausgangsmessung und vor der Abnahme festgeschrieben. Ohne diese Grenzen gilt die Leistungsprüfung als offen. Abstürze, wiederkehrende Generierungsfehler und reproduzierbar unvollständige Bauwerke verhindern die Freigabe unabhängig vom Durchschnittswert.
-
-## 10. Änderungen und Veröffentlichung
-
-Nach der ersten Veröffentlichung bleiben verwendete Ressourcen-IDs stabil. Änderungen an Verteilung, Vorlagen oder Zufallsauswahl werden als Änderungen für neue Chunks dokumentiert. Gleicher Seed allein garantiert keine identische Welt über verschiedene Modversionen hinweg.
-
-Vor Veröffentlichung sind Projektname und Lizenz zu entscheiden. Eigene Blockbauten und Quellen werden von fremden Referenzmedien getrennt. Ein Release erhält Installationshinweise, genaue Abhängigkeiten, bekannte Einschränkungen, Changelog und eine Prüfsumme des getesteten Artefakts.
-
-Beim späteren Veröffentlichen werden Git-Tag, hochgeladenes Artefakt und heruntergeladene Prüfsumme abgeglichen. Eine angenommene Plattformübertragung gilt erst nach separater Prüfung als öffentlich verfügbar. Dieser Plan löst noch keine Veröffentlichung aus.
-
-## 11. Offene Entscheidungen und nächste Arbeit
-
-| Entscheidung | Zeitpunkt |
+| Behavior | Rule |
 | --- | --- |
-| Zielversionen und Loader | P0, vor Projektgerüst |
-| Bauwerkzeug, Exportformat und Namespace | P1, vor größeren Bauwerken |
-| Eignung von Lithostitched und Bedarf an eigenem Code | P2 und P3 |
-| Endgültige Prototypmaße und erlaubte Geländetoleranzen | Nach den Grobformen in P2 und P3 |
-| Konfigurationsformat und Dichtewerte | P5 |
-| Leistungsgrenzen | Nach Ausgangsmessung, vor P6-Abnahme |
-| Zweite Varianten | Nach geprüfter Grundform, ohne Verzögerung notwendiger Fehlerkorrekturen |
-| Name, Lizenz und Veröffentlichungsziel | Vor P7 |
+| Activation | Load settings at world/server startup; affect future generation |
+| Existing relics | Remain after a type is disabled |
+| Existing chunks | No retroactive generation |
+| Disabled type search | `/locate` cannot find that type while its structure-set entries are removed |
+| Invalid input | Reject with a readable error and documented bounds |
+| Multiplayer | Server data determines generation |
+| Diagnostics | Effective settings/rejection statistics remain a development requirement |
 
-Die nächste ausführbare Aufgabe ist P0: das tatsächliche Modpack erfassen. Danach folgt ein kleiner Export-und-Import-Versuch mit einer ladbaren Minimalstruktur. Ein detaillierter Koloss beginnt erst, wenn seine grobe Form technisch tragfähig ist.
+Density studies should count candidates, rejections, and placements, with causes
+such as biome, water, slope, build height, and spacing. The current library/tooling
+does not provide the desired built-in statistics. Evaluate a development tool or
+small diagnostic addition before promising that capability.
+
+## 8. Phases and current progress
+
+| Phase | Deliverable | Current state / completion gate |
+| --- | --- | --- |
+| P0: Environment | Reproducible target and baseline | Versions recorded; selected test environments start; performance baseline open |
+| P1: Project/export | Loadable artifact and complete import/export | Alpha build and schematic converter implemented |
+| P2: Obelisk | Several natural sites without manual repair | One-seed server evidence; broader visual acceptance open |
+| P3: Colossus placement | Complete body/arm, access, rotations, terrain, chunk boundaries | Alpha server evidence exists; large Blender design integration still open |
+| P4: Design | Both motifs satisfy lore/design criteria | Alpha weathering plus reference-based exports complete; in-game review pending |
+| P5: Distribution | Tuned profiles and explainable acceptance/rejection rates | Settings packs implemented; density studies/diagnostics pending |
+| P6: Integration | Full pack, client/server, reloads, performance | Selected default-config integration passed; full matrix incomplete |
+| P7: Release | Tested artifact, installation, license, changelog, checksum | Alpha packaging documented; full 0.1 release gates remain |
+
+Design work may run ahead of integration, but it does not close placement gates.
+For new Colossus assets, isolate failure causes before changing pose or scale.
+
+## 9. Version 0.1 test plan
+
+### Resources and build
+
+- Validate JSON and actual resource loading in the target version.
+- Catch missing references, wrong namespaces, and unknown block states.
+- Check NBT dimensions, required parts, joins, and allowed palettes.
+- Build from a clean checkout and inspect the resulting artifact.
+- Start a dedicated server and verify client connection with documented dependencies.
+
+Automated tests focus on custom logic and error-prone data relationships. Visual
+acceptance happens in Minecraft, not only in Blender.
+
+### Generation and playability
+
+Proposed fixed seeds: `731204`, `-48291736`, and `20260913`. **Only `731204` has
+the recorded alpha server evidence.** Define the same bounded exploration area
+or route per seed before measuring.
+
+| Case | Procedure | Acceptance |
+| --- | --- | --- |
+| Natural sites | At least five examples per type in total, across at least three seeds | Required parts, embedding, and access work |
+| Too few finds | Complete the agreed area and inspect candidate/rejection rates | Explain cause and adjust rules before renewed acceptance |
+| Four rotations | Place the same template in every allowed orientation | Joins, arm, and access remain correct |
+| Chunk boundaries | Inspect critical transitions across chunks | No clipped or shifted parts |
+| Exploration order | Generate matching seed/area from different directions in fresh worlds | Same decisions/geometry for identical versions/configs |
+| Save/reload | Save partially explored regions, reload, and complete them | No gaps, duplicates, or broken references |
+| Terrain edges | Cover plains, slopes, water margins, and biome boundaries | Valid sites fit; invalid ones are rejected for understood reasons |
+| Other structures | Inspect proximity to Dungeons & Taverns and others | No observed severe overlap; residual limits documented |
+| Settings | Disable types and test profiles in fresh regions | Effective settings match generation |
+| Exploration | Follow planned routes without flying | Main Colossus room reachable without mining or special equipment |
+
+Manual placement is for targeted boundary tests and must be distinguished from
+natural finds. Do not silently enlarge the search area until a low find rate is hidden.
+
+### Appearance and performance
+
+Inspect without shaders and with the actual graphics profile. Initial comparison
+distances are 32, 96, and 192 blocks, where render settings permit; these are
+camera positions, not guaranteed draw distances.
+
+Use fresh paired worlds per seed: the complete pack without Relic Mod and the
+same environment with it. Keep routes, JVM settings, and other configuration
+fixed. After warm-up, plan three comparable measurement pairs.
+
+Record total time for the agreed chunk count, per-chunk timing where measurable,
+stalls, peak memory, and logs. Compare the same relic camera view for rendering.
+Document instruments and attribution limits. Set time/memory budgets after the
+baseline and before acceptance. Without those budgets, performance acceptance is
+open. Crashes, repeated generation errors, and reproducibly incomplete structures
+block release regardless of averages.
+
+## 10. Changes and release
+
+Keep released resource IDs stable. Document distribution, template, or random
+selection changes as affecting new chunks. A shared seed does not guarantee the
+same world across mod versions.
+
+Relic Mod is the current project name; an open-source license remains undecided
+and metadata uses `All-Rights-Reserved`. Keep original sources separate from
+third-party reference media. Releases need installation instructions, exact
+dependencies, known limits, a changelog, and the tested artifact's checksum.
+
+Verify the Git tag, uploaded artifact, and downloaded checksum at release time.
+A successful upload request alone is not proof of public availability.
+
+## 11. Next work and open decisions
+
+1. Choose which reference-based designs should replace the alpha templates.
+2. Validate their palette/states in Minecraft 26.2; address legacy DataVersion
+   3105, copper aging, wall thickness, and interior clearing.
+3. Add explicit build source selection and matching template references.
+4. Recalculate footprint checks, ground offsets, and vertical clearance for the
+   selected assets, including the buried hip or foot.
+5. Run targeted placement, rotation, reload, and natural-generation checks.
+6. Complete multi-seed visual review, density tuning, and performance baselines.
+7. Decide additional variants, diagnostic needs, license, and full-release destination.
+
+Environment discovery and basic export are already complete; the next technical
+milestone is integration and in-game acceptance of the selected new assets.

@@ -1,71 +1,65 @@
-# Obelisk v2 – Painted Desert
+# Obelisk v2 — Painted Desert
 
-Stand: 01.10.2026
+Updated: October 1, 2026.
 
-## Originalreferenz und Form
+## Reference and shape
 
-Referenz ist [Painted Desert von Josh White](https://www.instagram.com/p/Da0NEq7kUAO/).
-Die beiden veröffentlichten Gemälde und die beigefügte Prozessanimation wurden
-gesichtet. Lokale Referenzbilder liegen unter `.work/references/`.
+The reference is [Painted Desert by Josh White](https://www.instagram.com/p/Da0NEq7kUAO/).
+Both published paintings and the accompanying process animation were inspected.
+Local reference images are stored under `.work/references/`.
 
-Die Hauptmerkmale sind eine extrem schlanke Stele mit flacher Krone, beinahe
-parallele große Flächen, warme mineralische Farben und ein starker Unterschied
-zwischen beschatteter Hauptfläche und heller Seite. Horizontale Verwitterung
-bleibt sparsam. Der Fuß verschwindet in farbig geschichteten Wüstenhügeln.
+Its key features are an extremely slender stele, a flat crown, nearly parallel
+large faces, warm mineral colors, and strong contrast between the shaded main
+face and bright side. Horizontal weathering is restrained; the base disappears
+into layered desert hills.
 
-Der Entwurf setzt das mit einer parallelen, durchgehenden Steinmasse um:
-22 × 18 Quelleinheiten vom Fuß bis zur flachen Oberkante. Eine zunächst erprobte
-leichte Verjüngung ergab im Blockraster eine auffällige mittlere Stufe; die
-parallelen Seiten bilden die ruhige Referenzsilhouette besser ab. Kleine Verluste
-an zwei Kanten und zurückhaltende mineralische Bänder ergänzen die Form. Gelbe Terrakotta,
-Sandstein, braune mineralische Spuren und eine hellere, exponierte Seite bilden
-die Palette. Landschaft und Beleuchtung sind zusätzliche Präsentationsmittel.
+The model uses a continuous, parallel-sided stone mass, **22 × 18 source units**
+from foot to crown. A trial taper produced a conspicuous middle step in the block
+grid, so parallel faces were chosen to preserve the quiet silhouette. Small edge
+losses and restrained mineral bands add wear. Yellow terracotta, sandstone,
+brown mineral traces, and a lighter exposed side form the palette. Landscape and
+lighting are additional presentation elements.
 
-## Größe und Untergrund
+## Dimensions and burial
 
-| Kennzahl | Obelisk v2 |
+| Metric | Obelisk v2 |
 | --- | --- |
-| Exportmaße X/Y/Z | **23 × 209 × 19 Blöcke** |
-| Sichtbare Quellhöhe über Boden | ungefähr **176 Blöcke** |
-| Unterirdischer Fuß | **32 Blöcke** |
-| Gesetzte Blöcke | **90.497** |
-| Blocktypen | **6** |
-| Nichtleere 32er-Teilvorlagen | **7** |
-| Durch Füllung ergänzte Innenzellen | **73.883** |
-| Blöcke unter der nominalen Bodenlinie | **13.856** |
+| Export dimensions X/Y/Z | **23 × 209 × 19 blocks** |
+| Visible source height above ground | Approximately **176 blocks** |
+| Buried foot | **32 blocks** |
+| Placed blocks | **90,497** |
+| Used block types | **6** |
+| Nonempty 32-block tiles | **7** |
+| Interior cells added by filling | **73,883** |
+| Blocks below the nominal surface | **13,856** |
 
-Der Maßstab ist eine gestalterische Annäherung. Das Bild zeigt keine eindeutig
-kalibrierbare menschliche Figur; auch die Fluggeräte liefern keine bekannten
-Maße. Das Verhältnis von sichtbarer Höhe zu projizierter Breite liegt ungefähr
-bei 7:1. Ein Größenvergleich zeigt den bisherigen 70-Block-Obelisken und v2 bei
-gleicher Blockgröße. Eine zwei Blöcke hohe Figur dient in der Landschaft als
-zusätzlicher Vergleich.
+Scale is an artistic estimate. Neither a reliably measurable person nor known
+aircraft dimensions are available in the artwork. Visible height to projected
+width is approximately 7:1. The comparison preview shows the previous 70-block
+Obelisk beside v2 at the same block scale. A two-block person appears in the landscape.
 
-Die gesamte Stele ist in der `.schem` und `.nbt` enthalten, einschließlich des
-unterirdischen Fußes. Die umliegenden Hügel, die Figur und die türkisfarbene
-Bodenmarkierung sind reine Vorschauobjekte.
+The entire stele, including its buried foot, is included in `.schem` and `.nbt`.
+The hills, person, and turquoise surface marker are preview-only objects.
 
-## Massiver Kern
+## Solid core
 
-ObjToSchematic voxelisiert zunächst die Oberflächen. Für diesen Obelisken aktiviert
-`design/obelisk-v2.json` ausdrücklich `"fill_enclosed": "core"`. Der lokale Adapter
-füllt anschließend vollständig eingeschlossene Zellen mit der Atlasfarbe des
-Kernmaterials, bevor die Minecraft-Palette zugewiesen und `.schem` geschrieben
-wird. `core` steht hier für Sandstein.
+ObjToSchematic first voxelizes surfaces. `design/obelisk-v2.json` explicitly enables
+`"fill_enclosed": "core"`. The local adapter fills sealed interior cells with the
+core material's atlas color before assigning Minecraft blocks and writing `.schem`.
+Here, `core` maps to sandstone.
 
-Das Verfahren flutet zunächst die Außenluft über die sechs Blocknachbarn; nur
-nicht erreichbare Innenzellen werden gefüllt. Öffnungen nach außen bleiben offen.
-Diese Option ist für massive Bauwerke gedacht und wird für die Colossus-Modelle
-nicht aktiviert. Es ist keine automatische Innenraum- oder Luftfreistellung für
-Worldgen. Die Füllprüfung ist auf 32 Millionen Rasterzellen begrenzt.
+The algorithm flood-fills exterior air through the six face-connected neighbors;
+only unreachable interior cells become solid. Open chambers remain unfilled.
+This option is intended for solid structures and is not enabled for the Colossus
+models. It does not define or clear explorable room air for worldgen. Its working
+grid is limited to 32 million cells.
 
-Der Exportcheck bestätigt zusätzlich einen durchgehend belegten zentralen
-7 × 209 × 7-Block-Prüfkörper. `07-solid-foot-section.png` zeigt einen Ausschnitt
-der tatsächlichen NBT-Blöcke mit freigelegtem Kern.
+The export check verifies a continuously occupied central **7 × 209 × 7-block**
+prism. `07-solid-foot-section.png` shows a cutaway of the actual NBT with its core exposed.
 
-## Erzeugen und prüfen
+## Generate and verify
 
-Werkzeuge und Einrichtung: [BLENDER_WORKFLOW.md](BLENDER_WORKFLOW.md).
+Dependencies and setup: [Blender workflow](BLENDER_WORKFLOW.md).
 
 ```powershell
 $blender = "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe"
@@ -77,24 +71,21 @@ python tools/inspect_ots_result.py --config design/obelisk-v2.json
 node --test tests/voxel_fill.test.cjs
 ```
 
-Wichtige Ausgaben unter `design/generated/obelisk-v2/`:
+Important outputs under `design/generated/obelisk-v2/`:
 
-- `obelisk-v2-source.blend`: bearbeitbare Blender-Quelle.
-- `obelisk-v2.obj`, `obelisk-v2.schem`, `obelisk-v2.nbt`: Geometrie und Blockexport.
-- `obelisk-v2.design.json`, `obelisk-v2.ots.json`, `obelisk-v2.manifest.json`,
-  `verification.json`: Maßstabsannahme, Einstellungen, Blockzahlen und Prüfsummen.
-- `obelisk-v2-blocks.blend`: NBT-Oberflächenmesh mit gepacktem Minecraft-Atlas.
-- `obelisk-v2-landscape.blend`: NBT mit illustrativer Wüstenlandschaft.
-- `obelisk-v2-foot-section.blend`: tatsächlicher Blockausschnitt mit solidem Kern.
-- `obelisk-v2-review.png`, `obelisk-v2-reference-review.png`: beschriftete Übersichten.
-- `05-blocks-landscape.png`, `06-size-comparison.png`, `07-solid-foot-section.png`:
-  Landschaft, maßstäblicher Vergleich und Fußschnitt.
+- `obelisk-v2-source.blend`: editable Blender source.
+- `obelisk-v2.obj`, `obelisk-v2.schem`, `obelisk-v2.nbt`: geometry and block exports.
+- `obelisk-v2.design.json`, `obelisk-v2.ots.json`, `obelisk-v2.manifest.json`, `verification.json`: scale assumptions, settings, block counts, and hashes.
+- `obelisk-v2-blocks.blend`: NBT surface mesh with the packed Minecraft atlas.
+- `obelisk-v2-landscape.blend`: NBT and an illustrative desert landscape.
+- `obelisk-v2-foot-section.blend`: actual block cutaway with solid core.
+- `obelisk-v2-review.png`, `obelisk-v2-reference-review.png`: labeled overview sheets; the reference sheet requires the local reference image.
+- `05-blocks-landscape.png`, `06-size-comparison.png`, `07-solid-foot-section.png`: landscape, scale comparison, and foot section.
 
-Schematic/NBT-Übereinstimmung, Palette, Koordinaten, Grenzen, Teilvorlagen und
-massiver Kern werden am echten Export geprüft. Drei Node-Tests decken mehrere
-geschlossene Hohlräume, negative Koordinaten, geöffnete Kammern und dünne Flächen ab.
+Schematic/NBT agreement, palette, coordinates, bounds, tiles, and the solid core
+were checked against the real export. Three Node tests cover separate sealed
+chambers, negative coordinates, open chambers, and thin surfaces.
 
-Der Stand ist ein Asset-Prototyp mit DataVersion 3105 aus dem Legacy-Exporter.
-Übernahme in Mod-Build und Worldgen sowie Ingame-Abnahme sind weiterhin offen.
-Insbesondere benötigen die Höhe und die 32 Blöcke tiefe Basis eigene
-Platzierungs- und Höhenprüfungen für die Zielwelt.
+This remains an asset prototype with legacy DataVersion 3105. Build/worldgen
+integration and in-game acceptance are pending. Its height and 32-block burial
+require appropriate placement offsets and vertical-bound checks in the target world.

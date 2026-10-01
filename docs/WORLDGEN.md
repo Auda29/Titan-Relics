@@ -1,88 +1,154 @@
-# Worldgen der Alpha
+# Alpha world generation
 
-Die Alpha verwendet Minecraft 26.2 auf Fabric mit Lithostitched 1.8.0+beta6. Obelisk und Koloss werden als vollständige, starre NBT-Vorlagen platziert. Eigener Java-Code ist dafür nicht nötig. Das bestätigte Profil `E:\Roaming\ModrinthApp\profiles\Relic Test` war bei der Bestandsaufnahme leer. Die Referenz-JARs für die Formatprüfung stammen aus dem vorhandenen TerraVista-Profil. Das ist kein Nachweis, dass dessen gesamtes Modpack bereits mit Relic Mod getestet wurde.
+Updated: October 1, 2026. This page describes **the playable Alpha 2 resources**.
+The newer Colossus v2/v3 and Obelisk v2 Blender assets are not integrated into
+these placement rules.
 
-## Aufbau
+The alpha uses Minecraft 26.2 on Fabric with Lithostitched 1.8.0+beta6. Each relic
+is a complete rigid NBT template, with no custom Java code. The selected profile,
+`E:\Roaming\ModrinthApp\profiles\Relic Test`, was empty at inventory time. Format
+checks used JARs from the existing TerraVista profile; that does not establish
+compatibility with the entire personal modpack.
 
-| Ressource | Aufgabe |
+## Resources
+
+| Resource | Purpose |
 | --- | --- |
-| `data/relics/structure/obelisk.nbt` | Vollständiger Obelisk, 25 × 70 × 25 Blöcke |
-| `data/relics/structure/colossus.nbt` | Vollständiger Koloss einschließlich Arm, 100 × 66 × 76 Blöcke |
-| `worldgen/template_pool/<id>.json` | Genau eine starre Vorlage mit Gewicht 1 |
-| `worldgen/structure/<id>.json` | Lithostitched-Standortprüfung um einen Vanilla-Jigsaw-Start |
-| `worldgen/structure_set/<id>.json` | Unabhängige, seedabhängige Verteilung |
-| `tags/worldgen/biome/has_structure/<id>.json` | Zugelassene Startbiome |
-| `tags/worldgen/structure/relics.json` | Gemeinsamer Struktur-Tag für Suche und Datapack-Erweiterungen |
+| `data/relics/structure/obelisk.nbt` | Whole Obelisk, 25 × 70 × 25 blocks |
+| `data/relics/structure/colossus.nbt` | Whole Colossus including arm, 100 × 66 × 76 blocks |
+| `worldgen/template_pool/<id>.json` | Exactly one rigid template with weight 1 |
+| `worldgen/structure/<id>.json` | Lithostitched site checks around a vanilla jigsaw start |
+| `worldgen/structure_set/<id>.json` | Independent seed-based distribution |
+| `tags/worldgen/biome/has_structure/<id>.json` | Allowed start biomes |
+| `tags/worldgen/structure/relics.json` | Shared structure tag for searches and datapack extensions |
 
-Die Jigsaw-Tiefe `size: 1` platziert das Startelement. Die Vorlagen enthalten keine Jigsaw-Blöcke, daher entstehen keine weiteren Teile. Kopf, Rumpf und Arm können dadurch nicht wegen einer fehlgeschlagenen Jigsaw-Verbindung entfallen. Die Engine speichert einen `PoolElementStructurePiece` mit der vollständigen Bounding Box und verarbeitet die Vorlage in den jeweiligen Generierungschunks. Die vom Generator zusätzlich erzeugten 32er-Kacheln sind bearbeitbare Exporte; die natürliche Generierung referenziert ausschließlich die vollständigen Vorlagen.
+Jigsaw `size: 1` places the start element. Templates have no jigsaw blocks, so no
+additional pieces attach. Head, torso, and arm cannot disappear because of failed
+connections. The engine stores one `PoolElementStructurePiece` with the full
+bounding box and processes the template in each generation chunk. Optional
+32-block tile exports are editing/debug assets; natural generation references
+only the whole templates.
 
-Die tatsächlichen Klassen `StructureTemplate.load`, `JigsawStructure` und `JigsawPlacement` aus dem lokal vorhandenen Minecraft-26.2-JAR wurden mit `javap` geprüft. Der NBT-Lader übernimmt die drei Größenwerte ohne die Größenbegrenzung des Structure-Block-Bedienfelds. Lithostitched ersetzt die Vanilla-Jigsaw-Platzierung durch seinen `AlternateJigsawGenerator`. Dieser übernimmt auch bei Tiefe 0 das Startelement, während der unveränderte Vanilla-Code zuvor zurückkehrt. Die Alpha verwendet vorsorglich Tiefe 1; ohne Anschlussblöcke entsteht weiterhin nur die vollständige Vorlage. Jigsaw verwendet die Mitte der gedrehten Bounding Box für die Höhenprojektion. Die tatsächliche Darstellung über Chunk-Grenzen muss zusätzlich im Spiel geprüft werden.
+`StructureTemplate.load`, `JigsawStructure`, and `JigsawPlacement` from the local
+Minecraft 26.2 JAR were inspected with `javap`. The NBT loader accepts the three
+size values without the structure-block UI limit. Lithostitched substitutes its
+`AlternateJigsawGenerator`, which retains a start element even at depth 0;
+unmodified vanilla returns early there. The alpha uses depth 1. With no connector
+blocks, it still produces a single template. Jigsaw projects height using the
+center of the rotated bounding box. Cross-chunk appearance also requires game testing.
 
-## Bodenhöhe und Drehung
+## Ground level and rotation
 
-Alpha 2 behält Abmessungen, Biome, Verteilung und Höhenversatz bei. Die neuen Risse und Panzerbrüche sind ausdrücklich gespeicherte Luftzellen. Der Kolosszugang beginnt lokal bei `[40,10,14]` statt `[40,10,0]`. Vor dem kurzen Vorplatz wird kein breiter Luftkorridor mehr ausgeschnitten. Unter den Pflasterresten liegen Erdstützen und eine unregelmäßige Bodenform. Das verbessert den Übergang, ersetzt aber keine Anpassung an jeden einzelnen Geländeblock.
+Alpha 2 retains the original dimensions, biomes, distribution, and height offset.
+New cracks and armor ruptures are explicitly stored air cells. The Colossus
+entrance starts locally at `[40,10,14]` instead of `[40,10,0]`. The former broad
+air corridor before the short forecourt is gone; soil supports and irregular
+ground surround the paving. This improves the fixed template without adapting
+to every individual terrain block.
 
-Minecraft wählt eine der vier horizontalen Drehungen. Das gesamte Relikt dreht sich gemeinsam. Es gibt keine Spiegelung und keine zufällige Auswahl einzelner Körperteile.
+Minecraft chooses one of four horizontal rotations for the entire structure.
+There is no mirroring or independent random selection of body parts.
 
-Der lokale `ground_y` bezeichnet die erste Luftschicht über dem vorgesehenen Boden. Vanilla hat für das Pool-Element einen `groundLevelDelta` von 1. Deshalb gilt für `start_height.absolute` die Formel `1 - ground_y`.
+Local `ground_y` denotes the first air layer above intended ground. Vanilla pool
+elements have `groundLevelDelta = 1`, so `start_height.absolute = 1 - ground_y`.
 
-| Relikt | `ground_y` | Starthöhe relativ zur Oberfläche | Y-Korrektur für Geländeprüfung |
+| Relic | `ground_y` | Start height relative to surface | Terrain-check Y correction |
 | --- | --- | --- | --- |
 | Obelisk | 3 | -2 | +2 |
-| Koloss | 10 | -9 | +9 |
+| Colossus | 10 | -9 | +9 |
 
-Damit liegt die Vorlage selbst bei `Oberflächenhöhe - ground_y`. Der Lithostitched-Prüfpunkt wird wieder auf die Oberflächenhöhe verschoben. Wer die Vorlagen oder ihre Bodenhöhe ändert, muss beide Zahlen in der Struktur-JSON und den Manifestvertrag zusammen ändern.
+The template origin is therefore at `surface_height - ground_y`. The Lithostitched
+check point is shifted back to surface height. Template ground-level changes must
+update both structure-JSON offsets and the manifest contract.
 
-## Standortfilter
+## Site filters
 
-Die Filter prüfen ein quadratisches Raster um die Mitte des fertig gedrehten Bauwerks. Die Quadrate decken beide Ausrichtungen der rechteckigen Kolossgrundfläche ab.
+Filters sample a square grid centered on the rotated structure. Squares cover
+both orientations of the rectangular Colossus footprint.
 
-| Regel | Obelisk | Koloss |
+| Rule | Obelisk | Colossus |
 | --- | --- | --- |
-| Rasterradius | 12 Blöcke | 50 Blöcke |
-| Rasterabstand | 6 Blöcke | 25 Blöcke |
-| Benötigte bestandene Punkte | alle 25 | alle 25 |
-| Abweichung vom Oberflächenniveau der Mitte | höchstens 4 Blöcke | höchstens 8 Blöcke |
-| Ozeanboden-Höhenkarte | 64 bis 230 | 64 bis 230 |
-| Ozean-/Flussbiom am Prüfpunkt | nicht erlaubt | nicht erlaubt |
+| Grid radius | 12 blocks | 50 blocks |
+| Grid spacing | 6 blocks | 25 blocks |
+| Required passing points | All 25 | All 25 |
+| Maximum deviation from center surface height | 4 blocks | 8 blocks |
+| Ocean-floor heightmap range | 64–230 | 64–230 |
+| Ocean/river biome at sample | Disallowed | Disallowed |
 
-Vanilla prüft zusätzlich, dass der gesamte Startkörper mit acht Blöcken Abstand zu den vertikalen Dimensionsgrenzen hineinpasst. `terrain_adaptation: none` erzeugt keine rechteckige Geländeaufschüttung. Die unregelmäßige Basis gehört zur Vorlage. Ausgelassene NBT-Positionen lassen vorhandene Blöcke stehen; ausdrücklich gespeicherte Luft räumt Innenraum und Eingang frei. `ignore_waterlogging` übernimmt keine vorhandenen Flüssigkeiten in neue wasserfüllbare Blöcke.
+Vanilla also requires the full start body to fit with an eight-block margin from
+vertical dimension bounds. `terrain_adaptation: none` avoids a rectangular terrain
+mound. Irregular bases belong to the templates. Omitted NBT positions preserve
+terrain; explicit air clears the interior and entrance. `ignore_waterlogging`
+prevents existing fluids being inherited by new waterloggable blocks.
 
-Diese Raster sind eine erste Geländefilterung. Sie garantieren weder einen trockenen Eingang noch Kontakt an jedem Randblock. Kleine Wasserstellen, schmale Geländekanten und Hügel zwischen den Rasterpunkten können unentdeckt bleiben. Die Höhe kommt aus der Terrainberechnung vor späterer Vegetation und fremden Bauwerken. Eine hohe Inlandwasserfläche kann trotz des Meeresspiegelfilters bestehen. Kollisionsprüfungen gegen Dungeons & Taverns und andere Strukturen sind noch nicht implementiert.
+These grids do not guarantee a dry entrance or contact at every edge. Small pools,
+narrow ledges, and hills between samples can be missed. Heights come from terrain
+generation before later vegetation and other structures. High inland water can
+pass the sea-level filter. Collision checks against Dungeons & Taverns and other
+structures are not implemented.
 
-## Biome und Terrainmods
+## Biomes and terrain mods
 
-Vanilla-Biome sind erforderlich. Ergänzende Terralith- und Biomes-O'-Plenty-Biome verwenden `required: false`, damit das Paket auch ohne diese Mods lädt. Die optionalen IDs wurden gegen Terralith 2.6.4 und Biomes O' Plenty 26.2.0.0.28 geprüft. Tectonic benötigt keine eigene Biome-Zuordnung; die Höhenfilter fragen den aktiven Chunkgenerator ab.
+Vanilla biome entries are required. Optional Terralith and Biomes O' Plenty entries
+use `required: false`, so the mod loads without them. IDs were checked against
+Terralith 2.6.4 and Biomes O' Plenty 26.2.0.0.28. Tectonic needs no separate biome
+mapping: height filters query the active chunk generator.
 
-Die Auswahl ist absichtlich explizit. Ein allgemeiner Overworld-Tag würde Kolosse auch in dichten Wäldern und Obelisken in ungeeigneten Klimazonen zulassen. Zusätzliche Biome können über dieselben Tags in einem Datapack ergänzt werden. Für andere Dimensionen und Weltpresets mit abweichendem Meeresspiegel sind die Standardwerte nicht ausgelegt.
+Mappings are deliberately explicit. A broad Overworld tag would allow Colossi in
+dense forests and Obelisks in unsuitable climates. Datapacks can extend the same
+tags. Defaults are not designed for other dimensions or world presets with a
+different sea level.
 
-## Häufigkeit und Diagnose
+## Frequency and diagnostics
 
-| Relikt | `spacing` in Chunks | `separation` in Chunks | Salt |
+| Relic | `spacing` (chunks) | `separation` (chunks) | Salt |
 | --- | --- | --- | --- |
 | Obelisk | 64 | 32 | 206091301 |
-| Koloss | 80 | 40 | 206091302 |
+| Colossus | 80 | 40 | 206091302 |
 
-Diese Werte verteilen Kandidaten, keine garantierten Funde. Biome und Gelände können Kandidaten verwerfen. Es gibt bislang keine eingebaute Zählung der Ablehnungsgründe. Änderungen wirken auf künftig erzeugte Chunks. Bereits erzeugte Relikte bleiben erhalten.
+These distribute candidates, not guaranteed finds. Terrain and biomes reject
+candidates. There is no built-in rejection-reason counter. Changes affect future
+chunks; existing structures remain. `tools/configure.py` produces overrides for
+`rare`, `normal`, or `frequent` profiles and disabled types; see the [README](../README.md).
 
-Mit aktivierten Cheats beziehungsweise Server-OP können Strukturen gesucht werden:
+With cheats or operator permissions:
 
 ```mcfunction
 /locate structure relics:obelisk
 /locate structure relics:colossus
 ```
 
-Die automatische Suche kann bei seltenen passenden Biomen oder starkem Relief lange dauern. Gezielte Vorlagenprüfungen in einer eigenen Kreativ-Testwelt umgehen die natürliche Standortentscheidung:
+Searches can be slow in rare biomes or rough terrain. Targeted template checks in
+a separate creative test world bypass site selection:
 
 ```mcfunction
 /place template relics:obelisk ~ ~ ~
 /place template relics:colossus ~ ~ ~
 ```
 
-Der angegebene Ort ist beim Vorlagenbefehl die untere Vorlagenecke. Der Befehl berücksichtigt `ground_y` nicht. Diese Platzierungen sind keine Nachweise natürlicher Generierung. Vier Drehungen, Eingang, Bodenkontakt, Chunkübergänge und erneutes Laden gehören zur visuellen Alpha-Abnahme.
+The supplied position is the lower template corner; the command ignores
+`ground_y`. These are not natural-generation evidence. Visual acceptance includes
+four rotations, entrance access, ground contact, chunk boundaries, and reloads.
 
-## Formatnachweise und Grenzen der Prüfung
+## Format evidence and validation limits
 
-Minecraft 26.2 meldet in seiner `version.json` DataVersion 4903, Datapack-Version 107.1 und Java 25. Lithostitched 1.8.0+beta6 meldet `fabricloader >=0.17` und `minecraft ~26.2`; Apollib 1.1.4 ist im JAR enthalten. Fabric API 0.160.0+26.2 enthält die Ressourcenlader für Mod-Datapacks. Die genaue getestete Installation und tatsächlich ausgeführte Laufzeitprüfungen stehen im separaten Alpha-Testbericht.
+Minecraft 26.2 `version.json` reports DataVersion 4903, datapack format 107.1, and
+Java 25. Lithostitched 1.8.0+beta6 declares `fabricloader >=0.17` and
+`minecraft ~26.2`, with Apollib 1.1.4 bundled. Fabric API 0.160.0+26.2 includes
+mod-datapack resource loaders. Completed runs are recorded in the
+[Alpha 2 report](ALPHA_2_TEST_REPORT.md) and [historical Alpha 1 report](ALPHA_TEST_REPORT.md).
 
-Die offiziellen Beschreibungen von [Strukturtypen](https://github.com/Apollounknowndev/lithostitched/wiki/Structure-Types) und [Platzierungsbedingungen](https://github.com/Apollounknowndev/lithostitched/wiki/Placement-Conditions) erklären den delegierenden Wrapper und die Rasterfilter. Die konkreten Feldnamen wurden zusätzlich anhand der Codecs im oben genannten JAR geprüft. Ein erfolgreicher Ressourcen-Ladevorgang allein bestätigt keine optische oder vollständige Modpack-Abnahme.
+The upstream [structure types](https://github.com/Apollounknowndev/lithostitched/wiki/Structure-Types)
+and [placement conditions](https://github.com/Apollounknowndev/lithostitched/wiki/Placement-Conditions)
+documentation explains the delegating wrapper and grid filters. Field names were
+also checked against codecs in the local JAR. Loading resources successfully does
+not by itself establish visual or full-modpack acceptance.
+
+## Integrating the new Blender assets
+
+The new assets have different footprints, burial depths, and total heights. They
+also currently retain DataVersion 3105 from the legacy exporter. Before selecting
+them in a build, validate their block states in the target game, define interior
+air, update the template references and ground offsets, and replace the alpha
+footprint/height checks with rules appropriate to the chosen model. Recheck
+natural placement rather than reusing the alpha reports as evidence.

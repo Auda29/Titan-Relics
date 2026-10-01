@@ -1,91 +1,80 @@
-# Colossus v3 – Referenzentwurf mit unterirdischer Hüfte
+# Colossus v3 — reference design with a buried hip
 
-Stand: 01.10.2026
+Updated: October 1, 2026.
 
-## Referenz und gestalterische Entscheidungen
+## Reference and design decisions
 
-Grundlage ist die **Anfangsszene (0–5 Sekunden)** von
-[Archaean Colossi – The Archive In Between](https://www.instagram.com/reel/DaoBxUEiBNa/).
-Das Video wurde für diese Studie tatsächlich gesichtet; lokale Einzelbilder
-liegen ausschließlich unter `.work/references/`.
+The design follows the **opening 0–5 seconds** of
+[Archaean Colossi — The Archive In Between](https://www.instagram.com/reel/DaoBxUEiBNa/).
+The video was inspected for this study. Extracted frames are stored locally under
+`.work/references/` and are not tracked in Git.
 
-Sichtbare Hauptmerkmale und ihre Umsetzung:
-
-| Original | Colossus v3 |
+| Reference feature | Colossus v3 interpretation |
 | --- | --- |
-| Breite, fast hügelförmige bronzene Panzerung | Großer gewölbter Rumpf und dominante Schulterhauben |
-| Runder Helm, schmaler dunkler Sehschlitz | Kuppelhelm mit ausgeschnittener Visieröffnung |
-| Schwere gebogene Leitungen vor dem Kinn und seitliche Filter | Gerippter Atemschlauch, Auslass und konzentrische Filtergehäuse |
-| Gealterte warme Metallflächen, Rost und grüne Ablagerungen | Kupferpalette, braune Terrakotta, Patina und Moospolster |
-| Unregelmäßige Schäden an Stirn und unterer Schulter | Gezackte Durchbrüche mit zurückgesetzter Mechanik |
-| Unterkörper verschwindet in Hügeln | Tief reichende Körperhülle; Geländeansicht verdeckt die unteren Partien |
-| Langer röhrenförmiger Unterarm mit Hand im Vordergrund | Abgesetzter, beringter Unterarm in gemeinsamer Strukturkoordinate |
+| Broad, almost hill-shaped bronze armor | Large curved torso and dominant shoulder shells |
+| Round helmet with a narrow dark slit | Dome helmet with a cut-out visor |
+| Heavy curved pipes below the chin and side filters | Ribbed respirator hose, outlet, and concentric filter housings |
+| Aged warm metal, rust, and green deposits | Copper palette, brown terracotta, patina, and moss patches |
+| Irregular forehead and lower-shoulder damage | Jagged openings with recessed mechanisms |
+| Lower body disappearing into hills | Deep body shell, partly hidden in the landscape presentation |
+| Long tubular forearm and hand in the foreground | Detached ringed forearm in the same structure coordinate system |
 
-Rücken und verdeckte Mechanik sind gestalterische Ergänzungen: Die erste Szene
-zeigt nur eine frontale Dreiviertelansicht. Der sehr große zentrale Brustring
-des ersten Entwurfs wurde durch eine tief liegende, unregelmäßige Bruchstelle
-ersetzt. Die Form ist als alternative Version angelegt.
+The back and hidden mechanisms are design additions: the opening scene only shows
+a front three-quarter view. The first experiment's large central chest ring was
+replaced with a deep, irregular rupture.
 
-## Maßstab
+## Scale and verified export
 
-Der ursprüngliche **[Colossus v2](COLOSSUS_V2.md)** hatte **160 Blöcke** Gesamthöhe
-statt 66 beim ersten Blender-Colossus. Die Ergänzung des unterirdischen Bauchs und der abgerissenen
-Hüfte erhöht die Gesamthöhe auf **209 Blöcke**. Der oberirdische Maßstab wird
-dabei auf den bereits gestalteten Entwurf kalibriert (Rundungsabweichung unter
-0,5 %). Es ist weiterhin eine **Maßstabsannahme**, keine belegte Originalabmessung. Die Person im
-Vordergrund und der Koloss liegen in stark unterschiedlichen Entfernungen;
-ihre Pixelhöhen lassen sich nicht unmittelbar in Meter umrechnen.
+The original **[Colossus v2](COLOSSUS_V2.md)** is **160 blocks** tall, compared
+with 66 for the first Blender experiment. Adding the buried abdomen and torn hip
+increases the overall height to **209 blocks**, while preserving the above-ground
+scale with a rounding change of approximately **0.095%**.
 
-Orientierungspunkte sind das Verhältnis von Helm und Panzerkörper, die Länge
-des liegenden Arms und die Wirkung der Vegetation. Der Körper ist im Modell
-ungefähr 190 Quelleinheiten breit, der Helm etwa 60–70 hoch und der separate
-Arm einschließlich Hand ungefähr 110 lang. Die zusätzliche Hüfte endet an einer
-unregelmäßigen Bruchkante mit freiliegenden Streben und Leitungen. Deshalb sind **die tatsächlichen XYZ-Maße im
-`colossus-v3.manifest.json` maßgeblich**, nicht diese gerundeten Quellmaße.
+This remains a **scale assumption**, not a measured reference dimension. The
+foreground person and distant Colossus cannot be compared directly by pixel height.
+Helmet/body proportions, arm length, and vegetation provide visual guidance.
 
-Die Gesamtgrundfläche schließt den Abstand zum Arm ein. Ein Größenvergleich
-stellt die NBT-Geometrien von v2 und dem ersten Koloss bei identischer
-Blockgröße nebeneinander. Die Hügelansicht enthält eine zwei Blöcke hohe Figur
-nahe dem Arm. Landschaft, Figur und weitere Vorschauhilfen sind nicht Teil des
-Schematic-Exports.
+In source units, the body is roughly 190 wide, the helmet 60–70 tall, and the
+detached arm including its hand about 110 long. These are rounded design measures;
+**the exported dimensions in `colossus-v3.manifest.json` are authoritative**.
 
-Ergebnis des geprüften Exports:
-
-| Kennzahl | Colossus v3 |
+| Metric | Colossus v3 |
 | --- | --- |
-| Gesamtmaße X/Y/Z | **181 × 209 × 227 Blöcke** |
-| Gesetzte Blöcke | **221.221** |
-| Verwendete Blocktypen | **11** |
-| Nichtleere 32er-Teilvorlagen | **124** |
-| Blöcke unter der gedachten Bodenebene | **85.432** |
+| Overall X/Y/Z, including detached arm | **181 × 209 × 227 blocks** |
+| Placed blocks | **221,221** |
+| Used block types | **11** |
+| Nonempty 32-block tiles | **124** |
+| Blocks below the nominal surface | **85,432** |
+| Nominal surface height in NBT | **Y ≈ 77** |
 
-Alle Blockpositionen und Zustände stimmen zwischen `.schem` und `.nbt` überein;
-die Teilvorlagen rekonstruieren die Gesamtvorlage verlustfrei. Der erste Koloss
-wurde ebenfalls erneut anhand seiner unveränderten Prüfsummen geprüft.
+All block positions and states match between `.schem` and `.nbt`; tiles reconstruct
+the whole template without loss. The original Blender experiment was also checked
+against its unchanged checksums.
 
-## Unterirdische Fortsetzung
+The footprint includes the gap between body and arm. The size-comparison preview
+shows the selected asset beside the first 66-block Blender Colossus at the same
+block scale. A two-block figure near the arm provides another comparison.
+Landscape, figure, and surface markers are presentation-only.
 
-Der Brustpanzer wird unter der bisherigen Schnittkante fortgesetzt. Eine nach
-unten schmaler werdende Bauchpanzerung geht in einen teilweise erhaltenen
-Hüftbereich über. Die Außen- und Innenflächen der Panzerung sowie die freiliegende
-Wandstärke an der Bruchkante sind modelliert; im Inneren laufen Träger aus dem
-bisherigen Rumpf bis zu unterschiedlich langen Abrissenden. Es gibt keine Beine.
+## Underground continuation
 
-Das gedachte Bodenniveau liegt ungefähr bei NBT-Y **77**, also etwa 77 Blöcke
-über dem tiefsten verbliebenen Träger. Dieser Wert beschreibt die aktuelle
-Gestaltung und muss später in die Worldgen-Platzierung übersetzt werden.
-Die Vorschau `colossus-v3-underground-review.png` zeigt die Freilegung mit einer
-türkisen Bodenebene sowie einen echten NBT-Ausschnitt des Hüftbereichs.
+Chest armor continues below the former cut line. A narrowing armored abdomen
+reaches a partly preserved hip. Outer and inner armor surfaces and exposed wall
+thickness are modeled at the rupture. Internal supports extend from the existing
+torso to uneven broken ends, with exposed conduits. There are no legs.
 
-Der Quellvergleich gegen den Entwurf vor der Erweiterung bestätigt dieselben
-47.886 Modellpunkte oberhalb Quell-Y 20. Die notwendige Rundung der neuen
-Exporthöhe verändert den Blockmaßstab lediglich um etwa 0,095 %. Der zusätzliche
-Unterkörper ist in `.schem` und `.nbt` enthalten, nicht nur in der Geländeansicht.
+The intended ground plane is approximately NBT Y **77**, about 77 blocks above
+the lowest surviving support. This design datum still needs to be translated into
+worldgen placement. `colossus-v3-underground-review.png` shows the exposed body,
+a turquoise ground plane, and a section of the actual hip NBT.
 
-## Reproduzieren
+A comparison against the pre-extension source confirmed the same **47,886 vertices
+above source Y 20**. The added lower body is included in `.schem` and `.nbt`, not
+just in the landscape view.
 
-Die lokale Einrichtung steht in [BLENDER_WORKFLOW.md](BLENDER_WORKFLOW.md).
-Vom Repository-Hauptverzeichnis aus:
+## Reproduce
+
+See [Blender workflow](BLENDER_WORKFLOW.md) for setup. From the repository root:
 
 ```powershell
 $blender = "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe"
@@ -96,36 +85,30 @@ python tools/schem_to_nbt.py design/generated/colossus-v3/colossus-v3.schem desi
 python tools/inspect_ots_result.py --config design/colossus-v3.json
 ```
 
-Wichtige Dateien unter `design/generated/colossus-v3/`:
+Important outputs in `design/generated/colossus-v3/`:
 
-- `colossus-v3-source.blend`: bearbeitbares Quellmodell mit benannten Bauteilen.
-- `colossus-v3.obj`, `colossus-v3.schem`, `colossus-v3.nbt`: Konvertierungskette.
-- `colossus-v3.design.json`: Referenz, Maßstabsannahme und Quellgrenzen.
-- `colossus-v3.ots.json`, `colossus-v3.manifest.json`, `verification.json`: Export-
-  und Prüfmetadaten einschließlich Prüfsummen.
-- `colossus-v3-blocks.blend`: tatsächliche NBT-Geometrie mit gepacktem Texturatlas.
-- `colossus-v3-landscape.blend`: NBT plus separat modellierte Präsentationslandschaft.
-- `colossus-v3-review.png`: vier Ansichten von Quelle und Blockexport.
-- `colossus-v3-reference-review.png`: Originalausschnitt, Geländeansicht und
-  Größenvergleich. Benötigt das lokale Referenz-Einzelbild aus der Config.
-- `05-blocks-landscape.png`, `06-size-comparison.png`: große Einzelansichten.
-- `07-buried-body.png`, `08-hip-detail.png`: Freilegung mit Bodenebene und
-  Ausschnitt der tatsächlichen unterirdischen NBT-Blöcke.
-- `colossus-v3-underground.blend`, `colossus-v3-underground-review.png`: räumliche
-  Inspektionsszene und beschriftete Übersicht zum versunkenen Unterkörper.
+- `colossus-v3-source.blend`: editable model with named components.
+- `colossus-v3.obj`, `colossus-v3.schem`, `colossus-v3.nbt`: conversion outputs.
+- `colossus-v3.design.json`: reference, scale assumption, and source bounds.
+- `colossus-v3.ots.json`, `colossus-v3.manifest.json`, `verification.json`: export and validation metadata, including hashes.
+- `colossus-v3-blocks.blend`: actual NBT geometry with a packed texture atlas.
+- `colossus-v3-landscape.blend`: NBT plus a separate presentation landscape.
+- `colossus-v3-review.png`: source and block-export views.
+- `colossus-v3-reference-review.png`: reference crop, landscape, and scale comparison; requires the configured local reference frame.
+- `05-blocks-landscape.png`, `06-size-comparison.png`: full-size presentation views.
+- `07-buried-body.png`, `08-hip-detail.png`: exposed body and actual underground block detail.
+- `colossus-v3-underground.blend`, `colossus-v3-underground-review.png`: inspection scene and labeled overview.
 
-Die Quelle kann kopiert und manuell weiterbearbeitet werden; ein erneuter
-Generatorlauf überschreibt nur die gleichnamigen generierten Dateien.
+Copy the generated source before manually editing it. Running the generator again
+overwrites generated files with matching names.
 
-## Technischer Status
+## Integration status
 
-Es handelt sich um einen visuellen Modellprototyp. Die Bilder der Blöcke werden
-aus der NBT gelesen und in Blender gerendert. Geländeansicht und Vergleichsbild
-sind keine Minecraft-Screenshots oder Nachweise einer natürlichen Platzierung.
+This is a visual asset prototype. Previews read NBT geometry and render it in
+Blender; they are not Minecraft screenshots or proof of natural placement.
 
-Die im Workflow beschriebenen Grenzen gelten weiterhin: Oberflächenvoxelisierung,
-ausgelassene Luft (`omit`), Legacy-DataVersion 3105 und ausstehende
-Worldgen-Übernahme. Die großzügige Kupferpalette folgt zunächst der Farbwirkung
-der Referenz; Oxidationszustände, Blockmengen und Innenraumluft sind vor der
-Spielintegration zu bearbeiten. Die deutlich größere Grundfläche erfordert
-außerdem neue Standort- und Geländeprüfungen.
+The pipeline still uses surface voxelization, omitted air, and legacy DataVersion
+3105. Before game integration, review wall thickness, interior air, copper
+oxidation states, and material quantities. The larger footprint and deeper burial
+also require new site checks, height limits, template references, and build source
+selection. The existing alpha build continues to generate its earlier Colossus.

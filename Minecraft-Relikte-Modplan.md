@@ -1,253 +1,284 @@
-# Minecraft-Relikte: Konzept und Entwicklungsplan
+# Minecraft relics: concept and development plan
 
-Stand: 12.09.2026  
-Status: Planungsentwurf; noch keine Implementierung.  
-Ziel: Eine Struktur-Erweiterung für das bestehende Modpack mit Terralith, Tectonic, Biomes O’ Plenty und Dungeons & Taverns.
+Original concept: September 12, 2026. Updated and translated: October 1, 2026.
 
-## 1. Fünf konkrete Objektbeispiele aus den Instagram-Referenzen
+Goal: a structure expansion for a modpack using Terralith, Tectonic, Biomes O'
+Plenty, and Dungeons & Taverns. **The project now has a playable Alpha 2 for
+Minecraft 26.2 / Fabric and a separate reference-based Blender asset pipeline.**
+This page preserves the creative catalog and long-term goals. See the
+[README](README.md) for current implementation and the
+[technical plan](UMSETZUNGSPLAN.md) for remaining acceptance work.
 
-Die folgenden fünf Motive stammen direkt aus den bereitgestellten Beiträgen. Beobachtete Bildinhalte und vorgeschlagene Minecraft-Umsetzung sind getrennt beschrieben. Die Namen der Vorbilder dienen als Referenz; die eigenen Bauwerke erhalten später eigene Designs.
+## 1. Five motifs from the Instagram references
 
-### 1. Überwachsener Koloss in einer Hügellandschaft
+Observed imagery and proposed Minecraft interpretations are described separately.
+Reference titles identify the inspiration; our structures use their own designs.
 
-**Vorbild:** [Archaean Colossi – The Archive In Between](https://www.instagram.com/reel/DaoBxUEiBNa/), besonders die Anfangsszene bei 0–5 Sekunden.
+### 1. Overgrown Colossus in rolling hills
 
-**Im Reel sichtbar:** Ein gewaltiger, beschädigter Maschinenkörper ragt zwischen grünen Hügeln auf. Ein abgetrenntes Armstück liegt im Vordergrund. Erde und Vegetation überziehen die Panzerung; die Person davor macht den Maßstab deutlich.
+**Reference:** [Archaean Colossi — The Archive In Between](https://www.instagram.com/reel/DaoBxUEiBNa/),
+especially the opening 0–5 seconds.
 
-**Übersetzung in Minecraft:** Ein statischer, aus Blöcken gebauter Mech mit teilweise begrabenem Unterkörper, beschädigter Panzerung und separat liegendem Arm. Eine Öffnung im Rumpf ermöglicht das Erkunden des Inneren.
+**Visible:** An enormous damaged machine body rises between green hills. A
+detached arm lies in the foreground. Soil and vegetation cover armor. A foreground
+person contributes to the sense of scale, but cannot directly establish the
+distant machine's absolute dimensions.
 
-- Umgebung: breite Graslandschaften, sanfte Hügel, geeignete Hochflächen.
-- Varianten: unterschiedlich starke Verschüttung, fehlende Panzerplatten, wechselnder Bewuchs.
-- Gewünschter Moment: Aus der Entfernung eine fremde Silhouette erkennen; beim Näherkommen deren tatsächliche Größe begreifen.
-- Technischer Schwerpunkt: große Grundfläche und stimmige Übergänge zwischen Körper und Gelände.
-- Priorität: erster anspruchsvoller Prototyp.
+**Minecraft interpretation:** A static block-built mech with a partly buried
+lower body, damaged armor, and detached arm. A torso opening should allow interior exploration.
 
-### 2. Einzelner Obelisk in einer weiten Wüste
+- Environment: broad grasslands, gentle hills, suitable plateaus.
+- Variants: controlled burial, missing armor plates, different vegetation.
+- Discovery: notice a strange distant silhouette, then realize its size while approaching.
+- Technical focus: large footprint and convincing body-to-terrain transitions.
+- Priority: first demanding prototype.
+- Current asset work: [Colossus v2](docs/COLOSSUS_V2.md) follows the visible form;
+  [v3](docs/COLOSSUS_V3.md) extends it underground to a torn hip. Neither replaces
+  the alpha's smaller model yet.
 
-**Vorbild:** [Painted Desert – Josh White](https://www.instagram.com/p/Da0NEq7kUAO/).
+### 2. A solitary Obelisk in a vast desert
 
-**Im Beitrag sichtbar:** Eine sehr schlanke, geometrische Stele über einer offenen, farbig geschichteten Wüstenlandschaft. Die klare vertikale Form steht in einer weitgehend freien Umgebung.
+**Reference:** [Painted Desert — Josh White](https://www.instagram.com/p/Da0NEq7kUAO/).
 
-**Übersetzung in Minecraft:** Ein monumentaler Obelisk mit schmalem Grundriss, wenigen großen Oberflächenformen und einer teilweise versandeten Basis. Verwitterung bleibt zurückhaltend, damit seine Silhouette lesbar bleibt.
+**Visible:** A very slender geometric stele above open, color-layered desert
+terrain. A flat crown and clear vertical form dominate the largely empty setting.
 
-- Umgebung: großflächige Wüsten, trockene Ebenen und geeignete Badlands.
-- Varianten: unterschiedliche Oberflächen, geringfügige Beschädigung und Verschüttung.
-- Gewünschter Moment: Ein einzelnes unerklärliches Objekt dominiert den Horizont.
-- Technischer Schwerpunkt: Fernwirkung, freie Umgebung und ausreichender Abstand zu weiteren großen Relikten.
-- Priorität: erster einfacher Prototyp.
+**Minecraft interpretation:** A monumental narrow-footprint Obelisk with a few
+large surface forms and a partly buried base. Restrained weathering preserves
+the silhouette.
 
-### 3. Monumentaler Sci-Fi-Ruinenturm an einer hellen Ebene
+- Environment: extensive deserts, dry plains, suitable badlands.
+- Variants: surface palettes, small edge damage, controlled burial.
+- Discovery: a single unexplained object dominates the horizon.
+- Technical focus: distant readability, open surroundings, spacing from other major relics.
+- Priority: first simple prototype.
+- Current asset work: [Obelisk v2](docs/OBELISK_V2.md), 23 × 209 × 19 blocks, with
+  warm mineral faces, solid core, and a 32-block buried foot; integration pending.
 
-**Vorbild:** [Sci-Fi-Animation – Josh White](https://www.instagram.com/reel/DbqXYoVx2hR/), insbesondere die Turmarchitektur im Hintergrund.
+### 3. Monumental sci-fi ruined tower above a pale plain
 
-**Im Reel sichtbar:** Ein gewaltiger dunkler, kantiger Turm mit Aussparungen und beschädigten Bereichen über einer hellen, offenen Fläche. Weitere Architektur erscheint im Dunst. Ein Fluggerät bewegt sich durch die Szene.
+**Reference:** [Sci-fi animation — Josh White](https://www.instagram.com/reel/DbqXYoVx2hR/),
+particularly the background tower architecture.
 
-**Übersetzung in Minecraft:** Ein ruinöser Turmkomplex mit großen Durchbrüchen, abgebrochenen Geschossen und wenigen niedrigeren Gebäudeteilen. Die helle Fläche und die dunkle Architektur sollen gemeinsam die Bildwirkung erzeugen.
+**Visible:** A huge dark angular tower with openings and damaged sections over
+a bright open area. More architecture appears in haze; an aircraft moves through
+the scene.
 
-- Umgebung: helle trockene Ebenen, geeignete Wüstenränder oder offene Becken.
-- Varianten: wechselnde Höhe, beschädigte Seitenteile, verschüttete Untergeschosse.
-- Gewünschter Moment: Eine einzelne Person wirkt klein gegenüber Architektur, deren ursprünglicher Zweck unklar bleibt.
-- Technischer Schwerpunkt: modulare Gebäudeteile, sichere Übergänge und erkennbare Großformen.
-- Priorität: Ausbau nach dem ersten Prototyp.
+**Minecraft interpretation:** A ruined tower complex with large breaches,
+broken floors, and a few lower building sections. Pale surroundings and dark
+architecture jointly create the composition.
 
-### 4. Riesiger Schädel zwischen grünen Hügeln
+- Environment: pale dry plains, suitable desert edges, open basins.
+- Variants: controlled height, damaged side sections, buried lower floors.
+- Discovery: a person feels tiny beside architecture of uncertain purpose.
+- Technical focus: modular parts, safe transitions, readable large forms.
+- Priority: expansion after the first prototypes; not implemented.
 
-**Vorbild:** [D.E.A.D. / Überreste toter Götter – The Archive In Between](https://www.instagram.com/reel/DXM3J4sgqJl/), besonders die Anfangsszene bei 0–5 Sekunden.
+### 4. Giant skull among green hills
 
-**Im Reel sichtbar:** Ein gigantischer, gekrönter Schädel ragt aus einer nebligen, grünen Landschaft. Seine Größe nähert sich der eines Landschaftselements; die wandernde Person davor ist winzig.
+**Reference:** [D.E.A.D. / remains of dead gods — The Archive In Between](https://www.instagram.com/reel/DXM3J4sgqJl/),
+especially the opening 0–5 seconds.
 
-**Übersetzung in Minecraft:** Ein verwitterter Titanenschädel, dessen unterer Teil im Boden verschwindet. Augenhöhlen und Mund bilden begehbare Räume. Ob es sich um einen versteinerten Körper oder ein uraltes Monument handelt, darf offenbleiben.
+**Visible:** A gigantic crowned skull emerges from misty green terrain, nearly
+the scale of a landscape feature. A walking person is tiny by comparison.
 
-- Umgebung: breite Täler und offene Graslandschaften.
-- Varianten: gebrochene Zähne oder Kronenfortsätze, unterschiedliche Erosion und Bewuchs.
-- Gewünschter Moment: Eine zunächst geologische Form wird als Gesicht erkennbar.
-- Technischer Schwerpunkt: organische Formen in Blöcken und eine trotz Verfall eindeutige Silhouette.
-- Priorität: Ausbau nach dem ersten Prototyp.
+**Minecraft interpretation:** A weathered titan skull with its lower part buried.
+Eye sockets and mouth become explorable spaces. It may be a petrified body or an
+ancient monument; that question can remain open.
 
-### 5. Weltenbaum an einer offenen Küste
+- Environment: broad valleys and open grasslands.
+- Variants: broken teeth/crown projections, erosion, and vegetation.
+- Discovery: a seemingly geological shape becomes recognizable as a face.
+- Technical focus: organic block forms and a readable silhouette despite erosion.
+- Priority: expansion after the first prototypes; not implemented.
 
-**Vorbild:** [World Tree Cypress / Gaia’s Nursery – The Archive In Between](https://www.instagram.com/reel/DaBgsX0C9s4/).
+### 5. World tree on an open coast
 
-**Im Reel sichtbar:** Ein einzelner riesiger Baum prägt eine grüne Küstenlandschaft. Weitere Szenen zeigen gewaltige Wurzeln, verwinkelte Durchgänge, Wasserwege und bearbeitete Steine im Wurzelbereich.
+**Reference:** [World Tree Cypress / Gaia's Nursery — The Archive In Between](https://www.instagram.com/reel/DaBgsX0C9s4/).
 
-**Übersetzung in Minecraft:** Ein sehr seltener Baumgigant mit breitem, unregelmäßigem Stamm, großen Wurzelbögen und einer begehbaren Basis. Er zählt als eigenständiges Monument innerhalb der bestehenden Landschaft.
+**Visible:** A single enormous tree shapes a green coast. Other scenes show
+massive roots, winding passages, waterways, and worked stone near the roots.
 
-- Umgebung: geeignete grüne Küsten und große, offene Flusstäler.
-- Varianten: unterschiedliche Kronenform, abgebrochene Äste und überwachsene Wurzelgänge.
-- Gewünschter Moment: Ein lebendiges Naturmonument wirkt ebenso uralt und überwältigend wie die Maschinenruinen.
-- Technischer Schwerpunkt: Blockmenge, Kronensilhouette, Weltbauhöhe und Verhalten der Blätter.
-- Priorität: späterer Ausbau; besonders hoher Gestaltungs- und Integrationsaufwand.
+**Minecraft interpretation:** A very rare giant tree with a broad irregular
+trunk, major root arches, and an accessible base, standing as a monument within
+the existing landscape.
 
-**Zunächst zu erproben:** Obelisk und Koloss. Die fünf Beispiele sind der erste Motivkatalog, kein Versprechen, alle fünf bereits in Version 0.1 fertigzustellen.
+- Environment: suitable green coasts and broad open river valleys.
+- Variants: crown shape, broken branches, overgrown root passages.
+- Discovery: a living natural monument feels as ancient and overwhelming as machine ruins.
+- Technical focus: block count, crown silhouette, world height, and leaf behavior.
+- Priority: later separate prototype with high design/integration cost; not implemented.
 
-## 2. Ziel und Bildsprache
+**Initial scope remains Obelisk and Colossus.** This catalog is not a promise to
+deliver all five motifs in version 0.1.
 
-Die Mod ergänzt seltene, monumentale Entdeckungen, die beim Erkunden das Gefühl einer unbegreiflich großen Vergangenheit erzeugen. Die vorhandenen Worldgen-Mods stellen das großräumige Terrain und die Biome bereit.
+## 2. Intent and visual language
 
-Die Relikte sollen:
+Rare monumental discoveries should suggest an incomprehensibly large past.
+Existing worldgen mods provide large-scale landforms and biomes. Relics should:
 
-- schon aus der Entfernung eine klare, interessante Silhouette besitzen;
-- sich glaubwürdig in Boden, Wasser und Vegetation einfügen;
-- beim Näherkommen neue Details und teilweise zugängliche Räume zeigen;
-- mit wenigen wiederkehrenden Materialien und Formen eine zusammenhängende Welt andeuten;
-- große freie Landschaftsbereiche zwischen wichtigen Entdeckungen zulassen.
+- Have clear, interesting silhouettes from a distance.
+- Sit credibly within soil, water, and vegetation.
+- Reveal closer detail and selected accessible spaces.
+- Suggest a related world through limited recurring materials and forms.
+- Leave wide ordinary landscapes between major discoveries.
 
-Die Referenzen geben Atmosphäre, Komposition und Größenverhältnisse vor. Minecraft-Bauwerke werden eigenständig gestaltet. Nebel, Beleuchtung und extreme Sichtweiten der Vorbilder werden nicht als automatische Wirkung der Strukturen vorausgesetzt.
+References guide atmosphere, composition, and proportions. Fog, lighting, and
+extreme sightlines are not automatic effects of a Minecraft structure. Block
+design must remain convincing without special shaders.
 
-## 3. Umfang der ersten Umsetzung
+## 3. Initial scope
 
-### Bestandteil des Projekts
+Included: static vanilla-block relics, deliberately designed base forms and
+controlled variants, biome/height/terrain/frequency rules, local debris or detached
+parts, modpack integration, and configurable types/density.
 
-- Statische Relikte aus regulären Minecraft-Blöcken.
-- Bewusst gestaltete Grundformen mit modularen Varianten.
-- Regeln für Biome, Höhe, geeignete Geländeformen und Häufigkeit.
-- Lokale Begleitelemente, etwa abgetrennte Teile, Geröll oder Bewuchs.
-- Einbindung und Erprobung im bestehenden Modpack.
-- Konfigurierbare Auswahl und Dichte der Relikttypen.
+Possible later additions: more catalog motifs, optional Biomes O' Plenty material
+variants, subtle sounds, rare lights, small narrative finds, and specialized
+generation techniques for very large structures.
 
-### Für spätere Ausbaustufen offen
+Moving or controllable mechs, combat systems, custom dimensions, and wholesale
+terrain regeneration are outside the first implementation.
 
-- Weitere der fünf Motive nach Abschluss des Prototyps.
-- Zusätzliche Materialien aus Biomes O’ Plenty als optionale Varianten.
-- Dezente Geräusche, seltene Lichtquellen und kleine erzählerische Fundstücke.
-- Spezielle technische Generierungsverfahren für besonders große Relikte.
+## 4. Technical direction
 
-Bewegliche oder steuerbare Mechs, neue Kampfsysteme, eigene Dimensionen und eine vollständige Gelände-Neugenerierung gehören nicht zum ersten Entwicklungsumfang.
+The project is an installable, data-driven Fabric structure mod. Lithostitched
+provides additional placement conditions and structure functionality. Custom code
+should be added only when a demonstrated need cannot be handled adequately by
+existing features.
 
-## 4. Technische Richtung: Mod mit datenbasierten Strukturen
-
-**Arbeitsentscheidung:** Veröffentlichung als installierbare Struktur-Mod; Bauwerke und ein großer Teil der Generierungsregeln werden als Strukturdaten eingebunden. Lithostitched dient als technische Grundlage. Eigener Programmcode wird gezielt ergänzt, wenn ein nachgewiesener Bedarf entsteht.
-
-| Ebene | Geplante Aufgabe |
+| Layer | Responsibility |
 | --- | --- |
-| Vorhandene Worldgen-Mods | Terrain und Biome erzeugen |
-| Eigene Strukturvorlagen | Form, Blockpalette, Innenräume und Bauteile der Relikte definieren |
-| Struktur- und Variantenregeln | Zusammenstellung, Ausrichtung, Beschädigung und Häufigkeit bestimmen |
-| Lithostitched | Erweiterte Platzierungsbedingungen und Strukturfunktionen bereitstellen |
-| Eigener Code bei Bedarf | Anforderungen umsetzen, die sich mit vorhandenen Funktionen nicht ausreichend ausdrücken lassen |
+| Existing worldgen mods | Terrain and biomes |
+| Structure templates | Shapes, palettes, interiors, and components |
+| Structure/variant rules | Assembly, orientation, damage, and distribution |
+| Lithostitched | Additional placement conditions and structure support |
+| Custom code if needed | Specific missing capabilities |
 
-Lithostitched bietet datenbasierte Strukturerweiterungen und zusätzliche Platzierungsbedingungen. Dazu gehören Prüfungen von Biomen und Höhen sowie wiederholte Prüfungen über ein Raster. Diese Funktionen sind eine Grundlage für die Standortauswahl; ihre Eignung für unsere tatsächlichen Reliktgrößen muss im Prototyp geprüft werden. Quellen: [Projektbeschreibung](https://modrinth.com/mod/lithostitched), [Placement Conditions](https://github.com/Apollounknowndev/lithostitched/wiki/Placement-Conditions), [Structure Types](https://github.com/Apollounknowndev/lithostitched/wiki/Structure-Types).
+References: [Lithostitched project](https://modrinth.com/mod/lithostitched),
+[Placement Conditions](https://github.com/Apollounknowndev/lithostitched/wiki/Placement-Conditions),
+[Structure Types](https://github.com/Apollounknowndev/lithostitched/wiki/Structure-Types).
+Biome, height, and repeated-grid checks provide a foundation, not automatic proof
+that every large footprint is suitable. Packaging as a mod alone does not expand
+generation limits. A future datapack edition would still require Lithostitched
+where its features are used.
 
-Eine Verpackung als Mod erweitert allein noch keine Generierungsgrenzen. Zusätzliche Fähigkeiten stammen aus der verwendeten Bibliothek oder eigenem Code. Eine spätere Datapack-Ausgabe wäre nur für die Funktionen sinnvoll, die sich damit tatsächlich abbilden lassen; bei Lithostitched-Funktionen bleibt dessen Mod-Abhängigkeit bestehen.
+The target is now confirmed as Minecraft 26.2 / Fabric 0.19.5, with exact
+dependencies in [Target environment](docs/TARGET_ENVIRONMENT.md). Earlier 1.21.1
+assumptions are obsolete. Initial palettes use vanilla blocks to avoid extra
+material dependencies. Compatibility requires explicit tests.
 
-### Zielumgebung vor Entwicklungsbeginn festhalten
+## 5. Generation principles
 
-Ausgangspunkt ist das aktuelle Modpack mit:
+### Site selection
 
-- Terralith;
-- Tectonic;
-- Biomes O’ Plenty;
-- Dungeons & Taverns.
+1. Define appropriate biomes/tags per type.
+2. Select a candidate under configured frequency rules.
+3. Check relevant heights, relief, and unsuitable areas such as water.
+4. Choose/check a compatible prepared variant and orientation.
+5. Place through normal world generation.
+6. Add associated local detail reproducibly.
 
-Minecraft-Version, Loader, genaue Mod-Versionen und Lithostitched-Version werden anhand eines aktuellen Modpack-Exports festgeschrieben. Frühere Angaben zu Fabric und Minecraft 1.21.1 gelten bis dahin als zu prüfende Arbeitsannahme.
-
-Die erste Gestaltung nutzt möglichst Vanilla-Blöcke. Dadurch bleibt die grundlegende Optik auch ohne zusätzliche Material-Abhängigkeiten prüfbar. Die Verträglichkeit mit den genannten Mods wird ausdrücklich getestet und nicht allein aus gemeinsamen Bibliotheken abgeleitet.
-
-## 5. Generierungsprinzip
-
-### Standortauswahl
-
-1. Für jeden Relikttyp passende Biome beziehungsweise Biome-Tags definieren.
-2. Einen Standort nach den eingestellten Häufigkeitsregeln auswählen.
-3. Das Umfeld über die relevante Grundfläche prüfen: Höhe, Höhenunterschiede und ungeeignete Bereiche wie Wasser bei einem Landrelikt.
-4. Eine zum Standort geeignete Variante und Ausrichtung festlegen.
-5. Das Relikt über die reguläre Welterzeugung platzieren.
-6. Zugehörige lokale Details nach festen, reproduzierbaren Regeln ergänzen.
-
-Wenn ein Standort ungeeignet ist, wird er verworfen. Eine erkennbare Pose darf nicht beliebig verzogen werden, nur um jede Hanglage zu bedienen.
+Reject unsuitable sites. Do not arbitrarily deform a recognizable pose to fit
+every slope. The implemented alpha sequence is described in [Worldgen](docs/WORLDGEN.md).
 
 ### Variation
 
-Die Variation arbeitet mit entworfenen Bauteilen und Zuständen:
+Use designed alternatives: damaged components, present/absent optional parts,
+prepared poses, environment-appropriate surfaces and plants, and bounded burial.
+Free random recombination is not the objective. Every allowed variant must stay
+coherent and recognizable. The alpha currently has one prepared form per type.
 
-- alternative beschädigte Bauteile;
-- vorhandene oder fehlende Teile;
-- mehrere vorbereitete Posen, soweit gestalterisch sinnvoll;
-- auf die Umgebung abgestimmte Oberflächen und Vegetation;
-- unterschiedliche, kontrollierte Verschüttung.
+### Size and embedding
 
-Eine freie Zufallskombination sämtlicher Einzelteile ist nicht das Gestaltungsziel. Die Grundform muss in jeder zulässigen Variante zusammenhängend und erkennbar bleiben.
+Use a few fixed sizes and validate silhouette, structure limits, and generation
+cost. The latest Blender dimensions are measured export bounds, but their worldgen
+suitability is still unproven. Site checks and terrain modification are separate:
+a valid site does not automatically create a convincing transition. Design burial,
+exposed parts, and local companion features explicitly.
 
-### Größen und Einbettung
+Assembly must remain reproducible across chunks. Do not assume larger height or
+size settings alone solve placement problems.
 
-Für den Prototyp werden wenige feste Größen gebaut. Endgültige Abmessungen werden nach Silhouettentests, Prüfung der Strukturgrenzen und Messung der Generierung festgelegt.
+## 6. Modpack integration
 
-Geländeprüfungen und Geländeänderungen sind getrennte Aufgaben: Ein gültiger Standort erzeugt noch keinen natürlich aussehenden Übergang. Einbettung, freiliegende Teile und lokale Begleitelemente werden daher bewusst gestaltet.
-
-Zusammensetzung und Platzierung müssen über mehrere Chunks reproduzierbar funktionieren. Zusätzliche Höhen- oder Größenfreigaben werden nicht ungeprüft als Lösung angenommen.
-
-## 6. Zusammenspiel mit dem Modpack
-
-| Bestandteil | Was wir prüfen |
+| Component | Review focus |
 | --- | --- |
-| Terralith | Passende Biome, Oberflächenmaterialien und Übergänge |
-| Tectonic | Höhenunterschiede, großräumige Täler, Hanglagen und verfügbare Bauhöhe |
-| Biomes O’ Plenty | Biome-Zuordnung, Vegetation und mögliche zusätzliche Materialvarianten |
-| Dungeons & Taverns | Gesamtdichte der Entdeckungen und unerwünschte Überlagerung von Strukturen |
-| Vorhandene Grafik- und Sichtweitenmods | Lesbarkeit der Silhouetten aus der tatsächlich genutzten Entfernung |
+| Terralith | Suitable biomes, surface materials, transitions |
+| Tectonic | Relief, broad valleys, slopes, available build height |
+| Biomes O' Plenty | Biome mapping, vegetation, possible material variants |
+| Dungeons & Taverns | Overall discovery density and unwanted overlaps |
+| Graphics / distance mods | Silhouette readability at actual viewing distances |
 
-Für Dungeons & Taverns und andere Strukturen werden mögliche Überlagerungen zunächst gezielt untersucht. Geeignete Abstands- oder Ausschlussregeln werden anhand der verfügbaren Technik umgesetzt; eine globale Kollisionsfreiheit wird nicht vorausgesetzt.
+Investigate overlaps explicitly and implement distance/exclusion rules supported
+by the chosen technology. Global collision freedom is not assumed. Shaders and
+long sightlines may strengthen good geometry, not replace it.
 
-Die Relikte müssen auch bei normaler Darstellung verständlich aussehen. Shader und große Sichtweiten dürfen ihre Wirkung verstärken. Sie werden nicht als Ersatz für eine gute Blockgestaltung behandelt.
+## 7. Development phases
 
-## 7. Entwicklungsphasen
+| Phase | Deliverable / completion criterion |
+| --- | --- |
+| 0 — Environment | Reproducible target, exact dependencies, separate test world |
+| 1 — Design | Recognizable Obelisk/Colossus silhouettes, limited palettes, established dimensions |
+| 2 — Technical prototype | Natural Obelisk and complete cross-chunk Colossus placement |
+| 3 — Embedding and variants | Site checks, burial, vegetation, convincing placement in different suitable terrain |
+| 4 — Integration | Full-pack generation, tuned frequency, performance/errors checked; playable version 0.1 |
+| 5 — More motifs | Ruined tower and titan skull integrated and accepted |
+| 6 — World tree | Dedicated tree/root/leaf/generation prototype, added if cost and effect justify it |
 
-| Phase | Arbeit | Konkretes Ergebnis / Abschlusskriterium |
-| --- | --- | --- |
-| 0 – Zielumgebung | Aktuellen Modpack-Export erfassen, Versionen festschreiben, separate Testwelt vorbereiten | Reproduzierbare Entwicklungsumgebung und dokumentierte Abhängigkeiten |
-| 1 – Gestaltung | Koloss und Obelisk zunächst in einfachen Blockformen bauen; Palette und Maßstab prüfen | Beide Silhouetten sind aus mehreren Entfernungen erkennbar; Ausgangsabmessungen stehen fest |
-| 2 – Technischer Durchstich | Obelisk natürlich generieren; danach den Koloss über mehrere Chunks platzieren | Automatische Platzierung funktioniert in geeigneten Bereichen ohne unvollständige Bauteile |
-| 3 – Einbettung und Varianten | Standortprüfungen, vorbereitete Varianten, Verschüttung und Bewuchs ergänzen | Beide Relikte wirken in unterschiedlichen passenden Landschaften glaubwürdig |
-| 4 – Integration | Im vollständigen Modpack erzeugen, Häufigkeit abstimmen, Laufzeit und Fehlerfälle prüfen | Erste spielbare Version 0.1 mit Koloss und Obelisk |
-| 5 – Weitere Motive | Ruinenturm und Titanenschädel bauen und in denselben Ablauf integrieren | Ausbau auf vier geprüfte Relikttypen |
-| 6 – Weltenbaum | Baumform, Wurzeln, Blattverhalten und Generierung gesondert erproben | Fünftes Motiv ergänzt, sofern Aufwand und Wirkung überzeugen |
+The alpha has completed initial implementation and selected server checks.
+Reference-based asset design has progressed separately. Remaining work centers on
+their integration and broader acceptance, not restarting environment discovery.
 
-**Erster Meilenstein:** Eine neue Testwelt des bestehenden Modpacks erzeugt sowohl einen klar erkennbaren Wüstenobelisk als auch einen überzeugend eingebetteten Koloss ohne manuelle Nacharbeit.
+**First full milestone:** a new world in the intended pack naturally produces
+both a readable desert Obelisk and a convincingly embedded Colossus without manual repair.
 
-## 8. Prüfung und Abnahme von Version 0.1
+## 8. Version 0.1 acceptance
 
-### Gestaltung
+### Design
 
-- Koloss und Obelisk sind aus Nähe, mittlerer Entfernung und mit den üblichen Sichtweiteneinstellungen erkennbar.
-- Im gleichen Blickfeld wirken große Relikte nicht unbeabsichtigt wie eine dichte Sammlung.
-- Übergänge zum Boden sind glaubwürdig; frei liegende Teile wirken beabsichtigt.
-- Zugängliche Innenräume sind tatsächlich erreichbar.
+- Both relics read at close, medium, and normal configured viewing distances.
+- Major relics do not unintentionally form a dense collection in one view.
+- Terrain transitions and exposed parts look intentional.
+- Intended interiors are actually accessible.
 
-### Generierung und Kompatibilität
+### Generation and compatibility
 
-- Mindestens drei feste Test-Seeds verwenden.
-- Mehrere natürlich generierte Exemplare jedes Relikttyps prüfen; reine manuelle Platzierung genügt nicht.
-- Flachland, Hanglage, Wassergrenze und Biome-Übergänge gezielt abdecken.
-- Generation über Chunk-Grenzen und bei unterschiedlicher Erkundungsrichtung prüfen.
-- Welt speichern, neu laden und angrenzende Chunks weiter erzeugen.
-- Überlagerungen mit Dungeons & Taverns und anderen vorhandenen Strukturen untersuchen.
-- Für die erste Version werden neue Chunks genutzt; das nachträgliche Einfügen in bereits erzeugte Gebiete ist ein separates Thema.
+- Use at least three fixed seeds and several natural examples of each type.
+- Test plains, slopes, water margins, and biome boundaries.
+- Cover chunk boundaries and different exploration directions.
+- Save, reload, and continue generating adjacent chunks.
+- Inspect overlap with Dungeons & Taverns and other installed structures.
+- Use new chunks; retroactive insertion is a separate feature.
 
-### Laufzeit
+### Performance
 
-Die vollständige Modpack-Testwelt wird einmal ohne und einmal mit der Erweiterung unter vergleichbaren Bedingungen erzeugt. Erfasst werden Chunk-Generierungszeiten, auffällige Stillstände, Speicherbedarf und Fehlerprotokolle. Konkrete Leistungsgrenzen werden anhand dieser Ausgangsmessung festgelegt.
+Compare equivalent fresh full-pack worlds with and without Relic Mod. Record
+chunk-generation time, stalls, memory, and errors. Set budgets from the baseline
+before acceptance. Static structures need no movement or AI simulation, but
+generation and rendering many blocks still have costs.
 
-Ein statischer Koloss benötigt keine laufende Bewegungs- oder KI-Simulation. Seine Generierung und die Darstellung vieler Blöcke verursachen trotzdem Aufwand.
+## 9. Decisions still open
 
-## 9. Noch offene Festlegungen
+- Which new designs should replace the alpha assets, and at what final game scale.
+- Terrain tolerances, density, and spacing after exploration tests.
+- Additional variants and any required custom placement/diagnostic code.
+- Full-release licensing and publication details.
 
-- Endgültiger Projektname.
-- Bestätigte Minecraft-, Loader- und Mod-Versionen.
-- Konkrete Abmessungen nach den ersten Bauversuchen.
-- Häufigkeit und Mindestabstände nach Erkundungstests.
-- Welche Varianten pro Relikt die erste Version erhält.
-- Ob einzelne Platzierungsanforderungen eigenen Code benötigen.
+Target versions and the basic pipeline are now established. Design choices and
+test evidence should resolve the remaining questions.
 
-Diese Punkte blockieren das schriftliche Konzept nicht. Sie werden in den genannten Phasen anhand konkreter Bauwerke und Testwelten entschieden.
+## 10. Additional references
 
-## 10. Weitere bereitgestellte Referenzen
+These remain supplementary inspiration, not automatic additions to the first catalog:
 
-Die folgenden Beiträge bleiben ergänzende Inspiration; sie erweitern den ersten Katalog nicht automatisch um zusätzliche Objekttypen:
+- [Warden-Class Archaean Colossi](https://www.instagram.com/reel/DcwuU3SB5gc/) — additional bodies, weathering, and architecture.
+- [Fragment of the Fallen](https://www.instagram.com/reel/DbD0PB7iD2Q/) — later construction on Colossus remains.
+- [The Ancient One](https://www.instagram.com/p/DcoGiYTkWjH/) — a glowing relic in a dark ravine.
+- [Pilgrimage to the Finger of God](https://www.instagram.com/p/Db8UdK1kXdJ/) — extreme proportions, open landscape, and enigmatic geometry.
 
-- [Warden-Class Archaean Colossi](https://www.instagram.com/reel/DcwuU3SB5gc/) – zusätzliche Kolossformen, Verfall und Architektur.
-- [Fragment of the Fallen](https://www.instagram.com/reel/DbD0PB7iD2Q/) – spätere Nutzung und Bebauung von Koloss-Überresten.
-- [The Ancient One](https://www.instagram.com/p/DcoGiYTkWjH/) – leuchtendes Relikt in einer dunklen Schlucht.
-- [Pilgrimage to the Finger of God](https://www.instagram.com/p/Db8UdK1kXdJ/) – extreme Größenverhältnisse, freie Landschaft und rätselhafte Geometrie.
-
-Die sechs Reels wurden anhand von über die Laufzeit verteilten Bildern und, soweit vorhanden, Sprache ausgewertet. Bei den drei Bildbeiträgen standen die enthaltenen Zeichen-Zeitraffer zur Verfügung; die vollständigen Bildkarussells wurden nicht vorausgesetzt.
-
+The original review sampled the six reels across their duration and used available
+process animations for the three image posts; it did not assume complete carousel
+coverage. The later Obelisk study additionally inspected both published *Painted
+Desert* paintings and its process animation. The lore bible records the scope of
+its separate visual review.

@@ -1,42 +1,39 @@
-# Relikte aus Blender nach Minecraft
+# From Blender to Minecraft relics
 
-Stand: 01.10.2026
+Updated: October 1, 2026.
 
-## Entscheidung und aktueller Stand
+## Pipeline and current status
 
-**Blender → OBJ → ObjToSchematic 1.0 → Sponge-`.schem` → Java-`.nbt` → Worldgen**
+**Blender → OBJ → ObjToSchematic 1.0 → Sponge `.schem` → Java `.nbt`** is implemented.
+**Integration into the mod build and worldgen is still pending.** The playable
+alpha continues to use `tools/relic_assets.py`.
 
-Wir verwenden die kostenlose, quelloffene **ObjToSchematic-Version 1.0** lokal.
-VoxelVision ist nicht mehr Voraussetzung. Die aktuelle Webversion 2.0 ist ein
-anderes Produkt; deren Pro-Funktionen werden für diese Pipeline nicht benötigt.
+We use the free, open-source **ObjToSchematic 1.0** locally. VoxelVision is no
+longer required. The current 2.0 web product and its Pro features are not needed.
 
-Der erste Koloss wurde mit **Blender 5.2.2**, Node **24.16.0** und dem offenen
-ObjToSchematic-Commit `b611b52c7a87cad99127908598bab019fe9e7c3f` durch die Kette
-geschickt: **99 × 66 × 71 Blöcke, 26.169 gesetzte Blöcke, neun Blocktypen**.
-Die Vorschauen werden aus der konvertierten NBT-Datei mit Minecraft-Texturen
-gerendert. Sie sind kein Ingame-Nachweis.
+The pipeline was run with **Blender 5.2.2**, **Node 24.16.0**, and ObjToSchematic
+commit `b611b52c7a87cad99127908598bab019fe9e7c3f`.
 
-Die automatische Übernahme in den Mod-Build und die Abnahme in Minecraft stehen
-noch aus. Die Alpha-Ressourcen werden weiterhin durch `tools/relic_assets.py`
-erzeugt. Der neue Koloss ist eine erste Form- und Materialstudie.
+| Asset | Config under `design/` | Dimensions X/Y/Z | Blocks | Block types | Tiles |
+| --- | --- | --- | --- | --- | --- |
+| First Blender experiment | `colossus-ots.json` | 99 × 66 × 71 | 26,169 | 9 | 19 |
+| [Colossus v2](COLOSSUS_V2.md) | `colossus-v2.json` | 181 × 160 × 227 | 182,734 | 11 | 100 |
+| [Colossus v3](COLOSSUS_V3.md) | `colossus-v3.json` | 181 × 209 × 227 | 221,221 | 11 | 124 |
+| [Obelisk v2](OBELISK_V2.md) | `obelisk-v2.json` | 23 × 209 × 19 | 90,497 | 6 | 7 |
 
-**Alternative nach Sichtung der Originalreferenz:** [Colossus v2](COLOSSUS_V2.md)
-nutzt einen bronzenen Kuppelhelm, Atemschläuche, breitere Panzerformen und einen
-angenommenen Maßstab von 160 Blöcken Höhe. Die Erweiterung **[Colossus v3](COLOSSUS_V3.md)**
-mit unterirdischem Bauch und abgerissener Hüfte hat insgesamt 209 Blöcke Höhe.
-Configs: `design/colossus-v2.json` und `design/colossus-v3.json`;
-Ausgaben: `design/generated/colossus-v2/` und `design/generated/colossus-v3/`.
+Colossus v2 follows the original reference; v3 adds the buried abdomen and torn
+hip while keeping almost the same above-ground scale. Obelisk v2 follows *Painted
+Desert*, with a solid core and a 32-block buried foot. All dimensions are export
+bounds, including the detached arm where applicable.
 
-**Obelisk nach Originalreferenz:** [Obelisk v2](OBELISK_V2.md) übersetzt Josh Whites
-*Painted Desert* in eine schlanke, flach gekrönte Stele mit warmen mineralischen
-Flächen. Die 23 × 209 × 19 Blöcke große Vorlage besitzt einen massiven Steinkern
-und einen 32 Blöcke tiefen Fuß. Config: `design/obelisk-v2.json`.
+Previews render the actual converted NBT with Minecraft textures in Blender.
+They are not in-game evidence.
 
-## 1. Lokale Werkzeuge einrichten
+## 1. Set up local tools
 
-Benötigt werden Blender, Git, Node.js mit npm und Python 3.11 oder neuer.
-Pillow wird ausschließlich für das Übersichtsbild benötigt (`python -m pip install Pillow`).
-Alle Befehle vom Repository-Hauptverzeichnis aus; Beispiele für PowerShell:
+Install Blender, Git, Node.js with npm, and Python 3.11 or newer. Pillow is used
+to assemble review sheets (`python -m pip install Pillow`). Run all commands from
+the repository root. PowerShell examples:
 
 ```powershell
 git clone --branch ots-1.0 https://github.com/LucasDower/ObjToSchematic.git .work/ObjToSchematic
@@ -44,23 +41,39 @@ git -C .work/ObjToSchematic checkout b611b52c7a87cad99127908598bab019fe9e7c3f
 npm.cmd --prefix .work/ObjToSchematic install --no-audit --no-fund
 ```
 
-Upstream: [ObjToSchematic](https://github.com/LucasDower/ObjToSchematic),
-Lizenz BSD-3-Clause. Der Quellcode bleibt in `.work/`, einschließlich seiner
-Lizenzdatei. Er und seine Abhängigkeiten werden nicht in die Mod-JAR gepackt.
-Der Legacy-Zweig erhält keine regulären Updates. Sein Lockfile benötigt unter
-dem getesteten npm eine Ergänzung für `fsevents`; deshalb hier `install` statt
-`ci`. Die geprüfte Upstream-Revision ist im Projekt-Config festgehalten.
+Upstream [ObjToSchematic](https://github.com/LucasDower/ObjToSchematic) is licensed
+under BSD-3-Clause. Keep its source and license in `.work/`; neither it nor its
+dependencies are packaged in the mod JAR. The legacy branch no longer receives
+regular updates. Its lockfile needs an `fsevents` addition with the tested npm,
+which is why the command uses `install` rather than `ci`. Each project config
+records the checked upstream revision.
 
-Der mitgelieferte Headless-Einstieg wartet den inzwischen asynchronen Import
-nicht ab und schreibt das Exportergebnis nicht auf die Platte. Unser Adapter
-`tools/obj_to_schem.cjs` verwendet die vorhandenen Import-, Voxel- und
-Exportklassen direkt und ergänzt Node-Loader für Webpack-Ressourcen. Änderungen
-am Upstream-Quellcode sind dafür nicht nötig.
+The upstream headless entry point does not await its now-asynchronous import or
+write the export result to disk. `tools/obj_to_schem.cjs` directly uses the upstream
+importer, voxelizer, and exporter, with Node loaders for Webpack resources.
+No upstream source changes are required.
 
-## 2. Koloss erzeugen, konvertieren und ansehen
+## 2. Generate, convert, and preview an asset
+
+For the current Colossus v3:
 
 ```powershell
 $blender = "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe"
+& $blender --background --python-exit-code 1 --python tools/create_colossus_v3.py
+node tools/obj_to_schem.cjs design/colossus-v3.json
+python tools/schem_to_nbt.py design/generated/colossus-v3/colossus-v3.schem design/generated/colossus-v3/colossus-v3.nbt --air omit --tile-size 32
+& $blender --background --python-exit-code 1 --python tools/render_ots_preview.py -- --config design/colossus-v3.json
+python tools/inspect_ots_result.py --config design/colossus-v3.json
+```
+
+[Colossus v2](COLOSSUS_V2.md) and [Obelisk v2](OBELISK_V2.md) have complete commands
+on their asset pages. Full rendering can take more than two minutes. Optional
+renderer flags include `--source-only`, `--blocks-only`, `--landscape-only`, and
+`--presentation-only`; the last renders the landscape and scale comparison.
+
+The original experiment remains reproducible:
+
+```powershell
 & $blender --background --python-exit-code 1 --python tools/create_blender_colossus.py
 node tools/obj_to_schem.cjs design/colossus-ots.json
 python tools/schem_to_nbt.py design/generated/ots/colossus.schem design/generated/ots/colossus.nbt --air omit --tile-size 32
@@ -68,121 +81,128 @@ python tools/schem_to_nbt.py design/generated/ots/colossus.schem design/generate
 python tools/inspect_ots_result.py
 ```
 
-Ausgaben unter `design/generated/ots/`:
+### Output files
 
-| Datei | Zweck |
+Versioned assets write to `design/generated/<asset>/`; the original experiment
+uses `design/generated/ots/` with the stem `colossus`.
+
+| Output | Purpose |
 | --- | --- |
-| `colossus-source.blend` | Bearbeitbares Blender-Modell aus dem Generator |
-| `colossus.obj`, `colossus.mtl` | Triangulierte Geometrie und Blender-Materialexport |
-| `colossus.schem` | Tatsächlicher ObjToSchematic-Export, Sponge v2 |
-| `colossus.ots.json` | Upstream-Revision, Einstellungen, Blockzahlen und SHA-256 |
-| `colossus.nbt`, `colossus.manifest.json` | Ganze Java-Vorlage und Konvertierungsdaten |
-| `colossus_tiles/` | 19 starre Teilvorlagen, maximal 32 Blöcke pro Kante |
-| `colossus-blocks.blend` | Inspizierbares NBT-Oberflächenmesh mit gepacktem Texturatlas |
-| `01-blender-source.png` | Ursprungsmodell mit einfachen Materialfarben |
-| `02-blocks-front.png` bis `04-blocks-back.png` | Drei Ansichten der tatsächlichen NBT-Blöcke |
-| `colossus-review.png` | Beschriftetes Vergleichsbild |
-| `verification.json` | Blockgenauer Vergleich von Schematic, NBT und Teilvorlagen |
+| `<asset>-source.blend` | Editable Blender model |
+| `<asset>.obj`, `<asset>.mtl` | Triangulated geometry and exported materials |
+| `<asset>.schem` | Actual ObjToSchematic Sponge v2 output |
+| `<asset>.ots.json` | Upstream revision, settings, counts, and SHA-256 hashes |
+| `<asset>.nbt`, `<asset>.manifest.json` | Whole Java template and conversion metadata |
+| `<asset>_tiles/` | Nonempty rigid tiles, at most 32 blocks per edge |
+| `<asset>-blocks.blend` | NBT surface mesh with packed texture atlas |
+| `01-blender-source.png` | Source model with simple material colors |
+| `02-blocks-front.png` through `04-blocks-back.png` | Actual NBT block views |
+| `<asset>-review.png` | Labeled overview |
+| `verification.json` | Block-exact schematic/NBT/tile comparison |
 
-Die große Bodenplatte und der türkise Zwei-Block-Marker sind Präsentationshilfen
-und werden nicht in die Struktur exportiert. Kleine modellierte Erdhügel gehören
-dagegen zum Export. Die Bilder nutzen Blender-Beleuchtung und einen Legacy-Atlas.
+Additional landscape, reference, scale, and cutaway views are listed on each asset
+page. Reference sheets require the local image named by `reference_frame`; that
+media is not included in a fresh checkout. The inspector skips reference-sheet
+creation when the image is unavailable. Export validation still works with
+`--check-only`.
 
-Erneute Aufrufe überschreiben gleichnamige generierte Ausgaben. Vor eigenen
-Änderungen die `.blend` z. B. nach `design/blender/colossus.blend` kopieren und
-den OBJ-Ausgabepfad in einer eigenen Config festlegen. Generierte Dateien sind
-nicht versioniert; Skripte und `design/colossus-ots.json` sind die reproduzierbaren Quellen.
+Scale comparisons also need their earlier model locally: the Colossus views use
+`design/generated/ots/colossus.nbt` from the original experiment; Obelisk v2 uses
+`src/main/resources/data/relics/structure/obelisk.nbt`, generated by
+`python tools/build.py`. Generate the relevant baseline before rendering to obtain
+`06-size-comparison.png`. The renderer skips that comparison if its baseline is absent.
 
-## 3. Modell, Materialien und Koordinaten
+Large staging planes, figures, and illustrative landscapes are not exported.
+Small earth features modeled into the asset itself are included. Lighting and
+textures come from Blender and a legacy atlas.
 
-- Der Generator arbeitet gedanklich in Minecraft-XYZ, Vorderseite **−Z**.
-  Blender-Koordinaten sind `(X, −Z, Y)`; Export mit Forward `NEGATIVE_Z`, Up `Y`.
-- OBJ immer trianguliert exportieren. Zusammengehörige Teile, insbesondere Arm
-  und Rumpf, im selben Export und Koordinatensystem belassen.
-- Die Config legt die gewünschte Höhe und die Materialpalette fest. OTS skaliert
-  die gesamte Geometrie auf diese Höhe; ein angehängtes tieferes Teil verändert
-  damit den Maßstab. Die tatsächlichen Maße stehen im Konvertierungsmanifest.
-- Der CLI-Adapter unterstützt zunächst **benannte, einfarbige OBJ-Materialien**.
-  Ihre Namen werden in der Config auf Atlas-Blöcke abgebildet und mit deren
-  Durchschnittsfarbe voxelisiert. OTS übernimmt anschließend die Farbauswahl
-  innerhalb dieser Palette: kein Dithering, Farbgenauigkeit 255, erste Oberfläche
-  bei überlappenden Voxeln. Das ist keine allgemeine MTL-/Textur-Importpipeline.
-- Unbekannte Materialien oder nicht im Atlas enthaltene Blöcke führen zu einem
-  Fehler. Die Palette enthält Tiefenschiefer, Basalt, schwarzen Beton, Moos,
-  Erde, Eichenbretter und verwittertes geschnittenes Kupfer.
-- Der Legacy-Atlas enthält kein `waxed_weathered_cut_copper`; im Prototyp wird
-  `weathered_cut_copper` verwendet. Vor dem Spieleinsatz ist eine gezielte
-  Umstellung auf die gewachste Variante sinnvoll, wenn der Farbzustand bleiben soll.
+Rerunning generators overwrites matching generated outputs. Before manual edits,
+copy the `.blend` to a separate source location, such as `design/blender/`, and
+use your own OBJ path/config. Generated files are ignored by Git; committed
+scripts and JSON configs are the reproducible sources.
 
-**Geometriegrenze:** Der verwendete BVH-Ray-Voxeliser rastert Oberflächen und füllt
-geschlossene Volumen nicht automatisch massiv. Auch ein massiver Blender-Würfel
-ist danach zunächst eine Blockhülle. Für stabile Wände und einen gezielt
-begehbaren Koloss müssen Materialfüllung und Innenraumdefinition separat
-geprüft beziehungsweise ergänzt werden. Treppen und Stufen werden in diesem
-ersten Adapter nicht erzeugt.
+## 3. Models, materials, and coordinates
 
-Für massive Vorlagen gibt es jetzt die ausdrücklich aktivierte Config-Option
-`fill_enclosed`: Sie nennt ein Material aus `materials` und füllt nach der
-Voxelisierung abgeschlossene Innenzellen. Obelisk v2 verwendet dafür Sandstein.
-Die Colossus-Configs bleiben bei Oberflächenvoxelisierung. Details und Tests
-stehen in [OBELISK_V2.md](OBELISK_V2.md).
+- Generators use Minecraft XYZ, facing **−Z**. Blender coordinates are `(X, −Z, Y)`;
+  OBJ export uses Forward `NEGATIVE_Z` and Up `Y`.
+- Export triangulated OBJ. Keep associated parts, especially the arm and torso,
+  in the same export and coordinate system.
+- Configured height scales the entire model. Adding deeper geometry changes that
+  scale unless the export height is adjusted. Read actual bounds from the manifest.
+- The CLI supports **named, flat-color OBJ materials**. Configs map names to atlas
+  blocks; their average colors drive voxelization. OTS then assigns blocks from
+  the allowed palette with no dithering, color resolution 255, and first-surface
+  overlap handling. This is not a general textured-MTL import pipeline.
+- Unknown materials or blocks absent from the atlas fail explicitly. Palettes are
+  asset-specific: the reference Colossus uses copper, terracotta, dark joints,
+  and vegetation; the Obelisk uses terracotta and sandstone.
+- The legacy atlas lacks `waxed_weathered_cut_copper`. Review copper aging and
+  explicitly migrate to suitable waxed states before game use if colors must stay fixed.
 
-## 4. Luftregel und NBT-Konvertierung
+The BVH-ray voxelizer rasterizes **surfaces**. Even a solid Blender cube initially
+becomes a block shell. Colossus wall thickness, breaks, and interior space need
+separate validation. The adapter does not generate stairs or slabs.
 
-Der Konverter funktioniert unabhängig von ObjToSchematic mit Sponge v2/v3,
-gzip-komprimiert oder unkomprimiert. Keine zusätzlichen Python-Pakete nötig:
+### Optional solid fill
+
+`fill_enclosed` names a material in the config's `materials` map. A six-connected
+exterior flood fill identifies sealed empty cells and fills them before block
+assignment. Obelisk v2 uses sandstone through `"fill_enclosed": "core"`.
+Colossus configs do not enable this option. The flood-fill grid is capped at
+32 million cells. See [Obelisk v2](OBELISK_V2.md) for the core verification.
+
+## 4. Air policy and NBT conversion
+
+The converter independently accepts Sponge v2/v3, gzip-compressed or uncompressed,
+without extra Python packages:
 
 ```powershell
 python tools/schem_to_nbt.py model.schem design/imported/model.nbt --air omit
 ```
 
-| Option / Block | Wirkung |
+| Option / block | Effect |
 | --- | --- |
-| `--air omit` | Luft auslassen; Gelände bleibt dort stehen, auch in Innenräumen |
-| `--air keep` | Gesamte Luft übernehmen; auch Außenluft im Exportquader räumt Gelände weg |
-| `minecraft:structure_void` | Immer auslassen; bestehendes Gelände erhalten |
+| `--air omit` | Skip air; retain terrain at those positions, including rooms |
+| `--air keep` | Preserve all air; exterior air inside the export box also clears terrain |
+| `minecraft:structure_void` | Always omit; preserve existing terrain |
 
-`--air` muss ausdrücklich angegeben werden. Weder die Oberflächenvoxelisierung
-noch der Konverter unterscheiden automatisch freizuräumende Innenräume von
-Außenluft. Die Vorschau auf leerer Bühne belegt daher keine Gelände-Einbettung.
+The air option is mandatory. Neither surface voxelization nor conversion defines
+which room air must clear terrain. Solid filling is not an interior-air policy.
+A clear room in an empty-stage render therefore does not prove correct burial.
 
-Blockzustände werden übernommen, die Konvertierung rotiert nicht. Ein
-Schematic-Offset wird im Manifest dokumentiert, nicht auf Blockpositionen addiert.
-Entities und Block-Entities werden ausdrücklich abgelehnt. Große Exporte werden
-vollständig in den Arbeitsspeicher geladen.
+Block states are preserved without rotation. Schematic offsets are recorded in
+the manifest rather than added to coordinates. Entities and block entities are
+rejected explicitly. Large exports are loaded entirely into memory.
 
-**Versionen:** Der Legacy-Exporter schreibt DataVersion **3105** (Minecraft 1.19).
-Diese bleibt in der NBT erhalten; unsere Zielversion 26.2 verwendet **4903**.
-Es gibt keine automatische Registryprüfung oder Versionsmigration. Eine bloße
-Änderung dieser Zahl wäre keine Migration. Die verwendete Palette und ihre
-Darstellung müssen vor der Übernahme im Zielspiel geprüft werden.
+The legacy exporter writes **DataVersion 3105** (Minecraft 1.19), retained in NBT;
+the target game 26.2 uses **4903**. No registry validation or version migration is
+performed. Changing the number alone is not migration. Validate blocks and their
+appearance in the target game before integration.
 
-`--tile-size 32` erzeugt zusätzlich Teilvorlagen und relative Ursprünge im
-Manifest (zulässige Kantenlängen 1–128). Leere Teile werden ausgelassen. Die ganze
-Vorlage bleibt erhalten. Das Manifest ist keine Minecraft-Platzierungsdefinition;
-Worldgen müsste Teile bei Bedarf gemeinsam platzieren und drehen.
+`--tile-size 32` adds tiles and relative origins (allowed edge lengths: 1–128).
+Empty tiles are skipped and the whole template is retained. A manifest is not a
+Minecraft placement definition; worldgen would need to place and rotate parts together.
 
-## 5. Prüfungen und Worldgen-Übernahme
+## 5. Verification and integration
 
 ```powershell
-python tools/inspect_ots_result.py --check-only
+python tools/inspect_ots_result.py --config design/colossus-v3.json --check-only
+python tools/inspect_ots_result.py --config design/obelisk-v2.json --check-only
 python -m unittest discover -s tests -p test_schem_to_nbt.py -v
+node --test tests/voxel_fill.test.cjs
 ```
 
-Die Prüfung des echten Exports vergleicht alle Blockkoordinaten und Zustände,
-Abmessungen, Datenversion, Palette, Quell-/Exportprüfsummen sowie die verlustfreie
-Rekonstruktion aus Teilvorlagen. Die Konvertertests decken zusätzlich synthetische
-v2/v3-Quellen, Luftregeln, Blockzustände, mehrbyteige Indizes, Fehlerfälle und
-deterministische NBT-Ausgabe ab.
+Export checks compare all block coordinates/states, dimensions, data versions,
+palettes, source/export hashes, and lossless tile reconstruction. Asset-specific
+checks cover burial and the Obelisk core. Converter tests cover synthetic v2/v3
+inputs, air policies, states, multi-byte indices, errors, and deterministic NBT.
 
-**Noch ausstehend:** `python tools/build.py` erzeugt `obelisk.nbt` und
-`colossus.nbt` aus den bisherigen Python-Generatoren neu. Für eine Übernahme muss
-der Build geprüfte Importquellen ausdrücklich unterstützen. Außerdem müssen
-Struktur-ID, Template-Pool, Prüfgrundfläche, Bodenhöhe, Höhenversätze,
-Biome/Hangprüfungen und gegebenenfalls Teilpositionen zur neuen Geometrie passen.
-Siehe [WORLDGEN.md](WORLDGEN.md).
+`python tools/build.py` still regenerates the earlier `obelisk.nbt` and
+`colossus.nbt`. Supporting these new assets requires explicit build source
+selection and matching template-pool references, footprints, ground levels,
+vertical offsets, biome/slope conditions, and any tile transforms. Existing alpha
+placement settings are documented in [Worldgen](WORLDGEN.md).
 
-Nächste Abnahme: Form und Materialien beurteilen; anschließend Wandstärken,
-Brüche, Geländeanschluss und Innenraumluft fertigstellen. Im Spiel vier Drehungen,
-Blockpalette, Zugänglichkeit, Chunk-Grenzen und erneutes Laden prüfen. Natürliche
-Generierung bleibt ein eigener Test.
+Next acceptance work: finish wall thickness and interior air, check terrain joins,
+then test the palette, four rotations, accessibility, chunk boundaries, and reloads
+in Minecraft. Natural generation is a separate acceptance test.

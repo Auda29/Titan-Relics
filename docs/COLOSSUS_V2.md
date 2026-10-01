@@ -1,24 +1,50 @@
-# Colossus v2 – ursprünglicher Referenzentwurf
+# Colossus v2 — original reference-based design
 
-Colossus v2 bezeichnet den ersten Entwurf nach der Instagram-Referenz
-[Archaean Colossi](https://www.instagram.com/reel/DaoBxUEiBNa/).
-Die nachfolgende Erweiterung mit unterirdischem Bauch und abgerissener Hüfte
-heißt **[Colossus v3](COLOSSUS_V3.md)**.
+Updated: October 1, 2026.
 
-| Kennzahl | Colossus v2 |
+Colossus v2 is the first design based directly on the opening 0–5 seconds of
+[Archaean Colossi — The Archive In Between](https://www.instagram.com/reel/DaoBxUEiBNa/).
+It uses a bronze dome helmet, a narrow visor, respirator hoses, broad armor,
+vegetation, and a detached foreground arm. The later extension with an underground
+abdomen and torn hip is **[Colossus v3](COLOSSUS_V3.md)**.
+
+| Metric | Colossus v2 |
 | --- | --- |
-| Abmessungen X/Y/Z | 181 × 160 × 227 Blöcke |
-| Gesetzte Blöcke | 182.734 |
-| Blocktypen | 11 |
-| Teilvorlagen | 100 |
+| Dimensions X/Y/Z, including arm | 181 × 160 × 227 blocks |
+| Placed blocks | 182,734 |
+| Block types | 11 |
+| Nonempty 32-block tiles | 100 |
 
-- Config: `design/colossus-v2.json`
-- Generator: `tools/create_colossus_v2.py`
-- Ausgaben: `design/generated/colossus-v2/`
-- Bearbeitbare Quelle: `colossus-v2-source.blend`
-- Referenzvergleich: `colossus-v2-reference-review.png`
+The 160-block height is an artistic scale estimate, not a measured dimension of
+the reference. This asset is separate from both the playable alpha's Colossus
+and the first 66-block Blender experiment.
 
-Die lokalen Werkzeuge und die Konvertierungskette stehen im
-[Blender-Workflow](BLENDER_WORKFLOW.md). Der Generator wird in Blender ausgeführt;
-Konvertierung und Vorschauen verwenden `--config design/colossus-v2.json`
-beziehungsweise `node tools/obj_to_schem.cjs design/colossus-v2.json`.
+## Reproduce
+
+Follow [Blender workflow](BLENDER_WORKFLOW.md) for local dependencies. Run from
+the repository root:
+
+```powershell
+$blender = "C:\Program Files\Blender Foundation\Blender 5.2\blender.exe"
+& $blender --background --python-exit-code 1 --python tools/create_colossus_v2.py
+node tools/obj_to_schem.cjs design/colossus-v2.json
+python tools/schem_to_nbt.py design/generated/colossus-v2/colossus-v2.schem design/generated/colossus-v2/colossus-v2.nbt --air omit --tile-size 32
+& $blender --background --python-exit-code 1 --python tools/render_ots_preview.py -- --config design/colossus-v2.json
+python tools/inspect_ots_result.py --config design/colossus-v2.json
+```
+
+The generator is a wrapper around the shared implementation in
+`tools/create_colossus_v3.py`, selecting version 2 without the buried-hip extension.
+
+- Configuration: `design/colossus-v2.json`
+- Outputs: `design/generated/colossus-v2/`
+- Editable source: `colossus-v2-source.blend`
+- Block exports: `colossus-v2.schem`, `colossus-v2.nbt`
+- Reference comparison: `colossus-v2-reference-review.png` (requires the local reference image)
+- Verification: `verification.json`
+
+Source/export hashes, block coordinates and states, palette counts, bounds, and
+lossless reconstruction from tiles were checked. The images render exported NBT
+in Blender, not Minecraft. Surface voxelization, omitted air, and legacy
+DataVersion 3105 still require target-game review. Build and worldgen integration
+remain pending.

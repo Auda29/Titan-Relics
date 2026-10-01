@@ -1,60 +1,116 @@
-# Alpha-Testbericht
+# Alpha 1 test report
 
-Stand: 13.09.2026. Ziel ist `0.1.0-alpha.1` für Minecraft 26.2 mit Fabric 0.19.5 und Java 25. Dieser Bericht beschreibt die technische Alpha-Prüfung. Die breitere gestalterische Abnahme aus dem Umsetzungsplan steht noch aus.
+Recorded: September 13, 2026. English translation: October 1, 2026.
+Target: `0.1.0-alpha.1`, Minecraft 26.2, Fabric 0.19.5, Java 25.
+This is a historical technical-alpha report. The broader visual acceptance
+criteria in the implementation plan were not completed by these tests.
 
-## Verfahren
+## Method
 
-Alle Serverläufe verwendeten eigene, neu angelegte Welten unter `build/smoke/` mit Seed `731204`. Die Minecraft-EULA wurde vom Nutzer ausdrücklich für diese lokalen Tests akzeptiert. Der Server lauschte nur auf `127.0.0.1`, mit Whitelist und ohne RCON. Bestehende Spielwelten wurden nicht verwendet.
+All server runs used separate, newly created worlds under `build/smoke/`, with
+seed `731204`. The user explicitly accepted the Minecraft EULA for these local
+tests. The server listened only on `127.0.0.1`, with a whitelist and no RCON.
+Existing play worlds were not used.
 
-Der Test lädt Fabric und die Mod, platziert beide Vorlagen mit `/place template`, sucht natürliche Standorte mit `/locate`, lädt die umliegenden Chunks vollständig und speichert die Welt. Danach liest ein eigener Prüfer die tatsächlich gespeicherten Anvil-Regionen. Er vergleicht Blockzustände, Drehung, Abmessungen und explizite Luftzellen mit den NBT-Dateien aus genau der beim Start verwendeten Mod-JAR.
+The test loads Fabric and the mod, places both templates using `/place template`,
+locates natural sites with `/locate`, fully loads the surrounding chunks, and
+saves the world. A custom verifier then reads the saved Anvil regions and compares
+block states, rotation, dimensions, and explicit air against NBT from the exact
+mod JAR used by that run.
 
-Eine erfolgreiche Standortsuche allein zählt nicht als bestandene Generierung. Fehlende Chunks, unvollständige Strukturen und abweichende feste Blöcke lassen den Test fehlschlagen. Gras, Erde und Azaleenblätter sind beim Koloss ausdrücklich aus dem strikten Vergleich ausgenommen, weil spätere Gelände- und Vegetationsschritte sie verändern können.
+A successful locate command alone is not a passing generation test. Missing
+chunks, incomplete structures, and mismatched fixed blocks fail verification.
+Colossus grass, dirt, and azalea leaves are explicitly excluded from strict
+comparison because later terrain and vegetation stages can alter them.
 
-## Testumfang
+## Coverage
 
-| Umgebung | Zusätzliche Mods | Prüfung |
+| Environment | Additional mods | Checks |
 | --- | --- | --- |
-| Basis | Fabric API 0.160.0+26.2, Lithostitched 1.8.0+beta6 | Beide Vorlagen und beide natürlichen Relikte |
-| Worldgen-Integration | Tectonic 3.0.26, Terralith 2.6.4, Biomes O' Plenty 26.2.0.0.28, Dungeons & Taverns 5.3.2, GlitchCore, TerraBlender | Beide Vorlagen und beide natürlichen Relikte |
-| Einstellungen | Basis plus generiertes Datapack: `frequent`, Koloss deaktiviert | Aktives Datapack, natürlicher Obelisk, erfolglose Koloss-Suche und weiterhin nutzbare manuelle Vorlagen |
+| Base | Fabric API 0.160.0+26.2, Lithostitched 1.8.0+beta6 | Both templates and both natural relics |
+| Worldgen integration | Tectonic 3.0.26, Terralith 2.6.4, Biomes O' Plenty 26.2.0.0.28, Dungeons & Taverns 5.3.2, GlitchCore, TerraBlender | Both templates and both natural relics |
+| Settings | Base plus generated `frequent` datapack with Colossus disabled | Active datapack, natural Obelisk, unsuccessful Colossus search, and still-usable manual templates |
 
-Die Integrationsumgebung verwendet Standardkonfigurationen. Die acht äußeren Abhängigkeits-JARs sind mit Versionen und Prüfsummen in [TARGET_ENVIRONMENT.md](TARGET_ENVIRONMENT.md) erfasst. Die neun zusätzlichen Dungeons-and-Taverns-Overhauls und persönlichen Einstellungen aus TerraVista gehören nicht zu diesem Test.
+Integration used default configurations. Versions and hashes of all eight external
+dependency JARs are recorded in [Target environment](TARGET_ENVIRONMENT.md).
+TerraVista's nine additional Dungeons & Taverns overhauls and personal settings
+were not included.
 
-Die automatischen Quellcodeprüfungen decken NBT-Roundtrip, deterministische Exporte, Materialzustände, Luft und ausgelassene Positionen, Rekonstruktion aus Teilvorlagen, den begehbaren Weg zum Maschinenraum, Einstellungen, Paketmetadaten und den Weltleser ab. Der Weltleser wird auch gegen absichtlich fehlende entfernte Chunks und falsche Blöcke geprüft.
+Automated source tests cover NBT round trips, deterministic exports, material
+states, explicit air versus omitted positions, tile reconstruction, the walkable
+machine-room route, settings, package metadata, and the world reader. The world
+reader is also tested against deliberately missing distant chunks and wrong blocks.
 
-## Artefakt und Laufnachweise
+## Artifact and run evidence
 
-Die 16 automatischen Quellcodeprüfungen wurden erfolgreich ausgeführt. Zwei vollständige lokale Builds erzeugten dieselbe Mod-JAR mit SHA-256 `1918fc1784952060adfd0919084383944dfb97ca60bca45d5f14069c7516583e`. ZIP-Metadaten, JSON-Zeilenenden und der Gzip-Betriebssystemmarker sind festgelegt, damit sie nicht vom jeweiligen Rechner abhängen. Unterschiedliche Kompressionsbibliotheken können dennoch abweichende komprimierte Bytes erzeugen; der Linux-Build wird deshalb separat geprüft.
+All **16 automated source tests** passed. Two complete local builds produced the
+same mod JAR, SHA-256:
 
-Die abgeschlossenen Laufnachweise werden in [testing/alpha-evidence.json](testing/alpha-evidence.json) zusammengefasst. Diese Datei enthält den SHA-256 des getesteten Artefakts, die konkreten Laufkennungen, Abhängigkeiten, gefundenen Positionen und Blockvergleiche. Die vollständigen Konsolenprotokolle und Testwelten liegen lokal in den angegebenen `build/smoke/`-Verzeichnissen und werden nicht ins Repository aufgenommen.
+```text
+1918fc1784952060adfd0919084383944dfb97ca60bca45d5f14069c7516583e
+```
 
-Alle drei abschließenden Serverläufe haben bestanden und mit Exit-Code 0 beendet. Basis und Integration lieferten jeweils beide natürlichen Relikte ohne fehlende Chunks oder Blockabweichungen. Im Einstellungstest wurde das aktive Datapack bestätigt; der Obelisk entstand vollständig mit dem geänderten Verteilungsprofil. Die Suche nach dem deaktivierten Koloss endete nach rund 0,063 Sekunden ohne Fund.
+ZIP metadata, JSON line endings, and the gzip operating-system marker are fixed
+for host independence. Different compression libraries may still produce
+different compressed bytes, so Linux builds are checked separately.
 
-Im JSON des Einstellungstests bleibt das allgemeine Feld `world_blocks.passed` auf `false`, weil der separat nutzbare Weltprüfer standardmäßig beide Relikttypen verlangt. Der Server-Harness bewertet diesen Test anhand von `expected_natural_structures`, der vollständigen Obelisk-Prüfung und der nachgewiesenen Deaktivierung. Deshalb ist sein übergeordnetes `passed: true` maßgeblich; der fehlende Koloss ist in diesem Test beabsichtigt.
+[testing/alpha-evidence.json](testing/alpha-evidence.json) records the tested
+artifact hash, run IDs, dependencies, located positions, and block comparisons.
+Full console logs and worlds remain local in the named `build/smoke/` directories.
 
-Beim Obelisken werden alle 4.403 gespeicherten Blöcke über vier Chunks verglichen. Beim Koloss sind es 80.384 feste Block- und Luftzellen über 21 Chunks, darunter 19.798 explizite Luftzellen. Seine 8.329 natürlichen Boden- und Blattzellen sind gesondert als ausgelassen ausgewiesen.
+All three final server runs passed and exited with code 0. Base and integration
+each produced both natural relics with no missing chunks or block mismatches.
+The settings run confirmed the active datapack and a complete Obelisk under the
+changed profile. The disabled Colossus search returned no result after about
+0.063 seconds.
 
-Die Geometrievorschauen unter `design/generated/` werden aus den echten generierten Blöcken gerendert. Sie sind keine Minecraft-Screenshots und zeigen noch keine Einbettung in das umgebende Gelände.
+In the settings JSON, `world_blocks.passed` remains `false`: the standalone world
+verifier expects both types by default. The server harness instead checks
+`expected_natural_structures`, the complete Obelisk, and confirmed deactivation.
+Its overall `passed: true` is the relevant result; the absent Colossus is intentional.
 
-## Festgestellte Grenzen
+For the Obelisk, all **4,403 stored blocks across four chunks** were compared.
+For the Colossus, **80,384 fixed block/air cells across 21 chunks** were compared,
+including **19,798 explicit air cells**. Its **8,329 natural ground/leaf cells**
+are separately recorded as excluded.
 
-- Die Läufe prüfen einen Seed in drei Konfigurationen. Die im Umsetzungsplan vorgesehene Sichtprüfung über mindestens drei Seeds und mehrere Funde je Typ ist noch offen.
-- Im Basistest ist der Geländezugang zum Koloss an der untersuchten Stelle mit einem normalen Ein-Block-Absatz erreichbar. Andere Standorte können ungünstigere Übergänge haben.
-- Es gab noch keinen visuellen Client-Spieltest, keine Shader-/LOD-Abnahme und keinen Test des gesamten persönlichen Modpacks.
-- Beim erzwungenen Laden großer Chunkbereiche meldet der Server zeitweise verzögerte Ticks. Eine belastbare Vergleichsmessung für Generierungszeit, Speicherbedarf und Verteilung wurde noch nicht durchgeführt.
-- Der Windows-Host meldet fehlende englische Leistungszählernamen (`Perflib 009`) mit der zugehörigen JNA-Ausnahme. Die Berichte bewahren diese zwei konkreten Diagnosezeilen auf und kennzeichnen das Log als nicht vollständig fehlerfrei. Andere Fehler werden dadurch nicht ausgeblendet. Am Betriebssystem wurde nichts repariert.
-- Ein erster Deaktivierungsversuch mit `frequency: 0` führte zu einer langen erfolglosen Struktur-Suche. Das Einstellungswerkzeug entfernt nun die Einträge des betreffenden Struktursets. Vorhandene Bauwerke bleiben bestehen; während der Deaktivierung ist auch ihre Suche ausgesetzt.
+Previews under `design/generated/` render actual generated geometry. They are
+not Minecraft screenshots and do not show integration into surrounding terrain.
 
-## Tests wiederholen
+## Observed limits
 
-Die Generator- und Pakettests benötigen nur Python 3.11 oder neuer:
+- Runs cover one seed in three configurations. Visual review across at least
+  three seeds and several sites per type remains outstanding.
+- The inspected base-test Colossus entrance was reachable over a normal one-block
+  step. Other locations may have worse transitions.
+- At the time of these runs there had been no visual client playtest, shader/LOD
+  acceptance, or test of the entire personal modpack. Later user-provided Alpha 1
+  screenshots are discussed in the [Alpha 2 report](ALPHA_2_TEST_REPORT.md).
+- Forced loading of large chunk areas sometimes caused delayed server ticks.
+  Reliable comparative generation-time, memory, and density measurements were pending.
+- The Windows host reported missing English performance-counter names
+  (`Perflib 009`) and the associated JNA exception. Reports retain and identify
+  those two diagnostic lines; logs are not described as entirely error-free.
+  Other errors are not suppressed, and no operating-system repair was made.
+- An initial `frequency: 0` deactivation attempt caused a long unsuccessful
+  search. The settings tool now removes entries from the affected structure set.
+  Existing structures remain, but cannot be located while that type is disabled.
+
+## Repeat the checks
+
+Generator/package tests require Python 3.11 or newer:
 
 ```shell
 python tools/build.py
 python -m unittest discover -s tests -v
 ```
 
-Der lokale Server-Harness ist für den vorhandenen Windows-Cache ausgelegt und lädt keine Minecraft- oder Mod-Dateien herunter. Seine Pfade lassen sich über `--help` nachvollziehen und anpassen. Mit eigener EULA-Zustimmung:
+On the current checkout these commands build and test the current version, not
+the historical Alpha 1 artifact. Reproducing the recorded result requires its
+matching source revision and dependencies.
+
+The server harness uses the existing Windows cache and downloads no Minecraft
+or mod files. Inspect and override paths through `--help`. With your own EULA acceptance:
 
 ```shell
 python tools/smoke_server.py --accept-eula
@@ -63,6 +119,12 @@ python tools/configure.py --density frequent --disable colossus --output build/r
 python tools/smoke_server.py --accept-eula --settings-pack build/relics-settings-test.zip --disabled-structure colossus
 ```
 
-Die GitHub-Actions-Prüfung baut die Mod unter Linux, führt die Quellcodeprüfungen aus und vergleicht zwei aufeinanderfolgende Builds. Die Minecraft-Laufzeitnachweise stammen aus den beschriebenen lokalen Tests.
+GitHub Actions builds on Linux, runs source tests, and compares consecutive builds.
+Minecraft runtime evidence comes from the local runs described above.
 
-Der [erste GitHub-Lauf](https://github.com/Auda29/Relic-Mod/actions/runs/34765846673) bestand Build, alle 16 Tests und den Vergleich der Wiederholungs-Builds. Seine Linux-JAR hat dieselbe oben angegebene Prüfsumme wie die auf Windows getestete und installierte Datei. Sein zusätzlicher Artefakt-Upload scheiterte am ausgeschöpften Actions-Speicherkontingent des Kontos. Der Workflow verzichtet deshalb auf automatische Artefakt-Uploads und schreibt die Paketprüfsumme in die Job-Zusammenfassung. Downloadpakete werden über GitHub-Releases bereitgestellt. Bestehende Konto-Artefakte wurden nicht gelöscht.
+The [first GitHub run](https://github.com/Auda29/Relic-Mod/actions/runs/34765846673)
+passed the build, all 16 tests, and repeat-build comparison. Its Linux JAR matched
+the Windows-tested/installed hash above. Its extra artifact-upload step failed
+because the account's Actions storage quota was exhausted. The workflow now
+omits automatic artifact uploads and records the package hash in the job summary;
+download packages use GitHub Releases. Existing account artifacts were not deleted.

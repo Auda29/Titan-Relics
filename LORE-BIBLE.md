@@ -1,269 +1,393 @@
-# Relic Mod: Lore-Bibel und Gestaltungsplan
+# Relic Mod: lore bible and design guide
 
-Stand: 13.09.2026
+Original design draft: September 13, 2026. Updated: October 1, 2026.
 
-Status: Gestaltungsentwurf. Die fünf Hauptmotive und der Umfang von Version 0.1 stammen aus dem bisherigen Konzept. Die hier ergänzte Weltgeschichte, Benennungen, Erkundungswege und Detailmotive sind neue Vorschläge für die gemeinsame Weiterentwicklung.
+The five main motifs and version 0.1 scope come from the original concept.
+Background history, working names, exploration routes, and small narrative motifs
+remain proposals, not finalized canon. Alpha 2 implements the first two relics;
+the newer Colossus v2/v3 and Obelisk v2 are separate reference-based asset designs
+awaiting integration.
 
-Diese Bibel beschreibt, was die Relikte beim Spielen vermitteln sollen. Größen, Generierungsverfahren und Prüfungen stehen im [technischen Umsetzungsplan](UMSETZUNGSPLAN.md). Der [ursprüngliche Modplan](Minecraft-Relikte-Modplan.md) enthält den Ausgangsentwurf.
+This guide describes what the relics should communicate during play. Dimensions,
+generation, and acceptance procedures are in the [technical plan](UMSETZUNGSPLAN.md).
+The [concept plan](Minecraft-Relikte-Modplan.md) contains the reference catalog.
 
-## 1. Das Gefühl der Welt
+## 1. The feeling of the world
 
-Auf einer Anhöhe endet der Wald. Zwischen den nächsten Hügeln steht etwas Rundes, höher als die Bäume. Erst beim Näherkommen werden Schulter, Helm und eine gesprungene Brustplatte erkennbar. Auf dem Metall wächst Gras. Ein abgetrennter Arm liegt so tief im Boden, dass ein Bach an seiner Seite entlangläuft. Durch einen Riss fällt Tageslicht in den Rumpf. An der Öffnung hängen die Reste einer viel kleineren Holztreppe.
+The forest ends on a rise. Between the next hills stands something rounded,
+taller than the trees. Only as you approach do a shoulder, helmet, and cracked
+chest plate become recognizable. Grass grows on metal. A detached arm lies so
+deep in the ground that a stream follows its side. Daylight enters the torso
+through a split. At the opening hang the remains of a much smaller wooden stair.
 
-Die Landschaft trägt Spuren von Dingen, deren Maßstab und Zweck sich dem Spieler nur teilweise erschließen. Man darf staunen, neugierig werden und sich klein fühlen. Zwischen den Funden bleibt genug gewöhnliche Welt, damit das nächste Relikt überraschend wirkt.
+The landscape carries traces of things whose scale and purpose can only partly
+be understood. Players may feel wonder, curiosity, and smallness. Enough ordinary
+world should remain between discoveries for the next relic to be surprising.
 
-Die vorherrschende Stimmung ist stille Verwunderung mit gelegentlichem Unbehagen. Verfall und Natur sollen zugleich sichtbar sein. Auch ein beschädigter Ort kann freundlich wirken, wenn Sonnenlicht, Gras und ein erreichbarer Aussichtspunkt ihn zugänglich machen.
+The prevailing mood is quiet wonder with occasional unease. Decay and nature
+should coexist. A damaged place can still feel welcoming when sunlight, grass,
+and a reachable viewpoint invite exploration.
 
-## 2. Was feststeht und was offenbleibt
+## 2. What is established and what remains open
 
-### Aus dem bisherigen Konzept übernommen
+### Established concept
 
-- Die Relikte sind seltene, monumentale Entdeckungen in der bestehenden Oberwelt.
-- Die ersten Bauwerke sind Obelisk und Koloss. Ruinenturm, Titanenschädel und Weltenbaum folgen möglicherweise später.
-- Die Bauwerke bestehen zunächst aus regulären Minecraft-Blöcken und erhalten eigenständige Designs.
-- Form, Bodenkontakt und Nahdetails müssen auch ohne besondere Beleuchtung verständlich sein.
-- Der Spieler kann ausgewählte Bereiche erkunden. Es gibt zunächst keine verpflichtende Geschichte und keine neue Kampfmechanik.
+- Relics are rare monumental discoveries in the existing Overworld.
+- The first structures are Obelisk and Colossus. Ruined tower, titan skull, and
+  world tree may follow later.
+- Initial structures use regular Minecraft blocks and original designs.
+- Shape, ground contact, and close detail must work without special lighting.
+- Selected areas are explorable. There is initially no mandatory story or new combat mechanic.
 
-### Neue Leitidee dieses Entwurfs
+### Proposed guiding idea
 
-An den Orten lassen sich drei zeitliche Schichten unterscheiden: das ursprüngliche Monument, seine Beschädigung und eine spätere Nutzung durch viel kleinere Bewohner. Die Natur wächst durch alle Schichten hindurch.
+Three layers of time can be read at a site: the original monument, its damage,
+and later reuse by much smaller inhabitants. Nature grows through all three.
 
-Dieser Zusammenhang wird über Bauformen erzählt. Am Koloss könnte eine kleine Treppe auf einer alten Panzerplatte stehen. Am Obelisken könnte eine niedrige Einfassung aus losem Stein an ein viel jüngeres Lager erinnern. Der Umfang solcher Spuren bleibt in Version 0.1 klein.
+Tell this through construction. A small stair might rest on an old armor plate;
+a low ring of loose stone near the Obelisk might suggest a much younger camp.
+Such traces remain limited in version 0.1.
 
-### Bewusst unbeantwortete Fragen
+### Deliberately unanswered questions
 
-- Wer die Kolosse gebaut hat und ob alle von denselben Erbauern stammen.
-- Ob der Schädel ein Körper, eine Statue oder etwas dazwischen war.
-- Ob die Weltenbäume gewachsen, gepflanzt oder verändert worden sind.
-- Ob die Obelisken Markierungen, Werkzeuge oder Gedenkorte waren.
-- Ob die Relikte durch ein gemeinsames Ereignis oder über viele Zeitalter zerfielen.
+- Who built the Colossi, and whether they share the same builders.
+- Whether the skull was a body, a statue, or something between them.
+- Whether world trees grew, were planted, or were altered.
+- Whether Obelisks were markers, tools, or memorials.
+- Whether the relics fell in one event or over many ages.
 
-Es gibt vorerst keine offizielle Weltkarte eines alten Reiches, keine feste Götterliste und keine globale Katastrophe als Erklärung für jeden Fund. Ein Bauwerk darf Hinweise geben, ohne diese Fragen zu lösen.
+There is no official map of an old empire, fixed list of gods, or global disaster
+explaining every discovery. A structure may offer clues without resolving these questions.
 
-## 3. Interner Hintergrund für die Gestaltung
+## 3. Internal design background
 
-Die folgenden Begriffe sind Arbeitsbegriffe für den Entwurf und keine Namen, die zwingend im Spiel erscheinen.
+These are working concepts, not necessarily in-game names.
 
-| Schicht | Was wir beim Bauen annehmen | Was der Spieler sehen kann |
+| Layer | Building assumption | Visible evidence |
 | --- | --- | --- |
-| Die alte Größe | Manche Bauwerke wurden für Zwecke und Maßstäbe errichtet, die den heutigen Bewohnern fremd sind | Gewaltige Materialflächen, ungewöhnliche Öffnungen, Bauteile weit über menschlichem Maßstab |
-| Die Brüche | Die Orte haben unterschiedliche Formen von Beschädigung, Stillstand oder Verschüttung erlebt | Abgescherte Anschlüsse, eingestürzte Räume, freigelegte Innenlagen |
-| Die Nachnutzung | Spätere Besucher haben zugängliche Teile als Weg, Schutzraum oder Landmarke verwendet | Kleine Stufen, Mauern, reparierte Übergänge und zurückgelassene Arbeitsplätze |
-| Die Gegenwart | Der ursprüngliche Zweck ist unklar; Natur und Reisende nutzen den Ort weiter | Gras auf Metall, Wurzeln im Mauerwerk, offene Wege und ruhige Innenräume |
+| The old grandeur | Some structures served purposes and scales alien to present inhabitants | Huge material fields, unusual openings, components far beyond human scale |
+| The fractures | Places suffered different forms of damage, abandonment, or burial | Sheared connections, collapsed rooms, exposed inner layers |
+| Later reuse | Visitors used reachable parts as paths, shelter, or landmarks | Small steps, walls, repaired crossings, abandoned work areas |
+| The present | Original purpose is uncertain; nature and travelers continue using the site | Grass on metal, roots in masonry, open routes, quiet interiors |
 
-Nicht jedes Relikt zeigt jede Schicht. Ein fast unberührter Obelisk braucht keine Ruinenstadt an seiner Basis. Ein Koloss kann vollständig verlassen sein. Gemeinsam ist die Erfahrung einer langen Vergangenheit, nicht zwingend eine gemeinsame Herkunft.
+Not every relic needs every layer. A nearly untouched Obelisk needs no ruined
+city at its base. A Colossus may be wholly abandoned. The shared experience is
+deep time, not necessarily a shared origin.
 
-## 4. Regeln für Atmosphäre und Form
+## 4. Atmosphere and form rules
 
-### 4.1 Große Formen zuerst
+### 4.1 Large forms first
 
-Jedes Motiv besitzt ein klar erkennbares Hauptmerkmal: beim Obelisken die schlanke Gerade, beim Koloss die Körperhaltung, beim Schädel die Augenhöhlen, beim Turm die großen Durchbrüche und beim Baum die gestaffelte Krone mit massiver Basis.
+Each motif has a defining feature: the Obelisk's slender straight line, the
+Colossus's posture, the skull's eye sockets, the tower's great openings, and the
+tree's layered crown and massive base.
 
-Kleine Details dürfen diese Formen nicht mit gleichmäßigem Muster überziehen. Brüche und Bewuchs werden an ausgewählten Stellen konzentriert. Große ruhige Flächen helfen, die Größe zu lesen.
+Avoid covering these with evenly distributed small detail. Concentrate breaks
+and vegetation in selected areas. Large quiet surfaces make size legible.
 
-### 4.2 Natur hat einen nachvollziehbaren Platz
+### 4.2 Nature belongs somewhere specific
 
-Erde sammelt sich auf horizontalen Flächen und an verschütteten Teilen. Pflanzen wachsen an Spalten, Mulden und feuchten Bereichen. Große Bruchkanten bleiben teilweise offen. Ein überall gleichmäßig grüner Koloss verliert den Gegensatz zwischen Bauwerk und Landschaft.
+Soil collects on horizontal surfaces and buried parts. Plants grow in seams,
+hollows, and damp areas. Major broken edges remain partly exposed. Uniform green
+coverage removes the contrast between construction and landscape.
 
-### 4.3 Größe braucht Vergleichsmaßstäbe
+### 4.3 Scale needs comparisons
 
-Normale Bäume, kleine Mauern, ein menschlich breiter Zugang oder eine spätere Treppe helfen, die tatsächliche Größe zu erkennen. Im Inneren können riesige Bauteile neben einem kleinen, nachträglich angelegten Weg liegen.
+Normal trees, low walls, human-width entrances, and later stairs reveal size.
+Inside, enormous components can sit beside a small path added much later.
+Ancient machinery need not be comfortable everywhere, but the intended exploration
+route must be reachable without mining. A huge machine chamber may be entered
+through a comparatively recent access route.
 
-Die alten Maschinen müssen nicht überall bequem für Spieler gebaut sein. Der konkret vorgesehene Erkundungsweg soll trotzdem ohne Blockabbau erreichbar sein. Ein großer Maschinenraum kann über einen viel später angelegten Zugang betreten werden.
+Reference figures and aircraft do not supply reliable absolute dimensions when
+their distance or size is unknown. Current Blender heights are artistic estimates;
+two-block figures and same-block-scale previews make our chosen dimensions explicit.
 
-### 4.4 Ruhige Welt, örtliche Spannung
+### 4.4 A quiet world with local tension
 
-Die meisten Außenansichten sind ruhig. Spannung entsteht beim Übergang in einen dunkleren Raum, durch eine unklare Öffnung oder durch die Vorstellung, wie groß der vollständige Körper gewesen sein muss.
+Most exterior views are calm. Tension comes from entering a darker room, an
+ambiguous opening, or imagining how large the complete body once was.
+Version 0.1 adds no custom jump scares, bosses, or soundscapes. Sites are not
+promised to be mob-free shelters. The mood must work within ordinary gameplay.
 
-Version 0.1 fügt keine eigenen Schreckeffekte, Bossbegegnungen oder Soundkulissen hinzu. Die Bauwerke werden auch nicht als garantiert mobfreie Schutzräume versprochen. Die beabsichtigte Stimmung muss im vorhandenen Spiel verständlich bleiben.
+### 4.5 Light and color
 
-### 4.5 Licht und Farbe
+Daylight, shadows, and surroundings carry the main effect. Custom light accents
+would be a later restrained addition; the glowing Ancient One is not a 0.1 requirement.
 
-Tageslicht, Schatten und die vorhandene Umgebung tragen die Grundwirkung. Eigene Lichtakzente wären eine spätere, sparsame Ergänzung. Das leuchtende Motiv des eingeschlossenen Uralten ist deshalb ausdrücklich keine Anforderung an Version 0.1.
-
-| Materialfamilie | Gestalterische Verwendung | Erste Vanilla-Palettenversuche |
+| Material family | Design role | Initial vanilla palette options |
 | --- | --- | --- |
-| Dunkler tragender Körper | Rumpf, Turm und freigelegte technische Innenlagen | Tiefenschiefer, Basalt und dunkle Steinvarianten |
-| Gealterte Metallhaut | Ausgewählte Panzerflächen, Ringe und Gelenke | Unterschiedlich gealterte Kupferblöcke; dauerhaft gewünschte Zustände im Prototyp prüfen |
-| Helle mineralische Masse | Schädel, helle Erosion und einzelne Monumentflächen | Calcit, Knochenblöcke, Sandstein oder heller Stein je nach Zielpalette |
-| Jüngere menschliche Eingriffe | Kleine Wege, Stützen und Unterstände | Holz, Bruchstein und sparsame normale Beleuchtung |
-| Rückkehr der Natur | Bodenübergänge, Spalten und geschützte Oberseiten | Erde, Moos, Gras, Wurzeln und geeignete Blätter der Zielversion |
+| Dark supporting mass | Torso, tower, exposed technical layers | Deepslate, basalt, dark stone |
+| Aged metal skin | Selected armor, rings, joints | Copper aging stages; test persistent states |
+| Pale mineral mass | Skull, light erosion, monument faces | Calcite, bone blocks, sandstone, pale stone |
+| Later small-scale interventions | Paths, supports, shelters | Wood, cobblestone, sparse ordinary lighting |
+| Returning nature | Ground joins, seams, sheltered tops | Dirt, moss, grass, roots, suitable leaves |
 
-Die Auswahl ist eine Palette zum Ausprobieren. Ein Bauwerk verwendet nur einen begrenzten Teil davon. Große Mengen wirtschaftlich wertvoller Blöcke werden als Teil des Erkundungs- und Ressourcenbalancings geprüft.
+This is a palette to try, not a requirement to use every material. Assess large
+quantities of economically valuable blocks as part of exploration/resource balance.
+The latest Colossus studies emphasize bronze/copper; Obelisk v2 uses warm
+terracotta and sandstone instead of the alpha's darker treatment.
 
-### 4.6 Gemeinsame Formensprache ohne Einheitsdesign
+### 4.6 Related forms without a uniform design
 
-Koloss und Ruinenturm dürfen verwandte Konstruktionsdetails besitzen: tiefe Fugen, eingelassene Ringe und deutlich abgesetzte Außenhaut. Der Obelisk bleibt wesentlich schlichter. Schädel und Baum behalten organische Formen.
+Colossus and tower may share deep seams, recessed rings, and a distinct outer
+skin. The Obelisk remains much simpler; skull and tree retain organic forms.
+Similar small traces of later visitors may connect sites without implying that
+one civilization created machines, bones, and trees alike.
 
-Eine mögliche Verbindung sind ähnliche kleine Spuren späterer Besucher an verschiedenen Relikttypen. Diese Verbindung behauptet nicht, dass eine einzige Zivilisation Maschinen, Knochen und Bäume geschaffen hat.
+## 5. How a relic is explored
 
-## 5. Wie ein Relikt erkundet wird
+Give each design a short exploration sequence before detailed construction:
 
-Jeder Entwurf bekommt vor dem Detailbau eine kurze Erkundungsfolge:
+1. **Distant view:** an unusual form justifies a detour.
+2. **Approach:** terrain and familiar small objects reveal scale.
+3. **Threshold:** a rupture, root arch, or base offers access or a viewpoint.
+4. **Close discovery:** a detail hints at use or age while leaving the wider story open.
+5. **Looking back:** another position makes the structure both clearer and larger.
 
-1. **Fernblick:** Eine ungewöhnliche Form rechtfertigt den Umweg.
-2. **Annäherung:** Gelände und kleine Vergleichsobjekte lassen ihre Größe erkennen.
-3. **Schwelle:** Eine Bruchstelle, ein Wurzelbogen oder eine Basis bietet einen konkreten Zugang beziehungsweise Aussichtspunkt.
-4. **Nahfund:** Ein Detail erklärt etwas über Nutzung oder Alter, lässt den größeren Zusammenhang aber offen.
-5. **Rückblick:** Von einer anderen Position wirkt das Bauwerk verständlicher und zugleich größer.
+Not every relic needs an interior or a chest. An Obelisk's close discovery can
+sit at its base. Views, spatial discovery, and the structures themselves are the
+primary version 0.1 rewards.
 
-Nicht jedes Relikt braucht einen Innenraum. Beim Obelisken kann der Nahfund an seiner Basis liegen. Ebenso braucht nicht jeder Fund eine Truhe. Für Version 0.1 sind Aussicht, räumliche Entdeckung und die Bauwerke selbst die primären Belohnungen.
+## 6. The five main structures
 
-## 6. Die fünf geplanten Hauptstrukturen
+### 6.1 Desert Obelisk
 
-### 6.1 Wüstenobelisk
+**Working name:** The Silent Stele. **Scope:** version 0.1. **Technical ID:** `relics:obelisk`.
 
-**Arbeitsname:** Die stille Stele. **Status:** Bestandteil von Version 0.1. **Zuordnung:** `relics:obelisk`, vorläufige technische ID.
+**Mood and silhouette:** A solitary, exceptionally slender form rises above a
+broad dry landscape. Its crown is flat, its sides largely uninterrupted, with
+few deep seams. Straight geometry contrasts with dunes and eroded slopes.
 
-**Atmosphäre und Silhouette:** Eine einzelne, sehr schlanke Form erhebt sich über einer weiten trockenen Fläche. Die Oberkante ist zunächst flach. Seine Seiten besitzen große zusammenhängende Flächen und nur wenige tiefe Fugen. Seine Geradlinigkeit fällt zwischen Dünen und erodierten Hängen auf.
+**Setting:** Open desert, dry plains, or suitable badlands. A partly sand-buried
+base ties it to terrain. Comparable monuments should not crowd its distant view.
 
-**Umgebung:** Offene Wüsten, trockene Ebenen oder passende Badlands. Eine teilweise versandete Basis verbindet die künstliche Form mit dem Gelände. Große gleichwertige Monumente sollen den Fernblick nicht bedrängen.
+**Exploration:** The stele appears on the horizon. Its foot emerges between sand
+ridges during the approach. An exposed corner shows continuation below ground.
+A low, younger stone enclosure on the sheltered side might offer a resting place.
+From there the player looks up an almost uninterrupted wall.
 
-**Erkundungsfolge:** Die Stele wird am Horizont sichtbar. Beim Annähern taucht ihr Sockel zwischen Sandrücken auf. Eine freigelegte Ecke zeigt, dass das Bauwerk unter dem Boden weitergeht. Auf der windgeschützten Seite liegt eine niedrige, jüngere Steineinfassung als möglicher Rastplatz. Von dort blickt der Spieler entlang einer fast ununterbrochenen Wand nach oben.
+**Narrative core:** Generations have used it as a landmark. Whether it was built
+for navigation remains unknown.
 
-**Erzählerischer Kern:** Generationen haben die Stele als Orientierungspunkt verwendet. Ob sie selbst zur Orientierung errichtet wurde, bleibt offen.
+**Variants:** Burial depth and a bounded edge loss; begin with a mostly intact
+form. A hollow tower with regular floors would be a different motif.
 
-**Varianten:** Unterschiedliche Verschüttung und ein einzelner begrenzter Kantenschaden. Die erste Version beginnt mit einer weitgehend intakten Grundform. Ein hohler Turm mit regelmäßigen Stockwerken würde ein anderes Motiv ergeben.
+**Essential:** Simplicity, slender proportions, open surroundings, convincing base.
+An interior is unnecessary.
 
-**Unverzichtbar:** Schlichtheit, schlankes Verhältnis, freier Umraum, überzeugende Basis. Ein Innenraum ist nicht erforderlich.
+**Avoid:** Dense runes, enormous glowing tips, identical adjacent steles, and an
+automatic dungeon beneath every specimen.
 
-**Vermeiden:** Dichte Runenmuster, riesige leuchtende Spitzen, mehrere identische Stelen nebeneinander und ein automatisch hinzugefügter Dungeon unter jedem Exemplar.
+**Current design:** [Obelisk v2](docs/OBELISK_V2.md) translates *Painted Desert*
+into a flat-crowned, parallel-sided stele with restrained mineral bands, solid
+sandstone core, and a 32-block buried foot. Landscape and rest-stop storytelling
+remain separate from the exported stele.
 
-### 6.2 Überwachsener Koloss
+### 6.2 Overgrown Colossus
 
-**Arbeitsname:** Der gesunkene Wächter. **Status:** Bestandteil von Version 0.1. Der Name beschreibt eine Deutung der Besucher; eine historische Wächterrolle ist nicht festgelegt. **Zuordnung:** `relics:colossus`, vorläufige technische ID.
+**Working name:** The Sunken Sentinel. **Scope:** version 0.1.
+The name is a visitor's interpretation, not a confirmed historical function.
+**Technical ID:** `relics:colossus`.
 
-**Atmosphäre und Silhouette:** Ein beschädigter Maschinenkörper ruht zwischen grünen Hügeln. Kopf, breite Schultern und Brust bleiben erkennbar. Der Unterkörper verschwindet im Boden. Seine Haltung vermittelt Gewicht und langen Stillstand.
+**Mood and silhouette:** A damaged machine body rests among green hills. Head,
+broad shoulders, and chest remain readable. The lower body disappears into soil;
+its posture conveys weight and long stillness.
 
-**Umgebung:** Breite Graslandschaften und offene Hügel. Erde überdeckt den unteren Rumpf und Teile eines abgetrennten Arms. Vegetation wächst auf Schulterflächen und in Panzerfugen. Der Metallkörper bleibt an großen Flächen sichtbar.
+**Setting:** Broad grassland and open hills. Soil covers the lower torso and parts
+of a detached arm. Plants occupy shoulder surfaces and armor seams, leaving
+substantial metal exposed.
 
-**Erkundungsfolge:** Zuerst wirkt der Kopf wie eine fremde Kuppe. Der näher liegende Arm macht die Körperform verständlich. An der Brust liegt eine aufgerissene Platte. Ein kurzer, später angelegter Zugang führt in einen stillen Raum zwischen großen Rippen beziehungsweise Trägern. Licht fällt durch einen Bruch im oberen Rumpf. Eine Öffnung gibt den Blick zurück auf den Arm und die Landschaft frei.
+**Exploration:** The head first resembles an unfamiliar hilltop. The nearer arm
+makes the body readable. A torn chest plate offers a threshold. A short later
+access route leads into a still room between enormous ribs/supports. Light enters
+through an upper rupture; another opening looks back toward the arm and landscape.
 
-**Innenraum:** Ein Hauptraum genügt für die erste Version. Ein stillgelegter ringförmiger Einbau und freigelegte Leitungsformen können einen früheren technischen Zweck andeuten. Eine kleine, jüngere Aufenthaltsstelle an einer geschützten Kante zeigt, dass jemand den Körper bereits als Unterkunft genutzt hat.
+**Interior:** One main room is enough initially. An inactive ring-shaped mechanism
+and exposed conduits can suggest a technical purpose. A small younger resting
+place on a sheltered edge may show that someone used the body as lodging.
 
-**Erzählerischer Kern:** Das für Menschen überwältigende Bauwerk ist inzwischen selbst Boden, Dach und Weg geworden. Sein früherer Zweck bleibt unklar.
+**Narrative core:** Something overwhelming to humans has itself become ground,
+roof, and path. Its former purpose remains uncertain.
 
-**Varianten:** Zunächst eine Pose mit fester Armposition. Später unterschiedliche Panzerbrüche und kontrollierter Bewuchs. Neue Posen werden als eigene Entwürfe gebaut.
+**Variants:** Begin with one pose and a fixed arm position. Later vary armor
+ruptures and controlled vegetation. New poses are separately designed assets.
 
-**Unverzichtbar:** Erkennbare Körperhaltung, großer Bodenkontakt, abgetrenntes Teil und zugänglicher Hauptraum.
+**Essential:** Readable posture, extensive ground contact, a detached component,
+and an accessible main room.
 
-**Vermeiden:** Zufällig zusammengesteckte Gliedmaßen, schwebende Körperteile, gleichmäßige Begrünung und ein vollständig eingerichtetes Cockpit, das sofort jede Funktion erklärt. Der Koloss wird in 0.1 nicht aktiviert.
+**Avoid:** Randomly assembled limbs, floating parts, uniform greenery, and a fully
+equipped cockpit that immediately explains every function. The machine does not
+activate in version 0.1.
 
-### 6.3 Ruinenturm
+**Current design:** [Colossus v2](docs/COLOSSUS_V2.md) has the reference's bronze
+dome helmet, narrow visor, respirator hoses, and broad armor. [Colossus v3](docs/COLOSSUS_V3.md)
+continues below ground through the abdomen to an irregular torn hip, exposed
+supports, and conduits, without legs. The surface silhouette is preserved at
+almost the same block scale. An accessible in-terrain route for these new assets
+still needs to be completed and tested.
 
-**Arbeitsname:** Der offene Turm. **Status:** Geplanter Ausbau nach Version 0.1.
+### 6.3 Ruined tower
 
-**Atmosphäre und Silhouette:** Ein dunkler, kantiger Baukörper mit großen vertikalen Durchbrüchen steht über einer hellen Fläche. Fehlende Außenwände legen tiefe Innenräume und einzelne verbliebene Verbindungen frei.
+**Working name:** The Open Tower. **Scope:** planned expansion after version 0.1.
 
-**Umgebung:** Trockene offene Becken und geeignete Wüstenränder. Wenige niedrige, eigenständig entworfene Nebenteile dürfen die Höhe des Hauptturms betonen.
+**Mood and silhouette:** A dark angular mass with major vertical openings stands
+over a pale plain. Missing walls expose deep rooms and isolated surviving connections.
 
-**Erkundungsfolge:** Der Spieler sieht durch die beschädigte Fassade den Himmel. Am Fuß führt ein breiter Bruch in eine Halle. Eine begrenzte, tatsächlich begehbare Route erreicht eine offene Zwischenebene. Von dort erscheinen die unteren Gebäudeteile und der eigene Anmarschweg klein.
+**Setting:** Dry open basins and suitable desert edges. A few independently
+designed lower parts may emphasize the main tower's height.
 
-**Erzählerischer Kern:** Die ursprüngliche Funktion ist verloren, doch unterschiedliche Bauphasen und spätere Reparaturen lassen erkennen, dass der Ort lange weitergenutzt wurde.
+**Exploration:** Sky is visible through the damaged facade. A broad breach leads
+into a hall. A bounded walkable route reaches an open intermediate level, making
+lower buildings and the approach appear small.
 
-**Varianten:** Fehlende Seitensegmente, unterschiedlich verschüttete Untergeschosse und begrenzte Änderungen der Höhe. Keine freie Kombination, die Sackgassen an Pflichtwegen erzeugt.
+**Narrative core:** Original purpose is lost, but construction phases and repairs
+show prolonged reuse.
 
-**Unverzichtbar:** Große Aussparungen, dunkle Masse gegen helle Umgebung, mindestens ein sinnvoller erreichbarer Aussichtspunkt.
+**Variants:** Missing side sections, buried lower floors, limited height changes.
+Do not create dead ends on required routes through free recombination.
 
-**Vermeiden:** Gleichmäßiger Wolkenkratzer mit kopierten Stockwerken und ausschließlich dekorativen Türen. Das im Referenzvideo abhebende Fluggerät ist keine Vorlage für ein vermeintlich festes Nebengebäude.
+**Essential:** Large negative spaces, dark mass against light terrain, and at least
+one meaningful reachable viewpoint.
 
-### 6.4 Titanenschädel
+**Avoid:** A uniform skyscraper with copied floors and purely decorative doors.
+The aircraft taking off in the reference is not a fixed annex.
 
-**Arbeitsname:** Das Antlitz im Tal. **Status:** Geplanter Ausbau nach Version 0.1.
+### 6.4 Titan skull
 
-**Atmosphäre und Silhouette:** Eine mineralische, erodierte Form zwischen Hügeln wird als Schädel erkennbar. Augenhöhlen, Nase und Mund bestimmen die Form. Wenige abgebrochene Fortsätze erinnern an eine Krone, ohne deren Herkunft zu erklären.
+**Working name:** The Face in the Valley. **Scope:** planned expansion after version 0.1.
 
-**Umgebung:** Breite grüne Täler und offene Graslandschaften. Der Unterkiefer beziehungsweise die untere Gesichtshälfte geht teilweise in den Boden über. Helle Knochen- oder Steinflächen wechseln mit Erde und Bewuchs.
+**Mood and silhouette:** An eroded mineral form becomes recognizable as a skull.
+Eye sockets, nose, and mouth determine its shape. A few broken projections suggest
+a crown without explaining its origin.
 
-**Erkundungsfolge:** Aus der Ferne wirkt der Schädel wie eine ungewöhnliche Felsformation. Seitlich betrachtet werden Augenhöhle und Kiefer lesbar. Der Mund bietet einen Zugang zu einem großen Hohlraum. Ein innerer Weg erreicht eine Augenhöhle, von der aus die Landschaft wie durch ein riesiges Fenster sichtbar wird.
+**Setting:** Broad green valleys and grasslands. The lower jaw/face partly merges
+with terrain. Pale bone or stone alternates with soil and growth.
 
-**Erzählerischer Kern:** Die Größenordnung eines möglicherweise lebenden Wesens bleibt verstörend. Material und Erosion erlauben zugleich die Deutung als uraltes Monument.
+**Exploration:** At first it resembles unusual geology. A side view reveals the
+eye and jaw. The mouth opens into a large hollow; an internal route reaches an
+eye socket framing the landscape like an enormous window.
 
-**Varianten:** Fehlender Zahn, gebrochener Fortsatz, teilweise eingestürzte Augenhöhle oder unterschiedliche Einbettung. Zusätzliche Rippen und ein vollständiges Skelett bleiben spätere Ideen.
+**Narrative core:** The size of a possibly once-living being is unsettling.
+Material and erosion also permit the interpretation of an ancient monument.
 
-**Unverzichtbar:** Aus mehreren Blickwinkeln lesbares Gesicht, unregelmäßige Erosion und eine zugängliche Höhlung.
+**Variants:** A missing tooth, broken projection, partly collapsed socket, or
+different burial. Ribs and a full skeleton remain later possibilities.
 
-**Vermeiden:** Perfekte Symmetrie, dekoratives Grinsen, kleinteilige Zahnreihen und eine eindeutige Beschriftung als Leiche eines benannten Gottes.
+**Essential:** A face readable from several angles, irregular erosion, accessible hollow.
 
-### 6.5 Weltenbaum
+**Avoid:** Perfect symmetry, a decorative grin, overly fine tooth rows, or a label
+identifying the corpse of a named god.
 
-**Arbeitsname:** Der alte Wurzelhort. **Status:** Späterer Ausbau mit eigenem Prototyp.
+### 6.5 World tree
 
-**Atmosphäre und Silhouette:** Ein einzelner Baumgigant besitzt einen breiten unregelmäßigen Stamm und eine in große Massen gegliederte Krone. An seiner Basis öffnen Wurzeln Wege und Räume.
+**Working name:** The Old Root Refuge. **Scope:** later expansion with its own prototype.
 
-**Umgebung:** Geeignete grüne Küsten oder weite offene Flusstäler. Der Baum steht in der Landschaft und verdrängt nicht automatisch ein ganzes Biom. Wasserwege sind eine mögliche Standortvariante, keine Pflicht für jedes Exemplar.
+**Mood and silhouette:** A solitary giant tree has a broad irregular trunk and a
+crown divided into major masses. Roots open into paths and rooms at its base.
 
-**Erkundungsfolge:** Die Krone ist zuerst sichtbar. Beim Annähern verschwinden gewöhnliche Bäume vor dem Stamm. Ein Wurzelbogen führt in einen geschützten Bereich. Dort werden einzelne bearbeitete Steine sichtbar, die von Wurzeln umfasst sind. Ein kurzer Weg oder Wasserlauf führt wieder hinaus und eröffnet eine zweite Ansicht der Basis.
+**Setting:** Suitable green coasts or broad river valleys. It stands within the
+landscape rather than automatically replacing an entire biome. Waterways are an
+optional site variant, not mandatory for every tree.
 
-**Erzählerischer Kern:** Der Baum lebt, während die Bauwerke unter seinen Wurzeln altern. Ob die Steine älter als der Baum sind, lässt sich nicht sicher erkennen.
+**Exploration:** The crown appears first. Ordinary trees vanish against the trunk
+as the player approaches. A root arch enters a sheltered area containing worked
+stones held by roots. A short path or stream leads out to a second view of the base.
 
-**Varianten:** Kronenform, ein abgebrochener Hauptast und einzelne alternative Wurzelgänge. Tempelartige Bauten aus der Referenz werden nur in kleiner, eigenständig gestalteter Form erwogen.
+**Narrative core:** The tree lives while structures under its roots age. It is
+uncertain whether the stones predate the tree.
 
-**Unverzichtbar:** Glaubwürdige große Astmassen, erkennbare Stammform und eine begehbare Basis.
+**Variants:** Crown shape, a broken major branch, alternative root passages.
+Temple-like reference buildings may inspire small independently designed additions.
 
-**Vermeiden:** Ein gewöhnlicher Baum, dessen Stamm nur verbreitert wurde, eine kompakte kugelförmige Krone und ein verpflichtender Kletterweg bis zur Weltgrenze.
+**Essential:** Convincing major branches, readable trunk, and accessible base.
 
-## 7. Optionale spätere Strukturideen
+**Avoid:** An ordinary tree with only a widened trunk, a compact spherical crown,
+or a mandatory climb to the world-height limit.
 
-Diese Ideen erweitern Version 0.1 nicht. Sie werden erst bewertet, wenn die beiden ersten Relikte gestalterisch und technisch funktionieren.
+## 7. Optional later structures
 
-| Idee | Atmosphäre und möglicher Erkundungsmoment | Abgrenzung |
+These do not expand version 0.1. Evaluate them once the first two relics work
+visually and technically.
+
+| Idea | Mood and possible discovery | Boundary |
 | --- | --- | --- |
-| Einzelnes Maschinenfragment | Eine Hand ragt aus einer Uferböschung; zwischen den Fingern stehen Reste einer kleinen späteren Unterkunft | Eigene Struktur mit eigener Standortwahl, nicht bloß ein zufällig fehlender Koloss |
-| Der eingeschlossene Uralte | Eine riesige undeutliche Gestalt ruht in einem grünlichen kristallartigen Körper zwischen dunklen Felswänden | Darstellung von Transparenz und Leuchten braucht einen gesonderten Versuch; zunächst keine Befreiung oder Bossmechanik |
-| Das gespaltene Monument | Eine ungewöhnliche, nach unten schmale Form besitzt einen sichtbaren Spalt zwischen zwei großen Fragmenten | Schwebeeffekt und Material werden gesondert gestaltet; extreme Größe aus der Referenz ist keine feste Bauvorgabe |
+| Isolated machine fragment | A hand emerges from a riverbank; a younger shelter sits between fingers | Its own site selection, not a randomly incomplete Colossus |
+| The Enclosed Ancient One | A huge ambiguous figure lies inside a greenish crystalline body between dark cliffs | Transparency/glow need a separate prototype; no initial release/boss mechanic |
+| The Split Monument | An unusual downward-tapering form has a visible gap between major fragments | Design the apparent suspension and material separately; reference scale is not a fixed requirement |
 
-Von diesen Ideen wäre das Maschinenfragment der naheliegendste spätere Versuch, weil es Teile der Kolossgestaltung weiterverwenden kann. Es erhält trotzdem eine eigene Komposition und einen eigenen Erkundungsweg.
+The fragment is the most direct later experiment because it can reuse Colossus
+design language, but it still needs its own composition and exploration sequence.
 
-## 8. Erzählung, Benennung und Belohnung
+## 8. Storytelling, names, and rewards
 
-### Sichtbare Spuren vor erklärenden Texten
+### Visible traces before explanatory text
 
-Eine kleine Treppe an einer gewaltigen Panzerplatte erzählt von späteren Bewohnern. Ein verschütteter Eingang erzählt vom veränderten Boden. Diese Hinweise sollen auch ohne Fundbuch verständlich sein.
+A small stair on a huge armor plate tells of later inhabitants. A buried entrance
+tells of changing ground. These clues should work without a written journal.
 
-Falls später Texte hinzukommen, stammen sie aus begrenzten Perspektiven: Reisende, Bewohner oder frühere Forscher. Sie dürfen sich irren und widersprechen. Aussagen über den endgültigen Ursprung werden vermieden, solange dieser gestalterisch offenbleiben soll.
+If texts are added later, use limited viewpoints—travelers, residents, earlier
+researchers—who can be mistaken or disagree. Avoid definitive origins while the
+design intentionally leaves them open.
 
-### Namen
+### Names
 
-Die Arbeitsnamen dienen dem Austausch im Projekt. Spätere Anzeigenamen sollen kurz und beschreibend sein. Kein Relikt benötigt für Version 0.1 einen Eigennamen mit ausgearbeiteter Dynastie oder Religionsgeschichte. Bezeichnungen wie „Wächter“ sind Deutungen, solange nichts anderes festgelegt wird.
+Working names support discussion. Future display names should be short and
+descriptive. Version 0.1 needs no elaborate dynasty or religious history for each
+relic. Terms such as “Sentinel” remain interpretations unless explicitly established.
+The asset version labels are **Colossus v2**, **Colossus v3**, and **Obelisk v2**.
 
-### Belohnungen
+### Rewards
 
-In Version 0.1 tragen begehbare Räume, Aussichtspunkte und auffällige Materialformen die Entdeckung. Ein Beutesystem ist nicht erforderlich. Falls später Behälter ergänzt werden, passen deren Inhalte zur jüngeren Nutzung des Ortes und zur Balance des Modpacks.
+Accessible spaces, viewpoints, and striking material forms carry discovery in
+version 0.1; a loot system is unnecessary. Later containers should suit the site's
+younger use and the modpack's balance.
 
-Die Strukturen bestehen aus normalen Blöcken. Abbau und Umnutzung durch Spieler werden deshalb beim Materialeinsatz berücksichtigt. Für diesen Entwurf ist keine künstliche Unzerstörbarkeit vorgesehen.
+Structures use normal blocks. Consider mining and player reuse when choosing
+materials; artificial indestructibility is not part of this design.
 
-## 9. Referenzen und konkrete Ableitungen
+## 9. References and design interpretations
 
-Die Referenzen wurden am 13.09.2026 anhand von insgesamt 66 Einzelbildern über die jeweiligen Videolaufzeiten gesichtet. Die drei Bildbeiträge lieferten Zeichen-Zeitraffer; vollständige Karussells wurden nicht geprüft. Sprache und Ton wurden in dieser Sichtung nicht ausgewertet. Die folgenden Ableitungen betreffen das sichtbare Material.
+The original lore review on September 13, 2026 inspected **66 frames** spread
+across the videos. The three image posts supplied drawing time-lapses; complete
+carousels were not checked then. Speech and audio were not evaluated in that
+review. The later October Obelisk study additionally inspected both *Painted
+Desert* paintings and its process animation.
 
-| Referenz | Beobachtetes Motiv | Verwendung im Entwurf |
+| Reference | Observed motif | Design use |
 | --- | --- | --- |
-| [Archaean Colossi](https://www.instagram.com/reel/DaoBxUEiBNa/) | Zu Beginn überwachsener Maschinenoberkörper zwischen Hügeln mit abgetrenntem Arm | Körperhaltung, Verschüttung, getrenntes Bauteil und Größenvergleich |
-| [Painted Desert](https://www.instagram.com/p/Da0NEq7kUAO/) | Schlichte, oben flache Stele in einer geschichteten trockenen Landschaft | Schlanke Proportionen und freier Umraum |
-| [Sci-Fi-Animation von Josh White](https://www.instagram.com/reel/DbqXYoVx2hR/) | Dunkler durchbrochener Turm über heller Fläche; großes Fluggerät hebt ab | Kontrast und negative Räume des Turms; Fluggerät nicht als Gebäudeteil behandeln |
-| [D.E.A.D.](https://www.instagram.com/reel/DXM3J4sgqJl/) | Gekrönter Schädel im grünen Hügelland; später weitere riesige Körperreste | Schädel als Landschaftsform und mögliche spätere Knochenfragmente |
-| [World Tree / Gaia's Nursery](https://www.instagram.com/reel/DaBgsX0C9s4/) | Baumgigant an einer Küste, bearbeitete Steine, Wasserwege und Bauten im Wurzelumfeld | Baumkrone und begehbare Basis gemeinsam gestalten |
-| [Warden-Class Archaean Colossi](https://www.instagram.com/reel/DcwuU3SB5gc/) | Metallische Riesen mit runden Gelenken, Brustöffnungen und Architektur | Verhältnis von Maschinenform und gebautem Raum |
-| [Fragment of the Fallen](https://www.instagram.com/reel/DbD0PB7iD2Q/) | Städte auf und um Köpfe, Hände und Körperreste | Spätere Nutzung im kleineren Maßstab; eigenständige Fragmente |
-| [The Ancient One](https://www.instagram.com/p/DcoGiYTkWjH/) | Menschliche Gestalt in einem grün leuchtenden kristallartigen Block zwischen Felswänden | Optionale Idee eines eingeschlossenen Uralten |
-| [Pilgrimage to the Finger of God](https://www.instagram.com/p/Db8UdK1kXdJ/) | Monumentale, aufgebrochene Form mit sichtbarer Trennung über dem unteren Fragment | Ungewöhnliche Geometrie, Spalt und weite leere Landschaft |
+| [Archaean Colossi](https://www.instagram.com/reel/DaoBxUEiBNa/) | Overgrown machine torso among hills, detached foreground arm | Posture, burial, separate component, scale comparison |
+| [Painted Desert](https://www.instagram.com/p/Da0NEq7kUAO/) | Simple flat-topped stele in layered dry terrain | Slender proportions, open surroundings, warm mineral faces |
+| [Josh White sci-fi animation](https://www.instagram.com/reel/DbqXYoVx2hR/) | Dark breached tower over a pale plain; large aircraft takes off | Contrast and tower negative space; aircraft is not architecture |
+| [D.E.A.D.](https://www.instagram.com/reel/DXM3J4sgqJl/) | Crowned skull in green hills; later enormous body remains | Skull as landscape form; possible later bone fragments |
+| [World Tree / Gaia's Nursery](https://www.instagram.com/reel/DaBgsX0C9s4/) | Coastal giant tree, worked stones, waterways, root-side structures | Design crown and accessible base together |
+| [Warden-Class Archaean Colossi](https://www.instagram.com/reel/DcwuU3SB5gc/) | Metal giants with round joints, chest openings, architecture | Relationship of machinery and built space |
+| [Fragment of the Fallen](https://www.instagram.com/reel/DbD0PB7iD2Q/) | Settlements on and around heads, hands, body remains | Small-scale later reuse; independent fragments |
+| [The Ancient One](https://www.instagram.com/p/DcoGiYTkWjH/) | Humanlike figure in green glowing crystalline material between cliffs | Optional enclosed Ancient One |
+| [Pilgrimage to the Finger of God](https://www.instagram.com/p/Db8UdK1kXdJ/) | Monumental broken form visibly separated above a lower fragment | Unusual geometry, gap, and wide empty landscape |
 
-Die eigene Mod übernimmt Atmosphäre und Gestaltungsprinzipien. Designs, Namen, Symbole und Weltgeschichte werden eigenständig entwickelt. Die Arbeitsnamen dieser Bibel stammen nicht aus einer bestätigten Lore der Referenzautoren.
+The mod draws on atmosphere and design principles. Its designs, names, symbols,
+and background are developed independently. Working names here do not claim to
+be confirmed lore from the reference authors.
 
-## 10. Gestalterische Abnahme und nächste Entwürfe
+## 10. Visual acceptance and next design work
 
-Ein Bauwerk ist gestalterisch bereit für die Integration, wenn folgende Fragen am tatsächlichen Minecraft-Modell beantwortet sind:
+A structure is visually ready for integration once the actual Minecraft model
+answers these questions:
 
-- Ist seine Hauptform aus mehreren Richtungen und Entfernungen erkennbar?
-- Bleibt die Wirkung ohne Shader verständlich?
-- Zeigen Bodenübergänge und Brüche, warum es genau hier liegt oder steht?
-- Gibt es einen konkreten Nahfund und einen sinnvollen Rückblick?
-- Sind Pflichtwege erreichbar, ohne dass der Spieler zuvor Blöcke abbauen muss?
-- Sind spätere Anbauten deutlich kleiner und gestalterisch vom ursprünglichen Relikt unterscheidbar?
-- Lassen sich mehrere Exemplare betrachten, ohne dass ihre Schäden wie zufällige Löcher wirken?
-- Bleiben wichtige Fragen offen, während die sichtbaren Details untereinander stimmig sind?
+- Is its main form readable from several directions and distances?
+- Does it work without shaders?
+- Do ground transitions and fractures explain how it sits here?
+- Is there a specific close discovery and worthwhile backward view?
+- Are required routes accessible without mining?
+- Are later additions clearly smaller and distinct from the original relic?
+- Do multiple examples show deliberate damage rather than random holes?
+- Do important questions remain open while visible details stay coherent?
 
-Als nächste Gestaltungsarbeit entstehen für Obelisk und Koloss jeweils eine grobe Silhouette, eine kleine Blockpalette, eine Ansicht mit Spielerfigur und eine Skizze der Erkundungsfolge. Für den Koloss wird zusätzlich ein Schnitt durch den geplanten Hauptraum angelegt. Erst danach folgen Varianten und Oberflächendetails.
+Silhouettes, palettes, player-scale comparisons, and underground inspection views
+now exist for the reference-based assets. The next design step is to review them
+in Minecraft, finish the Colossus's intended interior route and terrain clearing,
+and tune ground transitions before adding more variants.
 
-Noch gemeinsam zu entscheiden sind die endgültigen Namen, die bevorzugten Paletten und die Stärke der späteren Nutzungsspuren. Bis dahin dient dieser Entwurf als konkrete Arbeitsgrundlage; er behauptet keinen bereits endgültig festgelegten Kanon.
+Final display names, preferred persistent palettes, and the amount of later reuse
+remain collaborative decisions. This guide is a concrete working basis, not settled canon.

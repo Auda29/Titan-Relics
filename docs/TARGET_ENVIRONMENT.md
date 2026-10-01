@@ -1,65 +1,82 @@
-# Zielumgebung der Alpha
+# Alpha target environment
 
-Stand: 13.09.2026. Dieser Nachweis ergänzt [UMSETZUNGSPLAN.md](../UMSETZUNGSPLAN.md). Die Bestandserhebung erfasst den Ausgangszustand vor der Alpha-Installation und erfolgte ausschließlich lesend. Die anschließende Installation ist am Ende dieses Dokuments gesondert erfasst.
+Inventory recorded: September 13, 2026. Documentation updated: October 1, 2026.
+This record supports the [implementation plan](../UMSETZUNGSPLAN.md). The initial
+inventory was read-only and describes the state before installation. Later
+installation and upgrade steps are recorded separately below. Local paths are
+historical machine-specific evidence, not required paths for other contributors.
 
-## Bestätigtes Testprofil
+## Confirmed test profile at inventory time
 
-Der Nutzer hat das Modrinth-Profil `E:\Roaming\ModrinthApp\profiles\Relic Test` als Ziel ausgewählt. Die Instanzmetadaten des Launchers bestätigen für genau dieses Profil:
+The user selected Modrinth profile `E:\Roaming\ModrinthApp\profiles\Relic Test`.
+Launcher metadata confirmed:
 
-| Eigenschaft | Nachweis |
+| Property | Evidence |
 | --- | --- |
 | Minecraft | `26.2` |
 | Loader | Fabric `0.19.5` |
-| Installationsstatus im Launcher | `installed` |
-| Profilverzeichnis | Vorhanden |
-| Installierte Mods | Keine JAR-Dateien in `mods/` |
-| Konfigurationen und Datapacks | Die vorhandenen Verzeichnisse sind leer |
-| Spielstände und Logs | Keine Spielstanddateien und kein `logs/latest.log` vorhanden |
-| Grafikprofil und JVM-Speichergrenze | Noch nicht aus einem Lauf dieses Profils verifiziert |
+| Launcher installation status | `installed` |
+| Profile directory | Present |
+| Installed mods | No JARs in `mods/` |
+| Configuration and datapacks | Existing directories empty |
+| Saves and logs | No save files or `logs/latest.log` |
+| Graphics profile and JVM memory limit | Not yet verified from a run of this profile |
 
-Die einzige vorhandene Datei im Profil ist eine leere `command_history.txt`. Das bestätigt einen leeren Ausgangsstand, aber keinen erfolgreichen Spielstart. Insbesondere sind Fabric API, Lithostitched, Terralith, Tectonic, Biomes O' Plenty und Dungeons and Taverns noch nicht in diesem Profil installiert.
+The only file was an empty `command_history.txt`. This established an empty
+starting point, not a successful game launch. Fabric API, Lithostitched, Terralith,
+Tectonic, Biomes O' Plenty, and Dungeons & Taverns were not yet installed there.
 
-Die Versionsprüfung erfolgte über eine lesende SQLite-Verbindung mit `mode=ro` zur Launcher-Datenbank. Ausgegeben wurden ausschließlich Profilname, Spielversion, Loader und Loaderversion der ausgewählten Instanz. Die Datenbank selbst und Kontodaten gehören nicht ins Repository.
+Versions were read through a SQLite connection using `mode=ro` to the launcher
+database. Only the selected profile name, game version, loader, and loader version
+were reported. The database and account information are not part of the repository.
 
-## Java und Minecraft-Datenformat
+## Java and Minecraft formats
 
-Beide folgenden ausführbaren Dateien wurden mit `-version` geprüft:
+Local runtime/compiler executables were checked with `-version`:
 
-| Zweck | Lokaler Pfad | Ergebnis |
+| Purpose | Local path | Result |
 | --- | --- | --- |
-| JDK für Builds | `C:\Users\wecke\.gradle\jdks\eclipse_adoptium-25-amd64-windows.2\bin\java.exe` | Temurin `25.0.4.1+1-LTS` |
-| Java-Compiler | `C:\Users\wecke\.gradle\jdks\eclipse_adoptium-25-amd64-windows.2\bin\javac.exe` | `javac 25.0.4.1` |
-| Modrinth-Laufzeit verfügbar | `E:\Roaming\ModrinthApp\meta\java_versions\zulu25.36.205-ca-jre25.0.4.1-win_x64\bin\java.exe` | Zulu `25.0.4.1+1-LTS` |
+| Available build JDK | `C:\Users\wecke\.gradle\jdks\eclipse_adoptium-25-amd64-windows.2\bin\java.exe` | Temurin `25.0.4.1+1-LTS` |
+| Java compiler | `C:\Users\wecke\.gradle\jdks\eclipse_adoptium-25-amd64-windows.2\bin\javac.exe` | `javac 25.0.4.1` |
+| Available Modrinth runtime | `E:\Roaming\ModrinthApp\meta\java_versions\zulu25.36.205-ca-jre25.0.4.1-win_x64\bin\java.exe` | Zulu `25.0.4.1+1-LTS` |
 
-Die verfügbare Modrinth-Laufzeit ist noch nicht als tatsächlich gestartete Laufzeit von Relic Test belegt.
+Availability did not establish which runtime the Relic Test client actually used.
+The data-only mod build itself needs Python, not Java compilation; Java 25 is a
+game/server requirement.
 
-Aus der lokalen Minecraft-Client-JAR `meta/versions/26.2-0.19.5/26.2-0.19.5.jar` wurden `version.json` und die zugehörige Launcher-Versionsbeschreibung geprüft:
+`version.json` and launcher metadata from the local client JAR
+`meta/versions/26.2-0.19.5/26.2-0.19.5.jar` reported:
 
-| Feld | Wert |
+| Field | Value |
 | --- | --- |
-| Spiel-ID | `26.2` |
-| Erforderliche Java-Hauptversion | `25` |
-| NBT-Datenversion / `world_version` | `4903` |
-| Datapack-Format | Hauptversion `107`, Nebenversion `1` |
-| Ressourcenpaket-Format | Hauptversion `88`, Nebenversion `0` |
-| Fabric-Startklasse | `net.fabricmc.loader.impl.launch.knot.KnotClient` |
+| Game ID | `26.2` |
+| Required Java major version | `25` |
+| NBT DataVersion / `world_version` | `4903` |
+| Datapack format | Major `107`, minor `1` |
+| Resource-pack format | Major `88`, minor `0` |
+| Fabric entry point | `net.fabricmc.loader.impl.launch.knot.KnotClient` |
 
-SHA-256 der geprüften Cache-Artefakte:
+SHA-256 of inspected cache artifacts:
 
-| Datei | SHA-256 |
+| File | SHA-256 |
 | --- | --- |
 | `meta/versions/26.2-0.19.5/26.2-0.19.5.jar` | `40896ee9f1e2bec3c934daac7e93d41e9e3d9c2f8ae0ca366d52ffbfd1afa290` |
 | `meta/libraries/net/fabricmc/fabric-loader/0.19.5/fabric-loader-0.19.5.jar` | `93044e4dd46de5d8136701292f05e868da096d2c9fddb4793e4fdbcc63efc695` |
 
-Diese Pfade sind relativ zu `E:\Roaming\ModrinthApp`. Fremde JAR-Dateien werden nicht ins Git-Repository aufgenommen.
+These paths are relative to `E:\Roaming\ModrinthApp`. Third-party JARs are not
+tracked in Git.
 
-## Verfügbare Worldgen-Integration für einen getrennten Test
+## Worldgen integration dependencies
 
-Im bestehenden Profil `E:\Roaming\ModrinthApp\profiles\TerraVista\mods` liegen passende Bibliotheken und Worldgen-Mods. Die folgende Auswahl ist eine vorgeschlagene Integrationsumgebung für einen getrennten Testserver. Sie ist keine Beschreibung des installierten Zustands von Relic Test und keine Zusage einer bereits bestandenen Kompatibilitätsprüfung.
+Compatible libraries and worldgen mods were available in
+`E:\Roaming\ModrinthApp\profiles\TerraVista\mods`. The following selection was
+used for separate integration-server tests. It is not a description of all mods
+installed in Relic Test or evidence for the full TerraVista pack.
 
-Die Versionen und Abhängigkeiten stammen aus `fabric.mod.json` der jeweiligen lokalen JAR-Datei. Prüfsummen beziehen sich auf diese konkreten Dateien.
+Versions/dependencies were read from each local JAR's `fabric.mod.json`. Hashes
+identify those exact files.
 
-| Datei | Mod-ID und Version | SHA-256 |
+| File | Mod ID / version | SHA-256 |
 | --- | --- | --- |
 | `fabric-api-0.160.0+26.2.jar` | `fabric-api` / `0.160.0+26.2` | `5f3dff88e1661166e222213302b25ace6c36dc3683804cbd4b5acf93138ea05e` |
 | `lithostitched-1.8.0+beta6-fabric-26.2.jar` | `lithostitched` / `1.8.0+beta6` | `5743a7e11af1491aab6f4760c7cdce7284e2f0a4a89ffacd4ef43fd46e5e6d43` |
@@ -70,38 +87,66 @@ Die Versionen und Abhängigkeiten stammen aus `fabric.mod.json` der jeweiligen l
 | `GlitchCore-fabric-26.2-26.2.0.0.0.jar` | `glitchcore` / `26.2.0.0.0` | `f6c31bd291d1d19322dd0a7ec344df2c88e2d516d1985f09ffe50ef33a34afdc` |
 | `TerraBlender-fabric-26.2-26.2.0.0.2.jar` | `terrablender` / `26.2.0.0.2` | `e4c54e7490cf6716ccc287f5ef674562666a13c6a4afabdc344d5cb62e9cb584` |
 
-### Abhängigkeiten dieser Auswahl
+### Declared dependencies
 
-- Fabric API verlangt Java `>=25`, Fabric Loader `>=0.18.4` und Minecraft `~26.2-`.
-- Lithostitched verlangt Fabric Loader `>=0.17` und Minecraft `~26.2`. Es enthält Apollib `1.1.4` als eingebettete JAR. Apollib verlangt Fabric Loader `>=0.19` und enthält wiederum `json5-java`.
-- Tectonic verlangt Lithostitched und enthält ebenfalls Apollib `1.1.4`.
-- Terralith verlangt Fabric Loader `>=0.19` und Lithostitched `>=1.7.12`.
-- Biomes O' Plenty verlangt Fabric API, GlitchCore `>=26.2.0.0.0` und TerraBlender `>=26.2.0.0.1`.
-- GlitchCore und TerraBlender verlangen Fabric API. Ihre weiteren Bibliotheken sind eingebettet.
-- Dungeons and Taverns verlangt `fabric-resource-loader-v0`. Die ausgewählte Fabric-API-JAR enthält dieses Modul.
+- Fabric API requires Java `>=25`, Fabric Loader `>=0.18.4`, and Minecraft `~26.2-`.
+- Lithostitched requires Fabric Loader `>=0.17` and Minecraft `~26.2`. It bundles
+  Apollib `1.1.4`, which requires Fabric Loader `>=0.19` and bundles `json5-java`.
+- Tectonic requires Lithostitched and also bundles Apollib `1.1.4`.
+- Terralith requires Fabric Loader `>=0.19` and Lithostitched `>=1.7.12`.
+- Biomes O' Plenty requires Fabric API, GlitchCore `>=26.2.0.0.0`, and TerraBlender `>=26.2.0.0.1`.
+- GlitchCore and TerraBlender require Fabric API; their other libraries are bundled.
+- Dungeons & Taverns requires `fabric-resource-loader-v0`, included in the selected Fabric API JAR.
 
-Damit ist die in den Metadaten deklarierte Abhängigkeitenauswahl mit acht äußeren JAR-Dateien abgedeckt. Fabric Loader `0.19.5` und Java `25` erfüllen die genannten Mindestversionen. Erst ein Start bestätigt, dass der Loader die vollständige Kombination akzeptiert.
+These eight external JARs cover the declared dependencies. Fabric Loader 0.19.5
+and Java 25 satisfy the minimum versions. Actual loader acceptance is documented
+in the server reports rather than inferred solely from metadata.
 
-TerraVista enthält zusätzlich neun eigenständige Dungeons-and-Taverns-Overhauls für Vanilla-Strukturen. Sie gehören nicht zur obigen Basisauswahl. Ein erfolgreicher Test dieser acht JAR-Dateien belegt deshalb keine Verträglichkeit mit dem vollständigen TerraVista-Modpack.
+TerraVista also contains nine separate Dungeons & Taverns vanilla-structure
+overhauls. They were excluded, as were personal Biomes O' Plenty, Lithostitched,
+Tectonic, TerraBlender, and Terralith configurations. Integration runs used default
+settings and do not establish full-pack compatibility.
 
-TerraVista besitzt außerdem eigene Konfigurationen für Biomes O' Plenty, Lithostitched, Tectonic, TerraBlender und Terralith. Sie wurden für diesen Nachweis nicht übernommen oder als Alpha-Vorgabe festgelegt. Ein Test mit Standardkonfigurationen muss im Prüfbericht entsprechend bezeichnet werden.
+## Runtime evidence
 
-## Noch durch Ausführung zu belegen
+The [Alpha 1](ALPHA_TEST_REPORT.md) and [Alpha 2](ALPHA_2_TEST_REPORT.md) reports
+record startup, natural placements, and saved-block comparisons. Broader client
+connection/visual acceptance, shader and LOD compatibility, multi-seed exploration,
+and performance measurements remain separate requirements. File inventory alone
+does not establish them.
 
-Ein Prüfbericht muss den Start des Alpha-Artefakts, natürliche Strukturplätze und tatsächliche Erreichbarkeit der Innenräume separat dokumentieren. Ebenfalls offen bleiben Clientverbindung, Darstellung im Spiel, Shader und LOD-Kompatibilität sowie die im Umsetzungsplan geforderten Messungen über mehrere Seeds. Der vorliegende Nachweis bestätigt Versionen und vorhandene Dateien, nicht diese Laufzeiteigenschaften.
+## Initial alpha installation
 
-## Installierter Alpha-Stand
-
-Am 13.09.2026 wurden nach bestandenem isoliertem Basistest genau drei JAR-Dateien in den zuvor leeren Ordner `Relic Test/mods` kopiert:
+On September 13, 2026, after the isolated base test passed, exactly three JARs were
+copied to the previously empty `Relic Test/mods`:
 
 - `relics-0.1.0-alpha.1+mc26.2.jar`, SHA-256 `1918fc1784952060adfd0919084383944dfb97ca60bca45d5f14069c7516583e`
-- `fabric-api-0.160.0+26.2.jar`, Prüfsumme wie oben
-- `lithostitched-1.8.0+beta6-fabric-26.2.jar`, Prüfsumme wie oben
+- `fabric-api-0.160.0+26.2.jar`, hash listed above
+- `lithostitched-1.8.0+beta6-fabric-26.2.jar`, hash listed above
 
-Alle drei installierten Prüfsummen stimmen mit den geprüften Quelldateien überein. Die zwei Abhängigkeiten wurden aus dem vorhandenen Cacheprofil kopiert; TerraVista wurde nicht verändert. Es wurden keine Spielwelten angelegt oder verändert und keine zusätzlichen Worldgen-Mods in Relic Test installiert. Das Profil wurde noch nicht als Client gestartet. Die abgeschlossenen getrennten Serverprüfungen stehen im [Alpha-Testbericht](ALPHA_TEST_REPORT.md).
+Installed hashes matched the tested source files. Dependencies came from the
+existing cache profile; TerraVista was not changed. No saves were created or
+modified and no extra worldgen mods were installed in Relic Test. At that point
+the profile had not been launched as a client. Separate completed server checks
+are in the Alpha 1 report.
 
-## Update auf Alpha 2
+## Alpha 2 upgrade
 
-Nach den vom Nutzer gezeigten Spielansichten der Alpha 1 wurde am 13.09.2026 die Relic-JAR durch `relics-0.1.0-alpha.2+mc26.2.jar` ersetzt. SHA-256 der installierten Datei: `cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa`. Die vorherige Datei wurde unter `build/profile-backups/alpha2-upgrade/` im Arbeitsverzeichnis gesichert. Im Modordner liegt nur die neue Relic-Version; die beiden Pflichtabhängigkeiten behalten ihre bisherigen Prüfsummen.
+After the user's Alpha 1 game screenshots, the Relic JAR was replaced on September
+13, 2026 with `relics-0.1.0-alpha.2+mc26.2.jar`, SHA-256
+`cc978cdb382ec5f7ad82cfcaddb1dbdc30d27fd3e3e56949729911e347c27dfa`.
+The previous file was backed up under `build/profile-backups/alpha2-upgrade/`.
+Only the new Relic version remained in `mods/`; both required dependencies kept
+their previous hashes.
 
-Beim Austausch lief kein Minecraft-Client. Spielstände wurden nicht verändert. Neue Formen erscheinen erst bei neuer Generierung. Die [Alpha-2-Prüfungen](ALPHA_2_TEST_REPORT.md) liefen mit eigenen lokalen Testwelten.
+No Minecraft client was running during replacement. Saves were not changed.
+New shapes appear only through new generation. Alpha 2 verification used separate
+local test worlds.
+
+## Blender asset toolchain
+
+The October 2026 asset work used Blender **5.2.2**, Node **24.16.0**, and local
+ObjToSchematic 1.0 at commit `b611b52c7a87cad99127908598bab019fe9e7c3f`.
+These are development tools, not player dependencies. See
+[Blender workflow](BLENDER_WORKFLOW.md) for setup and the legacy DataVersion 3105
+conversion limitation. The new assets have not replaced the installed alpha models.
