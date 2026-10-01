@@ -11,6 +11,23 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 | [Ruined Tower](ruined-tower/README.md) | Concept only |
 | [World Tree](world-tree/README.md) | Concept only |
 
+## In-game demos
+
+- [Colossus V3 shader demo](colossus/demo/README.md): three actual Minecraft
+  screenshots in normal terrain, separate from generated Blender previews.
+
+## V4 planning from in-game inspection
+
+The V3 models remain selected in Alpha 3. The following documents record the
+agreed visual findings and revision direction, not implemented V4 assets:
+
+- [Colossus V4](colossus/docs/COLOSSUS_V4.md): terrain contact, damaged rear armor,
+  metal readability, arm/hand and head-neck connection.
+- [Obelisk V4](obelisk/docs/OBELISK_V4.md): weathering, material readability and
+  a naturally buried archaeological site at the foot.
+- [Titan Skull V4](titan-skull/docs/TITAN_SKULL_V4.md): organic mound transitions,
+  biome-compatible surfaces and clearer fossil/bone materials.
+
 ## Discovery hierarchy and lore
 
 The intended frequency order is **Titan skulls and future bone/skull variants
@@ -32,6 +49,7 @@ open in the [lore bible](../docs/project/LORE-BIBLE.md).
     <asset>.json        # Export/material/preview configuration
     generated/<asset>/  # Blender models, exports, reviews, and provenance
   gameplay/             # Items, loot, encounters, and other gameplay decisions
+  demo/                 # Optional in-game screenshots and presentation gallery
 ```
 
 Future hand-edited sources can live in `<relic>/design/blender/`, separate from

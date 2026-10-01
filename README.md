@@ -13,11 +13,23 @@ faces, a 45-degree rotated crown, and only eight blocks of burial.
 weathered skull based on the opening of *D.E.A.D.*, now approximately Colossus-head
 scale, with a broken, partly buried spine and its local grassy mound included in the export.
 
+## In-game demo
+
+**Colossus V3 in normal terrain with shaders**, captured in Minecraft by the
+user on October 1, 2026. These are Alpha 3 screenshots, not Blender previews
+or the planned V4 revision.
+
+![Colossus V3 viewed across water in a savanna, with shaders](relics/colossus/demo/colossus-v3-shaders-river.png)
+
+See the [three-image demo gallery](relics/colossus/demo/README.md) for the savanna
+approach, river view and landscape overview. Shader details were not recorded;
+these images do not establish performance or general shader compatibility.
+
 ## Repository layout
 
 ```text
 relics/
-  colossus/       # README, docs/, design/, gameplay/
+  colossus/       # README, docs/, design/, gameplay/, demo/
   obelisk/       # README, docs/, design/, gameplay/
   titan-skull/   # README, docs/, design/, gameplay/
   ruined-tower/  # Planning folders; no asset yet
@@ -187,6 +199,7 @@ Existing relics remain. While a type is disabled, `/locate` cannot find its exis
 - [Historical Alpha 1 test report](docs/testing/ALPHA_TEST_REPORT.md)
 - [Changelog](CHANGELOG.md)
 
-Documentation is maintained in English. Links and pipeline paths follow the per-relic layout above.
+Shared documentation is maintained in English; the V4 in-game review notes are
+recorded in German. Links and pipeline paths follow the per-relic layout above.
 
 An open-source license has not yet been selected; mod metadata uses `All-Rights-Reserved`. Third-party reference images and mod JARs are not included in the published package.

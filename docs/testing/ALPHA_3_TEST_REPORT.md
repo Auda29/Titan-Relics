@@ -109,11 +109,55 @@ Viewing positions in the new showcase:
 These lead to the Obelisk, Colossus, and Titan Skull respectively. All models
 are already placed; no `/place` or `/locate` command is required in this save.
 
+## Normal-terrain inspection world
+
+The separate creative save **Relic V3 Terrain 20261001-212822** is installed in
+Relic Test. It uses normal vanilla terrain at seed **731204**, not a flat world
+or a terrain-mod pack. All three recorded natural structure starts and their
+complete saved bounding boxes were checked again after preparation.
+
+`tools/create_terrain_test_world.py` copies the recorded natural run, omitting
+Overworld regions `(0,0)` and `(1,0)` (including entities/POI), which contained
+the old harness's manual template placements. Those regions regenerate normally
+if visited. No `/place` command is run and no existing world is edited.
+
+A short isolated server run sets the new spawn in front of the west-facing
+Colossus at `[-29169,67,-54592]`, enables ordinary mob spawning and random ticks
+(3), and sets normal difficulty and daytime. Cheats remain enabled for inspection.
+Evidence is in `build/terrain-preview/20261001-212822/report.json`; the known
+natural feature edits described above remain visible and are not labeled a pass.
+
+Inspection viewpoints:
+
+| Relic | Teleport command |
+| --- | --- |
+| Colossus | `/tp @s -29169 110 -54592 -90 0` |
+| Obelisk | `/tp @s 6384 100 -7096 0 0` |
+| Titan Skull | `/tp @s 1888 130 -12091 180 0` |
+
+These are aerial viewing positions; enable creative flight or use spectator mode.
+
+## Client visual review and shader demos
+
+The user inspected all three V3 relics in-game on October 1, 2026. The resulting
+visual observations and revision goals are recorded separately as V4 planning:
+
+- [Colossus V4](../../relics/colossus/docs/COLOSSUS_V4.md)
+- [Obelisk V4](../../relics/obelisk/docs/OBELISK_V4.md)
+- [Titan Skull V4](../../relics/titan-skull/docs/TITAN_SKULL_V4.md)
+
+Three additional user-provided Colossus screenshots with shaders are published
+in the [demo gallery](../../relics/colossus/demo/README.md). Original image bytes
+are preserved. The shader pack/version and settings were not recorded, so the
+gallery is visual evidence only, not a shader compatibility or performance test.
+The review does not change the failed strict natural-block comparison above.
+
 ## Remaining acceptance limits
 
-- No Minecraft client screenshot or human visual approval is claimed.
+- Client screenshots and user review are now available; final visual acceptance
+  and the planned V4 changes remain pending.
 - One seed and base dependencies only; four natural rotations, more seeds,
-  terrain mods, shaders/LOD and performance testing remain open.
+  terrain mods, systematic shader/LOD and performance testing remain open.
 - `/locate` can still block the game while evaluating rare, large sites.
 - Missing NBT cells preserve terrain; final interiors, access paths and gameplay
   rewards are not implemented. Existing worlds are not retroactively updated.

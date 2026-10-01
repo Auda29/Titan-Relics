@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — in-game review and demos
+
+- Record per-relic V4 revision plans from the V3 in-game review; keep current
+  models and build selection unchanged.
+- Add three original Colossus V3 shader screenshots in a per-relic demo gallery,
+  linked from the repository README and separated from Blender previews.
+- Add normal-terrain preview-world preparation tooling and document the natural
+  inspection world, viewpoints and remaining acceptance limits. Local saves,
+  runtime logs and profile backups remain excluded from version control.
+
 ## 0.1.0-alpha.3 — V3 visual integration
 
 - Select checked-in Colossus v3, Obelisk v3 and Titan Skull v3 exports in the
