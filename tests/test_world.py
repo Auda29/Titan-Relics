@@ -54,5 +54,17 @@ class WorldReaderTests(unittest.TestCase):
         world.missing = False; world.wrong = True
         self.assertEqual(verify_piece(world, "relics:test", child, template)["mismatch_count"], 1)
 
+    def test_showcase_verification_can_check_natural_materials(self):
+        class FakeWorld:
+            def chunk(self, cx, cz): return {"Status": "minecraft:full"}
+            def block(self, x, y, z): return {"Name": "minecraft:dirt"}
+        template = {"size": [17, 1, 1], "palette": [{"Name": "minecraft:dirt"}],
+                    "blocks": [{"pos": [0, 0, 0], "state": 0}, {"pos": [16, 0, 0], "state": 0}]}
+        child = {"rotation": "NONE", "PosX": 0, "PosY": 60, "PosZ": 0, "BB": [0, 60, 0, 16, 60, 0]}
+        result = verify_piece(FakeWorld(), "relics:test", child, template, skip_nature=False)
+        self.assertTrue(result["passed"])
+        self.assertEqual(result["checked_blocks"], 2)
+        self.assertEqual(result["nature_cells_skipped"], 0)
+
 
 if __name__ == "__main__": unittest.main()

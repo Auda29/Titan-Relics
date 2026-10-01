@@ -149,4 +149,19 @@ The October 2026 asset work used Blender **5.2.2**, Node **24.16.0**, and local
 ObjToSchematic 1.0 at commit `b611b52c7a87cad99127908598bab019fe9e7c3f`.
 These are development tools, not player dependencies. See
 [Blender workflow](BLENDER_WORKFLOW.md) for setup and the legacy DataVersion 3105
-conversion limitation. The new assets have not replaced the installed alpha models.
+conversion limitation. At that point, the new assets had not replaced the installed alpha models.
+
+## Alpha 3 visual-test upgrade — October 1, 2026
+
+The Relic Test profile now contains `relics-0.1.0-alpha.3+mc26.2.jar`, SHA-256
+`530be00274f815d9f7fe93dab6dde3570988b1b1f0c1d21f007d2a0b5042671c`.
+The old Relic JAR was backed up under
+`build/profile-backups/alpha3-upgrade-20261001-205738/`. Other mods and existing
+saves were not changed. The new creative save **Relic V3 Showcase
+20261001-205738** contains all three models, already placed at matching ground
+levels, with cheats enabled for inspection.
+
+This is a visual-test installation, not full natural-worldgen acceptance.
+The showcase has zero saved-block differences; natural generation still has
+minor neighboring-chunk feature edits. See the
+[Alpha 3 report](../testing/ALPHA_3_TEST_REPORT.md) for exact results and limits.

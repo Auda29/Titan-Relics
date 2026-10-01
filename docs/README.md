@@ -14,8 +14,11 @@ This directory contains only cross-project documentation and test evidence.
 - [Target environment](technical/TARGET_ENVIRONMENT.md)
 - [Blender-to-Minecraft workflow](technical/BLENDER_WORKFLOW.md)
 - [World generation](technical/WORLDGEN.md)
+- [Alpha 3 V3 integration and viewing commands](technical/V3_INTEGRATION.md)
 
 ## Testing
+
+- [Alpha 3 V3 integration test report](testing/ALPHA_3_TEST_REPORT.md)
 
 - [Alpha 2 test report](testing/ALPHA_2_TEST_REPORT.md)
 - [Historical Alpha 1 test report](testing/ALPHA_TEST_REPORT.md)

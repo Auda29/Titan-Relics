@@ -7,9 +7,10 @@
     "spawn_overrides": {},
     "terrain_adaptation": "none",
     "start_pool": "relics:obelisk",
+    "start_jigsaw_name": "relics:center",
     "size": 1,
     "start_height": {
-      "absolute": -2
+      "absolute": -7
     },
     "project_start_to_heightmap": "WORLD_SURFACE_WG",
     "max_distance_from_center": 80,
@@ -21,7 +22,7 @@
     "type": "lithostitched:offset",
     "offset": [
       0,
-      2,
+      7,
       0
     ],
     "condition": {
@@ -45,7 +46,7 @@
             "heightmap": "OCEAN_FLOOR_WG",
             "type": "lithostitched:height_filter",
             "permitted_range": {
-              "max_inclusive": 230,
+              "max_inclusive": 130,
               "min_inclusive": 64
             },
             "range_type": "absolute"

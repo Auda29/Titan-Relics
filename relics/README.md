@@ -5,17 +5,18 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 
 | Relic | Current status |
 | --- | --- |
-| [Colossus](colossus/README.md) | V3 asset exported; core, magnet, and head-trial gameplay specified but not implemented |
-| [Obelisk](obelisk/README.md) | V3 asset exported; archaeology, collectibles, and Colossus maps approved but not implemented |
-| [Titan Skull](titan-skull/README.md) | V3 asset exported; ordinary-mob exploration approved, no special item required; worldgen pending |
+| [Colossus](colossus/README.md) | V3 selected in Alpha 3; core, magnet, and head-trial gameplay not implemented |
+| [Obelisk](obelisk/README.md) | V3 selected in Alpha 3; archaeology, collectibles, and Colossus maps not implemented |
+| [Titan Skull](titan-skull/README.md) | V3 selected in Alpha 3 with worldgen; authored ordinary-mob exploration not implemented |
 | [Ruined Tower](ruined-tower/README.md) | Concept only |
 | [World Tree](world-tree/README.md) | Concept only |
 
 ## Discovery hierarchy and lore
 
 The intended frequency order is **Titan skulls and future bone/skull variants
-(most common) -> Obelisks (clearly rarer) -> Colossi (very rare)**. Rates are not
-yet configured; skull/bone variants share a family-level density target.
+(most common) -> Obelisks (clearly rarer) -> Colossi (very rare)**. Alpha 3 has
+provisional candidate rates, not final discovery balance; future skull/bone
+variants must share the family-level density target.
 
 The working history connects the three: a Colossus was sent to kill the Titans,
 while Obelisks served as wayfinders or marked destroyed Titans. Details remain
@@ -42,6 +43,6 @@ original `ots/` experiment. Git includes selected source models, whole exports,
 review sheets, and provenance; intermediate files and tile exports stay local.
 Do not regenerate assets just to move them.
 
-The playable alpha still uses the separate generators and resources described
-in the [main README](../README.md). Organizing an asset here does not integrate
-it into the mod build or imply that proposed gameplay is implemented.
+The playable Alpha 3 explicitly selects the three V3 exports using
+`tools/integrate_v3.py`; see [V3 integration](../docs/technical/V3_INTEGRATION.md).
+Organizing an asset here alone does not select it or implement proposed gameplay.

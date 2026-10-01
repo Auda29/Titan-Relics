@@ -1,5 +1,8 @@
 # Alpha world generation
 
+**Historical Alpha 2 contracts.** Alpha 3 selects all three V3 models; see
+[V3 integration](V3_INTEGRATION.md) for current sizes, offsets and site filters.
+
 Updated: October 1, 2026. This page describes **the playable Alpha 2 resources**.
 The newer Colossus v2/v3 and Obelisk v2/v3 Blender assets are not integrated into
 these placement rules.

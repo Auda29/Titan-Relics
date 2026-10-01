@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.0-alpha.3 — V3 visual integration
+
+- Select checked-in Colossus v3, Obelisk v3 and Titan Skull v3 exports in the
+  default mod build, byte-for-byte, preserving source DataVersion for game migration.
+- Add Titan Skull natural worldgen, biome tags, density presets and disable support.
+- Update burial offsets, footprint grids and height limits for the large V3 models.
+- Center natural templates on a replaceable named jigsaw so all parts stay within
+  the engine's structure-reference range; place the Skull after terrain features
+  to protect its authored hill. Keep raw manual templates and design exports intact.
+- Expand integration tests and isolated server checks to all three structures;
+  add a flat-world showcase mode with saved-block verification.
+- Leave planned gameplay, final interiors and existing worlds unchanged.
+
+See [V3 integration](docs/technical/V3_INTEGRATION.md) for contracts and viewing commands.
+
 ## Unreleased — asset pipeline and documentation
 
 - Archived the original Colossus concept under `relics/colossus/archive/first-concept/`

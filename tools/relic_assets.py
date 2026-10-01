@@ -364,12 +364,18 @@ def block_state(block: str) -> dict:
     return result
 
 
-def encode_structure(blocks: dict[Pos,str], size: Pos, data_version: int) -> bytes:
+def encode_structure(blocks: dict[Pos,str], size: Pos, data_version: int, block_entities: dict | None = None) -> bytes:
     if data_version<=0: raise ValueError("DataVersion must be positive")
     palette=sorted(set(blocks.values()))
     lookup={b:i for i,b in enumerate(palette)}
+    entries = []
+    for p, b in sorted(blocks.items()):
+        entry = {"pos": (9, (3, list(p))), "state": (3, lookup[b])}
+        if block_entities and p in block_entities:
+            entry["nbt"] = (10, block_entities[p])
+        entries.append(entry)
     root={"DataVersion":(3,data_version),"size":(9,(3,list(size))),"palette":(9,(10,[block_state(b) for b in palette])),
-          "blocks":(9,(10,[{"pos":(9,(3,list(p))),"state":(3,lookup[b])} for p,b in sorted(blocks.items())])),"entities":(9,(10,[]))}
+          "blocks":(9,(10,entries)),"entities":(9,(10,[]))}
     data = bytearray(gzip.compress(named(10,"",nbt_payload(10,root)),mtime=0))
     # Python 3.11/3.12 delegate this header to zlib, whose OS byte varies by host.
     # 255 means unspecified OS and matches Python 3.13+'s canonical gzip header.

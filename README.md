@@ -1,10 +1,10 @@
 # Relic Mod
 
-Rare, monumental discoveries for Minecraft: a desert obelisk and an overgrown, explorable machine colossus with a detached arm.
+Rare, monumental discoveries for Minecraft: a desert obelisk, an overgrown machine colossus with a detached arm, and a crowned titan skull with a broken spine.
 
-**Current playable build: 0.1.0-alpha.2 for Minecraft 26.2 / Fabric.** Python generators build the structures automatically. Alpha 2 adds weathering, vegetation, and shorter terrain transitions. Broader multi-seed acceptance testing for version 0.1 is still pending.
+**Current test build: 0.1.0-alpha.3 for Minecraft 26.2 / Fabric.** The build selects the checked-in **Colossus v3, Obelisk v3, and Titan Skull v3** NBT exports. All three have natural worldgen resources. This is a visual integration build, not an implementation of planned rewards or encounters. Broader multi-seed and client visual acceptance remain pending.
 
-**Latest asset work, October 1, 2026:** reference-based Colossus v2/v3 and Obelisk v2/v3 have reproducible Blender → ObjToSchematic → NBT pipelines and verified block exports. The current design pair is **Colossus v3 and Obelisk v3**. Their integration into the mod build and natural world generation is still pending.
+**Latest integration work, October 1, 2026:** V3 exports are copied byte-for-byte for manual placement; derived worldgen templates add a replaceable center anchor for complete cross-chunk generation. Burial offsets, footprint filters, and upper terrain-height bounds are revised. Legacy DataVersion 3105 is preserved so Minecraft performs its normal template migration; it is not relabeled as 4903. See [V3 integration](docs/technical/V3_INTEGRATION.md).
 
 **Obelisk v3** revises the shape to a tapered square antiprism with eight triangular
 faces, a 45-degree rotated crown, and only eight blocks of burial.
@@ -34,17 +34,18 @@ structures-src/  # Alpha structure-source metadata
 
 Start with the [relic index](relics/README.md) or the
 [shared documentation index](docs/README.md). Each relic groups its design history,
-asset configs, Blender/export files, and gameplay decisions. Moving design exports
-does not select them for the playable mod build.
+asset configs, Blender/export files, and gameplay decisions. Build selection is
+explicitly defined by `tools/integrate_v3.py`; moving exports alone does not select them.
 
-## Structures in Alpha 2
+## Structures in Alpha 3
 
 | Relic | Overall dimensions, including base (X/Y/Z) | Design |
 | --- | --- | --- |
-| Obelisk | 25 × 70 × 25 blocks | Connected cracks, broken edges, windblown sand, and small debris around the base |
-| Colossus | 100 × 66 × 76 blocks | Broken helmet and chest armor with internal supports, damaged chest ring, denser vegetation on one side, accessible interior, and detached arm |
+| Obelisk v3 | 25 × 185 × 25 blocks | Tapered square antiprism, rotated crown, solid core, 8-block buried foot |
+| Colossus v3 | 181 × 209 × 227 blocks | Dome helmet, broad armor, vegetation, detached arm, underground abdomen and torn hip; nominal ground Y77 |
+| Titan Skull v3 | 121 × 79 × 203 blocks | Crowned skull, broken spine and exported grassy mound; nominal ground Y8 |
 
-Both use vanilla blocks and generate in suitable new Overworld chunks. Each complete structure rotates as one unit. There is currently one prepared variant per type. Optional biome mappings support Terralith and Biomes O' Plenty; neither is a required dependency.
+All three use vanilla blocks and generate in suitable new Overworld chunks. Each complete structure rotates as one unit. There is currently one prepared variant per type. Optional biome mappings support Terralith and Biomes O' Plenty; neither is a required dependency.
 
 ## Installation
 
@@ -56,10 +57,10 @@ Both use vanilla blocks and generate in suitable new Overworld chunks. Each comp
 | Fabric API | 0.160.0+26.2 |
 | Lithostitched | 1.8.0+beta6 for Fabric 26.2 |
 
-See [Target environment](docs/technical/TARGET_ENVIRONMENT.md) for the recorded installation and [Alpha 2 test report](docs/testing/ALPHA_2_TEST_REPORT.md) for completed checks and their limits.
+See [Target environment](docs/technical/TARGET_ENVIRONMENT.md) for historical installation details and [Alpha 3 test report](docs/testing/ALPHA_3_TEST_REPORT.md) for V3 checks and their limits.
 
 1. Install Fabric for Minecraft 26.2.
-2. Put `relics-0.1.0-alpha.2+mc26.2.jar`, Fabric API, and Lithostitched in `mods/`.
+2. Put `relics-0.1.0-alpha.3+mc26.2.jar`, Fabric API, and Lithostitched in `mods/`.
 3. Create a fresh test world with structure generation enabled. Relics are not retroactively added to existing chunks.
 
 Dependencies are available from [Lithostitched](https://modrinth.com/mod/lithostitched) and [Fabric API](https://modrinth.com/mod/fabric-api). Their JARs are not bundled with our release.
@@ -71,6 +72,7 @@ With cheats or server operator permissions:
 ```mcfunction
 /locate structure relics:obelisk
 /locate structure relics:colossus
+/locate structure relics:titan_skull
 ```
 
 Searches may take time because suitable sites are rare. A successful `/locate` does not prove that every structure chunk has generated. In a separate creative test world, `/place template relics:obelisk` and `/place template relics:colossus` bypass site selection. The supplied position is the template's lower corner, not its intended ground level.
@@ -88,7 +90,7 @@ On Windows, `./build.ps1` is also available. It looks for Python in PATH, then t
 
 Outputs are written to `dist/`, including `SHA256SUMS.txt`. The build regenerates NBT from source and uses fixed archive timestamps. Git tracks generators, worldgen data, and selected asset deliverables directly inside each `relics/<relic>/design/generated/<asset>/` directory: `*review.png`, `*-source.blend`, whole `.nbt` templates, `.schem` exports, `.design.json`, `.ots.json`, and `verification.json`. Render scenes, Blender backups, OBJ/MTL intermediates, individual renders, tile folders and manifests, build outputs, and local reference media are excluded through `.gitignore`.
 
-The `obelisk()` and `colossus()` functions in [tools/relic_assets.py](tools/relic_assets.py) define the playable alpha's geometry, materials, rooms, and damage. Changes to dimensions or ground level require matching worldgen filter changes. Export manifests record dimensions, ground level, and checksums.
+The selection contract in [tools/integrate_v3.py](tools/integrate_v3.py) defines packaged V3 sources, sizes and ground levels. Changes to dimensions or ground level require matching worldgen filter changes. Export manifests record dimensions, ground level, and checksums. The functions in [tools/relic_assets.py](tools/relic_assets.py) remain historical alpha generators, not the default build inputs.
 
 The exporter supports whole templates and rigid tiles. Natural generation uses only whole templates, so the arm cannot disappear because of a failed piece connection.
 
@@ -96,9 +98,9 @@ The exporter supports whole templates and rigid tiles. Natural generation uses o
 
 Review sheets, editable Blender sources, NBT/Schematic exports, and export metadata are kept in
 each relic's `design/generated/<asset>/` directory under [relics/](relics/README.md), grouped by asset version. These are
-design exports; their presence in the repository does not integrate them into worldgen.
+design exports; only the three V3 versions are explicitly selected for Alpha 3.
 
-The implemented asset pipeline is **Blender → triangulated OBJ → local, open-source ObjToSchematic 1.0 → Sponge `.schem` → Java `.nbt`**. Worldgen integration is the next step. Setup, materials, air handling, and commands are documented in [Blender workflow](docs/technical/BLENDER_WORKFLOW.md).
+The implemented asset pipeline is **Blender → triangulated OBJ → local, open-source ObjToSchematic 1.0 → Sponge `.schem` → Java `.nbt`**. Setup, materials, air handling, and commands are documented in [Blender workflow](docs/technical/BLENDER_WORKFLOW.md).
 
 | Asset | Dimensions X/Y/Z | Blocks | Design |
 | --- | --- | --- | --- |
@@ -110,7 +112,7 @@ The implemented asset pipeline is **Blender → triangulated OBJ → local, open
 | [Titan Skull v2](relics/titan-skull/docs/TITAN_SKULL_V2.md) | 117 × 80 × 105 | 149,894 | Approximately 76-block skull, complete rear, and solid exported mound; nominal ground Y8 |
 | [Titan Skull v3](relics/titan-skull/docs/TITAN_SKULL_V3.md) | 121 × 79 × 203 | 264,355 | Same skull scale, nine partly buried vertebrae, two fractures, and extended exported hill |
 
-Dimensions include buried geometry and, for the Colossus, the detached arm. Absolute scale is an artistic estimate from the references. Previews render actual exported NBT blocks in Blender. Titan Skull v2/v3 include their local hills in the export; distant scenery and scale figures are presentation aids. These assets have not been tested in-game. The alpha build still uses `tools/relic_assets.py`.
+Dimensions include buried geometry and, for the Colossus, the detached arm. Absolute scale is an artistic estimate from the references. Previews render actual exported NBT blocks in Blender. Titan Skull v2/v3 include their local hills in the export; distant scenery and scale figures are presentation aids. Only V3 versions are selected by Alpha 3; human client visual acceptance remains separate from server checks.
 
 At their nominal ground planes, Obelisk v3 exposes approximately **177 block
 layers**, versus **132** for Colossus v3. It therefore rises about **45 blocks
@@ -158,19 +160,18 @@ Generate a world-specific override datapack, for example more frequent discoveri
 python tools/configure.py --density frequent --disable colossus
 ```
 
-Profiles are `rare`, `normal`, and `frequent`. Repeat `--disable` for `obelisk` and `colossus` as needed. Put `dist/relics-settings.zip` in the world's datapack directory with higher priority than the mod data. Load settings at world/server startup; `/reload` alone is not assumed sufficient for these worldgen changes.
+Profiles are `rare`, `normal`, and `frequent`. Repeat `--disable` for `obelisk`, `colossus`, and `titan_skull` as needed. Put `dist/relics-settings.zip` in the world's datapack directory with higher priority than the mod data. Load settings at world/server startup; `/reload` alone is not assumed sufficient for these worldgen changes.
 
 Existing relics remain. While a type is disabled, `/locate` cannot find its existing sites either; re-enabling restores searches and future generation. Profiles control candidates, not guaranteed discoveries: biomes and terrain reject unsuitable sites. There is no settings menu or built-in rejection statistics.
 
 ## Known alpha limits
 
 - Grid-based terrain checks can miss small pools and edges between sample points.
-- The interior route is traversable within the template; the terrain-to-entrance transition may have a step.
+- V3 templates omit air and preserve terrain in unspecified cells. Buried cavities are not automatically excavated; final interiors and routes are not implemented.
 - Precise collision checks against Dungeons & Taverns or other structures are not implemented.
 - Shapes are fixed. Seed-dependent generator variants are a development tool, not selected per discovery.
 - There is no new loot, movement mechanic, quest system, or custom sound.
-- The titan skull is a separate exported asset study, not yet a playable structure.
-  The ruined tower and world tree are not implemented.
+- The titan skull now has worldgen resources but no authored mob encounters or special loot. The ruined tower and world tree are not implemented.
 
 ## Documentation
 
@@ -182,6 +183,7 @@ Existing relics remain. While a type is disabled, `/locate` cannot find its exis
 - [Alpha world generation](docs/technical/WORLDGEN.md)
 - [Blender workflow](docs/technical/BLENDER_WORKFLOW.md)
 - [Alpha 2 test report](docs/testing/ALPHA_2_TEST_REPORT.md)
+- [Alpha 3 V3 integration test report](docs/testing/ALPHA_3_TEST_REPORT.md)
 - [Historical Alpha 1 test report](docs/testing/ALPHA_TEST_REPORT.md)
 - [Changelog](CHANGELOG.md)
 

@@ -148,7 +148,7 @@ def states_match(expected, actual, rotation):
     return all(actual.get("Properties", {}).get(key) == value for key, value in props.items())
 
 
-def verify_piece(world, name, child, template, max_examples=20):
+def verify_piece(world, name, child, template, max_examples=20, skip_nature=True):
     rotation = child["rotation"]
     origin = [child["PosX"], child["PosY"], child["PosZ"]]
     chunks, missing, incomplete = set(), set(), set()
@@ -156,7 +156,7 @@ def verify_piece(world, name, child, template, max_examples=20):
     matched = checked = air_checked = nature_skipped = 0
     for block in template["blocks"]:
         expected = template["palette"][block["state"]]
-        if expected["Name"] in NATURE_NAMES:
+        if skip_nature and expected["Name"] in NATURE_NAMES:
             nature_skipped += 1
             continue
         pos = transform(block["pos"], rotation, origin)
@@ -204,6 +204,9 @@ def verify_world(world_path: Path, artifact: Path) -> dict:
                 try:
                     location = child["pool_element"]["location"]
                     namespace, path = location.split(":", 1)
+                    # Natural templates contain a center anchor replaced with the
+                    # original block/void. Compare the final world with the raw model.
+                    path = path.removesuffix("_worldgen")
                     template = read_nbt(gzip.decompress(archive.read(f"data/{namespace}/structure/{path}.nbt")))
                     result = verify_piece(world, name, child, template)
                     result["start_chunk"] = cp
@@ -217,7 +220,7 @@ def verify_world(world_path: Path, artifact: Path) -> dict:
             "nature_exclusions": sorted(NATURE_NAMES), "instances": instances, "read_errors": world.read_errors, "verification_errors": errors,
             "fully_verified_structures": sorted(passed_types),
             "complete_instance_failures": len(complete_failures),
-            "passed": {"relics:obelisk", "relics:colossus"} <= passed_types and not world.read_errors and not errors and not complete_failures}
+            "passed": {"relics:obelisk", "relics:colossus", "relics:titan_skull"} <= passed_types and not world.read_errors and not errors and not complete_failures}
 
 
 def main():

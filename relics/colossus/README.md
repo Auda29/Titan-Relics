@@ -1,7 +1,7 @@
 # Colossus
 
 The current design is **V3**, including the buried abdomen, torn hip, and detached
-arm. Its integration into the playable alpha remains pending.
+arm. It is selected in Alpha 3; see [V3 integration](../../docs/technical/V3_INTEGRATION.md).
 
 ## Design and assets
 

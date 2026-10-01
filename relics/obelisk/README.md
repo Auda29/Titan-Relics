@@ -1,7 +1,8 @@
 # Obelisk
 
 The current design is **V3**, a solid tapered square antiprism with a rotated
-crown and an eight-block buried foot. Integration into the playable alpha is pending.
+crown and an eight-block buried foot. It is selected in Alpha 3; see
+[V3 integration](../../docs/technical/V3_INTEGRATION.md).
 
 - [V3 design and reproduction commands](docs/OBELISK_V3.md)
 - [V2 design history](docs/OBELISK_V2.md)

@@ -8,17 +8,17 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 PRESETS = {
-    "rare": {"obelisk": (96, 48), "colossus": (120, 60)},
-    "normal": {"obelisk": (64, 32), "colossus": (80, 40)},
-    "frequent": {"obelisk": (32, 16), "colossus": (40, 20)},
+    "rare": {"obelisk": (96, 48), "colossus": (120, 60), "titan_skull": (72, 36)},
+    "normal": {"obelisk": (64, 32), "colossus": (80, 40), "titan_skull": (48, 24)},
+    "frequent": {"obelisk": (32, 16), "colossus": (40, 20), "titan_skull": (24, 12)},
 }
 
 
 def settings_resources(density: str, disabled: list[str]) -> dict[str, bytes]:
     if density not in PRESETS:
         raise ValueError(f"Unknown density: {density}")
-    if set(disabled) - {"obelisk", "colossus"}:
-        raise ValueError("Only obelisk and colossus can be disabled")
+    if set(disabled) - set(PRESETS["normal"]):
+        raise ValueError("Only obelisk, colossus and titan_skull can be disabled")
     result = {}
     for name, (spacing, separation) in PRESETS[density].items():
         relative = f"data/relics/worldgen/structure_set/{name}.json"
@@ -38,7 +38,7 @@ def settings_resources(density: str, disabled: list[str]) -> dict[str, bytes]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--density", choices=PRESETS, default="normal")
-    parser.add_argument("--disable", choices=("obelisk", "colossus"), action="append", default=[])
+    parser.add_argument("--disable", choices=tuple(PRESETS["normal"]), action="append", default=[])
     parser.add_argument("--output", type=Path, default=ROOT / "dist/relics-settings.zip")
     args = parser.parse_args()
     resources = settings_resources(args.density, sorted(set(args.disable)))

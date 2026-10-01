@@ -33,7 +33,7 @@ class ConfigurationTests(unittest.TestCase):
         self.assertEqual(obelisk["structures"][0]["structure"], "relics:obelisk")
 
     def test_preset_spacing_is_valid_and_ordered(self):
-        for name in ("obelisk", "colossus"):
+        for name in ("obelisk", "colossus", "titan_skull"):
             spacings = []
             for preset in ("frequent", "normal", "rare"):
                 data = json.loads(configure.settings_resources(preset, [])[f"data/relics/worldgen/structure_set/{name}.json"])
@@ -48,6 +48,15 @@ class ConfigurationTests(unittest.TestCase):
             configure.settings_resources("unexpected", [])
         with self.assertRaises(ValueError):
             configure.settings_resources("normal", ["typo"])
+
+    def test_titan_skull_can_be_disabled_independently(self):
+        generated = configure.settings_resources("normal", ["titan_skull"])
+        skull = json.loads(generated["data/relics/worldgen/structure_set/titan_skull.json"])
+        self.assertEqual(skull["structures"], [])
+        self.assertEqual(skull["placement"]["salt"], 206091303)
+        for name in ("obelisk", "colossus"):
+            data = json.loads(generated[f"data/relics/worldgen/structure_set/{name}.json"])
+            self.assertEqual(len(data["structures"]), 1)
 
     def test_settings_archive_has_fixed_portable_metadata(self):
         with tempfile.TemporaryDirectory() as td:
@@ -93,10 +102,10 @@ class PackagingTests(unittest.TestCase):
 
     def test_loaded_resource_graph_has_complete_fixed_templates(self):
         build.check_resources()
-        for name in ("obelisk", "colossus"):
+        for name in ("obelisk", "colossus", "titan_skull"):
             pool = json.loads((build.RESOURCES / f"data/relics/worldgen/template_pool/{name}.json").read_text())
             self.assertEqual(len(pool["elements"]), 1)
-            self.assertEqual(pool["elements"][0]["element"]["location"], f"relics:{name}")
+            self.assertEqual(pool["elements"][0]["element"]["location"], f"relics:{name}_worldgen")
             structure = json.loads((build.RESOURCES / f"data/relics/worldgen/structure/{name}.json").read_text())
             self.assertEqual(structure["delegate"]["size"], 1)
             self.assertEqual(structure["delegate"]["start_pool"], f"relics:{name}")

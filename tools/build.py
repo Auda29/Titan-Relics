@@ -1,4 +1,4 @@
-"""Reproducible, dependency-free build for the data-only Fabric mod."""
+"""Reproducible, dependency-free build selecting the checked-in V3 relics."""
 from __future__ import annotations
 
 import argparse
@@ -23,10 +23,12 @@ def check_resources(resources: Path = RESOURCES) -> dict:
         raise ValueError("Minecraft 26.2 pack format must be 107.1")
     required = [
         f"data/relics/{kind}/{name}.{extension}"
-        for name in ("obelisk", "colossus")
+        for name in ("obelisk", "colossus", "titan_skull")
         for kind, extension in (("structure", "nbt"), ("worldgen/structure", "json"),
                                 ("worldgen/template_pool", "json"))
     ]
+    required += [f"data/relics/structure/{name}_worldgen.nbt"
+                 for name in ("obelisk", "colossus", "titan_skull")]
     for relative in required:
         if not (resources / relative).is_file():
             raise ValueError(f"Missing required resource: {relative}")
@@ -62,13 +64,7 @@ def main() -> int:
     parser.add_argument("--output", type=Path, default=ROOT / "dist")
     args = parser.parse_args()
     if not args.skip_generation:
-        subprocess.run([
-            sys.executable, str(ROOT / "tools/relic_assets.py"),
-            "--output", str(RESOURCES / "data/relics/structure"),
-            "--data-version", str(DATA_VERSION), "--seed", "2913",
-            "--manifest", str(ROOT / "structures-src/generated/manifest.json"),
-            "--single-template",
-        ], check=True, cwd=ROOT)
+        subprocess.run([sys.executable, str(ROOT / "tools/integrate_v3.py")], check=True, cwd=ROOT)
     metadata = check_resources()
     artifact = args.output.resolve() / f"relics-{metadata['version']}+mc26.2.jar"
     checksum = write_archive(artifact)

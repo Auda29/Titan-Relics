@@ -1,5 +1,10 @@
 # Relic Mod: technical implementation plan
 
+**Alpha 3 update:** the three V3 exports are now selected for the visual test
+build. See [V3 integration](../technical/V3_INTEGRATION.md). The Alpha 2 evidence
+and planning baseline below remain historical; final gameplay/interiors and
+broader acceptance are still pending.
+
 Updated: October 1, 2026.
 
 This is the implementation and acceptance plan for version 0.1. **The current

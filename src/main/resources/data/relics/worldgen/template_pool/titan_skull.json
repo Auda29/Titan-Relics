@@ -1,0 +1,10 @@
+{
+  "name": "relics:titan_skull",
+  "fallback": "minecraft:empty",
+  "elements": [{"weight": 1, "element": {
+    "element_type": "minecraft:single_pool_element",
+    "location": "relics:titan_skull_worldgen",
+    "processors": "minecraft:empty",
+    "projection": "rigid"
+  }}]
+}

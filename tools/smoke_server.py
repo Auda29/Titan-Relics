@@ -197,8 +197,9 @@ def main() -> int:
     parser.add_argument("--server-bundler", type=Path, default=DEFAULT_SERVER)
     parser.add_argument("--mods-source", type=Path, default=DEFAULT_CACHE / "profiles/TerraVista/mods")
     parser.add_argument("--integration", action="store_true")
+    parser.add_argument("--showcase", action="store_true", help="Build a flat creative preview world; validate manual placements instead of natural starts")
     parser.add_argument("--settings-pack", type=Path, help="Copy an already generated settings ZIP into the fresh world's datapacks")
-    parser.add_argument("--disabled-structure", action="append", choices=["obelisk", "colossus"], default=[],
+    parser.add_argument("--disabled-structure", action="append", choices=["obelisk", "colossus", "titan_skull"], default=[],
                         help="Expect locate to find no natural instance of this disabled structure; manual templates still run")
     parser.add_argument("--seed", type=int, default=731204)
     parser.add_argument("--startup-timeout", type=int, default=180)
@@ -224,15 +225,15 @@ def main() -> int:
         packs.mkdir(parents=True, exist_ok=True)
         shutil.copy2(args.settings_pack, packs / args.settings_pack.name)
     files = [artifact] + [args.mods_source / name for name in BASE_MODS + (INTEGRATION_MODS if args.integration else [])]
-    evidence = {"seed": args.seed, "run_directory": str(run), "integration": args.integration,
+    evidence = {"seed": args.seed, "run_directory": str(run), "integration": args.integration, "showcase": args.showcase,
                 "eula_accepted_explicitly": True, "artifacts": [], "commands": [], "passed": False}
-    expected_structures = {"relics:" + name for name in ("obelisk", "colossus") if name not in args.disabled_structure}
+    expected_structures = {"relics:" + name for name in ("obelisk", "colossus", "titan_skull") if name not in args.disabled_structure}
     evidence["expected_natural_structures"] = sorted(expected_structures)
     if args.settings_pack:
         settings_snapshot = run / "world/datapacks" / args.settings_pack.name
         with zipfile.ZipFile(settings_snapshot) as archive:
             overrides = {name: json.loads(archive.read(f"data/relics/worldgen/structure_set/{name}.json"))
-                         for name in ("obelisk", "colossus")}
+                         for name in ("obelisk", "colossus", "titan_skull")}
         evidence["settings_pack"] = {"file": args.settings_pack.name, "sha256": sha256(settings_snapshot),
                                      "structure_set_overrides": overrides}
     for source in files:
@@ -250,7 +251,15 @@ def main() -> int:
                   "level-name": "world", "level-seed": args.seed, "level-type": "minecraft:normal",
                   "generate-structures": "true", "gamemode": "creative", "difficulty": "peaceful",
                   "view-distance": 2, "simulation-distance": 2, "pause-when-empty-seconds": 0,
-                  "max-tick-time": 180000, "spawn-protection": 0, "initial-disabled-packs": ""}
+                   "max-tick-time": 180000, "spawn-protection": 0, "initial-disabled-packs": ""}
+    if args.showcase:
+        properties.update({"level-type": "minecraft:flat", "generator-settings": json.dumps({
+            "biome": "minecraft:plains", "lakes": False, "features": False,
+            "layers": [{"block": "minecraft:bedrock", "height": 1},
+                       {"block": "minecraft:stone", "height": 124},
+                       {"block": "minecraft:dirt", "height": 2},
+                       {"block": "minecraft:grass_block", "height": 1}],
+            "structure_overrides": []})})
     (run / "server.properties").write_text("".join(f"{key}={value}\n" for key, value in properties.items()))
     arguments = ["-Xms512M", "-Xmx4G", "-Djava.awt.headless=true", "-cp", ";".join(map(str, classpath)),
                  "net.fabricmc.loader.impl.launch.knot.KnotServer", "nogui"]
@@ -270,6 +279,27 @@ def main() -> int:
                                      "elapsed_seconds": round(time.monotonic() - started, 4)})
         return response
 
+    def load_area(x1, z1, x2, z2):
+        # Split by chunk columns: /forceload permits at most 256 chunks per command.
+        rows = z2 // 16 - z1 // 16 + 1
+        columns = min(8, 256 // rows)
+        if columns < 1:
+            raise ValueError("Area exceeds the supported /forceload row count")
+        for cx in range(x1 // 16, x2 // 16 + 1, columns):
+            end_x = min((cx + columns) * 16 - 1, x2)
+            command(f"forceload add {cx * 16} {z1} {end_x} {z2}",
+                    r"Marked|force loaded|force-loaded|No chunks")
+        for check_x in range(x1 // 16 * 16, x2 // 16 * 16 + 1, 16):
+            for check_z in range(z1 // 16 * 16, z2 // 16 * 16 + 1, 16):
+                deadline = time.monotonic() + args.command_timeout
+                while True:
+                    loaded = command(f"execute if loaded {check_x} 80 {check_z}", r"Test passed|Test failed")
+                    if "Test passed" in loaded:
+                        break
+                    if time.monotonic() > deadline:
+                        raise TimeoutError(f"Chunk {check_x}, {check_z} did not finish generating")
+                    time.sleep(1)
+
     try:
         evidence["startup"] = console.wait(r'Done \(', timeout=args.startup_timeout)
         command("gamerule minecraft:spawn_mobs false", r"Gamerule|Unknown|Incorrect")
@@ -280,13 +310,17 @@ def main() -> int:
             if args.settings_pack.name not in response:
                 raise RuntimeError("Expected settings datapack is not in the server's enabled list")
         # Manual command placements and natural starts are recorded separately.
-        for name, x in (("obelisk", 0), ("colossus", 256)):
-            command(f"forceload add {x - 64} -64 {x + 128} 128", r"Marked|force loaded|force-loaded|No chunks")
-            response = command(f"place template relics:{name} {x} 180 0", r"Loaded template|Failed|Could not|Unknown|Incorrect")
+        for name, x, y, sx, sz in (("obelisk", 0, 56, 25, 25),
+                                   ("colossus", 256, -13, 181, 227),
+                                   ("titan_skull", 768, 56, 121, 203)):
+            load_area(x, 0, x + sx - 1, sz - 1)
+            response = command(f"place template relics:{name} {x} {y} 0", r"Loaded template|Failed|Could not|Unknown|Incorrect")
             evidence.setdefault("manual_placements", []).append({"structure": f"relics:{name}",
-                      "requested_position": [x, 180, 0], "method": "place template",
+                      "requested_position": [x, y, 0], "method": "place template",
                       "success": "Loaded template" in response, "response": response})
-        for name in ("obelisk", "colossus"):
+            command("forceload remove all", r"Unmarked|Removed|No chunks|force.loaded")
+        command("setworldspawn 220 64 -40", r"Set the world spawn")
+        for name in (() if args.showcase else ("obelisk", "colossus", "titan_skull")):
             if name in args.disabled_structure:
                 response = command(f"locate structure relics:{name}", r"nearest|Could not find|Unknown|Incorrect", timeout=60)
                 evidence.setdefault("disabled_locate_results", []).append({"structure": f"relics:{name}",
@@ -299,17 +333,21 @@ def main() -> int:
             if match:
                 x, z = map(int, match.groups())
                 located["position"] = [x, z]
-                command(f"forceload add {x - 96} {z - 96} {x + 96} {z + 96}", r"Marked|force loaded|force-loaded|No chunks")
-                for check_x, check_z in ((x, z), (x - 96, z - 96), (x - 96, z + 96),
-                                         (x + 96, z - 96), (x + 96, z + 96)):
-                    deadline = time.monotonic() + args.command_timeout
-                    while True:
-                        loaded = command(f"execute if loaded {check_x} 80 {check_z}", r"Test passed|Test failed")
-                        if "Test passed" in loaded:
-                            break
-                        if time.monotonic() > deadline:
-                            raise TimeoutError(f"Chunk {check_x}, {check_z} did not finish generating")
-                        time.sleep(1)
+                # /locate reports the start anchor, not the rotated footprint center.
+                # Generate and save that start, then force its actual full bounding box.
+                load_area(x, z, x + 15, z + 15)
+                command("save-all flush", r"Saved the game", timeout=240)
+                starts = inspect_world(run / "world")["natural_structure_starts"]
+                start = next((s for s in starts if s["structure"] == f"relics:{name}" and
+                              s["chunk"] == [x // 16, z // 16]), None)
+                if not start or not start["bounding_boxes"]:
+                    raise RuntimeError(f"No saved natural start at the located {name} anchor")
+                boxes = start["bounding_boxes"]
+                load_area(min(b[0] for b in boxes), min(b[2] for b in boxes),
+                          max(b[3] for b in boxes), max(b[5] for b in boxes))
+                located["bounding_boxes"] = boxes
+                command("save-all flush", r"Saved the game", timeout=240)
+                command("forceload remove all", r"Unmarked|Removed|No chunks|force.loaded")
             evidence.setdefault("locate_results", []).append(located)
         command("save-all flush", r"Saved the game", timeout=240)
     except Exception as exc:
@@ -333,6 +371,21 @@ def main() -> int:
             evidence["world"] = inspect_world(run / "world")
             from verify_world import verify_world
             evidence["world_blocks"] = verify_world(run / "world", artifact)
+            if args.showcase:
+                from verify_world import AnvilWorld, verify_piece
+                world = AnvilWorld(run / "world")
+                checks = []
+                with zipfile.ZipFile(artifact) as archive:
+                    for placement in evidence.get("manual_placements", []):
+                        name = placement["structure"].split(":")[1]
+                        template = read_nbt(gzip.decompress(archive.read(f"data/relics/structure/{name}.nbt")))
+                        x, y, z = placement["requested_position"]
+                        size = template["size"]
+                        child = {"rotation": "NONE", "PosX": x, "PosY": y, "PosZ": z,
+                                 "BB": [x, y, z, x + size[0] - 1, y + size[1] - 1, z + size[2] - 1]}
+                        checks.append(verify_piece(world, placement["structure"], child, template, skip_nature=False))
+                evidence["showcase_blocks"] = {"instances": checks, "read_errors": world.read_errors,
+                                               "passed": len(checks) == 3 and all(c["passed"] for c in checks) and not world.read_errors}
         except Exception as exc:
             evidence["world"] = {"natural_structure_starts": [], "read_errors": [str(exc)]}
             evidence["world_blocks"] = {"fully_verified_structures": [], "read_errors": [str(exc)],
@@ -349,7 +402,7 @@ def main() -> int:
         evidence["clean_log"] = not evidence["log_errors"]
         evidence["passed"] = (not evidence.get("failure") and not evidence.get("shutdown_failure") and
                               process.returncode == 0 and not evidence["blocking_log_errors"] and
-                              len(evidence.get("manual_placements", [])) == 2 and
+                               len(evidence.get("manual_placements", [])) == 3 and
                               all(p["success"] for p in evidence.get("manual_placements", [])) and
                               len(evidence.get("disabled_locate_results", [])) == len(args.disabled_structure) and
                               all(p["passed"] for p in evidence.get("disabled_locate_results", [])) and
@@ -359,7 +412,13 @@ def main() -> int:
                               expected_structures <= set(evidence["world_blocks"]["fully_verified_structures"]) and
                               evidence["world_blocks"].get("complete_instance_failures", 0) == 0 and
                               not evidence["world_blocks"]["read_errors"] and
-                              not evidence["world_blocks"]["verification_errors"])
+                               not evidence["world_blocks"]["verification_errors"])
+        if args.showcase:
+            evidence["passed"] = (not evidence.get("failure") and not evidence.get("shutdown_failure") and
+                                  process.returncode == 0 and not evidence["blocking_log_errors"] and
+                                  len(evidence.get("manual_placements", [])) == 3 and
+                                  all(p["success"] for p in evidence["manual_placements"]) and
+                                  evidence.get("showcase_blocks", {}).get("passed", False))
         payload = json.dumps(evidence, indent=2, ensure_ascii=False) + "\n"
         (run / "report.json").write_text(payload, encoding="utf-8")
         (smoke / "report.json").write_text(payload, encoding="utf-8")

@@ -1,0 +1,42 @@
+{
+  "type": "lithostitched:delegating",
+  "delegate": {
+    "type": "minecraft:jigsaw",
+    "biomes": "#relics:has_structure/titan_skull",
+    "step": "top_layer_modification",
+    "spawn_overrides": {},
+    "terrain_adaptation": "none",
+    "start_pool": "relics:titan_skull",
+    "start_jigsaw_name": "relics:center",
+    "size": 1,
+    "start_height": {"absolute": -7},
+    "project_start_to_heightmap": "WORLD_SURFACE_WG",
+    "max_distance_from_center": 128,
+    "use_expansion_hack": false,
+    "dimension_padding": 8,
+    "liquid_settings": "ignore_waterlogging"
+  },
+  "spawn_condition": {
+    "type": "lithostitched:offset",
+    "offset": [0, 7, 0],
+    "condition": {
+      "type": "lithostitched:grid",
+      "radius": 102,
+      "distance_between_points": 51,
+      "allowed_count": 25,
+      "condition": {
+        "type": "lithostitched:all_of",
+        "conditions": [
+          {"type": "lithostitched:height_filter", "heightmap": "WORLD_SURFACE_WG",
+           "permitted_range": {"min_inclusive": -12, "max_inclusive": 12}, "range_type": "heightmap_relative"},
+          {"type": "lithostitched:height_filter", "heightmap": "OCEAN_FLOOR_WG",
+           "permitted_range": {"min_inclusive": 64, "max_inclusive": 230}, "range_type": "absolute"},
+          {"type": "lithostitched:not", "condition": {"type": "lithostitched:any_of", "conditions": [
+            {"type": "lithostitched:in_biome", "biomes": "#minecraft:is_ocean"},
+            {"type": "lithostitched:in_biome", "biomes": "#minecraft:is_river"}
+          ]}}
+        ]
+      }
+    }
+  }
+}

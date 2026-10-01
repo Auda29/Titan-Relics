@@ -7,12 +7,13 @@
     "spawn_overrides": {},
     "terrain_adaptation": "none",
     "start_pool": "relics:colossus",
+    "start_jigsaw_name": "relics:center",
     "size": 1,
     "start_height": {
-      "absolute": -9
+      "absolute": -76
     },
     "project_start_to_heightmap": "WORLD_SURFACE_WG",
-    "max_distance_from_center": 112,
+    "max_distance_from_center": 128,
     "use_expansion_hack": false,
     "dimension_padding": 8,
     "liquid_settings": "ignore_waterlogging"
@@ -21,13 +22,13 @@
     "type": "lithostitched:offset",
     "offset": [
       0,
-      9,
+      76,
       0
     ],
     "condition": {
       "type": "lithostitched:grid",
-      "radius": 50,
-      "distance_between_points": 25,
+      "radius": 114,
+      "distance_between_points": 57,
       "allowed_count": 25,
       "condition": {
         "type": "lithostitched:all_of",
@@ -36,8 +37,8 @@
             "heightmap": "WORLD_SURFACE_WG",
             "type": "lithostitched:height_filter",
             "permitted_range": {
-              "max_inclusive": 8,
-              "min_inclusive": -8
+              "max_inclusive": 16,
+              "min_inclusive": -16
             },
             "range_type": "heightmap_relative"
           },
@@ -45,7 +46,7 @@
             "heightmap": "OCEAN_FLOOR_WG",
             "type": "lithostitched:height_filter",
             "permitted_range": {
-              "max_inclusive": 230,
+              "max_inclusive": 175,
               "min_inclusive": 64
             },
             "range_type": "absolute"
