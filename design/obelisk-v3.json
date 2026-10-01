@@ -1,0 +1,42 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "input": "design/generated/obelisk-v3/obelisk-v3.obj",
+  "output": "design/generated/obelisk-v3/obelisk-v3.schem",
+  "height": 185,
+  "fill_enclosed": "core",
+  "title": "OBELISK V3",
+  "subtitle": "Tapered square antiprism / 45-degree twist / only 8 blocks below ground",
+  "reference": "https://www.instagram.com/p/Da0NEq7kUAO/",
+  "reference_frame": ".work/references/desert-Da0MzGRRCRC.jpg",
+  "reference_title": "Painted Desert / revised using the supplied antiprism diagrams",
+  "reference_credit": "Josh White / Painted Desert",
+  "reference_crop": null,
+  "landscape_label": "NBT blocks in illustrative terrain",
+  "comparison_label": "04 / Same block scale: v3 (185 total) and v2 (209)",
+  "detail_image": "08-burial-overview.png",
+  "detail_label": "03 / Entire NBT: turquoise marks ground, 8 blocks above base",
+  "dimensions_label": "X/Y/Z, including the 8-block foot",
+  "view_labels": [
+    "01 / Source: eight planar triangular faces, rotated square crown",
+    "02 / Actual NBT blocks: tapered antiprism",
+    "03 / Opposite view: diagonal facet boundaries",
+    "04 / Back: full model including short buried foot"
+  ],
+  "materials": {
+    "stone": "minecraft:yellow_terracotta",
+    "facet": "minecraft:terracotta",
+    "sunward": "minecraft:smooth_sandstone",
+    "core": "minecraft:sandstone"
+  },
+  "preview": {
+    "front": [-140, 240, 65],
+    "other": [160, 240, 65],
+    "back": [130, -240, 75],
+    "landscape": "desert",
+    "comparison": "design/generated/obelisk-v2/obelisk-v2.nbt",
+    "foot_section_height": 44,
+    "burial_overview": true,
+    "level_ground_radius": 25
+  }
+}

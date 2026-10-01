@@ -5,7 +5,7 @@ Original design draft: September 13, 2026. Updated: October 1, 2026.
 The five main motifs and version 0.1 scope come from the original concept.
 Background history, working names, exploration routes, and small narrative motifs
 remain proposals, not finalized canon. Alpha 2 implements the first two relics;
-the newer Colossus v2/v3 and Obelisk v2 are separate reference-based asset designs
+the newer Colossus v2/v3 and Obelisk v2/v3 are separate reference-based asset designs
 awaiting integration.
 
 This guide describes what the relics should communicate during play. Dimensions,
@@ -125,7 +125,7 @@ would be a later restrained addition; the glowing Ancient One is not a 0.1 requi
 
 This is a palette to try, not a requirement to use every material. Assess large
 quantities of economically valuable blocks as part of exploration/resource balance.
-The latest Colossus studies emphasize bronze/copper; Obelisk v2 uses warm
+The latest Colossus studies emphasize bronze/copper; Obelisk v2/v3 use warm
 terracotta and sandstone instead of the alpha's darker treatment.
 
 ### 4.6 Related forms without a uniform design
@@ -179,10 +179,15 @@ An interior is unnecessary.
 **Avoid:** Dense runes, enormous glowing tips, identical adjacent steles, and an
 automatic dungeon beneath every specimen.
 
-**Current design:** [Obelisk v2](docs/OBELISK_V2.md) translates *Painted Desert*
+**Earlier design:** [Obelisk v2](docs/OBELISK_V2.md) translates *Painted Desert*
 into a flat-crowned, parallel-sided stele with restrained mineral bands, solid
 sandstone core, and a 32-block buried foot. Landscape and rest-stop storytelling
 remain separate from the exported stele.
+
+**Current design:** [Obelisk v3](docs/OBELISK_V3.md) refines this using the supplied antiprism diagrams:
+eight long triangular faces, a smaller square crown rotated 45 degrees, and only
+eight blocks of burial. Broad quiet facets now carry the shape instead of a
+rectangular shaft.
 
 ### 6.2 Overgrown Colossus
 
@@ -335,7 +340,8 @@ design intentionally leaves them open.
 Working names support discussion. Future display names should be short and
 descriptive. Version 0.1 needs no elaborate dynasty or religious history for each
 relic. Terms such as “Sentinel” remain interpretations unless explicitly established.
-The asset version labels are **Colossus v2**, **Colossus v3**, and **Obelisk v2**.
+The asset version labels are **Colossus v2**, **Colossus v3**, **Obelisk v2**, and
+**Obelisk v3**. The current design pair uses v3 for both relics.
 
 ### Rewards
 

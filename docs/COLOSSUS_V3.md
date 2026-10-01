@@ -47,6 +47,11 @@ detached arm including its hand about 110 long. These are rounded design measure
 | Blocks below the nominal surface | **85,432** |
 | Nominal surface height in NBT | **Y ≈ 77** |
 
+At that ground plane, approximately **132 block layers** remain above ground.
+[Obelisk v3](OBELISK_V3.md) exposes 177 layers, rising about 45 blocks (34%) higher
+over terrain despite its shorter total export height of 185 blocks. This relative
+scale is a design choice, not a measurement recoverable from the separate references.
+
 All block positions and states match between `.schem` and `.nbt`; tiles reconstruct
 the whole template without loss. The original Blender experiment was also checked
 against its unchanged checksums.

@@ -150,7 +150,7 @@ Distinguish positions that preserve terrain from explicit clearing volumes. A
 rectangular export must not accidentally carve a rectangular cave into a hill.
 The schematic converter requires `--air omit` or `--air keep`: neither option
 automatically defines a playable interior. Colossus exports currently omit air.
-Obelisk v2 explicitly fills sealed interiors with sandstone before conversion.
+Obelisk v2/v3 explicitly fill sealed interiors with sandstone before conversion.
 
 Check water, falling blocks, persistent leaves, vines, waterlogging, and copper
 aging after placement and reload. Use ticking blocks and block entities only
@@ -167,9 +167,16 @@ Dimensions below are X/Y/Z in blocks, including the full export bounds.
 | Colossus v2 | 181 × 160 × 227 | Reference-based Blender/NBT asset; 182,734 blocks |
 | Colossus v3 | 181 × 209 × 227 | Adds buried abdomen/torn hip; 221,221 blocks; nominal surface Y ≈ 77 |
 | Obelisk v2 | 23 × 209 × 19 | Flat crown and solid core; 90,497 blocks; 32-block buried foot |
+| Obelisk v3 | 25 × 185 × 25 | Tapered square antiprism; 93,153 blocks; 8-block buried foot |
 
 The first Blender experiment remains separately reproducible at 99 × 66 × 71.
 The asset version names do not change the playable mod version.
+
+The current design pair is Colossus v3 and Obelisk v3. At their nominal surface
+levels, they expose approximately 132 and 177 block layers respectively. The
+Obelisk's extra 45 visible blocks are a deliberate scale choice; the references
+provide no shared absolute scale. Obelisk v3 received visual approval from its
+previews, while in-game acceptance remains pending.
 
 The Obelisk must preserve a slender flat-topped silhouette, credible ground
 contact, and open views of a major face. The Colossus must retain a readable head
@@ -333,7 +340,7 @@ A successful upload request alone is not proof of public availability.
 
 ## 11. Next work and open decisions
 
-1. Choose which reference-based designs should replace the alpha templates.
+1. Confirm Colossus v3 and Obelisk v3 as the build inputs when beginning integration.
 2. Validate their palette/states in Minecraft 26.2; address legacy DataVersion
    3105, copper aging, wall thickness, and interior clearing.
 3. Add explicit build source selection and matching template references.

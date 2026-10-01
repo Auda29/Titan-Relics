@@ -1,7 +1,7 @@
 # Alpha world generation
 
 Updated: October 1, 2026. This page describes **the playable Alpha 2 resources**.
-The newer Colossus v2/v3 and Obelisk v2 Blender assets are not integrated into
+The newer Colossus v2/v3 and Obelisk v2/v3 Blender assets are not integrated into
 these placement rules.
 
 The alpha uses Minecraft 26.2 on Fabric with Lithostitched 1.8.0+beta6. Each relic

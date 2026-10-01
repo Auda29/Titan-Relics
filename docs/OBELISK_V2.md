@@ -2,6 +2,10 @@
 
 Updated: October 1, 2026.
 
+The later **[Obelisk v3](OBELISK_V3.md)** replaces the rectangular shaft with a
+tapered square antiprism and shortens the buried foot to eight blocks. This page
+records the retained v2 design.
+
 ## Reference and shape
 
 The reference is [Painted Desert by Josh White](https://www.instagram.com/p/Da0NEq7kUAO/).

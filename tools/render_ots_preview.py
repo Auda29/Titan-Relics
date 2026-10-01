@@ -307,7 +307,7 @@ def main():
     parser.add_argument("--landscape-only", action="store_true")
     parser.add_argument("--presentation-only", action="store_true")
     args = parser.parse_args(sys.argv[sys.argv.index("--")+1:] if "--" in sys.argv else [])
-    CONFIG = json.loads(args.config.read_text())
+    CONFIG = json.loads(args.config.read_text(encoding="utf-8"))
     output = ROOT / CONFIG["output"]
     OUT, STEM = output.parent, output.stem
     ATLAS = ROOT / CONFIG["repository"] / "res/atlases"

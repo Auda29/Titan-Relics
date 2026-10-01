@@ -20,11 +20,15 @@ commit `b611b52c7a87cad99127908598bab019fe9e7c3f`.
 | [Colossus v2](COLOSSUS_V2.md) | `colossus-v2.json` | 181 × 160 × 227 | 182,734 | 11 | 100 |
 | [Colossus v3](COLOSSUS_V3.md) | `colossus-v3.json` | 181 × 209 × 227 | 221,221 | 11 | 124 |
 | [Obelisk v2](OBELISK_V2.md) | `obelisk-v2.json` | 23 × 209 × 19 | 90,497 | 6 | 7 |
+| [Obelisk v3](OBELISK_V3.md) | `obelisk-v3.json` | 25 × 185 × 25 | 93,153 | 4 | 6 |
 
 Colossus v2 follows the original reference; v3 adds the buried abdomen and torn
 hip while keeping almost the same above-ground scale. Obelisk v2 follows *Painted
 Desert*, with a solid core and a 32-block buried foot. All dimensions are export
 bounds, including the detached arm where applicable.
+
+Obelisk v3 corrects the stele to a tapered square antiprism based on the supplied
+diagrams and reduces burial to eight blocks. Its scale comparison uses the v2 NBT.
 
 Previews render the actual converted NBT with Minecraft textures in Blender.
 They are not in-game evidence.
@@ -66,8 +70,9 @@ python tools/schem_to_nbt.py design/generated/colossus-v3/colossus-v3.schem desi
 python tools/inspect_ots_result.py --config design/colossus-v3.json
 ```
 
-[Colossus v2](COLOSSUS_V2.md) and [Obelisk v2](OBELISK_V2.md) have complete commands
-on their asset pages. Full rendering can take more than two minutes. Optional
+[Colossus v2](COLOSSUS_V2.md), [Obelisk v2](OBELISK_V2.md), and the current
+[Obelisk v3](OBELISK_V3.md) have complete commands on their asset pages.
+Full rendering can take more than two minutes. Optional
 renderer flags include `--source-only`, `--blocks-only`, `--landscape-only`, and
 `--presentation-only`; the last renders the landscape and scale comparison.
 
@@ -147,9 +152,10 @@ separate validation. The adapter does not generate stairs or slabs.
 
 `fill_enclosed` names a material in the config's `materials` map. A six-connected
 exterior flood fill identifies sealed empty cells and fills them before block
-assignment. Obelisk v2 uses sandstone through `"fill_enclosed": "core"`.
+assignment. Obelisk v2/v3 use sandstone through `"fill_enclosed": "core"`.
 Colossus configs do not enable this option. The flood-fill grid is capped at
-32 million cells. See [Obelisk v2](OBELISK_V2.md) for the core verification.
+32 million cells. See [Obelisk v3](OBELISK_V3.md) for core, rotated-crown, and
+shallow-burial verification; [v2](OBELISK_V2.md) records the earlier design.
 
 ## 4. Air policy and NBT conversion
 
@@ -187,7 +193,7 @@ Minecraft placement definition; worldgen would need to place and rotate parts to
 
 ```powershell
 python tools/inspect_ots_result.py --config design/colossus-v3.json --check-only
-python tools/inspect_ots_result.py --config design/obelisk-v2.json --check-only
+python tools/inspect_ots_result.py --config design/obelisk-v3.json --check-only
 python -m unittest discover -s tests -p test_schem_to_nbt.py -v
 node --test tests/voxel_fill.test.cjs
 ```

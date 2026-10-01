@@ -1,6 +1,6 @@
-"""Painted Desert presentation and solid-foot inspection for Obelisk v2.
+"""Painted Desert presentation and solid-foot inspection for Obelisk assets.
 
-Used by render_ots_preview.py with design/obelisk-v2.json. Terrain is render-only.
+Used by render_ots_preview.py with the Obelisk v2/v3 configs. Terrain is render-only.
 """
 import json
 import math
@@ -12,7 +12,8 @@ from mathutils import Vector
 def render_desert(renderer):
     scene = bpy.context.scene
     out = renderer.OUT
-    metadata = json.loads((out / f"{renderer.STEM}.design.json").read_text())
+    metadata = json.loads((out / f"{renderer.STEM}.design.json").read_text(encoding="utf-8"))
+    preview = renderer.CONFIG.get("preview", {})
     low, high = metadata["source_bounds_blender"]
     scale = (renderer.CONFIG["height"]-1)/(high[2]-low[2])
     def world(x, y, z):
@@ -26,7 +27,13 @@ def render_desert(renderer):
         return crest+distant+erosion
     origin = relief(0, 0)
     def ground(x, z):
-        return relief(x, z)-origin
+        height = relief(x, z)-origin
+        radius = preview.get("level_ground_radius", 0)
+        if radius:
+            # A quiet landing around the shallow foot avoids accidental exposure.
+            t = min(1, max(0, (math.hypot(x, z)-radius)/45))
+            height *= t*t*(3-2*t)
+        return height
     for obj in scene.objects:
         if "not exported" in obj.name:
             obj.hide_render = True
@@ -127,7 +134,7 @@ def render_desert(renderer):
     bpy.ops.object.delete(use_global=False)
     root = renderer.decode_nbt((out / f"{renderer.STEM}.nbt").read_bytes())
     cx = root["size"][0]//2
-    detail = renderer.blocks_from_nbt(predicate=lambda p: p[1] < 68 and p[0] <= cx)
+    detail = renderer.blocks_from_nbt(predicate=lambda p: p[1] < preview.get("foot_section_height", 68) and p[0] <= cx)
     center, corners = renderer.stage()
     ground_y = metadata["ground_level_nbt_approx"]
     bpy.ops.mesh.primitive_cube_add(size=1, location=(-.5, 0, ground_y))
@@ -137,3 +144,15 @@ def render_desert(renderer):
     datum.data.materials.append(renderer.material("Ground datum turquoise", (.02, .55, .50)))
     renderer.render("07-solid-foot-section.png", center, corners, (135, 230, 90))
     bpy.ops.wm.save_as_mainfile(filepath=str(out / f"{renderer.STEM}-foot-section.blend"))
+    if preview.get("burial_overview"):
+        bpy.ops.object.select_all(action="SELECT")
+        bpy.ops.object.delete(use_global=False)
+        renderer.blocks_from_nbt()
+        center, corners = renderer.stage()
+        bpy.ops.mesh.primitive_cube_add(size=1, location=(0, 0, ground_y))
+        datum = bpy.context.object
+        datum.name = "Nominal ground / only eight blocks above lowest point"
+        datum.scale = (root["size"][0]+12, root["size"][2]+12, .15)
+        datum.data.materials.append(renderer.material("Surface marker", (.02, .55, .50)))
+        renderer.render("08-burial-overview.png", center, corners, (-140, 240, 65))
+        bpy.ops.wm.save_as_mainfile(filepath=str(out / f"{renderer.STEM}-burial-overview.blend"))

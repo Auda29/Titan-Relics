@@ -2,6 +2,13 @@
 
 ## Unreleased — asset pipeline and documentation
 
+- Added Obelisk v3: a tapered square antiprism with eight triangular faces, a
+  45-degree rotated square crown, and an 8-block buried foot. Added full-height
+  ground-line inspection and exported base/crown geometry checks.
+- Recorded the current v3 design pair and its above-ground height comparison:
+  approximately 177 layers for the Obelisk versus 132 for the Colossus. Updated
+  English documentation, reproduction commands, and integration status.
+
 - Added a local Blender → OBJ → ObjToSchematic 1.0 → Sponge schematic → Java NBT pipeline, replacing the proposed VoxelVision dependency.
 - Added reference-based Colossus v2 (181 × 160 × 227 blocks) and Colossus v3 (181 × 209 × 227), with an underground abdomen and torn hip in v3.
 - Added Obelisk v2 (23 × 209 × 19), inspired by Josh White's *Painted Desert*, with a flat crown, mineral bands, and a 32-block buried foot.

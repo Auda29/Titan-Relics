@@ -52,8 +52,10 @@ the silhouette.
 - Discovery: a single unexplained object dominates the horizon.
 - Technical focus: distant readability, open surroundings, spacing from other major relics.
 - Priority: first simple prototype.
-- Current asset work: [Obelisk v2](docs/OBELISK_V2.md), 23 × 209 × 19 blocks, with
-  warm mineral faces, solid core, and a 32-block buried foot; integration pending.
+- Current asset work: [Obelisk v3](docs/OBELISK_V3.md), a tapered square antiprism,
+  25 × 185 × 25 blocks, with a solid core and only eight blocks below ground.
+  It replaces the rectangular design of [v2](docs/OBELISK_V2.md) as the current
+  design study. Build/worldgen integration remains pending.
 
 ### 3. Monumental sci-fi ruined tower above a pale plain
 

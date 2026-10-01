@@ -79,6 +79,6 @@ was not suppressed through operating-system changes. Build, tests, and repeat-bu
 comparison are also covered by Linux GitHub Actions. CI does not upload additional
 Actions artifacts; downloads use GitHub Releases.
 
-The October 2026 Colossus v2/v3 and Obelisk v2 exports were verified separately at
+The October 2026 Colossus v2/v3 and Obelisk v2/v3 exports were verified separately at
 the asset level. They have not undergone these server/worldgen checks and are not
 part of the recorded Alpha 2 JAR.

@@ -94,6 +94,24 @@ def check():
                                      "continuous_checked_prism": [7, size[1], 7],
                                      "ground_level": ground,
                                      "blocks_below_ground": sum(p[1] < ground for p in blocks)}
+        if "antiprism" in design:
+            ground = design["ground_level_nbt_approx"]
+            cx, cz = size[0]//2, size[2]//2
+            top = size[1]-2
+            # At the base the four corners exist; the rotated crown loses those
+            # corners but retains its four axis tips. Inspect the actual blocks.
+            require(all((cx+dx, ground, cz+dz) in blocks for dx in (-8, 8) for dz in (-8, 8)),
+                    "Square antiprism base is missing")
+            require(all((cx+dx, top, cz+dz) not in blocks for dx in (-8, 8) for dz in (-8, 8)),
+                    "Crown retained rectangular corners instead of rotated facets")
+            require(all((cx+dx, top, cz+dz) in blocks for dx, dz in [(-9, 0), (9, 0), (0, -9), (0, 9)]),
+                    "Rotated crown tips are missing")
+            below = sum(p[1] < ground for p in blocks)
+            require(ground == 8 and below/len(blocks) < .08, "Foot is not shallow")
+            require(size[1] == design["height_target_blocks"], "Antiprism height changed")
+            summary["antiprism"] = {"base_and_rotated_crown_checked": True,
+                                     "buried_layers": ground, "blocks_below_ground": below,
+                                     "buried_block_percent": round(100*below/len(blocks), 2)}
     (OUT / "verification.json").write_text(json.dumps(summary, indent=2)+"\n")
     print(json.dumps(summary, indent=2))
     return summary

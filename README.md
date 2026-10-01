@@ -4,7 +4,10 @@ Rare, monumental discoveries for Minecraft: a desert obelisk and an overgrown, e
 
 **Current playable build: 0.1.0-alpha.2 for Minecraft 26.2 / Fabric.** Python generators build the structures automatically. Alpha 2 adds weathering, vegetation, and shorter terrain transitions. Broader multi-seed acceptance testing for version 0.1 is still pending.
 
-**Latest asset work, October 1, 2026:** reference-based Colossus v2/v3 and Obelisk v2 now have reproducible Blender → ObjToSchematic → NBT pipelines and verified block exports. Their integration into the mod build and natural world generation is still pending.
+**Latest asset work, October 1, 2026:** reference-based Colossus v2/v3 and Obelisk v2/v3 have reproducible Blender → ObjToSchematic → NBT pipelines and verified block exports. The current design pair is **Colossus v3 and Obelisk v3**. Their integration into the mod build and natural world generation is still pending.
+
+**Obelisk v3** revises the shape to a tapered square antiprism with eight triangular
+faces, a 45-degree rotated crown, and only eight blocks of burial.
 
 ## Structures in Alpha 2
 
@@ -70,8 +73,14 @@ The implemented asset pipeline is **Blender → triangulated OBJ → local, open
 | [Colossus v2](docs/COLOSSUS_V2.md) | 181 × 160 × 227 | 182,734 | Bronze dome helmet, respirator hoses, broad armor, vegetation, and detached arm |
 | [Colossus v3](docs/COLOSSUS_V3.md) | 181 × 209 × 227 | 221,221 | Extends v2 underground to a torn hip; nominal surface at NBT Y ≈ 77 |
 | [Obelisk v2](docs/OBELISK_V2.md) | 23 × 209 × 19 | 90,497 | Flat crown, warm mineral bands, solid sandstone core, and a 32-block buried foot |
+| [Obelisk v3](docs/OBELISK_V3.md) | 25 × 185 × 25 | 93,153 | Tapered square antiprism, rotated crown, solid core, and an 8-block buried foot |
 
 Dimensions include buried geometry and, for the Colossus, the detached arm. Absolute scale is an artistic estimate from the references. Previews render actual exported NBT blocks in Blender; landscapes and scale figures are presentation aids. These assets have not been tested in-game. The alpha build still uses `tools/relic_assets.py`.
+
+At their nominal ground planes, Obelisk v3 exposes approximately **177 block
+layers**, versus **132** for Colossus v3. It therefore rises about **45 blocks
+(34%) higher above terrain**, although the Colossus is taller overall. This is
+a chosen visual relationship, not a measured ratio between the separate references.
 
 ### Convert a schematic
 
@@ -88,7 +97,7 @@ python tools/schem_to_nbt.py model.schem design/imported/model.nbt --air omit
 
 The air policy is mandatory. The converter does not automatically distinguish room air from exterior air. Coordinates are local to the lower model corner; the schematic offset is recorded rather than added. Block names, states, and `DataVersion` are preserved without migration. Entities and block entities, such as filled chests, are rejected with an error.
 
-ObjToSchematic exports currently use DataVersion **3105**, while the target game uses **4903**. Target-game validation remains necessary. Obelisk v2 explicitly fills enclosed cells before schematic export; the Colossus assets use surface voxelization.
+ObjToSchematic exports currently use DataVersion **3105**, while the target game uses **4903**. Target-game validation remains necessary. Obelisk v2/v3 explicitly fill enclosed cells before schematic export; the Colossus assets use surface voxelization.
 
 ### Previews
 
