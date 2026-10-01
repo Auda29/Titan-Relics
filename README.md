@@ -59,6 +59,38 @@ Die Funktionen `obelisk()` und `colossus()` in [tools/relic_assets.py](tools/rel
 
 Der Export erzeugt ganze Vorlagen und zusätzlich starre Teilvorlagen. Die Mod verwendet ausschließlich die ganzen Vorlagen; der Arm kann nicht durch eine zufällig fehlgeschlagene Verbindung entfallen.
 
+### Blender / VoxelVision automatisch importieren
+
+Der neue Gestaltungsworkflow ist **Blender → VoxelVision → `.schem` → `.nbt` →
+Worldgen**. Die vollständige Anleitung mit Quellablage, Luftregeln, Prüfungen und
+dem noch ausstehenden Build-Integrationsschritt steht in
+[BLENDER_WORKFLOW.md](docs/BLENDER_WORKFLOW.md).
+
+Sponge-`.schem` (Version 2 oder 3) lässt sich ohne Minecraft und ohne zusätzliche
+Python-Pakete in eine Java-Structure-Template-Datei umwandeln:
+
+```shell
+python tools/schem_to_nbt.py model.schem design/imported/model.nbt --air omit
+```
+
+`--air` ist bewusst verpflichtend: `omit` lässt alle Luftblöcke aus und erhält dort
+das Gelände, also auch in modellierten Innenräumen. `keep` übernimmt sämtliche
+Luft im Exportquader und kann damit auch außerhalb der Silhouette Gelände löschen.
+`minecraft:structure_void` wird immer ausgelassen. Eine automatische Unterscheidung
+von Außenluft und Innenräumen findet noch nicht statt.
+
+Optional erzeugt `--tile-size 32` zusätzlich Teilvorlagen und dokumentiert deren
+relative Positionen in `model.manifest.json`. Das Manifest dokumentiert auch Größe,
+Quelloffset und Luftregel. Alle Positionen sind lokal zur unteren Ecke des Modells;
+der `.schem`-Offset wird nicht in Blockkoordinaten eingerechnet.
+
+Blocknamen, Zustände und `DataVersion` werden übernommen, nicht auf eine andere
+Minecraft-Version migriert. Entities und Block-Entities (z. B. gefüllte Truhen)
+werden mit einer Fehlermeldung abgelehnt statt stillschweigend entfernt.
+Die Ausgabe ist eine Bauvorlage, noch keine automatische Worldgen-Einbindung.
+Der bestehende Mod-Build nutzt weiterhin die Python-Generatoren; importierte
+Vorlagen und Teilpositionen müssen separat in die Platzierungsregeln eingebunden werden.
+
 ### Vorschauen
 
 Der optionale Renderer benötigt Pillow und zeichnet die tatsächlich erzeugten Blöcke mit vereinfachten Farben:

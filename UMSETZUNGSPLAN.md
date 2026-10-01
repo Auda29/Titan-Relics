@@ -1,6 +1,6 @@
 # Relic Mod: technischer Umsetzungsplan
 
-Stand: 13.09.2026
+Stand: 01.10.2026
 
 Status: Entwicklungsplan für die vollständige Version 0.1. Alpha 2 für Minecraft 26.2 / Fabric 0.19.5 ergänzt Verfall und Geländeübergänge. Der aktuelle Implementierungsstand steht in der [README](README.md), tatsächlich ausgeführte Prüfungen im [Alpha-2-Testbericht](docs/ALPHA_2_TEST_REPORT.md). Die nachfolgenden vollständigen Abnahmekriterien sind damit nicht automatisch erfüllt.
 
@@ -94,7 +94,9 @@ Registrypfade und Strukturverzeichnisse unterhalb der Ressourcen werden erst anh
 
 ### 4.2 Bau- und Exportablauf
 
-Für die Alpha wurde der Bauprozess auf automatische Erzeugung umgestellt: `tools/relic_assets.py` erstellt Geometrie und NBT-Vorlagen, `tools/render_preview.py` liefert Vorschauen. Änderungen erfolgen zunächst am Generator und werden erneut geprüft. Die unten beschriebene Kreativ-Bauwelt bleibt eine optionale Möglichkeit zur gestalterischen Nacharbeit; Handbau ist keine Voraussetzung für den Alpha-Build.
+Neue Modelle werden künftig in Blender erstellt und mit VoxelVision als Sponge-`.schem` exportiert. `tools/schem_to_nbt.py` konvertiert sie automatisch in Java-Structure-`.nbt`, optional mit starren Teilvorlagen und Positionsmanifest. Ein manueller Import und erneuter Export in Minecraft ist nicht erforderlich. Der vollständige Ablauf und seine Grenzen stehen in [docs/BLENDER_WORKFLOW.md](docs/BLENDER_WORKFLOW.md).
+
+Der aktuelle Alpha-Build verwendet weiterhin `tools/relic_assets.py` für Geometrie und NBT sowie `tools/render_preview.py` für Vorschauen. Die automatische Übernahme von Blender-Exporten in den Mod-Build ist noch umzusetzen; bis dahin bleiben Konvertierungsergebnisse getrennt von den generierten Alpha-Ressourcen. Der folgende Kreativ-Bauwelt-Ablauf ist eine optionale Alternative zur Gestaltung und Prüfung, nicht der neue Standardworkflow.
 
 1. Eine getrennte Kreativ-Bauwelt für die Zielversion anlegen.
 2. Ein Bau- und Exportwerkzeug auswählen und dessen Version dokumentieren. Die erste Entscheidung erfolgt durch einen kleinen Export-und-Import-Versuch.

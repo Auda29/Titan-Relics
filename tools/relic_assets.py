@@ -320,12 +320,23 @@ def decode_nbt(data: bytes) -> dict:
     cursor=0
     def take(n):
         nonlocal cursor
+        if n<0: raise ValueError("Negative NBT length")
         result=data[cursor:cursor+n]
         if len(result)!=n: raise ValueError("Truncated NBT")
         cursor+=n
         return result
     def string(): return take(struct.unpack(">H",take(2))[0]).decode("utf-8")
     def value(tag):
+        formats={1:(">b",1),2:(">h",2),4:(">q",8),5:(">f",4),6:(">d",8)}
+        if tag in formats:
+            fmt,length=formats[tag]
+            return struct.unpack(fmt,take(length))[0]
+        if tag==7: return take(struct.unpack(">i",take(4))[0])
+        if tag in (11,12):
+            count=struct.unpack(">i",take(4))[0]
+            if count<0: raise ValueError("Negative array length")
+            fmt,length=(">i",4) if tag==11 else (">q",8)
+            return [struct.unpack(fmt,take(length))[0] for _ in range(count)]
         if tag==3: return struct.unpack(">i",take(4))[0]
         if tag==8: return string()
         if tag==9:
