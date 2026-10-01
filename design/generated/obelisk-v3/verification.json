@@ -1,0 +1,37 @@
+{
+  "size": [
+    25,
+    185,
+    25
+  ],
+  "blocks": 93153,
+  "palette_entries": 4,
+  "tiles": 6,
+  "data_version": 3105,
+  "schematic_sha256": "579cc0ea3a021b2855c83529591f1904efe7de703903e0244b1e2d7318d74cb1",
+  "nbt_sha256": "b7244a1e80ee820b96aba0e899129884080c8f5d58e5b58d90fe0ec80bc55f8e",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "solid_core": {
+    "filled_voxels": 79343,
+    "continuous_checked_prism": [
+      7,
+      185,
+      7
+    ],
+    "ground_level": 8,
+    "blocks_below_ground": 4972
+  },
+  "antiprism": {
+    "base_and_rotated_crown_checked": true,
+    "buried_layers": 8,
+    "blocks_below_ground": 4972,
+    "buried_block_percent": 5.34
+  }
+}

@@ -1,0 +1,243 @@
+{
+  "name": "Titan Skull v3",
+  "reference": "https://www.instagram.com/reel/DXM3J4sgqJl/",
+  "reference_seconds": [
+    0,
+    5
+  ],
+  "source_bounds_blender": [
+    [
+      -54.0,
+      -172.0,
+      -8.0
+    ],
+    [
+      66.0,
+      30.0,
+      71.23779296875
+    ]
+  ],
+  "height_target_blocks": 80,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 8,
+  "blocks_per_source_unit": 0.9969989955570345,
+  "scale_is_estimate": true,
+  "skull_bounds_blender": [
+    [
+      -31.930910110473633,
+      -19.567974090576172,
+      -4.762203216552734
+    ],
+    [
+      37.548702239990234,
+      18.972822189331055,
+      71.23779296875
+    ]
+  ],
+  "skull_height_blocks_approx": 75.77191985908529,
+  "colossus_head_reference": {
+    "asset": "colossus-v3",
+    "part": "Round diving helmet dome shell",
+    "dimensions_xyz_blocks": [
+      54.011411381693044,
+      63.24109889519235,
+      53.94809103603305
+    ],
+    "skull_to_helmet_height_ratio": 1.1981436911447294
+  },
+  "skull_scale_from_v1_source": 0.39685027123655886,
+  "exported_mound": {
+    "bottom_source_y": -8,
+    "slice_spacing": 0.75,
+    "solid_probes_source": [
+      [
+        -20,
+        0,
+        20
+      ],
+      [
+        20,
+        4,
+        24
+      ],
+      [
+        0,
+        5,
+        38
+      ],
+      [
+        20,
+        0,
+        82
+      ],
+      [
+        30,
+        -1,
+        121
+      ]
+    ],
+    "terrain_materials": [
+      "minecraft:moss_block",
+      "minecraft:dirt",
+      "minecraft:stone"
+    ]
+  },
+  "rear_wall_probe_source": [
+    0,
+    40.87557793736556,
+    17.858262205645147
+  ],
+  "cavity_probes_source": [
+    [
+      0.0,
+      16.667711391935473,
+      -19.842513561827943
+    ],
+    [
+      0.0,
+      16.667711391935473,
+      -9.921256780913971
+    ],
+    [
+      0.0,
+      16.667711391935473,
+      0.0
+    ],
+    [
+      -9.921256780913971,
+      43.65352983602148,
+      -12.699208679569884
+    ],
+    [
+      9.921256780913971,
+      42.85982929354836,
+      -12.699208679569884
+    ],
+    [
+      0.0,
+      40.478727666129004,
+      -13.889759493279561
+    ]
+  ],
+  "interpretation": "Colossus-head-scale skull with a broken partly buried spine and extended solid local hill. Spine is an original design addition.",
+  "air_policy": "omit; local generated mound leaves mouth clear; existing world terrain still requires an explicit clearing policy",
+  "spine": {
+    "vertebrae": [
+      {
+        "index": 1,
+        "center_source": [
+          0,
+          23.5,
+          20
+        ],
+        "ground_source_y": 25.396057496481486,
+        "source_vertices_below_terrain_fraction": 0.7213294375456537,
+        "group": "attached"
+      },
+      {
+        "index": 2,
+        "center_source": [
+          1,
+          22.592786698255917,
+          31
+        ],
+        "ground_source_y": 21.592786698255917,
+        "source_vertices_below_terrain_fraction": 0.5047479912344777,
+        "group": "attached"
+      },
+      {
+        "index": 3,
+        "center_source": [
+          2,
+          17.144850653128827,
+          43
+        ],
+        "ground_source_y": 16.144850653128827,
+        "source_vertices_below_terrain_fraction": 0.49159970781592405,
+        "group": "attached"
+      },
+      {
+        "index": 4,
+        "center_source": [
+          14,
+          10.264085691316327,
+          65
+        ],
+        "ground_source_y": 9.264085691316327,
+        "source_vertices_below_terrain_fraction": 0.5080350620891162,
+        "group": "detached_chain"
+      },
+      {
+        "index": 5,
+        "center_source": [
+          19,
+          13.074422830502607,
+          78
+        ],
+        "ground_source_y": 12.074422830502607,
+        "source_vertices_below_terrain_fraction": 0.5047479912344777,
+        "group": "detached_chain"
+      },
+      {
+        "index": 6,
+        "center_source": [
+          24,
+          14.144866537862205,
+          92
+        ],
+        "ground_source_y": 13.144866537862205,
+        "source_vertices_below_terrain_fraction": 0.5014609203798392,
+        "group": "detached_chain"
+      },
+      {
+        "index": 7,
+        "center_source": [
+          30,
+          11.944328788454015,
+          106
+        ],
+        "ground_source_y": 10.944328788454015,
+        "source_vertices_below_terrain_fraction": 0.5105916727538349,
+        "group": "detached_chain"
+      },
+      {
+        "index": 8,
+        "center_source": [
+          34,
+          10.008462008696736,
+          120
+        ],
+        "ground_source_y": 9.008462008696736,
+        "source_vertices_below_terrain_fraction": 0.4868517165814463,
+        "group": "detached_chain"
+      },
+      {
+        "index": 9,
+        "center_source": [
+          29,
+          5.2033193357654355,
+          142
+        ],
+        "ground_source_y": 4.2033193357654355,
+        "source_vertices_below_terrain_fraction": 0.5007304601899196,
+        "group": "loose_tail"
+      }
+    ],
+    "major_fracture_source_z": [
+      49,
+      57
+    ],
+    "secondary_fracture_source_z": [
+      127,
+      134
+    ],
+    "scale_preserved_from": "titan-skull-v2",
+    "fracture_probe_planes_source_z": [50, 129],
+    "bone_materials": [
+      "minecraft:dripstone_block",
+      "minecraft:sandstone",
+      "minecraft:tuff"
+    ],
+    "note": "Three attached vertebrae, five displaced connected vertebrae, one isolated terminal vertebra; lower bodies buried."
+  }
+}

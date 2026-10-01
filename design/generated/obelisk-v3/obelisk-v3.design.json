@@ -1,0 +1,38 @@
+{
+  "name": "Obelisk v3",
+  "reference": "https://www.instagram.com/p/Da0NEq7kUAO/",
+  "reference_credit": "Josh White / Painted Desert; user-provided antiprism diagrams",
+  "source_bounds_blender": [
+    [
+      -12.0,
+      -12.0,
+      -8.0
+    ],
+    [
+      12.0,
+      12.0,
+      176.0
+    ]
+  ],
+  "height_target_blocks": 185,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 8,
+  "visible_height_source": 176,
+  "scale_is_estimate": true,
+  "solid_core": true,
+  "buried_base": {
+    "depth_source": 8,
+    "type": "Short continuation of the antiprism"
+  },
+  "antiprism": {
+    "sides": 4,
+    "twist_degrees": 45,
+    "base_edge_source": 24,
+    "top_edge_source": 16.080000000000002,
+    "top_edge_ratio": 0.67,
+    "lateral_triangles": 8,
+    "closed_manifold": true,
+    "source_volume": 84660.83689313103
+  },
+  "interpretation": "Eight long planar triangles between rotated square caps; shallow burial; no rectangular shaft."
+}

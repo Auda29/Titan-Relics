@@ -1,0 +1,37 @@
+{
+  "name": "Obelisk v2",
+  "reference": "https://www.instagram.com/p/Da0NEq7kUAO/",
+  "reference_credit": "Josh White / Painted Desert",
+  "source_bounds_blender": [
+    [
+      -11.0,
+      -9.0,
+      -32.0
+    ],
+    [
+      11.0,
+      9.0,
+      176.0
+    ]
+  ],
+  "height_target_blocks": 209,
+  "scale_is_estimate": true,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 32,
+  "visible_height_source": 176,
+  "shaft_width_source": [
+    22,
+    22
+  ],
+  "shaft_depth_source": [
+    18,
+    18
+  ],
+  "buried_base": {
+    "depth_source": 32,
+    "type": "Continuous stele shaft, not an exposed stepped pedestal"
+  },
+  "solid_core": true,
+  "basis": "Flat crown, near-parallel tall faces; visible height/projected width about 7:1. No reliable absolute scale in the artwork.",
+  "interpretation": "Warm mineral faces and restrained horizontal weathering; sunward face lighter. Hidden sides and buried foot inferred."
+}

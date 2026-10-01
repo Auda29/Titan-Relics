@@ -262,10 +262,15 @@ The aircraft taking off in the reference is not a fixed annex.
 
 **Working name:** The Face in the Valley. **Scope:** planned expansion after version 0.1.
 
-**Current asset study:** [Titan Skull v1](docs/TITAN_SKULL_V1.md) follows the opening
-reference with a fused organic crown, hollow cranium, triangular nose, open jaw,
-and uneven lateral spurs. Block exports and previews exist; the exploration route
-described below remains a design goal pending terrain and gameplay integration.
+**Current asset study:** [Titan Skull v3](docs/TITAN_SKULL_V3.md) retains the fused
+organic crown, hollow cranium, triangular nose, open jaw, and lateral spurs of v1,
+but reduces the skull to approximately Colossus-head scale. The user's premise is
+that the living titan could have fought the Colossus. This guides relative size
+without adding a fight mechanic or settling the wider world history. V3 includes
+a complete posterior wall and a broken nine-vertebra spine, partly buried in an
+extended solid local mound. Two dislocations and loose fragments suggest an
+incomplete fallen skeleton. The exploration route below
+remains a design goal pending terrain and gameplay integration.
 
 **Mood and silhouette:** An eroded mineral form becomes recognizable as a skull.
 Eye sockets, nose, and mouth determine its shape. A few broken projections suggest

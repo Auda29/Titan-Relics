@@ -1,0 +1,59 @@
+{
+  "name": "Titan Skull v1",
+  "reference": "https://www.instagram.com/reel/DXM3J4sgqJl/",
+  "reference_seconds": [
+    0,
+    5
+  ],
+  "source_bounds_blender": [
+    [
+      -80.46085357666016,
+      -49.308204650878906,
+      -12.0
+    ],
+    [
+      94.6167984008789,
+      47.80851745605469,
+      179.50799560546875
+    ]
+  ],
+  "height_target_blocks": 203,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 13,
+  "blocks_per_source_unit": 1.0547862472340117,
+  "scale_is_estimate": true,
+  "interpretation": "Crowned fossil skull, deep real sockets, triangular nose, long open jaw and lateral spur. Back and buried base inferred.",
+  "air_policy": "omit; geometric chambers do not yet clear terrain during placement",
+  "cavity_probes_source": [
+    [
+      0,
+      42,
+      -50
+    ],
+    [
+      0,
+      42,
+      -25
+    ],
+    [
+      0,
+      42,
+      0
+    ],
+    [
+      -25,
+      110,
+      -32
+    ],
+    [
+      25,
+      108,
+      -32
+    ],
+    [
+      0,
+      102,
+      -35
+    ]
+  ]
+}

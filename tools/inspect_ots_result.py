@@ -133,6 +133,47 @@ def check():
                                         "ground_level": ground,
                                         "blocks_below_ground": sum(p[1] < ground for p in blocks),
                                         "terrain_clearing_defined": False}
+            if "exported_mound" in design:
+                terrain = set(design["exported_mound"]["terrain_materials"])
+                solid_probes = [local(p) for p in design["exported_mound"]["solid_probes_source"]]
+                require(all((p[0]+dx, y, p[2]+dz) in blocks for p in solid_probes
+                            for dx in range(-2, 3) for dz in range(-2, 3)
+                            for y in range(2, p[1]+2)), "Exported mound contains an empty interior column")
+                terrain_count = sum(state in terrain for state in blocks.values())
+                require(terrain_count > 50000 and terrain <= set(blocks.values()), "Exported terrain materials are missing")
+                rear = local(design["rear_wall_probe_source"])
+                require(all(any(blocks.get((rear[0]+dx, rear[1]+dy, rear[2]+dz)) in
+                                    {"minecraft:dripstone_block", "minecraft:sandstone", "minecraft:tuff"}
+                                for dz in range(-5, 6)) for dx in (-5, 0, 5) for dy in (-5, 0, 5)),
+                        "Rounded posterior skull wall is missing")
+                ratio = design["colossus_head_reference"]["skull_to_helmet_height_ratio"]
+                require(1 <= ratio <= 1.3, "Skull is no longer close to Colossus-head scale")
+                summary["exported_mound"] = {"terrain_blocks": terrain_count,
+                                              "solid_column_groups_checked": len(solid_probes),
+                                              "rear_wall_rays_checked": 9,
+                                              "skull_height_blocks_approx": design["skull_height_blocks_approx"],
+                                              "skull_to_helmet_height_ratio": ratio}
+                if "spine" in design:
+                    spine = design["spine"]
+                    bone_materials = set(spine["bone_materials"])
+                    bone_points = [(p[0]/scale+low[0], p[1]/scale+low[2], p[2]/scale-high[1])
+                                   for p, state in blocks.items() if state in bone_materials]
+                    vertebra_checks = []
+                    for vertebra in spine["vertebrae"]:
+                        x, _, z = vertebra["center_source"]
+                        surface = vertebra["ground_source_y"]
+                        nearby = [p for p in bone_points if abs(p[0]-x) <= 16 and abs(p[2]-z) <= 5]
+                        below = sum(p[1] < surface-1 for p in nearby)
+                        above = sum(surface+1 < p[1] < surface+18 for p in nearby)
+                        require(below > 30 and above > 100, f"Vertebra {vertebra['index']} is missing or not partly buried")
+                        vertebra_checks.append({"index": vertebra["index"], "buried_bone_samples": below, "exposed_bone_samples": above})
+                    planes = spine["fracture_probe_planes_source_z"]
+                    require(all(not any(abs(p[2]-z) < .6 for p in bone_points) for z in planes),
+                            "A bony bridge crosses an intended spinal fracture")
+                    require(len(vertebra_checks) == 9, "Expected nine vertebral remnants")
+                    summary["spine"] = {"vertebrae_checked": vertebra_checks,
+                                         "bone_free_fracture_planes_source_z": planes,
+                                         "skull_height_blocks_approx": design["skull_height_blocks_approx"]}
     (OUT / "verification.json").write_text(json.dumps(summary, indent=2)+"\n")
     print(json.dumps(summary, indent=2))
     return summary
@@ -163,7 +204,7 @@ def contact_sheet(summary):
     size = " × ".join(map(str, summary["size"]))
     draw.text((48, 1917), f"{size} Blöcke  ·  {summary['blocks']:,} gesetzte Blöcke  ·  {summary['palette_entries']} Blocktypen  ·  Türkis = 2 Blöcke Höhe".replace(",", "."),
               fill="#293934", font=font(27, True))
-    draw.text((48, 1966), "NBT-Geometrie in Blender gerendert; kein Ingame-Nachweis. Geländeplatte und Maßstabsmarker gehören nur zur Vorschau.",
+    draw.text((48, 1966), CONFIG.get("review_footer", "NBT-Geometrie in Blender gerendert; kein Ingame-Nachweis. Geländeplatte und Maßstabsmarker gehören nur zur Vorschau."),
               fill="#54615a", font=font(24))
     output = OUT / f"{STEM}-review.png"
     sheet.save(output)
@@ -196,7 +237,7 @@ def reference_sheet(summary):
     label = CONFIG.get("landscape_label", "echte NBT-Blöcke, illustrative Hügel")
     draw.text((1240, 1290), f"02 / {title} · {label}", fill="#293934", font=font(23, True))
     panel(OUT / CONFIG.get("detail_image", "02-blocks-front.png"), (40, 1350, 1140, 750))
-    comparison = OUT / "06-size-comparison.png"
+    comparison = OUT / CONFIG.get("comparison_image", "06-size-comparison.png")
     panel(comparison if comparison.exists() else OUT / "04-blocks-back.png", (1220, 1350, 1140, 750))
     draw.text((60, 2108), CONFIG.get("detail_label", "03 / Gesamte exportierte Struktur ohne Landschaft"), fill="#293934", font=font(25, True))
     version = title.split()[-1].lower()
@@ -208,7 +249,7 @@ def reference_sheet(summary):
     dimensions = CONFIG.get("dimensions_label", "X/Y/Z, inklusive Arm")
     draw.text((48, 2160), f"{size} Blöcke ({dimensions})  ·  {count} gesetzte Blöcke", fill="#293934", font=font(26, True))
     url = CONFIG.get("reference", "https://www.instagram.com/reel/DaoBxUEiBNa/").removeprefix("https://www.")
-    draw.text((48, 2206), f"Blender-Render der NBT, kein Ingame-Bild. Gelände und Figuren sind Vorschauhilfen. Referenz: {url}", fill="#54615a", font=font(21))
+    draw.text((48, 2206), CONFIG.get("reference_footer", f"Blender-Render der NBT, kein Ingame-Bild. Gelände und Figuren sind Vorschauhilfen. Referenz: {url}"), fill="#54615a", font=font(21))
     output = OUT / f"{STEM}-reference-review.png"
     sheet.save(output)
     print(f"Reference comparison: {output}")

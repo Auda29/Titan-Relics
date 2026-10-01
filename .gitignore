@@ -14,10 +14,21 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 
-# Generated structures, previews and release artifacts are rebuilt from source
+# Build artifacts and local pipeline dependencies
 src/main/resources/data/relics/structure/
 structures-src/generated/
-design/generated/
+# Publish asset reviews, editable sources, usable exports and provenance.
+# Keep render scenes, intermediates, tile manifests and nested tile folders local.
+design/generated/*
+!design/generated/*/
+design/generated/*/*
+!design/generated/*/*review.png
+!design/generated/*/*.nbt
+!design/generated/*/*-source.blend
+!design/generated/*/*.schem
+!design/generated/*/*.design.json
+!design/generated/*/*.ots.json
+!design/generated/*/verification.json
 dist/
 .work/
 

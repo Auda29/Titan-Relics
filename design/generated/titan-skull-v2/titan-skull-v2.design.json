@@ -1,0 +1,114 @@
+{
+  "name": "Titan Skull v2",
+  "reference": "https://www.instagram.com/reel/DXM3J4sgqJl/",
+  "reference_seconds": [
+    0,
+    5
+  ],
+  "source_bounds_blender": [
+    [
+      -54.0,
+      -74.0,
+      -8.0
+    ],
+    [
+      62.0,
+      30.0,
+      71.23779296875
+    ]
+  ],
+  "height_target_blocks": 80,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 8,
+  "blocks_per_source_unit": 0.9969989955570345,
+  "scale_is_estimate": true,
+  "skull_bounds_blender": [
+    [
+      -31.930910110473633,
+      -19.567974090576172,
+      -4.762203216552734
+    ],
+    [
+      37.548702239990234,
+      18.972822189331055,
+      71.23779296875
+    ]
+  ],
+  "skull_height_blocks_approx": 75.77191985908529,
+  "colossus_head_reference": {
+    "asset": "colossus-v3",
+    "part": "Round diving helmet dome shell",
+    "dimensions_xyz_blocks": [
+      54.011411381693044,
+      63.24109889519235,
+      53.94809103603305
+    ],
+    "skull_to_helmet_height_ratio": 1.1981436911447294
+  },
+  "skull_scale_from_v1_source": 0.39685027123655886,
+  "exported_mound": {
+    "bottom_source_y": -8,
+    "slice_spacing": 0.75,
+    "solid_probes_source": [
+      [
+        -20,
+        0,
+        20
+      ],
+      [
+        20,
+        4,
+        24
+      ],
+      [
+        0,
+        5,
+        38
+      ]
+    ],
+    "terrain_materials": [
+      "minecraft:moss_block",
+      "minecraft:dirt",
+      "minecraft:stone"
+    ]
+  },
+  "rear_wall_probe_source": [
+    0,
+    40.87557793736556,
+    17.858262205645147
+  ],
+  "cavity_probes_source": [
+    [
+      0.0,
+      16.667711391935473,
+      -19.842513561827943
+    ],
+    [
+      0.0,
+      16.667711391935473,
+      -9.921256780913971
+    ],
+    [
+      0.0,
+      16.667711391935473,
+      0.0
+    ],
+    [
+      -9.921256780913971,
+      43.65352983602148,
+      -12.699208679569884
+    ],
+    [
+      9.921256780913971,
+      42.85982929354836,
+      -12.699208679569884
+    ],
+    [
+      0.0,
+      40.478727666129004,
+      -13.889759493279561
+    ]
+  ],
+  "interpretation": "Skull modestly larger than Colossus dome; complete rear; actual exported grassy mound, not just a render prop.",
+  "air_policy": "omit; local generated mound leaves mouth clear; existing world terrain still requires an explicit clearing policy"
+}

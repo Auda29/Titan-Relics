@@ -1,0 +1,27 @@
+{
+  "size": [
+    181,
+    209,
+    227
+  ],
+  "blocks": 221221,
+  "palette_entries": 11,
+  "tiles": 124,
+  "data_version": 3105,
+  "schematic_sha256": "49832031b75069608c3b0dc3e868dba51abbf2bf14a596de787e36672c0f3577",
+  "nbt_sha256": "6b4d0ec77375d88f671aeb717498e3f4a0e7f15e32d3911c6415bc7add6742ce",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "buried_hip": {
+    "nominal_surface_y": 77,
+    "blocks_below_surface": 85432,
+    "depth_below_surface": 77,
+    "scale_change_percent": 0.0945
+  }
+}

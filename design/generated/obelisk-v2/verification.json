@@ -1,0 +1,31 @@
+{
+  "size": [
+    23,
+    209,
+    19
+  ],
+  "blocks": 90497,
+  "palette_entries": 6,
+  "tiles": 7,
+  "data_version": 3105,
+  "schematic_sha256": "b1f82924514f8a5df0110139621deb7d7e31f97b370b2da3f56356d5b1a9bef6",
+  "nbt_sha256": "4107ee5deb4a5bff61b8cf5cf69f5f8a54958d6bebd677393c188f6d0f87b18a",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "solid_core": {
+    "filled_voxels": 73883,
+    "continuous_checked_prism": [
+      7,
+      209,
+      7
+    ],
+    "ground_level": 32,
+    "blocks_below_ground": 13856
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v24.16.0",
+  "input": "design/generated/ots/colossus.obj",
+  "output": "design/generated/ots/colossus.schem",
+  "source_sha256": "fac2f4360bc1edd3160911a6ac683c4a285c6fe49d85b8e8ceff4682e3a1f158",
+  "schematic_sha256": "a13786cb90e50ecdec6dbde6427191de39191fe6d85611e8ecf33bbfaea280bd",
+  "height": 66,
+  "triangles": 11420,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 66,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "armor": "minecraft:deepslate_tiles",
+    "trim": "minecraft:polished_deepslate",
+    "broken": "minecraft:cobbled_deepslate",
+    "joint": "minecraft:polished_basalt",
+    "dark": "minecraft:black_concrete",
+    "copper": "minecraft:weathered_cut_copper",
+    "moss": "minecraft:moss_block",
+    "earth": "minecraft:dirt",
+    "wood": "minecraft:oak_planks"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:cobbled_deepslate": 2928,
+    "minecraft:dirt": 4498,
+    "minecraft:polished_deepslate": 3588,
+    "minecraft:deepslate_tiles": 11459,
+    "minecraft:polished_basalt": 2787,
+    "minecraft:oak_planks": 115,
+    "minecraft:moss_block": 621,
+    "minecraft:weathered_cut_copper": 99,
+    "minecraft:black_concrete": 74
+  },
+  "note": "Surface voxelisation. No solid filling, interior-air classification or worldgen integration."
+}

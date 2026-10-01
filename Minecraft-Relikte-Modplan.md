@@ -92,9 +92,11 @@ ancient monument; that question can remain open.
 - Variants: broken teeth/crown projections, erosion, and vegetation.
 - Discovery: a seemingly geological shape becomes recognizable as a face.
 - Technical focus: organic block forms and a readable silhouette despite erosion.
-- Current asset study: [Titan Skull v1](docs/TITAN_SKULL_V1.md), 185 × 203 × 103
-  blocks, with an organic crown and open jaw. Exported and previewed separately;
-  natural placement and gameplay integration remain future work.
+- Current asset study: [Titan Skull v3](docs/TITAN_SKULL_V3.md), a roughly
+  76-block skull with an organic crown and open jaw, sized as a plausible opponent
+  for the Colossus. The full 121 × 79 × 203 export includes a broken, partly buried
+  nine-vertebra spine and a solid local hill.
+  Natural placement and gameplay integration remain future work.
 
 ### 5. World tree on an open coast
 

@@ -2,6 +2,20 @@
 
 ## Unreleased — asset pipeline and documentation
 
+- Include generated review sheets, editable source Blender models, whole design
+  NBTs, schematics, design/converter metadata, and verification records in version
+  control so asset results can be viewed, edited, and downloaded without rebuilding
+  the pipeline.
+
+- Added Titan Skull v3 with nine partly buried vertebrae, two spinal fractures,
+  loose fragments, and an extended solid hill. Preserved the v2 skull scale and
+  added actual-NBT rear/detail views and burial/fracture checks.
+
+- Added Titan Skull v2 at Colossus-head scale: approximately 76 blocks including
+  crown, about 20% taller than the measured helmet shell. Added a solid exported
+  moss/soil/stone mound, complete rear presentation, actual-NBT head comparison,
+  and terrain-solidness/posterior-wall checks.
+
 - Added Titan Skull v1 after the opening of *D.E.A.D.*: organic crown, hollow
   cranial vault, real eye/nose openings, long open jaw, teeth, and lateral spurs.
   Added its Blender/OBJ/schematic/NBT pipeline, green-hills presentation, cutaway,

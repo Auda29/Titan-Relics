@@ -1,0 +1,21 @@
+{
+  "size": [
+    181,
+    160,
+    227
+  ],
+  "blocks": 182734,
+  "palette_entries": 11,
+  "tiles": 100,
+  "data_version": 3105,
+  "schematic_sha256": "c06c459dfdd1a86d5f8ce312ac21512bebb09299e4ab6e9037c960e88c8ffd96",
+  "nbt_sha256": "92ecc2b89b6810d7151d1fd741d4e4a7543c8ff9a9c5a69362edf247ea14d89c",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false
+}

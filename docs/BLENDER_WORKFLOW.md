@@ -22,6 +22,8 @@ commit `b611b52c7a87cad99127908598bab019fe9e7c3f`.
 | [Obelisk v2](OBELISK_V2.md) | `obelisk-v2.json` | 23 × 209 × 19 | 90,497 | 6 | 7 |
 | [Obelisk v3](OBELISK_V3.md) | `obelisk-v3.json` | 25 × 185 × 25 | 93,153 | 4 | 6 |
 | [Titan Skull v1](TITAN_SKULL_V1.md) | `titan-skull-v1.json` | 185 × 203 × 103 | 103,943 | 4 | 98 |
+| [Titan Skull v2](TITAN_SKULL_V2.md) | `titan-skull-v2.json` | 117 × 80 × 105 | 149,894 | 7 | 22 |
+| [Titan Skull v3](TITAN_SKULL_V3.md) | `titan-skull-v3.json` | 121 × 79 × 203 | 264,355 | 7 | 37 |
 
 Colossus v2 follows the original reference; v3 adds the buried abdomen and torn
 hip while keeping almost the same above-ground scale. Obelisk v2 follows *Painted
@@ -35,6 +37,16 @@ Titan Skull v1 follows the opening of *D.E.A.D.* with an organic crown, open jaw
 and hollow cranial vault. It uses surface voxelization without solid fill, and
 has a separate green-hills presentation and actual-block cutaway. Its asset page
 provides generation commands; its scale comparison requires the Colossus v3 NBT.
+
+Titan Skull v2 scales the skull to approximately 76 blocks and exports a solid
+local mound with it. Its generator requires the Colossus v3 source for a measured
+head-size reference; comparisons also require that NBT. The mound uses dense
+interior slices rather than global filling, preserving the skull's open cavities.
+Its main review shows the complete rear instead of a cutaway.
+
+Titan Skull v3 adds nine partly buried vertebrae, two open fractures, and an
+extended exported hill at the same skull scale. Its review includes a complete
+rear overview and a cropped spine detail; see its asset page for commands.
 
 Previews render the actual converted NBT with Minecraft textures in Blender.
 They are not in-game evidence.
@@ -129,8 +141,32 @@ textures come from Blender and a legacy atlas.
 
 Rerunning generators overwrites matching generated outputs. Before manual edits,
 copy the `.blend` to a separate source location, such as `design/blender/`, and
-use your own OBJ path/config. Generated files are ignored by Git; committed
-scripts and JSON configs are the reproducible sources.
+use your own OBJ path/config. Scripts and JSON configs are the reproducible sources.
+
+### Published asset files
+
+Git includes these files directly inside `design/generated/<asset>/`:
+
+| File pattern | Purpose |
+| --- | --- |
+| `*review.png` | Review sheets, including reference and underground comparisons |
+| `*-source.blend` | Editable source model, ready to open in Blender |
+| `*.nbt` | Whole Java structure template |
+| `*.schem` | Sponge schematic for compatible editing and placement tools |
+| `*.design.json` | Design measurements, scale, ground level, and geometry metadata |
+| `*.ots.json` | Converter version, settings, palette, and export hashes |
+| `verification.json` | Recorded export checks and checksums |
+
+Keep these deliverables up to date when regenerating an asset so collaborators
+can inspect, edit, or download the result without rebuilding the entire pipeline.
+Verification records describe checks performed on the generated outputs; checks
+requiring ignored OBJ files or tiles need those files regenerated locally.
+
+Intermediate OBJ/MTL files, render-scene `.blend` files, `.blend1` backups, individual
+renders, nested tile folders, and their `*.manifest.json` conversion manifests
+remain ignored. Tiles and manifests can be rebuilt with the documented conversion
+commands. The alpha build's generated structure directory is also ignored;
+published design NBTs are separate from build inputs.
 
 ## 3. Models, materials, and coordinates
 

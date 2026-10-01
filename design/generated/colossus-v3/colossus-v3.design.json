@@ -1,0 +1,40 @@
+{
+  "name": "Colossus v3",
+  "reference": "https://www.instagram.com/reel/DaoBxUEiBNa/",
+  "reference_seconds": [
+    0,
+    5
+  ],
+  "source_bounds_blender": [
+    [
+      -100.00004577636719,
+      -57.000038146972656,
+      -62.27796173095703
+    ],
+    [
+      93.00001525878906,
+      186.56414794921875,
+      161.140625
+    ]
+  ],
+  "height_target_blocks": 209,
+  "scale_is_estimate": true,
+  "scale_reference": {
+    "original_source_height": 170.94763278961182,
+    "original_export_height": 160
+  },
+  "blocks_per_source_unit": 0.9309878960539472,
+  "basis": "Dome head/body width about 0.3\u20130.4; helmet/visible-body height about 0.35; detached sleeve in foreground. Perspective prevents absolute measurement.",
+  "ground_level_source": 20,
+  "seed": 20261001,
+  "ground_level_nbt_approx": 77,
+  "buried_hip": {
+    "shell_ends_source_y": [
+      -60,
+      -38
+    ],
+    "lowest_support_source_y": -62.27796173095703,
+    "note": "Open irregular pelvic tear with continuous double-sided armour, snapped supports and conduits; no legs."
+  },
+  "hidden_geometry": "Rear and inner structure inferred; reference shows one frontal three-quarter view."
+}

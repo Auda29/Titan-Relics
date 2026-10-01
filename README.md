@@ -9,8 +9,9 @@ Rare, monumental discoveries for Minecraft: a desert obelisk and an overgrown, e
 **Obelisk v3** revises the shape to a tapered square antiprism with eight triangular
 faces, a 45-degree rotated crown, and only eight blocks of burial.
 
-**[Titan Skull v1](docs/TITAN_SKULL_V1.md)** adds the next asset study: a crowned,
-weathered skull with deep sockets and an open jaw, based on the opening of *D.E.A.D.*.
+**[Titan Skull v3](docs/TITAN_SKULL_V3.md)** develops the next asset study: a crowned,
+weathered skull based on the opening of *D.E.A.D.*, now approximately Colossus-head
+scale, with a broken, partly buried spine and its local grassy mound included in the export.
 
 ## Structures in Alpha 2
 
@@ -61,13 +62,17 @@ python -m unittest discover -s tests -v
 
 On Windows, `./build.ps1` is also available. It looks for Python in PATH, then the existing Codex Python runtime path; it installs nothing.
 
-Outputs are written to `dist/`, including `SHA256SUMS.txt`. The build regenerates NBT from source and uses fixed archive timestamps. Git tracks generators and worldgen data. Generated structures, Blender files, previews, release files, and local reference media are excluded through `.gitignore`.
+Outputs are written to `dist/`, including `SHA256SUMS.txt`. The build regenerates NBT from source and uses fixed archive timestamps. Git tracks generators, worldgen data, and selected asset deliverables directly inside each `design/generated/<asset>/` directory: `*review.png`, `*-source.blend`, whole `.nbt` templates, `.schem` exports, `.design.json`, `.ots.json`, and `verification.json`. Render scenes, Blender backups, OBJ/MTL intermediates, individual renders, tile folders and manifests, build outputs, and local reference media are excluded through `.gitignore`.
 
 The `obelisk()` and `colossus()` functions in [tools/relic_assets.py](tools/relic_assets.py) define the playable alpha's geometry, materials, rooms, and damage. Changes to dimensions or ground level require matching worldgen filter changes. Export manifests record dimensions, ground level, and checksums.
 
 The exporter supports whole templates and rigid tiles. Natural generation uses only whole templates, so the arm cannot disappear because of a failed piece connection.
 
 ## Reference-based Blender assets
+
+Review sheets, editable Blender sources, NBT/Schematic exports, and export metadata are kept in
+[`design/generated/`](design/generated/), grouped by asset version. These are
+design exports; their presence in the repository does not integrate them into worldgen.
 
 The implemented asset pipeline is **Blender → triangulated OBJ → local, open-source ObjToSchematic 1.0 → Sponge `.schem` → Java `.nbt`**. Worldgen integration is the next step. Setup, materials, air handling, and commands are documented in [Blender workflow](docs/BLENDER_WORKFLOW.md).
 
@@ -78,13 +83,20 @@ The implemented asset pipeline is **Blender → triangulated OBJ → local, open
 | [Obelisk v2](docs/OBELISK_V2.md) | 23 × 209 × 19 | 90,497 | Flat crown, warm mineral bands, solid sandstone core, and a 32-block buried foot |
 | [Obelisk v3](docs/OBELISK_V3.md) | 25 × 185 × 25 | 93,153 | Tapered square antiprism, rotated crown, solid core, and an 8-block buried foot |
 | [Titan Skull v1](docs/TITAN_SKULL_V1.md) | 185 × 203 × 103 | 103,943 | Organic crown, hollow cranium, open jaw, and curved lateral spur; nominal ground Y ≈ 13 |
+| [Titan Skull v2](docs/TITAN_SKULL_V2.md) | 117 × 80 × 105 | 149,894 | Approximately 76-block skull, complete rear, and solid exported mound; nominal ground Y8 |
+| [Titan Skull v3](docs/TITAN_SKULL_V3.md) | 121 × 79 × 203 | 264,355 | Same skull scale, nine partly buried vertebrae, two fractures, and extended exported hill |
 
-Dimensions include buried geometry and, for the Colossus, the detached arm. Absolute scale is an artistic estimate from the references. Previews render actual exported NBT blocks in Blender; landscapes and scale figures are presentation aids. These assets have not been tested in-game. The alpha build still uses `tools/relic_assets.py`.
+Dimensions include buried geometry and, for the Colossus, the detached arm. Absolute scale is an artistic estimate from the references. Previews render actual exported NBT blocks in Blender. Titan Skull v2/v3 include their local hills in the export; distant scenery and scale figures are presentation aids. These assets have not been tested in-game. The alpha build still uses `tools/relic_assets.py`.
 
 At their nominal ground planes, Obelisk v3 exposes approximately **177 block
 layers**, versus **132** for Colossus v3. It therefore rises about **45 blocks
 (34%) higher above terrain**, although the Colossus is taller overall. This is
 a chosen visual relationship, not a measured ratio between the separate references.
+
+Titan Skull v2/v3 is approximately **76 blocks tall including its crown**, about
+**20% taller than the Colossus's measured 63-block helmet shell**. Its total
+template includes the supporting mound and foundation; the head-size comparison
+uses actual NBT geometry at the same block scale.
 
 ### Convert a schematic
 

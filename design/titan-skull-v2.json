@@ -1,0 +1,51 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "input": "design/generated/titan-skull-v2/titan-skull-v2.obj",
+  "output": "design/generated/titan-skull-v2/titan-skull-v2.schem",
+  "height": 80,
+  "title": "TITAN SKULL V2",
+  "subtitle": "Colossus-head scale / complete rear / grassy mound included in block export",
+  "reference": "https://www.instagram.com/reel/DXM3J4sgqJl/",
+  "reference_frame": ".work/references/skull-02.png",
+  "reference_title": "D.E.A.D. / revised scale: a plausible opponent for the Colossus",
+  "reference_credit": "The Archive In Between",
+  "reference_crop": [30, 35, 755, 750],
+  "landscape_label": "skull AND local mound are exported blocks",
+  "detail_image": "04-blocks-back.png",
+  "detail_label": "03 / Complete rear and exported mound: NOT a cutaway",
+  "comparison_label": "04 / Skull beside actual Colossus helmet at identical block scale",
+  "comparison_image": "08-head-comparison.png",
+  "dimensions_label": "X/Y/Z including exported terrain",
+  "review_footer": "Actual NBT rendered in Blender. Skull and local mound are exported; staging plane and scale marker are preview-only.",
+  "reference_footer": "NBT rendered in Blender, not in-game. The local mound IS exported; distant landscape and traveler are preview-only. Reference: instagram.com/reel/DXM3J4sgqJl/",
+  "view_labels": [
+    "01 / Blender source: smaller skull and modeled hill",
+    "02 / Actual NBT: skull, grass, soil and stone",
+    "03 / Side: skull resting in an irregular mound",
+    "04 / Complete rounded rear: no inspection cut"
+  ],
+  "materials": {
+    "bone": "minecraft:dripstone_block",
+    "worn": "minecraft:sandstone",
+    "mineral": "minecraft:tuff",
+    "earth": "minecraft:brown_terracotta",
+    "moss": "minecraft:green_terracotta",
+    "root": "minecraft:rooted_dirt",
+    "turf": "minecraft:moss_block",
+    "soil": "minecraft:dirt",
+    "rock": "minecraft:stone"
+  },
+  "preview": {
+    "front": [-100, 260, 105],
+    "other": [170, 240, 95],
+    "back": [130, -250, 100],
+    "landscape": "skull-hills",
+    "comparison": "design/generated/colossus-v3/colossus-v3.nbt",
+    "head_comparison": true,
+    "section": false,
+    "scene_scale": 0.397,
+    "camera_source": [-86, 51, -177],
+    "target_source": [0, 31, 3]
+  }
+}

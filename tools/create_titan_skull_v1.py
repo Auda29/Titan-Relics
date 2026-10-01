@@ -71,7 +71,7 @@ def nose_cutter():
     return obj
 
 
-def main():
+def main(export=True):
     OUT.mkdir(parents=True, exist_ok=True)
     bpy.ops.object.select_all(action="SELECT")
     bpy.ops.object.delete(use_global=False)
@@ -182,6 +182,8 @@ def main():
                 "interpretation": "Crowned fossil skull, deep real sockets, triangular nose, long open jaw and lateral spur. Back and buried base inferred.",
                 "air_policy": "omit; geometric chambers do not yet clear terrain during placement",
                 "cavity_probes_source": [[0, 42, -50], [0, 42, -25], [0, 42, 0], [-25, 110, -32], [25, 108, -32], [0, 102, -35]]}
+    if not export:
+        return metadata
     (OUT / "titan-skull-v1.design.json").write_text(json.dumps(metadata, indent=2)+"\n", encoding="utf-8")
     bpy.ops.object.select_all(action="SELECT")
     bpy.ops.wm.obj_export(filepath=str(OUT / "titan-skull-v1.obj"), forward_axis="NEGATIVE_Z", up_axis="Y",

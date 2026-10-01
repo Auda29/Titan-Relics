@@ -2,6 +2,11 @@
 
 Updated: October 1, 2026.
 
+The later **[Titan Skull v2](TITAN_SKULL_V2.md)** reduces the skull to approximately
+Colossus-head scale and includes a solid local hill in the export. This page
+records the original, much larger v1 study. Its section preview is intentionally
+clipped; the complete v1 export includes the posterior wall.
+
 ## Reference and design
 
 The source is the opening **0–5 seconds** of
