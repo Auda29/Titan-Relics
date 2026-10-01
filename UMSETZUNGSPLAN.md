@@ -94,7 +94,7 @@ Registrypfade und Strukturverzeichnisse unterhalb der Ressourcen werden erst anh
 
 ### 4.2 Bau- und Exportablauf
 
-Neue Modelle werden künftig in Blender erstellt und mit VoxelVision als Sponge-`.schem` exportiert. `tools/schem_to_nbt.py` konvertiert sie automatisch in Java-Structure-`.nbt`, optional mit starren Teilvorlagen und Positionsmanifest. Ein manueller Import und erneuter Export in Minecraft ist nicht erforderlich. Der vollständige Ablauf und seine Grenzen stehen in [docs/BLENDER_WORKFLOW.md](docs/BLENDER_WORKFLOW.md).
+Neue Modelle werden in Blender erstellt und als OBJ an die lokale, quelloffene Version ObjToSchematic 1.0 übergeben. `tools/obj_to_schem.cjs` automatisiert Voxelisierung und Sponge-`.schem`-Export. `tools/schem_to_nbt.py` konvertiert sie in Java-Structure-`.nbt`, optional mit starren Teilvorlagen und Positionsmanifest. Ein erster Koloss wurde so konvertiert und mit tatsächlichen NBT-Blöcken gerendert; VoxelVision ist nicht mehr Voraussetzung. Ein manueller Import und erneuter Export in Minecraft ist nicht erforderlich. Der vollständige Ablauf und seine Grenzen stehen in [docs/BLENDER_WORKFLOW.md](docs/BLENDER_WORKFLOW.md).
 
 Der aktuelle Alpha-Build verwendet weiterhin `tools/relic_assets.py` für Geometrie und NBT sowie `tools/render_preview.py` für Vorschauen. Die automatische Übernahme von Blender-Exporten in den Mod-Build ist noch umzusetzen; bis dahin bleiben Konvertierungsergebnisse getrennt von den generierten Alpha-Ressourcen. Der folgende Kreativ-Bauwelt-Ablauf ist eine optionale Alternative zur Gestaltung und Prüfung, nicht der neue Standardworkflow.
 

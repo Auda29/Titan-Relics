@@ -59,12 +59,25 @@ Die Funktionen `obelisk()` und `colossus()` in [tools/relic_assets.py](tools/rel
 
 Der Export erzeugt ganze Vorlagen und zusätzlich starre Teilvorlagen. Die Mod verwendet ausschließlich die ganzen Vorlagen; der Arm kann nicht durch eine zufällig fehlgeschlagene Verbindung entfallen.
 
-### Blender / VoxelVision automatisch importieren
+### Blender / ObjToSchematic automatisch importieren
 
-Der neue Gestaltungsworkflow ist **Blender → VoxelVision → `.schem` → `.nbt` →
-Worldgen**. Die vollständige Anleitung mit Quellablage, Luftregeln, Prüfungen und
-dem noch ausstehenden Build-Integrationsschritt steht in
+Der neue Gestaltungsworkflow ist **Blender → OBJ → ObjToSchematic 1.0 (lokal,
+quelloffen) → `.schem` → `.nbt` → Worldgen**. Ein erster Koloss ist mit Blender
+5.2.2 und unserem CLI-Adapter konvertiert und aus seinen tatsächlichen NBT-Blöcken
+gerendert. Die Anleitung mit Einrichtung, Vorschauen, Luftregeln und dem noch
+ausstehenden Build-Integrationsschritt steht in
 [BLENDER_WORKFLOW.md](docs/BLENDER_WORKFLOW.md).
+
+Der Referenzentwurf **[Colossus v2](docs/COLOSSUS_V2.md)** ist 160 Blöcke hoch.
+Die erweiterte Alternative **[Colossus v3](docs/COLOSSUS_V3.md)** hat einen
+bronzenen Kuppelhelm mit Atemschläuchen und misst einschließlich des Arms
+181 × 209 × 227 Blöcke. Der Unterkörper reicht bis zur unterirdisch abgerissenen
+Hüfte; die vorgesehene Bodenlinie liegt etwa 77 Blöcke über dem tiefsten Träger.
+Ihre Config liegt unter `design/colossus-v3.json`.
+
+**[Obelisk v2](docs/OBELISK_V2.md)** orientiert sich an *Painted Desert* von Josh
+White: 23 × 209 × 19 Blöcke, flache Krone, mineralische Farbschichten und ein
+massiver, 32 Blöcke tief eingeplanter Fuß. Config: `design/obelisk-v2.json`.
 
 Sponge-`.schem` (Version 2 oder 3) lässt sich ohne Minecraft und ohne zusätzliche
 Python-Pakete in eine Java-Structure-Template-Datei umwandeln:
