@@ -1073,5 +1073,10 @@
     "V4 chest | snapped machine support.002": "3688faf91d78adeb0e3055552ad7fbb207195fd8557d09a28af9e0674c6dffd8",
     "V4 chest | disconnected copper line": "666acfa78b845c47539c43b7a7e16a7450bdfd2815b8eb2f03816e02170ae164"
   },
-  "revision": "V4.1: user-requested supinated right hand with upward-curled fingers"
+  "revision": "V4.1: user-requested supinated right hand with upward-curled fingers",
+  "visual_acceptance": {
+    "status": "accepted",
+    "date": "2026-10-02",
+    "note": "User approved the Colossus appearance; game integration remains pending."
+  }
 }

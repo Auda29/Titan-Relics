@@ -27,6 +27,11 @@ See [V3 integration](docs/technical/V3_INTEGRATION.md) for contracts and viewing
 
 ## Unreleased — asset pipeline and documentation
 
+- Record user visual acceptance of Colossus V4.1.
+- Add Obelisk V4.2 with warmer ochre/clay sides, same-material fracture faces
+  and two actual missing edge chunks. Preserve previous versions and verify
+  that the notches survive export without contrasting replacement blocks.
+
 - Added separate Colossus V4.1 frame export: supinated palm-up right hand with
   upward-curled fingers, preserving all 434 non-hand V4 meshes. Included a
   higher-ground inspection view and anatomical/export checks.

@@ -33,7 +33,8 @@ def main():
     metadata.update(name="Colossus V4.1 / selected machine frame / palm upward",
         right_hand=hand, source_bounds_blender=[low,high],
         source_v4_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),preserved_v4_objects=preserved,
-        revision="V4.1: user-requested supinated right hand with upward-curled fingers")
+        revision="V4.1: user-requested supinated right hand with upward-curled fingers",
+        visual_acceptance={"status":"accepted","date":"2026-10-02","note":"User approved the Colossus appearance; game integration remains pending."})
     OUT.mkdir(parents=True,exist_ok=True)
     (OUT/f"{STEM}.design.json").write_text(json.dumps(metadata,indent=2)+"\n")
     bpy.ops.object.select_all(action="SELECT")

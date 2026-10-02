@@ -30,6 +30,11 @@ raised wrist with a palm-up right hand and curled fingers;
 [Obelisk V4.1](obelisk/docs/OBELISK_V4_1.md) replaces contrasting patches with
 consistent sandstone facets and larger actual cracks. Previous exports are retained.
 
+The user has now **visually accepted Colossus V4.1**. The latest
+[Obelisk V4.2](obelisk/docs/OBELISK_V4_2.md) responds to the pale appearance with
+warm ochre/clay sides and genuinely missing pieces without contrasting damage
+lining; its visual review is pending.
+
 - [Colossus V4](colossus/docs/COLOSSUS_V4.md): preserve the overall design; focus on
   damaged rear armor, a readable hand with potentially raised fingers, and removal
   or replacement of the simple chest-interior cylinder.

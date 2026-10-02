@@ -1,7 +1,8 @@
 # Colossus V4.1 — palm-up right hand
 
 October 2, 2026. User-requested revision of selected **B / open machine frame**.
-Exported and checked offline; visual acceptance and game integration remain pending.
+Exported and checked offline. **Visually accepted by the user on October 2, 2026.**
+Game integration and in-game validation remain pending.
 
 [Hand comparison](../design/generated/colossus-v4-1-frame/colossus-v4-1-hand-review.png)
 · [Full model review](../design/generated/colossus-v4-1-frame/colossus-v4-1-frame-review.png)

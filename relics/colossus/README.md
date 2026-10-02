@@ -5,7 +5,7 @@ arm. It is selected in Alpha 3; see [V3 integration](../../docs/technical/V3_INT
 
 ## Design and assets
 
-- [V4.1 palm-up hand revision](docs/COLOSSUS_V4_1.md) — selected B chest, revised hand pose, awaiting review
+- [V4.1 palm-up hand revision](docs/COLOSSUS_V4_1.md) — visually accepted; selected B chest and revised hand pose
 
 - [In-game shader demo gallery](demo/README.md) — three Colossus V3 Minecraft screenshots
 - [V4 revision goals](docs/COLOSSUS_V4.md)

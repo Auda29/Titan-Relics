@@ -1,0 +1,55 @@
+{
+  "size": [
+    59,
+    185,
+    60
+  ],
+  "blocks": 94422,
+  "palette_entries": 4,
+  "tiles": 24,
+  "data_version": 3105,
+  "schematic_sha256": "d85cc245f2802b31bf19d163c5707ad938585360e01176b079c765f543bd5942",
+  "nbt_sha256": "ed116dcbca2a41fe403695a816e419a32a647d325c1d907d8dc1797f551cda3e",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "obelisk_v4": {
+    "continuous_core_prism": [
+      7,
+      185,
+      7
+    ],
+    "filled_voxels": 75555,
+    "square_base_and_rotated_crown_checked": true,
+    "shallow_chips": 4,
+    "source_volume_removed_percent": 0.8466018036410561,
+    "foundation_fragments": 3,
+    "nominal_ground_y": 8,
+    "unsupported_sand_blocks": 0,
+    "open_cracks": [
+      {
+        "removed_surface_samples": 38,
+        "solid_backing_samples": 7
+      },
+      {
+        "removed_surface_samples": 71,
+        "solid_backing_samples": 6
+      },
+      {
+        "removed_surface_samples": 63,
+        "solid_backing_samples": 6
+      }
+    ],
+    "preserved_v4_scenery_objects": 5,
+    "missing_chunk_removed_blocks": [
+      73,
+      98
+    ],
+    "unpainted_damage": true
+  }
+}

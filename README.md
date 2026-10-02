@@ -24,7 +24,10 @@ deposits in meadow, dry-earth, sand and rock palettes.
 and a sandy foundation site. Latest revisions:
 [Colossus V4.1](relics/colossus/docs/COLOSSUS_V4_1.md) lays the right palm upward
 with curled fingers; [Obelisk V4.1](relics/obelisk/docs/OBELISK_V4_1.md) uses
-consistent sandstone sides and larger cracks. These await review; Alpha 3 uses V3.
+consistent sandstone sides and larger cracks. **Colossus V4.1 is visually accepted.**
+The latest [Obelisk V4.2](relics/obelisk/docs/OBELISK_V4_2.md) uses warmer ochre
+stone and missing pieces without contrasting crack lining; review pending.
+Alpha 3 uses V3.
 
 **Colossus V3 in normal terrain with shaders**, captured in Minecraft by the
 user on October 1, 2026. These are Alpha 3 screenshots, not Blender previews
@@ -135,6 +138,7 @@ The implemented asset pipeline is **Blender → triangulated OBJ → local, open
 | [Obelisk v3](relics/obelisk/docs/OBELISK_V3.md) | 25 × 185 × 25 | 93,153 | Tapered square antiprism, rotated crown, solid core, and an 8-block buried foot |
 | [Obelisk V4](relics/obelisk/docs/OBELISK_V4_EXPORTS.md) | 59 × 185 × 60 | 95,038 | Same monolith, shallow chips, weathering, scattered sand and foundations |
 | [Obelisk V4.1](relics/obelisk/docs/OBELISK_V4_1.md) | 59 × 185 × 60 | 94,593 | Consistent sandstone facets, three branching cracks, four larger edge spalls |
+| [Obelisk V4.2](relics/obelisk/docs/OBELISK_V4_2.md) | 59 × 185 × 60 | 94,422 | Warm ochre/clay facets, same-material recesses, two additional missing edge chunks |
 | [Colossus V4.1 frame](relics/colossus/docs/COLOSSUS_V4_1.md) | 181 × 209 × 235 | 223,161 | Palm-up right hand, curled fingers; preserved V4 B body and chest |
 | [Titan Skull v1](relics/titan-skull/docs/TITAN_SKULL_V1.md) | 185 × 203 × 103 | 103,943 | Organic crown, hollow cranium, open jaw, and curved lateral spur; nominal ground Y ≈ 13 |
 | [Titan Skull v2](relics/titan-skull/docs/TITAN_SKULL_V2.md) | 117 × 80 × 105 | 149,894 | Approximately 76-block skull, complete rear, and solid exported mound; nominal ground Y8 |

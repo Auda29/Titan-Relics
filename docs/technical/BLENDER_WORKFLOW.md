@@ -13,6 +13,8 @@ weathering and foundation scatter; both await visual acceptance.
 The subsequent [Colossus V4.1](../../relics/colossus/docs/COLOSSUS_V4_1.md) and
 [Obelisk V4.1](../../relics/obelisk/docs/OBELISK_V4_1.md) revisions correct the
 hand pose and surface contrast. Separate generators load the published V4 sources.
+Colossus V4.1 is now visually accepted. [Obelisk V4.2](../../relics/obelisk/docs/OBELISK_V4_2.md)
+warms the palette and adds missing chunks without special crack-lining blocks.
 
 We use the free, open-source **ObjToSchematic 1.0** locally. VoxelVision is no
 longer required. The current 2.0 web product and its Pro features are not needed.
@@ -36,6 +38,7 @@ commit `b611b52c7a87cad99127908598bab019fe9e7c3f`.
 | [Obelisk V4](../../relics/obelisk/docs/OBELISK_V4_EXPORTS.md) | `obelisk-v4.json` | 59 × 185 × 60 | 95,038 | 6 | 24 |
 | [Colossus V4.1](../../relics/colossus/docs/COLOSSUS_V4_1.md) | `colossus-v4-1-frame.json` | 181 × 209 × 235 | 223,161 | 11 | 127 |
 | [Obelisk V4.1](../../relics/obelisk/docs/OBELISK_V4_1.md) | `obelisk-v4-1.json` | 59 × 185 × 60 | 94,593 | 5 | 24 |
+| [Obelisk V4.2](../../relics/obelisk/docs/OBELISK_V4_2.md) | `obelisk-v4-2.json` | 59 × 185 × 60 | 94,422 | 4 | 24 |
 
 Colossus v2 follows the original reference; v3 adds the buried abdomen and torn
 hip while keeping almost the same above-ground scale. Obelisk v2 follows *Painted

@@ -99,15 +99,31 @@ def obelisk_check(design,blocks,report):
             require(removed>5,"A designed crack was sealed by voxelization")
             require(backed==len(crack["surface_samples_source"]),"A crack penetrates too deeply")
             cracks.append({"removed_surface_samples":removed,"solid_backing_samples":backed})
-        require(not any(s in ("minecraft:terracotta","minecraft:brown_terracotta") for s in blocks.values()),
-                "Large contrasting tiger patches remain")
+        if not weather.get("unpainted_damage"):
+            require(not any(s in ("minecraft:terracotta","minecraft:brown_terracotta") for s in blocks.values()),
+                    "Large contrasting tiger patches remain")
         require(hashlib.sha256((OBELISK/"obelisk-v4/obelisk-v4-source.blend").read_bytes()).hexdigest()==design["source_v4_sha256"],
                 "V4 source baseline changed")
+    missing=[]
+    if weather.get("unpainted_damage"):
+        allowed=set(weather["monolith_materials"])
+        require(all(s in allowed for p,s in blocks.items() if source(p)[1]>8),
+                "Contrasting fill or pale blocks remain on the monument")
+        _,previous=read_structure(OBELISK/"obelisk-v4-1/obelisk-v4-1.nbt")
+        for chunk in weather["missing_chunks"]:
+            q=local(chunk["center_source"])
+            removed=sum((q[0]+dx,q[1]+dy,q[2]+dz) in previous and (q[0]+dx,q[1]+dy,q[2]+dz) not in blocks
+                for dx in range(-5,6) for dy in range(-8,9) for dz in range(-5,6))
+            require(removed>20,"Missing chunk was filled during export")
+            missing.append(removed)
+        require(hashlib.sha256((OBELISK/"obelisk-v4-1/obelisk-v4-1-source.blend").read_bytes()).hexdigest()==design["source_v4_1_sha256"],
+                "V4.1 source baseline changed")
     return {"continuous_core_prism":[7,185,7],"filled_voxels":report["filled_voxels"],
             "square_base_and_rotated_crown_checked":True,"shallow_chips":len(weather["shallow_chips"]),
             "source_volume_removed_percent":weather["volume_removed_percent"],"foundation_fragments":3,
             "nominal_ground_y":ground,"unsupported_sand_blocks":0,
-            **({"open_cracks":cracks,"preserved_v4_scenery_objects":len(design["preserved_v4_objects"])} if cracks else {})}
+            **({"open_cracks":cracks,"preserved_v4_scenery_objects":len(design["preserved_v4_objects"])} if cracks else {}),
+            **({"missing_chunk_removed_blocks":missing,"unpainted_damage":True} if missing else {})}
 
 
 def compare_skulls():

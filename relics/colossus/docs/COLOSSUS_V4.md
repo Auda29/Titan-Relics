@@ -11,7 +11,8 @@ an Iron Mans Schusshaltung. Gewünscht und umgesetzt ist nun eine flach liegende
 nach oben geöffnete rechte Hand mit hochgekrümmten Fingern. Bei zusätzlicher
 Verschüttung sollen möglichst die Fingerspitzen erkennbar bleiben.
 [V4.1 mit Vergleich und höherer Geländeprobe](COLOSSUS_V4_1.md).
-Die Brustauswahl B bleibt bestehen; die neue Haltung wartet auf Sichtabnahme.
+Die Brustauswahl B bleibt bestehen. Der Nutzer hat das Aussehen des Colossus
+inklusive V4.1-Handkorrektur am 2. Oktober 2026 bestätigt.
 
 ## Grundlage und Ziel
 
