@@ -27,6 +27,18 @@ See [V3 integration](docs/technical/V3_INTEGRATION.md) for contracts and viewing
 
 ## Unreleased — asset pipeline and documentation
 
+- Add four independent V1 models/exports after the reference study: Ruined Tower,
+  World Tree, Small Colossus and sword-bearing Titan Skull 2. Include editable
+  Blender sources, pinned OBJ conversion, NBT/schematic, tile/cavity checks,
+  actual-block overview/detail reviews and reproducible commands. Keep accepted
+  assets/archive intact; visual acceptance and game integration remain pending.
+
+- Evaluate references for the next four relics without Blender work. Establish
+  working size/proportion/damage briefs for Ruined Tower, World Tree, the archived
+  smaller Colossus and independent Titan Skull 2. Verify the second skull's
+  embedded sword and cavern setting; distinguish observed details from authored
+  dimensions and hidden-side completion. Reference media remains local.
+
 - Record user visual acceptance of Colossus material version B, including its
   post-salvage appearance: 25,423 copper blocks, 90 raw iron items and unchanged
   intact V4.1 geometry. This is the selected material asset for later integration.

@@ -419,6 +419,14 @@ or a mandatory climb to the world-height limit.
 
 ## 7. Optional later structures
 
+The [four-relic pre-modeling study](NEXT_FOUR_RELIC_DESIGN_STUDY.md) records the
+new working dimensions and damage targets for the tower, tree, smaller Colossus
+and second skull. It separates observed reference features from authored choices;
+it does not establish a sword owner, new rewards or a shared builder for all relics.
+
+The user subsequently requested [four V1 models and exports](NEW_RELICS_V1.md).
+They are available for visual review; their lore/gameplay boundaries remain as above.
+
 These do not expand version 0.1. Evaluate them once the first two relics work
 visually and technically.
 
@@ -476,7 +484,7 @@ Desert* paintings and its process animation.
 | [Painted Desert](https://www.instagram.com/p/Da0NEq7kUAO/) | Simple flat-topped stele in layered dry terrain | Slender proportions, open surroundings, warm mineral faces |
 | [Josh White sci-fi animation](https://www.instagram.com/reel/DbqXYoVx2hR/) | Dark breached tower over a pale plain; large aircraft takes off | Contrast and tower negative space; aircraft is not architecture |
 | [D.E.A.D.](https://www.instagram.com/reel/DXM3J4sgqJl/) | Crowned skull in green hills; later enormous body remains | Skull as landscape form; possible later bone fragments |
-| [Second Titan Skull reference](https://www.instagram.com/reel/Db9KCtWi0eG/) | User-selected skull in the opening few seconds; detailed visual review pending | Separate second skull design; not a revision of the existing crowned skull |
+| [Second Titan Skull reference](https://www.instagram.com/reel/Db9KCtWi0eG/) | Opening 0–6 s verified: overgrown skull with diagonal embedded sword in a damp cavern | Separate second skull/sword composition; no crown or copied spine |
 | [World Tree / Gaia's Nursery](https://www.instagram.com/reel/DaBgsX0C9s4/) | Coastal giant tree, worked stones, waterways, root-side structures | Design crown and accessible base together |
 | [Warden-Class Archaean Colossi](https://www.instagram.com/reel/DcwuU3SB5gc/) | Metal giants with round joints, chest openings, architecture | Relationship of machinery and built space |
 | [Fragment of the Fallen](https://www.instagram.com/reel/DbD0PB7iD2Q/) | Settlements on and around heads, hands, body remains | Small-scale later reuse; independent fragments |

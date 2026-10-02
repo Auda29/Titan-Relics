@@ -1,0 +1,94 @@
+{
+  "size": [
+    193,
+    216,
+    169
+  ],
+  "blocks": 503048,
+  "palette_entries": 10,
+  "tiles": 140,
+  "data_version": 3105,
+  "schematic_sha256": "3230b946da0b597911e2dd77d297e9785581088705e38ed61d0894b9502fef40",
+  "nbt_sha256": "25a9b723e217d17fdf1d6f63f919828206fee2346d7f32962932fb12644ca79d",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "new_relic_v1": {
+    "family": "tree",
+    "planned_size": [
+      192,
+      216,
+      176
+    ],
+    "actual_size": [
+      193,
+      216,
+      169
+    ],
+    "void_probes_local": [
+      [
+        66,
+        13,
+        66
+      ],
+      [
+        125,
+        13,
+        66
+      ]
+    ],
+    "structural_samples": [
+      {
+        "source": [
+          0,
+          20,
+          0
+        ],
+        "local": [
+          96,
+          29,
+          85
+        ],
+        "nearby_blocks": 125
+      },
+      {
+        "source": [
+          5,
+          43,
+          3
+        ],
+        "local": [
+          101,
+          52,
+          88
+        ],
+        "nearby_blocks": 125
+      },
+      {
+        "source": [
+          9,
+          65,
+          4
+        ],
+        "local": [
+          105,
+          73,
+          89
+        ],
+        "nearby_blocks": 125
+      }
+    ],
+    "ground_level": 9,
+    "persistent_leaf_states": [
+      "minecraft:oak_leaves[distance=7,persistent=true]",
+      "minecraft:spruce_leaves[distance=7,persistent=true]"
+    ],
+    "solid_trunk_3x3x3_probes": 3,
+    "source_blend_sha256": "f381764643a74172cb56ce468046db2add2d3744a6faed42d8e861767316291f"
+  }
+}

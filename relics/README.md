@@ -8,8 +8,8 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 | [Colossus](colossus/README.md) | V3 selected in Alpha 3; core, magnet, and head-trial gameplay not implemented |
 | [Obelisk](obelisk/README.md) | V3 selected in Alpha 3; archaeology, collectibles, and Colossus maps not implemented |
 | [Titan Skull](titan-skull/README.md) | V3 selected in Alpha 3 with worldgen; authored ordinary-mob exploration not implemented |
-| [Ruined Tower](ruined-tower/README.md) | Concept only |
-| [World Tree](world-tree/README.md) | Concept only |
+| [Ruined Tower](ruined-tower/README.md) | V1 exported; visual review and integration pending |
+| [World Tree](world-tree/README.md) | V1 exported; visual review and integration pending |
 
 ## In-game demos
 
@@ -33,12 +33,14 @@ consistent sandstone facets and larger actual cracks. Previous exports are retai
 The user has **visually accepted Colossus V4.1, Obelisk V4.2 and all four Titan
 Skull V4 terrain variants**. Game integration and in-game checks remain pending.
 
-**Next design priority:** create the remaining planned relics before starting
-V5 architectural interiors. The original catalog still has two unmodeled motifs:
-the Ruined Tower and World Tree. A second smaller Colossus has an archived starting
-model. A [second independent Titan Skull reference](titan-skull/docs/TITAN_SKULL_2_CONCEPT.md)
-is now selected; further skull/bone variants remain future extensions. The order
-among these new studies has not yet been selected.
+**Next design priority:** review the [four new V1 assets](../docs/project/NEW_RELICS_V1.md)
+before starting V5 architectural interiors. Ruined Tower, World Tree, the separate
+archive-derived smaller Colossus and independent sword-bearing Titan Skull 2 now
+have editable models and exports. Further skull/bone variants remain extensions.
+
+The user requested [reference, size, proportion and damage studies for all four](../docs/project/NEXT_FOUR_RELIC_DESIGN_STUDY.md)
+before any Blender work. Those working briefs are available; the user subsequently
+requested all four V1s. Skull 2's opening scene is verified and includes an embedded sword.
 
 - [Colossus V4](colossus/docs/COLOSSUS_V4.md): preserve the overall design; focus on
   damaged rear armor, a readable hand with potentially raised fingers, and removal

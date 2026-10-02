@@ -1,0 +1,146 @@
+{
+  "name": "World Tree V1",
+  "reference": "https://www.instagram.com/reel/DaBgsX0C9s4/",
+  "new_relic_v1": {
+    "family": "tree",
+    "void_probes_source": [
+      [
+        -30,
+        4,
+        -20
+      ],
+      [
+        29,
+        4,
+        -20
+      ]
+    ],
+    "solid_probes_source": [
+      [
+        0,
+        20,
+        0
+      ],
+      [
+        5,
+        43,
+        3
+      ],
+      [
+        9,
+        65,
+        4
+      ]
+    ],
+    "features": [
+      "five primary crown limbs",
+      "eight unequal foliage masses",
+      "six grounded roots",
+      "one broken branch",
+      "three worked stones"
+    ],
+    "trunk_source_levels": [
+      [
+        -8,
+        0,
+        0,
+        22,
+        19
+      ],
+      [
+        0,
+        0,
+        0,
+        22,
+        19
+      ],
+      [
+        18,
+        2,
+        1,
+        19,
+        16
+      ],
+      [
+        40,
+        5,
+        3,
+        17,
+        15
+      ],
+      [
+        62,
+        9,
+        4,
+        16,
+        14
+      ],
+      [
+        83,
+        11,
+        2,
+        15,
+        13
+      ],
+      [
+        103,
+        7,
+        0,
+        13,
+        11
+      ],
+      [
+        124,
+        2,
+        3,
+        10,
+        8
+      ],
+      [
+        146,
+        -2,
+        7,
+        6,
+        5
+      ],
+      [
+        163,
+        0,
+        10,
+        2.5,
+        2
+      ]
+    ],
+    "solid_wood_slice_spacing": 0.68,
+    "persistent_leaves": true,
+    "foliage_note": "Nested leaf shelves, not solid filled foliage boulders; major wood is densely sliced solid.",
+    "v5_interiors": false
+  },
+  "source_bounds_blender": [
+    [
+      -97.1248550415039,
+      -84.35012817382812,
+      -9.121208190917969
+    ],
+    [
+      98.36367797851562,
+      86.36570739746094,
+      208.12998962402344
+    ]
+  ],
+  "blocks_per_source_unit": 0.9896378117240163,
+  "height_target_blocks": 216,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 9,
+  "mesh_count": 178,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "visual_acceptance": "V1 review pending",
+  "config": "relics/world-tree/design/world-tree-v1.json",
+  "planned_site_size": [
+    192,
+    216,
+    176
+  ],
+  "source_blend_sha256": "f381764643a74172cb56ce468046db2add2d3744a6faed42d8e861767316291f"
+}

@@ -10,7 +10,8 @@ see [V3 integration](../../docs/technical/V3_INTEGRATION.md).
 - [V3 design and reproduction commands](docs/TITAN_SKULL_V3.md)
 - [V2 scale and mound design](docs/TITAN_SKULL_V2.md)
 - [V1 design history](docs/TITAN_SKULL_V1.md)
-- [Second independent Titan Skull: opening-scene reference](docs/TITAN_SKULL_2_CONCEPT.md) — planned, not modeled
+- [Second independent Titan Skull V1](docs/TITAN_SKULL_2_V1.md) — overgrown skull with embedded sword; 105 × 144 × 107 export, visual review pending
+- [Second skull reference and size brief](docs/TITAN_SKULL_2_CONCEPT.md)
 - [Design configurations and outputs](design/README.md)
 - [Ordinary mobs, exploration, and skull/bone-family frequency](gameplay/README.md)
 

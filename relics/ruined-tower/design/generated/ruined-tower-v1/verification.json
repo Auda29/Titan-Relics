@@ -1,0 +1,81 @@
+{
+  "size": [
+    111,
+    192,
+    93
+  ],
+  "blocks": 276868,
+  "palette_entries": 7,
+  "tiles": 59,
+  "data_version": 3105,
+  "schematic_sha256": "f80919a9f99d50481e49c210248c1b15d51cdc736647f83eec604e01c3e43b1b",
+  "nbt_sha256": "54bb4fbd0f56ab8f2d914a591d46c00e6280d6fd79e4ba1df91c0987aec569d1",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "new_relic_v1": {
+    "family": "tower",
+    "planned_size": [
+      112,
+      192,
+      96
+    ],
+    "actual_size": [
+      111,
+      192,
+      93
+    ],
+    "void_probes_local": [
+      [
+        56,
+        24,
+        22
+      ],
+      [
+        66,
+        92,
+        45
+      ],
+      [
+        48,
+        141,
+        45
+      ]
+    ],
+    "structural_samples": [
+      {
+        "source": [
+          -27,
+          35,
+          10
+        ],
+        "local": [
+          29,
+          47,
+          55
+        ],
+        "nearby_blocks": 125
+      },
+      {
+        "source": [
+          26,
+          60,
+          14
+        ],
+        "local": [
+          82,
+          72,
+          59
+        ],
+        "nearby_blocks": 125
+      }
+    ],
+    "ground_level": 12,
+    "source_blend_sha256": "4db082324db4080f290045aa742ed5baedb3e6f32c1670650b96cd5267cee4b3"
+  }
+}

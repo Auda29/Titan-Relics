@@ -7,9 +7,16 @@ formerly stored in the Colossus `design/generated/ots/` directory. It is preserv
 as the starting point for a **second, smaller Colossus**. The current large
 Colossus design remains [V3](../../docs/COLOSSUS_V3.md).
 
-The smaller Colossus is a future design direction. Its final name, dimensions,
-appearance, and gameplay have not yet been decided. Create a separate working
-copy/configuration when that work begins so this archived baseline is retained.
+The smaller Colossus is a future design direction. The
+[reference/size study](../../docs/SMALL_COLOSSUS_DESIGN_STUDY.md) now proposes a
+99 × 76 × 88 site retaining the archive's compact identity and 66-block visible
+height, with moderate damage and a buried lower completion. These are working
+design values, not a new accepted model. Gameplay remains open. Create a separate
+working copy/configuration when modeling begins so this archive is retained.
+
+The subsequent [Small Colossus V1](../../docs/SMALL_COLOSSUS_V1.md) now exists in
+its own generated folder and preserves this archive. It retains 40 original
+meshes and revises the hand/rear damage while adding buried lower completion.
 
 **Occurrence decision, October 2, 2026:** the large Colossus is intended to be
 unique per game world; smaller Colossi may occur multiple times. This archived

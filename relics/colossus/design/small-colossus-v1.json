@@ -1,0 +1,22 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "input": "relics/colossus/design/generated/small-colossus-v1/small-colossus-v1.obj",
+  "output": "relics/colossus/design/generated/small-colossus-v1/small-colossus-v1.schem",
+  "height": 76, "planned_site_size": [99,76,88],
+  "title": "SMALL COLOSSUS / V1",
+  "subtitle": "Archive-derived compact machine / angular helmet / low palm-up right hand",
+  "reference": "https://www.instagram.com/reel/DaoBxUEiBNa/",
+  "materials": {
+    "armor": "minecraft:deepslate_tiles", "trim": "minecraft:polished_deepslate",
+    "broken": "minecraft:cobbled_deepslate", "joint": "minecraft:polished_basalt",
+    "dark": "minecraft:black_concrete", "copper": "minecraft:weathered_cut_copper",
+    "moss": "minecraft:moss_block", "earth": "minecraft:dirt", "wood": "minecraft:oak_planks",
+    "terrain_top": "minecraft:moss_block", "terrain_patch": "minecraft:brown_terracotta", "terrain_fill": "minecraft:dirt"
+  },
+  "view_labels": ["01 / Editable source", "02 / Actual NBT / front", "03 / Actual NBT / hand side", "04 / Actual NBT / rear"],
+  "review_footer": "Actual NBT in Blender. Derived from the preserved first concept, not a scaled large Colossus. Gameplay not assigned.",
+  "preview": {"front": [120,220,110], "other": [-170,-130,95], "back": [100,-200,120],
+    "landscape": "new-relic-v1", "ground_color": [0.22,0.27,0.13],
+    "camera_source": [128,68,-140], "target_source": [7,24,9], "lens": 40}
+}

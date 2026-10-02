@@ -1,0 +1,65 @@
+{
+  "size": [
+    101,
+    76,
+    87
+  ],
+  "blocks": 36623,
+  "palette_entries": 10,
+  "tiles": 20,
+  "data_version": 3105,
+  "schematic_sha256": "5d977405f3c034790b5c8f186a1433de53179535ecd0659ab9c746aa39827d87",
+  "nbt_sha256": "d1479d989d9d3ccaafe0a5e1adc26c3d1134ffd944cf3e175df16d68cfccd0b3",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "new_relic_v1": {
+    "family": "small-colossus",
+    "planned_size": [
+      99,
+      76,
+      88
+    ],
+    "actual_size": [
+      101,
+      76,
+      87
+    ],
+    "void_probes_local": [
+      [
+        42,
+        36,
+        11
+      ],
+      [
+        33,
+        40,
+        45
+      ]
+    ],
+    "structural_samples": [
+      {
+        "source": [
+          0,
+          45,
+          1
+        ],
+        "local": [
+          42,
+          54,
+          29
+        ],
+        "nearby_blocks": 69
+      }
+    ],
+    "ground_level": 9,
+    "preserved_archive_meshes": 40,
+    "right_palm_up": true,
+    "source_blend_sha256": "5409230d41018ba25a8c31bd7c108fe51aca2f91da833a7ad0ae19341104ee01"
+  }
+}

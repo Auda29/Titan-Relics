@@ -1,5 +1,9 @@
 # World Tree design documentation
 
-No relic-specific design specification exists yet. Future design pages and
-version history belong here. The original motif is documented in the shared
-[concept catalog](../../../docs/project/Minecraft-Relikte-Modplan.md).
+- [V1 exports, visual review and reproduction](WORLD_TREE_V1.md).
+
+- [Reference and dimensional brief](REFERENCE_DESIGN_STUDY.md): inspected video,
+  proposed 192 × 216 × 176 envelope, layered living crown and broad root arches.
+- [Shared four-relic comparison](../../../docs/project/NEXT_FOUR_RELIC_DESIGN_STUDY.md).
+
+The reference brief records the pre-modeling decisions; V1 is now available for review.

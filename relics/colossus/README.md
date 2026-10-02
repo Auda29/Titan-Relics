@@ -9,6 +9,10 @@ earlier B / open-chest-frame geometry choice.
 
 ## Design and assets
 
+- [Small Colossus V1](docs/SMALL_COLOSSUS_V1.md) — separate archive-based 101 × 76 × 87 export, visual review pending
+
+- [Smaller Colossus reference/size study](docs/SMALL_COLOSSUS_DESIGN_STUDY.md) — archive-based angular helmet and compact body; proposed 99 × 76 × 88 site; no new model
+
 - [Accepted material version B / salvageable armour](docs/COLOSSUS_MATERIAL_STUDY_B.md) — same 223,161 positions; 25,423 copper blocks and 90 raw iron items; intact and post-salvage appearance approved
 
 - [V4.1 palm-up hand revision](docs/COLOSSUS_V4_1.md) — visually accepted; selected B chest and revised hand pose

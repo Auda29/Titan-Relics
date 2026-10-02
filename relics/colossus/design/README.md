@@ -1,5 +1,7 @@
 # Colossus design assets
 
+- [Small Colossus V1 configuration](small-colossus-v1.json) and [export/review guide](../docs/SMALL_COLOSSUS_V1.md): separate smaller design derived from the preserved archive
+
 - Selected material version: [Study B / salvageable armour](studies/colossus-v4-1-materials-b.json), [acceptance and support checks](../docs/COLOSSUS_MATERIAL_STUDY_B.md); 25,423 copper blocks and 90 raw iron items; visually accepted October 2, 2026
 
 - [Material/salvage study](studies/colossus-v4-1-materials.json) and [exact-shape verification](../docs/COLOSSUS_MATERIAL_STUDY.md): direct V4.1 block remap, no new voxelization

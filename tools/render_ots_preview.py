@@ -226,6 +226,9 @@ def burial_inspection(main_model, center, corners):
 
 def landscape():
     """Reference-style context; all landscape and scale objects are render-only."""
+    if CONFIG.get("preview", {}).get("landscape") == "new-relic-v1":
+        from render_new_relic_v1_scene import render_scene
+        return render_scene(sys.modules[__name__])
     if CONFIG.get("preview", {}).get("landscape") == "v4-deposits":
         from render_relic_v4_scene import render_deposits
         return render_deposits(sys.modules[__name__])
@@ -337,7 +340,7 @@ def main():
     CONFIG = json.loads(args.config.read_text(encoding="utf-8"))
     output = ROOT / CONFIG["output"]
     OUT, STEM = output.parent, output.stem
-    ATLAS = ROOT / CONFIG["repository"] / "res/atlases"
+    ATLAS = ROOT / CONFIG.get("preview_atlas", str(Path(CONFIG["repository"]) / "res/atlases"))
     preview = CONFIG.get("preview", {})
     bpy.ops.wm.open_mainfile(filepath=str(OUT / f"{STEM}-source.blend"))
     # Source materials are intentionally simple, not a texture bake.

@@ -1,0 +1,148 @@
+{
+  "name": "Small Colossus V1",
+  "reference": "https://www.instagram.com/reel/DaoBxUEiBNa/",
+  "archive_source": "relics/colossus/archive/first-concept/generated/colossus-source.blend",
+  "archive_source_sha256": "377799ffaf554f7abf6b544df444b7d675d5aed0ff23307bf4fed521061f8acc",
+  "preserved_archive_meshes": {
+    "02 | Chamber floor": "5f05e52c1a5f44980aac3e407a4788bbaf906439484bd4c6639bf7390a93c5a4",
+    "03 | Entrance apron": "f1ca621a706afb6ff35538d7b00e8c862a954e705b6f67475295970c0a35bfd9",
+    "Internal structural rib": "70ac70532e77fce17cc7048c130aa1952e346cab06b2bc68e681567bd346d578",
+    "Internal structural rib.001": "b62164e734333c80dda58cf72391e1d71f24e38fb7cbd910a0a9cb325605db03",
+    "Dormant inner mechanism": "38d9afb8e28bd69c7deaeddbd49768dc6802ea59f3ae511db177e960dd48873b",
+    "Broken chest lip": "2ebb371ad4dbb4b583749b95dff7a8710dc20b7ff18c6af9fb09eabd6f6ace05",
+    "Restrained oxidised inlay": "4a49ca4ec4dff6bb74d2bc3bdf1c144d9a40d4b6b8b481437ce0f9a92b00e1bc",
+    "Oxidised lower fragment": "17c24a4244adf73b43c9732a7ff9f040c71c31abed68dcbc406447ebed0460ba",
+    "Left layered pauldron": "4f7ba513ad26d9b6cbe573cec4a720a3d09d7d6cbcbab18878bd45a00e930221",
+    "Left shoulder armour": "9351372a3510f1ecbb833e16e8dcb5bb596732426db226fe9447893654905b8a",
+    "Weight bearing upper arm": "f31bba5faa916ceba6d1a01d6db225b99e620bee1756aea638d6948e873cafff",
+    "Grounded left forearm": "3b94e4da9ae6e7a1b5165b3def543153726f3beb8261cb75d3a561523da7f415",
+    "Left resting knuckles": "1c37adb220205392bc097c6be8336217568c80a316c086fbed350620e3ee4210",
+    "Broken right socket": "4ab2664dd18035add9a796454abfac2169c84887a48fc225d8b20421ed3cdbca",
+    "Exposed right shoulder axle": "766f8bd17d4c517b6a5e3d8aacd17c199a65f1356572003bf02d8e1aef092d46",
+    "Neck collar": "2355111b4c13f7218c207b0262359f43da49dce7d992bb0cb0c8be6bb7ee2597",
+    "04 | Bevelled helmet": "e1bfacdd08abdd53406ca478ad24191ab32739e2ad32c3eef105e0b352714212",
+    "Deep unlit visor": "54988d08f553b0b14b4ec14cbaaa83747dfd5d288d3b9094fd1138a8d16e6788",
+    "Heavy brow": "e5d37011a42bf4bce9f7aef135d6698f532aab646b61c91361a7029c458f1e98",
+    "Central face guard": "cec03926fb5388d0b9caf009577bc33177d4bd6c4b9271f2077e6a3fd9571b3a",
+    "Left cheek plate": "fdc9e137ed1a2a1f4f22680cc0c2e938a19f2c7fb8df6b220b10e5e9559b0d32",
+    "05 | Severed elbow ring": "6e152500b5f0f528d85da4fc1d209954391570638241b30c7d90a43cf786f3e7",
+    "Detached forearm": "773160f8c97bc51930c493cbc7f2d5250eed5dfc762485523f30b102a4a0b730",
+    "Detached forearm inset": "328e58b3f23485ce8778d251480a74ed61aa8c391408ea8429563834482a4a7a",
+    "Moss on sheltered shoulder": "a234c64b968e9faadc2903f4809564f0d1a77559ff200cbbbf61519d7df38985",
+    "Moss in elbow hollow": "6bf3699c65c8459e3951a514c3d36ef3683b7a8070ed6a54a2560a4b42c143df",
+    "Moss on fallen wrist": "e024500ba4fd9a1416a8204f495416b9acfd3bd1bad91dc213b571bd2de5b23b",
+    "Trailing shoulder growth": "7d660e66234ca06d31f042c01adaf59a8cd42291ed15f3492874ebb7baa2d70f",
+    "Trailing shoulder growth.001": "cc9f2cfc2abbb909be2f21917814f112afd9c6de2eb96b7f669b3a1a83f9df86",
+    "Trailing shoulder growth.002": "a667eba53b1dc7b426fb63eaf153399b731b1ee4c2e62dc1f0a37a0e7f4da519",
+    "Later wooden shelter roof": "2b5d516e08aaa35e5c7383a45a7a9b1f4a16bcb1161716a13f56cecc5ec6bb23",
+    "Later shelter post": "cc75db97776d724dc57a6718bcf88bd86a106c679554c74bcfb3ffb0412dcfcd",
+    "Later shelter post.001": "40d8fd4bd1c10cca875f5ae8ba92b9025ab10d341e88dbe66b024bf5a92f651e",
+    "Fallen armour fragment 0": "9b67cbfa014db68f624f735e51944efa484f3ccd687ecfc654c08c2f3521101e",
+    "Fallen armour fragment 1": "0bfbbce94326e72d8ccf2e6db1fe8f99e4fdf6dab2d8dfc7b5aea538b68af8d9",
+    "Fallen armour fragment 2": "8c8ac00a7e3521647aa2694fa47cb63caf4d084bfc9eb38bee85ef7286b9f67a",
+    "Fallen armour fragment 3": "4e30803fc888adb66786586699b5c00e72ab55237e66820118e2849db9c9bfbc",
+    "Accumulated earth": "e928bf3b1d9c0ca1d13dd327b692f4e4d32ece95e29f47e06a44443b8cab9f22",
+    "Accumulated earth.001": "affca562260eb2ebc5fd74313ddd0d089d03f8236a2d844d43bee0e2732c83df",
+    "Accumulated earth.002": "1c791d1f79b7e79a543e8e823af2da649f96dcc8f57c5ead065ca43b81aaefb7"
+  },
+  "new_relic_v1": {
+    "family": "small-colossus",
+    "hand": {
+      "anatomical_side": "right",
+      "basis_determinant": 1.0,
+      "palmar_normal_source": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "wrist_source": [
+        46.0,
+        5.0,
+        25.0
+      ],
+      "finger_tips_source": [
+        [
+          52.599998474121094,
+          10.0,
+          48.0
+        ],
+        [
+          48.20000076293945,
+          12.0,
+          52.0
+        ],
+        [
+          43.79999923706055,
+          13.0,
+          54.0
+        ],
+        [
+          39.400001525878906,
+          11.0,
+          51.0
+        ]
+      ],
+      "palm_up": true,
+      "thumb_tip_source": [
+        31.0,
+        10.0,
+        37.0
+      ]
+    },
+    "void_probes_source": [
+      [
+        0,
+        27,
+        -17
+      ],
+      [
+        -9,
+        31,
+        17
+      ]
+    ],
+    "solid_probes_source": [
+      [
+        0,
+        45,
+        1
+      ]
+    ],
+    "features": [
+      "preserved angular helmet",
+      "circular chest rupture",
+      "palm-up anatomical right hand",
+      "buried lower completion",
+      "small rear breach"
+    ],
+    "v5_interiors": false,
+    "rewards_inherited": false
+  },
+  "source_bounds_blender": [
+    [
+      -42.56477355957031,
+      -59.5,
+      -9.516685485839844
+    ],
+    [
+      59.0,
+      28.0,
+      66.0
+    ]
+  ],
+  "blocks_per_source_unit": 0.9931579957129245,
+  "height_target_blocks": 76,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 9,
+  "mesh_count": 77,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "visual_acceptance": "V1 review pending",
+  "config": "relics/colossus/design/small-colossus-v1.json",
+  "planned_site_size": [
+    99,
+    76,
+    88
+  ],
+  "source_blend_sha256": "5409230d41018ba25a8c31bd7c108fe51aca2f91da833a7ad0ae19341104ee01"
+}

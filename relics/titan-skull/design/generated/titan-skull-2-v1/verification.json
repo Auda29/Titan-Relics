@@ -1,0 +1,75 @@
+{
+  "size": [
+    105,
+    144,
+    107
+  ],
+  "blocks": 85224,
+  "palette_entries": 12,
+  "tiles": 38,
+  "data_version": 3105,
+  "schematic_sha256": "3c275e76ba758c67a23131891591b9b38173aad21d958a11fae49bdf93c4bf12",
+  "nbt_sha256": "5a39ac6ef62c1d07eafed69ed8a7cbeb397b4a6d3c4a6f7bf7086fdabdac1b78",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "new_relic_v1": {
+    "family": "skull-2",
+    "planned_size": [
+      104,
+      144,
+      116
+    ],
+    "actual_size": [
+      105,
+      144,
+      107
+    ],
+    "void_probes_local": [
+      [
+        51,
+        23,
+        8
+      ],
+      [
+        33,
+        55,
+        24
+      ],
+      [
+        69,
+        54,
+        24
+      ],
+      [
+        51,
+        44,
+        16
+      ]
+    ],
+    "structural_samples": [
+      {
+        "source": [
+          0,
+          37,
+          44
+        ],
+        "local": [
+          51,
+          48,
+          94
+        ],
+        "nearby_blocks": 25
+      }
+    ],
+    "ground_level": 12,
+    "embedded_sword_sections": 4,
+    "sword_bone_contact_faces": 44,
+    "source_blend_sha256": "85e61983d2e34112908e008e72cfdae2b78b0202cf79b383ad9b4d888116a537"
+  }
+}

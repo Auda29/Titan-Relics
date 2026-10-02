@@ -1,0 +1,104 @@
+{
+  "name": "Titan Skull 2 V1",
+  "reference": "https://www.instagram.com/reel/Db9KCtWi0eG/",
+  "reference_seconds": [
+    0,
+    6
+  ],
+  "new_relic_v1": {
+    "family": "skull-2",
+    "void_probes_source": [
+      [
+        0,
+        11,
+        -44
+      ],
+      [
+        -18,
+        44,
+        -28
+      ],
+      [
+        18,
+        43,
+        -28
+      ],
+      [
+        0,
+        33,
+        -36
+      ]
+    ],
+    "solid_probes_source": [
+      [
+        0,
+        37,
+        44
+      ]
+    ],
+    "sword": {
+      "entry_source": [
+        17.0,
+        62.0,
+        -4.0
+      ],
+      "axis_source": [
+        0.30697083473205566,
+        0.9459100961685181,
+        0.10499002039432526
+      ],
+      "top_source": [
+        40.02281188964844,
+        132.94326782226562,
+        3.874251365661621
+      ],
+      "crossguard_source": [
+        30.506717681884766,
+        103.62004089355469,
+        0.619560718536377
+      ],
+      "crossguard_width": 40,
+      "buried_blade_axis_length": 24,
+      "surviving_contact_lips": 2,
+      "valuable_metal_blocks_expected": 0
+    },
+    "features": [
+      "round uncrowned cranium",
+      "open sockets and mouth",
+      "diagonal embedded sword",
+      "missing teeth",
+      "patchy damp deposits"
+    ],
+    "crown_included": false,
+    "spine_included": false,
+    "v5_interiors": false,
+    "placement_setting": "large lush grotto or open sinkhole; cave shell is not exported"
+  },
+  "source_bounds_blender": [
+    [
+      -52.0,
+      -56.0,
+      -12.119388580322266
+    ],
+    [
+      54.0,
+      52.0,
+      133.15960693359375
+    ]
+  ],
+  "blocks_per_source_unit": 0.9843129730773936,
+  "height_target_blocks": 144,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 12,
+  "mesh_count": 26,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "visual_acceptance": "V1 review pending",
+  "config": "relics/titan-skull/design/titan-skull-2-v1.json",
+  "planned_site_size": [
+    104,
+    144,
+    116
+  ],
+  "source_blend_sha256": "85e61983d2e34112908e008e72cfdae2b78b0202cf79b383ad9b4d888116a537"
+}

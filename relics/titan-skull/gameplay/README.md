@@ -31,8 +31,9 @@ Additional skull and bone variants are future designs, not already implemented
 assets. Their forms, sizes, and placement rules remain open.
 
 A [second independent skull reference](../docs/TITAN_SKULL_2_CONCEPT.md) has been
-selected from the opening of Instagram reel `Db9KCtWi0eG`. It is not modeled yet
-and is not another V4 ground palette. It follows this family's ordinary-mob,
+selected from the opening of Instagram reel `Db9KCtWi0eG`. Its independent
+[V1 model/export](../docs/TITAN_SKULL_2_V1.md) now awaits visual review;
+it is not another V4 ground palette. It follows this family's ordinary-mob,
 no-special-item gameplay direction.
 
 No numeric rates or current alpha worldgen settings have been changed.

@@ -1,0 +1,22 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "input": "relics/titan-skull/design/generated/titan-skull-2-v1/titan-skull-2-v1.obj",
+  "output": "relics/titan-skull/design/generated/titan-skull-2-v1/titan-skull-2-v1.schem",
+  "height": 144, "planned_site_size": [104,144,116],
+  "title": "TITAN SKULL 2 / V1",
+  "subtitle": "Independent rounded skull / embedded diagonal sword / damp overgrown remains",
+  "reference": "https://www.instagram.com/reel/Db9KCtWi0eG/",
+  "materials": {
+    "bone": "minecraft:bone_block", "worn": "minecraft:calcite", "mineral": "minecraft:dripstone_block",
+    "moss": "minecraft:moss_block", "growth": "minecraft:green_terracotta", "root": "minecraft:brown_terracotta",
+    "blade": "minecraft:tuff", "edge": "minecraft:andesite", "hilt": "minecraft:polished_deepslate",
+    "band": "minecraft:gray_terracotta", "terrain_top": "minecraft:moss_block",
+    "terrain_patch": "minecraft:rooted_dirt", "terrain_fill": "minecraft:dirt"
+  },
+  "view_labels": ["01 / Editable source", "02 / Actual NBT / face", "03 / Actual NBT / side", "04 / Actual NBT / rear"],
+  "review_footer": "Actual NBT in Blender. Grotto setting is illustrative. Bone and sword cavities are geometric; terrain clearing is not implemented.",
+  "preview": {"front": [90,300,90], "other": [-260,150,110], "back": [130,-270,120],
+    "landscape": "new-relic-v1", "ground_color": [0.17,0.22,0.13],
+    "camera_source": [75,68,-215], "target_source": [-5,58,0], "lens": 43}
+}

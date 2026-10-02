@@ -131,6 +131,11 @@ The exporter supports whole templates and rigid tiles. Natural generation uses o
 
 ## Reference-based Blender assets
 
+[Four new V1 assets](docs/project/NEW_RELICS_V1.md) are available for visual review:
+Ruined Tower, World Tree, the smaller archive-derived Colossus and independent
+Titan Skull 2 with an embedded sword. Each includes editable Blender source,
+NBT/schematic, verification and actual-block review images. Integration is pending.
+
 New [Colossus material study B](relics/colossus/docs/COLOSSUS_MATERIAL_STUDY_B.md):
 exactly the accepted V4.1 form, with salvageable copper armour and permanent
 supporting material. All 223,161 positions are unchanged; the candidate retains

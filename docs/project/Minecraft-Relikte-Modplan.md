@@ -9,6 +9,12 @@ This page preserves the creative catalog and long-term goals. See the
 [README](../../README.md) for current implementation and the
 [technical plan](UMSETZUNGSPLAN.md) for remaining acceptance work.
 
+**New asset review:** [four V1s](NEW_RELICS_V1.md) are now modeled and exported:
+Ruined Tower (111 × 192 × 93), World Tree (193 × 216 × 169), the archive-derived
+Small Colossus (101 × 76 × 87), and sword-bearing Titan Skull 2 (105 × 144 × 107).
+They await visual acceptance and game integration. Proposed dimensions below
+remain the pre-modeling baseline.
+
 ## 1. Five motifs from the Instagram references
 
 Observed imagery and proposed Minecraft interpretations are described separately.
@@ -80,6 +86,10 @@ architecture jointly create the composition.
 - Technical focus: modular parts, safe transitions, readable large forms.
 - Priority: expansion after the first prototypes; not implemented.
 
+The [pre-modeling brief](../../relics/ruined-tower/docs/REFERENCE_DESIGN_STUDY.md)
+now proposes a 112 × 192 × 96 site with a 180-block visible main tower. The top
+is cropped in the reference and will be authored; the departing aircraft is excluded.
+
 ### 4. Giant skull among green hills
 
 **Reference:** [D.E.A.D. / remains of dead gods — The Archive In Between](https://www.instagram.com/reel/DXM3J4sgqJl/),
@@ -113,8 +123,10 @@ specifically the skull in the opening few seconds selected by the user.
 
 This is a separate second design, not another version or terrain palette of the
 existing crowned skull. It is recorded in the
-[concept page](../../relics/titan-skull/docs/TITAN_SKULL_2_CONCEPT.md); clear frame
-inspection, anatomy, dimensions, materials, and modeling remain pending.
+[concept page](../../relics/titan-skull/docs/TITAN_SKULL_2_CONCEPT.md). Opening
+frames are now verified: a moss-covered skull with a huge diagonal embedded sword
+in a cavern/grotto. The working brief proposes a 104 × 144 × 116 site, with
+64 visible blocks of skull plus about 68 of weapon rise. Modeling remains deferred.
 
 Both skull designs and future bone sites share the Titan-remains family budget.
 Their variety should communicate multiple fallen Titans, not require living
@@ -136,6 +148,10 @@ the existing landscape.
 - Discovery: a living natural monument feels as ancient and overwhelming as machine ruins.
 - Technical focus: block count, crown silhouette, world height, and leaf behavior.
 - Priority: later separate prototype with high design/integration cost; not implemented.
+
+The [pre-modeling brief](../../relics/world-tree/docs/REFERENCE_DESIGN_STUDY.md)
+now proposes a 192 × 216 × 176 envelope, with a 208-block visible tree, layered
+crown and broad root arches. The reference is a montage, not one measured tree.
 
 **Initial scope remains Obelisk and Colossus.** This catalog is not a promise to
 deliver all five motifs in version 0.1.

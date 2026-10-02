@@ -1,0 +1,65 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v24.16.0",
+  "input": "relics/world-tree/design/generated/world-tree-v1/world-tree-v1.obj",
+  "output": "relics/world-tree/design/generated/world-tree-v1/world-tree-v1.schem",
+  "source_sha256": "d67a80b377d454facb67b5c8c7497028727d586cc1aabf1d35b5d3ef0ef24ff2",
+  "schematic_sha256": "3230b946da0b597911e2dd77d297e9785581088705e38ed61d0894b9502fef40",
+  "height": 216,
+  "triangles": 135416,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 216,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "wood": "minecraft:spruce_log[axis=y]",
+    "bark": "minecraft:stripped_spruce_log[axis=y]",
+    "cut": "minecraft:stripped_dark_oak_log[axis=y]",
+    "leaves": "minecraft:spruce_leaves[distance=7,persistent=true]",
+    "leaf_light": "minecraft:oak_leaves[distance=7,persistent=true]",
+    "moss": "minecraft:moss_block",
+    "stone": "minecraft:mossy_stone_bricks",
+    "terrain_top": "minecraft:grass_block[snowy=false]",
+    "terrain_patch": "minecraft:rooted_dirt",
+    "terrain_fill": "minecraft:dirt"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:spruce_log[axis=y]": 257679,
+    "minecraft:stripped_spruce_log[axis=y]": 6843,
+    "minecraft:dirt": 15921,
+    "minecraft:rooted_dirt": 798,
+    "minecraft:grass_block[snowy=false]": 5042,
+    "minecraft:mossy_stone_bricks": 289,
+    "minecraft:moss_block": 529,
+    "minecraft:stripped_dark_oak_log[axis=y]": 78,
+    "minecraft:spruce_leaves[distance=7,persistent=true]": 196043,
+    "minecraft:oak_leaves[distance=7,persistent=true]": 19826
+  },
+  "material_remapping": {
+    "proxies": {
+      "wood": "minecraft:spruce_log",
+      "bark": "minecraft:stripped_spruce_log",
+      "cut": "minecraft:stripped_dark_oak_log",
+      "leaves": "minecraft:green_concrete",
+      "leaf_light": "minecraft:lime_wool",
+      "moss": "minecraft:moss_block",
+      "stone": "minecraft:mossy_stone_bricks",
+      "terrain_top": "minecraft:lime_concrete",
+      "terrain_patch": "minecraft:rooted_dirt",
+      "terrain_fill": "minecraft:dirt"
+    },
+    "covered_replacements": 752,
+    "unsupported_replacements": 0
+  },
+  "fill_enclosed": null,
+  "filled_voxels": 0,
+  "note": "Surface voxelisation. No solid filling, interior-air classification or worldgen integration."
+}

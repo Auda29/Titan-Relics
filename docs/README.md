@@ -6,6 +6,8 @@ This directory contains only cross-project documentation and test evidence.
 ## Project
 
 - [Concept and reference catalog](project/Minecraft-Relikte-Modplan.md)
+- [Next four relics: reference, dimensions and damage study](project/NEXT_FOUR_RELIC_DESIGN_STUDY.md)
+- [Four new V1 models, exports and visual reviews](project/NEW_RELICS_V1.md)
 - [Lore bible and design guide](project/LORE-BIBLE.md)
 - [Lore/gameplay review and follow-up decisions](project/LORE_GAMEPLAY_REVIEW.md)
 - [Technical implementation plan](project/UMSETZUNGSPLAN.md)

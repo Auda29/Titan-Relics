@@ -1,0 +1,74 @@
+{
+  "name": "Ruined Tower V1",
+  "reference": "https://www.instagram.com/reel/DbqXYoVx2hR/",
+  "new_relic_v1": {
+    "family": "tower",
+    "void_probes_source": [
+      [
+        0,
+        12,
+        -23
+      ],
+      [
+        10,
+        80,
+        0
+      ],
+      [
+        -8,
+        130,
+        0
+      ]
+    ],
+    "solid_probes_source": [
+      [
+        -27,
+        35,
+        10
+      ],
+      [
+        26,
+        60,
+        14
+      ]
+    ],
+    "features": [
+      "three unequal upper terminations",
+      "round-topped opening",
+      "hollow shell",
+      "two lower ruins",
+      "real facade breaches"
+    ],
+    "damage_target": "30\u201335% reconstructed exterior wall area; exact area not measured in V1",
+    "source_top_authored": true,
+    "aircraft_included": false,
+    "v5_interiors": false
+  },
+  "source_bounds_blender": [
+    [
+      -56.0,
+      -48.0,
+      -12.0
+    ],
+    [
+      56.0,
+      45.275516510009766,
+      180.0
+    ]
+  ],
+  "blocks_per_source_unit": 0.9947916666666666,
+  "height_target_blocks": 192,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 12,
+  "mesh_count": 27,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "visual_acceptance": "V1 review pending",
+  "config": "relics/ruined-tower/design/ruined-tower-v1.json",
+  "planned_site_size": [
+    112,
+    192,
+    96
+  ],
+  "source_blend_sha256": "4db082324db4080f290045aa742ed5baedb3e6f32c1670650b96cd5267cee4b3"
+}

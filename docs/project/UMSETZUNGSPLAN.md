@@ -4,8 +4,10 @@
 Colossus V4.1, Obelisk V4.2 and all four Titan Skull V4 ground variants. Create
 the other planned relics before V5 interior architecture. The remaining original
 motifs are the Ruined Tower and World Tree; the smaller Colossus is a separate
-future direction based on the archived first concept. Their exact work order and
-dimensions remain to be chosen. This does not close worldgen or in-game checks.
+direction based on the archived first concept. Following the reference studies,
+the user requested [V1s for all four new designs](NEW_RELICS_V1.md), including
+sword-bearing Titan Skull 2. These exports now await visual review.
+This does not close worldgen or in-game checks.
 
 **Occurrence and review update, October 2, 2026:** one naturally generated large
 Colossus per game world/save, shared by all players; smaller Colossi may occur
