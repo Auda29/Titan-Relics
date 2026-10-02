@@ -21,6 +21,10 @@ Study B is the selected material version, including the illustrated post-salvage
 appearance: **25,423 copper blocks and 90 raw iron items**, with the complete
 intact V4.1 geometry preserved. The original V4.1 and study A remain available.
 The packaged mod still uses the V3 assets; this approval records the asset choice.
+**Build integration and Minecraft validation remain pending.** Acceptance of B's
+palette/inventory and offline post-salvage views does not settle the golem's
+historical role, the core's everyday utility/final costs, multiplayer rewards,
+or implementation of unique-large-Colossus generation.
 
 Review images and generation metadata retain their pre-approval review labels;
 this acceptance entry records the subsequent user decision.

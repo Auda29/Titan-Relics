@@ -9,6 +9,13 @@ rewards and their dedicated trial key. None of these items or the encounter is
 implemented yet. Numeric values below are initial tuning targets, not final
 balance commitments. Repair and charging recipes remain open.
 
+**Asset status:** [material study B](../docs/COLOSSUS_MATERIAL_STUDY_B.md) is the
+selected, visually accepted material version of V4.1. It is exported and checked
+offline, **not integrated into Alpha 3 or tested in Minecraft**. Alpha 3 still
+packages V3. Golem history, core utility/final costs, multiplayer reward policy,
+and unique-large-site generation remain open; this material choice implements
+none of them.
+
 The items should feel like useful machinery salvaged from an ancient mechanical
 relic, rather than generic stronger equipment. Their working names are:
 
@@ -255,31 +262,35 @@ repair**.
 
 ## Review follow-up: salvage economy of the whole landmark
 
-The user has authorized a **separate material study with the entire accepted form
-preserved**. The [candidate and exact inventory](../docs/COLOSSUS_MATERIAL_STUDY.md)
+**Historical study A — superseded by B:** the user authorized a separate material
+study with the entire accepted form preserved. The
+[candidate and exact inventory](../docs/COLOSSUS_MATERIAL_STUDY.md)
 retain 197 copper blocks and 10 raw iron blocks at three connected salvage sites,
-with zero changed occupied positions. Palette and quantities await approval;
-these are not final loot rules or a change to the packaged build.
+with zero changed occupied positions. This comparison is not selected; its
+earlier pending-approval status does not apply to B. Neither study defines final
+loot rules or changes the packaged build by being exported.
 
-**Current follow-up:** the user requested more copper, explicitly below 50,000
+**Current approved asset choice — study B:** the user requested more copper, explicitly below 50,000
 copper blocks and 256 raw iron **items**. [Study B](../docs/COLOSSUS_MATERIAL_STUDY_B.md)
 retains 25,423 copper blocks in removable armour regions and ten raw iron blocks
 (90 items). Complete metal removal must preserve the head/body connection and
 not split surviving components; the candidate passes these geometry checks.
 Study A above is retained as a historical comparison. The user visually accepted
 B, including its post-salvage appearance, on October 2, 2026. It is the selected
-material version with the stated inventory; gameplay integration is still pending.
+material version with the stated inventory. Build integration and Minecraft
+validation remain pending; offline post-salvage previews are simulations only.
 
 The V3 export contains **141,523 copper-based blocks and 5,609 raw iron blocks**.
-These historical counts are verified for V3, not asserted for selected V4.1.
+These historical counts are verified for V3, not asserted for material study B.
 Estimate recoverable resources from the selected export and compare them with
 the core and magnet's useful value. Bulk mining could overshadow the special
 rewards and dismantle the only large landmark for everyone else.
 
-Concentrated salvage metal and economically less significant broad surface fields
-are proposed responses, not selected palette changes. Preserve the accepted
-visual design until a material policy is agreed; normal mining is not prohibited
-and no block-protection mechanism is approved. Coordinate with
+Selected study B implements the material response: removable copper armour regions
+and economically less significant bulk fields, preserving intact V4.1 geometry.
+Its palette and inventory are approved; actual Minecraft appearance, recoverable
+resource value, and balance against the core/magnet still need validation. Normal
+mining is not prohibited and no block-protection mechanism is approved. Coordinate with
 [Colossus design goals](../docs/COLOSSUS_V4.md) and the
 [shared review](../../../docs/project/LORE_GAMEPLAY_REVIEW.md).
 
@@ -297,7 +308,8 @@ and no block-protection mechanism is approved. Coordinate with
 7. Multiplayer behavior and compatibility with relevant protection systems.
 8. Golem counts, multiplayer scaling, ominous behavior, and the head trial's
    detailed layout and presentation.
-9. Material/salvage economy of the selected export relative to special rewards.
+9. In-game validation and survival salvage balance of selected material study B
+   relative to special rewards; its palette/inventory choice is already approved.
 10. Historical function of the golem and visible links to the Titan conflict.
 11. The core's everyday use case and combined acquisition/restoration/recharge cost.
 12. Later-visitor reward policy for the unique site's shared magnet and ordinary loot.

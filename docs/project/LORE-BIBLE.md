@@ -204,8 +204,12 @@ This is a palette to try, not a requirement to use every material. Assess large
 quantities of economically valuable blocks as part of exploration/resource balance.
 The review flags the V3 Colossus's 141,523 copper-based and 5,609 raw iron blocks
 as a potential incentive to dismantle the landmark. Recount the selected export
-and evaluate recovery value; concentrated salvage and less valuable broad fields
-are suggestions, not an approved recoloring of the accepted V4 design.
+and evaluate recovery value. The original suggestion of concentrated salvage and
+less valuable broad fields has since led to the approved
+[material study B](../../relics/colossus/docs/COLOSSUS_MATERIAL_STUDY_B.md): 25,423
+copper blocks and 90 raw iron items, with intact V4.1 geometry preserved. This is
+the selected asset palette/inventory, not a pending material choice. Alpha 3 still
+uses V3; B's integration, Minecraft appearance, and survival balance remain pending.
 The latest Colossus studies emphasize bronze/copper; Obelisk v2/v3 use warm
 terracotta and sandstone instead of the alpha's darker treatment.
 

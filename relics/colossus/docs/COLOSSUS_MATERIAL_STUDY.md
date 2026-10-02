@@ -5,8 +5,9 @@ reviewing this version. [Study B](COLOSSUS_MATERIAL_STUDY_B.md) is now visually
 accepted: 25,423 copper blocks, 90 raw iron items, and checked post-mining support.
 
 October 2, 2026. The user approved studying lower-value materials with the
-**complete accepted V4.1 form preserved**. This candidate's palette and salvage
-quantities await review; it does not replace the accepted original automatically.
+**complete accepted V4.1 form preserved**. At creation this candidate's palette
+and salvage quantities awaited review; A is now a historical comparison,
+superseded by selected study B. It is not an outstanding material approval task.
 
 [Material comparison and post-salvage view](../design/generated/colossus-v4-1-materials/colossus-material-comparison-review.png)
 · [Three salvage sites](../design/generated/colossus-v4-1-materials/colossus-salvage-sites-review.png)

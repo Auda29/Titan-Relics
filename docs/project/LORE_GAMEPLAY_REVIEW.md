@@ -1,8 +1,9 @@
 # Lore and gameplay review — design follow-up
 
 Recorded: October 2, 2026. This records the user's review and the resulting open
-design tasks. Suggestions below are **not approved material replacements, recipe
-changes, or implemented systems**.
+design tasks. Original review suggestions are not approvals in themselves;
+subsequent decisions are recorded explicitly below. **Material study B is now
+selected and visually accepted**, but recipes and gameplay systems remain open.
 
 ## Review baseline and current status
 
@@ -10,7 +11,16 @@ The supplied review examined commit `9a4a87f`: V3 assets existed but were not ye
 selected in the playable alpha. Alpha 3 now integrates Colossus, Obelisk, and
 Titan Skull V3. Colossus V4.1, Obelisk V4.2, and the four Skull V4 ground variants
 have since been visually accepted offline; their integration remains pending.
+The [Colossus material study B](../../relics/colossus/docs/COLOSSUS_MATERIAL_STUDY_B.md)
+is the selected material version of V4.1, including its simulated post-salvage
+appearance. It exists as an export and has been visually accepted offline; it is
+**not packaged in Alpha 3 or tested in Minecraft**. This is a separate decision
+from the earlier B / open-chest-frame geometry choice.
+
 Custom items, trials, archaeology, and expedition maps are still planning.
+The golem's historical role, the core's everyday value/final costs, multiplayer
+reward distribution, and implementation of one large Colossus per world remain
+open. Material acceptance does not close any of these tasks.
 
 The review's quantities describe **V3**, not measurements of the accepted V4
 studies. Its candidate rates are not final discovery balance. The newly approved
@@ -37,11 +47,11 @@ assumption. See [V3 integration](../technical/V3_INTEGRATION.md).
 
 ## 1. Material economy: landmark versus mine
 
-**Follow-up study:** the user requested limited salvage with complete form
+**Historical study A — superseded by B:** the user requested limited salvage with complete form
 preservation. The [Colossus material study](../../relics/colossus/docs/COLOSSUS_MATERIAL_STUDY.md)
 now compares accepted V4.1 against a direct block remap, retaining 197 copper and
 10 raw iron blocks. All 223,161 occupied positions are identical. This is an
-authorized candidate for review, not a selected final palette or gameplay balance.
+historical candidate, not the selected material version or final gameplay balance.
 
 **Revised direction:** after reviewing the initial study, the user requested
 substantially more copper and visible but plausible mining damage: fewer than
@@ -50,7 +60,8 @@ retains 25,423 copper blocks and 90 raw iron items. Its intact shape is identica
 after complete metal removal the head remains attached to the buried torso and
 no surviving original face-connected component splits. The user visually accepted
 study B and its post-salvage appearance on October 2, 2026; it is the selected
-material version. Gameplay integration remains a separate step.
+material version. Build integration and Minecraft validation remain pending;
+offline geometry/connectivity checks are not in-game acceptance.
 
 The review reports **141,523 copper-based blocks and 5,609 raw iron blocks** in
 the V3 Colossus. These counts were rechecked against its tracked whole NBT export
@@ -61,14 +72,17 @@ Concern: mining the monument could dwarf its carefully limited special rewards
 and encourage dismantling a unique shared landmark. Uniqueness limits the number
 of deposits but does not remove this incentive or the multiplayer impact.
 
-Suggested direction: concentrate useful metal in deliberate salvage areas and
-represent large surface fields with economically less significant materials.
-No replacement palette, block protection, or restriction on normal mining has
-been selected. The visually accepted warm metal design remains intact for now.
+**Original recommendation, now addressed by selected study B:** concentrate useful
+metal in deliberate salvage areas and represent large surface fields with
+economically less significant materials. B's palette and stated inventory are
+approved as the asset choice; the earlier "no replacement palette selected"
+status is superseded. Normal mining remains allowed, and no block-protection
+mechanism has been selected.
 
-**Follow-up:** inventory the selected export, estimate survival salvage value,
-compare it with intended rewards, and decide the material/salvage policy before
-final loot tuning. Owner: [Colossus design goals](../../relics/colossus/docs/COLOSSUS_V4.md)
+**Remaining follow-up:** integrate B in a separately authorized build step, verify
+its appearance/access and actual recovery value in Minecraft, and compare salvage
+with special rewards before final survival/loot tuning. B's material selection is
+settled; its gameplay balance is not. Owner: [Colossus design goals](../../relics/colossus/docs/COLOSSUS_V4.md)
 and [gameplay](../../relics/colossus/gameplay/ITEMS.md).
 
 ## 2. Give the golem trial a historical function
@@ -152,4 +166,6 @@ loot. Owner: [technical implementation plan](UMSETZUNGSPLAN.md).
 The review recommends **material economy first, historical trial integration
 second, and lasting core utility third**. Record these as design-review priorities;
 they do not override the agreed next modeling order or authorize changing accepted
-models, implementing gameplay, or altering generation now.
+models, implementing gameplay, or altering generation now. The later selection
+of material study B addresses the asset-choice portion of the first priority,
+not its outstanding Minecraft and survival-balance checks.

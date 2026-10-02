@@ -117,21 +117,22 @@ Roheisenblöcke**. Diese V3-Zahlen wurden nachgezählt, sind aber keine Material
 von V4.1. Massenabbau könnte Kern und Magnet wirtschaftlich überstrahlen und das
 einmalige gemeinsame Wahrzeichen zerstören.
 
-Offene Designaufgabe: Materialbilanz und tatsächlich gewinnbare Ressourcen des
-ausgewählten Exports prüfen und die Bergungsökonomie abstimmen. Verwertbares
+**Historischer Review-Stand vor den Materialstudien:** Materialbilanz und
+tatsächlich gewinnbare Ressourcen prüfen und die Bergungsökonomie abstimmen.
+Verwertbares
 Metall gezielt konzentrieren und große Flächen wirtschaftlich unkritischer
-darstellen ist ein **Vorschlag, keine freigegebene Palettenänderung**. Die bereits
-akzeptierte warme Metallwirkung bleibt vorerst bestehen; weder Abbauschutz noch
-ein Verbot normaler Minecraft-Interaktion ist beschlossen.
+darstellen war zunächst ein Vorschlag ohne Palettenfreigabe. **Dieser Status ist
+durch die unten dokumentierte Auswahl von Materialstudie B überholt.** Weiterhin
+sind weder Abbauschutz noch ein Verbot normaler Minecraft-Interaktion beschlossen.
 
-**Nachtrag: Materialstudie beauftragt und erstellt.** Der Nutzer möchte begrenzte
+**Historische Materialstudie A, durch B abgelöst.** Der Nutzer möchte begrenzte
 Rohstoffbergung, während der Colossus erkennbar bleibt; die Form muss vollständig
 erhalten bleiben. Die [separate Studie](COLOSSUS_MATERIAL_STUDY.md) ersetzt
 großflächiges Metall durch Granit, Terrakotta und Andesit. Alle 223.161 belegten
 Blockpositionen und 491 Blender-Meshes bleiben geometrisch identisch zu V4.1.
 Statt 129.253 Kupfer- und 8.821 Roheisenblöcken enthält der Vorschlag 197 Kupfer-
-und 10 Roheisenblöcke an drei zusammenhängenden Bergungsstellen. Palette und
-Mengen warten auf Abnahme; die ursprüngliche V4.1 bleibt erhalten.
+und 10 Roheisenblöcke an drei zusammenhängenden Bergungsstellen. A bleibt als
+Vergleich erhalten und ist nicht ausgewählt; die ursprüngliche V4.1 bleibt erhalten.
 
 **Überarbeitung B:** Die erste Studie enthält dem Nutzer zu wenig Kupfer und
 verändert sich beim Abbau optisch zu wenig. Gewünscht sind unter 50.000
@@ -142,6 +143,13 @@ und verbleibende Verbindungen bleiben erhalten. Die Form vor dem Abbau ist exakt
 identisch, die Verbindungsprüfung bestanden. Am 2. Oktober 2026 hat der Nutzer
 Variante B einschließlich des gezeigten Zustands nach dem Metallabbau optisch
 freigegeben („ja so sieht das gut aus“). B ist damit die gewählte Materialfassung.
+
+**Aktueller Stand:** Palette und Mengen von Materialstudie B sind als Assetauswahl
+freigegeben. Alpha 3 verwendet weiterhin V3; B ist exportiert und offline geprüft,
+aber weder eingebunden noch in Minecraft getestet. Bergungswert und Balance zu
+Kern/Magnet bleiben zu prüfen. Golem-Hintergrund, dauerhafter Kernnutzen,
+Multiplayer-Belohnungen und Umsetzung der einmaligen Generierung bleiben offen.
+Materialstudie B ist nicht mit der früheren Brustgeometrie-Auswahl B zu verwechseln.
 
 Für die spätere Innenraumgestaltung müssen die historische Rolle der
 Golem-Prüfung und sichtbare Verbindungen zum Titanenkonflikt festgelegt werden.

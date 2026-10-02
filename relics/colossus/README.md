@@ -1,7 +1,11 @@
 # Colossus
 
-The current design is **V3**, including the buried abdomen, torn hip, and detached
-arm. It is selected in Alpha 3; see [V3 integration](../../docs/technical/V3_INTEGRATION.md).
+The **playable Alpha 3 uses V3**, including the buried abdomen, torn hip, and
+detached arm; see [V3 integration](../../docs/technical/V3_INTEGRATION.md).
+The **selected offline asset is V4.1 with material study B**. Its palette/inventory
+and simulated post-salvage appearance are visually accepted, but build integration
+and Minecraft testing are still pending. Material study B is distinct from the
+earlier B / open-chest-frame geometry choice.
 
 ## Design and assets
 
