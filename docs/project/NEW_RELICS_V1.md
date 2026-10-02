@@ -15,6 +15,7 @@ crowned Titan Skull. The playable Alpha 3 build still selects the three V3 asset
 | Titan Skull 2 | 105 × 144 × 107 | 85,224 | 12 |
 
 - [Four-relic overview](reviews/new-relics-v1-review.png)
+- [All seven current relics at the same scale](reviews/all-current-relics-scale.png)
 - [Ruined Tower V1](../../relics/ruined-tower/docs/RUINED_TOWER_V1.md)
 - [World Tree V1](../../relics/world-tree/docs/WORLD_TREE_V1.md)
 - [Small Colossus V1](../../relics/colossus/docs/SMALL_COLOSSUS_V1.md)
@@ -33,6 +34,13 @@ renders, not Minecraft screenshots. Original reference frames are not embedded
 in the published review.
 
 ## Reproduction
+
+The seven-relic scale comparison is reproduced with
+`python tools/render_all_relics_scale.py`. It uses the accepted Colossus material
+B, Obelisk V4.2 and meadow Skull V4 alongside these four V1s, all at unit block
+scale under one orthographic camera. Each asset meets the same nominal ground;
+buried portions are hidden. Dimensions include the buried parts. The other three
+Skull V4 terrain palettes have identical dimensions and are represented by meadow.
 
 Use the existing Blender 5.2/Python/Node environment and the pinned local
 ObjToSchematic checkout. From the repository root:
