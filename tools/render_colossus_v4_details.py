@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DESIGN = ROOT / "relics/colossus/design"
 
 
-def view(stem, name, region, direction, ground=False):
+def view(stem, name, region, direction, ground=False, output=None, terrain_y=None):
     renderer.OUT = DESIGN / "generated" / stem
     renderer.STEM = stem
     metadata = json.loads((renderer.OUT / f"{stem}.design.json").read_text())
@@ -39,8 +39,12 @@ def view(stem, name, region, direction, ground=False):
     if ground:
         plane = bpy.data.objects["Presentation ground (not exported)"]
         plane.location.z = metadata["ground_level_nbt_approx"]-.2
+        if terrain_y is not None:
+            plane.location.z = (terrain_y-low[2])*scale-.2
         plane.data.materials[0].diffuse_color = (.18, .22, .11, 1)
         plane.data.materials[0].node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = (.18, .22, .11, 1)
+    if output is not None:
+        renderer.OUT = output
     renderer.render(name, center, corners, direction)
 
 

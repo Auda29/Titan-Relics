@@ -1,0 +1,50 @@
+{
+  "size": [
+    59,
+    185,
+    60
+  ],
+  "blocks": 94593,
+  "palette_entries": 5,
+  "tiles": 24,
+  "data_version": 3105,
+  "schematic_sha256": "47d422aa1ddfaa9cec3ca31ca779b7332ae1ce9f2c7ccb86c0c7ef8af10619c4",
+  "nbt_sha256": "2c0267258c0655d5af64f8a2a0eee1e2acb444147e85bf9c3cd72f74ce9496bc",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "obelisk_v4": {
+    "continuous_core_prism": [
+      7,
+      185,
+      7
+    ],
+    "filled_voxels": 75751,
+    "square_base_and_rotated_crown_checked": true,
+    "shallow_chips": 4,
+    "source_volume_removed_percent": 0.6073879452019648,
+    "foundation_fragments": 3,
+    "nominal_ground_y": 8,
+    "unsupported_sand_blocks": 0,
+    "open_cracks": [
+      {
+        "removed_surface_samples": 38,
+        "solid_backing_samples": 7
+      },
+      {
+        "removed_surface_samples": 71,
+        "solid_backing_samples": 6
+      },
+      {
+        "removed_surface_samples": 63,
+        "solid_backing_samples": 6
+      }
+    ],
+    "preserved_v4_scenery_objects": 5
+  }
+}

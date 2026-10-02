@@ -43,7 +43,7 @@ def old_hand(obj):
     return obj.name.startswith(("07 | Half-buried mechanical palm", "Finger ", "Detached hand thumb"))
 
 
-def raised_right_hand():
+def raised_right_hand(palm_up=False):
     for obj in list(bpy.context.scene.objects):
         if old_hand(obj):
             bpy.data.objects.remove(obj, do_unlink=True)
@@ -56,6 +56,12 @@ def raised_right_hand():
     theta = math.radians(64)
     distal = axis*math.cos(theta)+up*math.sin(theta)
     palmar = axis*math.sin(theta)-up*math.cos(theta)
+    if palm_up:
+        # Supination is a proper 180-degree roll, not a mirrored left hand.
+        theta = math.radians(5)
+        thumbward = side
+        distal = axis*math.cos(theta)+up*math.sin(theta)
+        palmar = up*math.cos(theta)-axis*math.sin(theta)
     basis = Matrix((thumbward, distal, palmar)).transposed()
     assert abs(basis.determinant()-1) < 1e-5, "Hand must never be mirrored"
     assert thumbward.cross(distal).dot(palmar) > .999, "Right-hand chirality lost"
@@ -74,6 +80,8 @@ def raised_right_hand():
     # Small finger -> ring -> middle -> index, ending next to the thumb (+u).
     for name, u, length, curl in [("little", -13.5, 20, 8), ("ring", -4.5, 27, 6),
                                   ("middle", 4.5, 30, 5), ("index", 13.5, 25, 9)]:
+        if palm_up:
+            curl = {"little":14, "ring":18, "middle":20, "index":16}[name]
         points = [(u, 22, 0), (u, 22+length*.48, 0),
                   (u, 22+length*.81, curl*.4), (u, 22+length, curl)]
         for i, (start, end) in enumerate(zip(points, points[1:])):
@@ -85,6 +93,8 @@ def raised_right_hand():
         shapes.tube(f"V4 right hand | {name} dorsal tendon", [(u, 5, -5.5), (u, 19, -5.5), (u, 28, -3.1)], .75, "joint", 8)
         digits.append({"name": name, "tip_local": points[-1], "root_local": points[0]})
     thumb = [(14, 6, 0), (23, 12, 1), (29, 23, 5)]
+    if palm_up:
+        thumb = [(14, 6, 0), (23, 12, 4), (29, 23, 11)]
     for i, (start, end) in enumerate(zip(thumb, thumb[1:])):
         cylinder(f"V4 right hand | thumb phalanx {i+1}", start, end, 3.6-i*.5, "plate", 14)
     for p in thumb:
@@ -103,12 +113,16 @@ def raised_right_hand():
         digit["root_source"] = world(digit.pop("root_local"))
     return {
         "side": "right", "source_body_right": [1, 0, 0], "source_body_front": [0, 0, -1],
-        "pose": "64-degree wrist extension from the original palm-down hand; forearm unchanged",
+        "pose": ("Supinated palm upward, near-horizontal wrist, loosely cupped raised fingertips; forearm unchanged"
+                 if palm_up else "64-degree wrist extension from the original palm-down hand; forearm unchanged"),
         "basis_determinant": basis.determinant(), "thumbward_source": list(thumbward),
         "distal_source": list(distal), "palmar_normal_source": list(palmar),
         "wrist_source": list(wrist), "thumb_tip_source": world(thumb[-1]), "digits": digits,
         "finger_gap_probes_source": [world((u, 38, 1)) for u in (-9, 0, 9)],
-        "note": "T cross D = P. Same thumb side as V3; no reflection or negative scale.",
+        "note": ("T cross D = P. Right-hand supination reverses the world-space thumb side; no reflection or negative scale."
+                 if palm_up else "T cross D = P. Same thumb side as V3; no reflection or negative scale."),
+        **({"palm_up":True, "raised_terrain_probe_source_y":28,
+            "palm_center_source":world((0,11,0))} if palm_up else {}),
     }
 
 

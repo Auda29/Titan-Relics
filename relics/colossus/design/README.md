@@ -1,5 +1,7 @@
 # Colossus design assets
 
+- [V4.1 palm-up frame configuration](colossus-v4-1-frame.json) and [revision guide](../docs/COLOSSUS_V4_1.md)
+
 - Selected V4: [B — open machine frame](colossus-v4-frame.json).
   [A — open chest](colossus-v4-open.json) remains a comparison alternative;
   [comparison and commands](../docs/COLOSSUS_V4_EXPORTS.md).

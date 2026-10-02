@@ -6,6 +6,13 @@ Maschinengerüst wurde am 2. Oktober 2026 vom Nutzer ausgewählt.** Grundlage is
 in Alpha 3; V3 bleibt unverändert erhalten und im Build ausgewählt.
 Ergebnisse, Vergleichsbilder und Befehle: [V4 export studies](COLOSSUS_V4_EXPORTS.md).
 
+**Nachtrag: V4.1-Handkorrektur.** Die aufgerichtete V4-Hand erinnerte den Nutzer
+an Iron Mans Schusshaltung. Gewünscht und umgesetzt ist nun eine flach liegende,
+nach oben geöffnete rechte Hand mit hochgekrümmten Fingern. Bei zusätzlicher
+Verschüttung sollen möglichst die Fingerspitzen erkennbar bleiben.
+[V4.1 mit Vergleich und höherer Geländeprobe](COLOSSUS_V4_1.md).
+Die Brustauswahl B bleibt bestehen; die neue Haltung wartet auf Sichtabnahme.
+
 ## Grundlage und Ziel
 
 Der Nutzer bewertet den Colossus in seiner bisherigen Form bereits als sehr gut.

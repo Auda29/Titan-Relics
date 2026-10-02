@@ -10,6 +10,9 @@ Alpha 3 selects the three V3 exports through `tools/integrate_v3.py`; see
 selected design**, awaiting later integration; A is retained for comparison.
 Titan Skull V4 now has four ground palettes, and Obelisk V4 has restrained
 weathering and foundation scatter; both await visual acceptance.
+The subsequent [Colossus V4.1](../../relics/colossus/docs/COLOSSUS_V4_1.md) and
+[Obelisk V4.1](../../relics/obelisk/docs/OBELISK_V4_1.md) revisions correct the
+hand pose and surface contrast. Separate generators load the published V4 sources.
 
 We use the free, open-source **ObjToSchematic 1.0** locally. VoxelVision is no
 longer required. The current 2.0 web product and its Pro features are not needed.
@@ -31,6 +34,8 @@ commit `b611b52c7a87cad99127908598bab019fe9e7c3f`.
 | [Titan Skull v3](../../relics/titan-skull/docs/TITAN_SKULL_V3.md) | `titan-skull-v3.json` | 121 × 79 × 203 | 264,355 | 7 | 37 |
 | [Titan Skull V4](../../relics/titan-skull/docs/TITAN_SKULL_V4_EXPORTS.md) | `titan-skull-v4-{meadow,dry,sand,rock}.json` | 117 × 79 × 179 | 136,569 each | 7 / 7 / 6 / 6 | 31 |
 | [Obelisk V4](../../relics/obelisk/docs/OBELISK_V4_EXPORTS.md) | `obelisk-v4.json` | 59 × 185 × 60 | 95,038 | 6 | 24 |
+| [Colossus V4.1](../../relics/colossus/docs/COLOSSUS_V4_1.md) | `colossus-v4-1-frame.json` | 181 × 209 × 235 | 223,161 | 11 | 127 |
+| [Obelisk V4.1](../../relics/obelisk/docs/OBELISK_V4_1.md) | `obelisk-v4-1.json` | 59 × 185 × 60 | 94,593 | 5 | 24 |
 
 Colossus v2 follows the original reference; v3 adds the buried abdomen and torn
 hip while keeping almost the same above-ground scale. Obelisk v2 follows *Painted

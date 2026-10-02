@@ -25,6 +25,11 @@ selected by the user. [Obelisk V4](obelisk/docs/OBELISK_V4_EXPORTS.md) and the f
 [Titan Skull V4 variants](titan-skull/docs/TITAN_SKULL_V4_EXPORTS.md) are exported
 and checked offline, awaiting visual acceptance and integration.
 
+Latest corrections: [Colossus V4.1](colossus/docs/COLOSSUS_V4_1.md) replaces the
+raised wrist with a palm-up right hand and curled fingers;
+[Obelisk V4.1](obelisk/docs/OBELISK_V4_1.md) replaces contrasting patches with
+consistent sandstone facets and larger actual cracks. Previous exports are retained.
+
 - [Colossus V4](colossus/docs/COLOSSUS_V4.md): preserve the overall design; focus on
   damaged rear armor, a readable hand with potentially raised fingers, and removal
   or replacement of the simple chest-interior cylinder.

@@ -27,6 +27,13 @@ See [V3 integration](docs/technical/V3_INTEGRATION.md) for contracts and viewing
 
 ## Unreleased — asset pipeline and documentation
 
+- Added separate Colossus V4.1 frame export: supinated palm-up right hand with
+  upward-curled fingers, preserving all 434 non-hand V4 meshes. Included a
+  higher-ground inspection view and anatomical/export checks.
+- Added separate Obelisk V4.1 export: consistent sandstone facets instead of
+  contrasting patches, three branching surface cracks and four larger edge
+  spalls. Preserved V4 scenery and verified open cracks over a solid core.
+
 - Added four Titan Skull V4 exports (meadow, dry earth, sand, rock), preserving
   all 62 anatomy meshes while replacing the continuous hill with interrupted,
   tapered deposits and a lighter fossil palette. Reduced terrain by 52.44%.

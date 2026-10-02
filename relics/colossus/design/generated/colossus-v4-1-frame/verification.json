@@ -1,0 +1,53 @@
+{
+  "size": [
+    181,
+    209,
+    235
+  ],
+  "blocks": 223161,
+  "palette_entries": 11,
+  "tiles": 127,
+  "data_version": 3105,
+  "schematic_sha256": "f360bb9117b1e22a7123ea96acda6c96988ee2162aa5abf44dbe1047530dd6da",
+  "nbt_sha256": "ceff008fdeb55f4b16d6eefc805b6c0f3043d15222054105705ff3133fd2f795",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "buried_hip": {
+    "nominal_surface_y": 77,
+    "blocks_below_surface": 84815,
+    "depth_below_surface": 77,
+    "scale_change_percent": 0.0945
+  },
+  "colossus_v4": {
+    "anatomical_side": "right",
+    "orientation_determinant": 1.000000238418579,
+    "finger_and_thumb_samples": [
+      99,
+      104,
+      100,
+      91,
+      139
+    ],
+    "separate_finger_gaps": 3,
+    "clear_rear_breach_probes": 3,
+    "preserved_v3_source_objects": 397,
+    "chest_variant": "frame",
+    "center_is_open": true,
+    "palm_up": true,
+    "palmar_normal_y": 0.998049795627594,
+    "finger_tip_heights_source": [
+      33.39611053466797,
+      37.825279235839844,
+      40.00865173339844,
+      35.70433044433594
+    ],
+    "raised_terrain_probe_source_y": 28,
+    "preserved_non_hand_v4_objects": 434
+  }
+}

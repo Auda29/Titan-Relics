@@ -30,9 +30,18 @@ def verify(design, blocks):
     tips = [d["tip_source"] for d in hand["digits"]]+[hand["thumb_tip_source"]]
     counts = [occupied_near(p, 3) for p in tips]
     require(all(n > 25 for n in counts), "A finger/thumb disappeared during voxelization")
-    require(all(p[1] > design["ground_level_source"]+10 for p in tips), "Fingertips are buried")
+    require(all(p[1] > design["ground_level_source"]+10 for p in tips[:4]), "Fingertips are buried")
+    require(tips[4][1] > design["ground_level_source"]+(5 if hand.get("palm_up") else 10), "Thumb tip is buried")
     gaps = [occupied_near(p, 0) for p in hand["finger_gap_probes_source"]]
     require(not any(gaps), "Fingers merged at an intended inspection gap")
+    if hand.get("palm_up"):
+        require(p[1]>.98 and abs(d[1])<.15, "Palm must face skyward with a near-horizontal wrist")
+        require(all(digit["tip_source"][1]>digit["root_source"][1]+12 for digit in hand["digits"]),
+                "Fingers must curl upward independently of the wrist")
+        require(all(digit["tip_source"][1]>hand["raised_terrain_probe_source_y"]+3 for digit in hand["digits"]),
+                "Finger tips fail the illustrative higher-terrain scenario")
+        v4=OUT/"colossus-v4-frame/colossus-v4-frame-source.blend"
+        require(hashlib.sha256(v4.read_bytes()).hexdigest()==design["source_v4_sha256"],"V4 source baseline changed")
     rear = [occupied_near(p, 1) for p in design["rear_damage"]["empty_probes_source"]]
     require(not any(rear), f"A designed rear breach was obstructed: {rear}")
     require(occupied_near(design["chest_study"]["empty_center_probe_source"], 2) == 0,
@@ -42,7 +51,11 @@ def verify(design, blocks):
     return {"anatomical_side": "right", "orientation_determinant": hand["basis_determinant"],
             "finger_and_thumb_samples": counts, "separate_finger_gaps": len(gaps),
             "clear_rear_breach_probes": len(rear), "preserved_v3_source_objects": len(design["preserved_v3_objects"]),
-            "chest_variant": design["chest_study"]["variant"], "center_is_open": True}
+            "chest_variant": design["chest_study"]["variant"], "center_is_open": True,
+            **({"palm_up":True,"palmar_normal_y":p[1],
+                "finger_tip_heights_source":[digit["tip_source"][1] for digit in hand["digits"]],
+                "raised_terrain_probe_source_y":hand["raised_terrain_probe_source_y"],
+                "preserved_non_hand_v4_objects":len(design["preserved_v4_objects"])} if hand.get("palm_up") else {})}
 
 
 def compare_variants():

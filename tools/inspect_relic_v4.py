@@ -14,7 +14,7 @@ OBELISK=ROOT/"relics/obelisk/design/generated"
 
 def source_mapping(design):
     low,high=design["source_bounds_blender"]
-    scale=design["blocks_per_source_unit"]
+    scale=design.get("blocks_per_source_unit",(design["height_target_blocks"]-1)/(high[2]-low[2]))
     def source(p): return (p[0]/scale+low[0],p[1]/scale+low[2],p[2]/scale-high[1])
     def local(p): return (round((p[0]-low[0])*scale),round((p[1]-low[2])*scale),round((p[2]+high[1])*scale))
     return source,local
@@ -74,17 +74,40 @@ def obelisk_check(design,blocks,report):
     require(all(local((x,175,z)) in blocks for x,z in [(-9,0),(9,0),(0,-9),(0,9)]),"Rotated crown tips missing")
     require(all(local((x,175,z)) not in blocks for x in (-9,9) for z in (-9,9)),"Crown lost antiprism rotation")
     weather=design["obelisk_v4"]
-    require(0<weather["volume_removed_percent"]<1 and weather["upright"],"Damage makes the monument unstable")
+    require(0<weather["volume_removed_percent"]<weather.get("maximum_damage_percent",1) and weather["upright"],"Damage makes the monument unstable")
     # Core-only horizontal slices, excluding the outlying foundation and dunes.
     counts=Counter(p[1] for p in blocks if abs(source(p)[0])<=12 and abs(source(p)[2])<=12)
     require(min(counts[y] for y in range(ground,185))>180,"Monument has a broken or constricted layer")
     check_surface_states(blocks)
     require(hashlib.sha256((OBELISK/"obelisk-v3/obelisk-v3-source.blend").read_bytes()).hexdigest()==design["source_v3_sha256"],
             "Obelisk source baseline changed")
+    cracks=[]
+    if weather.get("cracks"):
+        _,baseline=read_structure(OBELISK/"obelisk-v3/obelisk-v3.nbt")
+        base_design=json.loads((OBELISK/"obelisk-v3/obelisk-v3.design.json").read_text())
+        _,base_local=source_mapping(base_design)
+        for crack in weather["cracks"]:
+            removed=0
+            backed=0
+            n=crack["normal_source"]
+            for sample in crack["surface_samples_source"]:
+                q=local(sample)
+                removed+=sum((q[0]+dx,q[1]+dy,q[2]+dz) not in blocks and
+                    base_local(source((q[0]+dx,q[1]+dy,q[2]+dz))) in baseline
+                    for dx in range(-1,2) for dy in range(-1,2) for dz in range(-1,2))
+                backed+=local([a-4*b for a,b in zip(sample,n)]) in blocks
+            require(removed>5,"A designed crack was sealed by voxelization")
+            require(backed==len(crack["surface_samples_source"]),"A crack penetrates too deeply")
+            cracks.append({"removed_surface_samples":removed,"solid_backing_samples":backed})
+        require(not any(s in ("minecraft:terracotta","minecraft:brown_terracotta") for s in blocks.values()),
+                "Large contrasting tiger patches remain")
+        require(hashlib.sha256((OBELISK/"obelisk-v4/obelisk-v4-source.blend").read_bytes()).hexdigest()==design["source_v4_sha256"],
+                "V4 source baseline changed")
     return {"continuous_core_prism":[7,185,7],"filled_voxels":report["filled_voxels"],
             "square_base_and_rotated_crown_checked":True,"shallow_chips":len(weather["shallow_chips"]),
             "source_volume_removed_percent":weather["volume_removed_percent"],"foundation_fragments":3,
-            "nominal_ground_y":ground,"unsupported_sand_blocks":0}
+            "nominal_ground_y":ground,"unsupported_sand_blocks":0,
+            **({"open_cracks":cracks,"preserved_v4_scenery_objects":len(design["preserved_v4_objects"])} if cracks else {})}
 
 
 def compare_skulls():

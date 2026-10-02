@@ -314,7 +314,7 @@ def landscape():
     scene.collection.objects.link(lamp)
     lamp.rotation_euler = (math.radians(28), math.radians(-35), math.radians(-25))
     scene.camera.data.type = "PERSP"
-    scene.camera.data.lens = 45
+    scene.camera.data.lens = CONFIG.get("preview", {}).get("landscape_lens", 45)
     scene.camera.location = world(175, 126, -390)
     point_at(scene.camera, world(-10, 66, -45))
     scene.render.resolution_x, scene.render.resolution_y = 1400, 1600

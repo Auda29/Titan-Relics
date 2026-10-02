@@ -1,0 +1,268 @@
+{
+  "name": "Obelisk V4.1 / consistent sandstone sides and branching cracks",
+  "reference": "https://www.instagram.com/p/Da0NEq7kUAO/",
+  "reference_credit": "Josh White / Painted Desert; user-provided antiprism diagrams",
+  "source_bounds_blender": [
+    [
+      -31.0,
+      -27.0,
+      -8.0
+    ],
+    [
+      27.0,
+      32.0,
+      176.0
+    ]
+  ],
+  "height_target_blocks": 185,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 8,
+  "visible_height_source": 176,
+  "scale_is_estimate": true,
+  "buried_base": {
+    "depth_source": 8,
+    "type": "Short continuation of the antiprism"
+  },
+  "interpretation": "Quiet face-consistent sandstone, three branching surface fissures, four broader edge spalls; V4 sand and foundations retained.",
+  "base_antiprism": {
+    "sides": 4,
+    "twist_degrees": 45,
+    "base_edge_source": 24,
+    "top_edge_source": 16.080000000000002,
+    "top_edge_ratio": 0.67,
+    "lateral_triangles": 8,
+    "closed_manifold": true,
+    "source_volume": 84660.83689313103
+  },
+  "blocks_per_source_unit": 1,
+  "source_v3_sha256": "fa102781e27b815a7129c17486b441ce89c550d149302b63073f1b289516401e",
+  "obelisk_v4": {
+    "shallow_chips": [
+      {
+        "edge": 0,
+        "source_center": [
+          -9.295588493347168,
+          41.679996490478516,
+          -12.553262710571289
+        ],
+        "radius_horizontal": 3.5,
+        "radius_vertical": 6.5
+      },
+      {
+        "edge": 1,
+        "source_center": [
+          12.47339916229248,
+          91.36000061035156,
+          -5.9050984382629395
+        ],
+        "radius_horizontal": 3.2,
+        "radius_vertical": 7
+      },
+      {
+        "edge": 2,
+        "source_center": [
+          2.841224431991577,
+          135.52000427246094,
+          12.386033058166504
+        ],
+        "radius_horizontal": 3.0,
+        "radius_vertical": 5.5
+      },
+      {
+        "edge": 3,
+        "source_center": [
+          -12.50667953491211,
+          71.12000274658203,
+          7.2933831214904785
+        ],
+        "radius_horizontal": 2.8,
+        "radius_vertical": 5
+      }
+    ],
+    "original_volume": 84660.83689313103,
+    "weathered_volume": 84146.61717553505,
+    "volume_removed_percent": 0.6073879452019648,
+    "monolith_bounds_blender": [
+      [
+        -12.0,
+        -12.0,
+        -8.0
+      ],
+      [
+        12.0,
+        12.0,
+        176.0
+      ]
+    ],
+    "core_center_source": [
+      0,
+      0,
+      0
+    ],
+    "foundation_fragments": 3,
+    "upright": true,
+    "solid_core": true,
+    "terrain_materials": [
+      "minecraft:sand",
+      "minecraft:sandstone"
+    ],
+    "cracks": [
+      {
+        "face": 0,
+        "center_source": [
+          0.0,
+          53.33333206176758,
+          -11.790092468261719
+        ],
+        "normal_source": [
+          0.0,
+          0.0034223853144794703,
+          -0.999994158744812
+        ],
+        "surface_samples_source": [
+          [
+            0.8999999761581421,
+            66.83360290527344,
+            -11.843889236450195
+          ],
+          [
+            0.5999999642372131,
+            59.83363723754883,
+            -11.867846488952637
+          ],
+          [
+            0.19999998807907104,
+            52.83367919921875,
+            -11.891803741455078
+          ],
+          [
+            -0.5,
+            45.33372116088867,
+            -11.917470932006836
+          ],
+          [
+            -1.5,
+            38.333763122558594,
+            -11.941427230834961
+          ],
+          [
+            -2.299999952316284,
+            58.33364486694336,
+            -11.872980117797852
+          ],
+          [
+            -4.75,
+            62.8336181640625,
+            -11.857579231262207
+          ]
+        ],
+        "main_width_source": 3.1,
+        "main_height_source": 35
+      },
+      {
+        "face": 1,
+        "center_source": [
+          7.790092468261719,
+          114.66666412353516,
+          7.790092468261719
+        ],
+        "normal_source": [
+          0.7062753438949585,
+          0.04847859963774681,
+          0.7062753438949585
+        ],
+        "surface_samples_source": [
+          [
+            6.793678283691406,
+            125.15916442871094,
+            8.207891464233398
+          ],
+          [
+            7.38718843460083,
+            118.16738891601562,
+            8.094294548034668
+          ],
+          [
+            7.997838020324707,
+            110.67620849609375,
+            7.997838020324707
+          ],
+          [
+            8.431711196899414,
+            103.18502807617188,
+            8.078158378601074
+          ],
+          [
+            6.144372463226318,
+            113.17327117919922,
+            9.679905891418457
+          ],
+          [
+            4.850137233734131,
+            109.67738342285156,
+            11.21409797668457
+          ]
+        ],
+        "main_width_source": 3.1,
+        "main_height_source": 29
+      },
+      {
+        "face": 2,
+        "center_source": [
+          -11.714799880981445,
+          75.33320617675781,
+          0.0
+        ],
+        "normal_source": [
+          -0.999994158744812,
+          0.0034223853144794703,
+          -0.0
+        ],
+        "surface_samples_source": [
+          [
+            -11.782286643981934,
+            84.83349609375,
+            -1.25
+          ],
+          [
+            -11.802821159362793,
+            78.83352661132812,
+            -0.75
+          ],
+          [
+            -11.825066566467285,
+            72.33357238769531,
+            0.0
+          ],
+          [
+            -11.847311973571777,
+            65.83360290527344,
+            0.5
+          ],
+          [
+            -11.795976638793945,
+            80.8335189819336,
+            0.75
+          ],
+          [
+            -11.804532051086426,
+            78.33352661132812,
+            3.0
+          ]
+        ],
+        "main_width_source": 3.1,
+        "main_height_source": 25
+      }
+    ],
+    "maximum_damage_percent": 3,
+    "face_consistent_palette": true
+  },
+  "source_v4_sha256": "580b0692c22926bbcd3441a662fcda3498c11cf0bc36a6fbb06801f68a845edc",
+  "preserved_v4_objects": {
+    "V4 | Separate tapered deposits": "ac8e2dec4b1e509658f061e68b0fe117e7a1a5a543f552113d355b607789210a",
+    "V4 | Solid deposit interior slices": "2dc0a491c04375c28c9316cb2fb433253283dc12cd7e79fbe3640654436175ec",
+    "V4 | Exposed foundation fragment 1": "b01c38f2e45b8bc1ea7694378f9b9f893963965378903c681bc92e5ed820276f",
+    "V4 | Exposed foundation fragment 2": "e05e69c9f596686219934fc26daffc5a970eb08e2b4eb79f4809df9be6ba5644",
+    "V4 | Exposed foundation fragment 3": "e09153d4624568520c54a3a8a1c9aa0c040d65ce91af8e75caad3e6105ec2ef7"
+  }
+}

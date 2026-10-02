@@ -4,6 +4,13 @@ Stand: 2. Oktober 2026.
 Status: **V4 exportiert und offline geprüft; Sichtabnahme ausstehend.** Grundlage ist der
 [Obelisk V3](OBELISK_V3.md) in Alpha 3; V3 bleibt unverändert erhalten.
 
+**Nachtrag: V4.1-Korrektur.** Die fleckige V4-Färbung wurde als tigerartig
+bewertet. Die Seiten sollen ihre ruhige Farbkonsistenz behalten, mit lokaler
+Verwitterung und einigen echten Rissen. Die frühere Schadensbegrenzung war laut
+Nutzer zu streng: Risse und Abplatzungen dürfen deutlicher und größer werden.
+Umgesetzt in [V4.1](OBELISK_V4_1.md), Sichtabnahme ausstehend. Die frühere
+V4-Richtung unten bleibt als Verlauf erhalten.
+
 ## Grundlage und Ziel
 
 Der Obelisk funktioniert als weithin sichtbares Monument. V4 soll ihn stärker

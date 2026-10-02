@@ -1,11 +1,12 @@
 # Obelisk
 
-The latest offline study is **V4**, with weathering, shallow chips and foundation
-scatter. **V3**, a solid tapered square antiprism with a rotated crown and an
+The latest offline study is **V4.1**, with consistent sandstone sides, branching
+cracks and foundation scatter. **V3**, a solid tapered square antiprism with a rotated crown and an
 eight-block buried foot, remains selected in Alpha 3; see
 [V3 integration](../../docs/technical/V3_INTEGRATION.md).
 
-- [V4 exports and reproduction](docs/OBELISK_V4_EXPORTS.md) — weathered stable monument, awaiting review/integration
+- [V4.1 consistent sides and larger cracks](docs/OBELISK_V4_1.md) — awaiting review/integration
+- [V4 exports and reproduction](docs/OBELISK_V4_EXPORTS.md) — preserved previous study
 - [V4 in-game findings and revision goals](docs/OBELISK_V4.md)
 - [V3 design and reproduction commands](docs/OBELISK_V3.md)
 - [V2 design history](docs/OBELISK_V2.md)
