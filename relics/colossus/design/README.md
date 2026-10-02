@@ -1,5 +1,9 @@
 # Colossus design assets
 
+- Selected material version: [Study B / salvageable armour](studies/colossus-v4-1-materials-b.json), [acceptance and support checks](../docs/COLOSSUS_MATERIAL_STUDY_B.md); 25,423 copper blocks and 90 raw iron items; visually accepted October 2, 2026
+
+- [Material/salvage study](studies/colossus-v4-1-materials.json) and [exact-shape verification](../docs/COLOSSUS_MATERIAL_STUDY.md): direct V4.1 block remap, no new voxelization
+
 - [V4.1 palm-up frame configuration](colossus-v4-1-frame.json) and [revision guide](../docs/COLOSSUS_V4_1.md)
 
 - Selected V4: [B — open machine frame](colossus-v4-frame.json).

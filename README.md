@@ -131,6 +131,12 @@ The exporter supports whole templates and rigid tiles. Natural generation uses o
 
 ## Reference-based Blender assets
 
+New [Colossus material study B](relics/colossus/docs/COLOSSUS_MATERIAL_STUDY_B.md):
+exactly the accepted V4.1 form, with salvageable copper armour and permanent
+supporting material. All 223,161 positions are unchanged; the candidate retains
+25,423 copper blocks and 90 raw iron items. Post-mining connectivity checks pass;
+the user accepted the intact and post-salvage appearance on October 2, 2026.
+
 Review sheets, editable Blender sources, NBT/Schematic exports, and export metadata are kept in
 each relic's `design/generated/<asset>/` directory under [relics/](relics/README.md), grouped by asset version. These are
 design exports; only the three V3 versions are explicitly selected for Alpha 3.

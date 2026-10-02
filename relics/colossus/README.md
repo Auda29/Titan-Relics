@@ -5,6 +5,8 @@ arm. It is selected in Alpha 3; see [V3 integration](../../docs/technical/V3_INT
 
 ## Design and assets
 
+- [Accepted material version B / salvageable armour](docs/COLOSSUS_MATERIAL_STUDY_B.md) — same 223,161 positions; 25,423 copper blocks and 90 raw iron items; intact and post-salvage appearance approved
+
 - [V4.1 palm-up hand revision](docs/COLOSSUS_V4_1.md) — visually accepted; selected B chest and revised hand pose
 
 - [In-game shader demo gallery](demo/README.md) — three Colossus V3 Minecraft screenshots

@@ -319,9 +319,10 @@ def landscape():
     point_at(scene.camera, world(-10, 66, -45))
     scene.render.resolution_x, scene.render.resolution_y = 1400, 1600
     scene.cycles.samples = 32
-    scene.render.filepath = str(OUT / "05-blocks-landscape.png")
+    scene.render.filepath = str(OUT / CONFIG.get("preview", {}).get("landscape_image", "05-blocks-landscape.png"))
     bpy.ops.render.render(write_still=True)
-    bpy.ops.wm.save_as_mainfile(filepath=str(OUT / f"{STEM}-landscape.blend"))
+    if CONFIG.get("preview", {}).get("save_landscape_scene", True):
+        bpy.ops.wm.save_as_mainfile(filepath=str(OUT / f"{STEM}-landscape.blend"))
 
 
 def main():

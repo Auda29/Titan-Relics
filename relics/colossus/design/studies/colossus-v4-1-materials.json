@@ -1,0 +1,31 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "source_blend": "relics/colossus/design/generated/colossus-v4-1-frame/colossus-v4-1-frame-source.blend",
+  "source_nbt": "relics/colossus/design/generated/colossus-v4-1-frame/colossus-v4-1-frame.nbt",
+  "source_schematic": "relics/colossus/design/generated/colossus-v4-1-frame/colossus-v4-1-frame.schem",
+  "output": "relics/colossus/design/generated/colossus-v4-1-materials/colossus-v4-1-materials.schem",
+  "height": 209,
+  "title": "COLOSSUS / MATERIAL & SALVAGE STUDY",
+  "subtitle": "Exact V4.1 occupied coordinates / inexpensive bulk materials / localized salvage",
+  "replacements": {
+    "minecraft:exposed_copper": "minecraft:polished_granite",
+    "minecraft:exposed_cut_copper": "minecraft:light_gray_terracotta",
+    "minecraft:cut_copper": "minecraft:terracotta",
+    "minecraft:weathered_copper": "minecraft:green_terracotta",
+    "minecraft:raw_iron_block": "minecraft:andesite"
+  },
+  "salvage_zones": [
+    {"name": "detached forearm fitting", "center_source": [48,26,-88], "radius_source": 14, "family": "copper", "max_blocks": 128},
+    {"name": "open chest machinery", "center_source": [17,24,-17], "radius_source": 12, "family": "copper", "max_blocks": 96},
+    {"name": "rear breach iron remnants", "center_source": [10,37,44], "radius_source": 10, "family": "iron", "max_blocks": 24}
+  ],
+  "selection_rule": "Within each source-space sphere, choose the nearest eligible seed, then one face-connected breadth-first cluster up to the block cap. Keep original states. No dispersed random metal.",
+  "status": "Material study only; visual acceptance and salvage balance pending.",
+  "view_labels": ["01 / Source bulk palette; salvage assigned post-export", "02 / Actual NBT / identical geometry", "03 / Same hand and forearm", "04 / Same rear damage"],
+  "review_footer": "Direct block-state remap of accepted V4.1, not a new voxelization. Actual NBT in Blender; terrain is illustrative.",
+  "preview": {
+    "front": [100,230,75], "other": [-170,190,115], "back": [100,-250,100],
+    "landscape": true, "buried_hip": true, "landscape_lens": 38,
+    "comparison": "relics/colossus/design/generated/colossus-v4-1-frame/colossus-v4-1-frame.nbt"
+  }
+}

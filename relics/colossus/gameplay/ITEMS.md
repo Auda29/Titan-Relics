@@ -255,6 +255,21 @@ repair**.
 
 ## Review follow-up: salvage economy of the whole landmark
 
+The user has authorized a **separate material study with the entire accepted form
+preserved**. The [candidate and exact inventory](../docs/COLOSSUS_MATERIAL_STUDY.md)
+retain 197 copper blocks and 10 raw iron blocks at three connected salvage sites,
+with zero changed occupied positions. Palette and quantities await approval;
+these are not final loot rules or a change to the packaged build.
+
+**Current follow-up:** the user requested more copper, explicitly below 50,000
+copper blocks and 256 raw iron **items**. [Study B](../docs/COLOSSUS_MATERIAL_STUDY_B.md)
+retains 25,423 copper blocks in removable armour regions and ten raw iron blocks
+(90 items). Complete metal removal must preserve the head/body connection and
+not split surviving components; the candidate passes these geometry checks.
+Study A above is retained as a historical comparison. The user visually accepted
+B, including its post-salvage appearance, on October 2, 2026. It is the selected
+material version with the stated inventory; gameplay integration is still pending.
+
 The V3 export contains **141,523 copper-based blocks and 5,609 raw iron blocks**.
 These historical counts are verified for V3, not asserted for selected V4.1.
 Estimate recoverable resources from the selected export and compare them with

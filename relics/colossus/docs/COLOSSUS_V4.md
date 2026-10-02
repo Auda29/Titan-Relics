@@ -124,6 +124,25 @@ darstellen ist ein **Vorschlag, keine freigegebene Palettenänderung**. Die bere
 akzeptierte warme Metallwirkung bleibt vorerst bestehen; weder Abbauschutz noch
 ein Verbot normaler Minecraft-Interaktion ist beschlossen.
 
+**Nachtrag: Materialstudie beauftragt und erstellt.** Der Nutzer möchte begrenzte
+Rohstoffbergung, während der Colossus erkennbar bleibt; die Form muss vollständig
+erhalten bleiben. Die [separate Studie](COLOSSUS_MATERIAL_STUDY.md) ersetzt
+großflächiges Metall durch Granit, Terrakotta und Andesit. Alle 223.161 belegten
+Blockpositionen und 491 Blender-Meshes bleiben geometrisch identisch zu V4.1.
+Statt 129.253 Kupfer- und 8.821 Roheisenblöcken enthält der Vorschlag 197 Kupfer-
+und 10 Roheisenblöcke an drei zusammenhängenden Bergungsstellen. Palette und
+Mengen warten auf Abnahme; die ursprüngliche V4.1 bleibt erhalten.
+
+**Überarbeitung B:** Die erste Studie enthält dem Nutzer zu wenig Kupfer und
+verändert sich beim Abbau optisch zu wenig. Gewünscht sind unter 50.000
+Kupferblöcke und unter 256 Roheisen-Items, mit plausiblen Resten nach dem Abbau.
+[Studie B](COLOSSUS_MATERIAL_STUDY_B.md) enthält 25.423 Kupferblöcke und zehn
+Roheisenblöcke (= 90 Items). Größere Panzerungsflächen sind abbaubar; Kopf, Hals
+und verbleibende Verbindungen bleiben erhalten. Die Form vor dem Abbau ist exakt
+identisch, die Verbindungsprüfung bestanden. Am 2. Oktober 2026 hat der Nutzer
+Variante B einschließlich des gezeigten Zustands nach dem Metallabbau optisch
+freigegeben („ja so sieht das gut aus“). B ist damit die gewählte Materialfassung.
+
 Für die spätere Innenraumgestaltung müssen die historische Rolle der
 Golem-Prüfung und sichtbare Verbindungen zum Titanenkonflikt festgelegt werden.
 Sicherheits-/Wartungssystem, späterer Einbau, Maschinenfragmente im Knochen oder

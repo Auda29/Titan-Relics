@@ -27,6 +27,22 @@ See [V3 integration](docs/technical/V3_INTEGRATION.md) for contracts and viewing
 
 ## Unreleased — asset pipeline and documentation
 
+- Record user visual acceptance of Colossus material version B, including its
+  post-salvage appearance: 25,423 copper blocks, 90 raw iron items and unchanged
+  intact V4.1 geometry. This is the selected material asset for later integration.
+
+- Revise Colossus salvage as separate material study B following user feedback:
+  25,423 copper blocks and 90 raw iron items, under the requested 50,000 / 256
+  limits. Retain exact intact V4.1 geometry and permanent support paths; verify
+  head-to-buried-body connectivity and zero new component splits after mining.
+  Add matched close reviews and a false-color metal-location map. Preserve study A.
+
+- Add a separate shape-locked Colossus material study: preserve all 223,161 V4.1
+  block positions and 491 source meshes, replace broad metal surfaces with less
+  valuable materials, and retain 197 copper / 10 raw iron blocks at three local
+  salvage sites. Add exact grid/state checks, schematic round-trip tests, resource
+  accounting, and before/after hypothetical salvage reviews. Candidate review pending.
+
 - Record visual acceptance of Obelisk V4.2 and all four Titan Skull V4 variants.
   Prioritize the remaining relic designs before V5 interior architecture.
 

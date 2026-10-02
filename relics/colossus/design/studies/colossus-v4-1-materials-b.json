@@ -1,0 +1,36 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "source_blend": "relics/colossus/design/generated/colossus-v4-1-frame/colossus-v4-1-frame-source.blend",
+  "source_nbt": "relics/colossus/design/generated/colossus-v4-1-frame/colossus-v4-1-frame.nbt",
+  "source_schematic": "relics/colossus/design/generated/colossus-v4-1-frame/colossus-v4-1-frame.schem",
+  "output": "relics/colossus/design/generated/colossus-v4-1-materials-b/colossus-v4-1-materials-b.schem",
+  "height": 209,
+  "title": "COLOSSUS / SALVAGEABLE ARMOUR STUDY B",
+  "subtitle": "Exact intact V4.1 geometry / removable copper panels / permanent neck and backing",
+  "replacements": {
+    "minecraft:exposed_copper": "minecraft:polished_granite",
+    "minecraft:exposed_cut_copper": "minecraft:light_gray_terracotta",
+    "minecraft:cut_copper": "minecraft:terracotta",
+    "minecraft:weathered_copper": "minecraft:green_terracotta",
+    "minecraft:raw_iron_block": "minecraft:andesite"
+  },
+  "resource_limits_exclusive": {"copper_blocks": 50000, "raw_iron_items": 256},
+  "support_path_width": 1,
+  "panel_salvage": [
+    {"name": "front left cuirass panel", "bounds_source": [[-34,18,-60],[-7,74,7]]},
+    {"name": "front right cuirass panel", "bounds_source": [[7,18,-60],[47,74,7]]},
+    {"name": "rear cuirass panels", "bounds_source": [[-32,20,25],[43,72,60]]},
+    {"name": "near shoulder outer plating", "bounds_source": [[-105,18,-55],[-44,73,25]]},
+    {"name": "far shoulder outer plating", "bounds_source": [[54,16,-30],[96,65,40]]},
+    {"name": "forearm sleeve plating", "bounds_source": [[-3,12,-134],[39,33,-95]]},
+    {"name": "buried lower front armour", "bounds_source": [[-31,-35,-40],[34,5,-14]]}
+  ],
+  "salvage_zones": [
+    {"name": "rear breach iron remnants", "center_source": [10,37,44], "radius_source": 10, "family": "iron", "max_blocks": 24}
+  ],
+  "selection_rule": "Original copper inside named panel volumes; protect widened permanent backing paths so no surviving original face-connected component splits. Entire head, neck, upper chest bridge, hand and inter-panel ribs remain low-value.",
+  "status": "User requested substantially more copper, under 50000 copper blocks and under 256 raw iron items; candidate visual review pending.",
+  "view_labels": ["01 / Source bulk palette; copper assigned post-export", "02 / Actual NBT / intact", "03 / Same hand and forearm", "04 / Same rear damage"],
+  "review_footer": "Direct V4.1 block-state remap. Actual NBT in Blender; terrain is illustrative. Salvage simulations remove only copper and raw iron.",
+  "preview": {"front": [100,230,75], "other": [-170,190,115], "back": [100,-250,100], "landscape": true, "landscape_lens": 38, "save_landscape_scene": false}
+}

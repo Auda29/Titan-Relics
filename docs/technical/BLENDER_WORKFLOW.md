@@ -76,6 +76,13 @@ checks the remapping and sealed-volume fill utilities.
 
 ## 1. Set up local tools
 
+The [Colossus material study](../../relics/colossus/docs/COLOSSUS_MATERIAL_STUDY.md)
+uses a special shape-locked branch: palette changes apply directly to the accepted
+V4.1 block grid. It does not re-run ObjToSchematic. Its config is under
+`relics/colossus/design/studies/`, and its dedicated inspector verifies identical
+positions/voids plus salvage masks. Provenance lives in `.design.json` and
+`verification.json`, rather than an OBJ-conversion `.ots.json` report.
+
 Install Blender, Git, Node.js with npm, and Python 3.11 or newer. Pillow is used
 to assemble review sheets (`python -m pip install Pillow`). Run all commands from
 the repository root. PowerShell examples:

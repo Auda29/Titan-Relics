@@ -50,6 +50,12 @@ among these new studies has not yet been selected.
 
 ## Discovery hierarchy and lore
 
+A [Colossus material/salvage study B](colossus/docs/COLOSSUS_MATERIAL_STUDY_B.md)
+retains 25,423 copper blocks and 90 raw iron items without changing any V4.1
+occupied position. Mining reveals armour openings while preserving the head/body
+connection and all surviving component connections. The user accepted this
+material version and its post-salvage appearance on October 2, 2026.
+
 The intended discovery order is **Titan skulls and future bone/skull variants
 (most common) -> Obelisks (clearly rarer) -> the unique large Colossus**. The large
 Colossus should occur **once per game world/save**, shared by all players. Planned

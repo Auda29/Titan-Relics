@@ -1,0 +1,75 @@
+{
+  "size": [
+    181,
+    209,
+    235
+  ],
+  "blocks": 223161,
+  "palette_entries": 14,
+  "tiles": 127,
+  "data_version": 3105,
+  "in_game_tested": false,
+  "geometry": {
+    "identical_occupied_positions": true,
+    "added_positions": 0,
+    "removed_positions": 0,
+    "moved_positions": 0,
+    "identical_empty_space": true,
+    "preserved_blender_meshes": 491,
+    "unchanged_nonmetal_states": 85087
+  },
+  "changed_states": 137867,
+  "salvage": {
+    "connected_sites": 3,
+    "retained_metal_blocks": 207,
+    "blocks_remaining_after_metal_removal": 222954,
+    "remaining_percent": 99.90724185677605,
+    "before": {
+      "copper_blocks": 129253,
+      "raw_iron_blocks": 8821,
+      "raw_iron_items": 79389
+    },
+    "after": {
+      "copper_blocks": 197,
+      "raw_iron_blocks": 10,
+      "raw_iron_items": 90
+    }
+  },
+  "colossus_v4": {
+    "anatomical_side": "right",
+    "orientation_determinant": 1.000000238418579,
+    "finger_and_thumb_samples": [
+      99,
+      104,
+      100,
+      91,
+      139
+    ],
+    "separate_finger_gaps": 3,
+    "clear_rear_breach_probes": 3,
+    "preserved_v3_source_objects": 397,
+    "chest_variant": "frame",
+    "center_is_open": true,
+    "palm_up": true,
+    "palmar_normal_y": 0.998049795627594,
+    "finger_tip_heights_source": [
+      33.39611053466797,
+      37.825279235839844,
+      40.00865173339844,
+      35.70433044433594
+    ],
+    "raised_terrain_probe_source_y": 28,
+    "preserved_non_hand_v4_objects": 434
+  },
+  "checks": [
+    "baseline hashes",
+    "identical position set, bounds and voids",
+    "exact schematic/NBT equality",
+    "only metal states changed",
+    "no metal outside connected salvage clusters",
+    "lossless tile reconstruction"
+  ],
+  "schematic_sha256": "3049c796714587e9b68dabd108c4dfd172c625ca4dd54bb66566ea5b87f54e25",
+  "nbt_sha256": "f688db34eadd47c8770873e93bcd663866ae95b104ad02586ed0555b943bb644",
+  "source_blend_sha256": "e5179f9f762b63ffd1429cdc20505f886813325694c5f85cde4ef7d623b1af3a"
+}

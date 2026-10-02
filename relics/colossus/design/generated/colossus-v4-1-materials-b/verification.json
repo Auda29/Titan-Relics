@@ -1,0 +1,85 @@
+{
+  "size": [
+    181,
+    209,
+    235
+  ],
+  "blocks": 223161,
+  "palette_entries": 15,
+  "tiles": 127,
+  "data_version": 3105,
+  "in_game_tested": false,
+  "geometry": {
+    "identical_occupied_positions": true,
+    "added_positions": 0,
+    "removed_positions": 0,
+    "moved_positions": 0,
+    "identical_empty_space": true,
+    "preserved_blender_meshes": 491,
+    "unchanged_nonmetal_states": 85087
+  },
+  "changed_states": 112641,
+  "salvage": {
+    "zones": 8,
+    "retained_metal_blocks": 25433,
+    "blocks_remaining_after_metal_removal": 197728,
+    "remaining_percent": 88.6032953786728,
+    "before": {
+      "copper_blocks": 129253,
+      "raw_iron_blocks": 8821,
+      "raw_iron_items": 79389
+    },
+    "after": {
+      "copper_blocks": 25423,
+      "raw_iron_blocks": 10,
+      "raw_iron_items": 90
+    }
+  },
+  "colossus_v4": {
+    "anatomical_side": "right",
+    "orientation_determinant": 1.000000238418579,
+    "finger_and_thumb_samples": [
+      99,
+      104,
+      100,
+      91,
+      139
+    ],
+    "separate_finger_gaps": 3,
+    "clear_rear_breach_probes": 3,
+    "preserved_v3_source_objects": 397,
+    "chest_variant": "frame",
+    "center_is_open": true,
+    "palm_up": true,
+    "palmar_normal_y": 0.998049795627594,
+    "finger_tip_heights_source": [
+      33.39611053466797,
+      37.825279235839844,
+      40.00865173339844,
+      35.70433044433594
+    ],
+    "raised_terrain_probe_source_y": 28,
+    "preserved_non_hand_v4_objects": 434
+  },
+  "checks": [
+    "baseline hashes",
+    "identical position set, bounds and voids",
+    "exact schematic/NBT equality",
+    "only metal states changed",
+    "no metal outside designated salvage masks",
+    "lossless tile reconstruction"
+  ],
+  "schematic_sha256": "c4126f9ea7ed3bf2cdc31fe26e20641e54fec0405a10bbd84b27814995e79d0e",
+  "nbt_sha256": "a355b20349513cb27e6feb6fc171ca413d71da2cdb5717f7995afb4128d879b8",
+  "source_blend_sha256": "3e70942badaad73612f769f1f2976dc3690578b0cbcb2e8c424958e605847b92",
+  "post_salvage_support": {
+    "original_face_components": 8236,
+    "remaining_face_components": 7281,
+    "new_component_splits": 0,
+    "head_connected_to_buried_body": true,
+    "protected_head_neck_upper_bridge_blocks": 64313,
+    "main_component_before": 159084,
+    "main_component_after": 141173,
+    "note": "Strict 6-neighbor conservation relative to baseline; original disconnected raster fragments are retained or wholly salvaged, never newly split. This is not a load simulation."
+  }
+}

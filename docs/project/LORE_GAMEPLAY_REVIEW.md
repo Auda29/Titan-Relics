@@ -37,6 +37,21 @@ assumption. See [V3 integration](../technical/V3_INTEGRATION.md).
 
 ## 1. Material economy: landmark versus mine
 
+**Follow-up study:** the user requested limited salvage with complete form
+preservation. The [Colossus material study](../../relics/colossus/docs/COLOSSUS_MATERIAL_STUDY.md)
+now compares accepted V4.1 against a direct block remap, retaining 197 copper and
+10 raw iron blocks. All 223,161 occupied positions are identical. This is an
+authorized candidate for review, not a selected final palette or gameplay balance.
+
+**Revised direction:** after reviewing the initial study, the user requested
+substantially more copper and visible but plausible mining damage: fewer than
+50,000 copper blocks, fewer than 256 raw iron items. [Study B](../../relics/colossus/docs/COLOSSUS_MATERIAL_STUDY_B.md)
+retains 25,423 copper blocks and 90 raw iron items. Its intact shape is identical;
+after complete metal removal the head remains attached to the buried torso and
+no surviving original face-connected component splits. The user visually accepted
+study B and its post-salvage appearance on October 2, 2026; it is the selected
+material version. Gameplay integration remains a separate step.
+
 The review reports **141,523 copper-based blocks and 5,609 raw iron blocks** in
 the V3 Colossus. These counts were rechecked against its tracked whole NBT export
 on October 2, 2026. They are placed-block counts, not a calculation of obtainable
