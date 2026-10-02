@@ -27,6 +27,9 @@ See [V3 integration](docs/technical/V3_INTEGRATION.md) for contracts and viewing
 
 ## Unreleased — asset pipeline and documentation
 
+- Record visual acceptance of Obelisk V4.2 and all four Titan Skull V4 variants.
+  Prioritize the remaining relic designs before V5 interior architecture.
+
 - Record user visual acceptance of Colossus V4.1.
 - Add Obelisk V4.2 with warmer ochre/clay sides, same-material fracture faces
   and two actual missing edge chunks. Preserve previous versions and verify

@@ -11,6 +11,12 @@ The smaller Colossus is a future design direction. Its final name, dimensions,
 appearance, and gameplay have not yet been decided. Create a separate working
 copy/configuration when that work begins so this archived baseline is retained.
 
+**Occurrence decision, October 2, 2026:** the large Colossus is intended to be
+unique per game world; smaller Colossi may occur multiple times. This archived
+baseline is for that separate repeatable design direction. Its rarity and loot
+remain open; it does not automatically inherit the large site's core vault or
+magnet reward. This is documentation, not an implemented generation change.
+
 ## Preserved files
 
 - [Review sheet](generated/colossus-review.png)

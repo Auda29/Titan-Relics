@@ -1,10 +1,10 @@
 # Minecraft relics: concept and development plan
 
-Original concept: September 12, 2026. Updated and translated: October 1, 2026.
+Original concept: September 12, 2026. Updated: October 2, 2026.
 
 Goal: a structure expansion for a modpack using Terralith, Tectonic, Biomes O'
-Plenty, and Dungeons & Taverns. **The project now has a playable Alpha 2 for
-Minecraft 26.2 / Fabric and a separate reference-based Blender asset pipeline.**
+Plenty, and Dungeons & Taverns. **Alpha 3 selects Colossus, Obelisk, and Titan Skull
+V3 for Minecraft 26.2 / Fabric; accepted V4 studies await integration.**
 This page preserves the creative catalog and long-term goals. See the
 [README](../../README.md) for current implementation and the
 [technical plan](UMSETZUNGSPLAN.md) for remaining acceptance work.
@@ -33,8 +33,12 @@ lower body, damaged armor, and detached arm. A torso opening should allow interi
 - Technical focus: large footprint and convincing body-to-terrain transitions.
 - Priority: first demanding prototype.
 - Current asset work: [Colossus v2](../../relics/colossus/docs/COLOSSUS_V2.md) follows the visible form;
-  [v3](../../relics/colossus/docs/COLOSSUS_V3.md) extends it underground to a torn hip. Neither replaces
-  the alpha's smaller model yet.
+  [v3](../../relics/colossus/docs/COLOSSUS_V3.md) extends it underground to a torn hip and is selected
+  in Alpha 3. V4.1 is visually accepted offline; integration remains pending.
+- Occurrence: **one large Colossus per game world**. Smaller Colossi based on the
+  [archived first concept](../../relics/colossus/archive/first-concept/README.md)
+  may occur multiple times; frequency and loot remain separate decisions.
+  Large-site uniqueness is not yet implemented.
 
 ### 2. A solitary Obelisk in a vast desert
 
@@ -55,7 +59,7 @@ the silhouette.
 - Current asset work: [Obelisk v3](../../relics/obelisk/docs/OBELISK_V3.md), a tapered square antiprism,
   25 × 185 × 25 blocks, with a solid core and only eight blocks below ground.
   It replaces the rectangular design of [v2](../../relics/obelisk/docs/OBELISK_V2.md) as the current
-  design study. Build/worldgen integration remains pending.
+  design study and is selected in Alpha 3; accepted V4.2 integration remains pending.
 
 ### 3. Monumental sci-fi ruined tower above a pale plain
 
@@ -99,7 +103,22 @@ open in the [lore bible](LORE-BIBLE.md).
   76-block skull with an organic crown and open jaw, sized as a plausible opponent
   for the Colossus. The full 121 × 79 × 203 export includes a broken, partly buried
   nine-vertebra spine and a solid local hill.
-  Natural placement and gameplay integration remain future work.
+  V3 natural placement is selected in Alpha 3; authored encounters and rewards
+  remain planning. Accepted V4 ground variants await integration.
+
+#### Second independent Titan Skull
+
+**Selected reference:** [The Archive In Between — reel Db9KCtWi0eG](https://www.instagram.com/reel/Db9KCtWi0eG/),
+specifically the skull in the opening few seconds selected by the user.
+
+This is a separate second design, not another version or terrain palette of the
+existing crowned skull. It is recorded in the
+[concept page](../../relics/titan-skull/docs/TITAN_SKULL_2_CONCEPT.md); clear frame
+inspection, anatomy, dimensions, materials, and modeling remain pending.
+
+Both skull designs and future bone sites share the Titan-remains family budget.
+Their variety should communicate multiple fallen Titans, not require living
+Titans, additional custom bosses, or a special reward for every specimen.
 
 ### 5. World tree on an open coast
 
@@ -144,9 +163,19 @@ marked places where Titans had already been destroyed; the precise interpretatio
 and builders are not settled.
 
 The intended order is **skull/bone variants most common, Obelisks clearly rarer,
-and Colossi very rare**. Skull/bone variants share a family-level frequency
-budget. This is a design target, not an implemented numeric worldgen change;
-future variants do not exist merely because they are included in this plan.
+and one unique large Colossus per game world**. Smaller Colossi may occur multiple
+times; their rarity and loot are undecided. Skull/bone variants share a family-level
+frequency budget. This is a design target, not an implemented uniqueness or
+numeric worldgen change; future variants do not exist merely because they are
+included in this plan. Obelisk maps initially point to the same large landmark;
+its per-player core vault supports multiplayer, while magnet and archaeology
+sharing remain open.
+
+The [lore/gameplay review](LORE_GAMEPLAY_REVIEW.md) records six follow-up tasks:
+material economy, the golem trial's historical function, visible conflict traces,
+lasting core utility, multiplayer reward distribution, and actual discovery effort.
+Suggested solutions remain proposals; they do not authorize model changes or
+gameplay implementation.
 
 ## 3. Initial scope
 

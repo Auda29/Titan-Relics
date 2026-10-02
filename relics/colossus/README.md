@@ -21,11 +21,24 @@ arm. It is selected in Alpha 3; see [V3 integration](../../docs/technical/V3_INT
 ## Gameplay
 
 - [Machine Core, Salvage Magnet, Colossus Key, and head trial](gameplay/ITEMS.md)
+- [Lore/gameplay review: material economy, trial history, and lasting utility](../../docs/project/LORE_GAMEPLAY_REVIEW.md)
+
+**Approved occurrence rule:** one naturally generated **large Colossus per game
+world/save**, shared by all players. Planned **smaller Colossi may occur multiple
+times**; their loot and frequency are not yet assigned. Alpha 3 currently uses
+repeatable candidate distribution and does **not** enforce large-site uniqueness.
+Obelisk maps will initially lead to the same unique large landmark.
 
 The head trial uses an iron golem and a vault with a guaranteed Machine Core
 reward. The detached arm offers a short exploration route to a copper chest with
 a guaranteed functional Salvage Magnet, without a key or second trial. Detailed
 interiors and armor trim design are deferred. These gameplay features are
 decisions, not implemented mechanics.
+
+The per-player vault is intended to let later multiplayer visitors obtain a core
+at that one site. The magnet's shared copper chest still needs a late-visitor
+policy. Review follow-ups are open: bulk metal recovery may overshadow rewards,
+the golem needs a historical function, and core capacity/cost must serve an
+everyday use case. No palette or gameplay changes are made by these notes.
 
 Shared setup: [Blender workflow](../../docs/technical/BLENDER_WORKFLOW.md).

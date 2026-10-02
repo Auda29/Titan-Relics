@@ -7,6 +7,7 @@ This directory contains only cross-project documentation and test evidence.
 
 - [Concept and reference catalog](project/Minecraft-Relikte-Modplan.md)
 - [Lore bible and design guide](project/LORE-BIBLE.md)
+- [Lore/gameplay review and follow-up decisions](project/LORE_GAMEPLAY_REVIEW.md)
 - [Technical implementation plan](project/UMSETZUNGSPLAN.md)
 
 ## Technical

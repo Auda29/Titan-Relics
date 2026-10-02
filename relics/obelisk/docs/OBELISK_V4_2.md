@@ -1,6 +1,7 @@
 # Obelisk V4.2 — warmer stone and missing pieces
 
-October 2, 2026. User-requested revision, exported and checked offline; awaiting review.
+October 2, 2026. User-requested revision, exported and checked offline.
+**Visually accepted by the user.** Game integration and in-game validation remain pending.
 
 [Before/after and damage detail](../design/generated/obelisk-v4-2/obelisk-v4-2-changes-review.png)
 · [Full model review](../design/generated/obelisk-v4-2/obelisk-v4-2-review.png)

@@ -4,6 +4,14 @@ Rare, monumental discoveries for Minecraft: a desert obelisk, an overgrown machi
 
 **Current test build: 0.1.0-alpha.3 for Minecraft 26.2 / Fabric.** The build selects the checked-in **Colossus v3, Obelisk v3, and Titan Skull v3** NBT exports. All three have natural worldgen resources. This is a visual integration build, not an implementation of planned rewards or encounters. Broader multi-seed and client visual acceptance remain pending.
 
+**Design decision, October 2:** the large Colossus should be **unique per game
+world**, shared by all players; planned smaller Colossi may occur multiple times.
+Alpha 3 does not enforce uniqueness yet. Its future per-player core vault and
+Obelisk maps will serve the same large landmark. Material economy, trial history,
+core utility, and multiplayer loot remain follow-up tasks in the
+[lore/gameplay review](docs/project/LORE_GAMEPLAY_REVIEW.md); no models or generation
+rules are changed by that review.
+
 **Latest integration work, October 1, 2026:** V3 exports are copied byte-for-byte for manual placement; derived worldgen templates add a replaceable center anchor for complete cross-chunk generation. Burial offsets, footprint filters, and upper terrain-height bounds are revised. Legacy DataVersion 3105 is preserved so Minecraft performs its normal template migration; it is not relabeled as 4903. See [V3 integration](docs/technical/V3_INTEGRATION.md).
 
 **Obelisk v3** revises the shape to a tapered square antiprism with eight triangular
@@ -26,8 +34,9 @@ and a sandy foundation site. Latest revisions:
 with curled fingers; [Obelisk V4.1](relics/obelisk/docs/OBELISK_V4_1.md) uses
 consistent sandstone sides and larger cracks. **Colossus V4.1 is visually accepted.**
 The latest [Obelisk V4.2](relics/obelisk/docs/OBELISK_V4_2.md) uses warmer ochre
-stone and missing pieces without contrasting crack lining; review pending.
-Alpha 3 uses V3.
+stone and missing pieces without contrasting crack lining. **Obelisk V4.2 and all
+four Titan Skull V4 variants are also visually accepted.** Next design priority:
+remaining relic concepts before V5 interiors. Alpha 3 still uses V3.
 
 **Colossus V3 in normal terrain with shaders**, captured in Minecraft by the
 user on October 1, 2026. These are Alpha 3 screenshots, not Blender previews

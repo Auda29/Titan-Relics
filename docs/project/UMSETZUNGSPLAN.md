@@ -1,17 +1,33 @@
 # Relic Mod: technical implementation plan
 
+**Design priority update, October 2, 2026:** the user has visually accepted
+Colossus V4.1, Obelisk V4.2 and all four Titan Skull V4 ground variants. Create
+the other planned relics before V5 interior architecture. The remaining original
+motifs are the Ruined Tower and World Tree; the smaller Colossus is a separate
+future direction based on the archived first concept. Their exact work order and
+dimensions remain to be chosen. This does not close worldgen or in-game checks.
+
+**Occurrence and review update, October 2, 2026:** one naturally generated large
+Colossus per game world/save, shared by all players; smaller Colossi may occur
+multiple times. Alpha 3 does not yet enforce this rule. The
+[lore/gameplay review](LORE_GAMEPLAY_REVIEW.md) records material economy, trial
+history, visible lore links, lasting core value, multiplayer reward access, and
+discovery effort as open design tasks, not implemented fixes.
+
 **Alpha 3 update:** the three V3 exports are now selected for the visual test
 build. See [V3 integration](../technical/V3_INTEGRATION.md). The Alpha 2 evidence
 and planning baseline below remain historical; final gameplay/interiors and
 broader acceptance are still pending.
 
-Updated: October 1, 2026.
+Updated: October 2, 2026.
 
 This is the implementation and acceptance plan for version 0.1. **The current
-playable build is 0.1.0-alpha.2 for Minecraft 26.2 / Fabric 0.19.5.** It provides
-two procedural relics, weathering, and terrain transitions. New reference-based
-Blender assets have been exported and verified but are not integrated into the
-build or worldgen. Completing individual checks does not satisfy every acceptance
+visual test build is 0.1.0-alpha.3 for Minecraft 26.2 / Fabric 0.19.5**, selecting
+the three V3 exports with natural worldgen. The procedural Alpha 2 architecture,
+dimensions, phases, and evidence below remain a historical planning baseline
+where not explicitly superseded by the updates and linked V3 integration report.
+Accepted V4 studies, unique-site generation, and custom gameplay are not yet
+integrated. Completing individual checks does not satisfy every acceptance
 criterion below.
 
 The [README](../../README.md) describes current use; the [Alpha 2 report](../testing/ALPHA_2_TEST_REPORT.md)
@@ -203,6 +219,46 @@ variants. Required parts must never disappear through random selection. A new
 pose is a separate design with its own acceptance work.
 
 ## 6. Site selection and generation
+
+### Future contract: unique large site and repeatable smaller sites
+
+The large Colossus must have **one natural site per save/server in the Overworld**,
+not one per player, region, or density preset. Smaller Colossi may have several
+natural sites; their distribution and loot remain separate decisions. Existing
+Alpha 3 structure sets do not enforce uniqueness, and increasing spacing alone
+does not meet this contract.
+
+Before implementation, choose and validate how to resolve a single suitable site
+consistently from the seed/generator, preserve its identity across save/load and
+exploration, and expose it to `/locate` and expedition maps. Maps initially share
+that destination, including when its chunks have not been explored; a rejected
+candidate or an extra structure created for a map is not acceptable.
+
+Define search distance/cost limits and behavior for no valid site, disabled
+generation, or existing alpha saves containing multiple large starts. Decide
+compatibility/configuration semantics explicitly; do not delete existing relics
+or silently generate a replacement after shared loot is taken or the landmark is
+mined. This records requirements and open edge cases, not a chosen runtime design.
+
+Future acceptance must cover multiple seeds, chunk exploration orders, integrated
+and dedicated servers, simultaneous discovery, reloads, configuration changes,
+and maps from different Obelisks. Confirm at most one natural large start and a
+valid destination in supported enabled worlds; also verify that smaller Colossi
+can repeat without inheriting the large site's loot by accident.
+
+### Discovery and multiplayer follow-up
+
+Candidate spacing is not actual search time. The review's 64/80-chunk baseline
+means about 36% fewer Colossus candidates per area under equal assumptions, not
+proof of the desired discovery hierarchy. Measure repeatable-family candidates,
+rejections, placements, and travel/search effort. For the unique large site,
+measure reachability and map-assisted discovery separately from density.
+
+Before final loot distribution, test later arrivals at the same landmark, vault
+eligibility persistence and player-history limits, shared magnet depletion, and
+archaeology/map availability. Per-player core eligibility is intended; infinite
+vanilla-vault memory or per-player chest/archaeology behavior is not assumed.
+These checks are future gates, not claims made by the Alpha 3 test report.
 
 ### Reproducible sequence
 

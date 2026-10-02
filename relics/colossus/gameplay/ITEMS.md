@@ -2,7 +2,7 @@
 
 ## Status and scope
 
-Recorded: October 1, 2026.
+Recorded: October 1, 2026. Updated: October 2, 2026.
 
 This document records the agreed gameplay direction for two custom Colossus loot
 rewards and their dedicated trial key. None of these items or the encounter is
@@ -41,17 +41,23 @@ arm; the exact chest position and access route remain open.
 
 ### Rarity and discovery
 
-The Colossus should be **very rare**, reflecting the value of its special items.
-The frequency order is skull/bone variants first, clearly rarer Obelisks second,
-and Colossi as the rarest of these three families. In the
+The **large Colossus is unique: one natural site per game world/save**, shared by
+all players, rather than a repeatable structure with very wide spacing. Planned
+**smaller Colossi may occur multiple times**; their rarity, encounters, and loot
+are separate open decisions. These item/trial decisions apply to the large site,
+not automatically to every smaller Colossus.
+
+Titan remains retain a combined family budget and are most common; Obelisks are
+clearly rarer. The large landmark has a single destination, not a density target.
+In the
 [working lore](../../../docs/project/LORE-BIBLE.md), a Colossus was sent to the
 planet to kill the Titans; the sender and wider history remain open.
 The [Obelisk's archaeology rewards](../../obelisk/gameplay/README.md) include an
-expedition map to a Colossus so players can seek one deliberately. Maps aid
+expedition map to the unique large Colossus so players can seek it deliberately. Maps aid
 discovery; they do not bypass the head trial or vault-key requirement.
 
-Exact generation rates remain open. This is a design goal, not a change to the
-current alpha's worldgen settings.
+Repeatable-family rates and the unique site's selection rules remain open. Alpha
+3 does not enforce uniqueness; this documentation changes no worldgen settings.
 
 ### Agreed encounter and reward flow
 
@@ -69,6 +75,17 @@ The iron golem does not need custom aggression logic for the initial design:
 the player can initiate combat and the golem retaliates. Exact enemy counts,
 multiplayer scaling, and spawn conditions remain to be configured and tested.
 
+### Review follow-up: the golem's historical role
+
+The trial needs a visible connection to the inactive wreck. Residual security,
+maintenance machinery, and a later installation are candidate explanations;
+none is selected. Choose the role internally and derive the room, activation
+cues, key, and reward presentation from it during later interior design.
+A player-initiated, retaliating golem does not actively guard access; do not
+describe it as an active guardian without matching behavior. The current trial
+flow remains approved; this review does not require custom aggression or activate
+the entire machine. See the [lore/gameplay review](../../../docs/project/LORE_GAMEPLAY_REVIEW.md).
+
 ### Dedicated key and vault behavior
 
 - The Colossus Key is a **custom item**, not a renamed vanilla Trial Key.
@@ -77,8 +94,14 @@ multiplayer scaling, and spawn conditions remain to be configured and tested.
 - Preserve individual-player vault eligibility; one visitor must not empty the
   special reward for everyone else. Repeated trials must not let a player reopen
   an already claimed vault merely by acquiring another key.
-- A key may be used at another Colossus. It is **not bound to the individual
-  spawner, participant, or structure location** in the initial design.
+- The unique landmark's vault is intended to serve later visitors to the same
+  site. Verify eligibility persistence, target-version remembered-player limits,
+  and larger server populations; do not assume unlimited per-player access from
+  the vanilla block alone.
+- The key remains **not bound to the individual spawner, participant, or structure
+  location**. If another compatible vault is deliberately introduced later, keys
+  may be used there. The unique-site rule means there is no second natural large
+  Colossus to seek; smaller-Colossus vaults and shared key support are not approved.
 - A vault validates the key, not proof that its adjacent golem was killed by
   the opening player. Strict local completion enforcement is not planned.
 - Normal and ominous configurations must be considered together so an ominous
@@ -109,6 +132,18 @@ eight operations and a lava bucket fuels 100.
 The core should be convenient and may offer a modest fuel-efficiency benefit,
 but recharging must require meaningful resources. It must not turn a trivial
 amount of redstone into effectively free industrial fuel.
+
+### Review follow-up: everyday benefit before final balance
+
+At the initial target, 256 operations equal the nominal fuel output of **32 coal**.
+The distinctive value is reuse, stored remaining charge, and no idle drain.
+Reaching the unique site and head, completing the trial, possible restoration,
+and recurring charging could otherwise cost more effort than the reward saves.
+
+Define the practical everyday problem solved by the core first, then tune capacity
+and restoration/recharge costs together through survival and automation tests.
+The 256-operation target remains provisional; no increase, recipe, speed bonus,
+or free-fuel mechanism is approved by the review.
 
 ### Charge consumption
 
@@ -163,6 +198,10 @@ to reach or complete the head trial.
 A normal copper chest has shared, finite contents, unlike a per-player vault.
 Whether multiplayer needs an individual magnet reward remains an open decision;
 no per-player chest system is approved or implemented.
+With only one large Colossus per world, later visitors cannot look for another
+large arm with fresh loot. Resolve late-arrival/group access before final loot
+distribution; replenishment, individual rewards, or magnets in smaller Colossi
+are not assumed. The per-player core vault does not solve this chest asymmetry.
 
 ### Agreed gameplay
 
@@ -214,6 +253,21 @@ Items that are merely attracted but never picked up must not consume durability.
 The intended loop is: **equip in offhand -> collect nearby drops -> wear out ->
 repair**.
 
+## Review follow-up: salvage economy of the whole landmark
+
+The V3 export contains **141,523 copper-based blocks and 5,609 raw iron blocks**.
+These historical counts are verified for V3, not asserted for selected V4.1.
+Estimate recoverable resources from the selected export and compare them with
+the core and magnet's useful value. Bulk mining could overshadow the special
+rewards and dismantle the only large landmark for everyone else.
+
+Concentrated salvage metal and economically less significant broad surface fields
+are proposed responses, not selected palette changes. Preserve the accepted
+visual design until a material policy is agreed; normal mining is not prohibited
+and no block-protection mechanism is approved. Coordinate with
+[Colossus design goals](../docs/COLOSSUS_V4.md) and the
+[shared review](../../../docs/project/LORE_GAMEPLAY_REVIEW.md).
+
 ## Open decisions and acceptance checks
 
 ### Decisions still needed
@@ -228,6 +282,10 @@ repair**.
 7. Multiplayer behavior and compatibility with relevant protection systems.
 8. Golem counts, multiplayer scaling, ominous behavior, and the head trial's
    detailed layout and presentation.
+9. Material/salvage economy of the selected export relative to special rewards.
+10. Historical function of the golem and visible links to the Titan conflict.
+11. The core's everyday use case and combined acquisition/restoration/recharge cost.
+12. Later-visitor reward policy for the unique site's shared magnet and ordinary loot.
 
 ### Acceptance checks
 
@@ -249,6 +307,11 @@ repair**.
 - Reject vanilla keys and preserve per-player vault eligibility across save/load.
 - Check both normal and ominous paths for incompatible rewards or repeat-claim
   exploits.
+- Test late arrivals and a large player population at the same vault, including
+  save/load and eligibility retention; previously claimed rewards must not reset.
+- Resolve and test the distinct shared-chest reward policy before finalizing loot.
+- Confirm the landmark's resource economy does not unintentionally make the
+  planned core/magnet rewards irrelevant; document any deliberate salvage tradeoff.
 
 Functional custom items require additional mod code; the current data-only mod
 and Blender conversion pipeline do not implement these behaviors. Trial spawner

@@ -105,6 +105,32 @@ bleiben Hintergrundbeobachtungen; notwendige lokale Anschlüsse der drei gezielt
 
 ## Abgrenzung
 
+### Lore-/Gameplay-Review vom 2. Oktober 2026
+
+Der **große Colossus soll einmal pro Spielwelt** natürlich vorkommen; geplante
+kleinere Kolosse dürfen mehrfach vorkommen. Modellvarianten oder Versionsnummern
+begründen keine zusätzlichen großen Fundorte. Diese Regel ist in Alpha 3 noch
+nicht umgesetzt.
+
+Die Review nennt für den V3-Export **141.523 kupferbasierte Blöcke und 5.609
+Roheisenblöcke**. Diese V3-Zahlen wurden nachgezählt, sind aber keine Materialbilanz
+von V4.1. Massenabbau könnte Kern und Magnet wirtschaftlich überstrahlen und das
+einmalige gemeinsame Wahrzeichen zerstören.
+
+Offene Designaufgabe: Materialbilanz und tatsächlich gewinnbare Ressourcen des
+ausgewählten Exports prüfen und die Bergungsökonomie abstimmen. Verwertbares
+Metall gezielt konzentrieren und große Flächen wirtschaftlich unkritischer
+darstellen ist ein **Vorschlag, keine freigegebene Palettenänderung**. Die bereits
+akzeptierte warme Metallwirkung bleibt vorerst bestehen; weder Abbauschutz noch
+ein Verbot normaler Minecraft-Interaktion ist beschlossen.
+
+Für die spätere Innenraumgestaltung müssen die historische Rolle der
+Golem-Prüfung und sichtbare Verbindungen zum Titanenkonflikt festgelegt werden.
+Sicherheits-/Wartungssystem, späterer Einbau, Maschinenfragmente im Knochen oder
+korrespondierende Schäden bleiben Alternativen. Die Review zieht keine V5-
+Innenraumarbeit vor und verändert keine bestehenden Exporte.
+Details und Prioritäten: [Lore-/Gameplay-Review](../../../docs/project/LORE_GAMEPLAY_REVIEW.md).
+
 Dies ist eine visuelle Überarbeitung, keine Umsetzung von Maschinenkern, Magnet,
 Prüfung, Loot oder endgültigen Innenräumen. Schutz vor Terrain-Features und die
 teure natürliche Suche bleiben eigene technische Aufgaben. Bei geänderten

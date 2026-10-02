@@ -60,6 +60,14 @@ The new Skull uses provisional 48/24, salt 206091303, to put it ahead of the
 other families in candidate frequency. Actual discovery rates depend on site
 rejection. Density presets and `--disable titan_skull` are supported.
 
+**Design update, October 2, 2026 — not implemented here:** the large Colossus is
+intended to have one natural site per game world, while planned smaller Colossi
+may repeat. The current 80/40 random-spread distribution can produce multiple
+large sites and does not satisfy that rule. Obelisk maps will initially share
+the unique large destination. Site selection/persistence, map/search consistency,
+and actual discovery effort are future requirements in the
+[implementation plan](../project/UMSETZUNGSPLAN.md#future-contract-unique-large-site-and-repeatable-smaller-sites).
+
 ## Viewing in Minecraft
 
 Use a fresh creative world with cheats, or new unexplored chunks. Old structures

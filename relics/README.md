@@ -23,17 +23,22 @@ agreed visual findings and revision direction. Colossus V4 now has two offline
 [export variants](colossus/docs/COLOSSUS_V4_EXPORTS.md), with B / open machine frame
 selected by the user. [Obelisk V4](obelisk/docs/OBELISK_V4_EXPORTS.md) and the four
 [Titan Skull V4 variants](titan-skull/docs/TITAN_SKULL_V4_EXPORTS.md) are exported
-and checked offline, awaiting visual acceptance and integration.
+and checked offline. The latest approved versions are listed below; integration remains pending.
 
 Latest corrections: [Colossus V4.1](colossus/docs/COLOSSUS_V4_1.md) replaces the
 raised wrist with a palm-up right hand and curled fingers;
 [Obelisk V4.1](obelisk/docs/OBELISK_V4_1.md) replaces contrasting patches with
 consistent sandstone facets and larger actual cracks. Previous exports are retained.
 
-The user has now **visually accepted Colossus V4.1**. The latest
-[Obelisk V4.2](obelisk/docs/OBELISK_V4_2.md) responds to the pale appearance with
-warm ochre/clay sides and genuinely missing pieces without contrasting damage
-lining; its visual review is pending.
+The user has **visually accepted Colossus V4.1, Obelisk V4.2 and all four Titan
+Skull V4 terrain variants**. Game integration and in-game checks remain pending.
+
+**Next design priority:** create the remaining planned relics before starting
+V5 architectural interiors. The original catalog still has two unmodeled motifs:
+the Ruined Tower and World Tree. A second smaller Colossus has an archived starting
+model. A [second independent Titan Skull reference](titan-skull/docs/TITAN_SKULL_2_CONCEPT.md)
+is now selected; further skull/bone variants remain future extensions. The order
+among these new studies has not yet been selected.
 
 - [Colossus V4](colossus/docs/COLOSSUS_V4.md): preserve the overall design; focus on
   damaged rear armor, a readable hand with potentially raised fingers, and removal
@@ -45,10 +50,19 @@ lining; its visual review is pending.
 
 ## Discovery hierarchy and lore
 
-The intended frequency order is **Titan skulls and future bone/skull variants
-(most common) -> Obelisks (clearly rarer) -> Colossi (very rare)**. Alpha 3 has
-provisional candidate rates, not final discovery balance; future skull/bone
-variants must share the family-level density target.
+The intended discovery order is **Titan skulls and future bone/skull variants
+(most common) -> Obelisks (clearly rarer) -> the unique large Colossus**. The large
+Colossus should occur **once per game world/save**, shared by all players. Planned
+**smaller Colossi may occur multiple times**, with separate rarity/loot decisions
+still open. Alpha 3 has provisional repeatable candidate rates and does not yet
+enforce uniqueness; future skull/bone variants share a family-level density target.
+
+Obelisk maps initially lead to the same large site. Its vault preserves per-player
+core eligibility for multiplayer; the shared magnet chest and archaeology still
+need later-visitor reward policies. The
+[lore/gameplay review](../docs/project/LORE_GAMEPLAY_REVIEW.md) tracks material
+economy, historical trial integration, lasting core usefulness, visible lore
+links, multiplayer distribution, and measured discovery effort as open tasks.
 
 The working history connects the three: a Colossus was sent to kill the Titans,
 while Obelisks served as wayfinders or marked destroyed Titans. Details remain

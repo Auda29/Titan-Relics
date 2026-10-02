@@ -1,6 +1,7 @@
 # Titan Skull V4 — broken deposits and biome palettes
 
-October 2, 2026. Offline design exports, awaiting visual acceptance and game integration.
+October 2, 2026. **All four V4 terrain variants visually accepted by the user.**
+Game integration and in-game validation remain pending.
 
 [Four-variant review](../design/generated/titan-skull-v4-dry/titan-skull-v4-variants-review.png)
 · [V3/V4 comparison](../design/generated/titan-skull-v4-dry/titan-skull-v4-changes-review.png)

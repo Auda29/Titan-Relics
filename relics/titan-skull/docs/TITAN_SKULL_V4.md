@@ -1,7 +1,7 @@
 # Titan Skull V4 — Ingame-Erkenntnisse und Überarbeitung
 
 Stand: 2. Oktober 2026.
-Status: **Vier V4-Varianten exportiert und offline geprüft; Sichtabnahme ausstehend.** Grundlage ist der
+Status: **Alle vier V4-Varianten exportiert, offline geprüft und vom Nutzer optisch abgenommen.** Grundlage ist der
 [Titan Skull V3](TITAN_SKULL_V3.md) in Alpha 3; V3 bleibt unverändert erhalten.
 
 ## Grundlage und Ziel

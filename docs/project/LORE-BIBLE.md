@@ -1,14 +1,15 @@
 # Relic Mod: lore bible and design guide
 
-Original design draft: September 13, 2026. Updated: October 1, 2026.
+Original design draft: September 13, 2026. Updated: October 2, 2026.
 
 The five main motifs and version 0.1 scope come from the original concept.
 The October gameplay decisions establish a relative discovery hierarchy and a
 working history connecting the Colossus, Titan remains, and Obelisks. Detailed
 history, working names, exploration routes, and small narrative motifs remain
-proposals, not finalized canon. Alpha 2 implements the first two relics;
-the newer Colossus v2/v3 and Obelisk v2/v3 are separate reference-based asset designs
-awaiting integration.
+proposals, not finalized canon. Alpha 3 selects Colossus, Obelisk, and Titan Skull
+V3. Accepted V4 studies await integration; custom gameplay remains planning.
+The [lore/gameplay review](LORE_GAMEPLAY_REVIEW.md) records concerns and follow-up
+tasks separately from approved mechanics and historical implementation evidence.
 
 This guide describes what the relics should communicate during play. Dimensions,
 generation, and acceptance procedures are in the [technical plan](UMSETZUNGSPLAN.md).
@@ -36,9 +37,10 @@ and a reachable viewpoint invite exploration.
 
 - Relics are discoveries in the existing Overworld with deliberately different
   frequencies: Titan remains are the most common family, Obelisks are clearly
-  rarer, and Colossi are very rare.
-- The first structures are Obelisk and Colossus. Ruined tower, titan skull, and
-  world tree may follow later.
+  rarer, and the **large Colossus is unique: one natural site per game world**.
+  Planned smaller Colossi may occur multiple times; their frequency remains open.
+- Alpha 3 includes Obelisk, large Colossus, and Titan Skull V3. Ruined tower,
+  world tree, smaller Colossi, and more Titan-remains designs are future additions.
 - Initial structures use regular Minecraft blocks and original designs.
 - Shape, ground contact, and close detail must work without special lighting.
 - Selected areas are explorable. There is initially no mandatory story or new combat mechanic.
@@ -50,23 +52,39 @@ planet to kill the Titans**. Skull and bone relics are their weathered remains.
 This supplies a connection between the machine and the organic remnants without
 requiring a present-day Titan fight or an activating Colossus.
 
+Multiple distinct Titan remains should make the scale of this past conflict
+visible. A [second independent skull reference](../../relics/titan-skull/docs/TITAN_SKULL_2_CONCEPT.md)
+has been selected from Instagram reel `Db9KCtWi0eG`, specifically its opening
+few seconds; modeling and detailed visual analysis remain pending. This is a
+new design, not another terrain palette or revision of the existing skull.
+Further bone-site concepts may follow, but no living Titan system, full skeleton
+at every site, or additional specific anatomy is required by this premise.
+
 Obelisks were built as **wayfinding markers or markers of places where Titans
 had already been destroyed**. These are still alternative interpretations; their
 exact original purpose is not settled. Later excavation sites and expedition
 maps can reflect subsequent visitors investigating this history.
 
 Who sent the Colossus, who built the Obelisks, the reason for the mission, and the
-fate of the machine remain open. The premise does not establish exactly one
-Colossus spawn per world or a single builder for all relic types. Ruined towers
-and world trees are not automatically assigned to this conflict.
+fate of the machine remain open. The approved world-design rule is **one large
+Colossus per save/server**, shared by all players, with multiple smaller Colossi
+possible. This does not establish that only one machine ever existed historically,
+or a single builder for all relic types. Ruined towers and world trees are not
+automatically assigned to this conflict. Alpha 3 does not yet enforce uniqueness.
+
+The large site's vault preserves per-player eligibility so later multiplayer
+visitors can salvage a core at the same landmark. The magnet's shared chest and
+archaeology rewards still need a later-visitor policy; a unique site makes this
+especially important. Smaller Colossi do not automatically share its loot.
 
 ### Relative discovery hierarchy
 
 | Relic family | Intended relative frequency | Gameplay role |
 | --- | --- | --- |
 | Titan skulls and future skull/bone variants | Most common of these three families | Decaying remains to explore, with ordinary mobs; no special item required |
-| Obelisks | Clearly rarer than Titan remains, but more accessible than Colossi | Archaeology, a collectible, and a map to a Colossus |
-| Colossi | Very rare | Valuable technical salvage and the head trial |
+| Obelisks | Clearly rarer than Titan remains | Exterior archaeology, a collectible, and a map to the unique large Colossus |
+| Large Colossus | One natural site per game world, not a repeatable density target | Technical salvage and head trial; per-player core vault |
+| Smaller Colossi | Multiple sites allowed; exact rarity open | Gameplay and loot not yet assigned |
 
 Frequency is a **family-level** target: adding more skull or bone variants should
 not multiply total encounter density unintentionally. Most common does not mean
@@ -81,6 +99,21 @@ Detailed gameplay decisions are maintained with each relic:
 [Titan Skull](../../relics/titan-skull/gameplay/README.md),
 [Obelisk](../../relics/obelisk/gameplay/README.md), and
 [Colossus](../../relics/colossus/gameplay/ITEMS.md).
+
+### Review follow-up: evidence and player incentives
+
+- Select visible links between machine and Titan remains: embedded fragments,
+  corresponding damage, and later expedition marks are candidate motifs only.
+- Decide the Obelisks' original role internally before deriving consistent spatial
+  clues; player-facing ambiguity need not mean an undecided design forever.
+- Give the head golem a historical function and matching activation/room cues.
+  A golem that only retaliates is not an active access guard. Security, maintenance,
+  and a later installation remain alternatives, not canon.
+- Review resource value against the unique landmark's preservation and special
+  rewards; ordinary mining remains allowed, and no protection system is selected.
+- Clarify the core's everyday benefit and later-visitor reward access before final
+  loot tuning. See the [six-point review](LORE_GAMEPLAY_REVIEW.md) for priorities,
+  historical V3 quantities, and the distinction between proposals and decisions.
 
 ### Proposed guiding idea
 
@@ -169,6 +202,10 @@ would be a later restrained addition; the glowing Ancient One is not a 0.1 requi
 
 This is a palette to try, not a requirement to use every material. Assess large
 quantities of economically valuable blocks as part of exploration/resource balance.
+The review flags the V3 Colossus's 141,523 copper-based and 5,609 raw iron blocks
+as a potential incentive to dismantle the landmark. Recount the selected export
+and evaluate recovery value; concentrated salvage and less valuable broad fields
+are suggestions, not an approved recoloring of the accepted V4 design.
 The latest Colossus studies emphasize bronze/copper; Obelisk v2/v3 use warm
 terracotta and sandstone instead of the alpha's darker treatment.
 
@@ -216,7 +253,9 @@ history, it was built for wayfinding or to mark the destruction of a Titan; the
 choice between these interpretations remains open.
 
 **Planned gameplay:** Archaeology at its foot yields a collectible and a map to
-the very rare Colossus. See the [gameplay decisions](../../relics/obelisk/gameplay/README.md).
+the unique large Colossus. Multiple maps may lead to the same site; the original
+Obelisk role and archaeology reward sharing remain open. See the
+[gameplay decisions](../../relics/obelisk/gameplay/README.md).
 
 **Variants:** Burial depth and a bounded edge loss; begin with a mostly intact
 form. A hollow tower with regular floors would be a different motif.
@@ -264,8 +303,10 @@ place on a sheltered edge may show that someone used the body as lodging.
 roof, and path. The working history gives it a mission to kill Titans; its sender,
 the reasons for that mission, and its own fall remain uncertain.
 
-**Variants:** Begin with one pose and a fixed arm position. Later vary armor
-ruptures and controlled vegetation. New poses are separately designed assets.
+**Occurrence and variants:** One large Colossus is intended per world. Its model
+revisions and possible appearance variants do not authorize more large sites.
+The planned smaller Colossi are separate, repeatable relic designs; new poses
+and their loot require separate decisions and acceptance work.
 
 **Essential:** Readable posture, extensive ground contact, a detached component,
 and an accessible main room.
@@ -431,6 +472,7 @@ Desert* paintings and its process animation.
 | [Painted Desert](https://www.instagram.com/p/Da0NEq7kUAO/) | Simple flat-topped stele in layered dry terrain | Slender proportions, open surroundings, warm mineral faces |
 | [Josh White sci-fi animation](https://www.instagram.com/reel/DbqXYoVx2hR/) | Dark breached tower over a pale plain; large aircraft takes off | Contrast and tower negative space; aircraft is not architecture |
 | [D.E.A.D.](https://www.instagram.com/reel/DXM3J4sgqJl/) | Crowned skull in green hills; later enormous body remains | Skull as landscape form; possible later bone fragments |
+| [Second Titan Skull reference](https://www.instagram.com/reel/Db9KCtWi0eG/) | User-selected skull in the opening few seconds; detailed visual review pending | Separate second skull design; not a revision of the existing crowned skull |
 | [World Tree / Gaia's Nursery](https://www.instagram.com/reel/DaBgsX0C9s4/) | Coastal giant tree, worked stones, waterways, root-side structures | Design crown and accessible base together |
 | [Warden-Class Archaean Colossi](https://www.instagram.com/reel/DcwuU3SB5gc/) | Metal giants with round joints, chest openings, architecture | Relationship of machinery and built space |
 | [Fragment of the Fallen](https://www.instagram.com/reel/DbD0PB7iD2Q/) | Settlements on and around heads, hands, body remains | Small-scale later reuse; independent fragments |

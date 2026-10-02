@@ -4,7 +4,7 @@ Stand: 2. Oktober 2026.
 Neuester Nachtrag: [V4.2](OBELISK_V4_2.md) setzt die weitere Rückmeldung um:
 V4.1 war zu weiß; wärmere Ocker-/Lehmseiten und echte fehlende Stücke ohne
 andersfarbige Füllung der Schadstellen. Zwei zusätzliche kantige Ausbrüche sind
-im NBT nachgewiesen. Sichtabnahme ausstehend.
+im NBT nachgewiesen. **Obelisk V4.2 ist vom Nutzer optisch abgenommen.**
 
 Status: **V4 exportiert und offline geprüft; Sichtabnahme ausstehend.** Grundlage ist der
 [Obelisk V3](OBELISK_V3.md) in Alpha 3; V3 bleibt unverändert erhalten.
