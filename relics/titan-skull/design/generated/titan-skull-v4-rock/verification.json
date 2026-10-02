@@ -1,0 +1,132 @@
+{
+  "size": [
+    117,
+    79,
+    179
+  ],
+  "blocks": 136569,
+  "palette_entries": 6,
+  "tiles": 31,
+  "data_version": 3105,
+  "schematic_sha256": "01e9a7e7f84ac0f69e096ec78ac7c475b2c4ed0932cf168f8528c3fd28479460",
+  "nbt_sha256": "9c41e8bdc5333737ed7c37e6ab8f916aac0f77f32764d20cca4e2fb68e94620b",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "skull_cavities": {
+    "empty_3x3x3_probes": [
+      [
+        50,
+        25,
+        0
+      ],
+      [
+        50,
+        25,
+        10
+      ],
+      [
+        50,
+        25,
+        20
+      ],
+      [
+        40,
+        51,
+        7
+      ],
+      [
+        60,
+        51,
+        7
+      ],
+      [
+        50,
+        48,
+        6
+      ]
+    ],
+    "mouth_channel_cross_section": [
+      5,
+      5
+    ],
+    "ground_level": 8,
+    "blocks_below_ground": 50326,
+    "terrain_clearing_defined": false
+  },
+  "deposits_v4": {
+    "variant": "rock",
+    "terrain_blocks": 116438,
+    "terrain_reduction_vs_v3_percent": 52.44,
+    "solid_columns_checked": 10111,
+    "missing_column_cells": 0,
+    "open_terrain_gap_planes": [
+      54,
+      131
+    ],
+    "anatomy_meshes_preserved": 62,
+    "vertebrae": [
+      {
+        "index": 1,
+        "buried_samples": 170,
+        "exposed_samples": 852
+      },
+      {
+        "index": 2,
+        "buried_samples": 129,
+        "exposed_samples": 441
+      },
+      {
+        "index": 3,
+        "buried_samples": 208,
+        "exposed_samples": 376
+      },
+      {
+        "index": 4,
+        "buried_samples": 229,
+        "exposed_samples": 455
+      },
+      {
+        "index": 5,
+        "buried_samples": 59,
+        "exposed_samples": 658
+      },
+      {
+        "index": 6,
+        "buried_samples": 203,
+        "exposed_samples": 374
+      },
+      {
+        "index": 7,
+        "buried_samples": 79,
+        "exposed_samples": 509
+      },
+      {
+        "index": 8,
+        "buried_samples": 79,
+        "exposed_samples": 408
+      },
+      {
+        "index": 9,
+        "buried_samples": 77,
+        "exposed_samples": 263
+      }
+    ],
+    "unsupported_falling_blocks": 0,
+    "buried_grass_blocks": 0
+  },
+  "variant_comparison": {
+    "variants": [
+      "meadow",
+      "dry",
+      "sand",
+      "rock"
+    ],
+    "identical_anatomy_and_occupied_positions": true
+  }
+}

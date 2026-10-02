@@ -1,0 +1,110 @@
+{
+  "name": "Obelisk V4",
+  "reference": "https://www.instagram.com/p/Da0NEq7kUAO/",
+  "reference_credit": "Josh White / Painted Desert; user-provided antiprism diagrams",
+  "source_bounds_blender": [
+    [
+      -31.0,
+      -27.0,
+      -8.0
+    ],
+    [
+      27.0,
+      32.0,
+      176.0
+    ]
+  ],
+  "height_target_blocks": 185,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 8,
+  "visible_height_source": 176,
+  "scale_is_estimate": true,
+  "buried_base": {
+    "depth_source": 8,
+    "type": "Short continuation of the antiprism"
+  },
+  "interpretation": "Standing square antiprism; coherent surface weathering, four shallow chips, asymmetric sand and three foundation fragments.",
+  "base_antiprism": {
+    "sides": 4,
+    "twist_degrees": 45,
+    "base_edge_source": 24,
+    "top_edge_source": 16.080000000000002,
+    "top_edge_ratio": 0.67,
+    "lateral_triangles": 8,
+    "closed_manifold": true,
+    "source_volume": 84660.83689313103
+  },
+  "blocks_per_source_unit": 1,
+  "source_v3_sha256": "fa102781e27b815a7129c17486b441ce89c550d149302b63073f1b289516401e",
+  "obelisk_v4": {
+    "shallow_chips": [
+      {
+        "edge": 0,
+        "source_center": [
+          -9.622893333435059,
+          41.679996490478516,
+          -12.995271682739258
+        ],
+        "radius_horizontal": 2.2,
+        "radius_vertical": 4.5
+      },
+      {
+        "edge": 1,
+        "source_center": [
+          12.97050666809082,
+          91.36000061035156,
+          -6.140437126159668
+        ],
+        "radius_horizontal": 2.3,
+        "radius_vertical": 5.0
+      },
+      {
+        "edge": 2,
+        "source_center": [
+          2.9641947746276855,
+          135.52000427246094,
+          12.922109603881836
+        ],
+        "radius_horizontal": 1.9,
+        "radius_vertical": 4.0
+      },
+      {
+        "edge": 3,
+        "source_center": [
+          -12.981794357299805,
+          71.12000274658203,
+          7.570450305938721
+        ],
+        "radius_horizontal": 1.8,
+        "radius_vertical": 3.5
+      }
+    ],
+    "original_volume": 84660.83689313103,
+    "weathered_volume": 84651.05676449496,
+    "volume_removed_percent": 0.011552128463376832,
+    "monolith_bounds_blender": [
+      [
+        -12.0,
+        -12.0,
+        -8.0
+      ],
+      [
+        12.0,
+        12.0,
+        176.0
+      ]
+    ],
+    "core_center_source": [
+      0,
+      0,
+      0
+    ],
+    "foundation_fragments": 3,
+    "upright": true,
+    "solid_core": true,
+    "terrain_materials": [
+      "minecraft:sand",
+      "minecraft:sandstone"
+    ]
+  }
+}

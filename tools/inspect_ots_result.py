@@ -174,6 +174,15 @@ def check():
                     summary["spine"] = {"vertebrae_checked": vertebra_checks,
                                          "bone_free_fracture_planes_source_z": planes,
                                          "skull_height_blocks_approx": design["skull_height_blocks_approx"]}
+        if "right_hand" in design:
+            from inspect_colossus_v4 import verify
+            summary["colossus_v4"] = verify(design, blocks)
+        if "deposits_v4" in design:
+            from inspect_relic_v4 import skull_check
+            summary["deposits_v4"] = skull_check(design, blocks)
+        if "obelisk_v4" in design:
+            from inspect_relic_v4 import obelisk_check
+            summary["obelisk_v4"] = obelisk_check(design, blocks, report)
     (OUT / "verification.json").write_text(json.dumps(summary, indent=2)+"\n")
     print(json.dumps(summary, indent=2))
     return summary

@@ -1,0 +1,53 @@
+{
+  "decision": "Four exports: the earth family is split into meadow and dry ground; sand and rock complete the requested settings.",
+  "scope": "Design-time material variants. No changes to runtime biome tags or worldgen selection.",
+  "bone_materials": {
+    "bone": "minecraft:bone_block",
+    "worn": "minecraft:calcite",
+    "mineral": "minecraft:dripstone_block",
+    "earth": "minecraft:brown_terracotta",
+    "moss": "minecraft:green_terracotta",
+    "root": "minecraft:rooted_dirt"
+  },
+  "material_proxies": {
+    "terrain_top": "minecraft:lime_concrete",
+    "terrain_patch": "minecraft:magenta_concrete",
+    "terrain_fill": "minecraft:blue_concrete"
+  },
+  "variants": {
+    "meadow": {
+      "label": "Meadow / grassy earth",
+      "materials": {"terrain_top": "minecraft:grass_block[snowy=false]", "terrain_patch": "minecraft:coarse_dirt", "terrain_fill": "minecraft:dirt"},
+      "colors": ["69884a", "816043", "73513a"],
+      "ground_color": [0.23, 0.31, 0.13],
+      "suggested_biomes": ["minecraft:plains", "minecraft:sunflower_plains", "minecraft:meadow", "terralith:blooming_valley", "terralith:blooming_plateau", "biomesoplenty:prairie"]
+    },
+    "dry": {
+      "label": "Savanna / dry earth",
+      "materials": {"terrain_top": "minecraft:coarse_dirt", "terrain_patch": "minecraft:grass_block[snowy=false]", "terrain_fill": "minecraft:dirt"},
+      "colors": ["92704d", "8c8c46", "73513a"],
+      "ground_color": [0.35, 0.30, 0.15],
+      "suggested_biomes": ["minecraft:savanna", "terralith:steppe", "biomesoplenty:scrubland"]
+    },
+    "sand": {
+      "label": "Desert / sand",
+      "materials": {"terrain_top": "minecraft:sand", "terrain_patch": "minecraft:sandstone", "terrain_fill": "minecraft:sandstone"},
+      "colors": ["d6c697", "bbab7c", "b6a479"],
+      "ground_color": [0.67, 0.57, 0.36],
+      "suggested_biomes": ["minecraft:desert"],
+      "note": "Proposed future setting, not currently in the skull worldgen biome tag. Unsupported exported sand is sandstone."
+    },
+    "rock": {
+      "label": "Stony wasteland / stone and gravel",
+      "materials": {"terrain_top": "minecraft:stone", "terrain_patch": "minecraft:gravel", "terrain_fill": "minecraft:stone"},
+      "colors": ["777971", "8b8579", "696c65"],
+      "ground_color": [0.29, 0.30, 0.27],
+      "suggested_biomes": [],
+      "note": "For a later explicitly mapped, sufficiently level stony biome. No assumed mod-biome ID; no automatic mountain placement."
+    }
+  },
+  "deferred_variants": {
+    "red_sand": "Only needed if Badlands/red-sand terrain is explicitly admitted later.",
+    "snow": "Only needed if snowy biomes are explicitly admitted later; snow cover needs its own design."
+  }
+}

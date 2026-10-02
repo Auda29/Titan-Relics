@@ -1,7 +1,7 @@
 # Obelisk V4 — Ingame-Erkenntnisse und Überarbeitung
 
-Stand: 1. Oktober 2026.
-Status: **V4-Planung, noch nicht umgesetzt.** Grundlage ist der
+Stand: 2. Oktober 2026.
+Status: **V4 exportiert und offline geprüft; Sichtabnahme ausstehend.** Grundlage ist der
 [Obelisk V3](OBELISK_V3.md) in Alpha 3; V3 bleibt unverändert erhalten.
 
 ## Grundlage und Ziel
@@ -9,6 +9,12 @@ Status: **V4-Planung, noch nicht umgesetzt.** Grundlage ist der
 Der Obelisk funktioniert als weithin sichtbares Monument. V4 soll ihn stärker
 als **altes, verwittertes Bauwerk und archäologischen Fundort** vermitteln,
 ohne seine bereits abgestimmte Grundgeometrie aufzugeben.
+
+Bestätigung vom 2. Oktober 2026: Antiprismus und klare Fernwirkung erhalten,
+zusammenhängende Verwitterungszonen und wenige begrenzte Kantenschäden ergänzen,
+asymmetrische Sandablagerungen und einzelne Fundamentfragmente am Fuß vorsehen.
+**Der Obelisk soll alt und verwittert, aber weiterhin massiv und standsicher
+wirken – keinesfalls so, als würde er gleich umfallen.**
 
 Screenshot-Grundlage aus dem Profil „Relic Test“, Ordner `screenshots/`:
 
@@ -35,8 +41,8 @@ Alterswirkung verbessern, nicht automatisch Höhe oder Grundform ändern.
 | --- | --- |
 | Sehr große, gleichmäßige Farbflächen wirken sauber und neu. | Gezielte Verwitterungszonen, mineralische Unterschiede, abgeriebene Oberflächen und einzelne Risse vorsehen. |
 | Die goldgelbe Vorderfläche und zugespitzte Silhouette erinnern etwas an einen riesigen Bleistift. | Durch Materialwirkung, gebrochene Kanten und weniger durchgehende Farbbänder einen alten Monumentcharakter herstellen; nicht vorschnell die Antiprismus-Geometrie ersetzen. |
-| Kanten und Flächen zeigen wenig sichtbare Alterung. | Unregelmäßige, begrenzte Abplatzungen und beschädigte Bereiche statt überall gleich starkem Zufallsrauschen. |
-| Der Fuß steht ohne ausgeprägten Fundort direkt im Wüstengelände. | Sandverwehungen, teils verschüttete Fragmente und stellenweise freigelegte Fundamentreste als Übergang vorsehen. |
+| Kanten und Flächen zeigen wenig sichtbare Alterung. | Wenige unregelmäßige, oberflächennahe Abplatzungen; einzelne etwas größere Kantenschäden bleiben lokal begrenzt und beeinträchtigen nicht den massiven Gesamteindruck. |
+| Der Fuß steht ohne ausgeprägten Fundort direkt im Wüstengelände. | Asymmetrische Sandverwehungen und wenige teils verschüttete oder freigelegte Fundamentfragmente als Übergang vorsehen; keinen ausgebrochenen oder unterhöhlten Standfuß gestalten. |
 
 Die Wolken verdecken im Screenshot Teile der Spitze. Das ist **kein Beleg für
 einen Material-, Export- oder Geometriefehler**; die Spitze separat bei freier
@@ -52,10 +58,25 @@ Sicht prüfen.
 Die ruhigen großen Flächen sollen nicht vollständig verschwinden. Schäden und
 Materialwechsel müssen die Geometrie unterstützen, nicht sie unlesbar machen.
 
+Alterung entsteht überwiegend durch Materialunterschiede, Abrieb und flache
+Oberflächenschäden. Keine tiefen umlaufenden Brüche, stark eingeschnürten Stellen,
+großen fehlenden Fußbereiche oder neue Schräglage. Sichtbare Risse sollen nicht
+den Eindruck vermitteln, der Monolith sei in instabile Einzelteile zerbrochen.
+
 ## Prüfkriterien für V4
+
+Offline-Ergebnis: unveränderte Monolithhöhe und Grundform, vier flache
+Kantenabplatzungen mit nur 0,01155 % Volumenverlust, zusammenhängende
+Verwitterungszonen, asymmetrischer Sand und drei Fundamentfragmente.
+Export inklusive Umfeld: 59 × 185 × 60, 95.038 Blöcke.
+Durchgehender Kern, gedrehte Krone, Blockexport und Sandunterstützung sind geprüft.
+Siehe [Exportnachweis und Vergleichsbilder](OBELISK_V4_EXPORTS.md).
+Die folgende Liste bleibt die abschließende Sicht-/Ingame-Abnahme.
 
 - [ ] Die Antiprismus-Form und gedrehte obere Fläche bleiben erkennbar.
 - [ ] Aus Bodennähe und Entfernung wirkt das Relikt als altes Monument.
+- [ ] Der Obelisk wirkt aus allen Ansichten massiv und standsicher, nicht einsturzgefährdet.
+- [ ] Kantenschäden bleiben sparsam und lokal; Standfuß und durchgehender Körper wirken tragfähig.
 - [ ] Keine dominierende, durchgehend einfarbige „Bleistift“-Vorderfläche.
 - [ ] Verwitterung wirkt zusammenhängend und nicht wahllos auf alle Blöcke verteilt.
 - [ ] Sand und Fundamentreste verbinden den Fuß mit unebenem Wüstengelände.
@@ -67,6 +88,5 @@ Materialwechsel müssen die Geometrie unterstützen, nicht sie unlesbar machen.
 
 Die Fundortgestaltung nimmt die bereits vereinbarte archäologische Richtung auf,
 implementiert aber noch keine Funde, Karten, Loot oder neuen Mechaniken.
-Materialpalette, Schadensumfang und technische Geländeanpassung sind vor der
-Umsetzung zu konkretisieren. V4 ersetzt V3 nicht ohne eigene Export- und
-Ingame-Prüfung.
+Materialpalette und Schadensumfang sind im V4-Export umgesetzt. Technische
+Geländeanpassung und Ingame-Abnahme stehen noch aus; Alpha 3 verwendet weiterhin V3.

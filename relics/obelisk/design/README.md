@@ -1,5 +1,7 @@
 # Obelisk design assets
 
+- [V4 configuration](obelisk-v4.json), [outputs](generated/obelisk-v4/) and [export guide](../docs/OBELISK_V4_EXPORTS.md)
+
 - [V3 configuration](obelisk-v3.json) and [outputs](generated/obelisk-v3/)
 - [V2 configuration](obelisk-v2.json) and [outputs](generated/obelisk-v2/)
 

@@ -1,15 +1,17 @@
 # Colossus V4 — Ingame-Erkenntnisse und Überarbeitung
 
-Stand: 1. Oktober 2026.
-Status: **V4-Planung, noch nicht umgesetzt.** Grundlage ist der
-[Colossus V3](COLOSSUS_V3.md) in Alpha 3; V3 bleibt unverändert erhalten.
+Stand: 2. Oktober 2026.
+Status: **V4-Modell-/Exportstudien erstellt; Variante B mit dem offenen
+Maschinengerüst wurde am 2. Oktober 2026 vom Nutzer ausgewählt.** Grundlage ist der [Colossus V3](COLOSSUS_V3.md)
+in Alpha 3; V3 bleibt unverändert erhalten und im Build ausgewählt.
+Ergebnisse, Vergleichsbilder und Befehle: [V4 export studies](COLOSSUS_V4_EXPORTS.md).
 
 ## Grundlage und Ziel
 
-Die Ingame-Bilder aus der normalen Gelände-Testwelt zeigen, dass die monumentale
-Wirkung bereits funktioniert. V4 soll den Colossus stärker als **uralte,
-beschädigte und teilweise eingesunkene Maschine** vermitteln, statt als
-aufgestellte, weitgehend intakte Skulptur.
+Der Nutzer bewertet den Colossus in seiner bisherigen Form bereits als sehr gut.
+Die monumentale Wirkung und das Gesamtdesign sollen erhalten bleiben. Nach der
+Präzisierung vom 2. Oktober 2026 konzentriert sich V4 auf **die zu saubere
+Rückseite, die schwer erkennbare Hand und den einfachen Zylinder im Brustinneren**.
 
 Screenshot-Grundlage aus dem Profil „Relic Test“, Ordner `screenshots/`:
 
@@ -28,39 +30,68 @@ Natürliche Platzierung und bekannte technische Grenzen stehen im
 - Eigenständiger abgetrennter Arm und unterirdische Körperfortsetzung.
 - Warme Metalltöne, Patina und Bewuchs als gemeinsame Materialidee.
 - Gute Erkennbarkeit und Entdeckungswirkung aus der Spielerperspektive.
+- Der vorhandene liegende, abgetrennte Arm bleibt als solcher bestehen; die
+  Überarbeitung betrifft vor allem die Hand und gegebenenfalls ihren Anschluss.
 
 Die Bilder begründen keine pauschale Verkleinerung. V3-Abmessungen und Bodenniveau
 bleiben zunächst die Ausgangsbasis, nicht bereits festgelegte V4-Exportwerte.
 
-## Beobachtungen und V4-Richtung
+## Präzisierter Änderungsumfang
 
 | Beobachtung | Geplante Überarbeitung |
 | --- | --- |
-| Große Rundflächen auf Rücken und Schultern wirken zu gleichmäßig und intakt. | Größere, asymmetrische Panzerbrüche, freiliegende Schichtdicken und erkennbare innere Konstruktion statt nur kleiner Löcher. |
-| Die braune Hauptoberfläche liest sich teilweise als Stein oder Terrakotta. | Metallplatten, Verbindungen, Kupferkanten und Oxidation klarer voneinander unterscheiden; große Flächen gezielt gliedern. |
-| Der untere Panzerabschluss trifft abrupt auf das Gelände. | Unterschiedliche Verschüttungshöhen, Erdablagerungen, Geröll und herausragende Fragmente an den Kontaktstellen vorsehen. |
-| Der abgetrennte Arm wirkt aus der Luft wie ein Rohr mit rundem Abschluss. | Hand, Finger beziehungsweise Gelenke sowie die Bruchstelle deutlicher lesbar machen. |
-| Der Kopf-Hals-Übergang wirkt besonders hinten schmal und aufgesetzt. | Den Anschluss aus mehreren Richtungen prüfen und durch sichtbare Träger, Leitungen oder beschädigte Verbindungsteile nachvollziehbarer machen. |
+| Die Rückseite wirkt deutlich zu sauber und intakt. | Wenige größere, asymmetrische Panzerbrüche, ausgefranste Plattenränder, sichtbare Schichtdicken und stellenweise freiliegende innere Konstruktion vorsehen. Die schwere gerundete Panzerform erhalten. |
+| Die Hand ist schwer als Hand erkennbar. | Eine gedrehte beziehungsweise aufwärts gerichtete Hand erproben, deren Finger aus dem Erdreich herausragen. Handfläche, abgesetzter Daumen, Fingerglieder und Zwischenräume müssen lesbar werden; der Arm bleibt grundsätzlich wie vorhanden liegen. |
+| Ein großer runder Zylinder im Brustinneren wirkt zu einfach. | Ausgewählt: Variante B ersetzt ihn durch ein offenes, beschädigtes Maschinengerüst. Variante A ohne Zylinder bleibt als Vergleich erhalten. |
 
-Der aufgesetzte Eindruck am Hals ist eine **visuelle Beobachtung**, kein anhand
-der Screenshots bestätigter schwebender oder technisch unverbundener Kopf.
+### Hand: nach oben ragende Finger
+
+Die Drehung ist ein Vorschlag des Nutzers, dessen konkrete Pose noch zu prüfen
+ist. Die Hand darf teilweise verschüttet bleiben, soll aber durch unterschiedlich
+gebeugte, einzeln erkennbare Finger und einen seitlichen Daumen als mechanische
+Hand lesbar sein. Nicht den gesamten Arm aufrichten oder durch eine neue Armform
+ersetzen. Handgelenk und Übergang zum vorhandenen Unterarm müssen zur Pose passen.
+
+### Brustinneres: Variante B ausgewählt
+
+Der Nutzer hat am 2. Oktober 2026 **Variante B mit dem Maschinengerüst** ausgewählt.
+Die beiden ausgearbeiteten Möglichkeiten sind:
+
+1. **A – Entfernen (Vergleich):** offenerer Brusthohlraum mit verbleibender
+   innerer Konstruktion.
+2. **B – Ersetzen (ausgewählt):** offenes, beschädigtes Maschinengerüst aus
+   unterbrochenen Ringen, Trägern und wenigen Leitungen.
+
+Die beiden Exportstudien bearbeiten `Buried chest piston`, den glatten Zylinder
+am unteren vorderen Brustbruch. Der Halskragen bleibt erhalten. Der Vergleich
+zeigt das Original sowie Entfernen (A) und das ausgewählte offene Gerüst (B).
+Die Gestaltung legt weder eine neue Maschine noch Loot oder die endgültige
+Innenraumaufteilung fest.
+
+### Frühere Beobachtungen
+
+Die ursprünglichen Notizen nannten außerdem Materialwirkung, Geländekontakt und
+Kopf-Hals-Übergang. Diese Punkte begründen nach der aktuellen Rückmeldung **keine
+pauschale Überarbeitung** der Palette, Verschüttung oder Halskonstruktion. Sie
+bleiben Hintergrundbeobachtungen; notwendige lokale Anschlüsse der drei gezielten
+Änderungen sind bei deren Umsetzung zu prüfen.
 
 ## Prioritäten
 
-1. **Geländekontakt:** den Eindruck des Einsinkens verbessern. Nicht einfach das
-   ganze Modell tiefer setzen und damit Arm oder wichtige Details verschlucken.
-2. **Rückseite und Panzerung:** Verfall und Maschinenaufbau deutlicher zeigen.
-3. **Materialwirkung:** Metall, Rost, Patina und Bewuchs sinnvoll verteilen.
-4. **Arm/Hand und Hals:** Lesbarkeit der einzelnen Bauteile verbessern.
+1. **Rückseite:** die zu intakte Oberfläche gezielt aufbrechen.
+2. **Hand:** Finger und Daumen lesbar machen; die aufwärts gerichtete Pose prüfen.
+3. **Brustzylinder:** das ausgewählte offene Maschinengerüst (B) als V4-Grundlage verwenden.
 
 ## Prüfkriterien für V4
 
 - [ ] Boden-, Front-, Seiten- und Rückansicht in echtem Gelände vergleichen.
-- [ ] Kein dominanter gleichmäßiger Abschluss zwischen Panzerung und Boden.
-- [ ] Rücken und Schultern wirken beschädigt, bleiben aber als schwere Panzerung erkennbar.
-- [ ] Metallkonstruktion ist auch ohne Shader lesbar.
-- [ ] Der Arm ist nicht nur als Rohr, sondern mit erkennbarem Hand-/Gelenkbereich lesbar.
-- [ ] Kopf und Hals wirken konstruktiv verbunden, ohne unbeabsichtigte Luftspalten.
+- [ ] Gesamtsilhouette, Maßstab und der grundsätzlich vorhandene Arm bleiben erhalten.
+- [ ] Die Rückseite wirkt beschädigt, bleibt aber als schwere Panzerung erkennbar.
+- [ ] Handfläche, einzelne Finger, Daumen und Gelenkbereich sind auch ohne Shader lesbar.
+- [ ] Die vorgeschlagene aufwärts gerichtete Handpose im Erdreich vergleichen; Finger werden nicht vollständig verschluckt.
+- [ ] Handgelenk und liegender Arm sind bei der gewählten Pose konstruktiv verbunden.
+- [ ] Der identifizierte Brustzylinder ist entfernt oder nachvollziehbar umgestaltet; keine neue dominante glatte Zylinderform.
+- [ ] Änderungen am Brustinneren lassen Öffnungen und die bestehende Außenwirkung erhalten.
 - [ ] Alle vier natürlichen Rotationen und unterschiedliche Geländehöhen prüfen.
 - [ ] Ganze Struktur einschließlich Arm weiterhin vollständig über Chunkgrenzen erzeugen.
 

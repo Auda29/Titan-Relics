@@ -1,0 +1,53 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v24.16.0",
+  "input": "relics/obelisk/design/generated/obelisk-v4/obelisk-v4.obj",
+  "output": "relics/obelisk/design/generated/obelisk-v4/obelisk-v4.schem",
+  "source_sha256": "9c2e8d437583bb1a03f6f6db3d3adb18e98a9f175973ad305257f89ba46a08df",
+  "schematic_sha256": "cbd0d9376b73caf4a0ed41713ee4274aec33eb9227d0e21d06e9c3c723da6d66",
+  "height": 185,
+  "triangles": 48130,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 185,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "stone": "minecraft:sandstone",
+    "facet": "minecraft:terracotta",
+    "sunward": "minecraft:smooth_sandstone",
+    "core": "minecraft:sandstone",
+    "worn": "minecraft:cut_sandstone",
+    "mineral": "minecraft:brown_terracotta",
+    "terrain_top": "minecraft:sand",
+    "terrain_patch": "minecraft:sandstone",
+    "terrain_fill": "minecraft:sandstone"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:cut_sandstone": 2005,
+    "minecraft:smooth_sandstone": 1096,
+    "minecraft:sandstone": 87235,
+    "minecraft:terracotta": 3366,
+    "minecraft:sand": 1309,
+    "minecraft:brown_terracotta": 27
+  },
+  "material_remapping": {
+    "proxies": {
+      "terrain_top": "minecraft:lime_concrete",
+      "terrain_patch": "minecraft:magenta_concrete",
+      "terrain_fill": "minecraft:blue_concrete"
+    },
+    "covered_replacements": 0,
+    "unsupported_replacements": 506
+  },
+  "fill_enclosed": "core",
+  "filled_voxels": 76307,
+  "note": "Surface voxelisation plus explicit sealed-volume fill; no worldgen integration."
+}

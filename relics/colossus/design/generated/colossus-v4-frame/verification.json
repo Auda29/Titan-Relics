@@ -1,0 +1,47 @@
+{
+  "size": [
+    181,
+    209,
+    223
+  ],
+  "blocks": 222621,
+  "palette_entries": 11,
+  "tiles": 119,
+  "data_version": 3105,
+  "schematic_sha256": "6a558eef2f716aa6c234536e2448528c3d8cf06c7590665ac3efaef4aee3a602",
+  "nbt_sha256": "c2543727a6f2eaa7aba472ad80ecae04d335e33812bfcf4b14c51c8d82c1e764",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "buried_hip": {
+    "nominal_surface_y": 77,
+    "blocks_below_surface": 83032,
+    "depth_below_surface": 77,
+    "scale_change_percent": 0.0945
+  },
+  "colossus_v4": {
+    "anatomical_side": "right",
+    "orientation_determinant": 1.000000238418579,
+    "finger_and_thumb_samples": [
+      99,
+      109,
+      117,
+      109,
+      127
+    ],
+    "separate_finger_gaps": 3,
+    "clear_rear_breach_probes": 3,
+    "preserved_v3_source_objects": 397,
+    "chest_variant": "frame",
+    "center_is_open": true
+  },
+  "chest_comparison": {
+    "different_block_positions": 1218,
+    "differences_confined_to_chest": true
+  }
+}

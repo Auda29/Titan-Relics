@@ -1,0 +1,35 @@
+{
+  "size": [
+    59,
+    185,
+    60
+  ],
+  "blocks": 95038,
+  "palette_entries": 6,
+  "tiles": 24,
+  "data_version": 3105,
+  "schematic_sha256": "cbd0d9376b73caf4a0ed41713ee4274aec33eb9227d0e21d06e9c3c723da6d66",
+  "nbt_sha256": "1ba7985017522e3319ce89ce76f401457f5d91ec8d5b4c9e5db922e4411af144",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "obelisk_v4": {
+    "continuous_core_prism": [
+      7,
+      185,
+      7
+    ],
+    "filled_voxels": 76307,
+    "square_base_and_rotated_crown_checked": true,
+    "shallow_chips": 4,
+    "source_volume_removed_percent": 0.011552128463376832,
+    "foundation_fragments": 3,
+    "nominal_ground_y": 8,
+    "unsupported_sand_blocks": 0
+  }
+}

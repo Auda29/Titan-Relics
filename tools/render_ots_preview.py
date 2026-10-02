@@ -109,7 +109,13 @@ def blocks_from_nbt(path=None, predicate=None):
               if palette[b["state"]] != "minecraft:air" and (predicate is None or predicate(b["pos"]))}
     atlas = json.loads((ATLAS / "vanilla.atlas").read_text())
     atlas_blocks = {entry["name"]: entry for entry in atlas["blocks"]}
-    vertices, faces, uvs = [], [], []
+    # The legacy atlas lacks grass_block. Use a clearly documented preview-only
+    # composite: dirt sides/bottom and moss-grain top, optionally tinted by setting.
+    if "minecraft:grass_block" in blocks.values():
+        atlas_blocks["minecraft:grass_block"] = {"faces": {
+            side: atlas_blocks["minecraft:moss_block" if side == "up" else "minecraft:dirt"]["faces"][side]
+            for _, side, _ in FACES}}
+    vertices, faces, uvs, grass_faces = [], [], [], []
     sx, _, sz = root["size"]
     for (x, y, z), block in blocks.items():
         for (dx, dy, dz), side, face in FACES:
@@ -118,6 +124,7 @@ def blocks_from_nbt(path=None, predicate=None):
             index = len(vertices)
             vertices.extend((x+a-sx/2, -(z+c-sz/2), y+b) for a, b, c in face)
             faces.append(tuple(range(index, index+4)))
+            grass_faces.append(block == "minecraft:grass_block" and side == "up")
             tex = atlas["textures"][atlas_blocks[block]["faces"][side]]
             n = atlas["atlasSize"]*3
             u0, u1 = (3*tex["atlasColumn"]+1)/n, (3*tex["atlasColumn"]+2)/n
@@ -137,6 +144,19 @@ def blocks_from_nbt(path=None, predicate=None):
     texture.interpolation = "Closest"
     mat.node_tree.links.new(texture.outputs["Color"], mat.node_tree.nodes["Principled BSDF"].inputs["Base Color"])
     obj.data.materials.append(mat)
+    if any(grass_faces):
+        grass = mat.copy()
+        grass.name = "Grass preview approximation / biome tint not simulated"
+        multiply = grass.node_tree.nodes.new("ShaderNodeMixRGB")
+        multiply.blend_type = "MULTIPLY"
+        multiply.inputs[0].default_value = 1
+        multiply.inputs[2].default_value = (*CONFIG.get("preview", {}).get("grass_tint", [1,1,1]), 1)
+        tex = next(n for n in grass.node_tree.nodes if n.type == "TEX_IMAGE")
+        grass.node_tree.links.new(tex.outputs["Color"], multiply.inputs[1])
+        grass.node_tree.links.new(multiply.outputs[0], grass.node_tree.nodes["Principled BSDF"].inputs["Base Color"])
+        obj.data.materials.append(grass)
+        for face, is_grass in zip(mesh.polygons, grass_faces):
+            face.material_index = int(is_grass)
     bpy.context.view_layer.update()
     print(f"Preview mesh: {len(blocks)} NBT blocks, {len(faces)} visible faces")
     return obj
@@ -206,6 +226,9 @@ def burial_inspection(main_model, center, corners):
 
 def landscape():
     """Reference-style context; all landscape and scale objects are render-only."""
+    if CONFIG.get("preview", {}).get("landscape") == "v4-deposits":
+        from render_relic_v4_scene import render_deposits
+        return render_deposits(sys.modules[__name__])
     if CONFIG.get("preview", {}).get("landscape") == "skull-hills":
         from render_skull_scene import render_hills
         return render_hills(sys.modules[__name__])

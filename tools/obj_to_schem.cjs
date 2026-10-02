@@ -57,7 +57,9 @@ async function main() {
         resources: Object.fromEntries(locales.map(locale => [locale.language_code, { translation: locale.translations }])),
     });
     const atlas = Atlas.load('vanilla');
-    const palette = [...new Set(Object.values(config.materials))];
+    const { proxyMap, remapBlocks } = require('./material_proxy.cjs');
+    const mapping = proxyMap(config.materials, config.material_proxies);
+    const palette = [...mapping.keys()];
     for (const block of palette) {
         if (!atlas.hasBlock(block)) throw new Error(`Block absent from legacy atlas: ${block}`);
     }
@@ -65,7 +67,7 @@ async function main() {
     const mesh = await new ObjImporter().import({ name: input, text: async () => source });
     const materials = new Map();
     for (const tri of mesh._tris) {
-        const block = config.materials[tri.material];
+        const block = config.material_proxies?.[tri.material] || config.materials[tri.material];
         if (!block) throw new Error(`Unmapped OBJ material: ${tri.material}`);
         materials.set(tri.material, {
             type: MaterialType.solid, colour: { ...atlas.getBlocks().get(block).colour },
@@ -83,7 +85,7 @@ async function main() {
     const voxels = VoxeliserFactory.GetVoxeliser(voxelOptions.voxeliser).voxelise(mesh, voxelOptions);
     let filledVoxels = 0;
     if (config.fill_enclosed) {
-        const block = config.materials[config.fill_enclosed];
+        const block = config.material_proxies?.[config.fill_enclosed] || config.materials[config.fill_enclosed];
         if (!block) throw new Error(`Unmapped fill material: ${config.fill_enclosed}`);
         const { enclosedCells } = require('./voxel_fill.cjs');
         const { Vector3 } = load('vector.ts');
@@ -99,11 +101,23 @@ async function main() {
         fallable: 'replace-falling', resolution: 255, calculateLighting: false,
         lightThreshold: 0, contextualAveraging: false, errorWeight: 0,
     });
-    const exported = new SchemExporter().export(blocks);
+    let exportMesh = blocks;
+    let remapping;
+    if (config.material_proxies) {
+        const result = remapBlocks(blocks.getBlocks(), mapping, config.covered_replacements, config.unsupported_replacements);
+        exportMesh = {
+            getVoxelMesh: () => blocks.getVoxelMesh(),
+            getBlocks: () => result.blocks,
+            getBlockPalette: () => [...new Set(result.blocks.map(b => b.blockInfo.name))],
+        };
+        remapping = { proxies: config.material_proxies, covered_replacements: result.coveredCount,
+            unsupported_replacements: result.unsupportedCount };
+    }
+    const exported = new SchemExporter().export(exportMesh);
     fs.mkdirSync(path.dirname(output), { recursive: true });
     fs.writeFileSync(output, exported.content);
     const counts = {};
-    for (const block of blocks.getBlocks()) {
+    for (const block of exportMesh.getBlocks()) {
         const name = block.blockInfo.name;
         counts[name] = (counts[name] || 0) + 1;
     }
@@ -116,6 +130,7 @@ async function main() {
         height: config.height, triangles: mesh.getTriangleCount(),
         data_version: AppConstants.DATA_VERSION, voxel_options: voxelOptions,
         materials: config.materials, colour_resolution: 255, dithering: 'off', blocks: counts,
+        ...(remapping ? { material_remapping: remapping } : {}),
         fill_enclosed: config.fill_enclosed || null, filled_voxels: filledVoxels,
         note: config.fill_enclosed ? 'Surface voxelisation plus explicit sealed-volume fill; no worldgen integration.'
             : 'Surface voxelisation. No solid filling, interior-air classification or worldgen integration.',

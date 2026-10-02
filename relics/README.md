@@ -16,13 +16,18 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 - [Colossus V3 shader demo](colossus/demo/README.md): three actual Minecraft
   screenshots in normal terrain, separate from generated Blender previews.
 
-## V4 planning from in-game inspection
+## V4 studies from in-game inspection
 
 The V3 models remain selected in Alpha 3. The following documents record the
-agreed visual findings and revision direction, not implemented V4 assets:
+agreed visual findings and revision direction. Colossus V4 now has two offline
+[export variants](colossus/docs/COLOSSUS_V4_EXPORTS.md), with B / open machine frame
+selected by the user. [Obelisk V4](obelisk/docs/OBELISK_V4_EXPORTS.md) and the four
+[Titan Skull V4 variants](titan-skull/docs/TITAN_SKULL_V4_EXPORTS.md) are exported
+and checked offline, awaiting visual acceptance and integration.
 
-- [Colossus V4](colossus/docs/COLOSSUS_V4.md): terrain contact, damaged rear armor,
-  metal readability, arm/hand and head-neck connection.
+- [Colossus V4](colossus/docs/COLOSSUS_V4.md): preserve the overall design; focus on
+  damaged rear armor, a readable hand with potentially raised fingers, and removal
+  or replacement of the simple chest-interior cylinder.
 - [Obelisk V4](obelisk/docs/OBELISK_V4.md): weathering, material readability and
   a naturally buried archaeological site at the foot.
 - [Titan Skull V4](titan-skull/docs/TITAN_SKULL_V4.md): organic mound transitions,

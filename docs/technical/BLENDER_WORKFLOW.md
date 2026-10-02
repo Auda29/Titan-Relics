@@ -1,12 +1,15 @@
 # From Blender to Minecraft relics
 
-Updated: October 1, 2026.
+Updated: October 2, 2026.
 
 ## Pipeline and current status
 
 **Blender → OBJ → ObjToSchematic 1.0 → Sponge `.schem` → Java `.nbt`** is implemented.
-**Integration into the mod build and worldgen is still pending.** The playable
-alpha continues to use `tools/relic_assets.py`.
+Alpha 3 selects the three V3 exports through `tools/integrate_v3.py`; see
+[V3 integration](V3_INTEGRATION.md). **Colossus V4 B / open machine frame is the
+selected design**, awaiting later integration; A is retained for comparison.
+Titan Skull V4 now has four ground palettes, and Obelisk V4 has restrained
+weathering and foundation scatter; both await visual acceptance.
 
 We use the free, open-source **ObjToSchematic 1.0** locally. VoxelVision is no
 longer required. The current 2.0 web product and its Pro features are not needed.
@@ -16,14 +19,18 @@ commit `b611b52c7a87cad99127908598bab019fe9e7c3f`.
 
 | Asset | Config under `relics/<relic>/design/` | Dimensions X/Y/Z | Blocks | Block types | Tiles |
 | --- | --- | --- | --- | --- | --- |
-| First Blender experiment | `colossus-ots.json` | 99 × 66 × 71 | 26,169 | 9 | 19 |
+| Archived first Blender experiment | `../archive/first-concept/colossus-ots.json` | 99 × 66 × 71 | 26,169 | 9 | 19 |
 | [Colossus v2](../../relics/colossus/docs/COLOSSUS_V2.md) | `colossus-v2.json` | 181 × 160 × 227 | 182,734 | 11 | 100 |
 | [Colossus v3](../../relics/colossus/docs/COLOSSUS_V3.md) | `colossus-v3.json` | 181 × 209 × 227 | 221,221 | 11 | 124 |
+| [Colossus V4 A: open](../../relics/colossus/docs/COLOSSUS_V4_EXPORTS.md) | `colossus-v4-open.json` | 181 × 209 × 223 | 221,452 | 11 | 119 |
+| [Colossus V4 B: frame](../../relics/colossus/docs/COLOSSUS_V4_EXPORTS.md) | `colossus-v4-frame.json` | 181 × 209 × 223 | 222,621 | 11 | 119 |
 | [Obelisk v2](../../relics/obelisk/docs/OBELISK_V2.md) | `obelisk-v2.json` | 23 × 209 × 19 | 90,497 | 6 | 7 |
 | [Obelisk v3](../../relics/obelisk/docs/OBELISK_V3.md) | `obelisk-v3.json` | 25 × 185 × 25 | 93,153 | 4 | 6 |
 | [Titan Skull v1](../../relics/titan-skull/docs/TITAN_SKULL_V1.md) | `titan-skull-v1.json` | 185 × 203 × 103 | 103,943 | 4 | 98 |
 | [Titan Skull v2](../../relics/titan-skull/docs/TITAN_SKULL_V2.md) | `titan-skull-v2.json` | 117 × 80 × 105 | 149,894 | 7 | 22 |
 | [Titan Skull v3](../../relics/titan-skull/docs/TITAN_SKULL_V3.md) | `titan-skull-v3.json` | 121 × 79 × 203 | 264,355 | 7 | 37 |
+| [Titan Skull V4](../../relics/titan-skull/docs/TITAN_SKULL_V4_EXPORTS.md) | `titan-skull-v4-{meadow,dry,sand,rock}.json` | 117 × 79 × 179 | 136,569 each | 7 / 7 / 6 / 6 | 31 |
+| [Obelisk V4](../../relics/obelisk/docs/OBELISK_V4_EXPORTS.md) | `obelisk-v4.json` | 59 × 185 × 60 | 95,038 | 6 | 24 |
 
 Colossus v2 follows the original reference; v3 adds the buried abdomen and torn
 hip while keeping almost the same above-ground scale. Obelisk v2 follows *Painted
@@ -50,6 +57,14 @@ rear overview and a cropped spine detail; see its asset page for commands.
 
 Previews render the actual converted NBT with Minecraft textures in Blender.
 They are not in-game evidence.
+
+V4 ground materials use distinct atlas proxies during voxelization, then exact
+state remapping before schematic export (`tools/material_proxy.cjs`). This keeps
+bone materials independent and supports grass absent from the legacy atlas.
+Covered grass becomes dirt; unsupported sand/gravel becomes stable terrain.
+The grass preview is an explicitly approximate dirt/moss composite with tint;
+the actual export uses the native grass block. `node --test tests/*.test.cjs`
+checks the remapping and sealed-volume fill utilities.
 
 ## 1. Set up local tools
 

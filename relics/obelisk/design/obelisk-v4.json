@@ -1,0 +1,26 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "input": "relics/obelisk/design/generated/obelisk-v4/obelisk-v4.obj",
+  "output": "relics/obelisk/design/generated/obelisk-v4/obelisk-v4.schem",
+  "height": 185,
+  "fill_enclosed": "core",
+  "title": "OBELISK V4",
+  "subtitle": "Upright antiprism / restrained weathering / shallow chips / scattered sand and foundations",
+  "reference": "https://www.instagram.com/p/Da0NEq7kUAO/",
+  "materials": {
+    "stone": "minecraft:sandstone", "facet": "minecraft:terracotta",
+    "sunward": "minecraft:smooth_sandstone", "core": "minecraft:sandstone",
+    "worn": "minecraft:cut_sandstone", "mineral": "minecraft:brown_terracotta",
+    "terrain_top": "minecraft:sand", "terrain_patch": "minecraft:sandstone", "terrain_fill": "minecraft:sandstone"
+  },
+  "material_proxies": {"terrain_top": "minecraft:lime_concrete", "terrain_patch": "minecraft:magenta_concrete", "terrain_fill": "minecraft:blue_concrete"},
+  "unsupported_replacements": {"minecraft:sand": "minecraft:sandstone"},
+  "view_labels": ["01 / Editable source", "02 / Actual NBT / front", "03 / Actual NBT / opposite side", "04 / Actual NBT / rear"],
+  "review_footer": "Actual NBT rendered in Blender. Monolith, sand and fragments are exported; staging plane is illustrative. No in-game test.",
+  "preview": {
+    "front": [-140,240,65], "other": [160,240,65], "back": [130,-240,75],
+    "landscape": "v4-deposits", "ground_color": [0.67,0.57,0.36],
+    "comparison": "relics/obelisk/design/generated/obelisk-v3/obelisk-v3.nbt"
+  }
+}

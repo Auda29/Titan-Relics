@@ -1,0 +1,54 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v24.16.0",
+  "input": "relics/titan-skull/design/generated/titan-skull-v4-dry/titan-skull-v4-dry.obj",
+  "output": "relics/titan-skull/design/generated/titan-skull-v4-dry/titan-skull-v4-dry.schem",
+  "source_sha256": "ad9f6745c9594e17d48c8662473e0ee5c791c77ce08c58b9572ad7b527ac832b",
+  "schematic_sha256": "c88fa4f6745f87cdcb5586819c29039e2f47d18e43d55061a84dba906c4c287a",
+  "height": 80,
+  "triangles": 281047,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 80,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "bone": "minecraft:bone_block",
+    "worn": "minecraft:calcite",
+    "mineral": "minecraft:dripstone_block",
+    "earth": "minecraft:brown_terracotta",
+    "moss": "minecraft:green_terracotta",
+    "root": "minecraft:rooted_dirt",
+    "terrain_top": "minecraft:coarse_dirt",
+    "terrain_patch": "minecraft:grass_block[snowy=false]",
+    "terrain_fill": "minecraft:dirt"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:dirt": 106912,
+    "minecraft:bone_block": 14125,
+    "minecraft:dripstone_block": 2077,
+    "minecraft:calcite": 3685,
+    "minecraft:coarse_dirt": 8304,
+    "minecraft:grass_block[snowy=false]": 1222,
+    "minecraft:green_terracotta": 244
+  },
+  "material_remapping": {
+    "proxies": {
+      "terrain_top": "minecraft:lime_concrete",
+      "terrain_patch": "minecraft:magenta_concrete",
+      "terrain_fill": "minecraft:blue_concrete"
+    },
+    "covered_replacements": 122,
+    "unsupported_replacements": 0
+  },
+  "fill_enclosed": null,
+  "filled_voxels": 0,
+  "note": "Surface voxelisation. No solid filling, interior-air classification or worldgen integration."
+}

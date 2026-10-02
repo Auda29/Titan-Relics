@@ -27,6 +27,22 @@ See [V3 integration](docs/technical/V3_INTEGRATION.md) for contracts and viewing
 
 ## Unreleased — asset pipeline and documentation
 
+- Added four Titan Skull V4 exports (meadow, dry earth, sand, rock), preserving
+  all 62 anatomy meshes while replacing the continuous hill with interrupted,
+  tapered deposits and a lighter fossil palette. Reduced terrain by 52.44%.
+- Added Obelisk V4 with restrained material weathering, four shallow edge chips,
+  asymmetric sand and three foundation fragments; retained height, antiprism
+  geometry, rotated crown and solid core. Both relics await visual acceptance.
+- Added semantic terrain material remapping, supported sand/gravel and exposed
+  grass rules, source/export validation, and V4 variant/comparison reviews.
+
+- Added Colossus V4 open/frame export studies: asymmetrically damaged rear armour,
+  a raised anatomically right hand, and two alternatives for the plain chest piston.
+  Preserved 397 V3 source meshes and its body scale; added NBT detail comparisons,
+  hand/rear/cavity checks, and a chest-only A/B difference check. Build selection
+  remains V3. The user selected B / open machine frame on October 2, 2026;
+  A remains available for comparison, and integration is pending.
+
 - Archived the original Colossus concept under `relics/colossus/archive/first-concept/`
   as the basis for a second, smaller Colossus. Preserved models and exports and
   updated reproduction and size-comparison paths.

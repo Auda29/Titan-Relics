@@ -1,5 +1,9 @@
 # Colossus design assets
 
+- Selected V4: [B — open machine frame](colossus-v4-frame.json).
+  [A — open chest](colossus-v4-open.json) remains a comparison alternative;
+  [comparison and commands](../docs/COLOSSUS_V4_EXPORTS.md).
+
 - [V3 configuration](colossus-v3.json) and [outputs](generated/colossus-v3/)
 - [V2 configuration](colossus-v2.json) and [outputs](generated/colossus-v2/)
 - [Archived first concept](../archive/first-concept/), reserved as the basis for a
