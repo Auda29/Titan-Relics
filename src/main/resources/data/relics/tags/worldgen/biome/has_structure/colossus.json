@@ -4,11 +4,6 @@
     "minecraft:plains",
     "minecraft:sunflower_plains",
     "minecraft:meadow",
-    "minecraft:savanna",
-    {
-      "id": "terralith:steppe",
-      "required": false
-    },
     {
       "id": "terralith:blooming_valley",
       "required": false
@@ -19,6 +14,11 @@
     },
     {
       "id": "biomesoplenty:prairie",
+      "required": false
+    },
+    "minecraft:savanna",
+    {
+      "id": "terralith:steppe",
       "required": false
     },
     {

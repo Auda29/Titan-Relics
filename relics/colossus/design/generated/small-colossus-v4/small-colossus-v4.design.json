@@ -1,0 +1,441 @@
+{
+  "name": "Small Colossus V4 / Dormant Vigilant",
+  "reference": "https://www.instagram.com/reel/Da-s0zqi7OQ/",
+  "visual_acceptance": "V4 review pending",
+  "revision_v4": {
+    "primary_reference_segment_seconds": [
+      0,
+      4.5
+    ],
+    "reference_brief": "relics/colossus/docs/SMALL_COLOSSUS_V4_REFERENCE.md",
+    "direction": "Massive dormant plated specimen with multi-optic face and pincer hands",
+    "closed_source_head_volume": 50438.4793053602,
+    "head_optics": [
+      {
+        "name": "Main left eye",
+        "center_source": [
+          -13.5,
+          59.0,
+          -20.0
+        ],
+        "normal_source": [
+          -0.2854683995246887,
+          0.11418735980987549,
+          -0.9515613317489624
+        ],
+        "dark_probe_source": [
+          -14.641873359680176,
+          59.456748962402344,
+          -23.806245803833008
+        ],
+        "lens_radii": [
+          5.148,
+          3.7439999999999998
+        ]
+      },
+      {
+        "name": "Main right eye",
+        "center_source": [
+          13.5,
+          58.0,
+          -20.5
+        ],
+        "normal_source": [
+          0.2860387861728668,
+          0.09534626454114914,
+          -0.9534626007080078
+        ],
+        "dark_probe_source": [
+          14.644155502319336,
+          58.381385803222656,
+          -24.31385040283203
+        ],
+        "lens_radii": [
+          5.148,
+          3.7439999999999998
+        ]
+      },
+      {
+        "name": "Upper left eye",
+        "center_source": [
+          -5.199999809265137,
+          67.0,
+          -18.0
+        ],
+        "normal_source": [
+          -0.11147487163543701,
+          0.35300377011299133,
+          -0.9289572834968567
+        ],
+        "dark_probe_source": [
+          -5.645899295806885,
+          68.41201782226562,
+          -21.715829849243164
+        ],
+        "lens_radii": [
+          2.1839999999999997,
+          1.9500000000000002
+        ]
+      },
+      {
+        "name": "Upper right eye",
+        "center_source": [
+          5.199999809265137,
+          66.5,
+          -18.5
+        ],
+        "normal_source": [
+          0.11254341900348663,
+          0.3282516598701477,
+          -0.9378618597984314
+        ],
+        "dark_probe_source": [
+          5.650173664093018,
+          67.81300354003906,
+          -22.251447677612305
+        ],
+        "lens_radii": [
+          2.1839999999999997,
+          1.9500000000000002
+        ]
+      },
+      {
+        "name": "Lower left cheek eye",
+        "center_source": [
+          -13.0,
+          43.0,
+          -19.0
+        ],
+        "normal_source": [
+          -0.2400076687335968,
+          -0.14400461316108704,
+          -0.9600306749343872
+        ],
+        "dark_probe_source": [
+          -13.960030555725098,
+          42.423980712890625,
+          -22.84012222290039
+        ],
+        "lens_radii": [
+          2.34,
+          2.028
+        ]
+      },
+      {
+        "name": "Lower right cheek eye",
+        "center_source": [
+          13.0,
+          42.5,
+          -19.0
+        ],
+        "normal_source": [
+          0.2400076687335968,
+          -0.14400461316108704,
+          -0.9600306749343872
+        ],
+        "dark_probe_source": [
+          13.960030555725098,
+          41.923980712890625,
+          -22.84012222290039
+        ],
+        "lens_radii": [
+          2.34,
+          2.028
+        ]
+      }
+    ],
+    "grille_rib_probes_source": [
+      [
+        -5.166,
+        46.18,
+        -31.282
+      ],
+      [
+        -3.444,
+        46.18,
+        -31.282
+      ],
+      [
+        -1.722,
+        46.18,
+        -31.282
+      ],
+      [
+        0.0,
+        46.18,
+        -31.282
+      ],
+      [
+        1.722,
+        46.18,
+        -31.282
+      ],
+      [
+        3.444,
+        46.18,
+        -31.282
+      ],
+      [
+        5.166,
+        46.18,
+        -31.282
+      ]
+    ],
+    "pincers": [
+      {
+        "name": "Foreground left pincer",
+        "center_source": [
+          -38.0,
+          7.0,
+          -31.0
+        ],
+        "scale": 1,
+        "ports": [
+          {
+            "name": "Foreground left pincer | central hand port",
+            "center_source": [
+              -38.0,
+              13.0,
+              -34.0
+            ],
+            "normal_source": [
+              0.0,
+              0.8485586047172546,
+              -0.5291012525558472
+            ],
+            "dark_probe_source": [
+              -38.0,
+              16.39423370361328,
+              -36.11640548706055
+            ],
+            "lens_radii": [
+              2.4960000000000004,
+              2.1216000000000004
+            ]
+          },
+          {
+            "name": "Foreground left pincer | outer hand port",
+            "center_source": [
+              -44.0,
+              11.5,
+              -28.0
+            ],
+            "normal_source": [
+              -0.3094263970851898,
+              0.9282791614532471,
+              -0.2062842696905136
+            ],
+            "dark_probe_source": [
+              -45.23770523071289,
+              15.213116645812988,
+              -28.825136184692383
+            ],
+            "lens_radii": [
+              1.9500000000000002,
+              1.6575
+            ]
+          },
+          {
+            "name": "Foreground left pincer | inner hand port",
+            "center_source": [
+              -32.0,
+              11.5,
+              -28.0
+            ],
+            "normal_source": [
+              0.3094263970851898,
+              0.9282791614532471,
+              -0.2062842696905136
+            ],
+            "dark_probe_source": [
+              -30.76229476928711,
+              15.213116645812988,
+              -28.825136184692383
+            ],
+            "lens_radii": [
+              1.9500000000000002,
+              1.6575
+            ]
+          }
+        ],
+        "tine_tips_source": [
+          [
+            -39.0,
+            2.680000066757202,
+            -63.0
+          ],
+          [
+            -37.0,
+            2.680000066757202,
+            -63.0
+          ],
+          [
+            -38.0,
+            2.680000066757202,
+            -54.0
+          ]
+        ]
+      },
+      {
+        "name": "Right grounded pincer",
+        "center_source": [
+          36.0,
+          6.0,
+          -21.0
+        ],
+        "scale": 0.85,
+        "ports": [
+          {
+            "name": "Right grounded pincer | central hand port",
+            "center_source": [
+              36.0,
+              11.100000381469727,
+              -23.549999237060547
+            ],
+            "normal_source": [
+              0.0,
+              0.8485586047172546,
+              -0.5291012525558472
+            ],
+            "dark_probe_source": [
+              36.0,
+              14.494235038757324,
+              -25.666404724121094
+            ],
+            "lens_radii": [
+              2.1216000000000004,
+              1.8033600000000003
+            ]
+          },
+          {
+            "name": "Right grounded pincer | outer hand port",
+            "center_source": [
+              30.899999618530273,
+              9.824999809265137,
+              -18.450000762939453
+            ],
+            "normal_source": [
+              -0.3094263970851898,
+              0.9282791614532471,
+              -0.2062842696905136
+            ],
+            "dark_probe_source": [
+              29.662294387817383,
+              13.538116455078125,
+              -19.275136947631836
+            ],
+            "lens_radii": [
+              1.6575,
+              1.4088749999999999
+            ]
+          },
+          {
+            "name": "Right grounded pincer | inner hand port",
+            "center_source": [
+              41.099998474121094,
+              9.824999809265137,
+              -18.450000762939453
+            ],
+            "normal_source": [
+              0.3094263970851898,
+              0.9282791614532471,
+              -0.2062842696905136
+            ],
+            "dark_probe_source": [
+              42.337703704833984,
+              13.538116455078125,
+              -19.275136947631836
+            ],
+            "lens_radii": [
+              1.6575,
+              1.4088749999999999
+            ]
+          }
+        ],
+        "tine_tips_source": [
+          [
+            35.150001525878906,
+            2.3279998302459717,
+            -48.20000076293945
+          ],
+          [
+            36.849998474121094,
+            2.3279998302459717,
+            -48.20000076293945
+          ],
+          [
+            36.0,
+            2.3279998302459717,
+            -40.55000305175781
+          ]
+        ]
+      }
+    ],
+    "solid_core_probes_source": [
+      [
+        0,
+        20,
+        10
+      ],
+      [
+        0,
+        53,
+        0
+      ]
+    ],
+    "body_connection_source": [
+      0,
+      20,
+      10
+    ],
+    "head_connection_source": [
+      0,
+      60,
+      -5
+    ],
+    "continuous_body_source_y": [
+      13,
+      23,
+      34
+    ],
+    "hidden_completion_authored": [
+      "back",
+      "second arm attachment",
+      "buried lower body",
+      "three-tine pincer anatomy"
+    ],
+    "archive_meshes_reused": 0,
+    "large_asset_meshes_reused": 0
+  },
+  "new_relic_v1": {
+    "family": "small-colossus",
+    "v5_interiors": false,
+    "rewards_inherited": false
+  },
+  "source_bounds_blender": [
+    [
+      -58.0,
+      -39.0,
+      -9.0
+    ],
+    [
+      54.0,
+      63.63651657104492,
+      74.05855560302734
+    ]
+  ],
+  "blocks_per_source_unit": 0.999295008171016,
+  "height_target_blocks": 84,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 9,
+  "mesh_count": 123,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "config": "relics/colossus/design/small-colossus-v4.json",
+  "planned_site_size": [
+    120,
+    84,
+    108
+  ],
+  "source_blend_sha256": "acf9ef0469f5f9063f1114bade379a5af6e631e51b240fffe63a362577d4e866"
+}

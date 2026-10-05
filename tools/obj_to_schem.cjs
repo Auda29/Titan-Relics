@@ -82,7 +82,23 @@ async function main() {
         useMultisampleColouring: false, voxelOverlapRule: 'first',
         enableAmbientOcclusion: false,
     };
-    const voxels = VoxeliserFactory.GetVoxeliser(voxelOptions.voxeliser).voxelise(mesh, voxelOptions);
+    const voxelise = () => VoxeliserFactory.GetVoxeliser(voxelOptions.voxeliser).voxelise(mesh, voxelOptions);
+    let voxels;
+    let materialPriority;
+    if (config.structural_material_priority) {
+        const colours = config.structural_material_priority.map(name => {
+            const block = config.material_proxies?.[name] || config.materials[name];
+            if (!block || !materials.has(name)) throw new Error(`Unknown structural priority material: ${name}`);
+            return atlas.getBlocks().get(block).colour;
+        });
+        const { withMaterialPriority } = require('./voxel_material_priority.cjs');
+        const result = withMaterialPriority(load('voxel_mesh.ts').VoxelMesh, colours, voxelise);
+        voxels = result.mesh;
+        materialPriority = { materials: config.structural_material_priority, replaced_overlap_cells: result.replacements };
+        console.log(`Preserved structural surfaces in ${result.replacements} overlapping material cells`);
+    } else {
+        voxels = voxelise();
+    }
     let filledVoxels = 0;
     if (config.fill_enclosed) {
         const block = config.material_proxies?.[config.fill_enclosed] || config.materials[config.fill_enclosed];
@@ -131,6 +147,7 @@ async function main() {
         data_version: AppConstants.DATA_VERSION, voxel_options: voxelOptions,
         materials: config.materials, colour_resolution: 255, dithering: 'off', blocks: counts,
         ...(remapping ? { material_remapping: remapping } : {}),
+        ...(materialPriority ? { structural_material_priority: materialPriority } : {}),
         fill_enclosed: config.fill_enclosed || null, filled_voxels: filledVoxels,
         note: config.fill_enclosed ? 'Surface voxelisation plus explicit sealed-volume fill; no worldgen integration.'
             : 'Surface voxelisation. No solid filling, interior-air classification or worldgen integration.',

@@ -1,0 +1,15 @@
+{
+  "name": "relics:titan_skull_sand",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "relics:titan_skull_sand_worldgen",
+        "processors": "relics:titan_skull_sand_terrain",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

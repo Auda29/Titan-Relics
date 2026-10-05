@@ -7,6 +7,22 @@ crowned Titan Skull. The playable Alpha 3 build still selects the three V3 asset
 
 ## Review
 
+### User feedback — October 4, 2026
+
+- **Titan Skull 2:** visually accepted for now; the user likes the current V1.
+- **Small Colossus:** revision required. V1 still resembles the original test
+  Colossus too closely; the archive-preservation brief needs to be reconsidered.
+  The user selected an independent relative of the accepted large Colossus,
+  sharing its visual language with different proportions and pose.
+- **World Tree:** revision required. The current tree does not look natural enough.
+- **Ruined Tower:** the user selected **220 blocks above nominal ground**, at
+  approximately the existing width.
+
+These are visual review decisions. The dimensions below describe the existing
+V1 exports; game integration is still pending.
+
+See the [October 4 V2 revisions](RELICS_V2_REVIEW.md) for the resulting new candidates.
+
 | Asset | Actual X × Y × Z | Blocks | Ground Y |
 | --- | --- | ---: | ---: |
 | Ruined Tower | 111 × 192 × 93 | 276,868 | 12 |

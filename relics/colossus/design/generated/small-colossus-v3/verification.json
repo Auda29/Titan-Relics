@@ -1,0 +1,39 @@
+{
+  "size": [
+    97,
+    84,
+    81
+  ],
+  "blocks": 24449,
+  "palette_entries": 8,
+  "tiles": 14,
+  "data_version": 3105,
+  "schematic_sha256": "0b269cfdb73934439d3894327ac253fad803a9a13936078839964248ade88d40",
+  "nbt_sha256": "a98c0256db74859f1047444c36c91d77ad4231eea1c2ce6072412efc4aca992f",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "revision_v3": {
+    "family": "small-colossus",
+    "ground_level": 8,
+    "void_probes": 2,
+    "structural_probes": 2,
+    "source_blend_sha256": "8edafb68f7f19c9d7f22231b76a414c3d3436b728cfb414c03fd4e6d99b66560",
+    "collar_to_buried_body_connected": true,
+    "copper_blocks": 722,
+    "mask_to_body_connected": true,
+    "both_attached_arms_connected": true,
+    "waist_to_chest_width_ratio": 0.40617647058823547,
+    "mask_bounds_source_units": [
+      14.35614195214697,
+      22.559651639088088,
+      17.43245808474989
+    ],
+    "mask_height_to_width_ratio": 1.571428571428571
+  }
+}

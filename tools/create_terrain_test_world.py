@@ -9,11 +9,40 @@ import socket
 import subprocess
 import sys
 import time
+import zipfile
 
-from install_test_profile import prepare_level
+from install_test_profile import prepare_level, validate_natural
 from relic_assets import decode_nbt
 from smoke_server import Console, DEFAULT_CACHE, DEFAULT_JAVA, DEFAULT_SERVER, ROOT, inspect_world, prepare_classpath, sha256
-from verify_world import AIR_NAMES, AnvilWorld, verify_world
+from verify_world import AIR_NAMES, AnvilWorld, verify_world, transform, protected_cell
+
+
+def placement_regions(report):
+    """Regions touched by recorded manual boxes, including negative coordinates."""
+    selection = {a["id"]: a for a in report.get("asset_selection", {}).get("structures", [])}
+    if not selection:
+        # Recorded historical Alpha 3 report format.
+        from integrate_v3 import ASSETS
+        selection = ASSETS
+    regions = set()
+    for placement in report.get("manual_placements", []):
+        name = placement["structure"].split(":")[1]
+        x, _, z = placement["requested_position"]
+        sx, _, sz = selection[name]["size"]
+        for rx in range(x // 512, (x + sx - 1) // 512 + 1):
+            for rz in range(z // 512, (z + sz - 1) // 512 + 1):
+                regions.add(f"r.{rx}.{rz}.mca")
+    return regions
+
+
+def front_view(instance, distance=48):
+    box = instance["bounding_box"]
+    cx, cz = (box[0] + box[3]) // 2, (box[2] + box[5]) // 2
+    views = {"NONE": (cx, box[2] - distance, 0),
+             "CLOCKWISE_90": (box[3] + distance, cz, 90),
+             "CLOCKWISE_180": (cx, box[5] + distance, 180),
+             "COUNTERCLOCKWISE_90": (box[0] - distance, cz, -90)}
+    return views[instance["rotation"]]
 
 
 def main() -> int:
@@ -21,6 +50,8 @@ def main() -> int:
     parser.add_argument("--accept-eula", action="store_true")
     parser.add_argument("--profile", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True, help="Completed normal-terrain runtime report")
+    parser.add_argument("--allow-feature-overwrites", action="store_true",
+                        help="Explicit visual-test acknowledgement, not strict natural acceptance")
     args = parser.parse_args()
     if not args.accept_eula:
         parser.error("Read https://aka.ms/MinecraftEULA and pass --accept-eula for this isolated local server")
@@ -28,10 +59,14 @@ def main() -> int:
     if source_report.get("showcase") or source_report.get("failure") or source_report.get("exit_code") != 0:
         raise ValueError("A completed normal-terrain server run is required")
     instances = source_report["world_blocks"]["instances"]
-    expected = {"relics:colossus", "relics:obelisk", "relics:titan_skull"}
-    if (not expected <= {i["structure"] for i in instances} or
-            any(i["missing_chunks"] or i["incomplete_chunks"] or not i["bounding_box_matches"] for i in instances)):
-        raise ValueError("Source world must contain all three complete natural relics")
+    expected = set(source_report.get("expected_natural_structures", ["relics:colossus", "relics:obelisk", "relics:titan_skull"]))
+    if not expected:
+        raise ValueError("Source report must declare natural structures")
+    validate_natural(source_report, expected, args.allow_feature_overwrites)
+    if (not expected <= {i["structure"] for i in instances} or source_report["world_blocks"].get("overlaps") or
+            any(i["missing_chunks"] or i["incomplete_chunks"] or not i["bounding_box_matches"] or
+                not i.get("foundation_contact", {}).get("passed", True) for i in instances)):
+        raise ValueError("Source world must contain all expected complete natural relics")
     if sys.platform == "win32":
         processes = subprocess.run(["powershell", "-NoProfile", "-Command",
             "Get-Process java,javaw -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Id"],
@@ -41,7 +76,10 @@ def main() -> int:
     if not (args.profile / "saves").is_dir():
         raise ValueError("The selected test profile's saves directory must exist")
     stamp = time.strftime("%Y%m%d-%H%M%S")
-    title = f"Relic V3 Terrain {stamp}"
+    relic_artifact = next(a["file"] for a in source_report["artifacts"] if a["file"].startswith("relics-"))
+    label = ("Alpha " + relic_artifact.split("-alpha.", 1)[1].split("+", 1)[0]
+             if "-alpha.4" in relic_artifact else "V3")
+    title = f"Relic {label} Terrain {stamp}"
     run = ROOT / f"build/terrain-preview/{stamp}"
     run.mkdir(parents=True, exist_ok=False)
     (run / "mods").mkdir()
@@ -51,10 +89,16 @@ def main() -> int:
             raise ValueError(f"Installed dependency/artifact differs from tested run: {source.name}")
         shutil.copy2(source, run / "mods" / source.name)
     source_world = Path(source_report["run_directory"]) / "world"
-    # The old harness placed manual comparison models exclusively in Overworld
-    # regions (0,0) and (1,0). Omit their blocks, entities and POI during the copy.
-    # Source files are never deleted. Those areas regenerate normally if visited.
-    manual_regions = {"r.0.0.mca", "r.1.0.mca"}
+    # Omit recorded manual regions from the new copy, never from the source save.
+    # Guard against throwing away a verified natural start in the same region.
+    manual_regions = placement_regions(source_report)
+    for instance in instances:
+        box = instance["bounding_box"]
+        occupied = {f"r.{rx}.{rz}.mca"
+                    for rx in range(box[0] // 512, box[3] // 512 + 1)
+                    for rz in range(box[2] // 512, box[5] // 512 + 1)}
+        if manual_regions & occupied:
+            raise ValueError("Manual-region exclusion overlaps a natural relic; a different source run is required")
     overworld = source_world / "dimensions/minecraft/overworld"
     def ignore(directory, names):
         directory = Path(directory)
@@ -66,10 +110,7 @@ def main() -> int:
     shutil.copytree(source_world, world_path, ignore=ignore)
     (world_path / "level.dat").write_bytes(prepare_level((world_path / "level.dat").read_bytes(), title))
     colossus = next(i for i in instances if i["structure"] == "relics:colossus")
-    bb = colossus["bounding_box"]
-    if colossus["rotation"] != "COUNTERCLOCKWISE_90":
-        raise ValueError("This recorded preview expects the tested west-facing Colossus")
-    view_x, view_z = bb[0] - 48, (bb[2] + bb[5]) // 2
+    view_x, view_z, yaw = front_view(colossus)
     classpath = prepare_classpath(DEFAULT_CACHE, DEFAULT_SERVER, ROOT / "build/smoke/runtime")
     with socket.socket() as sock:
         sock.bind(("127.0.0.1", 0))
@@ -93,6 +134,7 @@ def main() -> int:
                                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
     console = Console(process, run / "console.log")
     commands = []
+    editability = None
     def command(text, pattern):
         response = console.command(text, pattern + r"|Incomplete|Incorrect|Unknown command|Expected", timeout=180)
         if any(error in response for error in ("Incomplete", "Incorrect", "Unknown command", "Expected")):
@@ -112,8 +154,45 @@ def main() -> int:
         command("save-all flush", r"Saved the game")
         saved = AnvilWorld(world_path)
         ground = next(y + 1 for y in range(319, -64, -1)
-                      if saved.block(view_x, y, view_z)["Name"] not in AIR_NAMES)
-        command(f"setworldspawn {view_x} {ground} {view_z} -90 0", r"Set the world spawn")
+                       if saved.block(view_x, y, view_z)["Name"] not in AIR_NAMES)
+        # Probe an actual protected art cell after reloading the copied world.
+        # Server-level writes must remain editable; both writes affect this new
+        # isolated copy only, and the exact original state is restored immediately.
+        if colossus.get("feature_protection", {}).get("passed"):
+            from terrain_foundations import SOILS
+            artifact = next(run / "mods" / a["file"] for a in source_report["artifacts"] if a["file"].startswith("relics-"))
+            with zipfile.ZipFile(artifact) as archive:
+                template = decode_nbt(archive.read("data/relics/structure/colossus_worldgen.nbt"))
+            art = [b for b in template["blocks"] if template["palette"][b["state"]]["Name"] not in
+                   SOILS | AIR_NAMES | {"minecraft:jigsaw"}]
+            cell = max(art, key=lambda b: b["pos"][1])
+            pos = transform(cell["pos"], colossus["rotation"], colossus["origin"])
+            actual = saved.block(*pos)
+            if not protected_cell(saved.chunk(pos[0] // 16, pos[2] // 16), pos):
+                raise ValueError("Editability probe must use a persisted protected cell")
+            xyz = " ".join(map(str, pos))
+            command(f"forceload add {pos[0]} {pos[2]}", r"Marked|force loaded|No chunks")
+            deadline = time.monotonic() + 180
+            while "Test passed" not in command(f"execute if loaded {xyz}", r"Test passed|Test failed"):
+                if time.monotonic() > deadline:
+                    raise TimeoutError("Protected-cell probe chunk did not load")
+                time.sleep(1)
+            state = actual["Name"]
+            if actual.get("Properties"):
+                state += "[" + ",".join(f"{k}={v}" for k, v in sorted(actual["Properties"].items())) + "]"
+            try:
+                command(f"setblock {xyz} minecraft:air", r"Changed|Could not|could not|unchanged")
+                removed = command(f"execute if block {xyz} minecraft:air", r"Test passed|Test failed")
+                if "Test passed" not in removed:
+                    raise ValueError("Placed relic cell could not be removed by a normal server-level edit")
+            finally:
+                command(f"setblock {xyz} {state}", r"Changed|Could not|could not|unchanged")
+            restored = command(f"execute if block {xyz} {state}", r"Test passed|Test failed")
+            if "Test passed" not in restored:
+                raise ValueError("Placed relic cell could not be restored")
+            editability = {"position": list(pos), "state": actual, "persisted_mask_present": True,
+                           "normal_removal_passed": True, "normal_placement_passed": True}
+        command(f"setworldspawn {view_x} {ground} {view_z} {yaw} 0", r"Set the world spawn")
         command("gamerule minecraft:spawn_mobs true", r"Gamerule")
         command("gamerule minecraft:random_tick_speed 3", r"Gamerule")
         command("difficulty normal", r"difficulty|Difficulty")
@@ -132,16 +211,22 @@ def main() -> int:
     if loaded["LevelName"] != title or loaded["GameType"] != 1 or loaded["allowCommands"] != 1:
         raise ValueError("New save must retain its unique title, creative mode and cheats")
     artifact = next(run / "mods" / a["file"] for a in source_report["artifacts"] if a["file"].startswith("relics-"))
-    verification = verify_world(world_path, artifact)
+    verification = verify_world(world_path, artifact, expected_structures=expected)
+    preview_report = dict(source_report, world_blocks=verification, passed=verification["passed"])
+    validate_natural(preview_report, expected, args.allow_feature_overwrites)
     if (not expected <= {i["structure"] for i in verification["instances"]} or
             any(i["missing_chunks"] or i["incomplete_chunks"] for i in verification["instances"]) or
-            verification["read_errors"] or verification["verification_errors"]):
+             verification["read_errors"] or verification["verification_errors"] or verification.get("overlaps") or
+             any(not i.get("foundation_contact", {}).get("passed", True) for i in verification["instances"])):
         raise ValueError("Natural relics must remain complete in the new terrain copy")
     destination = args.profile / "saves" / title
     shutil.copytree(world_path, destination)
     result = {"world_title": title, "world_path": str(destination), "seed": source_report["seed"],
               "spawn": loaded["spawn"], "manual_test_regions_omitted": sorted(manual_regions),
-              "existing_worlds_modified": False, "commands": commands,
+               "existing_worlds_modified": False, "commands": commands,
+               "strict_natural_verification_passed": verification["passed"],
+               "feature_overwrites_acknowledged": args.allow_feature_overwrites,
+               "protected_cell_editability": editability,
               "natural_structure_starts": inspect_world(destination)["natural_structure_starts"],
               "verification": verification}
     (run / "report.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")

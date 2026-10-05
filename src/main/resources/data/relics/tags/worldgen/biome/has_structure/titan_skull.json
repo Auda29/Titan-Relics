@@ -1,11 +1,20 @@
 {
   "replace": false,
   "values": [
-    "minecraft:plains", "minecraft:sunflower_plains", "minecraft:meadow", "minecraft:savanna",
-    {"id": "terralith:steppe", "required": false},
-    {"id": "terralith:blooming_valley", "required": false},
-    {"id": "terralith:blooming_plateau", "required": false},
-    {"id": "biomesoplenty:prairie", "required": false},
-    {"id": "biomesoplenty:scrubland", "required": false}
+    "minecraft:plains",
+    "minecraft:sunflower_plains",
+    "minecraft:meadow",
+    {
+      "id": "terralith:blooming_valley",
+      "required": false
+    },
+    {
+      "id": "terralith:blooming_plateau",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:prairie",
+      "required": false
+    }
   ]
 }

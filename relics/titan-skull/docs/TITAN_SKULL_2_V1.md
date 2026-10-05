@@ -1,6 +1,12 @@
 # Titan Skull 2 V1 — the embedded sword
 
-Status: **first independent skull/sword export; visual review pending**.
+**Integration update, October 4:** visually accepted for now and selected in
+Alpha 4. See [integration](../../../docs/technical/ALPHA_4_INTEGRATION.md) and
+[runtime status](../../../docs/testing/ALPHA_4_TEST_REPORT.md). The original
+candidate report below is retained; the planned grotto remains unimplemented.
+
+Status: **visually accepted for now on October 4, 2026; game integration pending**.
+The user likes the current independent skull/sword V1.
 
 - [Four-view review](../design/generated/titan-skull-2-v1/titan-skull-2-v1-review.png)
 - [Face/weapon details](../design/generated/titan-skull-2-v1/titan-skull-2-v1-detail-review.png)

@@ -21,6 +21,9 @@ import threading
 import time
 import zipfile
 import zlib
+import uuid
+
+from relic_catalog import ASSETS, FAMILIES
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CACHE = Path("E:/Roaming/ModrinthApp")
@@ -147,11 +150,12 @@ def prepare_classpath(cache: Path, bundler: Path, destination: Path) -> list[Pat
 
 
 class Console:
-    def __init__(self, process, log_path):
+    def __init__(self, process, log_path, echo=True):
         self.process = process
         self.lines = []
         self.condition = threading.Condition()
         self.log_path = log_path
+        self.echo = echo
         self.thread = threading.Thread(target=self._read, daemon=True)
         self.thread.start()
 
@@ -163,7 +167,8 @@ class Console:
                 with self.condition:
                     self.lines.append(line.rstrip())
                     self.condition.notify_all()
-                print(line.rstrip(), flush=True)
+                if self.echo:
+                    print(line.rstrip(), flush=True)
 
     def wait(self, pattern, start=0, timeout=120):
         deadline = time.monotonic() + timeout
@@ -199,9 +204,19 @@ def main() -> int:
     parser.add_argument("--integration", action="store_true")
     parser.add_argument("--showcase", action="store_true", help="Build a flat creative preview world; validate manual placements instead of natural starts")
     parser.add_argument("--settings-pack", type=Path, help="Copy an already generated settings ZIP into the fresh world's datapacks")
-    parser.add_argument("--disabled-structure", action="append", choices=["obelisk", "colossus", "titan_skull"], default=[],
-                        help="Expect locate to find no natural instance of this disabled structure; manual templates still run")
+    parser.add_argument("--disabled-structure", action="append", choices=FAMILIES, default=[],
+                         help="Expect locate to find no natural instance of this disabled structure; manual templates still run")
+    parser.add_argument("--structure", action="append", choices=tuple(ASSETS),
+                        help="Limit runtime inspection to named structures (default: every selected template/variant)")
     parser.add_argument("--seed", type=int, default=731204)
+    parser.add_argument("--locate-from", nargs=2, type=int, metavar=("X", "Z"),
+                        help="Explicit console locator origin; recorded in evidence, without manually placing natural relics")
+    parser.add_argument("--quiet", action="store_true", help="Keep detailed server output in console.log, not the terminal")
+    parser.add_argument("--natural-area", nargs=4, type=int, action="append", metavar=("X1", "Z1", "X2", "Z2"),
+                        help="Generate additional regression-site chunks naturally, never with /place")
+    parser.add_argument("--skip-locate", action="store_true", help="Inspect saved natural starts from explicit regression areas instead of locators")
+    parser.add_argument("--debug-terrain-at", nargs=2, type=int, metavar=("X", "Z"),
+                        help="Log the first failed terrain sample in one regression-site start chunk")
     parser.add_argument("--startup-timeout", type=int, default=180)
     parser.add_argument("--command-timeout", type=int, default=180)
     parser.add_argument("--prepare-only", action="store_true", help="Extract cached server libraries, without starting Java")
@@ -218,7 +233,7 @@ def main() -> int:
     artifact = args.artifact or ROOT / "dist" / f"relics-{current_version}+mc26.2.jar"
     if artifact is None or not artifact.is_file():
         parser.error("Build the alpha first or pass --artifact")
-    run = smoke / (time.strftime("run-%Y%m%d-%H%M%S") + f"-{time.time_ns() % 1000000:06d}")
+    run = smoke / (time.strftime("run-%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:12])
     (run / "mods").mkdir(parents=True)
     if args.settings_pack:
         packs = run / "world/datapacks"
@@ -226,14 +241,16 @@ def main() -> int:
         shutil.copy2(args.settings_pack, packs / args.settings_pack.name)
     files = [artifact] + [args.mods_source / name for name in BASE_MODS + (INTEGRATION_MODS if args.integration else [])]
     evidence = {"seed": args.seed, "run_directory": str(run), "integration": args.integration, "showcase": args.showcase,
-                "eula_accepted_explicitly": True, "artifacts": [], "commands": [], "passed": False}
-    expected_structures = {"relics:" + name for name in ("obelisk", "colossus", "titan_skull") if name not in args.disabled_structure}
-    evidence["expected_natural_structures"] = sorted(expected_structures)
+                 "eula_accepted_explicitly": True, "artifacts": [], "commands": [], "passed": False}
+    if args.locate_from:
+        evidence["locate_origin"] = args.locate_from
+    if args.natural_area:
+        evidence["natural_regression_areas"] = args.natural_area
     if args.settings_pack:
         settings_snapshot = run / "world/datapacks" / args.settings_pack.name
         with zipfile.ZipFile(settings_snapshot) as archive:
             overrides = {name: json.loads(archive.read(f"data/relics/worldgen/structure_set/{name}.json"))
-                         for name in ("obelisk", "colossus", "titan_skull")}
+                         for name in FAMILIES}
         evidence["settings_pack"] = {"file": args.settings_pack.name, "sha256": sha256(settings_snapshot),
                                      "structure_set_overrides": overrides}
     for source in files:
@@ -242,6 +259,20 @@ def main() -> int:
     # The world must be verified against the exact JAR loaded for this run,
     # even if another developer rebuilds dist/ while the server is running.
     artifact = run / "mods" / artifact.name
+    with zipfile.ZipFile(artifact) as archive:
+        selection = json.loads(archive.read("relics.integration.json"))
+    selected = {a["id"]: a for a in selection["structures"]
+                if not args.structure or a["id"] in args.structure}
+    if not selected or (args.structure and set(args.structure) - set(selected)):
+        raise ValueError("Requested structure is not present in the launched artifact's selection")
+    disabled = {a["id"] for a in selection["structures"] if a["family"] in args.disabled_structure}
+    expected_structures = {"relics:" + name for name in selected if name not in disabled}
+    if args.showcase:
+        expected_structures = set()
+    evidence["asset_selection"] = selection
+    evidence["selected_templates"] = sorted(selected)
+    evidence["expected_manual_count"] = len(selected)
+    evidence["expected_natural_structures"] = sorted(expected_structures)
     with socket.socket() as candidate:
         candidate.bind(("127.0.0.1", 0))
         port = candidate.getsockname()[1]
@@ -263,6 +294,10 @@ def main() -> int:
     (run / "server.properties").write_text("".join(f"{key}={value}\n" for key, value in properties.items()))
     arguments = ["-Xms512M", "-Xmx4G", "-Djava.awt.headless=true", "-cp", ";".join(map(str, classpath)),
                  "net.fabricmc.loader.impl.launch.knot.KnotServer", "nogui"]
+    if args.debug_terrain_at:
+        chunk = [v // 16 for v in args.debug_terrain_at]
+        arguments.insert(0, f"-Drelics.debugTerrainChunk={chunk[0]},{chunk[1]}")
+        evidence["debug_terrain_chunk"] = chunk
     # A Java argument file avoids Windows' process command-line length limit.
     argfile = run / "java-args.txt"
     argfile.write_text("\n".join('"' + arg.replace("\\", "/").replace('"', '\\"') + '"' for arg in arguments), encoding="utf-8")
@@ -270,7 +305,7 @@ def main() -> int:
                                stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
                                encoding="utf-8", errors="replace", bufsize=1,
                                creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
-    console = Console(process, run / "console.log")
+    console = Console(process, run / "console.log", echo=not args.quiet)
 
     def command(text, pattern, timeout=None):
         started = time.monotonic()
@@ -310,24 +345,31 @@ def main() -> int:
             if args.settings_pack.name not in response:
                 raise RuntimeError("Expected settings datapack is not in the server's enabled list")
         # Manual command placements and natural starts are recorded separately.
-        for name, x, y, sx, sz in (("obelisk", 0, 56, 25, 25),
-                                   ("colossus", 256, -13, 181, 227),
-                                   ("titan_skull", 768, 56, 121, 203)):
+        for index, (name, contract) in enumerate(selected.items()):
+            x, y = index * 384, 64 - contract["ground_y"]
+            sx, _, sz = contract["size"]
             load_area(x, 0, x + sx - 1, sz - 1)
             response = command(f"place template relics:{name} {x} {y} 0", r"Loaded template|Failed|Could not|Unknown|Incorrect")
             evidence.setdefault("manual_placements", []).append({"structure": f"relics:{name}",
                       "requested_position": [x, y, 0], "method": "place template",
                       "success": "Loaded template" in response, "response": response})
             command("forceload remove all", r"Unmarked|Removed|No chunks|force.loaded")
-        command("setworldspawn 220 64 -40", r"Set the world spawn")
-        for name in (() if args.showcase else ("obelisk", "colossus", "titan_skull")):
-            if name in args.disabled_structure:
-                response = command(f"locate structure relics:{name}", r"nearest|Could not find|Unknown|Incorrect", timeout=60)
+        command("setworldspawn 90 64 -48", r"Set the world spawn")
+        for area in args.natural_area or []:
+            load_area(*area)
+            command("save-all flush", r"Saved the game", timeout=240)
+            command("forceload remove all", r"Unmarked|Removed|No chunks|force.loaded")
+        for name in (() if args.showcase or args.skip_locate else selected):
+            locate_command = f"locate structure relics:{name}"
+            if args.locate_from:
+                locate_command = f"execute positioned {args.locate_from[0]} 80 {args.locate_from[1]} run {locate_command}"
+            if name in disabled:
+                response = command(locate_command, r"nearest|Could not find|Unknown|Incorrect", timeout=60)
                 evidence.setdefault("disabled_locate_results", []).append({"structure": f"relics:{name}",
                               "response": response, "passed": "Could not find a structure" in response,
                               "elapsed_seconds": evidence["commands"][-1]["elapsed_seconds"]})
                 continue
-            response = command(f"locate structure relics:{name}", r"nearest|Could not find|Unknown|Incorrect")
+            response = command(locate_command, r"nearest|Could not find|Unknown|Incorrect")
             match = re.search(r"\[(-?\d+),\s*(?:~|-?\d+),\s*(-?\d+)\]", response)
             located = {"structure": f"relics:{name}", "response": response}
             if match:
@@ -370,7 +412,7 @@ def main() -> int:
         try:
             evidence["world"] = inspect_world(run / "world")
             from verify_world import verify_world
-            evidence["world_blocks"] = verify_world(run / "world", artifact)
+            evidence["world_blocks"] = verify_world(run / "world", artifact, expected_structures=expected_structures)
             if args.showcase:
                 from verify_world import AnvilWorld, verify_piece
                 world = AnvilWorld(run / "world")
@@ -385,7 +427,7 @@ def main() -> int:
                                  "BB": [x, y, z, x + size[0] - 1, y + size[1] - 1, z + size[2] - 1]}
                         checks.append(verify_piece(world, placement["structure"], child, template, skip_nature=False))
                 evidence["showcase_blocks"] = {"instances": checks, "read_errors": world.read_errors,
-                                               "passed": len(checks) == 3 and all(c["passed"] for c in checks) and not world.read_errors}
+                                                "passed": len(checks) == len(selected) and all(c["passed"] for c in checks) and not world.read_errors}
         except Exception as exc:
             evidence["world"] = {"natural_structure_starts": [], "read_errors": [str(exc)]}
             evidence["world_blocks"] = {"fully_verified_structures": [], "read_errors": [str(exc)],
@@ -402,21 +444,22 @@ def main() -> int:
         evidence["clean_log"] = not evidence["log_errors"]
         evidence["passed"] = (not evidence.get("failure") and not evidence.get("shutdown_failure") and
                               process.returncode == 0 and not evidence["blocking_log_errors"] and
-                               len(evidence.get("manual_placements", [])) == 3 and
+                                len(evidence.get("manual_placements", [])) == len(selected) and
                               all(p["success"] for p in evidence.get("manual_placements", [])) and
-                              len(evidence.get("disabled_locate_results", [])) == len(args.disabled_structure) and
+                               len(evidence.get("disabled_locate_results", [])) == len(set(selected) & disabled) and
                               all(p["passed"] for p in evidence.get("disabled_locate_results", [])) and
                               expected_structures <= found and
-                              not ({"relics:" + name for name in args.disabled_structure} & found) and
+                               not ({"relics:" + name for name in disabled} & found) and
                               not evidence["world"]["read_errors"] and
                               expected_structures <= set(evidence["world_blocks"]["fully_verified_structures"]) and
                               evidence["world_blocks"].get("complete_instance_failures", 0) == 0 and
-                              not evidence["world_blocks"]["read_errors"] and
-                               not evidence["world_blocks"]["verification_errors"])
+                               not evidence["world_blocks"]["read_errors"] and
+                                not evidence["world_blocks"]["verification_errors"] and
+                                not evidence["world_blocks"].get("overlaps"))
         if args.showcase:
             evidence["passed"] = (not evidence.get("failure") and not evidence.get("shutdown_failure") and
                                   process.returncode == 0 and not evidence["blocking_log_errors"] and
-                                  len(evidence.get("manual_placements", [])) == 3 and
+                                   len(evidence.get("manual_placements", [])) == len(selected) and
                                   all(p["success"] for p in evidence["manual_placements"]) and
                                   evidence.get("showcase_blocks", {}).get("passed", False))
         payload = json.dumps(evidence, indent=2, ensure_ascii=False) + "\n"

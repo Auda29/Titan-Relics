@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:savanna",
+    {
+      "id": "terralith:steppe",
+      "required": false
+    },
+    {
+      "id": "biomesoplenty:scrubland",
+      "required": false
+    }
+  ]
+}

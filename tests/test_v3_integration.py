@@ -1,4 +1,4 @@
-"""Contracts for the V3 selection, burial offsets and whole-template resources."""
+"""Historical V3 exports and shared showcase metadata regression fixtures."""
 import hashlib
 import gzip
 import json
@@ -51,19 +51,6 @@ class V3IntegrationTests(unittest.TestCase):
                 else:
                     restored[anchor] = final
                 self.assertEqual(restored, states(original))
-
-    def test_burial_and_grid_cover_all_rotations(self):
-        for name, contract in ASSETS.items():
-            resource = ROOT / f"src/main/resources/data/relics/worldgen/structure/{name}.json"
-            data = json.loads(resource.read_text())
-            self.assertEqual(data["delegate"]["start_height"]["absolute"], 1 - contract["ground_y"])
-            self.assertEqual(data["delegate"]["start_jigsaw_name"], "relics:center")
-            self.assertEqual(data["spawn_condition"]["offset"], [0, contract["ground_y"] - 1, 0])
-            grid = data["spawn_condition"]["condition"]
-            self.assertGreaterEqual(grid["radius"], (max(contract["size"][0], contract["size"][2]) - 1) / 2)
-            self.assertEqual(grid["allowed_count"], (2 * grid["radius"] // grid["distance_between_points"] + 1) ** 2)
-            height = grid["condition"]["conditions"][1]["permitted_range"]["max_inclusive"]
-            self.assertLessEqual(height - contract["ground_y"] + contract["size"][1] - 1, 311)
 
     def test_centered_footprints_stay_within_eight_chunk_reference_radius(self):
         for contract in ASSETS.values():

@@ -1,0 +1,713 @@
+{
+  "selection": "alpha4",
+  "revision": "2026-10-05-v6-v4-v4-protected-runtime-terrain-support",
+  "foundation_policy": "near-ground-soil-columns-v4-protected-runtime-contact",
+  "air_policy": "omit; preserve existing terrain",
+  "structures": [
+    {
+      "id": "colossus",
+      "source": "relics/colossus/design/generated/colossus-v4-1-materials-b/colossus-v4-1-materials-b.nbt",
+      "version": "colossus-v4-1-materials-b",
+      "size": [
+        181,
+        209,
+        235
+      ],
+      "blocks": 223161,
+      "ground_y": 77,
+      "family": "colossus",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 16,
+      "sha256": "a355b20349513cb27e6feb6fc171ca413d71da2cdb5717f7995afb4128d879b8",
+      "visually_accepted": true,
+      "data_version": 3105,
+      "single_template": {
+        "path": "colossus.nbt",
+        "sha256": "a355b20349513cb27e6feb6fc171ca413d71da2cdb5717f7995afb4128d879b8"
+      },
+      "worldgen_template": {
+        "path": "colossus_worldgen.nbt",
+        "sha256": "fdc41be5ba91eaf9eb6dfaa3a72036ae0e82b7d6352107d780467eae9ac2ff9d",
+        "anchor": [
+          98,
+          0,
+          125
+        ],
+        "final_state": "minecraft:structure_void",
+        "size": [
+          197,
+          209,
+          251
+        ],
+        "foundation": {
+          "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+          "vertical_padding": 0,
+          "horizontal_padding": 8,
+          "runtime_processor": "relics:terrain_support",
+          "feature_protection": "relics:placed_cells",
+          "toe_blocks": 34764,
+          "toe_columns": 3602,
+          "ground_y": 77,
+          "bottom_below_ground": 20,
+          "supported_columns": 3496,
+          "added_blocks": 43343
+        }
+      }
+    },
+    {
+      "id": "obelisk",
+      "source": "relics/obelisk/design/generated/obelisk-v4-2/obelisk-v4-2.nbt",
+      "version": "obelisk-v4-2",
+      "size": [
+        59,
+        185,
+        60
+      ],
+      "blocks": 94422,
+      "ground_y": 8,
+      "family": "obelisk",
+      "biomes": [
+        "minecraft:desert",
+        {
+          "id": "terralith:desert_spires",
+          "required": false
+        },
+        {
+          "id": "terralith:desert_canyon",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:dryland",
+          "required": false
+        },
+        "minecraft:badlands",
+        {
+          "id": "terralith:gravel_desert",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:wasteland",
+          "required": false
+        }
+      ],
+      "slope": 6,
+      "sha256": "ed116dcbca2a41fe403695a816e419a32a647d325c1d907d8dc1797f551cda3e",
+      "visually_accepted": true,
+      "data_version": 3105,
+      "single_template": {
+        "path": "obelisk.nbt",
+        "sha256": "ed116dcbca2a41fe403695a816e419a32a647d325c1d907d8dc1797f551cda3e"
+      },
+      "worldgen_template": {
+        "path": "obelisk_worldgen.nbt",
+        "sha256": "bfd6c0da7303abe47f1e0d85f7f8be01a97082e1d27cd4fec5fde9df5d7648ff",
+        "anchor": [
+          37,
+          0,
+          38
+        ],
+        "final_state": "minecraft:sandstone",
+        "size": [
+          75,
+          187,
+          76
+        ],
+        "foundation": {
+          "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+          "vertical_padding": 2,
+          "horizontal_padding": 8,
+          "runtime_processor": "relics:terrain_support",
+          "feature_protection": "relics:placed_cells",
+          "toe_blocks": 5966,
+          "toe_columns": 1285,
+          "ground_y": 10,
+          "bottom_below_ground": 10,
+          "supported_columns": 2142,
+          "added_blocks": 23088
+        }
+      }
+    },
+    {
+      "id": "titan_skull",
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-meadow/titan-skull-v4-meadow.nbt",
+      "version": "titan-skull-v4-meadow",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 136569,
+      "ground_y": 8,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "c4737780cc344b2a3f10743a7155a760df7342f22476308679a9a87545f59e79",
+      "visually_accepted": true,
+      "data_version": 3105,
+      "single_template": {
+        "path": "titan_skull.nbt",
+        "sha256": "c4737780cc344b2a3f10743a7155a760df7342f22476308679a9a87545f59e79"
+      },
+      "worldgen_template": {
+        "path": "titan_skull_worldgen.nbt",
+        "sha256": "8a6ad0405c841664c3d03ee20efdebb832d6de0389ad802cb1b137292a1d436a",
+        "anchor": [
+          66,
+          0,
+          97
+        ],
+        "final_state": "minecraft:dirt",
+        "size": [
+          133,
+          87,
+          195
+        ],
+        "foundation": {
+          "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+          "vertical_padding": 8,
+          "horizontal_padding": 8,
+          "runtime_processor": "relics:terrain_support",
+          "feature_protection": "relics:placed_cells",
+          "toe_blocks": 42623,
+          "toe_columns": 5154,
+          "ground_y": 16,
+          "bottom_below_ground": 16,
+          "supported_columns": 10111,
+          "added_blocks": 154092
+        }
+      }
+    },
+    {
+      "id": "titan_skull_dry",
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-dry/titan-skull-v4-dry.nbt",
+      "version": "titan-skull-v4-dry",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 136569,
+      "ground_y": 8,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "7c2ea0fde39ba7c9618001dd49e747d2c652e0646c854baf0fadcb6e5ed773a4",
+      "visually_accepted": true,
+      "data_version": 3105,
+      "single_template": {
+        "path": "titan_skull_dry.nbt",
+        "sha256": "7c2ea0fde39ba7c9618001dd49e747d2c652e0646c854baf0fadcb6e5ed773a4"
+      },
+      "worldgen_template": {
+        "path": "titan_skull_dry_worldgen.nbt",
+        "sha256": "d5010cf1eaf7ec6968ad3e8a4649b1b2e07dfddfb1298ed9a24e06501c26d94a",
+        "anchor": [
+          66,
+          0,
+          97
+        ],
+        "final_state": "minecraft:dirt",
+        "size": [
+          133,
+          87,
+          195
+        ],
+        "foundation": {
+          "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+          "vertical_padding": 8,
+          "horizontal_padding": 8,
+          "runtime_processor": "relics:terrain_support",
+          "feature_protection": "relics:placed_cells",
+          "toe_blocks": 42623,
+          "toe_columns": 5154,
+          "ground_y": 16,
+          "bottom_below_ground": 16,
+          "supported_columns": 10111,
+          "added_blocks": 154092
+        }
+      }
+    },
+    {
+      "id": "titan_skull_sand",
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-sand/titan-skull-v4-sand.nbt",
+      "version": "titan-skull-v4-sand",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 136569,
+      "ground_y": 8,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:desert",
+        {
+          "id": "terralith:desert_spires",
+          "required": false
+        },
+        {
+          "id": "terralith:desert_canyon",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:dryland",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "05ba0c95f74e98eca366c11f4ebe1ceb1b3ce435b82c29d7101f65fd7da7d03e",
+      "visually_accepted": true,
+      "data_version": 3105,
+      "single_template": {
+        "path": "titan_skull_sand.nbt",
+        "sha256": "05ba0c95f74e98eca366c11f4ebe1ceb1b3ce435b82c29d7101f65fd7da7d03e"
+      },
+      "worldgen_template": {
+        "path": "titan_skull_sand_worldgen.nbt",
+        "sha256": "e4a2fa0b8c8287ae1bb30cb0506be5eaa57fc62ac71478d4b22fa6506ec3cff8",
+        "anchor": [
+          66,
+          0,
+          97
+        ],
+        "final_state": "minecraft:sandstone",
+        "size": [
+          133,
+          87,
+          195
+        ],
+        "foundation": {
+          "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+          "vertical_padding": 8,
+          "horizontal_padding": 8,
+          "runtime_processor": "relics:terrain_support",
+          "feature_protection": "relics:placed_cells",
+          "toe_blocks": 42623,
+          "toe_columns": 5154,
+          "ground_y": 16,
+          "bottom_below_ground": 16,
+          "supported_columns": 10111,
+          "added_blocks": 154092
+        }
+      }
+    },
+    {
+      "id": "titan_skull_rock",
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-rock/titan-skull-v4-rock.nbt",
+      "version": "titan-skull-v4-rock",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 136569,
+      "ground_y": 8,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:windswept_hills",
+        "minecraft:windswept_gravelly_hills",
+        "minecraft:stony_shore",
+        "minecraft:stony_peaks",
+        {
+          "id": "terralith:rocky_mountains",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "9c41e8bdc5333737ed7c37e6ab8f916aac0f77f32764d20cca4e2fb68e94620b",
+      "visually_accepted": true,
+      "data_version": 3105,
+      "single_template": {
+        "path": "titan_skull_rock.nbt",
+        "sha256": "9c41e8bdc5333737ed7c37e6ab8f916aac0f77f32764d20cca4e2fb68e94620b"
+      },
+      "worldgen_template": {
+        "path": "titan_skull_rock_worldgen.nbt",
+        "sha256": "6833861cc44a03bee00b29b475f20a5739a1da028eccf3708467d999650146dd",
+        "anchor": [
+          66,
+          0,
+          97
+        ],
+        "final_state": "minecraft:stone",
+        "size": [
+          133,
+          87,
+          195
+        ],
+        "foundation": {
+          "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+          "vertical_padding": 8,
+          "horizontal_padding": 8,
+          "runtime_processor": "relics:terrain_support",
+          "feature_protection": "relics:placed_cells",
+          "toe_blocks": 42623,
+          "toe_columns": 5154,
+          "ground_y": 16,
+          "bottom_below_ground": 16,
+          "supported_columns": 10111,
+          "added_blocks": 154092
+        }
+      }
+    },
+    {
+      "id": "small_colossus",
+      "source": "relics/colossus/design/generated/small-colossus-v6/small-colossus-v6.nbt",
+      "version": "small-colossus-v6",
+      "size": [
+        111,
+        80,
+        113
+      ],
+      "blocks": 234956,
+      "ground_y": 9,
+      "family": "small_colossus",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "003075edc4e29e940c4fcdefb16da1c16202f7551a73be8a39a028e228771bab",
+      "visually_accepted": false,
+      "data_version": 3105,
+      "single_template": {
+        "path": "small_colossus.nbt",
+        "sha256": "003075edc4e29e940c4fcdefb16da1c16202f7551a73be8a39a028e228771bab"
+      },
+      "worldgen_template": {
+        "path": "small_colossus_worldgen.nbt",
+        "sha256": "1cc649bf4d655513c1a0b0f14843c21be93e06c615a52941fb219a338a87bee6",
+        "anchor": [
+          63,
+          0,
+          64
+        ],
+        "final_state": "minecraft:dirt",
+        "size": [
+          127,
+          87,
+          129
+        ],
+        "foundation": {
+          "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+          "vertical_padding": 7,
+          "horizontal_padding": 8,
+          "runtime_processor": "relics:terrain_support",
+          "feature_protection": "relics:placed_cells",
+          "toe_blocks": 32149,
+          "toe_columns": 4173,
+          "ground_y": 16,
+          "bottom_below_ground": 16,
+          "supported_columns": 5939,
+          "added_blocks": 109710
+        }
+      }
+    },
+    {
+      "id": "world_tree",
+      "source": "relics/world-tree/design/generated/world-tree-v4/world-tree-v4.nbt",
+      "version": "world-tree-v4",
+      "size": [
+        187,
+        216,
+        185
+      ],
+      "blocks": 291433,
+      "ground_y": 8,
+      "family": "world_tree",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:forest",
+        "minecraft:flower_forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest"
+      ],
+      "slope": 12,
+      "sha256": "3f19512d5d1d97ccd5efa2af59d30ef8ffa48c0269535ff472ec2586063f16e8",
+      "visually_accepted": false,
+      "data_version": 3105,
+      "single_template": {
+        "path": "world_tree.nbt",
+        "sha256": "3f19512d5d1d97ccd5efa2af59d30ef8ffa48c0269535ff472ec2586063f16e8"
+      },
+      "worldgen_template": {
+        "path": "world_tree_worldgen.nbt",
+        "sha256": "6700a22372fd9638220183b7850e8bac857d46ffec0da40ed7d658615bb0eb9b",
+        "anchor": [
+          101,
+          0,
+          100
+        ],
+        "final_state": "minecraft:dirt",
+        "size": [
+          203,
+          224,
+          201
+        ],
+        "foundation": {
+          "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+          "vertical_padding": 8,
+          "horizontal_padding": 8,
+          "runtime_processor": "relics:terrain_support",
+          "feature_protection": "relics:placed_cells",
+          "toe_blocks": 49585,
+          "toe_columns": 6077,
+          "ground_y": 16,
+          "bottom_below_ground": 16,
+          "supported_columns": 2856,
+          "added_blocks": 93678
+        }
+      }
+    },
+    {
+      "id": "ruined_tower",
+      "source": "relics/ruined-tower/design/generated/ruined-tower-v4/ruined-tower-v4.nbt",
+      "version": "ruined-tower-v4",
+      "size": [
+        111,
+        232,
+        93
+      ],
+      "blocks": 321087,
+      "ground_y": 12,
+      "family": "ruined_tower",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        },
+        "minecraft:desert",
+        {
+          "id": "terralith:desert_spires",
+          "required": false
+        },
+        {
+          "id": "terralith:desert_canyon",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:dryland",
+          "required": false
+        }
+      ],
+      "slope": 10,
+      "sha256": "9bacd9d4792b37239d35a03ef4944c907d5d3ae49e217223eab127b962fd377c",
+      "visually_accepted": false,
+      "data_version": 3105,
+      "single_template": {
+        "path": "ruined_tower.nbt",
+        "sha256": "9bacd9d4792b37239d35a03ef4944c907d5d3ae49e217223eab127b962fd377c"
+      },
+      "worldgen_template": {
+        "path": "ruined_tower_worldgen.nbt",
+        "sha256": "6d7f670fc6b246c04e591c7af9ba77cf2b86c9c9d1be53bf29c44f57fc10c775",
+        "anchor": [
+          63,
+          0,
+          54
+        ],
+        "final_state": "minecraft:structure_void",
+        "size": [
+          127,
+          234,
+          109
+        ],
+        "foundation": {
+          "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+          "vertical_padding": 2,
+          "horizontal_padding": 8,
+          "runtime_processor": "relics:terrain_support",
+          "feature_protection": "relics:placed_cells",
+          "toe_blocks": 19036,
+          "toe_columns": 3513,
+          "ground_y": 14,
+          "bottom_below_ground": 14,
+          "supported_columns": 4852,
+          "added_blocks": 66186
+        }
+      }
+    },
+    {
+      "id": "titan_skull_2",
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v1/titan-skull-2-v1.nbt",
+      "version": "titan-skull-2-v1",
+      "size": [
+        105,
+        144,
+        107
+      ],
+      "blocks": 85224,
+      "ground_y": 12,
+      "family": "titan_skull_2",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "5a39ac6ef62c1d07eafed69ed8a7cbeb397b4a6d3c4a6f7bf7086fdabdac1b78",
+      "visually_accepted": true,
+      "data_version": 3105,
+      "single_template": {
+        "path": "titan_skull_2.nbt",
+        "sha256": "5a39ac6ef62c1d07eafed69ed8a7cbeb397b4a6d3c4a6f7bf7086fdabdac1b78"
+      },
+      "worldgen_template": {
+        "path": "titan_skull_2_worldgen.nbt",
+        "sha256": "a5a0c00f74d043068113df8e5a053a773cbcc4ae2cf4e14ab0ad81dcbd9a9729",
+        "anchor": [
+          60,
+          0,
+          61
+        ],
+        "final_state": "minecraft:dirt",
+        "size": [
+          121,
+          148,
+          123
+        ],
+        "foundation": {
+          "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+          "vertical_padding": 4,
+          "horizontal_padding": 8,
+          "runtime_processor": "relics:terrain_support",
+          "feature_protection": "relics:placed_cells",
+          "toe_blocks": 30794,
+          "toe_columns": 3924,
+          "ground_y": 16,
+          "bottom_below_ground": 16,
+          "supported_columns": 7576,
+          "added_blocks": 119137
+        }
+      }
+    }
+  ]
+}

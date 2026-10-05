@@ -1,8 +1,15 @@
 {
   "replace": false,
   "values": [
-    "relics:obelisk",
     "relics:colossus",
-    "relics:titan_skull"
+    "relics:obelisk",
+    "relics:titan_skull",
+    "relics:titan_skull_dry",
+    "relics:titan_skull_sand",
+    "relics:titan_skull_rock",
+    "relics:small_colossus",
+    "relics:world_tree",
+    "relics:ruined_tower",
+    "relics:titan_skull_2"
   ]
 }

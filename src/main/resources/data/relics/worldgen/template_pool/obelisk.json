@@ -1,4 +1,5 @@
 {
+  "name": "relics:obelisk",
   "fallback": "minecraft:empty",
   "elements": [
     {
@@ -6,7 +7,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "relics:obelisk_worldgen",
-        "processors": "minecraft:empty",
+        "processors": "relics:obelisk_terrain",
         "projection": "rigid"
       }
     }

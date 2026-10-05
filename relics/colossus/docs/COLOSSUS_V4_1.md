@@ -1,5 +1,10 @@
 # Colossus V4.1 — palm-up right hand
 
+**Integration update, October 4:** Alpha 4 selects the material-B version of
+this geometry. See [current integration](../../../docs/technical/ALPHA_4_INTEGRATION.md)
+and [runtime status](../../../docs/testing/ALPHA_4_TEST_REPORT.md). The original
+offline review below is retained as design history.
+
 October 2, 2026. User-requested revision of selected **B / open machine frame**.
 Exported and checked offline. **Visually accepted by the user on October 2, 2026.**
 Game integration and in-game validation remain pending.

@@ -1,0 +1,108 @@
+{
+  "name": "Small Colossus V2",
+  "visual_acceptance": "V2 review pending",
+  "revision_v2": {
+    "direction": "Independent relative of accepted large Colossus",
+    "archive_meshes_reused": 0,
+    "large_asset_meshes_reused": 0,
+    "features": [
+      "listed dome helmet",
+      "curved visor and ribbed respirator",
+      "broad bronze-coloured armour",
+      "asymmetric supporting arm",
+      "lower irregular chest tear",
+      "connected internal frame"
+    ]
+  },
+  "new_relic_v1": {
+    "family": "small-colossus",
+    "hand": {
+      "anatomical_side": "right",
+      "basis_determinant": 1.0,
+      "palmar_normal_source": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "finger_tips_source": [
+        [
+          28.0,
+          9.0,
+          -61.0
+        ],
+        [
+          32.0,
+          11.0,
+          -64.0
+        ],
+        [
+          36.0,
+          11.5,
+          -65.0
+        ],
+        [
+          40.0,
+          10.0,
+          -63.0
+        ]
+      ],
+      "wrist_source": [
+        34.0,
+        5.0,
+        -42.0
+      ]
+    },
+    "void_probes_source": [
+      [
+        10,
+        17,
+        -13
+      ],
+      [
+        -11,
+        27,
+        20
+      ]
+    ],
+    "solid_probes_source": [
+      [
+        -5,
+        45,
+        2
+      ],
+      [
+        -16,
+        12,
+        9
+      ]
+    ],
+    "v5_interiors": false,
+    "rewards_inherited": false
+  },
+  "source_bounds_blender": [
+    [
+      -44.0,
+      -27.0,
+      -8.189618110656738
+    ],
+    [
+      50.0,
+      67.0,
+      76.92289733886719
+    ]
+  ],
+  "blocks_per_source_unit": 0.9281831183435183,
+  "height_target_blocks": 80,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 8,
+  "mesh_count": 121,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "config": "relics/colossus/design/small-colossus-v2.json",
+  "planned_site_size": [
+    112,
+    80,
+    112
+  ],
+  "source_blend_sha256": "98fa6092f9a44b4bc89059bbd0e0a621f54008ab4fb5211b949bc5a1e0d57527"
+}

@@ -1,0 +1,34 @@
+{
+  "size": [
+    179,
+    216,
+    175
+  ],
+  "blocks": 412702,
+  "palette_entries": 10,
+  "tiles": 115,
+  "data_version": 3105,
+  "schematic_sha256": "1df010423c48171f2cea419e94ee18490a0160b05d199e6e21c00e82f5bb9df9",
+  "nbt_sha256": "1f6e0f4369d50eb976d947792b2d430cd5c0f5686de887b728c9bc60ecee7928",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "revision_v2": {
+    "family": "tree",
+    "ground_level": 8,
+    "void_probes": 0,
+    "structural_probes": 3,
+    "source_blend_sha256": "1a418fa045c6e57eedd8e7e307eaab8082d1838c4580b6ebb856bf37a9ac08a8",
+    "persistent_leaf_states": [
+      "minecraft:oak_leaves[distance=7,persistent=true]",
+      "minecraft:spruce_leaves[distance=7,persistent=true]"
+    ],
+    "terminal_boughs": 189,
+    "exported_branch_tip_probes": 189
+  }
+}

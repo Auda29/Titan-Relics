@@ -1,0 +1,15 @@
+{
+  "name": "relics:titan_skull_dry",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "relics:titan_skull_dry_worldgen",
+        "processors": "relics:titan_skull_dry_terrain",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

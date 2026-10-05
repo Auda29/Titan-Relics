@@ -1,0 +1,15 @@
+{
+  "name": "relics:ruined_tower",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "relics:ruined_tower_worldgen",
+        "processors": "relics:ruined_tower_terrain",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

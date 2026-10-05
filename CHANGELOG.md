@@ -1,6 +1,77 @@
 # Changelog
 
+## 0.1.0-alpha.4.3 — latest screenshot-follow-up structures
+
+- Select Small Colossus V6, World Tree V4 and Ruined Tower V4 with pinned export
+  hashes; preserve the other seven templates, earlier models and source exports.
+- Recalculate padded footprints, ground contracts and conservative reservations
+  for the revised geometry, including the wider Tree crown. Keep the Alpha 4.2
+  support processor, saved exact-cell masks, biome mappings and density settings.
+- Build and test a separately versioned artifact; require new full showcase and
+  strict natural-placement evidence before updating the test profile. Keep old
+  saves untouched and back up the previous Relic JAR.
+- Leave artistic acceptance, gameplay and balancing outside this integration.
+
+See the [art follow-up](docs/project/ALPHA_4_2_ART_FOLLOWUP.md) and
+[Alpha 4.3 validation](docs/testing/ALPHA_4_3_TEST_REPORT.md).
+
+## 0.1.0-alpha.4.2 — terrain placement correction candidate
+
+- Keep the latest Small Colossus V5, World Tree V3 and Ruined Tower V3 exports;
+  preserve all earlier source models and raw-template identity.
+- Extend lowest earth columns to actual terrain with a chunk-local Java structure
+  processor, without rewriting model cells or unrelated voids.
+- Add conservative seed-based reservations between relic families without
+  recursive generation or a denser height grid. Disabled sets release their space.
+- Reject unsupported foundations and horizontal relic overlap at installation,
+  even with the minor-feature-edit allowance. Add actual Java processor tests,
+  checksum-verified compilation, portable CI setup and versioned inspection saves.
+- Protect exact new model/support cells from late ore, stone, fossil and lake
+  world-generation writes using persistent sparse chunk masks; normal player
+  mining/building remains unrestricted. Require saved-mask coverage at installation.
+
+See the [implementation](docs/technical/ALPHA_4_2_TERRAIN.md) and
+[validation status](docs/testing/ALPHA_4_2_TEST_REPORT.md).
+
+## 0.1.0-alpha.4 — seven current relic designs
+
+- Select Colossus V4.1 materials B, Obelisk V4.2, crowned Skull V4 in four
+  ground palettes, Small Colossus V4, World Tree V2, Ruined Tower V2 and Skull 2 V1.
+- Preserve all source exports; pin hashes and copy manual templates byte-for-byte.
+  Derive only replaceable center anchors for complete natural cross-chunk placement.
+- Add all-family worldgen, height/burial/footprint limits and density/disable
+  settings. Crowned Skull variants use disjoint biome tags and one shared set.
+- Reject stale build resources, embed selection provenance and expand runtime
+  inspection to all ten templates. Candidate artistic approval remains separate.
+- Keep gameplay, large-Colossus uniqueness and existing saved structures unchanged.
+
+See [Alpha 4 integration](docs/technical/ALPHA_4_INTEGRATION.md) and
+[runtime evidence](docs/testing/ALPHA_4_TEST_REPORT.md).
+
 ## Unreleased — in-game review and demos
+
+- Follow up the Alpha 4.2 screenshots with World Tree V4's spreading branch fans,
+  Small Colossus V6's overlapping forged armour and darker pincers, and Ruined
+  Tower V4's fractured skyline, stair gap and inner masonry relief. Add opt-in
+  structural material priority so leaf intersections cannot erase the Tree's
+  exported wood paths. New visual candidates and actual-NBT comparisons are
+  documented in the [art follow-up](docs/project/ALPHA_4_2_ART_FOLLOWUP.md).
+- Address the October 5 screenshot review with Small Colossus V5, World Tree V3
+  and Ruined Tower V3 candidates. Add tapered soil-column foundations, padded
+  placement footprints and saved-world foundation-contact checks in Alpha 4.1.
+  Preserve the screenshot-era source models and Alpha 4 test evidence.
+- Record rejection of Small Colossus V3 as too skeletal and the user's new
+  primary reference, Vigilant-Class Archaean Colossi (reel Da-s0zqi7OQ). Inspect
+  the full montage and opening dormant specimen; preserve observations and
+  authored-completion boundaries in a dedicated reference brief.
+
+- Record follow-up feedback on Small Colossus V2: its resemblance to the large
+  Colossus is too strong; a clearly distinct appearance is required.
+
+- Record October 4 V1 feedback: Titan Skull 2 visually accepted for now; revise
+  Small Colossus beyond its test-model identity, make World Tree more natural,
+  and increase Ruined Tower height. The user selected the large Colossus's visual
+  family for the new small design and 220 visible blocks for the tower.
 
 - Record per-relic V4 revision plans from the V3 in-game review; keep current
   models and build selection unchanged.
@@ -26,6 +97,21 @@
 See [V3 integration](docs/technical/V3_INTEGRATION.md) for contracts and viewing commands.
 
 ## Unreleased — asset pipeline and documentation
+
+- Add reference-led Small Colossus V4 with a massive plated body, six-lens face,
+  arched grille and heavy pincer hands. Include a documented reference study,
+  Blender source, exports, body/optic/grille/connectivity checks and an actual-NBT
+  V3/V4 comparison. Original reel frames and reference/model boards stay local.
+
+- Add user-selected Small Colossus V3 slender sentinel: elongated mask, narrow
+  articulated waist, stepped armour and two long attached arms in a listed sunken
+  pose. Include Blender source, exports, structural/proportion checks and a
+  separate actual-NBT V2/V3 same-scale review; visual acceptance pending.
+
+- Add October 4 V2 candidates: newly modeled small bronze-machine Colossus,
+  branch-grown World Tree and 220-visible-block Ruined Tower. Include editable
+  sources, NBT/schematic exports, exact conversion/feature checks and same-scale
+  V1/V2 reviews. Make preview shader-node lookup independent of translated names.
 
 - Add four independent V1 models/exports after the reference study: Ruined Tower,
   World Tree, Small Colossus and sword-bearing Titan Skull 2. Include editable

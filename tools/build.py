@@ -1,4 +1,4 @@
-"""Reproducible, dependency-free build selecting the checked-in V3 relics."""
+"""Reproducible build selecting pinned exports and compiling placement-only Java code."""
 from __future__ import annotations
 
 import argparse
@@ -8,6 +8,10 @@ from pathlib import Path
 import subprocess
 import sys
 import zipfile
+
+from relic_catalog import ASSETS, worldgen_resources
+from terrain_foundations import POLICY
+from compile_worldgen import compile_worldgen, checked_classes
 
 ROOT = Path(__file__).resolve().parents[1]
 RESOURCES = ROOT / "src/main/resources"
@@ -21,22 +25,38 @@ def check_resources(resources: Path = RESOURCES) -> dict:
     pack = json.loads((resources / "pack.mcmeta").read_text(encoding="utf-8"))
     if pack["pack"]["min_format"] != [107, 1]:
         raise ValueError("Minecraft 26.2 pack format must be 107.1")
-    required = [
-        f"data/relics/{kind}/{name}.{extension}"
-        for name in ("obelisk", "colossus", "titan_skull")
-        for kind, extension in (("structure", "nbt"), ("worldgen/structure", "json"),
-                                ("worldgen/template_pool", "json"))
-    ]
-    required += [f"data/relics/structure/{name}_worldgen.nbt"
-                 for name in ("obelisk", "colossus", "titan_skull")]
-    for relative in required:
-        if not (resources / relative).is_file():
-            raise ValueError(f"Missing required resource: {relative}")
+    for relative, expected in worldgen_resources().items():
+        path = resources / "data/relics" / relative
+        if not path.is_file() or json.loads(path.read_text(encoding="utf-8")) != expected:
+            raise ValueError(f"Missing/stale worldgen resource: {relative}; run the default build")
+    manifest_path = resources / "relics.integration.json"
+    if not manifest_path.is_file():
+        raise ValueError("Missing selection manifest; run the default build")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get('foundation_policy') != POLICY:
+        raise ValueError('Stale foundation policy; run the default build')
+    if (manifest["selection"] != "alpha4" or len(manifest["structures"]) != len(ASSETS)
+            or {a["id"] for a in manifest["structures"]} != set(ASSETS)):
+        raise ValueError("Stale asset selection manifest")
+    for entry in manifest["structures"]:
+        if any(entry.get(k) != v for k, v in ASSETS[entry["id"]].items()):
+            raise ValueError(f"Stale asset contract: {entry['id']}")
+        for key in ("single_template", "worldgen_template"):
+            suffix = "" if key == "single_template" else "_worldgen"
+            if entry[key]["path"] != f"{entry['id']}{suffix}.nbt":
+                raise ValueError(f"Unexpected template path: {entry[key]['path']}")
+            template = resources / "data/relics/structure" / entry[key]["path"]
+            if not template.is_file() or hashlib.sha256(template.read_bytes()).hexdigest() != entry[key]["sha256"]:
+                raise ValueError(f"Missing/stale template: {template}")
+        if entry["single_template"]["sha256"] != ASSETS[entry["id"]]["sha256"]:
+            raise ValueError(f"Wrong selected export: {entry['id']}")
     return metadata
 
 
-def write_archive(destination: Path, resources: Path = RESOURCES) -> str:
+def write_archive(destination: Path, resources: Path = RESOURCES, classes: Path | None = None) -> str:
     destination.parent.mkdir(parents=True, exist_ok=True)
+    selected_templates = {f"data/relics/structure/{name}{suffix}.nbt"
+                          for name in ASSETS for suffix in ("", "_worldgen")}
     with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in sorted(resources.rglob("*")):
             if not path.is_file():
@@ -45,6 +65,8 @@ def write_archive(destination: Path, resources: Path = RESOURCES) -> str:
             # Tile exports are editable source/debug assets; natural generation uses whole templates.
             if relative.startswith("data/relics/structure/") and "/tile_" in relative:
                 continue
+            if relative.startswith("data/relics/structure/") and relative not in selected_templates:
+                continue  # Do not ship stale design/debug templates from a previous selection.
             info = zipfile.ZipInfo(relative, date_time=(2026, 1, 1, 0, 0, 0))
             info.create_system = 3  # Fixed Unix metadata, independent of the build host.
             info.compress_type = zipfile.ZIP_DEFLATED
@@ -55,6 +77,13 @@ def write_archive(destination: Path, resources: Path = RESOURCES) -> str:
                 content = (json.dumps(json.loads(content.decode("utf-8-sig")),
                                       ensure_ascii=False, sort_keys=True, indent=2) + "\n").encode("utf-8")
             archive.writestr(info, content, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
+        if classes is not None:
+            for path in checked_classes(classes):
+                info = zipfile.ZipInfo(path.relative_to(classes).as_posix(), date_time=(2026, 1, 1, 0, 0, 0))
+                info.create_system = 3
+                info.compress_type = zipfile.ZIP_DEFLATED
+                info.external_attr = 0o100644 << 16
+                archive.writestr(info, path.read_bytes(), compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
     return hashlib.sha256(destination.read_bytes()).hexdigest()
 
 
@@ -62,12 +91,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--skip-generation", action="store_true", help="Package existing, validated assets")
     parser.add_argument("--output", type=Path, default=ROOT / "dist")
+    parser.add_argument("--java-home", type=Path, help="JDK 25 directory for placement-only Java code")
     args = parser.parse_args()
     if not args.skip_generation:
-        subprocess.run([sys.executable, str(ROOT / "tools/integrate_v3.py")], check=True, cwd=ROOT)
+        subprocess.run([sys.executable, str(ROOT / "tools/integrate_relics.py")], check=True, cwd=ROOT)
     metadata = check_resources()
+    classes = compile_worldgen(args.java_home)
     artifact = args.output.resolve() / f"relics-{metadata['version']}+mc26.2.jar"
-    checksum = write_archive(artifact)
+    checksum = write_archive(artifact, classes=classes)
     (artifact.parent / "SHA256SUMS.txt").write_text(f"{checksum}  {artifact.name}\n", encoding="utf-8")
     print(f"Built {artifact}\nSHA256 {checksum}")
     return 0

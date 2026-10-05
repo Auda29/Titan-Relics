@@ -1,0 +1,32 @@
+{
+  "size": [
+    111,
+    232,
+    93
+  ],
+  "blocks": 333223,
+  "palette_entries": 9,
+  "tiles": 71,
+  "data_version": 3105,
+  "schematic_sha256": "9d789a180df6eaab3b7a7614b4f59bf15a7f1b38c1896038dbac61179b2c13b0",
+  "nbt_sha256": "277d852e24acad238d48a5505d9b75c8cecbf3f26bd739d67ffd2607d6df3a16",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "revision_v3": {
+    "family": "tower",
+    "ground_level": 12,
+    "void_probes": 3,
+    "structural_probes": 16,
+    "source_blend_sha256": "76f13b0419ec782fb69f73a4eb4e1ac226bf730c371a186f46d30cf8157ed72d",
+    "visible_height": 220,
+    "source_preserved": true,
+    "partial_storeys": 6,
+    "broken_stair_flights": 3
+  }
+}

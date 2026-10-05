@@ -1,8 +1,12 @@
 # Ruined Tower
 
-**V1 is modeled and exported for visual review**, with an editable Blender source,
-NBT/schematic and actual-block reviews. It is not yet integrated into the game.
+**V4 is the latest visual candidate:** staggered upper fractures, broken lower
+stairs and inner masonry relief, retaining the user's 220 visible layers. See the
+[art follow-up and comparison](../../docs/project/ALPHA_4_2_ART_FOLLOWUP.md).
+Packaged Alpha 4.2 still uses V3; its
+[runtime status](../../docs/testing/ALPHA_4_2_TEST_REPORT.md) applies to that selection.
 
+- [V2 taller tower, reviews and reproduction](docs/RUINED_TOWER_V2.md)
 - [V1 exports, review and reproduction](docs/RUINED_TOWER_V1.md)
 
 The [reference/size study](docs/REFERENCE_DESIGN_STUDY.md) establishes a working

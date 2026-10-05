@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "relics:small_colossus",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 48,
+    "separation": 24,
+    "salt": 206091304
+  }
+}

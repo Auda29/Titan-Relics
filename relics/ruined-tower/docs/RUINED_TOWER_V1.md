@@ -1,6 +1,10 @@
 # Ruined Tower V1
 
-Status: **first exported visual candidate; user review pending**.
+Status: **height revision requested in user review on October 4, 2026**.
+
+The user selected **220 visible blocks** for the taller revision, at approximately
+the existing width. The measurements below describe the existing V1 export.
+The resulting [V2 candidate](RUINED_TOWER_V2.md) is now available.
 
 - [Four-view review](../design/generated/ruined-tower-v1/ruined-tower-v1-review.png)
 - [Base/crown details](../design/generated/ruined-tower-v1/ruined-tower-v1-detail-review.png)

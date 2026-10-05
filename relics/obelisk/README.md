@@ -1,11 +1,10 @@
 # Obelisk
 
-The latest offline study is **V4.2**, with warm ochre sides, unpainted cracks
-and genuinely missing edge pieces. **V3**, a solid tapered square antiprism with a rotated crown and an
-eight-block buried foot, remains selected in Alpha 3; see
-[V3 integration](../../docs/technical/V3_INTEGRATION.md).
+**Alpha 4 selects V4.2**, with warm ochre sides, unpainted cracks and genuinely
+missing edge pieces. See [current integration](../../docs/technical/ALPHA_4_INTEGRATION.md)
+and [runtime status](../../docs/testing/ALPHA_4_TEST_REPORT.md).
 
-- [V4.2 warm stone and missing pieces](docs/OBELISK_V4_2.md) — visually accepted; integration pending
+- [V4.2 warm stone and missing pieces](docs/OBELISK_V4_2.md) — visually accepted; selected in Alpha 4
 - [V4.1 consistent sides and larger cracks](docs/OBELISK_V4_1.md) — previous study
 - [V4 exports and reproduction](docs/OBELISK_V4_EXPORTS.md) — preserved previous study
 - [V4 in-game findings and revision goals](docs/OBELISK_V4.md)

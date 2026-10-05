@@ -1,0 +1,30 @@
+{
+  "size": [
+    89,
+    80,
+    89
+  ],
+  "blocks": 39538,
+  "palette_entries": 11,
+  "tiles": 18,
+  "data_version": 3105,
+  "schematic_sha256": "3587e1393e7bf31707be23c13bd894579a852c978bd618febd5eca52181a5103",
+  "nbt_sha256": "0ab525749344b712f12447d85eec0470595ec60c12d462ed4f7e741c4c0b276a",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "revision_v2": {
+    "family": "small-colossus",
+    "ground_level": 8,
+    "void_probes": 2,
+    "structural_probes": 2,
+    "source_blend_sha256": "98fa6092f9a44b4bc89059bbd0e0a621f54008ab4fb5211b949bc5a1e0d57527",
+    "collar_to_buried_body_connected": true,
+    "copper_blocks": 1906
+  }
+}

@@ -2,11 +2,6 @@
   "replace": false,
   "values": [
     "minecraft:desert",
-    "minecraft:badlands",
-    {
-      "id": "terralith:gravel_desert",
-      "required": false
-    },
     {
       "id": "terralith:desert_spires",
       "required": false
@@ -17,6 +12,11 @@
     },
     {
       "id": "biomesoplenty:dryland",
+      "required": false
+    },
+    "minecraft:badlands",
+    {
+      "id": "terralith:gravel_desert",
       "required": false
     },
     {

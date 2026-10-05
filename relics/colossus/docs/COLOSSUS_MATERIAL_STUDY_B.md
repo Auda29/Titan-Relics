@@ -1,5 +1,11 @@
 # Colossus material study B — salvageable armour
 
+**Integration update, October 4:** the intact material-B export is selected in
+Alpha 4; the fully salvaged simulation is not a separate generated structure.
+See [current integration](../../../docs/technical/ALPHA_4_INTEGRATION.md) and
+[runtime status](../../../docs/testing/ALPHA_4_TEST_REPORT.md). Offline checks below
+remain design evidence, not survival-gameplay acceptance.
+
 The user found the initial 197-copper study too restrictive and its salvage
 damage almost invisible. The revised requirement is **fewer than 50,000 copper
 blocks and fewer than 256 raw iron items**, with visibly changed but plausible

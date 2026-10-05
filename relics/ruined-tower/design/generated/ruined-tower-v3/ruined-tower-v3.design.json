@@ -1,0 +1,165 @@
+{
+  "name": "Ruined Tower V3 / Broken storeys",
+  "reference": "https://www.instagram.com/reel/DbqXYoVx2hR/",
+  "visual_acceptance": "October 5 screenshot revision; review pending",
+  "new_relic_v1": {
+    "family": "tower",
+    "void_probes_source": [
+      [
+        0,
+        12,
+        -23
+      ],
+      [
+        10,
+        89.69696969696969,
+        0
+      ],
+      [
+        -8,
+        154.84848484848484,
+        0
+      ]
+    ],
+    "solid_probes_source": [
+      [
+        -27,
+        35,
+        10
+      ],
+      [
+        26,
+        63.63636363636364,
+        14
+      ],
+      [
+        18,
+        24,
+        3
+      ],
+      [
+        -18,
+        49,
+        3
+      ],
+      [
+        18,
+        77,
+        3
+      ],
+      [
+        -18,
+        106,
+        3
+      ],
+      [
+        18,
+        139,
+        3
+      ],
+      [
+        -18,
+        170,
+        3
+      ],
+      [
+        -17,
+        7,
+        -8.8
+      ],
+      [
+        -17,
+        11,
+        -3.200000000000001
+      ],
+      [
+        -17,
+        19,
+        8.0
+      ],
+      [
+        17,
+        32,
+        -8.8
+      ],
+      [
+        17,
+        36,
+        -3.200000000000001
+      ],
+      [
+        17,
+        44,
+        8.0
+      ],
+      [
+        -17,
+        84,
+        -8.8
+      ],
+      [
+        -17,
+        88,
+        -3.200000000000001
+      ]
+    ],
+    "features": [
+      "three unequal upper terminations",
+      "round-topped opening",
+      "hollow shell",
+      "two lower ruins",
+      "real facade breaches",
+      "six partial storeys",
+      "three broken stair flights",
+      "fragmentary stringcourses and pilasters"
+    ],
+    "damage_target": "30\u201335% reconstructed exterior wall area; exact area not measured in V1",
+    "source_top_authored": true,
+    "aircraft_included": false,
+    "v5_interiors": false
+  },
+  "revision_v2": {
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v1/ruined-tower-v1-source.blend",
+    "source_sha256": "4db082324db4080f290045aa742ed5baedb3e6f32c1670650b96cd5267cee4b3",
+    "visible_height_target": 220,
+    "unchanged_below_source_y": 48,
+    "upper_height_factor": 1.303030303030303,
+    "horizontal_scale": 1,
+    "nominal_ground_ceiling_with_16_block_margin": 83
+  },
+  "revision_v3": {
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v2/ruined-tower-v2-source.blend",
+    "source_sha256": "5c718b56a0e27b4e2ee34a856c66c80b26e09b7de8806799b14cc7de2cd3e0b4",
+    "partial_storeys": 6,
+    "broken_stair_flights": 3,
+    "visible_height_target": 220,
+    "feedback": "Screenshots 20\u201322: uniform wall planes and empty interior shaft",
+    "architectural_interiors_only": true
+  },
+  "source_bounds_blender": [
+    [
+      -56.0,
+      -48.0,
+      -12.0
+    ],
+    [
+      56.0,
+      45.096187591552734,
+      220.0
+    ]
+  ],
+  "blocks_per_source_unit": 0.9956896551724138,
+  "height_target_blocks": 232,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 12,
+  "mesh_count": 147,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "config": "relics/ruined-tower/design/ruined-tower-v3.json",
+  "planned_site_size": [
+    112,
+    232,
+    96
+  ],
+  "source_blend_sha256": "76f13b0419ec782fb69f73a4eb4e1ac226bf730c371a186f46d30cf8157ed72d"
+}

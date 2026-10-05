@@ -1,5 +1,10 @@
 # Obelisk V4.2 — warmer stone and missing pieces
 
+**Integration update, October 4:** selected in Alpha 4. See
+[current integration](../../../docs/technical/ALPHA_4_INTEGRATION.md) and
+[runtime status](../../../docs/testing/ALPHA_4_TEST_REPORT.md). The initial
+offline-review status below is historical.
+
 October 2, 2026. User-requested revision, exported and checked offline.
 **Visually accepted by the user.** Game integration and in-game validation remain pending.
 

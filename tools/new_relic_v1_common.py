@@ -85,7 +85,7 @@ def save(config_path,metadata):
                     height_target_blocks=config['height'],ground_level_source=0,
                     ground_level_nbt_approx=round(-low[2]*scale),mesh_count=len(objects),
                     air_policy='omit; cavities are geometry, not terrain-clearing worldgen',
-                    in_game_tested=False,visual_acceptance='V1 review pending',
+                    in_game_tested=False,visual_acceptance=metadata.get('visual_acceptance','V1 review pending'),
                     config=str(config_path.relative_to(ROOT)).replace('\\','/'),
                     planned_site_size=config['planned_site_size'])
     bpy.ops.object.select_all(action='SELECT')

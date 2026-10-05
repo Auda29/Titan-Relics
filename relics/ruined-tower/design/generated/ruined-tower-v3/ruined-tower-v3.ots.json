@@ -1,0 +1,48 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v22.15.0",
+  "input": "relics/ruined-tower/design/generated/ruined-tower-v3/ruined-tower-v3.obj",
+  "output": "relics/ruined-tower/design/generated/ruined-tower-v3/ruined-tower-v3.schem",
+  "source_sha256": "09f58d0bec12bf9a80050c4b776b734d503caad13eb4fd4fb369274f2550fe6e",
+  "schematic_sha256": "9d789a180df6eaab3b7a7614b4f59bf15a7f1b38c1896038dbac61179b2c13b0",
+  "height": 232,
+  "triangles": 24792,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 232,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "wall": "minecraft:deepslate_tiles",
+    "pier": "minecraft:polished_deepslate",
+    "worn": "minecraft:cobbled_deepslate",
+    "seam": "minecraft:polished_basalt",
+    "accent": "minecraft:brown_terracotta",
+    "course": "minecraft:deepslate_bricks",
+    "floor": "minecraft:cracked_deepslate_bricks",
+    "terrain_top": "minecraft:smooth_sandstone",
+    "terrain_patch": "minecraft:sandstone",
+    "terrain_fill": "minecraft:sandstone"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:cobbled_deepslate": 14157,
+    "minecraft:deepslate_tiles": 274351,
+    "minecraft:polished_deepslate": 18877,
+    "minecraft:sandstone": 11423,
+    "minecraft:polished_basalt": 1666,
+    "minecraft:smooth_sandstone": 3992,
+    "minecraft:brown_terracotta": 155,
+    "minecraft:cracked_deepslate_bricks": 5091,
+    "minecraft:deepslate_bricks": 3511
+  },
+  "fill_enclosed": "wall",
+  "filled_voxels": 189317,
+  "note": "Surface voxelisation plus explicit sealed-volume fill; no worldgen integration."
+}

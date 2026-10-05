@@ -9,6 +9,10 @@ user-approved models or exported bounds. No model or structure was generated.
 [new V1 assets and measured exports](NEW_RELICS_V1.md). This page retains the
 original planning dimensions as the comparison baseline.
 
+**October 4 small-Colossus update:** the user later rejected the slender V3 as too
+skeletal and selected a new [Vigilant-Class primary reference](../../relics/colossus/docs/SMALL_COLOSSUS_V4_REFERENCE.md).
+The archive-based proportions below remain historical V1 planning.
+
 ## Recommended working sizes
 
 All dimensions are **X width × Y height × Z depth, in Minecraft blocks**. The

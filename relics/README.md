@@ -5,11 +5,11 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 
 | Relic | Current status |
 | --- | --- |
-| [Colossus](colossus/README.md) | V3 selected in Alpha 3; core, magnet, and head-trial gameplay not implemented |
-| [Obelisk](obelisk/README.md) | V3 selected in Alpha 3; archaeology, collectibles, and Colossus maps not implemented |
-| [Titan Skull](titan-skull/README.md) | V3 selected in Alpha 3 with worldgen; authored ordinary-mob exploration not implemented |
-| [Ruined Tower](ruined-tower/README.md) | V1 exported; visual review and integration pending |
-| [World Tree](world-tree/README.md) | V1 exported; visual review and integration pending |
+| [Colossus](colossus/README.md) | Alpha 4 selects V4.1 materials B and Small Colossus V4 candidate; gameplay/uniqueness pending |
+| [Obelisk](obelisk/README.md) | Alpha 4 selects V4.2; archaeology, collectibles and maps pending |
+| [Titan Skull](titan-skull/README.md) | Alpha 4 selects V4 with four biome variants and Skull 2 V1; encounters pending |
+| [Ruined Tower](ruined-tower/README.md) | V2 candidate with 220 visible layers selected in Alpha 4 |
+| [World Tree](world-tree/README.md) | V2 branch-grown canopy candidate selected in Alpha 4 |
 
 ## In-game demos
 
@@ -18,12 +18,14 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 
 ## V4 studies from in-game inspection
 
-The V3 models remain selected in Alpha 3. The following documents record the
+The V3 models were selected in Alpha 3; Alpha 4 selects the latest successors.
+The following documents record the
 agreed visual findings and revision direction. Colossus V4 now has two offline
 [export variants](colossus/docs/COLOSSUS_V4_EXPORTS.md), with B / open machine frame
 selected by the user. [Obelisk V4](obelisk/docs/OBELISK_V4_EXPORTS.md) and the four
 [Titan Skull V4 variants](titan-skull/docs/TITAN_SKULL_V4_EXPORTS.md) are exported
-and checked offline. The latest approved versions are listed below; integration remains pending.
+and checked offline. See [Alpha 4 integration](../docs/technical/ALPHA_4_INTEGRATION.md)
+for current selection and [runtime evidence](../docs/testing/ALPHA_4_TEST_REPORT.md).
 
 Latest corrections: [Colossus V4.1](colossus/docs/COLOSSUS_V4_1.md) replaces the
 raised wrist with a palm-up right hand and curled fingers;
@@ -31,12 +33,26 @@ raised wrist with a palm-up right hand and curled fingers;
 consistent sandstone facets and larger actual cracks. Previous exports are retained.
 
 The user has **visually accepted Colossus V4.1, Obelisk V4.2 and all four Titan
-Skull V4 terrain variants**. Game integration and in-game checks remain pending.
+Skull V4 terrain variants**. Their latest exports are selected in Alpha 4;
+client visual acceptance of the integrated build remains separate.
 
 **Next design priority:** review the [four new V1 assets](../docs/project/NEW_RELICS_V1.md)
 before starting V5 architectural interiors. Ruined Tower, World Tree, the separate
 archive-derived smaller Colossus and independent sword-bearing Titan Skull 2 now
 have editable models and exports. Further skull/bone variants remain extensions.
+
+**October 4 review:** Titan Skull 2 V1 is visually accepted for now. Small Colossus
+needs a new direction beyond the original test design, World Tree needs a more
+natural appearance, and Ruined Tower should be taller. See the
+[recorded feedback](../docs/project/NEW_RELICS_V1.md#user-feedback--october-4-2026).
+The resulting [V2 candidates and V1/V2 comparisons](../docs/project/RELICS_V2_REVIEW.md)
+are available for the next visual review.
+The user subsequently found Small Colossus V2 too similar to the large machine
+and selected the [V3 slender sentinel](colossus/docs/SMALL_COLOSSUS_V3.md) direction.
+V3 was then rejected as too skeletal. The latest
+[Small Colossus V4](colossus/docs/SMALL_COLOSSUS_V4.md) follows the user's new
+Vigilant-Class reel and its massive dormant plated specimen. V4 is a visual
+candidate; Tree V2 and Tower V2 still await feedback.
 
 The user requested [reference, size, proportion and damage studies for all four](../docs/project/NEXT_FOUR_RELIC_DESIGN_STUDY.md)
 before any Blender work. Those working briefs are available; the user subsequently
@@ -62,7 +78,7 @@ The intended discovery order is **Titan skulls and future bone/skull variants
 (most common) -> Obelisks (clearly rarer) -> the unique large Colossus**. The large
 Colossus should occur **once per game world/save**, shared by all players. Planned
 **smaller Colossi may occur multiple times**, with separate rarity/loot decisions
-still open. Alpha 3 has provisional repeatable candidate rates and does not yet
+still open. Alpha 4 has provisional repeatable candidate rates and does not yet
 enforce uniqueness; future skull/bone variants share a family-level density target.
 
 Obelisk maps initially lead to the same large site. Its vault preserves per-player
@@ -98,6 +114,6 @@ original `ots/` experiment. Git includes selected source models, whole exports,
 review sheets, and provenance; intermediate files and tile exports stay local.
 Do not regenerate assets just to move them.
 
-The playable Alpha 3 explicitly selects the three V3 exports using
-`tools/integrate_v3.py`; see [V3 integration](../docs/technical/V3_INTEGRATION.md).
+Alpha 4 explicitly pins seven designs/ten templates using `tools/relic_catalog.py`
+and `tools/integrate_relics.py`; see [current integration](../docs/technical/ALPHA_4_INTEGRATION.md).
 Organizing an asset here alone does not select it or implement proposed gameplay.

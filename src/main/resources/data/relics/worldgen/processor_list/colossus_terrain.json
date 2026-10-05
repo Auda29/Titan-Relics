@@ -1,0 +1,8 @@
+{
+  "processors": [
+    {
+      "processor_type": "relics:terrain_support",
+      "ground_y": 77
+    }
+  ]
+}

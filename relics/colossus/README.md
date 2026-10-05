@@ -1,15 +1,20 @@
 # Colossus
 
-The **playable Alpha 3 uses V3**, including the buried abdomen, torn hip, and
-detached arm; see [V3 integration](../../docs/technical/V3_INTEGRATION.md).
-The **selected offline asset is V4.1 with material study B**. Its palette/inventory
-and simulated post-salvage appearance are visually accepted, but build integration
-and Minecraft testing are still pending. Material study B is distinct from the
-earlier B / open-chest-frame geometry choice.
+**Alpha 4 selects V4.1 with material study B and the Small Colossus V4 candidate**;
+see [current integration](../../docs/technical/ALPHA_4_INTEGRATION.md) and
+[runtime status](../../docs/testing/ALPHA_4_TEST_REPORT.md). Large-Colossus materials
+and simulated post-salvage appearance are visually accepted; the small model still
+awaits feedback. Material B is distinct from the earlier open-chest-frame choice.
 
 ## Design and assets
 
-- [Small Colossus V1](docs/SMALL_COLOSSUS_V1.md) — separate archive-based 101 × 76 × 87 export, visual review pending
+- [Alpha 4.2 art follow-up / Small Colossus V6](../../docs/project/ALPHA_4_2_ART_FOLLOWUP.md) — overlapping forged plates, settled posture and subdued pincers; visual candidate
+- [October 5 screenshot revision / Small Colossus V5](../../docs/project/SCREENSHOT_REVISIONS_20261005.md) — listed weathered armour, asymmetric burial and natural terrain foundations; review candidate
+- [Small Colossus V4](docs/SMALL_COLOSSUS_V4.md) — new reference-led dormant plated specimen with six-lens face, grille and heavy pincers; visual candidate
+- [New small-Colossus primary reference](docs/SMALL_COLOSSUS_V4_REFERENCE.md) — user-selected Vigilant-Class reel; dormant plated specimen with multi-optic face and pincer hand
+- [Small Colossus V3](docs/SMALL_COLOSSUS_V3.md) — slender sentinel; rejected as too skeletal
+- [Small Colossus V2](docs/SMALL_COLOSSUS_V2.md) — 89 × 80 × 89 bronze-machine candidate; user finds it too similar to the large Colossus; distinct redesign required
+- [Small Colossus V1](docs/SMALL_COLOSSUS_V1.md) — archive-based candidate; user requested a new design on October 4
 
 - [Smaller Colossus reference/size study](docs/SMALL_COLOSSUS_DESIGN_STUDY.md) — archive-based angular helmet and compact body; proposed 99 × 76 × 88 site; no new model
 
@@ -25,8 +30,8 @@ earlier B / open-chest-frame geometry choice.
 - [V2 design history](docs/COLOSSUS_V2.md)
 - [Design configurations and output layout](design/README.md)
 - [V3 Blender model, exports, and review sheets](design/generated/colossus-v3/)
-- [Archived first concept](archive/first-concept/): preserved as the basis for a
-  future second, smaller Colossus (original export: 99 × 66 × 71 blocks).
+- [Archived first concept](archive/first-concept/): historical basis for Small
+  Colossus V1 (original export: 99 × 66 × 71 blocks).
 
 ## Gameplay
 
@@ -35,7 +40,7 @@ earlier B / open-chest-frame geometry choice.
 
 **Approved occurrence rule:** one naturally generated **large Colossus per game
 world/save**, shared by all players. Planned **smaller Colossi may occur multiple
-times**; their loot and frequency are not yet assigned. Alpha 3 currently uses
+times**; their final loot and frequency are not yet assigned. Alpha 4 currently uses
 repeatable candidate distribution and does **not** enforce large-site uniqueness.
 Obelisk maps will initially lead to the same unique large landmark.
 

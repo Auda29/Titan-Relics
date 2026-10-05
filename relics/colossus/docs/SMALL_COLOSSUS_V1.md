@@ -1,6 +1,12 @@
 # Small Colossus V1
 
-Status: **first exported candidate for the independent smaller design**.
+Status: **revision required following user review on October 4, 2026**.
+
+The user finds V1 too close to the original test Colossus. The archive-preserving
+approach described below records how V1 was built; it is no longer sufficient as
+the next revision's design goal. The user selected an independent relative of the
+accepted large Colossus: shared visual language, distinct proportions and pose.
+The resulting [V2 candidate](SMALL_COLOSSUS_V2.md) is now available.
 
 - [Four-view review](../design/generated/small-colossus-v1/small-colossus-v1-review.png)
 - [Hand/rear details](../design/generated/small-colossus-v1/small-colossus-v1-detail-review.png)

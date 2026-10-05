@@ -1,4 +1,4 @@
-"""Install a verified V3 JAR and a new showcase world; never modify existing saves."""
+"""Install a runtime-verified JAR and new showcase world; never modify existing saves."""
 from __future__ import annotations
 
 import argparse
@@ -14,6 +14,8 @@ import time
 import zipfile
 
 from relic_assets import decode_nbt
+from relic_catalog import ASSETS
+from terrain_foundations import POLICY
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -38,6 +40,39 @@ def prepare_level(data: bytes, title: str) -> bytes:
     return gzip.compress(raw, mtime=0)
 
 
+def validate_natural(natural: dict, expected: set[str], allow_feature_overwrites=False):
+    """Do not let a terrain preview bypass the same natural-placement safety gate."""
+    if not expected or set(natural.get("expected_natural_structures", [])) != expected:
+        raise ValueError("Natural report must inspect every expected relic and biome variant")
+    checks = natural.get("world_blocks", {})
+    instances = checks.get("instances", [])
+    requires_contact = natural.get("asset_selection", {}).get("foundation_policy") == POLICY
+    complete = (not natural.get("failure") and not natural.get("shutdown_failure") and
+                natural.get("exit_code") == 0 and not natural.get("blocking_log_errors") and
+                 not checks.get("read_errors") and not checks.get("verification_errors") and not checks.get("overlaps") and
+                expected <= {i["structure"] for i in instances} and
+                all(i["bounding_box_matches"] and not i["missing_chunks"] and not i["incomplete_chunks"] and
+                    i["checked_blocks"] > 0 and i["mismatch_count"] / i["checked_blocks"] < 0.01 and
+                     i.get("foundation_contact", {}).get("passed", not requires_contact) and
+                     i.get("feature_protection", {}).get("passed", not requires_contact)
+                    for i in instances))
+    if not complete:
+        raise ValueError("Natural verification is missing/incomplete or contains substantial edits/errors")
+    strict = natural.get("passed") and all(i["mismatch_count"] == 0 for i in instances)
+    if not strict and not allow_feature_overwrites:
+        raise ValueError("Natural verification failed; minor feature edits require explicit acknowledgement")
+
+
+def validate_reports(natural: dict, showcase: dict, allow_feature_overwrites=False):
+    """Fail closed on subset tests, incomplete models or substantial natural edits."""
+    expected = {"relics:" + name for name in ASSETS}
+    if not showcase.get("passed") or not showcase.get("showcase"):
+        raise ValueError("Showcase runtime checks must pass before installation")
+    if expected != {i["structure"] for i in showcase.get("showcase_blocks", {}).get("instances", [])}:
+        raise ValueError("Showcase must verify every current relic and biome variant")
+    validate_natural(natural, expected, allow_feature_overwrites)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--profile", type=Path, required=True)
@@ -55,21 +90,7 @@ def main() -> int:
             raise ValueError("Close Minecraft and local Java test servers before installing")
     natural = json.loads(args.natural_report.read_text(encoding="utf-8"))
     showcase = json.loads(args.showcase_report.read_text(encoding="utf-8"))
-    if not showcase["passed"] or not showcase.get("showcase"):
-        raise ValueError("Showcase runtime checks must pass before installation")
-    if not natural["passed"]:
-        checks = natural.get("world_blocks", {})
-        instances = checks.get("instances", [])
-        expected = {"relics:colossus", "relics:obelisk", "relics:titan_skull"}
-        complete = (not natural.get("failure") and not natural.get("shutdown_failure") and
-                    natural.get("exit_code") == 0 and not natural.get("blocking_log_errors") and
-                    not checks.get("read_errors") and not checks.get("verification_errors") and
-                    expected <= {i["structure"] for i in instances} and
-                    all(i["bounding_box_matches"] and not i["missing_chunks"] and not i["incomplete_chunks"] and
-                        i["checked_blocks"] > 0 and i["mismatch_count"] / i["checked_blocks"] < 0.01
-                        for i in instances))
-        if not args.allow_feature_overwrites or not complete:
-            raise ValueError("Natural verification failed; only explicitly acknowledged minor feature edits in complete structures are permitted")
+    validate_reports(natural, showcase, args.allow_feature_overwrites)
     if not args.profile.is_dir():
         raise ValueError("Selected profile does not exist")
     version = json.loads((ROOT / "src/main/resources/fabric.mod.json").read_text())["version"]
@@ -92,13 +113,14 @@ def main() -> int:
     if not {"fabric-api", "lithostitched"} <= ids:
         raise ValueError("Existing profile must contain Fabric API and Lithostitched")
     stamp = time.strftime("%Y%m%d-%H%M%S")
-    backup = ROOT / f"build/profile-backups/alpha3-upgrade-{stamp}"
+    backup = ROOT / f"build/profile-backups/{version}-upgrade-{stamp}"
     backup.mkdir(parents=True, exist_ok=False)
     for jar in relic_jars:
         shutil.copy2(jar, backup / jar.name)
         if hashlib.sha256(jar.read_bytes()).digest() != hashlib.sha256((backup / jar.name).read_bytes()).digest():
             raise ValueError("Backup verification failed")
-    title = f"Relic V3 Showcase {stamp}"
+    label = version.removeprefix("0.1.0-alpha.")
+    title = f"Relic Alpha {label} Showcase {stamp}"
     source_world = Path(showcase["run_directory"]) / "world"
     prepared_level = prepare_level((source_world / "level.dat").read_bytes(), title)
     world = args.profile / "saves" / title

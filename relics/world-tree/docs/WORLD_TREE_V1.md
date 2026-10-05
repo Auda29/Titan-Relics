@@ -1,6 +1,11 @@
 # World Tree V1
 
-Status: **first exported visual candidate; user review pending**.
+Status: **revision required following user review on October 4, 2026**.
+
+The user finds V1 insufficiently natural. The next revision needs a more natural
+growth form; the exact modeling treatment has not yet been agreed.
+The subsequent [V2 candidate](WORLD_TREE_V2.md) develops fine branch-grown foliage
+and irregular tapered roots for review.
 
 - [Four-view review](../design/generated/world-tree-v1/world-tree-v1-review.png)
 - [Roots and leaf-hidden skeleton](../design/generated/world-tree-v1/world-tree-v1-detail-review.png)

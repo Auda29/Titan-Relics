@@ -1,0 +1,15 @@
+{
+  "name": "relics:small_colossus",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 1,
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "relics:small_colossus_worldgen",
+        "processors": "relics:small_colossus_terrain",
+        "projection": "rigid"
+      }
+    }
+  ]
+}

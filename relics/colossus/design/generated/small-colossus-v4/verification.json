@@ -1,0 +1,105 @@
+{
+  "size": [
+    113,
+    84,
+    103
+  ],
+  "blocks": 215766,
+  "palette_entries": 10,
+  "tiles": 29,
+  "data_version": 3105,
+  "schematic_sha256": "b9e8d346b820bcf1fdc07927657558f757da5e514b4458b101fbcfa0d5fc4473",
+  "nbt_sha256": "c514e563981087105251207592885a34ae4dfb4979128160fd35d00e0b5a5b56",
+  "checks": [
+    "source/export hashes",
+    "all block coordinates and states preserved",
+    "palette counts",
+    "bounds",
+    "lossless tile reconstruction"
+  ],
+  "in_game_tested": false,
+  "revision_v4": {
+    "reference": "https://www.instagram.com/reel/Da-s0zqi7OQ/",
+    "source_blend_sha256": "acf9ef0469f5f9063f1114bade379a5af6e631e51b240fffe63a362577d4e866",
+    "ground_level": 9,
+    "visible_layers": 75,
+    "head_and_pincers_connected_to_buried_body": true,
+    "six_head_optics": true,
+    "optical_probes": [
+      {
+        "name": "Main left eye",
+        "nearby_dark_blocks": 88
+      },
+      {
+        "name": "Main right eye",
+        "nearby_dark_blocks": 92
+      },
+      {
+        "name": "Upper left eye",
+        "nearby_dark_blocks": 32
+      },
+      {
+        "name": "Upper right eye",
+        "nearby_dark_blocks": 36
+      },
+      {
+        "name": "Lower left cheek eye",
+        "nearby_dark_blocks": 38
+      },
+      {
+        "name": "Lower right cheek eye",
+        "nearby_dark_blocks": 36
+      },
+      {
+        "name": "Foreground left pincer | central hand port",
+        "nearby_dark_blocks": 38
+      },
+      {
+        "name": "Foreground left pincer | outer hand port",
+        "nearby_dark_blocks": 22
+      },
+      {
+        "name": "Foreground left pincer | inner hand port",
+        "nearby_dark_blocks": 25
+      },
+      {
+        "name": "Right grounded pincer | central hand port",
+        "nearby_dark_blocks": 27
+      },
+      {
+        "name": "Right grounded pincer | outer hand port",
+        "nearby_dark_blocks": 17
+      },
+      {
+        "name": "Right grounded pincer | inner hand port",
+        "nearby_dark_blocks": 15
+      }
+    ],
+    "grille_rib_neighborhoods": [
+      8,
+      9,
+      9,
+      12,
+      9,
+      9,
+      7
+    ],
+    "solid_core_3x3x3_probes": 2,
+    "continuous_body_widths": [
+      {
+        "source_y": 13,
+        "width_source_units": 58.04091837319983
+      },
+      {
+        "source_y": 23,
+        "width_source_units": 58.04091837319983
+      },
+      {
+        "source_y": 34,
+        "width_source_units": 58.04091837319983
+      }
+    ],
+    "filled_voxels": 157928,
+    "copper_blocks": 1671
+  }
+}

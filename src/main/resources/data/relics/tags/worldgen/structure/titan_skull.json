@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "relics:titan_skull",
+    "relics:titan_skull_dry",
+    "relics:titan_skull_sand",
+    "relics:titan_skull_rock"
+  ]
+}

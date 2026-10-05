@@ -1,5 +1,11 @@
 # Titan Skull V4 — broken deposits and biome palettes
 
+**Integration update, October 4:** all four exports are selected in Alpha 4,
+with disjoint meadow/dry/sand/rock biome mappings and one shared density set.
+See [current placement contracts](../../../docs/technical/ALPHA_4_INTEGRATION.md)
+and [runtime status](../../../docs/testing/ALPHA_4_TEST_REPORT.md). Proposed-use
+and integration-limit statements below record the original offline study.
+
 October 2, 2026. **All four V4 terrain variants visually accepted by the user.**
 Game integration and in-game validation remain pending.
 

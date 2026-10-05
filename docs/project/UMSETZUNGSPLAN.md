@@ -70,7 +70,7 @@ assumptions are superseded. One version/loader combination is supported initiall
 | Target profile and game/loader versions | Recorded from the selected profile |
 | Dependency versions and hashes | Recorded; base and selected integration server runs passed |
 | Worldgen format | Checked against target JARs; NBT DataVersion 4903, datapack format 107.1 |
-| Reproducible build | Python data-only packaging implemented; repeat builds checked |
+| Reproducible build | Python resource packaging; Alpha 4.2 adds JDK 25 placement-only compilation |
 | Full personal modpack and custom configs | Not fully accepted; integration tests used a selected default-config subset |
 | World preset, extra datapacks, graphics, shaders/LOD | Must be recorded for broader acceptance |
 | Test hardware, JVM memory, storage, performance baseline | Must be fixed before comparative measurements |
@@ -82,12 +82,12 @@ Additional loaders and game versions should follow a working first release.
 
 | Layer | Current responsibility |
 | --- | --- |
-| Mod packaging | Fabric metadata, dependencies, and resources; no custom Java classes |
+| Mod packaging | Fabric metadata/resources and Alpha 4.2 placement-only Java components |
 | Structure sources | Procedural alpha geometry and separate Blender source generators |
 | Worldgen data | Biomes, rigid template pools, distribution, and placement conditions |
 | Lithostitched | Delegating structure type, grid/height/biome conditions, and jigsaw placement |
 | Development tools | Conversion, manifests, export checks, previews, settings packs, and server/world verification |
-| Custom runtime code | Add only for a demonstrated gap that cannot reasonably be covered by existing facilities |
+| Custom runtime code | Alpha 4.2 terrain supports and non-overlap reservations address demonstrated data-only placement gaps; no gameplay code |
 
 The alpha uses one whole rigid template per relic. No required part depends on a
 random jigsaw connection. See [Worldgen](../technical/WORLDGEN.md) for actual codecs,
@@ -134,9 +134,10 @@ not prove that every required mod can be installed server-side only.
 | `.work/` | Ignored upstream checkout, local reference media, and experiments |
 | `build/`, `dist/` | Ignored runtime/build evidence and packaged output |
 
-These areas already exist. A custom `src/main/java/` tree is not needed for the
-current data-only implementation. Local worlds and runtime data remain outside
-tracked sources. Reference media is not shipped with the mod.
+These areas already exist. Alpha 4.2 adds `src/main/java/` for small placement-only
+components and `src/test/java/` for their headless tests; see
+[the terrain correction](../technical/ALPHA_4_2_TERRAIN.md). Local worlds and
+runtime data remain outside tracked sources. Reference media is not shipped with the mod.
 
 ### Build and export workflow
 

@@ -1,0 +1,50 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v22.15.0",
+  "input": "relics/colossus/design/generated/small-colossus-v3/small-colossus-v3.obj",
+  "output": "relics/colossus/design/generated/small-colossus-v3/small-colossus-v3.schem",
+  "source_sha256": "61fdf29dd785a5ccf0500156832909e91cf6903ef30c368a19b83691198c3835",
+  "schematic_sha256": "0b269cfdb73934439d3894327ac253fad803a9a13936078839964248ade88d40",
+  "height": 84,
+  "triangles": 17288,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 84,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "armor": "minecraft:gray_terracotta",
+    "plate": "minecraft:brown_terracotta",
+    "edge": "minecraft:weathered_cut_copper",
+    "worn": "minecraft:tuff",
+    "rust": "minecraft:brown_terracotta",
+    "patina": "minecraft:weathered_cut_copper",
+    "joint": "minecraft:polished_deepslate",
+    "dark": "minecraft:black_concrete",
+    "moss": "minecraft:moss_block",
+    "growth": "minecraft:green_terracotta",
+    "terrain_top": "minecraft:moss_block",
+    "terrain_patch": "minecraft:rooted_dirt",
+    "terrain_fill": "minecraft:dirt"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:brown_terracotta": 3565,
+    "minecraft:polished_deepslate": 4021,
+    "minecraft:dirt": 5571,
+    "minecraft:gray_terracotta": 6125,
+    "minecraft:moss_block": 3855,
+    "minecraft:rooted_dirt": 529,
+    "minecraft:weathered_cut_copper": 722,
+    "minecraft:black_concrete": 61
+  },
+  "fill_enclosed": null,
+  "filled_voxels": 0,
+  "note": "Surface voxelisation. No solid filling, interior-air classification or worldgen integration."
+}

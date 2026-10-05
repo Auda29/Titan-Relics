@@ -6,6 +6,15 @@ No new model or export is created by this study.
 Subsequent work: the user requested the [Small Colossus V1 model/export](SMALL_COLOSSUS_V1.md),
 now available separately for visual review.
 
+**October 4 supersession:** the user found that V1 retained too much of the test
+model and selected an independent relative of the accepted large Colossus.
+[Small Colossus V2](SMALL_COLOSSUS_V2.md) implements that new direction. Archive
+preservation below is the historical V1 brief, not a constraint on V2 geometry.
+
+The user subsequently rejected V3 as too skeletal and supplied the
+[Vigilant-Class reference for V4](SMALL_COLOSSUS_V4_REFERENCE.md). That new brief
+supersedes both the archive and slender-sentinel directions.
+
 ## Reference hierarchy and observed identity
 
 1. Primary: [archived first concept](../archive/first-concept/README.md), especially

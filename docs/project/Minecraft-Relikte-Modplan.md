@@ -41,10 +41,17 @@ lower body, damaged armor, and detached arm. A torso opening should allow interi
 - Current asset work: [Colossus v2](../../relics/colossus/docs/COLOSSUS_V2.md) follows the visible form;
   [v3](../../relics/colossus/docs/COLOSSUS_V3.md) extends it underground to a torn hip and is selected
   in Alpha 3. V4.1 is visually accepted offline; integration remains pending.
-- Occurrence: **one large Colossus per game world**. Smaller Colossi based on the
-  [archived first concept](../../relics/colossus/archive/first-concept/README.md)
-  may occur multiple times; frequency and loot remain separate decisions.
+- Occurrence: **one large Colossus per game world**. Smaller Colossi may occur
+  multiple times; frequency and loot remain separate decisions. Their current
+  [Vigilant-Class reference brief](../../relics/colossus/docs/SMALL_COLOSSUS_V4_REFERENCE.md)
+  replaces the archived first-concept direction.
   Large-site uniqueness is not yet implemented.
+
+**October 4 small-Colossus reference update:** after finding V2 too similar to the
+large machine and V3 too skeletal, the user selected
+[Vigilant-Class Archaean Colossi — The Archive In Between](https://www.instagram.com/reel/Da-s0zqi7OQ/)
+as the new primary visual reference for the smaller design. The archive-derived
+and slender-sentinel briefs are historical approaches, not the next model's target.
 
 ### 2. A solitary Obelisk in a vast desert
 

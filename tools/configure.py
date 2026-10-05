@@ -6,11 +6,13 @@ import json
 from pathlib import Path
 import zipfile
 
+from relic_catalog import FAMILIES, NORMAL_DENSITY
+
 ROOT = Path(__file__).resolve().parents[1]
 PRESETS = {
-    "rare": {"obelisk": (96, 48), "colossus": (120, 60), "titan_skull": (72, 36)},
-    "normal": {"obelisk": (64, 32), "colossus": (80, 40), "titan_skull": (48, 24)},
-    "frequent": {"obelisk": (32, 16), "colossus": (40, 20), "titan_skull": (24, 12)},
+    "rare": {name: (spacing * 3 // 2, separation * 3 // 2) for name, (spacing, separation) in NORMAL_DENSITY.items()},
+    "normal": NORMAL_DENSITY,
+    "frequent": {name: (spacing // 2, separation // 2) for name, (spacing, separation) in NORMAL_DENSITY.items()},
 }
 
 
@@ -18,7 +20,7 @@ def settings_resources(density: str, disabled: list[str]) -> dict[str, bytes]:
     if density not in PRESETS:
         raise ValueError(f"Unknown density: {density}")
     if set(disabled) - set(PRESETS["normal"]):
-        raise ValueError("Only obelisk, colossus and titan_skull can be disabled")
+        raise ValueError(f"Only these relic families can be disabled: {', '.join(FAMILIES)}")
     result = {}
     for name, (spacing, separation) in PRESETS[density].items():
         relative = f"data/relics/worldgen/structure_set/{name}.json"

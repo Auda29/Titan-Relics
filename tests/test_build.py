@@ -9,6 +9,8 @@ import unittest
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from relic_catalog import ASSETS, FAMILIES, members
 
 
 def module(name):
@@ -33,7 +35,7 @@ class ConfigurationTests(unittest.TestCase):
         self.assertEqual(obelisk["structures"][0]["structure"], "relics:obelisk")
 
     def test_preset_spacing_is_valid_and_ordered(self):
-        for name in ("obelisk", "colossus", "titan_skull"):
+        for name in FAMILIES:
             spacings = []
             for preset in ("frequent", "normal", "rare"):
                 data = json.loads(configure.settings_resources(preset, [])[f"data/relics/worldgen/structure_set/{name}.json"])
@@ -57,6 +59,14 @@ class ConfigurationTests(unittest.TestCase):
         for name in ("obelisk", "colossus"):
             data = json.loads(generated[f"data/relics/worldgen/structure_set/{name}.json"])
             self.assertEqual(len(data["structures"]), 1)
+
+    def test_every_family_can_be_disabled_without_disabling_other_families(self):
+        for disabled in FAMILIES:
+            generated = configure.settings_resources("normal", [disabled])
+            for family in FAMILIES:
+                data = json.loads(generated[f"data/relics/worldgen/structure_set/{family}.json"])
+                expected = [] if family == disabled else ["relics:" + name for name in members(family)]
+                self.assertEqual([s["structure"] for s in data["structures"]], expected)
 
     def test_settings_archive_has_fixed_portable_metadata(self):
         with tempfile.TemporaryDirectory() as td:
@@ -102,13 +112,27 @@ class PackagingTests(unittest.TestCase):
 
     def test_loaded_resource_graph_has_complete_fixed_templates(self):
         build.check_resources()
-        for name in ("obelisk", "colossus", "titan_skull"):
+        for name in ASSETS:
             pool = json.loads((build.RESOURCES / f"data/relics/worldgen/template_pool/{name}.json").read_text())
             self.assertEqual(len(pool["elements"]), 1)
             self.assertEqual(pool["elements"][0]["element"]["location"], f"relics:{name}_worldgen")
             structure = json.loads((build.RESOURCES / f"data/relics/worldgen/structure/{name}.json").read_text())
             self.assertEqual(structure["delegate"]["size"], 1)
             self.assertEqual(structure["delegate"]["start_pool"], f"relics:{name}")
+
+    def test_archive_excludes_stale_and_nested_debug_templates(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            resources = root / "resources"
+            for relative in ("colossus.nbt", "colossus_worldgen.nbt", "old_candidate.nbt",
+                             "debug/colossus.nbt", "colossus/tile_0.nbt"):
+                path = resources / "data/relics/structure" / relative
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b"fixture")
+            build.write_archive(root / "test.jar", resources)
+            with zipfile.ZipFile(root / "test.jar") as archive:
+                self.assertEqual(set(archive.namelist()), {"data/relics/structure/colossus.nbt",
+                                                         "data/relics/structure/colossus_worldgen.nbt"})
 
 
 if __name__ == "__main__":

@@ -28,14 +28,31 @@ def main():
         views=[('Root arches / actual blocks',lambda p:source(p)[1]<48,(130,210,125)),
                ('Woody skeleton / leaves hidden for inspection',lambda p:'leaves' not in states[tuple(p)],(160,250,100))]
     elif family=='small-colossus':
-        views=[('Right palm and curled fingers',lambda p:source(p)[0]>27 and source(p)[2]>17,(120,-240,170)),
-               ('Compact body / rear breach',lambda p:source(p)[0]<29,(110,-250,115))]
+        if 'revision_v4' in metadata:
+            views=[('Six-lens face and arched vertical grille',lambda p:source(p)[1]>38,(45,290,90)),
+                   ('Heavy foreground pincer and optical hand ports',lambda p:source(p)[0]<-20 and source(p)[1]<21,(120,250,155))]
+        elif 'revision_v3' in metadata:
+            views=[('Elongated mask and stepped shoulder plates',lambda p:source(p)[1]>37,(70,270,100)),
+                   ('Articulated waist and long grounded arms',lambda p:source(p)[1]<37,(100,240,135))]
+        elif 'revision_v2' in metadata:
+            views=[('Right hand and detached sleeve',lambda p:source(p)[0]>22 and source(p)[2]<-10 and source(p)[1]<16,(120,240,170)),
+                   ('New domed helmet and torn cuirass',lambda p:source(p)[1]>15,(70,250,100))]
+        else:
+            views=[('Right palm and curled fingers',lambda p:source(p)[0]>27 and source(p)[2]>17,(120,-240,170)),
+                   ('Compact body / rear breach',lambda p:source(p)[0]<29,(110,-250,115))]
     elif family=='skull-2':
         views=[('Face and open jaw',lambda p:source(p)[1]<69,(45,290,75)),
                ('Sword entry and crossguard',lambda p:source(p)[1]>49,(80,250,105))]
     else:
-        views=[('Ground joins and lower threshold',lambda p:source(p)[1]<65,(130,230,100)),
-               ('Broken crown and sky slots',lambda p:source(p)[1]>105,(120,230,120))]
+        if 'revision_v4' in metadata:
+            views=[('Cutaway / broken lower flight and masonry',lambda p:source(p)[2]>-12 and source(p)[1]<115,(80,280,170)),
+                   ('Staggered crown fracture / actual blocks',lambda p:source(p)[1]>145,(120,230,110))]
+        elif 'revision_v3' in metadata:
+            views=[('Cutaway / broken storeys and stairs',lambda p:source(p)[2]>-12 and source(p)[1]<180,(80,280,170)),
+                   ('Facade courses and lower ruins',lambda p:source(p)[1]<115,(120,230,100))]
+        else:
+            views=[('Ground joins and lower threshold',lambda p:source(p)[1]<65,(130,230,100)),
+                   ('Broken crown and sky slots',lambda p:source(p)[1]>105,(120,230,120))]
     for index,(label,predicate,direction) in enumerate(views):
         bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
         renderer.blocks_from_nbt(predicate=predicate)

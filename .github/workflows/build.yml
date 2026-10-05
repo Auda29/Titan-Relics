@@ -13,10 +13,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - name: Prepare checksum-verified Java compilation dependencies
+        run: python tools/setup_worldgen_build.py --accept-downloads
       - name: Generate structures and build mod
         run: python tools/build.py
       - name: Test generators and resources
         run: python -m unittest discover -s tests -v
+      - name: Test placement processor and reservations
+        run: python tools/test_worldgen_java.py
       - name: Check reproducible package
         run: |
           cp dist/SHA256SUMS.txt /tmp/relics-first-build.sha256

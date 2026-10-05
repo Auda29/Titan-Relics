@@ -31,11 +31,34 @@ FACES = [
 ]
 
 
+def principled(mat):
+    mat.use_nodes = True
+    bsdf = next((n for n in mat.node_tree.nodes if n.type == 'BSDF_PRINCIPLED'), None)
+    if bsdf is None:
+        bsdf = mat.node_tree.nodes.new('ShaderNodeBsdfPrincipled')
+        output = next((n for n in mat.node_tree.nodes if n.type == 'OUTPUT_MATERIAL'), None)
+        output = output or mat.node_tree.nodes.new('ShaderNodeOutputMaterial')
+        mat.node_tree.links.new(bsdf.outputs['BSDF'], output.inputs['Surface'])
+    bsdf.name = 'Principled BSDF'
+    return bsdf
+
+
+def world_background(world):
+    world.use_nodes = True
+    node = next((n for n in world.node_tree.nodes if n.type == 'BACKGROUND'), None)
+    if node is None:
+        node = world.node_tree.nodes.new('ShaderNodeBackground')
+        output = next((n for n in world.node_tree.nodes if n.type == 'OUTPUT_WORLD'), None)
+        output = output or world.node_tree.nodes.new('ShaderNodeOutputWorld')
+        world.node_tree.links.new(node.outputs['Background'], output.inputs['Surface'])
+    node.name = 'Background'
+    return node
+
+
 def material(name, color):
     mat = bpy.data.materials.new(name)
     mat.diffuse_color = (*color, 1)
-    mat.use_nodes = True
-    bsdf = mat.node_tree.nodes.get("Principled BSDF")
+    bsdf = principled(mat)
     bsdf.inputs["Base Color"].default_value = (*color, 1)
     bsdf.inputs["Roughness"].default_value = .88
     return mat
@@ -56,7 +79,7 @@ def stage():
     scene.render.image_settings.file_format = "PNG"
     scene.view_settings.view_transform = "Standard"
     scene.world = bpy.data.worlds.new("Soft daylight")
-    scene.world.use_nodes = True
+    world_background(scene.world)
     scene.world.node_tree.nodes["Background"].inputs["Color"].default_value = (.72, .78, .86, 1)
     scene.world.node_tree.nodes["Background"].inputs["Strength"].default_value = .65
     subjects = [obj for obj in scene.objects if obj.type == "MESH"]
@@ -346,9 +369,9 @@ def main():
     # Source materials are intentionally simple, not a texture bake.
     for mat in bpy.data.materials:
         rgb = mat.diffuse_color[:]
-        mat.use_nodes = True
-        mat.node_tree.nodes["Principled BSDF"].inputs["Base Color"].default_value = rgb
-        mat.node_tree.nodes["Principled BSDF"].inputs["Roughness"].default_value = .85
+        bsdf = principled(mat)
+        bsdf.inputs["Base Color"].default_value = rgb
+        bsdf.inputs["Roughness"].default_value = .85
     if not args.blocks_only and not args.landscape_only and not args.presentation_only:
         center, corners = stage()
         render("01-blender-source.png", center, corners, preview.get("front", (100, 180, 95)))

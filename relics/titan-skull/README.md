@@ -1,16 +1,16 @@
 # Titan Skull
 
-The latest offline study is **V4**, with broken deposits and four ground palettes.
-**V3**, with its crowned skull, broken partly buried spine and exported local
-mound, remains selected in Alpha 3 with natural worldgen;
-see [V3 integration](../../docs/technical/V3_INTEGRATION.md).
+**Alpha 4 selects V4**, with broken deposits and four biome-matched ground palettes,
+plus the independent **Skull 2 V1** with embedded sword. See
+[current integration](../../docs/technical/ALPHA_4_INTEGRATION.md) and
+[runtime status](../../docs/testing/ALPHA_4_TEST_REPORT.md).
 
-- [V4 exports and reproduction](docs/TITAN_SKULL_V4_EXPORTS.md) — all four terrain palettes visually accepted; integration pending
+- [V4 exports and reproduction](docs/TITAN_SKULL_V4_EXPORTS.md) — all four palettes accepted; selected in Alpha 4
 - [V4 in-game findings and revision goals](docs/TITAN_SKULL_V4.md)
 - [V3 design and reproduction commands](docs/TITAN_SKULL_V3.md)
 - [V2 scale and mound design](docs/TITAN_SKULL_V2.md)
 - [V1 design history](docs/TITAN_SKULL_V1.md)
-- [Second independent Titan Skull V1](docs/TITAN_SKULL_2_V1.md) — overgrown skull with embedded sword; 105 × 144 × 107 export, visual review pending
+- [Second independent Titan Skull V1](docs/TITAN_SKULL_2_V1.md) — 105 × 144 × 107 export, visually accepted for now; selected in Alpha 4
 - [Second skull reference and size brief](docs/TITAN_SKULL_2_CONCEPT.md)
 - [Design configurations and outputs](design/README.md)
 - [Ordinary mobs, exploration, and skull/bone-family frequency](gameplay/README.md)
@@ -20,9 +20,9 @@ no special reward item required. Skulls and future skull/bone variants should be
 the most common relic family; Obelisks are clearly rarer. The large Colossus is
 intended to be unique per game world; planned smaller Colossi may repeat, with
 their rarity still open. Final rates and authored encounter implementation remain
-open; Alpha 3 does not yet enforce the large-site uniqueness rule.
+open; Alpha 4 does not yet enforce the large-site uniqueness rule.
 
-The second skull is a separate future design, not another revision or ground
+The second skull is a separate design, not another revision or ground
 palette of the current crowned skull. Together with later bone variants, it
 should make multiple fallen Titans legible in the landscape without requiring
 living Titans or new special rewards.

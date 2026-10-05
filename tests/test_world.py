@@ -3,10 +3,19 @@ import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
-from verify_world import AnvilWorld, palette_index, rotate, states_match, transform, verify_piece
+from verify_world import AnvilWorld, palette_index, rotate, states_match, transform, verify_piece, protected_cell
 
 
 class WorldReaderTests(unittest.TestCase):
+    def test_saved_protection_mask_has_exact_signed_bit_and_section_layout(self):
+        words = [0] * 64
+        words[3] = -(1 << 63)
+        chunk = {"fabric:attachments": {"relics:placed_cells": {"-4": words}}}
+        self.assertTrue(protected_cell(chunk, (-1, -64, -1)))
+        self.assertFalse(protected_cell(chunk, (-2, -64, -1)))
+        self.assertFalse(protected_cell(chunk, (-1, -63, -1)))
+        self.assertFalse(protected_cell({}, (-1, -64, -1)))
+
     def test_padded_longs_do_not_cross_word_boundaries(self):
         # 17 states need 5 bits: 12 entries per long, with four unused high bits.
         values = [i % 17 for i in range(4096)]

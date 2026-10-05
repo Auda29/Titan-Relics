@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "relics:titan_skull_2",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 64,
+    "separation": 32,
+    "salt": 206091307
+  }
+}
