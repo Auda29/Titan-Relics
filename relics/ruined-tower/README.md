@@ -1,11 +1,14 @@
 # Ruined Tower
 
-**V5 is the latest visual candidate:** broken side elevations, partial masonry
+**V6 with ground-v2 is the latest visual candidate:** broken lower annex walls
+and eroded soil margins. See the [Alpha 4.4 follow-up](../../docs/project/DEPOSIT_RELIEF_20261006.md).
+
+V5 introduced broken side elevations, partial masonry
 courses and a low meadow-soil foot, retaining the user's 220 visible layers. See
 the [October 6 follow-up](../../docs/project/GROUND_WEATHERING_20261006.md).
-Packaged Alpha 4.4 uses V5; its
-[runtime status](../../docs/testing/ALPHA_4_4_TEST_REPORT.md) applies to this selection.
-Alpha 4.3's V4 evidence remains historical; client visual acceptance is still pending.
+Packaged Alpha 4.5 uses V6 ground-v2; its
+[runtime status](../../docs/testing/ALPHA_4_5_TEST_REPORT.md) applies to this selection.
+Alpha 4.4's V5 evidence remains historical; client visual acceptance is still pending.
 
 - [V2 taller tower, reviews and reproduction](docs/RUINED_TOWER_V2.md)
 - [V1 exports, review and reproduction](docs/RUINED_TOWER_V1.md)

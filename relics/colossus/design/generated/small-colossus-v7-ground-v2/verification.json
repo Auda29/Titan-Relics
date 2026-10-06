@@ -1,0 +1,50 @@
+{
+  "algorithm": "contact-preserving-eroded-deposits-v1",
+  "terrain_states": [
+    "minecraft:dirt",
+    "minecraft:grass_block[snowy=false]",
+    "minecraft:rooted_dirt"
+  ],
+  "protected_contact_columns": 3141,
+  "modified_columns": 1843,
+  "removed_soil_cells": 2441,
+  "non_terrain_cells_identical": true,
+  "contact_columns_identical": true,
+  "derived_support_lock_columns": 0,
+  "size": [
+    111,
+    80,
+    113
+  ],
+  "blocks": 233492,
+  "tiles": 33,
+  "data_version": 3105,
+  "source": "relics/colossus/design/generated/small-colossus-v7/small-colossus-v7.nbt",
+  "source_sha256": "c48bb70ea3643070e94a44008721cb5c08fda74f80b4efee2e063a44b5436bb4",
+  "nbt_sha256": "5a1afb7dc0b8cb30bba6428cc612aa26dcfe6f63d4cfca7a5aaca41edb5a5843",
+  "schematic_sha256": "f0f4a7c05c02e5c954ff6511cef56f7976123b4d17cf3b3a1d3c31881531df20",
+  "supported_art_cells_checked": 206414,
+  "foundation": {
+    "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+    "vertical_padding": 7,
+    "horizontal_padding": 8,
+    "runtime_processor": "relics:terrain_support",
+    "feature_protection": "relics:placed_cells",
+    "toe_blocks": 33444,
+    "toe_columns": 4219,
+    "ground_y": 16,
+    "bottom_below_ground": 16,
+    "supported_columns": 4782,
+    "added_blocks": 92525
+  },
+  "checks": [
+    "non-terrain block identity",
+    "contact-column identity",
+    "no new air under supported art",
+    "schematic/NBT equality",
+    "lossless tile reconstruction",
+    "unchanged declared dimensions"
+  ],
+  "in_game_tested": false,
+  "authoring": "Explicit block-space terrain derivative; original Blender art preserved"
+}

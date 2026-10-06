@@ -1,0 +1,152 @@
+{
+  "name": "titan-skull-2-v1-ground-v2",
+  "reference": "https://www.instagram.com/reel/Db9KCtWi0eG/",
+  "reference_seconds": [
+    0,
+    6
+  ],
+  "new_relic_v1": {
+    "family": "skull-2",
+    "void_probes_source": [
+      [
+        0,
+        11,
+        -44
+      ],
+      [
+        -18,
+        44,
+        -28
+      ],
+      [
+        18,
+        43,
+        -28
+      ],
+      [
+        0,
+        33,
+        -36
+      ]
+    ],
+    "solid_probes_source": [
+      [
+        0,
+        37,
+        44
+      ]
+    ],
+    "sword": {
+      "entry_source": [
+        17.0,
+        62.0,
+        -4.0
+      ],
+      "axis_source": [
+        0.30697083473205566,
+        0.9459100961685181,
+        0.10499002039432526
+      ],
+      "top_source": [
+        40.02281188964844,
+        132.94326782226562,
+        3.874251365661621
+      ],
+      "crossguard_source": [
+        30.506717681884766,
+        103.62004089355469,
+        0.619560718536377
+      ],
+      "crossguard_width": 40,
+      "buried_blade_axis_length": 24,
+      "surviving_contact_lips": 2,
+      "valuable_metal_blocks_expected": 0
+    },
+    "features": [
+      "round uncrowned cranium",
+      "open sockets and mouth",
+      "diagonal embedded sword",
+      "missing teeth",
+      "patchy damp deposits"
+    ],
+    "crown_included": false,
+    "spine_included": false,
+    "v5_interiors": false,
+    "placement_setting": "large lush grotto or open sinkhole; cave shell is not exported"
+  },
+  "source_bounds_blender": [
+    [
+      -52.0,
+      -56.0,
+      -12.119388580322266
+    ],
+    [
+      54.0,
+      52.0,
+      133.15960693359375
+    ]
+  ],
+  "blocks_per_source_unit": 0.9843129730773936,
+  "height_target_blocks": 144,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 12,
+  "mesh_count": 26,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "visual_acceptance": "Alpha 4.4 soil-relief follow-up; review pending",
+  "config": "relics/titan-skull/design/titan-skull-2-v1.json",
+  "planned_site_size": [
+    104,
+    144,
+    116
+  ],
+  "terrain_derivative": {
+    "algorithm": "contact-preserving-eroded-deposits-v1",
+    "terrain_states": [
+      "minecraft:dirt",
+      "minecraft:rooted_dirt"
+    ],
+    "protected_contact_columns": 5805,
+    "modified_columns": 71,
+    "removed_soil_cells": 72,
+    "non_terrain_cells_identical": true,
+    "contact_columns_identical": true,
+    "derived_support_lock_columns": 0,
+    "size": [
+      105,
+      144,
+      107
+    ],
+    "blocks": 85152,
+    "tiles": 38,
+    "data_version": 3105,
+    "source": "relics/titan-skull/design/generated/titan-skull-2-v1/titan-skull-2-v1.nbt",
+    "source_sha256": "5a39ac6ef62c1d07eafed69ed8a7cbeb397b4a6d3c4a6f7bf7086fdabdac1b78",
+    "nbt_sha256": "1d4b8da9d888355da29d7d3caa1b419f00d1ef3ed051fa018ac0ad0efa5565b6",
+    "schematic_sha256": "2bbf8bd3c1a1a03b0b72effcdd68c7bc570b56cb15b59fdedf8e16095872c3d8",
+    "supported_art_cells_checked": 20051,
+    "foundation": {
+      "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+      "vertical_padding": 4,
+      "horizontal_padding": 8,
+      "runtime_processor": "relics:terrain_support",
+      "feature_protection": "relics:placed_cells",
+      "toe_blocks": 30945,
+      "toe_columns": 3935,
+      "ground_y": 16,
+      "bottom_below_ground": 16,
+      "supported_columns": 7547,
+      "added_blocks": 118824
+    },
+    "checks": [
+      "non-terrain block identity",
+      "contact-column identity",
+      "no new air under supported art",
+      "schematic/NBT equality",
+      "lossless tile reconstruction",
+      "unchanged declared dimensions"
+    ],
+    "in_game_tested": false,
+    "authoring": "Explicit block-space terrain derivative; original Blender art preserved"
+  }
+}

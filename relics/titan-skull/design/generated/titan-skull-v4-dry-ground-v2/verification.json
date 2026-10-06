@@ -1,0 +1,50 @@
+{
+  "algorithm": "contact-preserving-eroded-deposits-v1",
+  "terrain_states": [
+    "minecraft:coarse_dirt",
+    "minecraft:dirt",
+    "minecraft:grass_block[snowy=false]"
+  ],
+  "protected_contact_columns": 3048,
+  "modified_columns": 5536,
+  "removed_soil_cells": 12708,
+  "non_terrain_cells_identical": true,
+  "contact_columns_identical": true,
+  "derived_support_lock_columns": 0,
+  "size": [
+    117,
+    79,
+    179
+  ],
+  "blocks": 123861,
+  "tiles": 30,
+  "data_version": 3105,
+  "source": "relics/titan-skull/design/generated/titan-skull-v4-dry/titan-skull-v4-dry.nbt",
+  "source_sha256": "7c2ea0fde39ba7c9618001dd49e747d2c652e0646c854baf0fadcb6e5ed773a4",
+  "nbt_sha256": "3cd8249a3401c39f162bf62217d68ad00fcd385a507aeb9d794e54e3351fdc20",
+  "schematic_sha256": "48f44f1127f61d9252f1ccb212e69a13c74eabb9320fcaa7c4c1e34ef1116e0b",
+  "supported_art_cells_checked": 13303,
+  "foundation": {
+    "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+    "vertical_padding": 8,
+    "horizontal_padding": 8,
+    "runtime_processor": "relics:terrain_support",
+    "feature_protection": "relics:placed_cells",
+    "toe_blocks": 38049,
+    "toe_columns": 5127,
+    "ground_y": 16,
+    "bottom_below_ground": 16,
+    "supported_columns": 8792,
+    "added_blocks": 128582
+  },
+  "checks": [
+    "non-terrain block identity",
+    "contact-column identity",
+    "no new air under supported art",
+    "schematic/NBT equality",
+    "lossless tile reconstruction",
+    "unchanged declared dimensions"
+  ],
+  "in_game_tested": false,
+  "authoring": "Explicit block-space terrain derivative; original Blender art preserved"
+}

@@ -1,13 +1,14 @@
 # Colossus
 
-**Alpha 4.4 selects V4.1 with material study B and the Small Colossus V7 candidate**;
-see [latest art integration](../../docs/project/GROUND_WEATHERING_20261006.md) and
-[runtime status](../../docs/testing/ALPHA_4_4_TEST_REPORT.md). Large-Colossus materials
+**Alpha 4.5 selects V4.1 with material study B and Small Colossus V7 ground-v2**;
+see [latest art integration](../../docs/project/DEPOSIT_RELIEF_20261006.md) and
+[runtime status](../../docs/testing/ALPHA_4_5_TEST_REPORT.md). Large-Colossus materials
 and simulated post-salvage appearance are visually accepted; the small model still
 awaits feedback. Material B is distinct from the earlier open-chest-frame choice.
 
 ## Design and assets
 
+- [Alpha 4.4 ground-v2 follow-up](../../docs/project/DEPOSIT_RELIEF_20261006.md) — irregular Small Colossus V7 soil margins with exact armour/growth preservation
 - [October 6 / Small Colossus V7](../../docs/project/GROUND_WEATHERING_20261006.md) — weathered armour, close-fitting moss growth and preserved buried body; visual candidate
 - [Alpha 4.2 art follow-up / Small Colossus V6](../../docs/project/ALPHA_4_2_ART_FOLLOWUP.md) — overlapping forged plates, settled posture and subdued pincers; visual candidate
 - [October 5 screenshot revision / Small Colossus V5](../../docs/project/SCREENSHOT_REVISIONS_20261005.md) — listed weathered armour, asymmetric burial and natural terrain foundations; review candidate

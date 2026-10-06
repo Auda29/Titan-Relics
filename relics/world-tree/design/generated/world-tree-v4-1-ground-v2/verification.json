@@ -1,0 +1,50 @@
+{
+  "algorithm": "contact-preserving-eroded-deposits-v1",
+  "terrain_states": [
+    "minecraft:dirt",
+    "minecraft:grass_block[snowy=false]",
+    "minecraft:rooted_dirt"
+  ],
+  "protected_contact_columns": 1469,
+  "modified_columns": 994,
+  "removed_soil_cells": 1045,
+  "non_terrain_cells_identical": true,
+  "contact_columns_identical": true,
+  "derived_support_lock_columns": 289,
+  "size": [
+    187,
+    216,
+    185
+  ],
+  "blocks": 292646,
+  "tiles": 124,
+  "data_version": 3105,
+  "source": "relics/world-tree/design/generated/world-tree-v4-1/world-tree-v4-1.nbt",
+  "source_sha256": "b8235fd957029d39a534eef2f13924bc850155e46fd5872fc40f51ecce8eea37",
+  "nbt_sha256": "5ba0b4f73f0e1fd5087f2ecdb28849a78f3297caffbbb2d6b5b58b98ce2ebaf6",
+  "schematic_sha256": "906946ef7f8c17ffa06b5f9a8219b228764498439b203ac8818a3e8a1191fa31",
+  "supported_art_cells_checked": 230538,
+  "foundation": {
+    "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+    "vertical_padding": 8,
+    "horizontal_padding": 8,
+    "runtime_processor": "relics:terrain_support",
+    "feature_protection": "relics:placed_cells",
+    "toe_blocks": 55737,
+    "toe_columns": 6775,
+    "ground_y": 16,
+    "bottom_below_ground": 16,
+    "supported_columns": 2841,
+    "added_blocks": 97962
+  },
+  "checks": [
+    "non-terrain block identity",
+    "contact-column identity",
+    "no new air under supported art",
+    "schematic/NBT equality",
+    "lossless tile reconstruction",
+    "unchanged declared dimensions"
+  ],
+  "in_game_tested": false,
+  "authoring": "Explicit block-space terrain derivative; original Blender art preserved"
+}

@@ -1,0 +1,18 @@
+{
+  "repository":".work/ObjToSchematic", "commit":"b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "input":"relics/ruined-tower/design/generated/ruined-tower-v6/ruined-tower-v6.obj",
+  "output":"relics/ruined-tower/design/generated/ruined-tower-v6/ruined-tower-v6.schem",
+  "height":232, "planned_site_size":[112,232,96],
+  "title":"RUINED TOWER / V6 / BROKEN LOWER WALLS", "subtitle":"Unequal annex fragments / open lower breaches / grounded masonry / 220 visible layers",
+  "reference":"https://www.instagram.com/reel/DbqXYoVx2hR/",
+  "materials":{"wall":"minecraft:deepslate_tiles", "pier":"minecraft:polished_deepslate", "worn":"minecraft:cobbled_deepslate",
+    "seam":"minecraft:polished_basalt", "accent":"minecraft:brown_terracotta", "course":"minecraft:deepslate_bricks",
+    "floor":"minecraft:cracked_deepslate_bricks", "terrain_top":"minecraft:grass_block[snowy=false]",
+    "terrain_patch":"minecraft:rooted_dirt", "terrain_fill":"minecraft:dirt"},
+  "fill_enclosed":"wall", "material_proxies":{"terrain_top":"minecraft:lime_concrete"},
+  "covered_replacements":{"minecraft:grass_block[snowy=false]":"minecraft:dirt"},
+  "view_labels":["01 / Editable source","02 / Actual NBT / front","03 / Actual NBT / side","04 / Actual NBT / rear"],
+  "review_footer":"V6 lower-wall candidate. Actual exported NBT; Minecraft review pending.",
+  "preview":{"front":[155,280,95],"other":[-250,170,115],"back":[170,-260,110],
+    "landscape":"new-relic-v1", "ground_color":[0.25,0.28,0.16], "camera_source":[250,125,-355],"target_source":[0,103,0],"lens":44}
+}

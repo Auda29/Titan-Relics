@@ -1,0 +1,294 @@
+{
+  "name": "ruined-tower-v6-ground-v2",
+  "reference": "https://www.instagram.com/reel/DbqXYoVx2hR/",
+  "visual_acceptance": "Alpha 4.4 soil-relief follow-up; review pending",
+  "new_relic_v1": {
+    "family": "tower",
+    "void_probes_source": [
+      [
+        0,
+        12,
+        -23
+      ],
+      [
+        10,
+        89.69696969696969,
+        0
+      ],
+      [
+        -8,
+        154.84848484848484,
+        0
+      ],
+      [
+        -17,
+        16,
+        3.8
+      ],
+      [
+        -26,
+        67,
+        -5
+      ],
+      [
+        -26,
+        132,
+        2
+      ],
+      [
+        26,
+        102,
+        -4
+      ],
+      [
+        26,
+        166,
+        -1
+      ],
+      [
+        -52.5,
+        37.0,
+        19.0
+      ],
+      [
+        51.0,
+        23.0,
+        17.0
+      ],
+      [
+        26,
+        35,
+        -7
+      ],
+      [
+        -26,
+        30,
+        -7
+      ],
+      [
+        7,
+        22,
+        24
+      ]
+    ],
+    "solid_probes_source": [
+      [
+        -27,
+        35,
+        10
+      ],
+      [
+        26,
+        63.63636363636364,
+        14
+      ],
+      [
+        18,
+        24,
+        3
+      ],
+      [
+        -18,
+        49,
+        3
+      ],
+      [
+        18,
+        77,
+        3
+      ],
+      [
+        -18,
+        106,
+        3
+      ],
+      [
+        18,
+        139,
+        3
+      ],
+      [
+        -18,
+        170,
+        3
+      ],
+      [
+        -17,
+        7,
+        -8.8
+      ],
+      [
+        -17,
+        11,
+        -3.200000000000001
+      ],
+      [
+        -17,
+        19,
+        8.0
+      ],
+      [
+        17,
+        32,
+        -8.8
+      ],
+      [
+        17,
+        36,
+        -3.200000000000001
+      ],
+      [
+        17,
+        44,
+        8.0
+      ],
+      [
+        -17,
+        84,
+        -8.8
+      ],
+      [
+        -17,
+        88,
+        -3.200000000000001
+      ]
+    ],
+    "features": [
+      "three unequal upper terminations",
+      "round-topped opening",
+      "hollow shell",
+      "two lower ruins",
+      "real facade breaches",
+      "six partial storeys",
+      "three broken stair flights",
+      "fragmentary stringcourses and pilasters"
+    ],
+    "damage_target": "30\u201335% reconstructed exterior wall area; exact area not measured in V1",
+    "source_top_authored": true,
+    "aircraft_included": false,
+    "v5_interiors": false
+  },
+  "revision_v2": {
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v1/ruined-tower-v1-source.blend",
+    "source_sha256": "4db082324db4080f290045aa742ed5baedb3e6f32c1670650b96cd5267cee4b3",
+    "visible_height_target": 220,
+    "unchanged_below_source_y": 48,
+    "upper_height_factor": 1.303030303030303,
+    "horizontal_scale": 1,
+    "nominal_ground_ceiling_with_16_block_margin": 83
+  },
+  "revision_v3": {
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v2/ruined-tower-v2-source.blend",
+    "source_sha256": "5c718b56a0e27b4e2ee34a856c66c80b26e09b7de8806799b14cc7de2cd3e0b4",
+    "partial_storeys": 6,
+    "broken_stair_flights": 3,
+    "visible_height_target": 220,
+    "feedback": "Screenshots 20\u201322: uniform wall planes and empty interior shaft",
+    "architectural_interiors_only": true
+  },
+  "revision_v4": {
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v3/ruined-tower-v3-source.blend",
+    "source_sha256": "76f13b0419ec782fb69f73a4eb4e1ac226bf730c371a186f46d30cf8157ed72d",
+    "feedback": "Alpha 4.2: parallel top sheets, complete first stair and uniform interior walls",
+    "lowest_stair_removed_steps_zero_based": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "inner_masonry_patches": 5,
+    "front_and_rear_skyline_staggered": true,
+    "visible_height_target": 220
+  },
+  "source_bounds_blender": [
+    [
+      -56.0,
+      -48.0,
+      -12.0
+    ],
+    [
+      56.0,
+      45.096187591552734,
+      220.0
+    ]
+  ],
+  "blocks_per_source_unit": 0.9956896551724138,
+  "height_target_blocks": 232,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 12,
+  "mesh_count": 313,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "config": "relics/ruined-tower/design/ruined-tower-v6.json",
+  "planned_site_size": [
+    112,
+    232,
+    96
+  ],
+  "revision_v5": {
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v4/ruined-tower-v4-source.blend",
+    "source_sha256": "ff17d0d449084bd5b0395b084578853bd6f029996d72de38bcbc44bcfcd03b9f",
+    "side_wall_breaches": 4,
+    "visible_height_target": 220,
+    "terrain_revision": "Lower grass/rooted-earth deposits with dark rubble; no sandstone apron"
+  },
+  "revision_v6": {
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v5/ruined-tower-v5-source.blend",
+    "source_sha256": "3688b38f19f38d67bdf3cee47b0e6fa26f5bacdfb7d4475f82fed5a69327af21",
+    "lower_annexes_reworked": 2,
+    "lower_main_wall_breaches": 3,
+    "visible_height_target": 220
+  },
+  "terrain_derivative": {
+    "algorithm": "contact-preserving-eroded-deposits-v1",
+    "terrain_states": [
+      "minecraft:dirt",
+      "minecraft:grass_block[snowy=false]",
+      "minecraft:rooted_dirt"
+    ],
+    "protected_contact_columns": 2701,
+    "modified_columns": 884,
+    "removed_soil_cells": 1003,
+    "non_terrain_cells_identical": true,
+    "contact_columns_identical": true,
+    "derived_support_lock_columns": 0,
+    "size": [
+      111,
+      232,
+      93
+    ],
+    "blocks": 297352,
+    "tiles": 69,
+    "data_version": 3105,
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v6/ruined-tower-v6.nbt",
+    "source_sha256": "761d9a257a3339334e2e4f5bc89772330dde75e040fbf9e5e1107ba36a25b779",
+    "nbt_sha256": "88a7f0d218b1f5343cbbf3ebef1bd46e70df060d866cf36d3473107a03dbe4bd",
+    "schematic_sha256": "1a75a7946798d13287b19e1abc0b9af68e28b311c9a2b7cb7abbf5f33f298b74",
+    "supported_art_cells_checked": 281661,
+    "foundation": {
+      "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+      "vertical_padding": 2,
+      "horizontal_padding": 8,
+      "runtime_processor": "relics:terrain_support",
+      "feature_protection": "relics:placed_cells",
+      "toe_blocks": 22421,
+      "toe_columns": 3911,
+      "ground_y": 14,
+      "bottom_below_ground": 14,
+      "supported_columns": 3937,
+      "added_blocks": 59872
+    },
+    "checks": [
+      "non-terrain block identity",
+      "contact-column identity",
+      "no new air under supported art",
+      "schematic/NBT equality",
+      "lossless tile reconstruction",
+      "unchanged declared dimensions"
+    ],
+    "in_game_tested": false,
+    "authoring": "Explicit block-space terrain derivative; original Blender art preserved"
+  }
+}

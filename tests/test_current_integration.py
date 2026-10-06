@@ -41,23 +41,28 @@ class CurrentIntegrationTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(data).hexdigest(), ASSETS[a["id"]]["sha256"])
             self.assertEqual(decode_nbt(data)["DataVersion"], 3105)
 
-    def test_alpha44_selects_latest_art_without_changing_the_other_seven_exports(self):
+    def test_alpha45_selects_all_eight_ground_revisions_and_keeps_two_exports(self):
         unchanged_hashes = {
             "colossus": "a355b20349513cb27e6feb6fc171ca413d71da2cdb5717f7995afb4128d879b8",
             "obelisk": "ed116dcbca2a41fe403695a816e419a32a647d325c1d907d8dc1797f551cda3e",
-            "titan_skull": "c4737780cc344b2a3f10743a7155a760df7342f22476308679a9a87545f59e79",
-            "titan_skull_dry": "7c2ea0fde39ba7c9618001dd49e747d2c652e0646c854baf0fadcb6e5ed773a4",
-            "titan_skull_sand": "05ba0c95f74e98eca366c11f4ebe1ceb1b3ce435b82c29d7101f65fd7da7d03e",
-            "titan_skull_rock": "9c41e8bdc5333737ed7c37e6ab8f916aac0f77f32764d20cca4e2fb68e94620b",
-            "titan_skull_2": "5a39ac6ef62c1d07eafed69ed8a7cbeb397b4a6d3c4a6f7bf7086fdabdac1b78",
         }
         revisions = {
-            "small_colossus": ("small-colossus-v7", [111, 80, 113], 235933, 9,
-                               "c48bb70ea3643070e94a44008721cb5c08fda74f80b4efee2e063a44b5436bb4"),
-            "world_tree": ("world-tree-v4-1", [187, 216, 185], 293691, 8,
-                           "b8235fd957029d39a534eef2f13924bc850155e46fd5872fc40f51ecce8eea37"),
-            "ruined_tower": ("ruined-tower-v5", [111, 232, 93], 307417, 12,
-                             "5be62afb4d6a3968e37c61b54e21941273c795921441dc9db8e705ced9f2765f"),
+            "titan_skull": ("titan-skull-v4-meadow-ground-v2", [117, 79, 179], 123861, 8,
+                            "fcfef99961773832f54b24ff585d5e96a64bf9e3ed2ac7b0888158e8804c7f6b"),
+            "titan_skull_dry": ("titan-skull-v4-dry-ground-v2", [117, 79, 179], 123861, 8,
+                                "3cd8249a3401c39f162bf62217d68ad00fcd385a507aeb9d794e54e3351fdc20"),
+            "titan_skull_sand": ("titan-skull-v4-sand-ground-v2", [117, 79, 179], 123861, 8,
+                                 "358bd8f318ef5ad0ea1c6b27292fb5b30f94ebb0afa937bf778f16d9ff47a829"),
+            "titan_skull_rock": ("titan-skull-v4-rock-ground-v2", [117, 79, 179], 123861, 8,
+                                 "fd6ce1c124b0d5ac51777644e0b7214f053a32bf8460b1e30b9e3fe1f0aaeacf"),
+            "small_colossus": ("small-colossus-v7-ground-v2", [111, 80, 113], 233492, 9,
+                               "5a1afb7dc0b8cb30bba6428cc612aa26dcfe6f63d4cfca7a5aaca41edb5a5843"),
+            "world_tree": ("world-tree-v4-1-ground-v2", [187, 216, 185], 292646, 8,
+                           "5ba0b4f73f0e1fd5087f2ecdb28849a78f3297caffbbb2d6b5b58b98ce2ebaf6"),
+            "ruined_tower": ("ruined-tower-v6-ground-v2", [111, 232, 93], 297352, 12,
+                             "88a7f0d218b1f5343cbbf3ebef1bd46e70df060d866cf36d3473107a03dbe4bd"),
+            "titan_skull_2": ("titan-skull-2-v1-ground-v2", [105, 144, 107], 85152, 12,
+                             "1d4b8da9d888355da29d7d3caa1b419f00d1ef3ed051fa018ac0ad0efa5565b6"),
         }
         for name, contract in ASSETS.items():
             if name in revisions:
@@ -66,6 +71,51 @@ class CurrentIntegrationTests(unittest.TestCase):
                 self.assertFalse(contract["visually_accepted"])
             else:
                 self.assertEqual(contract["sha256"], unchanged_hashes[name])
+
+    def test_ground_derivatives_preserve_every_non_terrain_state(self):
+        from build_deposit_relief import baseline_contract, NAMES
+        def block_states(root):
+            return {pos: state['Name'] + ('[' + ','.join(f'{k}={v}' for k, v in sorted(state['Properties'].items())) + ']'
+                                         if state.get('Properties') else '') for pos, state in states(root).items()}
+        for name in NAMES:
+            with self.subTest(asset=name):
+                selected = ASSETS[name]
+                source = baseline_contract(name, tower_v6=True)
+                report = json.loads((ROOT / selected['source']).with_name('verification.json').read_text())
+                self.assertEqual(report['source'], source['source'])
+                self.assertEqual(report['source_sha256'], source['sha256'])
+                original_bytes = (ROOT / source['source']).read_bytes()
+                self.assertEqual(hashlib.sha256(original_bytes).hexdigest(), source['sha256'])
+                current = decode_nbt((ROOT / selected['source']).read_bytes())
+                previous = decode_nbt(original_bytes)
+                self.assertEqual(current['size'], previous['size'])
+                self.assertEqual(current['DataVersion'], previous['DataVersion'])
+                terrain = set(report['terrain_states'])
+                self.assertEqual({p: s for p, s in block_states(current).items() if s not in terrain},
+                                 {p: s for p, s in block_states(previous).items() if s not in terrain})
+                self.assertEqual(len(previous['blocks']) - len(current['blocks']), report['removed_soil_cells'])
+                old_natural, _, foundation = supported_blocks(block_states(previous), source)
+                selected_natural = decode_nbt((self.output / f'{name}_worldgen.nbt').read_bytes())
+                present = {tuple(b['pos']) for b in selected_natural['blocks']}
+                pad, horizontal = foundation['vertical_padding'], foundation['horizontal_padding']
+                checked = 0
+                for (x, y, z), state in block_states(previous).items():
+                    below = (x + horizontal, y - 1 + pad, z + horizontal)
+                    if state not in terrain and below in old_natural:
+                        checked += 1
+                        self.assertIn(below, present, f'New air under previously supported art at {(x, y, z)}')
+                self.assertEqual(checked, report['supported_art_cells_checked'])
+                self.assertGreater(checked, 0)
+
+    def test_deposit_builder_keeps_its_preserved_inputs_after_current_selection_changes(self):
+        from build_deposit_relief import baseline_contract, NAMES
+        for name in NAMES:
+            baseline = baseline_contract(name)
+            self.assertFalse(baseline['version'].endswith('-ground-v2'))
+            self.assertNotEqual(baseline['source'], ASSETS[name]['source'])
+            self.assertEqual(hashlib.sha256((ROOT / baseline['source']).read_bytes()).hexdigest(), baseline['sha256'])
+        self.assertEqual(baseline_contract('ruined_tower')['version'], 'ruined-tower-v5')
+        self.assertEqual(baseline_contract('ruined_tower', True)['version'], 'ruined-tower-v6')
 
     def test_tree_ground_revision_keeps_every_accepted_non_terrain_cell(self):
         contract = ASSETS["world_tree"]

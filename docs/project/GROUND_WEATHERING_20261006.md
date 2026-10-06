@@ -1,5 +1,8 @@
 # October 6 — root contacts, tower sides and weathered Colossus
 
+The subsequent Alpha 4.4 screenshot review led to
+[irregular deposit relief and Tower V6 lower walls](DEPOSIT_RELIEF_20261006.md).
+
 The user reviewed the 13 Alpha 4.3 screenshots, accepted the World Tree's form
 and foliage, and limited its follow-up to ground connections. The user agreed
 with the Tower side-wall/foot critique and requested a more weathered, overgrown

@@ -1,0 +1,75 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "output": "relics/titan-skull/design/generated/titan-skull-v4-rock-ground-v2/titan-skull-v4-rock-ground-v2.schem",
+  "height": 80,
+  "title": "TITAN-SKULL-V4-ROCK-GROUND-V2",
+  "subtitle": "Eroded soil margins / contact-preserving ground derivative",
+  "reference": "https://www.instagram.com/reel/DXM3J4sgqJl/",
+  "materials": {
+    "bone": "minecraft:bone_block",
+    "worn": "minecraft:calcite",
+    "mineral": "minecraft:dripstone_block",
+    "earth": "minecraft:brown_terracotta",
+    "moss": "minecraft:green_terracotta",
+    "root": "minecraft:rooted_dirt",
+    "terrain_top": "minecraft:stone",
+    "terrain_patch": "minecraft:gravel",
+    "terrain_fill": "minecraft:stone"
+  },
+  "material_proxies": {
+    "terrain_top": "minecraft:lime_concrete",
+    "terrain_patch": "minecraft:magenta_concrete",
+    "terrain_fill": "minecraft:blue_concrete"
+  },
+  "view_labels": [
+    "01 / Editable source",
+    "02 / Actual NBT / front",
+    "03 / Actual NBT / side",
+    "04 / Actual NBT / rear"
+  ],
+  "review_footer": "NBT rendered in Blender. Local deposits are exported; staging plane is illustrative. Grass texture/tint is approximated.",
+  "preview": {
+    "front": [
+      -180,
+      250,
+      175
+    ],
+    "other": [
+      260,
+      -70,
+      170
+    ],
+    "back": [
+      110,
+      -250,
+      200
+    ],
+    "landscape": "v4-deposits",
+    "ground_color": [
+      0.29,
+      0.3,
+      0.27
+    ],
+    "grass_tint": [
+      1,
+      1,
+      1
+    ],
+    "camera_source": [
+      -150,
+      102,
+      -155
+    ],
+    "target_source": [
+      6,
+      24,
+      48
+    ]
+  },
+  "unsupported_replacements": {
+    "minecraft:gravel": "minecraft:stone"
+  },
+  "authoring": "block-terrain-derivative",
+  "source_nbt": "relics/titan-skull/design/generated/titan-skull-v4-rock/titan-skull-v4-rock.nbt"
+}

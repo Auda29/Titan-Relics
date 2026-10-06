@@ -1,0 +1,50 @@
+{
+  "algorithm": "contact-preserving-eroded-deposits-v1",
+  "terrain_states": [
+    "minecraft:dirt",
+    "minecraft:grass_block[snowy=false]",
+    "minecraft:rooted_dirt"
+  ],
+  "protected_contact_columns": 2701,
+  "modified_columns": 884,
+  "removed_soil_cells": 1003,
+  "non_terrain_cells_identical": true,
+  "contact_columns_identical": true,
+  "derived_support_lock_columns": 0,
+  "size": [
+    111,
+    232,
+    93
+  ],
+  "blocks": 297352,
+  "tiles": 69,
+  "data_version": 3105,
+  "source": "relics/ruined-tower/design/generated/ruined-tower-v6/ruined-tower-v6.nbt",
+  "source_sha256": "761d9a257a3339334e2e4f5bc89772330dde75e040fbf9e5e1107ba36a25b779",
+  "nbt_sha256": "88a7f0d218b1f5343cbbf3ebef1bd46e70df060d866cf36d3473107a03dbe4bd",
+  "schematic_sha256": "1a75a7946798d13287b19e1abc0b9af68e28b311c9a2b7cb7abbf5f33f298b74",
+  "supported_art_cells_checked": 281661,
+  "foundation": {
+    "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+    "vertical_padding": 2,
+    "horizontal_padding": 8,
+    "runtime_processor": "relics:terrain_support",
+    "feature_protection": "relics:placed_cells",
+    "toe_blocks": 22421,
+    "toe_columns": 3911,
+    "ground_y": 14,
+    "bottom_below_ground": 14,
+    "supported_columns": 3937,
+    "added_blocks": 59872
+  },
+  "checks": [
+    "non-terrain block identity",
+    "contact-column identity",
+    "no new air under supported art",
+    "schematic/NBT equality",
+    "lossless tile reconstruction",
+    "unchanged declared dimensions"
+  ],
+  "in_game_tested": false,
+  "authoring": "Explicit block-space terrain derivative; original Blender art preserved"
+}

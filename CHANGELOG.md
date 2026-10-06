@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.4.5 — deposit relief and lower Tower walls
+
+- Select all eight pinned ground-v2 derivatives: the four crowned-Skull palettes,
+  Small Colossus V7, World Tree V4.1, Ruined Tower V6 and Titan Skull 2 V1.
+- Keep Large Colossus and Obelisk exports unchanged. Preserve earlier source art
+  and byte-identical raw template packaging; derive supports from the new soil.
+- Preserve every derivative's non-terrain cell exactly against its source, including
+  the accepted Tree and shared moss materials. Check previous derived art contacts.
+- Keep reproduction inputs independent of current mod selection to prevent repeated
+  erosion and retain meaningful Alpha 4.4 before/after comparisons.
+- Retain Alpha 4.4 dependencies, density, biome mappings, burial and runtime policy.
+  Require fresh strict showcase/natural/reload acceptance before profile replacement.
+- Back up Alpha 4.4, preserve existing worlds and create new inspection saves.
+  Gameplay, rewards and artistic acceptance remain outside this integration.
+
+See [deposit relief and Tower V6](docs/project/DEPOSIT_RELIEF_20261006.md) and
+[Alpha 4.5 validation](docs/testing/ALPHA_4_5_TEST_REPORT.md).
+
 ## 0.1.0-alpha.4.4 — weathered Colossus, Tower sides and Tree ground contacts
 
 - Select Small Colossus V7, World Tree V4.1 and Ruined Tower V5 with pinned raw

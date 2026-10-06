@@ -1,0 +1,356 @@
+{
+  "name": "titan-skull-v4-dry-ground-v2",
+  "reference": "https://www.instagram.com/reel/DXM3J4sgqJl/",
+  "reference_seconds": [
+    0,
+    5
+  ],
+  "source_bounds_blender": [
+    [
+      -50.0,
+      -158.0,
+      -8.0
+    ],
+    [
+      66.0,
+      20.0,
+      71.23779296875
+    ]
+  ],
+  "height_target_blocks": 80,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 8,
+  "blocks_per_source_unit": 0.9969989955570345,
+  "scale_is_estimate": true,
+  "skull_bounds_blender": [
+    [
+      -31.930910110473633,
+      -19.567974090576172,
+      -4.762203216552734
+    ],
+    [
+      37.548702239990234,
+      18.972822189331055,
+      71.23779296875
+    ]
+  ],
+  "skull_height_blocks_approx": 75.77191985908529,
+  "colossus_head_reference": {
+    "asset": "colossus-v3",
+    "part": "Round diving helmet dome shell",
+    "dimensions_xyz_blocks": [
+      54.011411381693044,
+      63.24109889519235,
+      53.94809103603305
+    ],
+    "skull_to_helmet_height_ratio": 1.1981436911447294
+  },
+  "skull_scale_from_v1_source": 0.39685027123655886,
+  "rear_wall_probe_source": [
+    0,
+    40.87557793736556,
+    17.858262205645147
+  ],
+  "cavity_probes_source": [
+    [
+      0.0,
+      16.667711391935473,
+      -19.842513561827943
+    ],
+    [
+      0.0,
+      16.667711391935473,
+      -9.921256780913971
+    ],
+    [
+      0.0,
+      16.667711391935473,
+      0.0
+    ],
+    [
+      -9.921256780913971,
+      43.65352983602148,
+      -12.699208679569884
+    ],
+    [
+      9.921256780913971,
+      42.85982929354836,
+      -12.699208679569884
+    ],
+    [
+      0.0,
+      40.478727666129004,
+      -13.889759493279561
+    ]
+  ],
+  "interpretation": "Preserved skull and broken spine; light fossil palette; separate tapered deposits with native-terrain gaps and no stone rim.",
+  "air_policy": "omit; local generated mound leaves mouth clear; existing world terrain still requires an explicit clearing policy",
+  "spine": {
+    "vertebrae": [
+      {
+        "index": 1,
+        "center_source": [
+          0,
+          23.5,
+          20
+        ],
+        "ground_source_y": 22.90326038965169,
+        "group": "attached"
+      },
+      {
+        "index": 2,
+        "center_source": [
+          1,
+          22.592786698255917,
+          31
+        ],
+        "ground_source_y": 21.536429102682007,
+        "group": "attached"
+      },
+      {
+        "index": 3,
+        "center_source": [
+          2,
+          17.144850653128827,
+          43
+        ],
+        "ground_source_y": 17.494367973240927,
+        "group": "attached"
+      },
+      {
+        "index": 4,
+        "center_source": [
+          14,
+          10.264085691316327,
+          65
+        ],
+        "ground_source_y": 10.280648552278224,
+        "group": "detached_chain"
+      },
+      {
+        "index": 5,
+        "center_source": [
+          19,
+          13.074422830502607,
+          78
+        ],
+        "ground_source_y": 10.889174193103361,
+        "group": "detached_chain"
+      },
+      {
+        "index": 6,
+        "center_source": [
+          24,
+          14.144866537862205,
+          92
+        ],
+        "ground_source_y": 14.29344068108992,
+        "group": "detached_chain"
+      },
+      {
+        "index": 7,
+        "center_source": [
+          30,
+          11.944328788454015,
+          106
+        ],
+        "ground_source_y": 10.121443374568043,
+        "group": "detached_chain"
+      },
+      {
+        "index": 8,
+        "center_source": [
+          34,
+          10.008462008696736,
+          120
+        ],
+        "ground_source_y": 8.97443106306618,
+        "group": "detached_chain"
+      },
+      {
+        "index": 9,
+        "center_source": [
+          29,
+          5.2033193357654355,
+          142
+        ],
+        "ground_source_y": 4.589211322733301,
+        "group": "loose_tail"
+      }
+    ],
+    "major_fracture_source_z": [
+      49,
+      57
+    ],
+    "secondary_fracture_source_z": [
+      127,
+      134
+    ],
+    "scale_preserved_from": "titan-skull-v2",
+    "fracture_probe_planes_source_z": [
+      50,
+      129
+    ],
+    "bone_materials": [
+      "minecraft:bone_block",
+      "minecraft:calcite",
+      "minecraft:dripstone_block"
+    ],
+    "note": "Three attached vertebrae, five displaced connected vertebrae, one isolated terminal vertebra; lower bodies buried."
+  },
+  "source_v3_sha256": "06792383433dcae9b30aaa645ae2db62092886cddb064496b3f58cf13fe6f6ef",
+  "preserved_anatomy_objects": {
+    "01 | Weathered cranium and open mandible": "4bf50ebc30a663f0591395fee50f241eb1d8043d3c86eff2b0e4a0a33383536a",
+    "Sheltered moss pocket": "34478dd6e274f0666ec8eabe8e596eda6b6aa2783a8f0958d37df85ead2dc655",
+    "Sheltered moss pocket.001": "5dbadc872b1fcf45ddaf79e9e74335533ff163cfafd134f8b2e2bfc8c55113f1",
+    "Sheltered moss pocket.002": "3b3fe7ea7142c13eb8dd889c8bd90451778de7b330447101367cab9df807ff4a",
+    "Sheltered moss pocket.003": "ef93bdfc94fc8e1e530a86d243ba7cbc84dd87389faf027599c53e362a82c6a9",
+    "Sheltered moss pocket.004": "c87182a9d37caea2d0e9a1bbed7453e038752ab4050c30875d246d4aa427b5b2",
+    "Sheltered moss pocket.005": "9b0d6ef7927a89dc6bccd1b38dcceebe7e4e177bd1550e29bc5cc176218248a9",
+    "Vertebra 1 | centrum": "c609f624ced0bc72b2f9ee41632668371b0e14afa781212e7721684991f454b1",
+    "Vertebra 1 | neural arch": "03f84ad788e196a8a6aa897ab3c70bbadea02b293300673cdb7d6bfb1d73b7ae",
+    "Vertebra 1 | transverse process": "84c8576ab753e1efee59645ff8d63c4c13f573b2b6abcb26da155f810048eaaf",
+    "Vertebra 1 | transverse process.001": "e29e157fe4c028f2d964b9ee6e2e6b2071312472d33fdb58facbe356a9c577e7",
+    "Vertebra 1 | dorsal process": "135675b7cb79dcdafbd403e0c3dddedae88d70954fd5ad987f6636edd5fee518",
+    "Vertebra 2 | centrum": "beccb472965a8fc362841f0b2f284b247d0345fb1279bdb3daab0243fa1f6630",
+    "Vertebra 2 | neural arch": "4af8b4f23a1ab9a3d8253a35a45ebc5b6eff8b0b7a33e70adee0465618086021",
+    "Vertebra 2 | transverse process": "fa9ac0d3fb110ff8259505e9f88982cfb09b5f2b584097ded8c4c2d5566197e7",
+    "Vertebra 2 | transverse process.001": "0bf61965472fac9f32857c10117bf171232cd17aca7b8e35c49207ffedc2514b",
+    "Vertebra 2 | dorsal process": "4cfa93ac95f7bb956c1923193b8c0880908cada2e4159959dba27bd07e9980d3",
+    "Vertebra 3 | centrum": "4564ce35ec27f13fd93235db05ccbfe66deafead3638e1516451ba38f16c1a94",
+    "Vertebra 3 | neural arch": "2e50342eb78cf5022cbf69a041c67f6b306be72c2da7ae695c7d613a8df335c1",
+    "Vertebra 3 | transverse process": "bcf195fcaf1ce56e53873061f5e8ddf617d2cff7572e824aa7a2549a0c71bb77",
+    "Vertebra 3 | transverse process.001": "c0be3b09d6e656b280f2db5c5533d9d3f4eb541013a8947e339d6c9bb82057bc",
+    "Vertebra 3 | dorsal process": "2b9b6f3a9d22634aee8adde281f54261e9eeea4e5129e915771f2b3c33667651",
+    "Vertebra 4 | centrum": "33a3a6af45f8097b96927392edc5811184f0370daa6ba4d452108c0886944ff2",
+    "Vertebra 4 | neural arch": "4cbca034dedc90dea3f409fcd5d45332a14db3228772dc4e1c56b569c8875d21",
+    "Vertebra 4 | transverse process": "5c46cd2bff0963897d7052f60ab6de180765df2c90f5e80dedf5eeef3273b2ea",
+    "Vertebra 4 | transverse process.001": "c485adaa901ced9dd4806d3d75beaa10b43f3895fee756709a1bf8f824f263b5",
+    "Vertebra 4 | dorsal process": "7eda1e1c645eab9b783d5849c17fc3db83fc3fc004d4e1d647b942dcc74e724c",
+    "Vertebra 5 | centrum": "60188fd85ebc85cbc78db6c306e423c5b10dd6eb653eab8805fe87613d7b1009",
+    "Vertebra 5 | neural arch": "07adfa85434f87509e529b7552a6fd644c3b5441e7b508395f56fe43d6c124e9",
+    "Vertebra 5 | transverse process": "1cfbd5d94321ba288b6e30914c17c9cb8ba9c605f3faa61dabb4ec2c6ecf47e7",
+    "Vertebra 5 | transverse process.001": "ba161b63c232653a23dd7d89d73ae06dd06e53e29246c8deb89714116593c6c6",
+    "Vertebra 5 | dorsal process": "b700f9c934aa41cd21627b4c806ee5f7213bd6425e89ab620632631a1ac183fd",
+    "Vertebra 6 | centrum": "8f1084c43bf82e5eeefb4facfaf21ce57784215f570404f4be4cbf580e9b163e",
+    "Vertebra 6 | neural arch": "3e5acceb961339266405478a2e5c4871289d878de86d4765016007f1c5e5fd34",
+    "Vertebra 6 | transverse process": "2dc5a8fc5d07e642bb348c9047bc1f626013b191c411989bd96dca1de88384cb",
+    "Vertebra 6 | transverse process.001": "f23d3535b61554f319a1071e5084e17239e719dddcf7f71c7709a27148c9b0ef",
+    "Vertebra 6 | dorsal process": "9883f54b0ccca3c18e8271853d101ba19693e550a25daf3fab3c18cd45a44a0d",
+    "Vertebra 7 | centrum": "8affdf48604577071fbdf2f55c2c75242d043beb894c367a87f6f5bd78b42045",
+    "Vertebra 7 | neural arch": "02f1557e3d19871bff2d5fecb7e931784167709be4b8c0dc616635f7bcc8e5f7",
+    "Vertebra 7 | transverse process": "586d54c4d446789b8ef961f550a5e82c4d06fdc6ca3d6392d14c9248b2b6322a",
+    "Vertebra 7 | transverse process.001": "78a7bfb1b3fdfdec8e244f2ba48da0d4c46fb74790c552f9591e52be3b38039f",
+    "Vertebra 7 | dorsal process": "23b025889107c51b9a94f18e831b64f7cc632b2e9dce3a746bb464765c719dac",
+    "Vertebra 8 | centrum": "cf725ee1d48b73d60c0f46bc552099887b24b82d5dbebe729948e0dfcfb8d2f2",
+    "Vertebra 8 | neural arch": "a31bf2d3705a7185c8fcca2b6d7f8b9eabac593f5d62221ea021523ef32aa0a0",
+    "Vertebra 8 | transverse process": "07754d8f619f081207a5722354d81b046f6fa5d037c60e34ca2eed1efaef1b2f",
+    "Vertebra 8 | transverse process.001": "8bb4ab007c81dae71c2e1e9cb8c2d39bcc349ab9d575de5927593d5dc8d11487",
+    "Vertebra 8 | dorsal process": "4e9ddfd2df48e7ba7a3ba88bb4ea9e9810ee288faf06ff1fc608557f3ac07b87",
+    "Vertebra 9 | centrum": "93597a259fe133fd2adb4b3e9c503220cedf3ed54b9e5ef188b24712275294e3",
+    "Vertebra 9 | neural arch": "7a64f0e09387558b4a26cce729f7b88d64ac54ded8749535da1af3b6830ccd21",
+    "Vertebra 9 | transverse process": "c1b8eb6dbb0eb59f0e7445333388f4fa74669fc0d256ce63e861bf21eb000d7b",
+    "Vertebra 9 | transverse process.001": "f89e0bab2a76b5cf8adbc7610a9ba5b0d80e50df931f1912197257b3309166a6",
+    "Vertebra 9 | dorsal process": "8f8fd1813c71c4ad506e60e5dd9d5368d0de96557932b25822b85dc2f4b7b5de",
+    "Retained intervertebral connection": "1575f178b2cd481e337870c86884316e3f9e830e5f39cc4b3a4c4cf69f4c0fc4",
+    "Retained intervertebral connection.001": "f9c18cdeae9a96487a0cb4cf6de93fe863add501c2796b495af357f71cf455da",
+    "Retained intervertebral connection.002": "eff75a3617067ac5a8a7f069afe1edae51a19c92e7b0bc8a70f4a339daa9a329",
+    "Retained intervertebral connection.003": "870999a5f24afa520d73db261fe04351076cd66633ecd11d47fba229ed5bd43d",
+    "Retained intervertebral connection.004": "cbe46e7611d509b10b6fc85f030d1d6453a6a578e71f3199f90d265f8e991f59",
+    "Retained intervertebral connection.005": "462b57419d9f02a224fa6b997d152c29a7136f1539f7ef3d897ceb7e82c8b70f",
+    "Retained intervertebral connection.006": "75444d19088b9d1b8051c5af7d61e9a321c5a7ceb0420ebda1688c25f084a1bc",
+    "Detached vertebral process fragment": "13d532ba232b42882b3ef7734a5b15d3935d5a518450c04c5aa1f12c9d10f7ec",
+    "Detached vertebral process fragment.001": "d574dd3e4b90290100722be307262b65c9eb5c79d6983522feb6e461482fdfd1",
+    "Detached vertebral process fragment.002": "6908838c4fa7b3e011b5fc2ae5732259af60a66c3e68c90b983a64fe3696c38b"
+  },
+  "deposits_v4": {
+    "variant": "dry",
+    "bottom_source_y": -8,
+    "slice_spacing": 0.7,
+    "terrain_materials": [
+      "minecraft:grass_block[snowy=false]",
+      "minecraft:dirt",
+      "minecraft:coarse_dirt"
+    ],
+    "gap_source_z": [
+      54,
+      131
+    ],
+    "no_continuous_base": true,
+    "solid_probes_source": [
+      [
+        1,
+        3,
+        25
+      ],
+      [
+        22,
+        3,
+        90
+      ],
+      [
+        29,
+        0,
+        142
+      ]
+    ],
+    "suggested_biomes": [
+      "minecraft:savanna",
+      "terralith:steppe",
+      "biomesoplenty:scrubland"
+    ],
+    "runtime_selection_implemented": false
+  },
+  "visual_acceptance": "Alpha 4.4 soil-relief follow-up; review pending",
+  "in_game_tested": false,
+  "terrain_derivative": {
+    "algorithm": "contact-preserving-eroded-deposits-v1",
+    "terrain_states": [
+      "minecraft:coarse_dirt",
+      "minecraft:dirt",
+      "minecraft:grass_block[snowy=false]"
+    ],
+    "protected_contact_columns": 3048,
+    "modified_columns": 5536,
+    "removed_soil_cells": 12708,
+    "non_terrain_cells_identical": true,
+    "contact_columns_identical": true,
+    "derived_support_lock_columns": 0,
+    "size": [
+      117,
+      79,
+      179
+    ],
+    "blocks": 123861,
+    "tiles": 30,
+    "data_version": 3105,
+    "source": "relics/titan-skull/design/generated/titan-skull-v4-dry/titan-skull-v4-dry.nbt",
+    "source_sha256": "7c2ea0fde39ba7c9618001dd49e747d2c652e0646c854baf0fadcb6e5ed773a4",
+    "nbt_sha256": "3cd8249a3401c39f162bf62217d68ad00fcd385a507aeb9d794e54e3351fdc20",
+    "schematic_sha256": "48f44f1127f61d9252f1ccb212e69a13c74eabb9320fcaa7c4c1e34ef1116e0b",
+    "supported_art_cells_checked": 13303,
+    "foundation": {
+      "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+      "vertical_padding": 8,
+      "horizontal_padding": 8,
+      "runtime_processor": "relics:terrain_support",
+      "feature_protection": "relics:placed_cells",
+      "toe_blocks": 38049,
+      "toe_columns": 5127,
+      "ground_y": 16,
+      "bottom_below_ground": 16,
+      "supported_columns": 8792,
+      "added_blocks": 128582
+    },
+    "checks": [
+      "non-terrain block identity",
+      "contact-column identity",
+      "no new air under supported art",
+      "schematic/NBT equality",
+      "lossless tile reconstruction",
+      "unchanged declared dimensions"
+    ],
+    "in_game_tested": false,
+    "authoring": "Explicit block-space terrain derivative; original Blender art preserved"
+  }
+}
