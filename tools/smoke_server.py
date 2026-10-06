@@ -39,6 +39,22 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def read_candidate_sites(path, selected, seed):
+    """Candidate coordinates are nominations, not a substitute for saved natural starts."""
+    data = json.loads(path.read_text(encoding='utf-8'))
+    if data.get('seed') != seed or not set(selected) <= set(data.get('candidates', {})):
+        raise ValueError('Natural candidates must match the seed and cover every selected template')
+    candidates = data['candidates']
+    for name in selected:
+        sites = candidates[name]
+        if not isinstance(sites, list) or not sites:
+            raise ValueError('Each selected template needs candidate start chunks')
+        for site in sites:
+            if any(type(site.get(axis)) is not int or site[axis] % 16 for axis in ('x', 'z')):
+                raise ValueError('Candidate coordinates must be integer chunk origins')
+    return candidates
+
+
 def read_nbt(data: bytes) -> dict:
     """Read standard big-endian NBT including chunk long arrays."""
     stream = io.BytesIO(data)
@@ -216,12 +232,16 @@ def main() -> int:
     parser.add_argument("--natural-area", nargs=4, type=int, action="append", metavar=("X1", "Z1", "X2", "Z2"),
                         help="Generate additional regression-site chunks naturally, never with /place")
     parser.add_argument("--skip-locate", action="store_true", help="Inspect saved natural starts from explicit regression areas instead of locators")
+    parser.add_argument("--natural-candidates", type=Path,
+                        help="Seed-matched candidate chunks to generate naturally, without global /locate or /place structure")
     parser.add_argument("--debug-terrain-at", nargs=2, type=int, metavar=("X", "Z"),
                         help="Log the first failed terrain sample in one regression-site start chunk")
     parser.add_argument("--startup-timeout", type=int, default=180)
     parser.add_argument("--command-timeout", type=int, default=180)
     parser.add_argument("--prepare-only", action="store_true", help="Extract cached server libraries, without starting Java")
     args = parser.parse_args()
+    if args.natural_candidates and (args.showcase or args.skip_locate or args.disabled_structure):
+        parser.error('--natural-candidates requires enabled natural structures, without --showcase/--skip-locate')
     if args.mods_source is None:
         args.mods_source = DEFAULT_CACHE / ("profiles/TerraVista/mods" if args.integration else "profiles/Relic Test/mods")
     smoke = ROOT / "build/smoke"
@@ -276,6 +296,12 @@ def main() -> int:
     evidence["selected_templates"] = sorted(selected)
     evidence["expected_manual_count"] = len(selected)
     evidence["expected_natural_structures"] = sorted(expected_structures)
+    natural_candidates = None
+    if args.natural_candidates:
+        natural_candidates = read_candidate_sites(args.natural_candidates, selected, args.seed)
+        evidence['natural_candidate_search'] = {'file': args.natural_candidates.name,
+            'sha256': sha256(args.natural_candidates), 'seed': args.seed,
+            'scope': 'Nominated start chunks; each must produce a saved natural start under the unchanged artifact rules'}
     with socket.socket() as candidate:
         candidate.bind(("127.0.0.1", 0))
         port = candidate.getsockname()[1]
@@ -312,7 +338,9 @@ def main() -> int:
 
     def command(text, pattern, timeout=None):
         started = time.monotonic()
-        response = console.command(text, pattern, timeout or args.command_timeout)
+        # Crash stack frames such as "Unknown Source" are never command replies.
+        response = console.command(text, r'\[Server thread/INFO\]: .*?(?:' + pattern + ')',
+                                   timeout or args.command_timeout)
         evidence["commands"].append({"command": text, "response": response,
                                      "elapsed_seconds": round(time.monotonic() - started, 4)})
         return response
@@ -362,7 +390,33 @@ def main() -> int:
             load_area(*area)
             command("save-all flush", r"Saved the game", timeout=240)
             command("forceload remove all", r"Unmarked|Removed|No chunks|force.loaded")
-        for name in (() if args.showcase or args.skip_locate else selected):
+        if natural_candidates:
+            for name in selected:
+                accepted = False
+                for site in natural_candidates[name]:
+                    x, z = site['x'], site['z']
+                    load_area(x, z, x + 15, z + 15)
+                    command('save-all flush', r'Saved the game', timeout=240)
+                    starts = inspect_world(run / 'world')['natural_structure_starts']
+                    start = next((s for s in starts if s['structure'] == f'relics:{name}'
+                                  and s['chunk'] == [x // 16, z // 16]), None)
+                    attempt = {'structure': f'relics:{name}', 'position': [x, z],
+                               'method': 'natural candidate chunk generation; no manual natural placement',
+                               'natural_start_found': bool(start and start['bounding_boxes'])}
+                    evidence.setdefault('natural_candidate_attempts', []).append(attempt)
+                    if start and start['bounding_boxes']:
+                        boxes = start['bounding_boxes']
+                        load_area(min(b[0] for b in boxes), min(b[2] for b in boxes),
+                                  max(b[3] for b in boxes), max(b[5] for b in boxes))
+                        attempt['bounding_boxes'] = boxes
+                        command('save-all flush', r'Saved the game', timeout=240)
+                        accepted = True
+                    command('forceload remove all', r'Unmarked|Removed|No chunks|force.loaded')
+                    if accepted:
+                        break
+                if not accepted:
+                    raise RuntimeError(f'No saved natural {name} start at the nominated candidate chunks')
+        for name in (() if args.showcase or args.skip_locate or natural_candidates else selected):
             locate_command = f"locate structure relics:{name}"
             if args.locate_from:
                 locate_command = f"execute positioned {args.locate_from[0]} 80 {args.locate_from[1]} run {locate_command}"
@@ -394,6 +448,8 @@ def main() -> int:
                 command("save-all flush", r"Saved the game", timeout=240)
                 command("forceload remove all", r"Unmarked|Removed|No chunks|force.loaded")
             evidence.setdefault("locate_results", []).append(located)
+            if not match:
+                raise RuntimeError(f'No natural {name} found within the locator search area')
         command("save-all flush", r"Saved the game", timeout=240)
     except Exception as exc:
         evidence["failure"] = f"{type(exc).__name__}: {exc}"

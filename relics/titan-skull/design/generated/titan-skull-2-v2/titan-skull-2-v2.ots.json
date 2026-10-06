@@ -1,0 +1,62 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v22.15.0",
+  "input": "relics/titan-skull/design/generated/titan-skull-2-v2/titan-skull-2-v2.obj",
+  "output": "relics/titan-skull/design/generated/titan-skull-2-v2/titan-skull-2-v2.schem",
+  "source_sha256": "e27d5c505e9456d0d59504f4239a01042a0307ad0b389cf9acda5b2bdf9ec773",
+  "schematic_sha256": "33a19be1584dfde2ba85a82f3223c8a0b6ef478ce5d0beec0b827ef9ab6f9555",
+  "height": 136,
+  "triangles": 112132,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 136,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "bone": "minecraft:bone_block",
+    "worn": "minecraft:calcite",
+    "mineral": "minecraft:dripstone_block",
+    "moss": "minecraft:moss_block",
+    "growth": "minecraft:green_terracotta",
+    "root": "minecraft:brown_terracotta",
+    "blade": "minecraft:tuff",
+    "edge": "minecraft:andesite",
+    "hilt": "minecraft:polished_deepslate",
+    "band": "minecraft:gray_terracotta",
+    "terrain_top": "minecraft:grass_block[snowy=false]",
+    "terrain_patch": "minecraft:rooted_dirt",
+    "terrain_fill": "minecraft:dirt"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:bone_block": 19178,
+    "minecraft:dripstone_block": 3496,
+    "minecraft:calcite": 2756,
+    "minecraft:dirt": 9985,
+    "minecraft:brown_terracotta": 231,
+    "minecraft:moss_block": 4600,
+    "minecraft:rooted_dirt": 677,
+    "minecraft:grass_block[snowy=false]": 3691,
+    "minecraft:tuff": 757,
+    "minecraft:andesite": 365,
+    "minecraft:green_terracotta": 146,
+    "minecraft:polished_deepslate": 786,
+    "minecraft:gray_terracotta": 254
+  },
+  "material_remapping": {
+    "proxies": {
+      "terrain_top": "minecraft:lime_concrete"
+    },
+    "covered_replacements": 395,
+    "unsupported_replacements": 0
+  },
+  "fill_enclosed": null,
+  "filled_voxels": 0,
+  "note": "Surface voxelisation. No solid filling, interior-air classification or worldgen integration."
+}

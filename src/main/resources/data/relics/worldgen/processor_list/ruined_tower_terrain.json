@@ -2,7 +2,7 @@
   "processors": [
     {
       "processor_type": "relics:terrain_support",
-      "ground_y": 14
+      "ground_y": 12
     }
   ]
 }

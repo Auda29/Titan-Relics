@@ -1,0 +1,1470 @@
+{
+  "source_report": "build\\smoke\\run-20261006-132644-6687254943f2\\report.json",
+  "source_report_sha256": "6f6dd1a32121b5be48bcf7cc61bb318f6761f85560766bd737a1d0fba2de19dc",
+  "world": "C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\smoke\\run-20261006-132644-6687254943f2\\world",
+  "sources": [
+    {
+      "id": "small_colossus",
+      "source_nbt_sha256": "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021",
+      "verification_sha256": "0277388ea1149d300c771cd2b130275ff6887ee18c3beb3304f55cab0622c388"
+    },
+    {
+      "id": "world_tree",
+      "source_nbt_sha256": "fee50813242408123f4adcd1a0bacb476799359fce8e80ba5d59a49085823163",
+      "verification_sha256": "deb4a9e232b742a871df311b337651f5734bbb4e6ee9ddabe6f1857958d44eae"
+    },
+    {
+      "id": "ruined_tower",
+      "source_nbt_sha256": "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600",
+      "verification_sha256": "5a3eef0b77131af00c80e6bdc2962ca065f423cdcb7255e3e198477088de4189"
+    }
+  ],
+  "instances": [
+    {
+      "structure": "relics:small_colossus",
+      "boundary_art_cells_checked": 1367,
+      "substrate_states": {
+        "minecraft:andesite": 30,
+        "minecraft:coal_ore": 8,
+        "minecraft:copper_ore": 25,
+        "minecraft:diorite": 226,
+        "minecraft:granite": 147,
+        "minecraft:iron_ore": 1,
+        "minecraft:lapis_ore": 1,
+        "minecraft:stone": 914,
+        "minecraft:water": 15
+      },
+      "missing_expected_art": [],
+      "unsupported_cells": 15,
+      "gaps": [
+        {
+          "raw_position": [
+            63,
+            0,
+            62
+          ],
+          "world_position": [
+            -6552,
+            55,
+            56922
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            63,
+            0,
+            63
+          ],
+          "world_position": [
+            -6552,
+            55,
+            56921
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            63,
+            0,
+            64
+          ],
+          "world_position": [
+            -6552,
+            55,
+            56920
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            64,
+            0,
+            62
+          ],
+          "world_position": [
+            -6553,
+            55,
+            56922
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            64,
+            0,
+            63
+          ],
+          "world_position": [
+            -6553,
+            55,
+            56921
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            64,
+            0,
+            64
+          ],
+          "world_position": [
+            -6553,
+            55,
+            56920
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            64,
+            0,
+            65
+          ],
+          "world_position": [
+            -6553,
+            55,
+            56919
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            65,
+            0,
+            62
+          ],
+          "world_position": [
+            -6554,
+            55,
+            56922
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            65,
+            0,
+            63
+          ],
+          "world_position": [
+            -6554,
+            55,
+            56921
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            65,
+            0,
+            64
+          ],
+          "world_position": [
+            -6554,
+            55,
+            56920
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            65,
+            0,
+            65
+          ],
+          "world_position": [
+            -6554,
+            55,
+            56919
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            66,
+            0,
+            62
+          ],
+          "world_position": [
+            -6555,
+            55,
+            56922
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            66,
+            0,
+            63
+          ],
+          "world_position": [
+            -6555,
+            55,
+            56921
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            66,
+            0,
+            64
+          ],
+          "world_position": [
+            -6555,
+            55,
+            56920
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            67,
+            0,
+            63
+          ],
+          "world_position": [
+            -6556,
+            55,
+            56921
+          ],
+          "below": "minecraft:water"
+        }
+      ],
+      "passed": false,
+      "scope": "Immutable art at raw Y0; immediate saved-world substrate must be present, non-air and non-fluid"
+    },
+    {
+      "structure": "relics:world_tree",
+      "boundary_art_cells_checked": 1324,
+      "substrate_states": {
+        "minecraft:air": 11,
+        "minecraft:andesite": 33,
+        "minecraft:coal_ore": 24,
+        "minecraft:copper_ore": 1,
+        "minecraft:diorite": 2,
+        "minecraft:dirt": 530,
+        "minecraft:granite": 55,
+        "minecraft:grass_block": 139,
+        "minecraft:stone": 529
+      },
+      "missing_expected_art": [],
+      "unsupported_cells": 11,
+      "gaps": [
+        {
+          "raw_position": [
+            90,
+            0,
+            84
+          ],
+          "world_position": [
+            23715,
+            59,
+            -45496
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            91,
+            0,
+            83
+          ],
+          "world_position": [
+            23714,
+            59,
+            -45495
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            91,
+            0,
+            84
+          ],
+          "world_position": [
+            23714,
+            59,
+            -45496
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            91,
+            0,
+            85
+          ],
+          "world_position": [
+            23714,
+            59,
+            -45497
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            92,
+            0,
+            84
+          ],
+          "world_position": [
+            23713,
+            59,
+            -45496
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            92,
+            0,
+            85
+          ],
+          "world_position": [
+            23713,
+            59,
+            -45497
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            92,
+            0,
+            86
+          ],
+          "world_position": [
+            23713,
+            59,
+            -45498
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            93,
+            0,
+            85
+          ],
+          "world_position": [
+            23712,
+            59,
+            -45497
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            93,
+            0,
+            86
+          ],
+          "world_position": [
+            23712,
+            59,
+            -45498
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            93,
+            0,
+            87
+          ],
+          "world_position": [
+            23712,
+            59,
+            -45499
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            94,
+            0,
+            86
+          ],
+          "world_position": [
+            23711,
+            59,
+            -45498
+          ],
+          "below": "minecraft:air"
+        }
+      ],
+      "passed": false,
+      "scope": "Immutable art at raw Y0; immediate saved-world substrate must be present, non-air and non-fluid"
+    },
+    {
+      "structure": "relics:ruined_tower",
+      "boundary_art_cells_checked": 2468,
+      "substrate_states": {
+        "minecraft:air": 73,
+        "minecraft:andesite": 122,
+        "minecraft:coal_ore": 47,
+        "minecraft:copper_ore": 16,
+        "minecraft:diorite": 270,
+        "minecraft:dirt": 129,
+        "minecraft:glow_lichen": 1,
+        "minecraft:granite": 164,
+        "minecraft:gravel": 14,
+        "minecraft:iron_ore": 1,
+        "minecraft:stone": 1624,
+        "minecraft:water": 7
+      },
+      "missing_expected_art": [],
+      "unsupported_cells": 80,
+      "gaps": [
+        {
+          "raw_position": [
+            29,
+            0,
+            33
+          ],
+          "world_position": [
+            10381,
+            54,
+            2726
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            29,
+            0,
+            34
+          ],
+          "world_position": [
+            10380,
+            54,
+            2726
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            29,
+            0,
+            35
+          ],
+          "world_position": [
+            10379,
+            54,
+            2726
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            29,
+            0,
+            36
+          ],
+          "world_position": [
+            10378,
+            54,
+            2726
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            29,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2726
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            29,
+            0,
+            65
+          ],
+          "world_position": [
+            10349,
+            54,
+            2726
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            29,
+            0,
+            66
+          ],
+          "world_position": [
+            10348,
+            54,
+            2726
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            29,
+            0,
+            67
+          ],
+          "world_position": [
+            10347,
+            54,
+            2726
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            30,
+            0,
+            34
+          ],
+          "world_position": [
+            10380,
+            54,
+            2727
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            30,
+            0,
+            35
+          ],
+          "world_position": [
+            10379,
+            54,
+            2727
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            30,
+            0,
+            36
+          ],
+          "world_position": [
+            10378,
+            54,
+            2727
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            30,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2727
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            30,
+            0,
+            66
+          ],
+          "world_position": [
+            10348,
+            54,
+            2727
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            30,
+            0,
+            67
+          ],
+          "world_position": [
+            10347,
+            54,
+            2727
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            31,
+            0,
+            34
+          ],
+          "world_position": [
+            10380,
+            54,
+            2728
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            31,
+            0,
+            35
+          ],
+          "world_position": [
+            10379,
+            54,
+            2728
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            31,
+            0,
+            36
+          ],
+          "world_position": [
+            10378,
+            54,
+            2728
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            31,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2728
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            31,
+            0,
+            67
+          ],
+          "world_position": [
+            10347,
+            54,
+            2728
+          ],
+          "below": "minecraft:water"
+        },
+        {
+          "raw_position": [
+            32,
+            0,
+            34
+          ],
+          "world_position": [
+            10380,
+            54,
+            2729
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            32,
+            0,
+            35
+          ],
+          "world_position": [
+            10379,
+            54,
+            2729
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            32,
+            0,
+            36
+          ],
+          "world_position": [
+            10378,
+            54,
+            2729
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            32,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2729
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            33,
+            0,
+            34
+          ],
+          "world_position": [
+            10380,
+            54,
+            2730
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            33,
+            0,
+            35
+          ],
+          "world_position": [
+            10379,
+            54,
+            2730
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            33,
+            0,
+            36
+          ],
+          "world_position": [
+            10378,
+            54,
+            2730
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            33,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2730
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            33,
+            0,
+            38
+          ],
+          "world_position": [
+            10376,
+            54,
+            2730
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            34,
+            0,
+            35
+          ],
+          "world_position": [
+            10379,
+            54,
+            2731
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            34,
+            0,
+            36
+          ],
+          "world_position": [
+            10378,
+            54,
+            2731
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            34,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2731
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            34,
+            0,
+            38
+          ],
+          "world_position": [
+            10376,
+            54,
+            2731
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            35,
+            0,
+            35
+          ],
+          "world_position": [
+            10379,
+            54,
+            2732
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            35,
+            0,
+            36
+          ],
+          "world_position": [
+            10378,
+            54,
+            2732
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            35,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2732
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            35,
+            0,
+            38
+          ],
+          "world_position": [
+            10376,
+            54,
+            2732
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            36,
+            0,
+            35
+          ],
+          "world_position": [
+            10379,
+            54,
+            2733
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            36,
+            0,
+            36
+          ],
+          "world_position": [
+            10378,
+            54,
+            2733
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            36,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2733
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            36,
+            0,
+            38
+          ],
+          "world_position": [
+            10376,
+            54,
+            2733
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            37,
+            0,
+            36
+          ],
+          "world_position": [
+            10378,
+            54,
+            2734
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            37,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2734
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            37,
+            0,
+            38
+          ],
+          "world_position": [
+            10376,
+            54,
+            2734
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            37,
+            0,
+            39
+          ],
+          "world_position": [
+            10375,
+            54,
+            2734
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            38,
+            0,
+            36
+          ],
+          "world_position": [
+            10378,
+            54,
+            2735
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            38,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2735
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            38,
+            0,
+            38
+          ],
+          "world_position": [
+            10376,
+            54,
+            2735
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            38,
+            0,
+            39
+          ],
+          "world_position": [
+            10375,
+            54,
+            2735
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            39,
+            0,
+            37
+          ],
+          "world_position": [
+            10377,
+            54,
+            2736
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            39,
+            0,
+            38
+          ],
+          "world_position": [
+            10376,
+            54,
+            2736
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            39,
+            0,
+            41
+          ],
+          "world_position": [
+            10373,
+            54,
+            2736
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            39,
+            0,
+            42
+          ],
+          "world_position": [
+            10372,
+            54,
+            2736
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            39,
+            0,
+            43
+          ],
+          "world_position": [
+            10371,
+            54,
+            2736
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            39,
+            0,
+            44
+          ],
+          "world_position": [
+            10370,
+            54,
+            2736
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            39,
+            0,
+            45
+          ],
+          "world_position": [
+            10369,
+            54,
+            2736
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            39,
+            0,
+            46
+          ],
+          "world_position": [
+            10368,
+            54,
+            2736
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            40,
+            0,
+            41
+          ],
+          "world_position": [
+            10373,
+            54,
+            2737
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            40,
+            0,
+            42
+          ],
+          "world_position": [
+            10372,
+            54,
+            2737
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            40,
+            0,
+            43
+          ],
+          "world_position": [
+            10371,
+            54,
+            2737
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            40,
+            0,
+            44
+          ],
+          "world_position": [
+            10370,
+            54,
+            2737
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            40,
+            0,
+            45
+          ],
+          "world_position": [
+            10369,
+            54,
+            2737
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            40,
+            0,
+            46
+          ],
+          "world_position": [
+            10368,
+            54,
+            2737
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            41,
+            0,
+            41
+          ],
+          "world_position": [
+            10373,
+            54,
+            2738
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            41,
+            0,
+            42
+          ],
+          "world_position": [
+            10372,
+            54,
+            2738
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            41,
+            0,
+            43
+          ],
+          "world_position": [
+            10371,
+            54,
+            2738
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            41,
+            0,
+            44
+          ],
+          "world_position": [
+            10370,
+            54,
+            2738
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            41,
+            0,
+            45
+          ],
+          "world_position": [
+            10369,
+            54,
+            2738
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            41,
+            0,
+            46
+          ],
+          "world_position": [
+            10368,
+            54,
+            2738
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            63,
+            0,
+            41
+          ],
+          "world_position": [
+            10373,
+            54,
+            2760
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            63,
+            0,
+            42
+          ],
+          "world_position": [
+            10372,
+            54,
+            2760
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            64,
+            0,
+            40
+          ],
+          "world_position": [
+            10374,
+            54,
+            2761
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            64,
+            0,
+            41
+          ],
+          "world_position": [
+            10373,
+            54,
+            2761
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            64,
+            0,
+            42
+          ],
+          "world_position": [
+            10372,
+            54,
+            2761
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            65,
+            0,
+            41
+          ],
+          "world_position": [
+            10373,
+            54,
+            2762
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            79,
+            0,
+            62
+          ],
+          "world_position": [
+            10352,
+            54,
+            2776
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            80,
+            0,
+            61
+          ],
+          "world_position": [
+            10353,
+            54,
+            2777
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            80,
+            0,
+            62
+          ],
+          "world_position": [
+            10352,
+            54,
+            2777
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            80,
+            0,
+            63
+          ],
+          "world_position": [
+            10351,
+            54,
+            2777
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            81,
+            0,
+            63
+          ],
+          "world_position": [
+            10351,
+            54,
+            2778
+          ],
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            0,
+            61
+          ],
+          "world_position": [
+            10353,
+            54,
+            2780
+          ],
+          "below": "minecraft:water"
+        }
+      ],
+      "passed": false,
+      "scope": "Immutable art at raw Y0; immediate saved-world substrate must be present, non-air and non-fluid"
+    }
+  ],
+  "read_errors": [],
+  "passed": false
+}

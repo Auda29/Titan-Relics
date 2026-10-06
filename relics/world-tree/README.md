@@ -1,16 +1,17 @@
 # World Tree
 
-Latest candidate: [V4.1 ground-v2](../../docs/project/DEPOSIT_RELIEF_20261006.md)
-erodes regular soil margins while preserving all accepted non-terrain cells and
-the source columns needed by low roots.
+Latest candidate: [V4.1 ground-v3](../../docs/project/EMBEDDING_20261006.md)
+lowers the regular moss pads into broken ground patches. Accepted wood and
+foliage remain exact exported-block matches.
 
 **V4's form and foliage were accepted on October 6.** V4.1 adds only narrow
 earth transitions at root contacts; its validator requires identical non-terrain
 blocks. See the [ground audit and follow-up](../../docs/project/GROUND_WEATHERING_20261006.md).
-Packaged Alpha 4.5 uses V4.1 ground-v2; its
-[runtime status](../../docs/testing/ALPHA_4_5_TEST_REPORT.md) separately checks the new
-soil margins and root contacts. The accepted V4 tree remains identical; Alpha 4.4's
-V4.1 and Alpha 4.3's V4 evidence remain historical.
+Packaged Alpha 4.6 uses V4.1 ground-v3; its
+[runtime status](../../docs/testing/ALPHA_4_6_TEST_REPORT.md) separately checks low
+moss edits, root contacts and buried undersides. Accepted wood and foliage remain
+identical, not every moss cell. Alpha 4.5's ground-v2, Alpha 4.4's V4.1 and
+Alpha 4.3's V4 evidence remain historical.
 
 - [V2 natural-growth revision](docs/WORLD_TREE_V2.md)
 - [V1 exports, review and reproduction](docs/WORLD_TREE_V1.md)

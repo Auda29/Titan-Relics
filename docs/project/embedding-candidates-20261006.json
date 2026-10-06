@@ -1,0 +1,300 @@
+{
+  "status": "visual candidates; new runtime validation pending",
+  "basis": "Alpha 4.5 screenshots; current installed artifact is not changed by this index",
+  "placement_note": "Use these ground_y AND slope values together with these exact NBT hashes. Do not reuse Alpha 4.5 burial.",
+  "structures": [
+    {
+      "id": "titan_skull",
+      "ground_y": 16,
+      "slope": 4,
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-meadow-ground-v3/titan-skull-v4-meadow-ground-v3.nbt",
+      "version": "titan-skull-v4-meadow-ground-v3",
+      "blocks": 111328,
+      "sha256": "b189932ac224097ba030a649ea2b44c898aaa4fdfbddb42b8797c32851ae5969",
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        }
+      ],
+      "visually_accepted": false
+    },
+    {
+      "id": "titan_skull_dry",
+      "ground_y": 16,
+      "slope": 4,
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-dry-ground-v3/titan-skull-v4-dry-ground-v3.nbt",
+      "version": "titan-skull-v4-dry-ground-v3",
+      "blocks": 111328,
+      "sha256": "0d948527040a395b55615dce8704d72a2d5528b44c0b0c69ff94ea06b465eb67",
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "visually_accepted": false
+    },
+    {
+      "id": "titan_skull_sand",
+      "ground_y": 16,
+      "slope": 4,
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-sand-ground-v3/titan-skull-v4-sand-ground-v3.nbt",
+      "version": "titan-skull-v4-sand-ground-v3",
+      "blocks": 111328,
+      "sha256": "7106438dd1a0389dc5953f48351fa8a4aebfa1af3becd671d16288ab847bd0aa",
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:desert",
+        {
+          "id": "terralith:desert_spires",
+          "required": false
+        },
+        {
+          "id": "terralith:desert_canyon",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:dryland",
+          "required": false
+        }
+      ],
+      "visually_accepted": false
+    },
+    {
+      "id": "titan_skull_rock",
+      "ground_y": 16,
+      "slope": 6,
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-rock-ground-v3/titan-skull-v4-rock-ground-v3.nbt",
+      "version": "titan-skull-v4-rock-ground-v3",
+      "blocks": 111288,
+      "sha256": "6303836dd1d816900a84897ad31cd4a74e659820612d61c677612e267b47051f",
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:windswept_hills",
+        "minecraft:windswept_gravelly_hills",
+        "minecraft:stony_shore",
+        "minecraft:stony_peaks",
+        {
+          "id": "terralith:rocky_mountains",
+          "required": false
+        }
+      ],
+      "visually_accepted": false
+    },
+    {
+      "id": "small_colossus",
+      "ground_y": 13,
+      "slope": 4,
+      "size": [
+        111,
+        80,
+        113
+      ],
+      "source": "relics/colossus/design/generated/small-colossus-v7-ground-v3/small-colossus-v7-ground-v3.nbt",
+      "version": "small-colossus-v7-ground-v3",
+      "blocks": 233448,
+      "sha256": "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021",
+      "family": "small_colossus",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "visually_accepted": false
+    },
+    {
+      "id": "world_tree",
+      "ground_y": 8,
+      "slope": 6,
+      "size": [
+        187,
+        216,
+        185
+      ],
+      "source": "relics/world-tree/design/generated/world-tree-v4-1-ground-v3/world-tree-v4-1-ground-v3.nbt",
+      "version": "world-tree-v4-1-ground-v3",
+      "blocks": 291903,
+      "sha256": "fee50813242408123f4adcd1a0bacb476799359fce8e80ba5d59a49085823163",
+      "family": "world_tree",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:forest",
+        "minecraft:flower_forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest"
+      ],
+      "visually_accepted": false
+    },
+    {
+      "id": "ruined_tower",
+      "ground_y": 12,
+      "slope": 6,
+      "size": [
+        111,
+        232,
+        93
+      ],
+      "source": "relics/ruined-tower/design/generated/ruined-tower-v7-ground-v3/ruined-tower-v7-ground-v3.nbt",
+      "version": "ruined-tower-v7-ground-v3",
+      "blocks": 272528,
+      "sha256": "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600",
+      "family": "ruined_tower",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        },
+        "minecraft:desert",
+        {
+          "id": "terralith:desert_spires",
+          "required": false
+        },
+        {
+          "id": "terralith:desert_canyon",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:dryland",
+          "required": false
+        }
+      ],
+      "visually_accepted": false
+    },
+    {
+      "id": "titan_skull_2",
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v2/titan-skull-2-v2.nbt",
+      "version": "titan-skull-2-v2",
+      "size": [
+        99,
+        136,
+        99
+      ],
+      "blocks": 46922,
+      "ground_y": 22,
+      "family": "titan_skull_2",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 4,
+      "sha256": "955703762402efc16d9d05a957a78368553ed019c35aec4aa659ee3754f3522b",
+      "visually_accepted": false
+    }
+  ]
+}

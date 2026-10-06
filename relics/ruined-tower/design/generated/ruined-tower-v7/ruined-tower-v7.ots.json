@@ -1,0 +1,56 @@
+{
+  "upstream": "https://github.com/LucasDower/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "node": "v22.15.0",
+  "input": "relics/ruined-tower/design/generated/ruined-tower-v7/ruined-tower-v7.obj",
+  "output": "relics/ruined-tower/design/generated/ruined-tower-v7/ruined-tower-v7.schem",
+  "source_sha256": "efc36e959ff0fe49b3de8ce565022902f6e0c06ddc345664366058c45fedb4cb",
+  "schematic_sha256": "fbd3ed7f30c0e5dbbda4eb3920b65e1c9f508a44f295599b1a19535587043c2a",
+  "height": 232,
+  "triangles": 24516,
+  "data_version": 3105,
+  "voxel_options": {
+    "constraintAxis": "y",
+    "voxeliser": "bvh-ray",
+    "size": 232,
+    "useMultisampleColouring": false,
+    "voxelOverlapRule": "first",
+    "enableAmbientOcclusion": false
+  },
+  "materials": {
+    "wall": "minecraft:deepslate_tiles",
+    "pier": "minecraft:polished_deepslate",
+    "worn": "minecraft:cobbled_deepslate",
+    "seam": "minecraft:polished_basalt",
+    "accent": "minecraft:brown_terracotta",
+    "course": "minecraft:deepslate_bricks",
+    "floor": "minecraft:cracked_deepslate_bricks",
+    "terrain_top": "minecraft:grass_block[snowy=false]",
+    "terrain_patch": "minecraft:rooted_dirt",
+    "terrain_fill": "minecraft:dirt"
+  },
+  "colour_resolution": 255,
+  "dithering": "off",
+  "blocks": {
+    "minecraft:cobbled_deepslate": 15245,
+    "minecraft:deepslate_tiles": 223644,
+    "minecraft:polished_deepslate": 16448,
+    "minecraft:polished_basalt": 1816,
+    "minecraft:dirt": 4176,
+    "minecraft:grass_block[snowy=false]": 2219,
+    "minecraft:rooted_dirt": 590,
+    "minecraft:brown_terracotta": 179,
+    "minecraft:deepslate_bricks": 4405,
+    "minecraft:cracked_deepslate_bricks": 4881
+  },
+  "material_remapping": {
+    "proxies": {
+      "terrain_top": "minecraft:lime_concrete"
+    },
+    "covered_replacements": 1668,
+    "unsupported_replacements": 0
+  },
+  "fill_enclosed": "wall",
+  "filled_voxels": 149762,
+  "note": "Surface voxelisation plus explicit sealed-volume fill; no worldgen integration."
+}

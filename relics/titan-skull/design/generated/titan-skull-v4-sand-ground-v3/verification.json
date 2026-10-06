@@ -1,0 +1,87 @@
+{
+  "algorithm": "low-core-embedding-v3",
+  "terrain_states": [
+    "minecraft:sand",
+    "minecraft:sandstone"
+  ],
+  "low_moss_pads_reworked": false,
+  "immutable_art_cells": 20131,
+  "immutable_art_cells_identical": true,
+  "authored_low_contact_columns": 1722,
+  "authored_low_contacts_preserved": true,
+  "removed_cells": 13179,
+  "changed_surface_states": 4035,
+  "max_ground_above_nominal": 1,
+  "source": "relics/titan-skull/design/generated/titan-skull-v4-sand-ground-v2/titan-skull-v4-sand-ground-v2.nbt",
+  "source_sha256": "358bd8f318ef5ad0ea1c6b27292fb5b30f94ebb0afa937bf778f16d9ff47a829",
+  "nbt_sha256": "7106438dd1a0389dc5953f48351fa8a4aebfa1af3becd671d16288ab847bd0aa",
+  "schematic_sha256": "0801364c51f6a284a551e9835e38202fd19d1bf608b2f4934827a2f630daa375",
+  "size": [
+    117,
+    79,
+    179
+  ],
+  "blocks": 111328,
+  "tiles": 30,
+  "data_version": 3105,
+  "original_ground_y": 8,
+  "ground_y": 16,
+  "additional_burial": 8,
+  "placement_contract": {
+    "ground_y": 16,
+    "slope": 4,
+    "size": [
+      117,
+      79,
+      179
+    ],
+    "source": "relics/titan-skull/design/generated/titan-skull-v4-sand-ground-v3/titan-skull-v4-sand-ground-v3.nbt",
+    "version": "titan-skull-v4-sand-ground-v3",
+    "blocks": 111328,
+    "sha256": "7106438dd1a0389dc5953f48351fa8a4aebfa1af3becd671d16288ab847bd0aa",
+    "family": "titan_skull",
+    "biomes": [
+      "minecraft:desert",
+      {
+        "id": "terralith:desert_spires",
+        "required": false
+      },
+      {
+        "id": "terralith:desert_canyon",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:dryland",
+        "required": false
+      }
+    ],
+    "visually_accepted": false
+  },
+  "foundation": {
+    "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+    "vertical_padding": 0,
+    "horizontal_padding": 8,
+    "runtime_processor": "relics:terrain_support",
+    "feature_protection": "relics:placed_cells",
+    "toe_blocks": 0,
+    "toe_columns": 0,
+    "ground_y": 16,
+    "bottom_below_ground": 8,
+    "supported_columns": 8800,
+    "added_blocks": 0
+  },
+  "low_art_undersides_checked": 4086,
+  "restored_low_toe_cells": 646,
+  "buried_boundary_undersides_requiring_runtime_check": 0,
+  "non_terrain_scope": "All art except explicitly declared low Tree moss pads",
+  "checks": [
+    "immutable art exact identity",
+    "ground cap <= nominal+1",
+    "low art support preservation",
+    "schematic/NBT equality",
+    "lossless tile reconstruction",
+    "bounds",
+    "source hash"
+  ],
+  "in_game_tested": false
+}

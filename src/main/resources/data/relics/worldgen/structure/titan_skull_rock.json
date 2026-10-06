@@ -54,8 +54,8 @@
               "type": "lithostitched:height_filter",
               "heightmap": "WORLD_SURFACE_WG",
               "permitted_range": {
-                "min_inclusive": -12,
-                "max_inclusive": 12
+                "min_inclusive": -6,
+                "max_inclusive": 6
               },
               "range_type": "heightmap_relative"
             },

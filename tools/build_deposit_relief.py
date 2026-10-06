@@ -29,6 +29,15 @@ BASELINE_EXPORTS = {
     'titan_skull_2': ('titan-skull-2-v1', 85224, '5a39ac6ef62c1d07eafed69ed8a7cbeb397b4a6d3c4a6f7bf7086fdabdac1b78'),
 }
 
+# Burial, slope and dimensions are also historical inputs, not current defaults.
+BASELINE_GEOMETRY = {
+    **{name: ([117, 79, 179], 8, 12) for name in NAMES[:4]},
+    'small_colossus': ([111, 80, 113], 9, 12),
+    'world_tree': ([187, 216, 185], 8, 12),
+    'ruined_tower': ([111, 232, 93], 12, 10),
+    'titan_skull_2': ([105, 144, 107], 12, 12),
+}
+
 
 def baseline_contract(name, tower_v6=False):
     contract = dict(ASSETS[name])
@@ -37,8 +46,9 @@ def baseline_contract(name, tower_v6=False):
         stem, count, checksum = ('ruined-tower-v6', 298355,
                                 '761d9a257a3339334e2e4f5bc89772330dde75e040fbf9e5e1107ba36a25b779')
     source = (ROOT / contract['source']).parent.parent / stem / f'{stem}.nbt'
+    size, ground, slope = BASELINE_GEOMETRY[name]
     contract.update(version=stem, source=source.relative_to(ROOT).as_posix(),
-                    sha256=checksum, blocks=count)
+                    sha256=checksum, blocks=count, size=list(size), ground_y=ground, slope=slope)
     return contract
 
 

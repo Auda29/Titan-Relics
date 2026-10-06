@@ -1,0 +1,82 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "output": "relics/colossus/design/generated/small-colossus-v7-ground-v3/small-colossus-v7-ground-v3.schem",
+  "height": 80,
+  "planned_site_size": [
+    130,
+    80,
+    125
+  ],
+  "title": "SMALL-COLOSSUS-V7-GROUND-V3",
+  "subtitle": "Low central deposits / deeper embedding / flatter placement sites",
+  "reference": "https://www.instagram.com/reel/Da-s0zqi7OQ/",
+  "inspector": "tools/inspect_small_colossus_v4.py",
+  "materials": {
+    "armor": "minecraft:terracotta",
+    "plate": "minecraft:brown_terracotta",
+    "edge": "minecraft:exposed_cut_copper",
+    "worn": "minecraft:tuff",
+    "rust": "minecraft:gray_terracotta",
+    "patina": "minecraft:weathered_cut_copper",
+    "joint": "minecraft:polished_basalt",
+    "dark": "minecraft:black_concrete",
+    "claw": "minecraft:light_gray_terracotta",
+    "moss": "minecraft:moss_block",
+    "growth": "minecraft:green_terracotta",
+    "terrain_top": "minecraft:grass_block[snowy=false]",
+    "terrain_patch": "minecraft:rooted_dirt",
+    "terrain_fill": "minecraft:dirt"
+  },
+  "fill_enclosed": "armor",
+  "material_proxies": {
+    "terrain_top": "minecraft:lime_concrete"
+  },
+  "covered_replacements": {
+    "minecraft:grass_block[snowy=false]": "minecraft:dirt"
+  },
+  "view_labels": [
+    "01 / Editable source",
+    "02 / Actual NBT / front",
+    "03 / Actual NBT / side",
+    "04 / Actual NBT / rear"
+  ],
+  "review_footer": "V7 weathering candidate. Actual exported NBT; Minecraft visual review pending.",
+  "preview": {
+    "front": [
+      100,
+      280,
+      100
+    ],
+    "other": [
+      -170,
+      250,
+      90
+    ],
+    "back": [
+      100,
+      -250,
+      110
+    ],
+    "landscape": "new-relic-v1",
+    "ground_color": [
+      0.25,
+      0.28,
+      0.16
+    ],
+    "camera_source": [
+      135,
+      40,
+      -220
+    ],
+    "target_source": [
+      2,
+      33,
+      -10
+    ],
+    "lens": 46
+  },
+  "authoring": "block-embedding-derivative",
+  "source_nbt": "relics/colossus/design/generated/small-colossus-v7-ground-v2/small-colossus-v7-ground-v2.nbt",
+  "ground_y": 13
+}

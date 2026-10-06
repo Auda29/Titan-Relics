@@ -39,6 +39,10 @@ def check(config_path,review=False):
         require(hashlib.sha256((ROOT/parent['source']).read_bytes()).hexdigest()==parent['source_sha256'],
                 'Preserved V4 comparison source changed')
     if feature['family']=='tower':
+        if 'revision_v7' in meta:
+            parent=meta['revision_v7']
+            require(hashlib.sha256((ROOT/parent['source']).read_bytes()).hexdigest()==parent['source_sha256'],
+                    'Preserved V6 comparison source changed')
         if 'revision_v6' in meta:
             parent=meta['revision_v6']
             require(hashlib.sha256((ROOT/parent['source']).read_bytes()).hexdigest()==parent['source_sha256'],
@@ -131,7 +135,7 @@ def check(config_path,review=False):
             require(mask_size[1]/mask_size[0]>1.15,'Mask does not read as elongated')
             checks.update(waist_to_chest_width_ratio=ratio,mask_bounds_source_units=mask_size,
                           mask_height_to_width_ratio=mask_size[1]/mask_size[0])
-    summary[next(key for key in ('revision_v6','revision_v5','revision_v4_1','revision_v4','revision_v3','revision_v2') if key in meta)]=checks
+    summary[next(key for key in ('revision_v7','revision_v6','revision_v5','revision_v4_1','revision_v4','revision_v3','revision_v2') if key in meta)]=checks
     (out/'verification.json').write_text(json.dumps(summary,indent=2)+'\n')
     if review:base.contact_sheet(summary)
     print(json.dumps(checks,indent=2))

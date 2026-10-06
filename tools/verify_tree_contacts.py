@@ -54,6 +54,7 @@ def root_contacts(world, blocks, contract, instance):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--report", type=Path, required=True)
+    parser.add_argument("--preview-report", type=Path, help="Audit the installed terrain copy after reload")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     report = json.loads(args.report.read_text(encoding="utf-8"))
@@ -65,11 +66,26 @@ def main():
         raise ValueError("Source export differs from the recorded natural run")
     template = decode_nbt(data)
     blocks = {tuple(b["pos"]): template["palette"][b["state"]] for b in template["blocks"]}
-    world = AnvilWorld(Path(report["run_directory"]) / "world")
+    world_path = Path(report["run_directory"]) / "world"
+    verification = report['world_blocks']
+    preview_evidence = {}
+    if args.preview_report:
+        preview_data = args.preview_report.read_bytes()
+        preview = json.loads(preview_data)
+        if (not preview.get('strict_natural_verification_passed') or not preview['verification'].get('passed')
+                or preview['source_report_sha256'] != hashlib.sha256(args.report.read_bytes()).hexdigest()):
+            raise ValueError('A passing terrain reload from this exact natural run is required')
+        world_path = Path(preview['world_path'])
+        verification = preview['verification']
+        preview_evidence = {'source_preview_report': str(args.preview_report),
+                            'source_preview_report_sha256': hashlib.sha256(preview_data).hexdigest(),
+                            'world': str(world_path)}
+    world = AnvilWorld(world_path)
     checks = [root_contacts(world, blocks, contract, instance)
-              for instance in report["world_blocks"]["instances"]
+              for instance in verification["instances"]
               if instance["structure"] == "relics:world_tree"]
     result = {"source_report": str(args.report), "source_report_sha256": hashlib.sha256(args.report.read_bytes()).hexdigest(),
+               **preview_evidence,
               "source_nbt_sha256": contract["sha256"], "instances": checks,
               "read_errors": world.read_errors, "passed": bool(checks) and all(c["passed"] for c in checks) and not world.read_errors}
     args.output.parent.mkdir(parents=True, exist_ok=True)

@@ -5,14 +5,14 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 
 | Relic | Current status |
 | --- | --- |
-| [Colossus](colossus/README.md) | Alpha 4.5 retains V4.1 materials B and selects Small Colossus V7 ground-v2; gameplay/uniqueness pending |
-| [Obelisk](obelisk/README.md) | Alpha 4.5 retains V4.2; archaeology, collectibles and maps pending |
-| [Titan Skull](titan-skull/README.md) | Alpha 4.5 selects V4's four biome variants and Skull 2 V1 with ground-v2 relief; encounters pending |
-| [Ruined Tower](ruined-tower/README.md) | V6 lower-wall/ground-v2 candidate with 220 visible layers selected in Alpha 4.5 |
-| [World Tree](world-tree/README.md) | V4 form/foliage accepted; contact-preserving V4.1 ground-v2 selected in Alpha 4.5 |
+| [Colossus](colossus/README.md) | Alpha 4.6 retains V4.1 materials B and selects Small Colossus V7 ground-v3 with deeper burial; gameplay/uniqueness pending |
+| [Obelisk](obelisk/README.md) | Alpha 4.6 retains V4.2; archaeology, collectibles and maps pending |
+| [Titan Skull](titan-skull/README.md) | Alpha 4.6 selects V4's four ground-v3 biome variants and posed Skull 2 V2; encounters pending |
+| [Ruined Tower](ruined-tower/README.md) | V7 ground-v3 collapsed-side-bay candidate with 220 visible layers selected in Alpha 4.6 |
+| [World Tree](world-tree/README.md) | V4 wood/foliage accepted; V4.1 ground-v3 with lowered moss pads selected in Alpha 4.6 |
 
-See the [October 6 deposit revisions](../docs/project/DEPOSIT_RELIEF_20261006.md) and
-[current runtime evidence](../docs/testing/ALPHA_4_5_TEST_REPORT.md). Earlier models
+See the [October 6 embedding revisions](../docs/project/EMBEDDING_20261006.md) and
+[current runtime evidence](../docs/testing/ALPHA_4_6_TEST_REPORT.md). Earlier models
 and the historical Alpha 4 design decisions below remain preserved.
 
 ## In-game demos

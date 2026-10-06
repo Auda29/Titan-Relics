@@ -20,7 +20,9 @@ EXTRA_ASSETS={'small-colossus-v3':('colossus','small-colossus-v3'),
               'small-colossus-v7':('colossus','small-colossus-v7'),
               'ruined-tower-v5':('ruined-tower','ruined-tower-v5'),
               'world-tree-v4-1':('world-tree','world-tree-v4-1'),
-              'ruined-tower-v6':('ruined-tower','ruined-tower-v6')}
+              'ruined-tower-v6':('ruined-tower','ruined-tower-v6'),
+              'ruined-tower-v7':('ruined-tower','ruined-tower-v7'),
+              'titan-skull-2-v2':('titan-skull','titan-skull-2-v2')}
 
 
 def main():

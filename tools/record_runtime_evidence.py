@@ -27,6 +27,9 @@ def summarize(path):
             "expected_natural_structures": report.get("expected_natural_structures", []),
              "selected_templates": report.get("selected_templates", []),
              "locate_origin": report.get("locate_origin"),
+             **({"natural_candidate_search": report['natural_candidate_search'],
+                 "natural_candidate_attempts": report.get('natural_candidate_attempts', [])}
+                if report.get('natural_candidate_search') else {}),
             "locate_results": report.get("locate_results", []),
             "disabled_locate_results": report.get("disabled_locate_results", []),
             "locate_timings": [{"command": c["command"], "seconds": c["elapsed_seconds"]}

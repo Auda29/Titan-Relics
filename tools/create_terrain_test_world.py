@@ -222,6 +222,7 @@ def main() -> int:
     destination = args.profile / "saves" / title
     shutil.copytree(world_path, destination)
     result = {"world_title": title, "world_path": str(destination), "seed": source_report["seed"],
+               "source_report": str(args.report), "source_report_sha256": sha256(args.report),
               "spawn": loaded["spawn"], "manual_test_regions_omitted": sorted(manual_regions),
                "existing_worlds_modified": False, "commands": commands,
                "strict_natural_verification_passed": verification["passed"],

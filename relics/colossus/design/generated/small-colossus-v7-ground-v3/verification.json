@@ -1,0 +1,99 @@
+{
+  "algorithm": "low-core-embedding-v3",
+  "terrain_states": [
+    "minecraft:dirt",
+    "minecraft:grass_block[snowy=false]",
+    "minecraft:rooted_dirt"
+  ],
+  "low_moss_pads_reworked": false,
+  "immutable_art_cells": 211862,
+  "immutable_art_cells_identical": true,
+  "authored_low_contact_columns": 2305,
+  "authored_low_contacts_preserved": true,
+  "removed_cells": 574,
+  "changed_surface_states": 3251,
+  "max_ground_above_nominal": 1,
+  "source": "relics/colossus/design/generated/small-colossus-v7-ground-v2/small-colossus-v7-ground-v2.nbt",
+  "source_sha256": "5a1afb7dc0b8cb30bba6428cc612aa26dcfe6f63d4cfca7a5aaca41edb5a5843",
+  "nbt_sha256": "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021",
+  "schematic_sha256": "94b0a0c6c79fe29aa5d513667bff8c676e7329f3e5fa249ad6d938d38862054e",
+  "size": [
+    111,
+    80,
+    113
+  ],
+  "blocks": 233448,
+  "tiles": 33,
+  "data_version": 3105,
+  "original_ground_y": 9,
+  "ground_y": 13,
+  "additional_burial": 4,
+  "placement_contract": {
+    "ground_y": 13,
+    "slope": 4,
+    "size": [
+      111,
+      80,
+      113
+    ],
+    "source": "relics/colossus/design/generated/small-colossus-v7-ground-v3/small-colossus-v7-ground-v3.nbt",
+    "version": "small-colossus-v7-ground-v3",
+    "blocks": 233448,
+    "sha256": "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021",
+    "family": "small_colossus",
+    "biomes": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains",
+      "minecraft:meadow",
+      {
+        "id": "terralith:blooming_valley",
+        "required": false
+      },
+      {
+        "id": "terralith:blooming_plateau",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:prairie",
+        "required": false
+      },
+      "minecraft:savanna",
+      {
+        "id": "terralith:steppe",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:scrubland",
+        "required": false
+      }
+    ],
+    "visually_accepted": false
+  },
+  "foundation": {
+    "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+    "vertical_padding": 0,
+    "horizontal_padding": 8,
+    "runtime_processor": "relics:terrain_support",
+    "feature_protection": "relics:placed_cells",
+    "toe_blocks": 1386,
+    "toe_columns": 690,
+    "ground_y": 13,
+    "bottom_below_ground": 8,
+    "supported_columns": 4858,
+    "added_blocks": 10303
+  },
+  "low_art_undersides_checked": 23655,
+  "restored_low_toe_cells": 530,
+  "buried_boundary_undersides_requiring_runtime_check": 1367,
+  "non_terrain_scope": "All art except explicitly declared low Tree moss pads",
+  "checks": [
+    "immutable art exact identity",
+    "ground cap <= nominal+1",
+    "low art support preservation",
+    "schematic/NBT equality",
+    "lossless tile reconstruction",
+    "bounds",
+    "source hash"
+  ],
+  "in_game_tested": false
+}

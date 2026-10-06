@@ -1,5 +1,27 @@
 # Changelog
 
+## 0.1.0-alpha.4.6 — deeper embedding, Skull 2 V2 and Tower V7
+
+- Select the seven pinned ground-v3 derivatives and Titan Skull 2 V2, including
+  deeper burial and narrower slope envelopes from the new artwork contracts.
+- Keep crowned-Skull anatomy, Small Colossus art and accepted Tree wood/foliage
+  unchanged; explicitly allow the Tree's low moss-pad terrain edits.
+- Select Tower V7's connected collapsed bays and Skull 2 V2's settled pose.
+  Preserve all earlier source/export files and raw-template byte identity.
+- Pin the ground-v2 builder's historical geometry and burial independently of
+  current selection; preserve deterministic before/after reproduction.
+- Audit buried raw-boundary art contacts in saved natural/reloaded worlds,
+  separately from authored in-grid supports and Tree ground-level roots.
+- Retain dependencies, density, biome mappings, terrain-support policy and gameplay.
+  Require fresh strict runtime acceptance before profile replacement; back up
+  Alpha 4.5 and create separate new inspection saves without editing old worlds.
+- Publish real-client photo overview/contact sheets from an isolated Alpha 4.6
+  copy. Keep failed natural coverage and root/substrate audits explicit; the
+  original “Relic Test” profile remains on Alpha 4.5.
+
+See [embedding artwork](docs/project/EMBEDDING_20261006.md) and
+[Alpha 4.6 validation](docs/testing/ALPHA_4_6_TEST_REPORT.md).
+
 ## 0.1.0-alpha.4.5 — deposit relief and lower Tower walls
 
 - Select all eight pinned ground-v2 derivatives: the four crowned-Skull palettes,

@@ -1,0 +1,96 @@
+{
+  "algorithm": "low-core-embedding-v3",
+  "terrain_states": [
+    "minecraft:dirt",
+    "minecraft:grass_block[snowy=false]",
+    "minecraft:rooted_dirt"
+  ],
+  "low_moss_pads_reworked": true,
+  "immutable_art_cells": 287122,
+  "immutable_art_cells_identical": true,
+  "authored_low_contact_columns": 504,
+  "authored_low_contacts_preserved": true,
+  "removed_cells": 1904,
+  "changed_surface_states": 1393,
+  "max_ground_above_nominal": 1,
+  "source": "relics/world-tree/design/generated/world-tree-v4-1-ground-v2/world-tree-v4-1-ground-v2.nbt",
+  "source_sha256": "5ba0b4f73f0e1fd5087f2ecdb28849a78f3297caffbbb2d6b5b58b98ce2ebaf6",
+  "nbt_sha256": "fee50813242408123f4adcd1a0bacb476799359fce8e80ba5d59a49085823163",
+  "schematic_sha256": "ff6818603253c9a6616d0730f632754fc92995b90984fc3c46c408ca8b4405af",
+  "size": [
+    187,
+    216,
+    185
+  ],
+  "blocks": 291903,
+  "tiles": 124,
+  "data_version": 3105,
+  "original_ground_y": 8,
+  "ground_y": 8,
+  "additional_burial": 0,
+  "placement_contract": {
+    "ground_y": 8,
+    "slope": 6,
+    "size": [
+      187,
+      216,
+      185
+    ],
+    "source": "relics/world-tree/design/generated/world-tree-v4-1-ground-v3/world-tree-v4-1-ground-v3.nbt",
+    "version": "world-tree-v4-1-ground-v3",
+    "blocks": 291903,
+    "sha256": "fee50813242408123f4adcd1a0bacb476799359fce8e80ba5d59a49085823163",
+    "family": "world_tree",
+    "biomes": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains",
+      "minecraft:meadow",
+      {
+        "id": "terralith:blooming_valley",
+        "required": false
+      },
+      {
+        "id": "terralith:blooming_plateau",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:prairie",
+        "required": false
+      },
+      "minecraft:forest",
+      "minecraft:flower_forest",
+      "minecraft:birch_forest",
+      "minecraft:old_growth_birch_forest"
+    ],
+    "visually_accepted": false
+  },
+  "foundation": {
+    "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+    "vertical_padding": 2,
+    "horizontal_padding": 8,
+    "runtime_processor": "relics:terrain_support",
+    "feature_protection": "relics:placed_cells",
+    "toe_blocks": 17327,
+    "toe_columns": 4019,
+    "ground_y": 10,
+    "bottom_below_ground": 10,
+    "supported_columns": 2278,
+    "added_blocks": 35254
+  },
+  "low_art_undersides_checked": 19534,
+  "restored_low_toe_cells": 1161,
+  "buried_boundary_undersides_requiring_runtime_check": 1324,
+  "non_terrain_scope": "All art except explicitly declared low Tree moss pads",
+  "checks": [
+    "immutable art exact identity",
+    "ground cap <= nominal+1",
+    "low art support preservation",
+    "schematic/NBT equality",
+    "lossless tile reconstruction",
+    "bounds",
+    "source hash"
+  ],
+  "in_game_tested": false,
+  "accepted_wood_and_foliage_identical": true,
+  "accepted_tree_sha256": "3f19512d5d1d97ccd5efa2af59d30ef8ffa48c0269535ff472ec2586063f16e8"
+}

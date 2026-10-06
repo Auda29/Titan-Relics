@@ -10,7 +10,7 @@
     "start_jigsaw_name": "relics:center",
     "size": 1,
     "start_height": {
-      "absolute": -15
+      "absolute": -21
     },
     "project_start_to_heightmap": "WORLD_SURFACE_WG",
     "max_distance_from_center": 128,
@@ -27,7 +27,7 @@
       },
       {
         "set": "relics:obelisk",
-        "clearance_chunks": 8
+        "clearance_chunks": 7
       },
       {
         "set": "relics:titan_skull",
@@ -39,7 +39,7 @@
       },
       {
         "set": "relics:world_tree",
-        "clearance_chunks": 12
+        "clearance_chunks": 11
       },
       {
         "set": "relics:ruined_tower",
@@ -55,13 +55,13 @@
       "type": "lithostitched:offset",
       "offset": [
         0,
-        15,
+        21,
         0
       ],
       "condition": {
         "type": "relics:all_grid",
-        "radius": 62,
-        "distance_between_points": 31,
+        "radius": 58,
+        "distance_between_points": 29,
         "allowed_count": 25,
         "condition": {
           "type": "lithostitched:all_of",
@@ -70,8 +70,8 @@
               "type": "lithostitched:height_filter",
               "heightmap": "WORLD_SURFACE_WG",
               "permitted_range": {
-                "min_inclusive": -12,
-                "max_inclusive": 12
+                "min_inclusive": -4,
+                "max_inclusive": 4
               },
               "range_type": "heightmap_relative"
             },
@@ -80,7 +80,7 @@
               "heightmap": "OCEAN_FLOOR_WG",
               "permitted_range": {
                 "min_inclusive": 63,
-                "max_inclusive": 180
+                "max_inclusive": 198
               },
               "range_type": "absolute"
             },

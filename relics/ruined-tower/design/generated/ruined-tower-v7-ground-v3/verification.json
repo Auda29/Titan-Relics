@@ -1,0 +1,112 @@
+{
+  "algorithm": "low-core-embedding-v3",
+  "terrain_states": [
+    "minecraft:dirt",
+    "minecraft:grass_block[snowy=false]",
+    "minecraft:rooted_dirt"
+  ],
+  "low_moss_pads_reworked": false,
+  "immutable_art_cells": 266618,
+  "immutable_art_cells_identical": true,
+  "authored_low_contact_columns": 1987,
+  "authored_low_contacts_preserved": true,
+  "removed_cells": 1764,
+  "changed_surface_states": 2859,
+  "max_ground_above_nominal": 1,
+  "source": "relics/ruined-tower/design/generated/ruined-tower-v7/ruined-tower-v7.nbt",
+  "source_sha256": "60a3ad133353a61cb1a71641074e646f460d5be8f8ddc5c5e967427212b29ef3",
+  "nbt_sha256": "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600",
+  "schematic_sha256": "de685de321af96dce596b03c74797677f7c2d64d5d2ab2a754158f94b9a49950",
+  "size": [
+    111,
+    232,
+    93
+  ],
+  "blocks": 272528,
+  "tiles": 69,
+  "data_version": 3105,
+  "original_ground_y": 12,
+  "ground_y": 12,
+  "additional_burial": 0,
+  "placement_contract": {
+    "ground_y": 12,
+    "slope": 6,
+    "size": [
+      111,
+      232,
+      93
+    ],
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v7-ground-v3/ruined-tower-v7-ground-v3.nbt",
+    "version": "ruined-tower-v7-ground-v3",
+    "blocks": 272528,
+    "sha256": "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600",
+    "family": "ruined_tower",
+    "biomes": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains",
+      "minecraft:meadow",
+      {
+        "id": "terralith:blooming_valley",
+        "required": false
+      },
+      {
+        "id": "terralith:blooming_plateau",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:prairie",
+        "required": false
+      },
+      "minecraft:savanna",
+      {
+        "id": "terralith:steppe",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:scrubland",
+        "required": false
+      },
+      "minecraft:desert",
+      {
+        "id": "terralith:desert_spires",
+        "required": false
+      },
+      {
+        "id": "terralith:desert_canyon",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:dryland",
+        "required": false
+      }
+    ],
+    "visually_accepted": false
+  },
+  "foundation": {
+    "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+    "vertical_padding": 0,
+    "horizontal_padding": 8,
+    "runtime_processor": "relics:terrain_support",
+    "feature_protection": "relics:placed_cells",
+    "toe_blocks": 11120,
+    "toe_columns": 2896,
+    "ground_y": 12,
+    "bottom_below_ground": 10,
+    "supported_columns": 3857,
+    "added_blocks": 33141
+  },
+  "low_art_undersides_checked": 41505,
+  "restored_low_toe_cells": 689,
+  "buried_boundary_undersides_requiring_runtime_check": 2468,
+  "non_terrain_scope": "All art except explicitly declared low Tree moss pads",
+  "checks": [
+    "immutable art exact identity",
+    "ground cap <= nominal+1",
+    "low art support preservation",
+    "schematic/NBT equality",
+    "lossless tile reconstruction",
+    "bounds",
+    "source hash"
+  ],
+  "in_game_tested": false
+}

@@ -50,6 +50,17 @@ def check(config_path,review=False):
             require(sum(p in blocks for p in neighbors(local(tip),2))>=3,'Finger tip lost')
         checks['preserved_archive_meshes']=len(design['preserved_archive_meshes']);checks['right_palm_up']=True
     if features['family']=='skull-2':
+        if 'revision_v2' in design:
+            parent=design['revision_v2']
+            require(hashlib.sha256((ROOT/parent['source']).read_bytes()).hexdigest()==parent['source_sha256'],
+                    'Preserved Skull 2 V1 source changed')
+            # At the posterior center, the rounded base must now reach nominal
+            # ground instead of remaining suspended above an earth hummock.
+            posterior=[y-design['ground_level_nbt_approx'] for (x,y,z),s in blocks.items()
+                       if s in {'minecraft:bone_block','minecraft:calcite','minecraft:dripstone_block','minecraft:moss_block'}
+                       and abs(x/scale+low[0])<12 and 25<z/scale-high[1]<42]
+            require(posterior and min(posterior)<=0,'Posterior skull still floats above nominal ground')
+            checks['posterior_lowest_above_ground']=min(posterior)
         require(not features['crown_included'] and not features['spine_included'],'Wrong skull design family')
         sword=features['sword'];origin,axis=sword['entry_source'],sword['axis_source']
         for t in (-14,10,32,58):

@@ -1,10 +1,14 @@
 # Titan Skull
 
-**Alpha 4.5 selects V4's four biome-matched palettes and Skull 2 V1 with ground-v2**:
-the accepted skull/bone/sword geometry is preserved exactly, with eroded soil/rock
-margins. See [deposit relief](../../docs/project/DEPOSIT_RELIEF_20261006.md) and
-[runtime status](../../docs/testing/ALPHA_4_5_TEST_REPORT.md). The changed ground
-derivatives remain visual candidates; historical Alpha 4 art acceptance is preserved.
+Latest candidates: [crowned Skull ground-v3 and Skull 2 V2](../../docs/project/EMBEDDING_20261006.md)
+lower the central deposits and settle the remains into the terrain. New art and
+placement contracts are selected together in Alpha 4.6.
+
+**Alpha 4.6 selects V4's four ground-v3 palettes and Skull 2 V2**: crowned-Skull
+anatomy is preserved with low central soil and deeper burial; Skull 2 has its new
+settled skull/sword pose. See [embedding artwork](../../docs/project/EMBEDDING_20261006.md)
+and [runtime status](../../docs/testing/ALPHA_4_6_TEST_REPORT.md). These changed
+exports remain visual candidates; historical Alpha 4 art acceptance is preserved.
 
 - [V4 exports and reproduction](docs/TITAN_SKULL_V4_EXPORTS.md) — all four palettes accepted; selected in Alpha 4
 - [V4 in-game findings and revision goals](docs/TITAN_SKULL_V4.md)

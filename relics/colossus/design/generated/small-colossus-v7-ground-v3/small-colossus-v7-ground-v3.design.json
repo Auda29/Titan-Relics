@@ -1,0 +1,757 @@
+{
+  "name": "small-colossus-v7-ground-v3",
+  "reference": "https://www.instagram.com/reel/Da-s0zqi7OQ/",
+  "visual_acceptance": "Alpha 4.5 embedding follow-up; review pending",
+  "revision_v6": {
+    "source": "relics/colossus/design/generated/small-colossus-v5/small-colossus-v5-source.blend",
+    "source_sha256": "c3079b665852927e43e7ee88b2b61a1d9e8d458bf317d5bac1b85c8fa75b19ca",
+    "feedback": "Alpha 4.2: spherical shoulders/back/head and disconnected-looking pale pincers",
+    "overlapping_plate_count": 25,
+    "plate_probes_source": [
+      [
+        1.0266670417785644,
+        9.871621228645585,
+        -11.26666711807251
+      ],
+      [
+        4.036666873693466,
+        20.77639132401861,
+        -19.29666711807251
+      ],
+      [
+        7.226667251586915,
+        32.56733554840088,
+        -23.636667709350586
+      ],
+      [
+        -28.39333318710327,
+        17.82031094215656,
+        -13.546667308807374
+      ],
+      [
+        -41.18750076293945,
+        15.98676726176821,
+        0.7875000000000001
+      ],
+      [
+        -25.76000112533569,
+        27.41659454167392,
+        -16.646667308807373
+      ],
+      [
+        -37.88750076293945,
+        26.38590521911095,
+        -2.3125
+      ],
+      [
+        -23.126666717529297,
+        36.88366892814636,
+        -19.74666790008545
+      ],
+      [
+        -34.587500762939456,
+        36.71607765921231,
+        -5.4125
+      ],
+      [
+        34.29666681289673,
+        18.062529222488404,
+        -9.476666831970215
+      ],
+      [
+        45.902500762939454,
+        16.088922385511726,
+        4.8575
+      ],
+      [
+        36.26333475112915,
+        25.726245596991642,
+        -12.576666831970215
+      ],
+      [
+        47.20250076293945,
+        23.796680979893125,
+        1.7575000000000003
+      ],
+      [
+        38.23000122070312,
+        33.90700217723847,
+        -15.676667423248292
+      ],
+      [
+        48.502500762939455,
+        31.764999923706053,
+        -1.3424999999999994
+      ],
+      [
+        1.1116669797897338,
+        9.209862720215465,
+        35.74333745956421
+      ],
+      [
+        3.946666431427002,
+        21.092414619555427,
+        30.02333745956421
+      ],
+      [
+        6.886667633056641,
+        33.65216341540457,
+        21.993333053588866
+      ],
+      [
+        9.291667335033416,
+        43.06783560872078,
+        12.583333053588868
+      ],
+      [
+        12.502858362197877,
+        59.394004759788515,
+        -32.46285926818848
+      ],
+      [
+        -10.914999198913574,
+        50.14000106811523,
+        -12.31166706085205
+      ],
+      [
+        32.151666450500485,
+        45.83333450317382,
+        -12.31166706085205
+      ],
+      [
+        11.871666969060898,
+        52.787334485650064,
+        1.048333320617676
+      ],
+      [
+        -38.15799997806549,
+        7.35200008392334,
+        -41.6240000295639
+      ],
+      [
+        35.787498474121094,
+        6.400000095367432,
+        -29.924999237060547
+      ]
+    ],
+    "sphere_based_body_and_shoulders": false,
+    "forward_shear": -0.31
+  },
+  "revision_v4": {
+    "closed_source_head_volume": 60934.31939096485,
+    "head_optics": [
+      {
+        "name": "Main left eye",
+        "center_source": [
+          -1.5399999999999991,
+          52.49,
+          -36.120000000000005
+        ],
+        "normal_source": [
+          -0.2854683995246887,
+          0.11418735980987549,
+          -0.9515613317489624
+        ],
+        "dark_probe_source": [
+          -2.5768210983276365,
+          52.66356430053711,
+          -40.067837982177736
+        ],
+        "lens_radii": [
+          5.148,
+          3.7439999999999998
+        ]
+      },
+      {
+        "name": "Main right eye",
+        "center_source": [
+          25.23,
+          48.865,
+          -36.31
+        ],
+        "normal_source": [
+          0.2860387861728668,
+          0.09534626454114914,
+          -0.9534626007080078
+        ],
+        "dark_probe_source": [
+          26.46187423706055,
+          48.74295742034912,
+          -40.242080001831056
+        ],
+        "lens_radii": [
+          5.148,
+          3.7439999999999998
+        ]
+      },
+      {
+        "name": "Upper left eye",
+        "center_source": [
+          8.600000190734864,
+          58.87999998092651,
+          -36.6
+        ],
+        "normal_source": [
+          -0.11147487163543701,
+          0.35300377011299133,
+          -0.9289572834968567
+        ],
+        "dark_probe_source": [
+          8.47886480331421,
+          59.83274092674256,
+          -40.753555374145506
+        ],
+        "lens_radii": [
+          2.1839999999999997,
+          1.9500000000000002
+        ]
+      },
+      {
+        "name": "Upper right eye",
+        "center_source": [
+          18.88499980926514,
+          57.355000019073486,
+          -36.945
+        ],
+        "normal_source": [
+          0.11254341900348663,
+          0.3282516598701477,
+          -0.9378618597984314
+        ],
+        "dark_probe_source": [
+          19.637164478302005,
+          58.127795457839966,
+          -41.10347877502441
+        ],
+        "lens_radii": [
+          2.1839999999999997,
+          1.9500000000000002
+        ]
+      },
+      {
+        "name": "Lower left cheek eye",
+        "center_source": [
+          -4.719999999999999,
+          38.449999999999996,
+          -30.16
+        ],
+        "normal_source": [
+          -0.2400076687335968,
+          -0.14400461316108704,
+          -0.9600306749343872
+        ],
+        "dark_probe_source": [
+          -5.812514991760253,
+          37.69349508285522,
+          -33.82155624389648
+        ],
+        "lens_radii": [
+          2.34,
+          2.028
+        ]
+      },
+      {
+        "name": "Lower right cheek eye",
+        "center_source": [
+          21.165,
+          35.410000000000004,
+          -30.005000000000003
+        ],
+        "normal_source": [
+          0.2400076687335968,
+          -0.14400461316108704,
+          -0.9600306749343872
+        ],
+        "dark_probe_source": [
+          21.99254611968994,
+          34.46148897171021,
+          -33.66655624389649
+        ],
+        "lens_radii": [
+          2.34,
+          2.028
+        ]
+      }
+    ],
+    "pincers": [
+      {
+        "name": "Foreground left pincer",
+        "center_source": [
+          -38.0,
+          7.0,
+          -31.0
+        ],
+        "scale": 1,
+        "ports": [
+          {
+            "name": "Foreground left pincer | central hand port",
+            "center_source": [
+              -36.62,
+              12.438620689655172,
+              -35.86
+            ],
+            "normal_source": [
+              0.0,
+              0.8485586047172546,
+              -0.5291012525558472
+            ],
+            "dark_probe_source": [
+              -35.839326248168945,
+              15.478090859283986,
+              -39.02861793518066
+            ],
+            "lens_radii": [
+              2.4960000000000004,
+              2.1216000000000004
+            ]
+          },
+          {
+            "name": "Foreground left pincer | outer hand port",
+            "center_source": [
+              -42.965,
+              11.208620689655174,
+              -29.395
+            ],
+            "normal_source": [
+              -0.3094263970851898,
+              0.9282791614532471,
+              -0.2062842696905136
+            ],
+            "dark_probe_source": [
+              -43.3486884021759,
+              14.752236758356919,
+              -31.37120234489441
+            ],
+            "lens_radii": [
+              1.9500000000000002,
+              1.6575
+            ]
+          },
+          {
+            "name": "Foreground left pincer | inner hand port",
+            "center_source": [
+              -30.965,
+              11.063793103448278,
+              -29.395
+            ],
+            "normal_source": [
+              0.3094263970851898,
+              0.9282791614532471,
+              -0.2062842696905136
+            ],
+            "dark_probe_source": [
+              -28.87327794075012,
+              14.392192537135244,
+              -31.37120234489441
+            ],
+            "lens_radii": [
+              1.9500000000000002,
+              1.6575
+            ]
+          }
+        ],
+        "tine_tips_source": [
+          [
+            -39.0,
+            2.680000066757202,
+            -63.0
+          ],
+          [
+            -37.0,
+            2.680000066757202,
+            -63.0
+          ],
+          [
+            -38.0,
+            2.680000066757202,
+            -54.0
+          ]
+        ]
+      },
+      {
+        "name": "Right grounded pincer",
+        "center_source": [
+          36.0,
+          6.0,
+          -21.0
+        ],
+        "scale": 0.85,
+        "ports": [
+          {
+            "name": "Right grounded pincer | central hand port",
+            "center_source": [
+              36.943000087738035,
+              10.015846821890207,
+              -24.82099935531616
+            ],
+            "normal_source": [
+              0.0,
+              0.8485586047172546,
+              -0.5291012525558472
+            ],
+            "dark_probe_source": [
+              37.723674058914185,
+              12.311760845430642,
+              -27.989617586135864
+            ],
+            "lens_radii": [
+              2.1216000000000004,
+              1.8033600000000003
+            ]
+          },
+          {
+            "name": "Right grounded pincer | outer hand port",
+            "center_source": [
+              31.549749574661256,
+              9.198373567189842,
+              -19.325750703811647
+            ],
+            "normal_source": [
+              -0.3094263970851898,
+              0.9282791614532471,
+              -0.2062842696905136
+            ],
+            "dark_probe_source": [
+              31.166061172485353,
+              11.890170794887336,
+              -21.301953048706054
+            ],
+            "lens_radii": [
+              1.6575,
+              1.4088749999999999
+            ]
+          },
+          {
+            "name": "Right grounded pincer | inner hand port",
+            "center_source": [
+              41.749748430252076,
+              9.134183925927918,
+              -19.325750703811647
+            ],
+            "normal_source": [
+              0.3094263970851898,
+              0.9282791614532471,
+              -0.2062842696905136
+            ],
+            "dark_probe_source": [
+              43.84147048950195,
+              11.648109095185887,
+              -21.301953048706054
+            ],
+            "lens_radii": [
+              1.6575,
+              1.4088749999999999
+            ]
+          }
+        ],
+        "tine_tips_source": [
+          [
+            35.150001525878906,
+            2.3279998302459717,
+            -48.20000076293945
+          ],
+          [
+            36.849998474121094,
+            2.3279998302459717,
+            -48.20000076293945
+          ],
+          [
+            36.0,
+            2.3279998302459717,
+            -40.55000305175781
+          ]
+        ]
+      }
+    ],
+    "grille_rib_probes_source": [
+      [
+        3.8453999999999997,
+        39.35962,
+        -43.4278
+      ],
+      [
+        5.5674,
+        39.18742,
+        -43.4278
+      ],
+      [
+        7.2894000000000005,
+        39.01522,
+        -43.4278
+      ],
+      [
+        9.0114,
+        38.84302,
+        -43.4278
+      ],
+      [
+        10.7334,
+        38.670820000000006,
+        -43.4278
+      ],
+      [
+        12.455400000000001,
+        38.49862,
+        -43.4278
+      ],
+      [
+        14.1774,
+        38.326420000000006,
+        -43.4278
+      ]
+    ],
+    "solid_core_probes_source": [
+      [
+        2.99,
+        18.88689655172414,
+        5.97
+      ],
+      [
+        10.58,
+        47.660000000000004,
+        -14.26
+      ]
+    ],
+    "body_connection_source": [
+      2.99,
+      18.88689655172414,
+      5.97
+    ],
+    "head_connection_source": [
+      12.190000000000001,
+      53.37,
+      -21.43
+    ],
+    "continuous_body_source_y": [
+      13,
+      23,
+      34
+    ],
+    "hidden_completion_authored": [
+      "back",
+      "second arm attachment",
+      "buried body",
+      "pincer anatomy"
+    ]
+  },
+  "new_relic_v1": {
+    "family": "small-colossus",
+    "v5_interiors": false
+  },
+  "source_bounds_blender": [
+    [
+      -56.0,
+      -48.0,
+      -9.0
+    ],
+    [
+      54.0,
+      63.63651657104492,
+      69.18000030517578
+    ]
+  ],
+  "blocks_per_source_unit": 1.0104886120698817,
+  "height_target_blocks": 80,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 13,
+  "mesh_count": 127,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "config": "relics/colossus/design/small-colossus-v7.json",
+  "planned_site_size": [
+    130,
+    80,
+    125
+  ],
+  "revision_v7": {
+    "source": "relics/colossus/design/generated/small-colossus-v6/small-colossus-v6-source.blend",
+    "source_sha256": "a9c88dbd8b4cdbeb1a3576e30018344745244b700cb102e3ecaa082ee4b8b160",
+    "reference_observation": "Debris and irregular growth on the dormant specimen, especially the foreground hand",
+    "authored_completion": "Extent of moss and weathering across the unseen back",
+    "weathered_faces": 11256,
+    "surface_growth_cells": 1240,
+    "growth_probes_source": [
+      [
+        -28.0,
+        43.612225465379986,
+        -7.0
+      ],
+      [
+        36.0,
+        43.35698178365854,
+        2.0
+      ],
+      [
+        -7.0,
+        30.049445057520003,
+        25.0
+      ],
+      [
+        14.0,
+        66.21642280595415,
+        -4.0
+      ],
+      [
+        -39.0,
+        12.517084455184099,
+        -41.0
+      ],
+      [
+        34.0,
+        56.20602186458016,
+        -28.0
+      ]
+    ],
+    "buried_body_preserved": true,
+    "body_shape_preserved": true
+  },
+  "terrain_derivative": {
+    "algorithm": "contact-preserving-eroded-deposits-v1",
+    "terrain_states": [
+      "minecraft:dirt",
+      "minecraft:grass_block[snowy=false]",
+      "minecraft:rooted_dirt"
+    ],
+    "protected_contact_columns": 3141,
+    "modified_columns": 1843,
+    "removed_soil_cells": 2441,
+    "non_terrain_cells_identical": true,
+    "contact_columns_identical": true,
+    "derived_support_lock_columns": 0,
+    "size": [
+      111,
+      80,
+      113
+    ],
+    "blocks": 233492,
+    "tiles": 33,
+    "data_version": 3105,
+    "source": "relics/colossus/design/generated/small-colossus-v7/small-colossus-v7.nbt",
+    "source_sha256": "c48bb70ea3643070e94a44008721cb5c08fda74f80b4efee2e063a44b5436bb4",
+    "nbt_sha256": "5a1afb7dc0b8cb30bba6428cc612aa26dcfe6f63d4cfca7a5aaca41edb5a5843",
+    "schematic_sha256": "f0f4a7c05c02e5c954ff6511cef56f7976123b4d17cf3b3a1d3c31881531df20",
+    "supported_art_cells_checked": 206414,
+    "foundation": {
+      "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+      "vertical_padding": 7,
+      "horizontal_padding": 8,
+      "runtime_processor": "relics:terrain_support",
+      "feature_protection": "relics:placed_cells",
+      "toe_blocks": 33444,
+      "toe_columns": 4219,
+      "ground_y": 16,
+      "bottom_below_ground": 16,
+      "supported_columns": 4782,
+      "added_blocks": 92525
+    },
+    "checks": [
+      "non-terrain block identity",
+      "contact-column identity",
+      "no new air under supported art",
+      "schematic/NBT equality",
+      "lossless tile reconstruction",
+      "unchanged declared dimensions"
+    ],
+    "in_game_tested": false,
+    "authoring": "Explicit block-space terrain derivative; original Blender art preserved"
+  },
+  "embedding_derivative": {
+    "algorithm": "low-core-embedding-v3",
+    "terrain_states": [
+      "minecraft:dirt",
+      "minecraft:grass_block[snowy=false]",
+      "minecraft:rooted_dirt"
+    ],
+    "low_moss_pads_reworked": false,
+    "immutable_art_cells": 211862,
+    "immutable_art_cells_identical": true,
+    "authored_low_contact_columns": 2305,
+    "authored_low_contacts_preserved": true,
+    "removed_cells": 574,
+    "changed_surface_states": 3251,
+    "max_ground_above_nominal": 1,
+    "source": "relics/colossus/design/generated/small-colossus-v7-ground-v2/small-colossus-v7-ground-v2.nbt",
+    "source_sha256": "5a1afb7dc0b8cb30bba6428cc612aa26dcfe6f63d4cfca7a5aaca41edb5a5843",
+    "nbt_sha256": "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021",
+    "schematic_sha256": "94b0a0c6c79fe29aa5d513667bff8c676e7329f3e5fa249ad6d938d38862054e",
+    "size": [
+      111,
+      80,
+      113
+    ],
+    "blocks": 233448,
+    "tiles": 33,
+    "data_version": 3105,
+    "original_ground_y": 9,
+    "ground_y": 13,
+    "additional_burial": 4,
+    "placement_contract": {
+      "ground_y": 13,
+      "slope": 4,
+      "size": [
+        111,
+        80,
+        113
+      ],
+      "source": "relics/colossus/design/generated/small-colossus-v7-ground-v3/small-colossus-v7-ground-v3.nbt",
+      "version": "small-colossus-v7-ground-v3",
+      "blocks": 233448,
+      "sha256": "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021",
+      "family": "small_colossus",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "visually_accepted": false
+    },
+    "foundation": {
+      "method": "near-ground-soil-columns-v4-protected-runtime-contact",
+      "vertical_padding": 0,
+      "horizontal_padding": 8,
+      "runtime_processor": "relics:terrain_support",
+      "feature_protection": "relics:placed_cells",
+      "toe_blocks": 1386,
+      "toe_columns": 690,
+      "ground_y": 13,
+      "bottom_below_ground": 8,
+      "supported_columns": 4858,
+      "added_blocks": 10303
+    },
+    "low_art_undersides_checked": 23655,
+    "restored_low_toe_cells": 530,
+    "buried_boundary_undersides_requiring_runtime_check": 1367,
+    "non_terrain_scope": "All art except explicitly declared low Tree moss pads",
+    "checks": [
+      "immutable art exact identity",
+      "ground cap <= nominal+1",
+      "low art support preservation",
+      "schematic/NBT equality",
+      "lossless tile reconstruction",
+      "bounds",
+      "source hash"
+    ],
+    "in_game_tested": false
+  }
+}

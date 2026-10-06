@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "scope": "Read-only vanilla random-spread nominations, not saved natural-generation evidence; empty categories do not prove impossibility",
+  "artifact_sha256": "0124c3556984881c185891ec0d2405e123970ca05634b60f8ed5b7651b4cca81",
+  "seed": 731204,
+  "region_ring_limit": 250,
+  "wanted_candidates_per_template": 1,
+  "candidate_file_sha256": "1121139ad98f7d99ffe10f524421569ad7af2104850ef73d5dba3795660d9bd3",
+  "survey_source_sha256": "555ff2d36fe4ac5c62e6bcf0c1c1edee76fc4cf5e604d99b060f1685de534ac7",
+  "input_contracts_sha256": "bb3cadb521502264bbe8ecee700421f8a599cc7190a80b255de7e37783ee853f",
+  "center_biome_scope": "Atmospheric prefilter, then actual buried generation-stub height",
+  "candidates": {
+    "colossus": [
+      {
+        "x": -53584,
+        "z": 45280,
+        "biome": "minecraft:plains",
+        "center_y": 67,
+        "min_height": 63,
+        "max_height": 82
+      }
+    ],
+    "obelisk": [
+      {
+        "x": -7904,
+        "z": -3920,
+        "biome": "minecraft:desert",
+        "center_y": 67,
+        "min_height": 63,
+        "max_height": 71
+      }
+    ],
+    "titan_skull": [],
+    "titan_skull_dry": [],
+    "titan_skull_sand": [],
+    "titan_skull_rock": [],
+    "small_colossus": [
+      {
+        "x": -6544,
+        "z": 56928,
+        "biome": "minecraft:plains",
+        "center_y": 68,
+        "min_height": 64,
+        "max_height": 71
+      }
+    ],
+    "world_tree": [
+      {
+        "x": 23712,
+        "z": -45504,
+        "biome": "minecraft:plains",
+        "center_y": 67,
+        "min_height": 64,
+        "max_height": 72
+      }
+    ],
+    "ruined_tower": [
+      {
+        "x": 10368,
+        "z": 2752,
+        "biome": "minecraft:plains",
+        "center_y": 66,
+        "min_height": 63,
+        "max_height": 72
+      }
+    ],
+    "titan_skull_2": [
+      {
+        "x": -13168,
+        "z": 36272,
+        "biome": "minecraft:savanna",
+        "center_y": 68,
+        "min_height": 65,
+        "max_height": 71
+      }
+    ]
+  },
+  "missing_categories": [
+    "titan_skull",
+    "titan_skull_dry",
+    "titan_skull_sand",
+    "titan_skull_rock"
+  ],
+  "placement_rules_relaxed": false,
+  "worlds_modified": false
+}

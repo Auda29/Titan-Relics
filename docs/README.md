@@ -13,6 +13,7 @@ This directory contains only cross-project documentation and test evidence.
 - [Alpha 4.2 screenshot art follow-up: Tree V4, Small Colossus V6, Tower V4](project/ALPHA_4_2_ART_FOLLOWUP.md)
 - [October 6: accepted Tree form, root contacts, weathered Colossus and Tower sides](project/GROUND_WEATHERING_20261006.md)
 - [Alpha 4.4 follow-up: irregular deposits and broken lower Tower walls](project/DEPOSIT_RELIEF_20261006.md)
+- [Alpha 4.5 follow-up: deeper embedding, low moss pads and collapsed Tower sides](project/EMBEDDING_20261006.md)
 - [New small-Colossus Vigilant-Class reference study](../relics/colossus/docs/SMALL_COLOSSUS_V4_REFERENCE.md)
 - [Lore bible and design guide](project/LORE-BIBLE.md)
 - [Lore/gameplay review and follow-up decisions](project/LORE_GAMEPLAY_REVIEW.md)
@@ -29,6 +30,13 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Testing
 
+- [Alpha 4.6 deeper-embedding, Skull 2 V2 and Tower V7 integration report](testing/ALPHA_4_6_TEST_REPORT.md)
+- [Alpha 4.6 client photographs: showcase and six natural sites](project/reviews/alpha4-6-client-overview.png)
+- [Alpha 4.6 client photographs: failed root/substrate contacts](project/reviews/alpha4-6-client-contacts.png)
+- [Alpha 4.6 compact runtime evidence, including the failed global locator run](testing/alpha4-6-evidence.json)
+- [Alpha 4.6 read-only candidate-site survey (not natural acceptance)](testing/alpha4-6-site-survey.json)
+- [Alpha 4.6 failed actual Tree root-contact audit](testing/alpha4-6-tree-contacts.json)
+- [Alpha 4.6 failed buried-art underside audit](testing/alpha4-6-buried-contacts.json)
 - [Alpha 4.5 deposit-relief and lower-Tower integration report](testing/ALPHA_4_5_TEST_REPORT.md)
 - [Alpha 4.5 compact runtime evidence](testing/alpha4-5-evidence.json)
 - [Actual Tree root contacts: Alpha 4.5](testing/alpha4-5-tree-contacts.json)

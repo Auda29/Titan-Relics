@@ -1,5 +1,8 @@
 # Alpha 4.4 screenshots — deposit relief and lower Tower walls
 
+The subsequent [Alpha 4.5 embedding follow-up](EMBEDDING_20261006.md) addresses
+the remaining central mounds and closed side wall seen in Minecraft.
+
 The user selected the two remaining issues from the 35-image Alpha 4.4 review:
 regular concentric soil/rock terraces, and the Tower's rectangular lower walls.
 

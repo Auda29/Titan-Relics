@@ -1,0 +1,115 @@
+{
+  "name": "Titan Skull 2 V2 / Settled posterior",
+  "reference": "https://www.instagram.com/reel/Db9KCtWi0eG/",
+  "reference_seconds": [
+    0,
+    6
+  ],
+  "new_relic_v1": {
+    "family": "skull-2",
+    "void_probes_source": [
+      [
+        0,
+        10.054614857674501,
+        -40.619344349457876
+      ],
+      [
+        -18,
+        37.36605313056704,
+        -16.143124472483805
+      ],
+      [
+        18,
+        36.40479143462872,
+        -16.418761828300802
+      ],
+      [
+        0,
+        28.997273321781524,
+        -26.865228953977347
+      ]
+    ],
+    "solid_probes_source": [
+      [
+        0,
+        10.791331640174864,
+        51.13825614435616
+      ]
+    ],
+    "sword": {
+      "entry_source": [
+        17.0,
+        48.0534671178488,
+        11.888628634741835
+      ],
+      "axis_source": [
+        0.30697083473205566,
+        0.8803279716394633,
+        0.3616510428093415
+      ],
+      "top_source": [
+        40.02281188964844,
+        114.07807523461686,
+        39.012459612288836
+      ],
+      "crossguard_source": [
+        30.506717681884766,
+        86.7878947107159,
+        27.801273426426945
+      ],
+      "crossguard_width": 40,
+      "buried_blade_axis_length": 24,
+      "surviving_contact_lips": 2,
+      "valuable_metal_blocks_expected": 0
+    },
+    "features": [
+      "round uncrowned cranium",
+      "open sockets and mouth",
+      "diagonal embedded sword",
+      "missing teeth",
+      "patchy damp deposits"
+    ],
+    "crown_included": false,
+    "spine_included": false,
+    "v5_interiors": false,
+    "placement_setting": "large lush grotto or open sinkhole; cave shell is not exported"
+  },
+  "source_bounds_blender": [
+    [
+      -50.0,
+      -56.0,
+      -22.397459030151367
+    ],
+    [
+      50.141475677490234,
+      43.702186584472656,
+      114.52619934082031
+    ]
+  ],
+  "blocks_per_source_unit": 0.9859508693102558,
+  "height_target_blocks": 136,
+  "ground_level_source": 0,
+  "ground_level_nbt_approx": 22,
+  "mesh_count": 26,
+  "air_policy": "omit; cavities are geometry, not terrain-clearing worldgen",
+  "in_game_tested": false,
+  "visual_acceptance": "Alpha 4.5 screenshot follow-up; review pending",
+  "config": "relics/titan-skull/design/titan-skull-2-v2.json",
+  "planned_site_size": [
+    108,
+    136,
+    120
+  ],
+  "source_blend_sha256": "c8b07883db323fe0f0785d594cd0bfc13076a3914fe50bdc368e5f3e31e564a7",
+  "revision_v2": {
+    "source": "relics/titan-skull/design/generated/titan-skull-2-v1/titan-skull-2-v1-source.blend",
+    "source_sha256": "85e61983d2e34112908e008e72cfdae2b78b0202cf79b383ad9b4d888116a537",
+    "rigid_posterior_settlement_degrees": 16,
+    "vertical_settlement": 3,
+    "pivot_source": [
+      0,
+      0,
+      -35
+    ]
+  }
+}
