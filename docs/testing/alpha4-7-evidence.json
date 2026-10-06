@@ -1,0 +1,2330 @@
+{
+  "schema_version": 1,
+  "scope": "saved-world server evidence, not client visual or gameplay approval",
+  "runs": [
+    {
+      "run": "run-20261006-144809-404d6c32e0c7",
+      "report_sha256": "d12dc78581bdec732244b85ff7d7365c443554d47d0a421df15aa91d1ad666a7",
+      "seed": 731204,
+      "showcase": false,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.7+mc26.2.jar",
+          "sha256": "c710699e6ec6ef7dac6caf37d99928c19190ca214d6deb2db5afce64617cc266"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": false,
+      "failure": "RuntimeError: Server exited 1; see C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\smoke\\run-20261006-144809-404d6c32e0c7\\console.log",
+      "exit_code": 1,
+      "blocking_log_errors": [
+        "[14:51:19] [Server Watchdog/ERROR]: A single server tick took 60.00 seconds (should be max 0.05)",
+        "[14:51:19] [Server Watchdog/ERROR]: Considering it to be crashed, server will forcibly shutdown.",
+        "\tSuppressed Exceptions: ~~NONE~~",
+        "[14:51:19] [Server Watchdog/ERROR]: This crash report has been saved to: C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\smoke\\run-20261006-144809-404d6c32e0c7\\crash-reports\\crash-2026-10-06_14.51.19-server.txt"
+      ],
+      "expected_natural_structures": [
+        "relics:colossus",
+        "relics:obelisk",
+        "relics:ruined_tower",
+        "relics:small_colossus",
+        "relics:titan_skull",
+        "relics:titan_skull_2",
+        "relics:titan_skull_dry",
+        "relics:titan_skull_rock",
+        "relics:titan_skull_sand",
+        "relics:world_tree"
+      ],
+      "selected_templates": [
+        "colossus",
+        "obelisk",
+        "ruined_tower",
+        "small_colossus",
+        "titan_skull",
+        "titan_skull_2",
+        "titan_skull_dry",
+        "titan_skull_rock",
+        "titan_skull_sand",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "locate_results": [
+        {
+          "structure": "relics:colossus",
+          "response": "[14:49:37] [Server thread/INFO]: The nearest relics:colossus is at [22016, ~, -30192] (37274 blocks away)",
+          "position": [
+            22016,
+            -30192
+          ],
+          "bounding_boxes": [
+            [
+              21891,
+              -10,
+              -30290,
+              22141,
+              198,
+              -30094
+            ]
+          ]
+        },
+        {
+          "structure": "relics:obelisk",
+          "response": "[14:50:03] [Server thread/INFO]: The nearest relics:obelisk is at [4336, ~, -7920] (8944 blocks away)",
+          "position": [
+            4336,
+            -7920
+          ],
+          "bounding_boxes": [
+            [
+              4299,
+              59,
+              -7957,
+              4373,
+              245,
+              -7882
+            ]
+          ]
+        }
+      ],
+      "disabled_locate_results": [],
+      "locate_timings": [
+        {
+          "command": "locate structure relics:colossus",
+          "seconds": 11.297
+        },
+        {
+          "command": "locate structure relics:obelisk",
+          "seconds": 1.109
+        }
+      ],
+      "instances": [
+        {
+          "structure": "relics:colossus",
+          "template": "relics:colossus_worldgen",
+          "origin": [
+            22141,
+            -10,
+            -30290
+          ],
+          "rotation": "CLOCKWISE_90",
+          "bounding_box": [
+            21891,
+            -10,
+            -30290,
+            22141,
+            198,
+            -30094
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 259038,
+          "matched_blocks": 259038,
+          "nature_cells_skipped": 7466,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 111,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 7053,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 266504,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:obelisk",
+          "template": "relics:obelisk_worldgen",
+          "origin": [
+            4373,
+            59,
+            -7882
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            4299,
+            59,
+            -7957,
+            4373,
+            245,
+            -7882
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 117510,
+          "matched_blocks": 117510,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 23,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 3427,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 117510,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    },
+    {
+      "run": "run-20261006-145034-5da0ddca05b7",
+      "report_sha256": "a7f4a0fe011f5bc80d76e6f97e33d01b2bb90eeb9b5336099fd11d50a18d00c7",
+      "seed": 731204,
+      "showcase": false,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.7+mc26.2.jar",
+          "sha256": "c710699e6ec6ef7dac6caf37d99928c19190ca214d6deb2db5afce64617cc266"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": true,
+      "failure": null,
+      "exit_code": 0,
+      "blocking_log_errors": [],
+      "expected_natural_structures": [
+        "relics:ruined_tower",
+        "relics:small_colossus",
+        "relics:world_tree"
+      ],
+      "selected_templates": [
+        "ruined_tower",
+        "small_colossus",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "natural_candidate_search": {
+        "file": "nominated-six-known-anchors-731204.json",
+        "sha256": "91e8760e410c7dca61a8d7cc244471fb79932ad8bca9481aa07e0c5073f29885",
+        "seed": 731204,
+        "scope": "Nominated start chunks; each must produce a saved natural start under the unchanged artifact rules"
+      },
+      "natural_candidate_attempts": [
+        {
+          "structure": "relics:small_colossus",
+          "position": [
+            -6544,
+            56928
+          ],
+          "method": "natural candidate chunk generation; no manual natural placement",
+          "natural_start_found": true,
+          "bounding_boxes": [
+            [
+              -6607,
+              55,
+              56864,
+              -6481,
+              134,
+              56992
+            ]
+          ]
+        },
+        {
+          "structure": "relics:world_tree",
+          "position": [
+            23712,
+            -45504
+          ],
+          "method": "natural candidate chunk generation; no manual natural placement",
+          "natural_start_found": true,
+          "bounding_boxes": [
+            [
+              23611,
+              57,
+              -45604,
+              23813,
+              274,
+              -45404
+            ]
+          ]
+        },
+        {
+          "structure": "relics:ruined_tower",
+          "position": [
+            10368,
+            2752
+          ],
+          "method": "natural candidate chunk generation; no manual natural placement",
+          "natural_start_found": true,
+          "bounding_boxes": [
+            [
+              10314,
+              54,
+              2689,
+              10422,
+              285,
+              2815
+            ]
+          ]
+        }
+      ],
+      "locate_results": [],
+      "disabled_locate_results": [],
+      "locate_timings": [],
+      "instances": [
+        {
+          "structure": "relics:small_colossus",
+          "template": "relics:small_colossus_worldgen",
+          "origin": [
+            -6481,
+            55,
+            56992
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -6607,
+            55,
+            56864,
+            -6481,
+            134,
+            56992
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 213874,
+          "matched_blocks": 213874,
+          "nature_cells_skipped": 29877,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 50,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 5504,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 243751,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:ruined_tower",
+          "template": "relics:ruined_tower_worldgen",
+          "origin": [
+            10422,
+            54,
+            2689
+          ],
+          "rotation": "CLOCKWISE_90",
+          "bounding_box": [
+            10314,
+            54,
+            2689,
+            10422,
+            285,
+            2815
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 267596,
+          "matched_blocks": 267596,
+          "nature_cells_skipped": 38073,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 42,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 6226,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 305669,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:world_tree",
+          "template": "relics:world_tree_worldgen",
+          "origin": [
+            23813,
+            57,
+            -45404
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            23611,
+            57,
+            -45604,
+            23813,
+            274,
+            -45404
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 287686,
+          "matched_blocks": 287686,
+          "nature_cells_skipped": 39471,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 108,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 6297,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 327157,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    },
+    {
+      "run": "run-20261006-145430-0358b5918b07",
+      "report_sha256": "8151cbf085ef5e268fbf09029be07067d8d622d18d58f8a378c11ba4ccdc74a3",
+      "seed": 731204,
+      "showcase": false,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.7+mc26.2.jar",
+          "sha256": "d921d837e50d959b2cf27eb86a6a9a87791f2d3ec3d2f136d0248e51bb3c583c"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": false,
+      "failure": "RuntimeError: Server exited 1; see C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\smoke\\run-20261006-145430-0358b5918b07\\console.log",
+      "exit_code": 1,
+      "blocking_log_errors": [
+        "[14:59:32] [Server Watchdog/ERROR]: A single server tick took 60.00 seconds (should be max 0.05)",
+        "[14:59:32] [Server Watchdog/ERROR]: Considering it to be crashed, server will forcibly shutdown.",
+        "\tSuppressed Exceptions: ~~NONE~~",
+        "[14:59:32] [Server Watchdog/ERROR]: This crash report has been saved to: C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\smoke\\run-20261006-145430-0358b5918b07\\crash-reports\\crash-2026-10-06_14.59.32-server.txt"
+      ],
+      "expected_natural_structures": [
+        "relics:colossus",
+        "relics:obelisk",
+        "relics:ruined_tower",
+        "relics:small_colossus",
+        "relics:titan_skull",
+        "relics:titan_skull_2",
+        "relics:titan_skull_dry",
+        "relics:titan_skull_rock",
+        "relics:titan_skull_sand",
+        "relics:world_tree"
+      ],
+      "selected_templates": [
+        "colossus",
+        "obelisk",
+        "ruined_tower",
+        "small_colossus",
+        "titan_skull",
+        "titan_skull_2",
+        "titan_skull_dry",
+        "titan_skull_rock",
+        "titan_skull_sand",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "locate_results": [
+        {
+          "structure": "relics:colossus",
+          "response": "[14:56:01] [Server thread/INFO]: The nearest relics:colossus is at [22016, ~, -30192] (37274 blocks away)",
+          "position": [
+            22016,
+            -30192
+          ],
+          "bounding_boxes": [
+            [
+              21891,
+              -10,
+              -30290,
+              22141,
+              198,
+              -30094
+            ]
+          ]
+        },
+        {
+          "structure": "relics:obelisk",
+          "response": "[14:56:29] [Server thread/INFO]: The nearest relics:obelisk is at [4336, ~, -7920] (8944 blocks away)",
+          "position": [
+            4336,
+            -7920
+          ],
+          "bounding_boxes": [
+            [
+              4299,
+              59,
+              -7957,
+              4373,
+              245,
+              -7882
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull",
+          "response": "[14:56:53] [Server thread/INFO]: The nearest relics:titan_skull is at [-10400, ~, -17648] (20489 blocks away)",
+          "position": [
+            -10400,
+            -17648
+          ],
+          "bounding_boxes": [
+            [
+              -10466,
+              60,
+              -17745,
+              -10334,
+              138,
+              -17551
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_dry",
+          "response": "[14:57:18] [Server thread/INFO]: The nearest relics:titan_skull_dry is at [1888, ~, -12240] (12323 blocks away)",
+          "position": [
+            1888,
+            -12240
+          ],
+          "bounding_boxes": [
+            [
+              1822,
+              79,
+              -12337,
+              1954,
+              157,
+              -12143
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_sand",
+          "response": "[14:58:05] [Server thread/INFO]: The nearest relics:titan_skull_sand is at [-22832, ~, -32000] (39323 blocks away)",
+          "position": [
+            -22832,
+            -32000
+          ],
+          "bounding_boxes": [
+            [
+              -22898,
+              52,
+              -32097,
+              -22766,
+              130,
+              -31903
+            ]
+          ]
+        }
+      ],
+      "disabled_locate_results": [],
+      "locate_timings": [
+        {
+          "command": "locate structure relics:colossus",
+          "seconds": 12.031
+        },
+        {
+          "command": "locate structure relics:obelisk",
+          "seconds": 1.172
+        },
+        {
+          "command": "locate structure relics:titan_skull",
+          "seconds": 8.187
+        },
+        {
+          "command": "locate structure relics:titan_skull_dry",
+          "seconds": 2.766
+        },
+        {
+          "command": "locate structure relics:titan_skull_sand",
+          "seconds": 23.031
+        }
+      ],
+      "instances": [
+        {
+          "structure": "relics:titan_skull",
+          "template": "relics:titan_skull_worldgen",
+          "origin": [
+            -10334,
+            60,
+            -17551
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -10466,
+            60,
+            -17745,
+            -10334,
+            138,
+            -17551
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 22130,
+          "matched_blocks": 22130,
+          "nature_cells_skipped": 116163,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 49,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11172,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138293,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_sand",
+          "template": "relics:titan_skull_sand_worldgen",
+          "origin": [
+            -22766,
+            52,
+            -31903
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -22898,
+            52,
+            -32097,
+            -22766,
+            130,
+            -31903
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 138293,
+          "matched_blocks": 138293,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 65,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11172,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138293,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_dry",
+          "template": "relics:titan_skull_dry_worldgen",
+          "origin": [
+            1954,
+            79,
+            -12143
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            1822,
+            79,
+            -12337,
+            1954,
+            157,
+            -12143
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 26843,
+          "matched_blocks": 26843,
+          "nature_cells_skipped": 111450,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 56,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11172,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138293,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:colossus",
+          "template": "relics:colossus_worldgen",
+          "origin": [
+            22141,
+            -10,
+            -30290
+          ],
+          "rotation": "CLOCKWISE_90",
+          "bounding_box": [
+            21891,
+            -10,
+            -30290,
+            22141,
+            198,
+            -30094
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 259038,
+          "matched_blocks": 259038,
+          "nature_cells_skipped": 7466,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 111,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 7053,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 266504,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:obelisk",
+          "template": "relics:obelisk_worldgen",
+          "origin": [
+            4373,
+            59,
+            -7882
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            4299,
+            59,
+            -7957,
+            4373,
+            245,
+            -7882
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 117510,
+          "matched_blocks": 117510,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 23,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 3427,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 117510,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    },
+    {
+      "run": "run-20261006-150923-27119e953a57",
+      "report_sha256": "30ec61cadeb7e571481673b51f56d14ce864177296a52dac26295ac8f0c1314e",
+      "seed": 731204,
+      "showcase": false,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.7+mc26.2.jar",
+          "sha256": "877cc232843d519ffdacace0bf51e586df39fc927fd0dd26ba051042a3f169e2"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": false,
+      "failure": "RuntimeError: Server exited 1; see C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\smoke\\run-20261006-150923-27119e953a57\\console.log",
+      "exit_code": 1,
+      "blocking_log_errors": [
+        "[15:10:44] [Server Watchdog/ERROR]: A single server tick took 60.00 seconds (should be max 0.05)",
+        "[15:10:44] [Server Watchdog/ERROR]: Considering it to be crashed, server will forcibly shutdown.",
+        "\tSuppressed Exceptions: ~~NONE~~",
+        "[15:10:44] [Server Watchdog/ERROR]: This crash report has been saved to: C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\smoke\\run-20261006-150923-27119e953a57\\crash-reports\\crash-2026-10-06_15.10.44-server.txt"
+      ],
+      "expected_natural_structures": [
+        "relics:small_colossus"
+      ],
+      "selected_templates": [
+        "small_colossus"
+      ],
+      "locate_origin": null,
+      "locate_results": [],
+      "disabled_locate_results": [],
+      "locate_timings": [],
+      "instances": [],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    },
+    {
+      "run": "run-20261006-150923-b472cf53e94b",
+      "report_sha256": "ccaf4c1e60d18432310c1fa52ed51f1471460804918c370843c05d9521013f0e",
+      "seed": 731204,
+      "showcase": false,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.7+mc26.2.jar",
+          "sha256": "877cc232843d519ffdacace0bf51e586df39fc927fd0dd26ba051042a3f169e2"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": false,
+      "failure": "RuntimeError: Server exited 1; see C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\smoke\\run-20261006-150923-b472cf53e94b\\console.log",
+      "exit_code": 1,
+      "blocking_log_errors": [
+        "[15:15:16] [Server Watchdog/ERROR]: A single server tick took 60.00 seconds (should be max 0.05)",
+        "[15:15:16] [Server Watchdog/ERROR]: Considering it to be crashed, server will forcibly shutdown.",
+        "\tSuppressed Exceptions: ~~NONE~~",
+        "[15:15:16] [Server Watchdog/ERROR]: This crash report has been saved to: C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\smoke\\run-20261006-150923-b472cf53e94b\\crash-reports\\crash-2026-10-06_15.15.16-server.txt"
+      ],
+      "expected_natural_structures": [
+        "relics:colossus",
+        "relics:obelisk",
+        "relics:ruined_tower",
+        "relics:small_colossus",
+        "relics:titan_skull",
+        "relics:titan_skull_2",
+        "relics:titan_skull_dry",
+        "relics:titan_skull_rock",
+        "relics:titan_skull_sand",
+        "relics:world_tree"
+      ],
+      "selected_templates": [
+        "colossus",
+        "obelisk",
+        "ruined_tower",
+        "small_colossus",
+        "titan_skull",
+        "titan_skull_2",
+        "titan_skull_dry",
+        "titan_skull_rock",
+        "titan_skull_sand",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "locate_results": [
+        {
+          "structure": "relics:colossus",
+          "response": "[15:10:59] [Server thread/INFO]: The nearest relics:colossus is at [22016, ~, -30192] (37274 blocks away)",
+          "position": [
+            22016,
+            -30192
+          ],
+          "bounding_boxes": [
+            [
+              21891,
+              -10,
+              -30290,
+              22141,
+              198,
+              -30094
+            ]
+          ]
+        },
+        {
+          "structure": "relics:obelisk",
+          "response": "[15:11:27] [Server thread/INFO]: The nearest relics:obelisk is at [4336, ~, -7920] (8944 blocks away)",
+          "position": [
+            4336,
+            -7920
+          ],
+          "bounding_boxes": [
+            [
+              4299,
+              59,
+              -7957,
+              4373,
+              245,
+              -7882
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull",
+          "response": "[15:11:51] [Server thread/INFO]: The nearest relics:titan_skull is at [-10400, ~, -17648] (20489 blocks away)",
+          "position": [
+            -10400,
+            -17648
+          ],
+          "bounding_boxes": [
+            [
+              -10466,
+              60,
+              -17745,
+              -10334,
+              138,
+              -17551
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_dry",
+          "response": "[15:12:14] [Server thread/INFO]: The nearest relics:titan_skull_dry is at [1888, ~, -12240] (12323 blocks away)",
+          "position": [
+            1888,
+            -12240
+          ],
+          "bounding_boxes": [
+            [
+              1822,
+              79,
+              -12337,
+              1954,
+              157,
+              -12143
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_sand",
+          "response": "[15:12:58] [Server thread/INFO]: The nearest relics:titan_skull_sand is at [-22832, ~, -32000] (39323 blocks away)",
+          "position": [
+            -22832,
+            -32000
+          ],
+          "bounding_boxes": [
+            [
+              -22898,
+              52,
+              -32097,
+              -22766,
+              130,
+              -31903
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_rock",
+          "response": "[15:13:48] [Server thread/INFO]: The nearest relics:titan_skull_rock is at [-9024, ~, 35664] (36856 blocks away)",
+          "position": [
+            -9024,
+            35664
+          ],
+          "bounding_boxes": [
+            [
+              -9121,
+              64,
+              35598,
+              -8927,
+              142,
+              35730
+            ]
+          ]
+        }
+      ],
+      "disabled_locate_results": [],
+      "locate_timings": [
+        {
+          "command": "locate structure relics:colossus",
+          "seconds": 11.515
+        },
+        {
+          "command": "locate structure relics:obelisk",
+          "seconds": 1.047
+        },
+        {
+          "command": "locate structure relics:titan_skull",
+          "seconds": 7.61
+        },
+        {
+          "command": "locate structure relics:titan_skull_dry",
+          "seconds": 2.734
+        },
+        {
+          "command": "locate structure relics:titan_skull_sand",
+          "seconds": 22.531
+        },
+        {
+          "command": "locate structure relics:titan_skull_rock",
+          "seconds": 24.032
+        }
+      ],
+      "instances": [
+        {
+          "structure": "relics:titan_skull_rock",
+          "template": "relics:titan_skull_rock_worldgen",
+          "origin": [
+            -8927,
+            64,
+            35598
+          ],
+          "rotation": "CLOCKWISE_90",
+          "bounding_box": [
+            -9121,
+            64,
+            35598,
+            -8927,
+            142,
+            35730
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 138343,
+          "matched_blocks": 138343,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 62,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11181,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138343,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull",
+          "template": "relics:titan_skull_worldgen",
+          "origin": [
+            -10334,
+            60,
+            -17551
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -10466,
+            60,
+            -17745,
+            -10334,
+            138,
+            -17551
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 22130,
+          "matched_blocks": 22130,
+          "nature_cells_skipped": 116163,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 49,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11172,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138293,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_sand",
+          "template": "relics:titan_skull_sand_worldgen",
+          "origin": [
+            -22766,
+            52,
+            -31903
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -22898,
+            52,
+            -32097,
+            -22766,
+            130,
+            -31903
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 138293,
+          "matched_blocks": 138293,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 65,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11172,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138293,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_dry",
+          "template": "relics:titan_skull_dry_worldgen",
+          "origin": [
+            1954,
+            79,
+            -12143
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            1822,
+            79,
+            -12337,
+            1954,
+            157,
+            -12143
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 26843,
+          "matched_blocks": 26843,
+          "nature_cells_skipped": 111450,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 56,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11172,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138293,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:colossus",
+          "template": "relics:colossus_worldgen",
+          "origin": [
+            22141,
+            -10,
+            -30290
+          ],
+          "rotation": "CLOCKWISE_90",
+          "bounding_box": [
+            21891,
+            -10,
+            -30290,
+            22141,
+            198,
+            -30094
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 259038,
+          "matched_blocks": 259038,
+          "nature_cells_skipped": 7466,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 111,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 7053,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 266504,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:obelisk",
+          "template": "relics:obelisk_worldgen",
+          "origin": [
+            4373,
+            59,
+            -7882
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            4299,
+            59,
+            -7957,
+            4373,
+            245,
+            -7882
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 117510,
+          "matched_blocks": 117510,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 23,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 3427,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 117510,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    },
+    {
+      "run": "run-20261006-151402-51ca86a2927c",
+      "report_sha256": "c4c4731412b7024dca3619bf70e6df95d60dc8857da50c6b4e7c06ea0474f4fa",
+      "seed": 731204,
+      "showcase": true,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.7+mc26.2.jar",
+          "sha256": "e2d384b8ab6ea4abc379487e993d40b9f355e08db610a32e6e7bef614169dfa9"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": true,
+      "failure": null,
+      "exit_code": 0,
+      "blocking_log_errors": [],
+      "expected_natural_structures": [],
+      "selected_templates": [
+        "colossus",
+        "obelisk",
+        "ruined_tower",
+        "small_colossus",
+        "titan_skull",
+        "titan_skull_2",
+        "titan_skull_dry",
+        "titan_skull_rock",
+        "titan_skull_sand",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "locate_results": [],
+      "disabled_locate_results": [],
+      "locate_timings": [],
+      "instances": [
+        {
+          "structure": "relics:colossus",
+          "template": null,
+          "origin": [
+            0,
+            -13,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            0,
+            -13,
+            0,
+            180,
+            195,
+            234
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 223161,
+          "matched_blocks": 223161,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 104,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:obelisk",
+          "template": null,
+          "origin": [
+            384,
+            56,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            384,
+            56,
+            0,
+            442,
+            240,
+            59
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 94422,
+          "matched_blocks": 94422,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 15,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull",
+          "template": null,
+          "origin": [
+            768,
+            48,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            768,
+            48,
+            0,
+            884,
+            126,
+            178
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 111328,
+          "matched_blocks": 111328,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 56,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_dry",
+          "template": null,
+          "origin": [
+            1152,
+            48,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            1152,
+            48,
+            0,
+            1268,
+            126,
+            178
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 111328,
+          "matched_blocks": 111328,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 56,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_sand",
+          "template": null,
+          "origin": [
+            1536,
+            48,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            1536,
+            48,
+            0,
+            1652,
+            126,
+            178
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 111328,
+          "matched_blocks": 111328,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 56,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_rock",
+          "template": null,
+          "origin": [
+            1920,
+            48,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            1920,
+            48,
+            0,
+            2036,
+            126,
+            178
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 111288,
+          "matched_blocks": 111288,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 56,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:small_colossus",
+          "template": null,
+          "origin": [
+            2304,
+            51,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            2304,
+            51,
+            0,
+            2414,
+            130,
+            112
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 233448,
+          "matched_blocks": 233448,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 45,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:world_tree",
+          "template": null,
+          "origin": [
+            2688,
+            56,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            2688,
+            56,
+            0,
+            2874,
+            271,
+            184
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 291903,
+          "matched_blocks": 291903,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 33993,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 106,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:ruined_tower",
+          "template": null,
+          "origin": [
+            3072,
+            52,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            3072,
+            52,
+            0,
+            3182,
+            283,
+            92
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 272528,
+          "matched_blocks": 272528,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 39,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "template": null,
+          "origin": [
+            3456,
+            42,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            3456,
+            42,
+            0,
+            3554,
+            177,
+            98
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 46922,
+          "matched_blocks": 46922,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 40,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    },
+    {
+      "run": "run-20261006-151402-0cdd8e0578b2",
+      "report_sha256": "c45bc0d5ad32e98cf372f6f4a5c42db43568b41fad8068ebd8a137aea8e22cca",
+      "seed": 731204,
+      "showcase": false,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.7+mc26.2.jar",
+          "sha256": "e2d384b8ab6ea4abc379487e993d40b9f355e08db610a32e6e7bef614169dfa9"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": true,
+      "failure": null,
+      "exit_code": 0,
+      "blocking_log_errors": [],
+      "expected_natural_structures": [
+        "relics:colossus",
+        "relics:obelisk",
+        "relics:ruined_tower",
+        "relics:small_colossus",
+        "relics:titan_skull",
+        "relics:titan_skull_2",
+        "relics:titan_skull_dry",
+        "relics:titan_skull_rock",
+        "relics:titan_skull_sand",
+        "relics:world_tree"
+      ],
+      "selected_templates": [
+        "colossus",
+        "obelisk",
+        "ruined_tower",
+        "small_colossus",
+        "titan_skull",
+        "titan_skull_2",
+        "titan_skull_dry",
+        "titan_skull_rock",
+        "titan_skull_sand",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "locate_results": [
+        {
+          "structure": "relics:colossus",
+          "response": "[15:15:30] [Server thread/INFO]: The nearest relics:colossus is at [22016, ~, -30192] (37274 blocks away)",
+          "position": [
+            22016,
+            -30192
+          ],
+          "bounding_boxes": [
+            [
+              21891,
+              -10,
+              -30290,
+              22141,
+              198,
+              -30094
+            ]
+          ]
+        },
+        {
+          "structure": "relics:obelisk",
+          "response": "[15:15:56] [Server thread/INFO]: The nearest relics:obelisk is at [4336, ~, -7920] (8944 blocks away)",
+          "position": [
+            4336,
+            -7920
+          ],
+          "bounding_boxes": [
+            [
+              4299,
+              59,
+              -7957,
+              4373,
+              245,
+              -7882
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull",
+          "response": "[15:16:21] [Server thread/INFO]: The nearest relics:titan_skull is at [-10400, ~, -17648] (20489 blocks away)",
+          "position": [
+            -10400,
+            -17648
+          ],
+          "bounding_boxes": [
+            [
+              -10466,
+              60,
+              -17745,
+              -10334,
+              138,
+              -17551
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_dry",
+          "response": "[15:16:45] [Server thread/INFO]: The nearest relics:titan_skull_dry is at [1888, ~, -12240] (12323 blocks away)",
+          "position": [
+            1888,
+            -12240
+          ],
+          "bounding_boxes": [
+            [
+              1822,
+              79,
+              -12337,
+              1954,
+              157,
+              -12143
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_sand",
+          "response": "[15:17:28] [Server thread/INFO]: The nearest relics:titan_skull_sand is at [-22832, ~, -32000] (39323 blocks away)",
+          "position": [
+            -22832,
+            -32000
+          ],
+          "bounding_boxes": [
+            [
+              -22898,
+              52,
+              -32097,
+              -22766,
+              130,
+              -31903
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_rock",
+          "response": "[15:18:18] [Server thread/INFO]: The nearest relics:titan_skull_rock is at [-9024, ~, 35664] (36856 blocks away)",
+          "position": [
+            -9024,
+            35664
+          ],
+          "bounding_boxes": [
+            [
+              -9121,
+              64,
+              35598,
+              -8927,
+              142,
+              35730
+            ]
+          ]
+        },
+        {
+          "structure": "relics:small_colossus",
+          "response": "[15:18:54] [Server thread/INFO]: The nearest relics:small_colossus is at [18592, ~, 0] (18502 blocks away)",
+          "position": [
+            18592,
+            0
+          ],
+          "bounding_boxes": [
+            [
+              18529,
+              50,
+              -64,
+              18655,
+              129,
+              64
+            ]
+          ]
+        },
+        {
+          "structure": "relics:world_tree",
+          "response": "[15:19:30] [Server thread/INFO]: The nearest relics:world_tree is at [23712, ~, -45504] (0 blocks away)",
+          "position": [
+            23712,
+            -45504
+          ],
+          "bounding_boxes": [
+            [
+              23611,
+              57,
+              -45604,
+              23813,
+              274,
+              -45404
+            ]
+          ]
+        },
+        {
+          "structure": "relics:ruined_tower",
+          "response": "[15:20:03] [Server thread/INFO]: The nearest relics:ruined_tower is at [10368, ~, 2752] (10652 blocks away)",
+          "position": [
+            10368,
+            2752
+          ],
+          "bounding_boxes": [
+            [
+              10314,
+              54,
+              2689,
+              10422,
+              285,
+              2815
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "response": "[15:20:46] [Server thread/INFO]: The nearest relics:titan_skull_2 is at [-13168, ~, 36272] (38664 blocks away)",
+          "position": [
+            -13168,
+            36272
+          ],
+          "bounding_boxes": [
+            [
+              -13225,
+              46,
+              36215,
+              -13111,
+              181,
+              36329
+            ]
+          ]
+        }
+      ],
+      "disabled_locate_results": [],
+      "locate_timings": [
+        {
+          "command": "locate structure relics:colossus",
+          "seconds": 10.969
+        },
+        {
+          "command": "locate structure relics:obelisk",
+          "seconds": 1.078
+        },
+        {
+          "command": "locate structure relics:titan_skull",
+          "seconds": 7.797
+        },
+        {
+          "command": "locate structure relics:titan_skull_dry",
+          "seconds": 2.687
+        },
+        {
+          "command": "locate structure relics:titan_skull_sand",
+          "seconds": 21.922
+        },
+        {
+          "command": "locate structure relics:titan_skull_rock",
+          "seconds": 24.172
+        },
+        {
+          "command": "locate structure relics:small_colossus",
+          "seconds": 9.109
+        },
+        {
+          "command": "locate structure relics:world_tree",
+          "seconds": 12.313
+        },
+        {
+          "command": "locate structure relics:ruined_tower",
+          "seconds": 1.469
+        },
+        {
+          "command": "locate structure relics:titan_skull_2",
+          "seconds": 19.0
+        }
+      ],
+      "instances": [
+        {
+          "structure": "relics:titan_skull_rock",
+          "template": "relics:titan_skull_rock_worldgen",
+          "origin": [
+            -8927,
+            64,
+            35598
+          ],
+          "rotation": "CLOCKWISE_90",
+          "bounding_box": [
+            -9121,
+            64,
+            35598,
+            -8927,
+            142,
+            35730
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 138343,
+          "matched_blocks": 138343,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 62,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11181,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138343,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull",
+          "template": "relics:titan_skull_worldgen",
+          "origin": [
+            -10334,
+            60,
+            -17551
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -10466,
+            60,
+            -17745,
+            -10334,
+            138,
+            -17551
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 22130,
+          "matched_blocks": 22130,
+          "nature_cells_skipped": 116163,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 49,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11172,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138293,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "template": "relics:titan_skull_2_worldgen",
+          "origin": [
+            -13111,
+            46,
+            36329
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -13225,
+            46,
+            36215,
+            -13111,
+            181,
+            36329
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 33246,
+          "matched_blocks": 33246,
+          "nature_cells_skipped": 53139,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 40,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 6699,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 86385,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_sand",
+          "template": "relics:titan_skull_sand_worldgen",
+          "origin": [
+            -22766,
+            52,
+            -31903
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -22898,
+            52,
+            -32097,
+            -22766,
+            130,
+            -31903
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 138293,
+          "matched_blocks": 138293,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 65,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11172,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138293,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:ruined_tower",
+          "template": "relics:ruined_tower_worldgen",
+          "origin": [
+            10422,
+            54,
+            2689
+          ],
+          "rotation": "CLOCKWISE_90",
+          "bounding_box": [
+            10314,
+            54,
+            2689,
+            10422,
+            285,
+            2815
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 267596,
+          "matched_blocks": 267596,
+          "nature_cells_skipped": 38073,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 42,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 6226,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 305669,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_dry",
+          "template": "relics:titan_skull_dry_worldgen",
+          "origin": [
+            1954,
+            79,
+            -12143
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            1822,
+            79,
+            -12337,
+            1954,
+            157,
+            -12143
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 26843,
+          "matched_blocks": 26843,
+          "nature_cells_skipped": 111450,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 56,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 11172,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 138293,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:small_colossus",
+          "template": "relics:small_colossus_worldgen",
+          "origin": [
+            18529,
+            50,
+            -64
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            18529,
+            50,
+            -64,
+            18655,
+            129,
+            64
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 213874,
+          "matched_blocks": 213874,
+          "nature_cells_skipped": 29877,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 50,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 5504,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 243751,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:colossus",
+          "template": "relics:colossus_worldgen",
+          "origin": [
+            22141,
+            -10,
+            -30290
+          ],
+          "rotation": "CLOCKWISE_90",
+          "bounding_box": [
+            21891,
+            -10,
+            -30290,
+            22141,
+            198,
+            -30094
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 259038,
+          "matched_blocks": 259038,
+          "nature_cells_skipped": 7466,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 111,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 7053,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 266504,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:world_tree",
+          "template": "relics:world_tree_worldgen",
+          "origin": [
+            23813,
+            57,
+            -45404
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            23611,
+            57,
+            -45604,
+            23813,
+            274,
+            -45404
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 287686,
+          "matched_blocks": 287686,
+          "nature_cells_skipped": 39471,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 108,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 6297,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 327157,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:obelisk",
+          "template": "relics:obelisk_worldgen",
+          "origin": [
+            4373,
+            59,
+            -7882
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            4299,
+            59,
+            -7957,
+            4373,
+            245,
+            -7882
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 117510,
+          "matched_blocks": 117510,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 23,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 3427,
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 117510,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    }
+  ]
+}

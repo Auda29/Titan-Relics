@@ -11,8 +11,11 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 | [Ruined Tower](ruined-tower/README.md) | V7 ground-v3 collapsed-side-bay candidate with 220 visible layers selected in Alpha 4.6 |
 | [World Tree](world-tree/README.md) | V4 wood/foliage accepted; V4.1 ground-v3 with lowered moss pads selected in Alpha 4.6 |
 
+Alpha 4.7 retains these exports and revises their runtime ground contacts and
+crowned-Skull site tolerance. The requested next focus is gameplay.
+
 See the [October 6 embedding revisions](../docs/project/EMBEDDING_20261006.md) and
-[current runtime evidence](../docs/testing/ALPHA_4_6_TEST_REPORT.md). Earlier models
+[current runtime evidence](../docs/testing/ALPHA_4_7_TEST_REPORT.md). Earlier models
 and the historical Alpha 4 design decisions below remain preserved.
 
 ## In-game demos

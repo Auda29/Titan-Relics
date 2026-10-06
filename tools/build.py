@@ -10,7 +10,7 @@ import sys
 import zipfile
 
 from relic_catalog import ASSETS, worldgen_resources
-from terrain_foundations import POLICY
+from terrain_foundations import POLICY, RUNTIME_POLICY, natural_ground, natural_size
 from compile_worldgen import compile_worldgen, checked_classes
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -35,12 +35,17 @@ def check_resources(resources: Path = RESOURCES) -> dict:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if manifest.get('foundation_policy') != POLICY:
         raise ValueError('Stale foundation policy; run the default build')
+    if manifest.get('runtime_contact_policy') != RUNTIME_POLICY:
+        raise ValueError('Stale runtime contact policy; run the default build')
     if (manifest["selection"] != "alpha4" or len(manifest["structures"]) != len(ASSETS)
             or {a["id"] for a in manifest["structures"]} != set(ASSETS)):
         raise ValueError("Stale asset selection manifest")
     for entry in manifest["structures"]:
         if any(entry.get(k) != v for k, v in ASSETS[entry["id"]].items()):
             raise ValueError(f"Stale asset contract: {entry['id']}")
+        size = natural_size(entry)
+        if entry['worldgen_template']['anchor'] != [size[0] // 2, natural_ground(entry) - 1, size[2] // 2]:
+            raise ValueError(f"Stale surface anchor: {entry['id']}")
         for key in ("single_template", "worldgen_template"):
             suffix = "" if key == "single_template" else "_worldgen"
             if entry[key]["path"] != f"{entry['id']}{suffix}.nbt":

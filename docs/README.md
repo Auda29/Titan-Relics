@@ -30,6 +30,9 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Testing
 
+- [Alpha 4.7 ground-contact and Skull-placement correction](testing/ALPHA_4_7_TEST_REPORT.md)
+- [Alpha 4.7 runtime evidence, including intermediate failures](testing/alpha4-7-evidence.json)
+- [Alpha 4.7 same-position saved-world contact comparison](project/reviews/alpha4-7-contact-fix.png)
 - [Alpha 4.6 deeper-embedding, Skull 2 V2 and Tower V7 integration report](testing/ALPHA_4_6_TEST_REPORT.md)
 - [Alpha 4.6 client photographs: showcase and six natural sites](project/reviews/alpha4-6-client-overview.png)
 - [Alpha 4.6 client photographs: failed root/substrate contacts](project/reviews/alpha4-6-client-contacts.png)

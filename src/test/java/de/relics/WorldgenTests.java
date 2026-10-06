@@ -108,6 +108,33 @@ public final class WorldgenTests {
                 : pos.getY() <= 15 ? Blocks.STONE.defaultBlockState() : Blocks.AIR.defaultBlockState(), reads), box);
         check(result.size() == 5, "Native falling gravel over a cave must not become a false support");
 
+        source = List.of(cell(2, 0, 2, Blocks.OAK_LOG.defaultBlockState()),
+                cell(3, 5, 3, Blocks.DEEPSLATE_BRICKS.defaultBlockState()),
+                cell(4, 9, 4, Blocks.TERRACOTTA.defaultBlockState()),
+                cell(5, 11, 5, Blocks.OAK_LOG.defaultBlockState()),
+                cell(6, 8, 6, Blocks.OAK_LEAVES.defaultBlockState()),
+                cell(7, 9, 7, Blocks.BONE_BLOCK.defaultBlockState()),
+                cell(7, 6, 7, Blocks.DIRT.defaultBlockState()));
+        var settings = new StructurePlaceSettings().setBoundingBox(box);
+        result = new TerrainSupportProcessor(10, true, Blocks.SANDSTONE.defaultBlockState())
+                .finalizeProcessing(world(-64, pos -> pos.getY() <= -3 ? Blocks.STONE.defaultBlockState()
+                        : Blocks.WATER.defaultBlockState(), reads), BlockPos.ZERO, BlockPos.ZERO, source, source, settings);
+        check(result.stream().anyMatch(c -> c.pos().equals(new BlockPos(2, -1, 2)) && c.state().is(Blocks.SANDSTONE)),
+                "Support raw-Y0 art below the finite template in a water pocket");
+        check(result.stream().anyMatch(c -> c.pos().equals(new BlockPos(7, 8, 7))),
+                "Connect bone above a separate lower soil cell, not only the soil bottom");
+        check(result.stream().noneMatch(c -> c.pos().getX() == 5 && c.pos().getY() < 11),
+                "Raised root arches remain open");
+        check(result.stream().noneMatch(c -> c.pos().getX() == 6 && c.pos().getY() < 8),
+                "Low leaves do not create earth pillars");
+        check(result.stream().map(c -> c.pos().asLong()).distinct().count() == result.size(), "No duplicate supports");
+        check(result.subList(0, source.size()).equals(source), "Every authored state retained with art supports enabled");
+        for (int x : new int[]{2, 3, 4, 7}) {
+            final int column = x;
+            check(result.stream().anyMatch(c -> c.pos().getX() == column && c.pos().getY() == -2),
+                    "Every low solid column reaches native rock");
+        }
+
         var calls = new AtomicInteger();
         var gridCondition = new dev.worldgen.lithostitched.api.worldgen.placementcondition.PlacementCondition() {
             public boolean test(Context context, BlockPos pos) { return calls.incrementAndGet() != 3; }

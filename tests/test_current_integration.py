@@ -41,19 +41,19 @@ class CurrentIntegrationTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(data).hexdigest(), ASSETS[a["id"]]["sha256"])
             self.assertEqual(decode_nbt(data)["DataVersion"], 3105)
 
-    def test_alpha46_selects_embedding_contracts_and_keeps_two_exports(self):
+    def test_alpha47_keeps_art_and_burial_with_revised_skull_site_tolerance(self):
         unchanged_hashes = {
             "colossus": "a355b20349513cb27e6feb6fc171ca413d71da2cdb5717f7995afb4128d879b8",
             "obelisk": "ed116dcbca2a41fe403695a816e419a32a647d325c1d907d8dc1797f551cda3e",
         }
         revisions = {
-            "titan_skull": ("titan-skull-v4-meadow-ground-v3", [117, 79, 179], 111328, 16, 4,
+            "titan_skull": ("titan-skull-v4-meadow-ground-v3", [117, 79, 179], 111328, 16, 12,
                             "b189932ac224097ba030a649ea2b44c898aaa4fdfbddb42b8797c32851ae5969"),
-            "titan_skull_dry": ("titan-skull-v4-dry-ground-v3", [117, 79, 179], 111328, 16, 4,
+            "titan_skull_dry": ("titan-skull-v4-dry-ground-v3", [117, 79, 179], 111328, 16, 12,
                                 "0d948527040a395b55615dce8704d72a2d5528b44c0b0c69ff94ea06b465eb67"),
-            "titan_skull_sand": ("titan-skull-v4-sand-ground-v3", [117, 79, 179], 111328, 16, 4,
+            "titan_skull_sand": ("titan-skull-v4-sand-ground-v3", [117, 79, 179], 111328, 16, 12,
                                  "7106438dd1a0389dc5953f48351fa8a4aebfa1af3becd671d16288ab847bd0aa"),
-            "titan_skull_rock": ("titan-skull-v4-rock-ground-v3", [117, 79, 179], 111288, 16, 6,
+            "titan_skull_rock": ("titan-skull-v4-rock-ground-v3", [117, 79, 179], 111288, 16, 12,
                                  "6303836dd1d816900a84897ad31cd4a74e659820612d61c677612e267b47051f"),
             "small_colossus": ("small-colossus-v7-ground-v3", [111, 80, 113], 233448, 13, 4,
                                "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021"),
@@ -128,7 +128,8 @@ class CurrentIntegrationTests(unittest.TestCase):
                 selected = ASSETS[name]
                 source, old_ground, ground, slope, digest = baseline(name)
                 self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), digest)
-                self.assertEqual((selected['ground_y'], selected['slope']), (ground, slope))
+                self.assertEqual(selected['ground_y'], ground)
+                self.assertEqual(selected['slope'], 12 if selected['family'] == 'titan_skull' else slope)
                 self.assertNotEqual(selected['source'], source.relative_to(ROOT).as_posix())
                 config = json.loads((source.parents[2] / (source.stem + '.json')).read_text())
                 root, original = read_structure(source)
@@ -137,7 +138,8 @@ class CurrentIntegrationTests(unittest.TestCase):
                 report = json.loads((ROOT / selected['source']).with_name('verification.json').read_text())
                 self.assertEqual(report['source_sha256'], digest)
                 self.assertEqual(report['source'], source.relative_to(ROOT).as_posix())
-                self.assertEqual(report['placement_contract'], selected)
+                original_contract = {k: v for k, v in selected.items() if k != 'uphill_slope'}
+                self.assertEqual(report['placement_contract'], {**original_contract, 'slope': slope})
                 self.assertEqual(current_root['size'], root['size'])
                 self.assertEqual(current_root['DataVersion'], root['DataVersion'])
                 self.assertEqual({p: s for p, s in current.items() if p in art}, art)
@@ -160,11 +162,15 @@ class CurrentIntegrationTests(unittest.TestCase):
                 total_checked += checked
         self.assertEqual(total_checked, 101038)
 
-    def test_candidate_index_and_selected_art_contracts_are_exact_matches(self):
+    def test_historical_candidate_index_preserves_art_and_original_site_tolerance(self):
         index = json.loads((ROOT / 'docs/project/embedding-candidates-20261006.json').read_text())
         self.assertEqual(len(index['structures']), 8)
         for record in index['structures']:
-            self.assertEqual({k: v for k, v in record.items() if k != 'id'}, ASSETS[record['id']])
+            selected = ASSETS[record['id']]
+            old_slope = (6 if record['id'] == 'titan_skull_rock' else 4) if selected['family'] == 'titan_skull' else selected['slope']
+            original_contract = {k: v for k, v in selected.items() if k != 'uphill_slope'}
+            self.assertEqual({k: v for k, v in record.items() if k != 'id'}, {**original_contract, 'slope': old_slope})
+            self.assertEqual(selected.get('uphill_slope'), {'titan_skull_rock': 18, 'small_colossus': 12}.get(record['id']))
 
     def test_tree_ground_revision_keeps_accepted_art_except_declared_low_moss(self):
         contract = ASSETS["world_tree"]
@@ -218,11 +224,21 @@ class CurrentIntegrationTests(unittest.TestCase):
             self.assertEqual(data["delegate"]["start_height"]["absolute"], 1 - natural_ground(a))
             self.assertEqual(data["delegate"]["step"], "top_layer_modification")
             terrain = data["spawn_condition"]["terrain_condition"]
-            self.assertEqual(terrain["offset"], [0, natural_ground(a) - 1, 0])
+            self.assertEqual(terrain["offset"], [0, 0, 0])
+            exported = next(s for s in self.manifest['structures'] if s['id'] == name)
+            anchor_y = exported['worldgen_template']['anchor'][1]
+            self.assertEqual(anchor_y, natural_ground(a) - 1)
+            # Vanilla Jigsaw: piece base=surface+start_height-1;
+            # biome-query stub=surface+start_height+anchor_y.
+            for surface in (63, 80, 120):
+                self.assertEqual(surface + data['delegate']['start_height']['absolute'] - 1 + natural_ground(a), surface)
+                self.assertEqual(surface + data['delegate']['start_height']['absolute'] + anchor_y, surface)
             grid = terrain["condition"]
             sx, sy, sz = natural_size(a)
             self.assertGreaterEqual(grid["radius"], (max(sx, sz) - 1) / 2)
             self.assertEqual(grid["allowed_count"], (2 * grid["radius"] // grid["distance_between_points"] + 1) ** 2)
+            height_range = grid['condition']['conditions'][0]['permitted_range']
+            self.assertEqual(height_range, {'min_inclusive': -a.get('uphill_slope', a['slope']), 'max_inclusive': a['slope']})
             ceiling = grid["condition"]["conditions"][1]["permitted_range"]["max_inclusive"]
             self.assertLessEqual(ceiling - natural_ground(a) + sy - 1, 311)
             for rotation in ("NONE", "CLOCKWISE_90", "CLOCKWISE_180", "COUNTERCLOCKWISE_90"):
@@ -263,6 +279,19 @@ class CurrentIntegrationTests(unittest.TestCase):
                 shutil.copyfile(ROOT / "src/main/resources" / filename, resources / filename)
             integrate(resources)
             check_resources(resources)
+            manifest_path = resources / 'relics.integration.json'
+            original = manifest_path.read_text()
+            stale = json.loads(original)
+            stale.pop('runtime_contact_policy')
+            manifest_path.write_text(json.dumps(stale))
+            with self.assertRaisesRegex(ValueError, 'Stale runtime contact policy'):
+                check_resources(resources)
+            stale = json.loads(original)
+            stale['structures'][0]['worldgen_template']['anchor'][1] = 0
+            manifest_path.write_text(json.dumps(stale))
+            with self.assertRaisesRegex(ValueError, 'Stale surface anchor'):
+                check_resources(resources)
+            manifest_path.write_text(original)
             template = resources / "data/relics/structure/colossus.nbt"
             template.write_bytes(b"stale model")
             with self.assertRaisesRegex(ValueError, "stale template"):

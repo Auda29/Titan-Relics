@@ -1,7 +1,8 @@
 {
   "selection": "alpha4",
-  "revision": "2026-10-06-ground-v3-embedding-tower-v7-skull2-v2",
+  "revision": "2026-10-06-surface-anchor-and-model-underside-support",
   "foundation_policy": "near-ground-soil-columns-v4-protected-runtime-contact",
+  "runtime_contact_policy": "exposed-model-undersides-at-or-below-ground-v5",
   "air_policy": "omit; preserve existing terrain",
   "structures": [
     {
@@ -52,10 +53,10 @@
       },
       "worldgen_template": {
         "path": "colossus_worldgen.nbt",
-        "sha256": "fdc41be5ba91eaf9eb6dfaa3a72036ae0e82b7d6352107d780467eae9ac2ff9d",
+        "sha256": "b5cd823a55ca9008b146d35aa98d1766195b3debaad56abbf7daebee212e0311",
         "anchor": [
           98,
-          0,
+          76,
           125
         ],
         "final_state": "minecraft:structure_void",
@@ -125,13 +126,13 @@
       },
       "worldgen_template": {
         "path": "obelisk_worldgen.nbt",
-        "sha256": "bfd6c0da7303abe47f1e0d85f7f8be01a97082e1d27cd4fec5fde9df5d7648ff",
+        "sha256": "bf62468045e160c992297250faa00dc021c1e21672be6c6033df81f043987486",
         "anchor": [
           37,
-          0,
+          9,
           38
         ],
-        "final_state": "minecraft:sandstone",
+        "final_state": "minecraft:yellow_terracotta",
         "size": [
           75,
           187,
@@ -181,7 +182,7 @@
           "required": false
         }
       ],
-      "slope": 4,
+      "slope": 12,
       "sha256": "b189932ac224097ba030a649ea2b44c898aaa4fdfbddb42b8797c32851ae5969",
       "visually_accepted": false,
       "data_version": 3105,
@@ -191,13 +192,13 @@
       },
       "worldgen_template": {
         "path": "titan_skull_worldgen.nbt",
-        "sha256": "7ed3d6085278c7a132ae9a116ca3a3651003bdccb3857aa6681e8ef21127d9f1",
+        "sha256": "43f1e442cc080fcddb14b187cffb8863d299ebb74da90219d54aba8f128402b4",
         "anchor": [
           66,
-          0,
+          15,
           97
         ],
-        "final_state": "minecraft:dirt",
+        "final_state": "minecraft:coarse_dirt",
         "size": [
           133,
           79,
@@ -209,12 +210,12 @@
           "horizontal_padding": 8,
           "runtime_processor": "relics:terrain_support",
           "feature_protection": "relics:placed_cells",
-          "toe_blocks": 0,
-          "toe_columns": 0,
+          "toe_blocks": 7426,
+          "toe_columns": 2372,
           "ground_y": 16,
-          "bottom_below_ground": 8,
+          "bottom_below_ground": 16,
           "supported_columns": 8800,
-          "added_blocks": 0
+          "added_blocks": 26965
         }
       }
     },
@@ -241,7 +242,7 @@
           "required": false
         }
       ],
-      "slope": 4,
+      "slope": 12,
       "sha256": "0d948527040a395b55615dce8704d72a2d5528b44c0b0c69ff94ea06b465eb67",
       "visually_accepted": false,
       "data_version": 3105,
@@ -251,13 +252,13 @@
       },
       "worldgen_template": {
         "path": "titan_skull_dry_worldgen.nbt",
-        "sha256": "864b41f3e799cf20a249360c2adb7117f01c488f2cacefdac453aa4ef3c1ae2d",
+        "sha256": "ef6fb103bdfad1a2d75ddd5509f6ff1e434f9d0b7091a236b7963250b663c626",
         "anchor": [
           66,
-          0,
+          15,
           97
         ],
-        "final_state": "minecraft:dirt",
+        "final_state": "minecraft:grass_block[snowy=false]",
         "size": [
           133,
           79,
@@ -269,12 +270,12 @@
           "horizontal_padding": 8,
           "runtime_processor": "relics:terrain_support",
           "feature_protection": "relics:placed_cells",
-          "toe_blocks": 0,
-          "toe_columns": 0,
+          "toe_blocks": 7426,
+          "toe_columns": 2372,
           "ground_y": 16,
-          "bottom_below_ground": 8,
+          "bottom_below_ground": 16,
           "supported_columns": 8800,
-          "added_blocks": 0
+          "added_blocks": 26965
         }
       }
     },
@@ -305,7 +306,7 @@
           "required": false
         }
       ],
-      "slope": 4,
+      "slope": 12,
       "sha256": "7106438dd1a0389dc5953f48351fa8a4aebfa1af3becd671d16288ab847bd0aa",
       "visually_accepted": false,
       "data_version": 3105,
@@ -315,10 +316,10 @@
       },
       "worldgen_template": {
         "path": "titan_skull_sand_worldgen.nbt",
-        "sha256": "1dd0adf1c5382af0ebde8907fc6f687f312fac8166d332ec7733e879f21717ee",
+        "sha256": "a4077f3951709e090dc3f27ca4e46d8f995fac2176cac8157f16460fbd981648",
         "anchor": [
           66,
-          0,
+          15,
           97
         ],
         "final_state": "minecraft:sandstone",
@@ -333,12 +334,12 @@
           "horizontal_padding": 8,
           "runtime_processor": "relics:terrain_support",
           "feature_protection": "relics:placed_cells",
-          "toe_blocks": 0,
-          "toe_columns": 0,
+          "toe_blocks": 7426,
+          "toe_columns": 2372,
           "ground_y": 16,
-          "bottom_below_ground": 8,
+          "bottom_below_ground": 16,
           "supported_columns": 8800,
-          "added_blocks": 0
+          "added_blocks": 26965
         }
       }
     },
@@ -364,9 +365,10 @@
           "required": false
         }
       ],
-      "slope": 6,
+      "slope": 12,
       "sha256": "6303836dd1d816900a84897ad31cd4a74e659820612d61c677612e267b47051f",
       "visually_accepted": false,
+      "uphill_slope": 18,
       "data_version": 3105,
       "single_template": {
         "path": "titan_skull_rock.nbt",
@@ -374,13 +376,13 @@
       },
       "worldgen_template": {
         "path": "titan_skull_rock_worldgen.nbt",
-        "sha256": "73d0c4cfbc1554922a2330f6332facbb2d83a5ea34ac0c7c4760bb59ecbb5ea4",
+        "sha256": "190a55aa77518699ac608fcd06cc8a5fcc382fb91dff49e638644d660221fff9",
         "anchor": [
           66,
-          0,
+          15,
           97
         ],
-        "final_state": "minecraft:stone",
+        "final_state": "minecraft:gravel",
         "size": [
           133,
           79,
@@ -392,12 +394,12 @@
           "horizontal_padding": 8,
           "runtime_processor": "relics:terrain_support",
           "feature_protection": "relics:placed_cells",
-          "toe_blocks": 0,
-          "toe_columns": 0,
+          "toe_blocks": 7476,
+          "toe_columns": 2381,
           "ground_y": 16,
-          "bottom_below_ground": 10,
+          "bottom_below_ground": 16,
           "supported_columns": 8800,
-          "added_blocks": 980
+          "added_blocks": 27055
         }
       }
     },
@@ -442,6 +444,7 @@
       "slope": 4,
       "sha256": "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021",
       "visually_accepted": false,
+      "uphill_slope": 12,
       "data_version": 3105,
       "single_template": {
         "path": "small_colossus.nbt",
@@ -449,13 +452,13 @@
       },
       "worldgen_template": {
         "path": "small_colossus_worldgen.nbt",
-        "sha256": "c1b3704b99c47f5b215f7fc352fb7bf42400e9ed44511658718c13a95d8f4a1d",
+        "sha256": "d98db6baf095236669ed6069a54bd86aa274df3efbcbafd673ec969999768906",
         "anchor": [
           63,
-          0,
+          12,
           64
         ],
-        "final_state": "minecraft:structure_void",
+        "final_state": "minecraft:gray_terracotta",
         "size": [
           127,
           80,
@@ -519,13 +522,13 @@
       },
       "worldgen_template": {
         "path": "world_tree_worldgen.nbt",
-        "sha256": "3a7b310d365d4a76e59f416b7b35b3fae3584b90a49c7b5a3d003a869ae705a0",
+        "sha256": "a9a1bc1bc88d98b6fc7cb6018371b5003d348685f3b23bd3f740edf92dcb5aa0",
         "anchor": [
           101,
-          0,
+          9,
           100
         ],
-        "final_state": "minecraft:structure_void",
+        "final_state": "minecraft:spruce_log[axis=y]",
         "size": [
           203,
           218,
@@ -607,13 +610,13 @@
       },
       "worldgen_template": {
         "path": "ruined_tower_worldgen.nbt",
-        "sha256": "7033ef1c045d058ec3b54d42110af478481de6f12cac1f90b0393c0ede699921",
+        "sha256": "df160837cd20d1481fa420dbcdf976856aa6b937cfa2979a9ed0aea118fd1d0f",
         "anchor": [
           63,
-          0,
+          11,
           54
         ],
-        "final_state": "minecraft:deepslate_tiles",
+        "final_state": "minecraft:structure_void",
         "size": [
           127,
           232,
@@ -682,10 +685,10 @@
       },
       "worldgen_template": {
         "path": "titan_skull_2_worldgen.nbt",
-        "sha256": "35b55ff359d6834e42c0425e012f4544743f6a1cc216f3cde9f9333f0690443c",
+        "sha256": "eb258e546f581e70ebedd3686c0381d4e9373497f77bfde6ee9f83ca08abbb5d",
         "anchor": [
           57,
-          0,
+          21,
           57
         ],
         "final_state": "minecraft:structure_void",

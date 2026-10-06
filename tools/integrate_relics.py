@@ -1,4 +1,4 @@
-"""Select pinned current exports and derive centered natural templates for Alpha 4.6."""
+"""Select pinned art and derive surface-anchored natural templates for Alpha 4.7."""
 from __future__ import annotations
 
 import hashlib
@@ -7,12 +7,13 @@ from pathlib import Path
 
 from relic_assets import decode_nbt, encode_structure
 from relic_catalog import ASSETS, ROOT, worldgen_resources
-from terrain_foundations import POLICY, supported_blocks
+from terrain_foundations import POLICY, RUNTIME_POLICY, supported_blocks
 
 
 def export_relics(output: Path, manifest_path: Path) -> dict:
-    manifest = {"selection": "alpha4", "revision": "2026-10-06-ground-v3-embedding-tower-v7-skull2-v2",
+    manifest = {"selection": "alpha4", "revision": "2026-10-06-surface-anchor-and-model-underside-support",
                 "foundation_policy": POLICY,
+                "runtime_contact_policy": RUNTIME_POLICY,
                 "air_policy": "omit; preserve existing terrain", "structures": []}
     prepared = []
     # Validate all input first: fail closed if the other thread changes an export.
@@ -40,7 +41,10 @@ def export_relics(output: Path, manifest_path: Path) -> dict:
         if len(blocks) != contract["blocks"]:
             raise ValueError(f"Duplicate block positions: {source}")
         blocks, natural_size, foundation = supported_blocks(blocks, contract)
-        anchor = (natural_size[0] // 2, 0, natural_size[2] // 2)
+        # Jigsaw's projected piece origin is independent of anchor Y, but its
+        # generation stub/biome query is not. Put that query at the surface,
+        # rather than in a cave underneath the correctly buried structure.
+        anchor = (natural_size[0] // 2, foundation['ground_y'] - 1, natural_size[2] // 2)
         final_state = blocks.get(anchor, "minecraft:structure_void")
         blocks[anchor] = "minecraft:jigsaw[orientation=north_up]"
         entity = {k: (8, v) for k, v in {

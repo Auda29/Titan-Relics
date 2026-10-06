@@ -1,0 +1,84 @@
+{
+  "source_report": "build\\smoke\\run-20261006-151402-0cdd8e0578b2\\report.json",
+  "source_report_sha256": "c45bc0d5ad32e98cf372f6f4a5c42db43568b41fad8068ebd8a137aea8e22cca",
+  "world": "C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\smoke\\run-20261006-151402-0cdd8e0578b2\\world",
+  "sources": [
+    {
+      "id": "small_colossus",
+      "source_nbt_sha256": "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021",
+      "verification_sha256": "0277388ea1149d300c771cd2b130275ff6887ee18c3beb3304f55cab0622c388"
+    },
+    {
+      "id": "world_tree",
+      "source_nbt_sha256": "fee50813242408123f4adcd1a0bacb476799359fce8e80ba5d59a49085823163",
+      "verification_sha256": "deb4a9e232b742a871df311b337651f5734bbb4e6ee9ddabe6f1857958d44eae"
+    },
+    {
+      "id": "ruined_tower",
+      "source_nbt_sha256": "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600",
+      "verification_sha256": "5a3eef0b77131af00c80e6bdc2962ca065f423cdcb7255e3e198477088de4189"
+    }
+  ],
+  "instances": [
+    {
+      "structure": "relics:small_colossus",
+      "boundary_art_cells_checked": 1367,
+      "substrate_states": {
+        "minecraft:andesite": 246,
+        "minecraft:coal_ore": 30,
+        "minecraft:copper_ore": 6,
+        "minecraft:diorite": 56,
+        "minecraft:dirt": 233,
+        "minecraft:granite": 120,
+        "minecraft:gravel": 2,
+        "minecraft:lapis_ore": 2,
+        "minecraft:stone": 672
+      },
+      "missing_expected_art": [],
+      "unsupported_cells": 0,
+      "gaps": [],
+      "passed": true,
+      "scope": "Immutable art at raw Y0; immediate saved-world substrate must be present, non-air and non-fluid"
+    },
+    {
+      "structure": "relics:world_tree",
+      "boundary_art_cells_checked": 1324,
+      "substrate_states": {
+        "minecraft:andesite": 33,
+        "minecraft:coal_ore": 24,
+        "minecraft:copper_ore": 1,
+        "minecraft:diorite": 2,
+        "minecraft:dirt": 541,
+        "minecraft:granite": 55,
+        "minecraft:grass_block": 139,
+        "minecraft:stone": 529
+      },
+      "missing_expected_art": [],
+      "unsupported_cells": 0,
+      "gaps": [],
+      "passed": true,
+      "scope": "Immutable art at raw Y0; immediate saved-world substrate must be present, non-air and non-fluid"
+    },
+    {
+      "structure": "relics:ruined_tower",
+      "boundary_art_cells_checked": 2468,
+      "substrate_states": {
+        "minecraft:andesite": 122,
+        "minecraft:coal_ore": 47,
+        "minecraft:copper_ore": 16,
+        "minecraft:diorite": 270,
+        "minecraft:dirt": 224,
+        "minecraft:granite": 164,
+        "minecraft:iron_ore": 1,
+        "minecraft:stone": 1624
+      },
+      "missing_expected_art": [],
+      "unsupported_cells": 0,
+      "gaps": [],
+      "passed": true,
+      "scope": "Immutable art at raw Y0; immediate saved-world substrate must be present, non-air and non-fluid"
+    }
+  ],
+  "read_errors": [],
+  "passed": true
+}

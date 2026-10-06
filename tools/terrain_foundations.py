@@ -6,6 +6,7 @@ every existing model cell. Pad X/Y/Z to keep all foundation positions inside NBT
 import heapq
 
 POLICY = 'near-ground-soil-columns-v4-protected-runtime-contact'
+RUNTIME_POLICY = 'exposed-model-undersides-at-or-below-ground-v5'
 TOE_RADIUS = 8
 SOILS = {'minecraft:dirt', 'minecraft:rooted_dirt', 'minecraft:coarse_dirt',
          'minecraft:grass_block', 'minecraft:moss_block', 'minecraft:podzol',

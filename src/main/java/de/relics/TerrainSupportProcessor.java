@@ -18,11 +18,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-/** Fill only below the lowest near-ground earth cell, in the current placement box. */
-public record TerrainSupportProcessor(int groundY) implements StructureProcessor {
+/** Connect exposed low model undersides to actual substrate, in this chunk only. */
+public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockState artFill) implements StructureProcessor {
     public static final MapCodec<TerrainSupportProcessor> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(Codec.intRange(0, 319).fieldOf("ground_y")
-                    .forGetter(TerrainSupportProcessor::groundY)).apply(instance, TerrainSupportProcessor::new));
+                            .forGetter(TerrainSupportProcessor::groundY),
+                    Codec.BOOL.optionalFieldOf("support_art", false).forGetter(TerrainSupportProcessor::supportArt),
+                    BlockState.CODEC.optionalFieldOf("art_fill", Blocks.DIRT.defaultBlockState())
+                            .forGetter(TerrainSupportProcessor::artFill)).apply(instance, TerrainSupportProcessor::new));
+
+    public TerrainSupportProcessor(int groundY) {
+        this(groundY, false, Blocks.DIRT.defaultBlockState());
+    }
     private static final Set<Block> SOILS = Set.of(Blocks.DIRT, Blocks.ROOTED_DIRT, Blocks.COARSE_DIRT,
             Blocks.GRASS_BLOCK, Blocks.MOSS_BLOCK, Blocks.PODZOL, Blocks.SAND, Blocks.SANDSTONE,
             Blocks.SMOOTH_SANDSTONE, Blocks.RED_SAND, Blocks.RED_SANDSTONE, Blocks.GRAVEL,
@@ -48,10 +55,22 @@ public record TerrainSupportProcessor(int groundY) implements StructureProcessor
             }
         }
         var result = new ArrayList<>(processed);
-        for (var bottom : bottoms.values()) {
-            BlockState fill = fillState(bottom.state());
+        var starts = new ArrayList<>(bottoms.values());
+        if (supportArt) {
+            // Check every exposed run end, not just the lowest soil in a column:
+            // a root may bridge air above a separate authored soil deposit.
+            for (var info : processed) {
+                if (info.pos().getY() <= origin.getY() + groundY
+                        && eligibleArt(info.state()) && !authored.contains(info.pos().below().asLong())) {
+                    starts.add(info);
+                }
+            }
+        }
+        var added = new HashSet<Long>();
+        for (var bottom : starts) {
+            BlockState fill = SOILS.contains(bottom.state().getBlock()) ? fillState(bottom.state()) : artFill;
             for (BlockPos pos = bottom.pos().below(); pos.getY() >= level.getMinY(); pos = pos.below()) {
-                if (authored.contains(pos.asLong()) || (settings.getBoundingBox() != null
+                if (authored.contains(pos.asLong()) || added.contains(pos.asLong()) || (settings.getBoundingBox() != null
                         && !settings.getBoundingBox().isInside(pos))) {
                     break;
                 }
@@ -60,12 +79,20 @@ public record TerrainSupportProcessor(int groundY) implements StructureProcessor
                     break;
                 }
                 result.add(new StructureBlockInfo(pos, fill, null));
+                added.add(pos.asLong());
             }
         }
         if (level instanceof net.minecraft.server.level.WorldGenRegion) {
             RelicProtection.record(level, result);
         }
         return result;
+    }
+
+    private static boolean eligibleArt(BlockState state) {
+        return !SOILS.contains(state.getBlock()) && !state.isAir() && !state.hasBlockEntity()
+                && state.getFluidState().isEmpty() && !state.canBeReplaced()
+                && !(state.getBlock() instanceof net.minecraft.world.level.block.LeavesBlock)
+                && !state.is(Blocks.STRUCTURE_VOID);
     }
 
     private static boolean replaceable(BlockState state) {

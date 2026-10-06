@@ -43,7 +43,7 @@
       "type": "lithostitched:offset",
       "offset": [
         0,
-        12,
+        0,
         0
       ],
       "condition": {
@@ -58,7 +58,7 @@
               "type": "lithostitched:height_filter",
               "heightmap": "WORLD_SURFACE_WG",
               "permitted_range": {
-                "min_inclusive": -4,
+                "min_inclusive": -12,
                 "max_inclusive": 4
               },
               "range_type": "heightmap_relative"

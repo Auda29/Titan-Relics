@@ -1,0 +1,91 @@
+{
+  "scope": "Read-only, same-position saved-world cross sections",
+  "records": [
+    {
+      "id": "world_tree",
+      "raw_position": [
+        55,
+        8,
+        87
+      ],
+      "world_positions": [
+        [
+          23750,
+          67,
+          -45499
+        ],
+        [
+          23750,
+          67,
+          -45499
+        ]
+      ],
+      "substrate": [
+        "minecraft:air",
+        "minecraft:dirt"
+      ]
+    },
+    {
+      "id": "ruined_tower",
+      "raw_position": [
+        29,
+        0,
+        33
+      ],
+      "world_positions": [
+        [
+          10381,
+          54,
+          2726
+        ],
+        [
+          10381,
+          54,
+          2726
+        ]
+      ],
+      "substrate": [
+        "minecraft:air",
+        "minecraft:dirt"
+      ]
+    },
+    {
+      "id": "small_colossus",
+      "raw_position": [
+        63,
+        0,
+        62
+      ],
+      "world_positions": [
+        [
+          -6552,
+          55,
+          56922
+        ],
+        [
+          -6552,
+          55,
+          56922
+        ]
+      ],
+      "substrate": [
+        "minecraft:water",
+        "minecraft:dirt"
+      ]
+    }
+  ],
+  "reports": [
+    {
+      "path": "build/smoke/run-20261006-132644-6687254943f2/report.json",
+      "sha256": "6f6dd1a32121b5be48bcf7cc61bb318f6761f85560766bd737a1d0fba2de19dc"
+    },
+    {
+      "path": "build/smoke/run-20261006-145034-5da0ddca05b7/report.json",
+      "sha256": "a7f4a0fe011f5bc80d76e6f97e33d01b2bb90eeb9b5336099fd11d50a18d00c7"
+    }
+  ],
+  "read_errors": [
+    [],
+    []
+  ]
+}

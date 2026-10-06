@@ -1,4 +1,4 @@
-"""Pinned Alpha 4.6 visual assets and provisional placement contracts.
+"""Pinned visual assets with Alpha 4.7 surface-anchor/contact placement.
 
 Candidate selection is for in-game review, not a new artistic approval. No model
 is regenerated here. Families group biome variants for density/disable settings.
@@ -24,11 +24,12 @@ ROCK = ["minecraft:windswept_hills", "minecraft:windswept_gravelly_hills",
         optional("terralith:rocky_mountains")]
 
 
-def asset(folder, stem, size, blocks, ground_y, family, biomes, slope, sha256, accepted=True):
+def asset(folder, stem, size, blocks, ground_y, family, biomes, slope, sha256, accepted=True, uphill_slope=None):
     return {"source": f"relics/{folder}/design/generated/{stem}/{stem}.nbt",
             "version": stem, "size": size, "blocks": blocks, "ground_y": ground_y,
             "family": family, "biomes": biomes, "slope": slope,
-            "sha256": sha256, "visually_accepted": accepted}
+            "sha256": sha256, "visually_accepted": accepted,
+            **({"uphill_slope": uphill_slope} if uphill_slope is not None else {})}
 
 
 ASSETS = {
@@ -40,20 +41,20 @@ ASSETS = {
                                         optional("biomesoplenty:wasteland")], 6,
                      "ed116dcbca2a41fe403695a816e419a32a647d325c1d907d8dc1797f551cda3e"),
     "titan_skull": asset("titan-skull", "titan-skull-v4-meadow-ground-v3", [117, 79, 179], 111328, 16,
-                         "titan_skull", MEADOW, 4,
+                         "titan_skull", MEADOW, 12,
                          "b189932ac224097ba030a649ea2b44c898aaa4fdfbddb42b8797c32851ae5969", False),
     "titan_skull_dry": asset("titan-skull", "titan-skull-v4-dry-ground-v3", [117, 79, 179], 111328, 16,
-                             "titan_skull", DRY, 4,
+                             "titan_skull", DRY, 12,
                              "0d948527040a395b55615dce8704d72a2d5528b44c0b0c69ff94ea06b465eb67", False),
     "titan_skull_sand": asset("titan-skull", "titan-skull-v4-sand-ground-v3", [117, 79, 179], 111328, 16,
-                              "titan_skull", SAND, 4,
+                              "titan_skull", SAND, 12,
                               "7106438dd1a0389dc5953f48351fa8a4aebfa1af3becd671d16288ab847bd0aa", False),
     "titan_skull_rock": asset("titan-skull", "titan-skull-v4-rock-ground-v3", [117, 79, 179], 111288, 16,
-                              "titan_skull", ROCK, 6,
-                              "6303836dd1d816900a84897ad31cd4a74e659820612d61c677612e267b47051f", False),
+                              "titan_skull", ROCK, 12,
+                              "6303836dd1d816900a84897ad31cd4a74e659820612d61c677612e267b47051f", False, uphill_slope=18),
     "small_colossus": asset("colossus", "small-colossus-v7-ground-v3", [111, 80, 113], 233448, 13,
                              "small_colossus", MEADOW + DRY, 4,
-                             "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021", False),
+                             "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021", False, uphill_slope=12),
     "world_tree": asset("world-tree", "world-tree-v4-1-ground-v3", [187, 216, 185], 291903, 8,
                          "world_tree", MEADOW + ["minecraft:forest", "minecraft:flower_forest",
                                               "minecraft:birch_forest", "minecraft:old_growth_birch_forest"], 6,
@@ -112,7 +113,9 @@ def worldgen_resources():
         ceiling = min(230, 311 - (a["size"][1] - a["ground_y"] - 1))
         conditions = [
             {"type": "lithostitched:height_filter", "heightmap": "WORLD_SURFACE_WG",
-             "permitted_range": {"min_inclusive": -a["slope"], "max_inclusive": a["slope"]},
+             # heightmap_relative = anchor Y minus sampled height. Admit a
+             # higher rocky bank without extending the downhill support depth.
+             "permitted_range": {"min_inclusive": -a.get("uphill_slope", a["slope"]), "max_inclusive": a["slope"]},
              "range_type": "heightmap_relative"},
             {"type": "lithostitched:height_filter", "heightmap": "OCEAN_FLOOR_WG",
               "permitted_range": {"min_inclusive": 63, "max_inclusive": ceiling}, "range_type": "absolute"},
@@ -137,7 +140,7 @@ def worldgen_resources():
                 "project_start_to_heightmap": "WORLD_SURFACE_WG", "max_distance_from_center": 128,
                 "use_expansion_hack": False, "dimension_padding": 8, "liquid_settings": "ignore_waterlogging"},
             "spawn_condition": {"type": "relics:separated", "reservations": reservations(a["family"]),
-                "terrain_condition": {"type": "lithostitched:offset", "offset": [0, ground - 1, 0],
+                "terrain_condition": {"type": "lithostitched:offset", "offset": [0, 0, 0],
                 "condition": {"type": "relics:all_grid", "radius": radius,
                     "distance_between_points": distance, "allowed_count": 25,
                     "condition": {"type": "lithostitched:all_of", "conditions": conditions}}}}}
@@ -146,7 +149,10 @@ def worldgen_resources():
                 "element_type": "minecraft:single_pool_element", "location": f"relics:{name}_worldgen",
                 "processors": f"relics:{name}_terrain", "projection": "rigid"}}]}
         resources[f"worldgen/processor_list/{name}_terrain.json"] = {
-            "processors": [{"processor_type": "relics:terrain_support", "ground_y": ground}]}
+            "processors": [{"processor_type": "relics:terrain_support", "ground_y": ground,
+                            "support_art": True, "art_fill": {"Name":
+                                "minecraft:sandstone" if name in ("obelisk", "titan_skull_sand") else
+                                "minecraft:stone" if name == "titan_skull_rock" else "minecraft:dirt"}}]}
         resources[f"tags/worldgen/biome/has_structure/{name}.json"] = {"replace": False, "values": a["biomes"]}
     for family in FAMILIES:
         spacing, separation = NORMAL_DENSITY[family]

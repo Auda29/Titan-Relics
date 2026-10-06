@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.1.0-alpha.4.7 — ground contacts and natural placement
+
+- Integrate the prepared runtime-contact update without changing the ten raw
+  model exports, their burial depths or earlier sources.
+- Support exposed solid-model undersides at/below nominal ground using stable
+  biome-appropriate fill; preserve raised arches, authored cells and saved masks.
+- Move the natural Jigsaw biome-query anchor to the surface while retaining the
+  buried piece origin. Use the revised crowned-Skull site tolerance and uphill-only
+  allowances for rock Skulls and Small Colossi.
+- Retain the full terrain grid, biome tags, separation, density and dependencies.
+- Include existing full showcase/natural acceptance and passing root/substrate
+  audits, with ordinary locators under the normal 60-second watchdog.
+- Keep profile installation, new worlds and gameplay outside this integration.
+
+See [Alpha 4.7 validation](docs/testing/ALPHA_4_7_TEST_REPORT.md).
+
 ## 0.1.0-alpha.4.6 — deeper embedding, Skull 2 V2 and Tower V7
 
 - Select the seven pinned ground-v3 derivatives and Titan Skull 2 V2, including

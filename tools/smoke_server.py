@@ -238,6 +238,8 @@ def main() -> int:
                         help="Log the first failed terrain sample in one regression-site start chunk")
     parser.add_argument("--startup-timeout", type=int, default=180)
     parser.add_argument("--command-timeout", type=int, default=180)
+    parser.add_argument("--max-tick-time", type=int, default=60000,
+                        help="Server watchdog in milliseconds; default is Minecraft's normal 60 seconds")
     parser.add_argument("--prepare-only", action="store_true", help="Extract cached server libraries, without starting Java")
     args = parser.parse_args()
     if args.natural_candidates and (args.showcase or args.skip_locate or args.disabled_structure):
@@ -264,6 +266,7 @@ def main() -> int:
         shutil.copy2(args.settings_pack, packs / args.settings_pack.name)
     files = [artifact] + [args.mods_source / name for name in BASE_MODS + (INTEGRATION_MODS if args.integration else [])]
     evidence = {"seed": args.seed, "run_directory": str(run), "integration": args.integration, "showcase": args.showcase,
+                 "max_tick_time_ms": args.max_tick_time,
                  "eula_accepted_explicitly": True, "artifacts": [], "commands": [], "passed": False}
     if args.locate_from:
         evidence["locate_origin"] = args.locate_from
@@ -311,7 +314,7 @@ def main() -> int:
                   "level-name": "world", "level-seed": args.seed, "level-type": "minecraft:normal",
                   "generate-structures": "true", "gamemode": "creative", "difficulty": "peaceful",
                   "view-distance": 2, "simulation-distance": 2, "pause-when-empty-seconds": 0,
-                   "max-tick-time": 180000, "spawn-protection": 0, "initial-disabled-packs": ""}
+                  "max-tick-time": args.max_tick_time, "spawn-protection": 0, "initial-disabled-packs": ""}
     if args.showcase:
         properties.update({"level-type": "minecraft:flat", "generator-settings": json.dumps({
             "biome": "minecraft:plains", "lakes": False, "features": False,
@@ -524,7 +527,7 @@ def main() -> int:
         payload = json.dumps(evidence, indent=2, ensure_ascii=False) + "\n"
         (run / "report.json").write_text(payload, encoding="utf-8")
         (smoke / "report.json").write_text(payload, encoding="utf-8")
-    print(f"Smoke passed={evidence['passed']}; report={smoke / 'report.json'}")
+    print(f"Smoke passed={evidence['passed']}; report={run / 'report.json'}")
     return 0 if evidence["passed"] else 1
 
 
