@@ -29,7 +29,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CACHE = Path("E:/Roaming/ModrinthApp")
 DEFAULT_JAVA = DEFAULT_CACHE / "meta/java_versions/zulu25.36.205-ca-jre25.0.4.1-win_x64/bin/java.exe"
 DEFAULT_SERVER = Path.home() / ".gradle/caches/fabric-loom/26.2/minecraft-server.jar"
-BASE_MODS = ["fabric-api-0.160.0+26.2.jar", "lithostitched-1.8.0+beta6-fabric-26.2.jar"]
+BASE_MODS = ["fabric-api-0.161.0+26.2.jar", "lithostitched-1.8.0-fabric-26.2.jar"]
 INTEGRATION_MODS = ["tectonic-3.0.26-fabric-26.2.jar", "Terralith_26.2_v2.6.4.jar",
                     "BiomesOPlenty-fabric-26.2-26.2.0.0.28.jar", "dungeons-and-taverns-5.3.2.jar",
                     "GlitchCore-fabric-26.2-26.2.0.0.0.jar", "TerraBlender-fabric-26.2-26.2.0.0.2.jar"]
@@ -200,7 +200,8 @@ def main() -> int:
     parser.add_argument("--java", type=Path, default=DEFAULT_JAVA)
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
     parser.add_argument("--server-bundler", type=Path, default=DEFAULT_SERVER)
-    parser.add_argument("--mods-source", type=Path, default=DEFAULT_CACHE / "profiles/TerraVista/mods")
+    parser.add_argument("--mods-source", type=Path,
+                        help="Dependency directory; default: Relic Test (base), TerraVista (--integration)")
     parser.add_argument("--integration", action="store_true")
     parser.add_argument("--showcase", action="store_true", help="Build a flat creative preview world; validate manual placements instead of natural starts")
     parser.add_argument("--settings-pack", type=Path, help="Copy an already generated settings ZIP into the fresh world's datapacks")
@@ -221,6 +222,8 @@ def main() -> int:
     parser.add_argument("--command-timeout", type=int, default=180)
     parser.add_argument("--prepare-only", action="store_true", help="Extract cached server libraries, without starting Java")
     args = parser.parse_args()
+    if args.mods_source is None:
+        args.mods_source = DEFAULT_CACHE / ("profiles/TerraVista/mods" if args.integration else "profiles/Relic Test/mods")
     smoke = ROOT / "build/smoke"
     smoke.mkdir(parents=True, exist_ok=True)
     classpath = prepare_classpath(args.cache, args.server_bundler, smoke / "runtime")

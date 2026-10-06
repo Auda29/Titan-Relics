@@ -1,10 +1,11 @@
 # Ruined Tower
 
-**V4 is the latest visual candidate:** staggered upper fractures, broken lower
-stairs and inner masonry relief, retaining the user's 220 visible layers. See the
-[art follow-up and comparison](../../docs/project/ALPHA_4_2_ART_FOLLOWUP.md).
-Packaged Alpha 4.2 still uses V3; its
-[runtime status](../../docs/testing/ALPHA_4_2_TEST_REPORT.md) applies to that selection.
+**V5 is the latest visual candidate:** broken side elevations, partial masonry
+courses and a low meadow-soil foot, retaining the user's 220 visible layers. See
+the [October 6 follow-up](../../docs/project/GROUND_WEATHERING_20261006.md).
+Packaged Alpha 4.4 uses V5; its
+[runtime status](../../docs/testing/ALPHA_4_4_TEST_REPORT.md) applies to this selection.
+Alpha 4.3's V4 evidence remains historical; client visual acceptance is still pending.
 
 - [V2 taller tower, reviews and reproduction](docs/RUINED_TOWER_V2.md)
 - [V1 exports, review and reproduction](docs/RUINED_TOWER_V1.md)

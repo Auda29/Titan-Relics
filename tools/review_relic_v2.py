@@ -15,7 +15,7 @@ PAIRS=[('Small Colossus','colossus','small-colossus',
         '180 -> 220 visible blocks / same footprint')]
 
 
-def render(versions=('v1','v2')):
+def render(versions=('v1','v2'),yaw=22):
     import math
     import bpy
     from mathutils import Vector
@@ -31,7 +31,7 @@ def render(versions=('v1','v2')):
             design=json.loads((folder/f'{name}.design.json').read_text())
             root=renderer.decode_nbt((folder/f'{name}.nbt').read_bytes());ground=design['ground_level_nbt_approx']
             obj=renderer.blocks_from_nbt(folder/f'{name}.nbt',predicate=lambda p,g=ground:p[1]>=g)
-            obj.name=name+' / actual NBT';obj.rotation_euler.z=math.radians(22);obj.location.z=-ground
+            obj.name=name+' / actual NBT';obj.rotation_euler.z=math.radians(yaw);obj.location.z=-ground
             bpy.context.view_layer.update()
             corners=[obj.matrix_world@Vector(c) for c in obj.bound_box]
             lo,hi=min(v.x for v in corners),max(v.x for v in corners)

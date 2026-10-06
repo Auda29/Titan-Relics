@@ -1,6 +1,6 @@
 # Alpha target environment
 
-Inventory recorded: September 13, 2026. Documentation updated: October 1, 2026.
+Inventory recorded: September 13, 2026. Documentation updated: October 6, 2026.
 This record supports the [implementation plan](../project/UMSETZUNGSPLAN.md). The initial
 inventory was read-only and describes the state before installation. Later
 installation and upgrade steps are recorded separately below. Local paths are
@@ -41,8 +41,9 @@ Local runtime/compiler executables were checked with `-version`:
 | Available Modrinth runtime | `E:\Roaming\ModrinthApp\meta\java_versions\zulu25.36.205-ca-jre25.0.4.1-win_x64\bin\java.exe` | Zulu `25.0.4.1+1-LTS` |
 
 Availability did not establish which runtime the Relic Test client actually used.
-The data-only mod build itself needs Python, not Java compilation; Java 25 is a
-game/server requirement.
+The original data-only mod build needed Python, not Java compilation. Alpha 4.2
+and newer also require JDK 25 for their placement-only Java components; Java 25
+remains a game/server requirement.
 
 `version.json` and launcher metadata from the local client JAR
 `meta/versions/26.2-0.19.5/26.2-0.19.5.jar` reported:
@@ -165,3 +166,26 @@ This is a visual-test installation, not full natural-worldgen acceptance.
 The showcase has zero saved-block differences; natural generation still has
 minor neighboring-chunk feature edits. See the
 [Alpha 3 report](../testing/ALPHA_3_TEST_REPORT.md) for exact results and limits.
+
+## October 6 dependency update and Alpha 4.4 baseline
+
+After isolated compatibility checks of the unchanged Alpha 4.3 artifact, the user
+updated “Relic Test” to Fabric API **0.161.0+26.2** and stable Lithostitched **1.8.0**.
+Minecraft 26.2, Fabric Loader 0.19.5 and Java 25 are unchanged. Historical tables
+above retain the earlier exact JARs rather than being rewritten as new evidence.
+
+| Current dependency | SHA-256 |
+| --- | --- |
+| `fabric-api-0.161.0+26.2.jar` | `e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a` |
+| `lithostitched-1.8.0-fabric-26.2.jar` | `4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024` |
+
+Fabric API adds Advancement API v1; the existing Attachment, Resource Loader and
+API Base modules used by Relic are byte-identical. Lithostitched's PlacementCondition
+and LithostitchedRegistries API classes are unchanged; its stable release bundles
+Apollib 1.2.2. Minecraft-26.2 Fabric metadata admits both client and server use.
+
+Alpha 4.4 setup/build/runtime tools use these exact new dependencies. Actual
+latest-template acceptance and installation belong to the
+[Alpha 4.4 test report](../testing/ALPHA_4_4_TEST_REPORT.md), not the preceding
+dependency-only checks. Third-party terrain mods and full-pack performance remain
+outside that baseline.

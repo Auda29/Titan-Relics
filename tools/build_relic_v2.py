@@ -16,7 +16,10 @@ EXTRA_ASSETS={'small-colossus-v3':('colossus','small-colossus-v3'),
               'ruined-tower-v3':('ruined-tower','ruined-tower-v3'),
               'world-tree-v4':('world-tree','world-tree-v4'),
               'small-colossus-v6':('colossus','small-colossus-v6'),
-              'ruined-tower-v4':('ruined-tower','ruined-tower-v4')}
+              'ruined-tower-v4':('ruined-tower','ruined-tower-v4'),
+              'small-colossus-v7':('colossus','small-colossus-v7'),
+              'ruined-tower-v5':('ruined-tower','ruined-tower-v5'),
+              'world-tree-v4-1':('world-tree','world-tree-v4-1')}
 
 
 def main():
@@ -38,6 +41,8 @@ def main():
         if not args.review_only:
             if not args.skip_model:run([*blender,'tools/create_'+stem.replace('-','_')+'.py'])
             run(['node','--max-old-space-size=8192','tools/obj_to_schem.cjs',config])
+            if settings.get('preserve_tree_palette_from'):
+                run([sys.executable,'tools/preserve_tree_materials.py',config])
             run([sys.executable,'tools/schem_to_nbt.py',schem,schem.with_suffix('.nbt'),'--air','omit','--tile-size','32'])
         run([sys.executable,inspector,config])
         if settings.get('preview_atlas'):run([sys.executable,'tools/prepare_foliage_preview.py'])

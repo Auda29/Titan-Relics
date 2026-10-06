@@ -8,8 +8,8 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 CACHE = ROOT / "build/worldgen-dependencies"
-LITHOSTITCHED_SHA256 = "5743a7e11af1491aab6f4760c7cdce7284e2f0a4a89ffacd4ef43fd46e5e6d43"
-FABRIC_API_SHA256 = "5f3dff88e1661166e222213302b25ace6c36dc3683804cbd4b5acf93138ea05e"
+LITHOSTITCHED_SHA256 = "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+FABRIC_API_SHA256 = "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
 
 
 def fetch(url):
@@ -72,9 +72,9 @@ def main():
         mixinextras.write_bytes(archive.read("META-INF/jars/mixinextras-fabric-0.5.5.jar"))
         classpath.append(mixinextras)
     versions = json.loads(fetch("https://api.modrinth.com/v2/project/fabric-api/version?game_versions=%5B%2226.2%22%5D&loaders=%5B%22fabric%22%5D"))
-    release = next(v for v in versions if v["version_number"] == "0.160.0+26.2")
+    release = next(v for v in versions if v["version_number"] == "0.161.0+26.2")
     file = next(f for f in release["files"] if f["primary"])
-    fabric_api = CACHE / "fabric-api-0.160.0+26.2.jar"
+    fabric_api = CACHE / "fabric-api-0.161.0+26.2.jar"
     checked_download(file["url"], fabric_api, "sha256", FABRIC_API_SHA256)
     with zipfile.ZipFile(fabric_api) as archive:
         for name in archive.namelist():
@@ -83,9 +83,9 @@ def main():
                 path.write_bytes(archive.read(name))
                 classpath.append(path)
     versions = json.loads(fetch("https://api.modrinth.com/v2/project/lithostitched/version?game_versions=%5B%2226.2%22%5D&loaders=%5B%22fabric%22%5D"))
-    release = next(v for v in versions if v["version_number"] == "1.8.0+beta6-fabric-26.2")
+    release = next(v for v in versions if v["version_number"] == "1.8.0-fabric-26.2")
     file = next(f for f in release["files"] if f["primary"])
-    lithostitched = CACHE / "lithostitched-1.8.0+beta6-fabric-26.2.jar"
+    lithostitched = CACHE / "lithostitched-1.8.0-fabric-26.2.jar"
     checked_download(file["url"], lithostitched, "sha256", LITHOSTITCHED_SHA256)
     classpath.append(lithostitched)
     entries = [{"file": p.relative_to(CACHE).as_posix(), "sha256": hashlib.sha256(p.read_bytes()).hexdigest()}

@@ -34,6 +34,10 @@ def check(config_path,review=False):
         parent=meta['revision_v4']
         require(hashlib.sha256((ROOT/parent['source']).read_bytes()).hexdigest()==parent['source_sha256'],
                 'Preserved V3 comparison source changed')
+    if 'revision_v5' in meta:
+        parent=meta['revision_v5']
+        require(hashlib.sha256((ROOT/parent['source']).read_bytes()).hexdigest()==parent['source_sha256'],
+                'Preserved V4 comparison source changed')
     if feature['family']=='tower':
         revision=meta['revision_v2']
         require(hashlib.sha256((ROOT/revision['source']).read_bytes()).hexdigest()==revision['source_sha256'],'V1 source changed')
@@ -72,6 +76,15 @@ def check(config_path,review=False):
             for point in meta['revision_v4']['fork_probes_source']+feature['branch_tip_probes_source']:
                 require(any(p in seen for p in around(local(point),2)),f'Woody fork detached from trunk at {point}')
             checks['trunk_connected_woody_probes']=len(meta['revision_v4']['fork_probes_source'])+len(feature['branch_tip_probes_source'])
+        if 'revision_v4_1' in meta:
+            parent=meta['revision_v4_1'];source=ROOT/parent['source']
+            require(hashlib.sha256(source.read_bytes()).hexdigest()==parent['source_sha256'],'Accepted tree source changed')
+            old_root,old=read_structure(source.with_name('world-tree-v4.nbt'))
+            require(root['size']==old_root['size'],'Ground revision changed tree dimensions')
+            terrain={config['materials'][key] for key in ('terrain_top','terrain_patch','terrain_fill')}
+            require({p:s for p,s in blocks.items() if s not in terrain}=={p:s for p,s in old.items() if s not in terrain},
+                    'Ground-only revision changed accepted wood, foliage or root details')
+            checks['accepted_non_terrain_blocks_identical']=True
     if feature['family']=='small-colossus':
         hand=feature['hand']
         require(abs(hand['basis_determinant']-1)<1e-5 and hand['palmar_normal_source'][1]>.99,'Incorrect right-hand orientation')
@@ -114,7 +127,7 @@ def check(config_path,review=False):
             require(mask_size[1]/mask_size[0]>1.15,'Mask does not read as elongated')
             checks.update(waist_to_chest_width_ratio=ratio,mask_bounds_source_units=mask_size,
                           mask_height_to_width_ratio=mask_size[1]/mask_size[0])
-    summary[next(key for key in ('revision_v4','revision_v3','revision_v2') if key in meta)]=checks
+    summary[next(key for key in ('revision_v5','revision_v4_1','revision_v4','revision_v3','revision_v2') if key in meta)]=checks
     (out/'verification.json').write_text(json.dumps(summary,indent=2)+'\n')
     if review:base.contact_sheet(summary)
     print(json.dumps(checks,indent=2))

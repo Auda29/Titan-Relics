@@ -5,11 +5,15 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 
 | Relic | Current status |
 | --- | --- |
-| [Colossus](colossus/README.md) | Alpha 4 selects V4.1 materials B and Small Colossus V4 candidate; gameplay/uniqueness pending |
-| [Obelisk](obelisk/README.md) | Alpha 4 selects V4.2; archaeology, collectibles and maps pending |
-| [Titan Skull](titan-skull/README.md) | Alpha 4 selects V4 with four biome variants and Skull 2 V1; encounters pending |
-| [Ruined Tower](ruined-tower/README.md) | V2 candidate with 220 visible layers selected in Alpha 4 |
-| [World Tree](world-tree/README.md) | V2 branch-grown canopy candidate selected in Alpha 4 |
+| [Colossus](colossus/README.md) | Alpha 4.4 selects V4.1 materials B and weathered Small Colossus V7 candidate; gameplay/uniqueness pending |
+| [Obelisk](obelisk/README.md) | Alpha 4.4 retains V4.2; archaeology, collectibles and maps pending |
+| [Titan Skull](titan-skull/README.md) | Alpha 4.4 retains V4 with four biome variants and Skull 2 V1; encounters pending |
+| [Ruined Tower](ruined-tower/README.md) | V5 side-wall/ground candidate with 220 visible layers selected in Alpha 4.4 |
+| [World Tree](world-tree/README.md) | V4 form/foliage accepted; ground-only V4.1 selected in Alpha 4.4 |
+
+See the [October 6 revisions](../docs/project/GROUND_WEATHERING_20261006.md) and
+[current runtime evidence](../docs/testing/ALPHA_4_4_TEST_REPORT.md). Earlier models
+and the historical Alpha 4 design decisions below remain preserved.
 
 ## In-game demos
 
@@ -25,7 +29,7 @@ agreed visual findings and revision direction. Colossus V4 now has two offline
 selected by the user. [Obelisk V4](obelisk/docs/OBELISK_V4_EXPORTS.md) and the four
 [Titan Skull V4 variants](titan-skull/docs/TITAN_SKULL_V4_EXPORTS.md) are exported
 and checked offline. See [Alpha 4 integration](../docs/technical/ALPHA_4_INTEGRATION.md)
-for current selection and [runtime evidence](../docs/testing/ALPHA_4_TEST_REPORT.md).
+for the original Alpha 4 selection and [runtime evidence](../docs/testing/ALPHA_4_TEST_REPORT.md).
 
 Latest corrections: [Colossus V4.1](colossus/docs/COLOSSUS_V4_1.md) replaces the
 raised wrist with a palm-up right hand and curled fingers;

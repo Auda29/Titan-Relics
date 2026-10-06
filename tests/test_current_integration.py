@@ -41,7 +41,7 @@ class CurrentIntegrationTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(data).hexdigest(), ASSETS[a["id"]]["sha256"])
             self.assertEqual(decode_nbt(data)["DataVersion"], 3105)
 
-    def test_alpha43_selects_latest_art_without_changing_the_other_seven_exports(self):
+    def test_alpha44_selects_latest_art_without_changing_the_other_seven_exports(self):
         unchanged_hashes = {
             "colossus": "a355b20349513cb27e6feb6fc171ca413d71da2cdb5717f7995afb4128d879b8",
             "obelisk": "ed116dcbca2a41fe403695a816e419a32a647d325c1d907d8dc1797f551cda3e",
@@ -52,12 +52,12 @@ class CurrentIntegrationTests(unittest.TestCase):
             "titan_skull_2": "5a39ac6ef62c1d07eafed69ed8a7cbeb397b4a6d3c4a6f7bf7086fdabdac1b78",
         }
         revisions = {
-            "small_colossus": ("small-colossus-v6", [111, 80, 113], 234956, 9,
-                               "003075edc4e29e940c4fcdefb16da1c16202f7551a73be8a39a028e228771bab"),
-            "world_tree": ("world-tree-v4", [187, 216, 185], 291433, 8,
-                           "3f19512d5d1d97ccd5efa2af59d30ef8ffa48c0269535ff472ec2586063f16e8"),
-            "ruined_tower": ("ruined-tower-v4", [111, 232, 93], 321087, 12,
-                             "9bacd9d4792b37239d35a03ef4944c907d5d3ae49e217223eab127b962fd377c"),
+            "small_colossus": ("small-colossus-v7", [111, 80, 113], 235933, 9,
+                               "c48bb70ea3643070e94a44008721cb5c08fda74f80b4efee2e063a44b5436bb4"),
+            "world_tree": ("world-tree-v4-1", [187, 216, 185], 293691, 8,
+                           "b8235fd957029d39a534eef2f13924bc850155e46fd5872fc40f51ecce8eea37"),
+            "ruined_tower": ("ruined-tower-v5", [111, 232, 93], 307417, 12,
+                             "5be62afb4d6a3968e37c61b54e21941273c795921441dc9db8e705ced9f2765f"),
         }
         for name, contract in ASSETS.items():
             if name in revisions:
@@ -66,6 +66,24 @@ class CurrentIntegrationTests(unittest.TestCase):
                 self.assertFalse(contract["visually_accepted"])
             else:
                 self.assertEqual(contract["sha256"], unchanged_hashes[name])
+
+    def test_tree_ground_revision_keeps_every_accepted_non_terrain_cell(self):
+        contract = ASSETS["world_tree"]
+        current = decode_nbt((ROOT / contract["source"]).read_bytes())
+        previous = decode_nbt((ROOT / "relics/world-tree/design/generated/world-tree-v4/world-tree-v4.nbt").read_bytes())
+        self.assertEqual(current["size"], previous["size"])
+        terrain = {"minecraft:grass_block", "minecraft:rooted_dirt", "minecraft:dirt"}
+        def art(root):
+            return {pos: state for pos, state in states(root).items() if state["Name"] not in terrain}
+        self.assertEqual(art(current), art(previous))
+        self.assertGreater(len(current["blocks"]), len(previous["blocks"]))
+
+    def test_current_build_and_runtime_use_the_updated_dependency_pins(self):
+        from setup_worldgen_build import FABRIC_API_SHA256, LITHOSTITCHED_SHA256
+        from smoke_server import BASE_MODS
+        self.assertEqual(BASE_MODS, ["fabric-api-0.161.0+26.2.jar", "lithostitched-1.8.0-fabric-26.2.jar"])
+        self.assertEqual(FABRIC_API_SHA256, "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a")
+        self.assertEqual(LITHOSTITCHED_SHA256, "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024")
 
     def test_natural_template_restores_model_and_adds_only_soil_support(self):
         for a in self.manifest["structures"]:

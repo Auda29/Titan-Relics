@@ -1,4 +1,4 @@
-"""Pinned Alpha 4.3 visual assets and provisional placement contracts.
+"""Pinned Alpha 4.4 visual assets and provisional placement contracts.
 
 Candidate selection is for in-game review, not a new artistic approval. No model
 is regenerated here. Families group biome variants for density/disable settings.
@@ -51,16 +51,16 @@ ASSETS = {
     "titan_skull_rock": asset("titan-skull", "titan-skull-v4-rock", [117, 79, 179], 136569, 8,
                               "titan_skull", ROCK, 12,
                               "9c41e8bdc5333737ed7c37e6ab8f916aac0f77f32764d20cca4e2fb68e94620b"),
-    "small_colossus": asset("colossus", "small-colossus-v6", [111, 80, 113], 234956, 9,
+    "small_colossus": asset("colossus", "small-colossus-v7", [111, 80, 113], 235933, 9,
                              "small_colossus", MEADOW + DRY, 12,
-                             "003075edc4e29e940c4fcdefb16da1c16202f7551a73be8a39a028e228771bab", False),
-    "world_tree": asset("world-tree", "world-tree-v4", [187, 216, 185], 291433, 8,
+                             "c48bb70ea3643070e94a44008721cb5c08fda74f80b4efee2e063a44b5436bb4", False),
+    "world_tree": asset("world-tree", "world-tree-v4-1", [187, 216, 185], 293691, 8,
                         "world_tree", MEADOW + ["minecraft:forest", "minecraft:flower_forest",
                                               "minecraft:birch_forest", "minecraft:old_growth_birch_forest"], 12,
-                        "3f19512d5d1d97ccd5efa2af59d30ef8ffa48c0269535ff472ec2586063f16e8", False),
-    "ruined_tower": asset("ruined-tower", "ruined-tower-v4", [111, 232, 93], 321087, 12,
+                        "b8235fd957029d39a534eef2f13924bc850155e46fd5872fc40f51ecce8eea37", False),
+    "ruined_tower": asset("ruined-tower", "ruined-tower-v5", [111, 232, 93], 307417, 12,
                           "ruined_tower", MEADOW + DRY + SAND, 10,
-                          "9bacd9d4792b37239d35a03ef4944c907d5d3ae49e217223eab127b962fd377c", False),
+                          "5be62afb4d6a3968e37c61b54e21941273c795921441dc9db8e705ced9f2765f", False),
     "titan_skull_2": asset("titan-skull", "titan-skull-2-v1", [105, 144, 107], 85224, 12,
                           "titan_skull_2", MEADOW + DRY, 12,
                           "5a39ac6ef62c1d07eafed69ed8a7cbeb397b4a6d3c4a6f7bf7086fdabdac1b78"),

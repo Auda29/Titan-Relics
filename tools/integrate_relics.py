@@ -1,4 +1,4 @@
-"""Select pinned current exports and derive centered natural templates for Alpha 4.3."""
+"""Select pinned current exports and derive centered natural templates for Alpha 4.4."""
 from __future__ import annotations
 
 import hashlib
@@ -11,7 +11,7 @@ from terrain_foundations import POLICY, supported_blocks
 
 
 def export_relics(output: Path, manifest_path: Path) -> dict:
-    manifest = {"selection": "alpha4", "revision": "2026-10-05-v6-v4-v4-protected-runtime-terrain-support",
+    manifest = {"selection": "alpha4", "revision": "2026-10-06-v7-v4-1-v5-root-contacts-and-weathering",
                 "foundation_policy": POLICY,
                 "air_policy": "omit; preserve existing terrain", "structures": []}
     prepared = []

@@ -58,12 +58,12 @@ def compile_libraries() -> list[Path]:
     if not DEFAULT_SERVER.is_file():
         raise ValueError("Prepare Java dependencies with tools/setup_worldgen_build.py --accept-downloads")
     libraries = prepare_classpath(DEFAULT_CACHE, DEFAULT_SERVER, ROOT / "build/smoke/runtime")
-    lithostitched = DEFAULT_CACHE / "profiles/Relic Test/mods/lithostitched-1.8.0+beta6-fabric-26.2.jar"
+    lithostitched = DEFAULT_CACHE / "profiles/Relic Test/mods/lithostitched-1.8.0-fabric-26.2.jar"
     if not lithostitched.is_file():
         lithostitched = DEFAULT_CACHE / "profiles/TerraVista/mods" / lithostitched.name
     if not lithostitched.is_file():
-        raise FileNotFoundError("Cached Lithostitched 1.8.0+beta6 JAR is required for compiling")
-    fabric_api = lithostitched.parent / "fabric-api-0.160.0+26.2.jar"
+        raise FileNotFoundError("Cached Lithostitched 1.8.0 JAR is required for compiling")
+    fabric_api = lithostitched.parent / "fabric-api-0.161.0+26.2.jar"
     nested = ROOT / "build/worldgen-local-api"
     nested.mkdir(parents=True, exist_ok=True)
     for outer in [fabric_api, next(p for p in libraries if p.name == "fabric-loader-0.19.5.jar")]:

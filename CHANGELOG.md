@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.4.4 — weathered Colossus, Tower sides and Tree ground contacts
+
+- Select Small Colossus V7, World Tree V4.1 and Ruined Tower V5 with pinned raw
+  export hashes. Preserve all earlier sources and the other seven selected exports.
+- Retain every accepted V4 Tree non-terrain cell exactly; derive supports only
+  from the revised soil contacts. Add regression and actual saved-world root
+  contact checks without filling intentional raised root arches.
+- Include the latest art pipeline's narrow wood/wood material-tie preservation,
+  weathering/growth, side-wall breaches and grassy rubble base.
+- Pin build/setup/runtime tools to Fabric API 0.161.0+26.2 and stable Lithostitched
+  1.8.0, matching the user's updated test profile. Keep Minecraft 26.2 / Java 25.
+- Require fresh all-template showcase and strict natural verification before
+  profile replacement. Preserve old saves, back up Alpha 4.3 and create new saves.
+- Keep gameplay, density, biome mappings and broader balancing unchanged.
+
+See [October 6 art changes](docs/project/GROUND_WEATHERING_20261006.md) and
+[Alpha 4.4 validation](docs/testing/ALPHA_4_4_TEST_REPORT.md).
+
 ## 0.1.0-alpha.4.3 — latest screenshot-follow-up structures
 
 - Select Small Colossus V6, World Tree V4 and Ruined Tower V4 with pinned export

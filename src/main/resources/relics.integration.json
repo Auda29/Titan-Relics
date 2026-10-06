@@ -1,6 +1,6 @@
 {
   "selection": "alpha4",
-  "revision": "2026-10-05-v6-v4-v4-protected-runtime-terrain-support",
+  "revision": "2026-10-06-v7-v4-1-v5-root-contacts-and-weathering",
   "foundation_policy": "near-ground-soil-columns-v4-protected-runtime-contact",
   "air_policy": "omit; preserve existing terrain",
   "structures": [
@@ -403,14 +403,14 @@
     },
     {
       "id": "small_colossus",
-      "source": "relics/colossus/design/generated/small-colossus-v6/small-colossus-v6.nbt",
-      "version": "small-colossus-v6",
+      "source": "relics/colossus/design/generated/small-colossus-v7/small-colossus-v7.nbt",
+      "version": "small-colossus-v7",
       "size": [
         111,
         80,
         113
       ],
-      "blocks": 234956,
+      "blocks": 235933,
       "ground_y": 9,
       "family": "small_colossus",
       "biomes": [
@@ -440,16 +440,16 @@
         }
       ],
       "slope": 12,
-      "sha256": "003075edc4e29e940c4fcdefb16da1c16202f7551a73be8a39a028e228771bab",
+      "sha256": "c48bb70ea3643070e94a44008721cb5c08fda74f80b4efee2e063a44b5436bb4",
       "visually_accepted": false,
       "data_version": 3105,
       "single_template": {
         "path": "small_colossus.nbt",
-        "sha256": "003075edc4e29e940c4fcdefb16da1c16202f7551a73be8a39a028e228771bab"
+        "sha256": "c48bb70ea3643070e94a44008721cb5c08fda74f80b4efee2e063a44b5436bb4"
       },
       "worldgen_template": {
         "path": "small_colossus_worldgen.nbt",
-        "sha256": "1cc649bf4d655513c1a0b0f14843c21be93e06c615a52941fb219a338a87bee6",
+        "sha256": "c49900e5df4b24ac1777f4608ca48f34a88525cb077c3b32494abf430618b0bd",
         "anchor": [
           63,
           0,
@@ -467,25 +467,25 @@
           "horizontal_padding": 8,
           "runtime_processor": "relics:terrain_support",
           "feature_protection": "relics:placed_cells",
-          "toe_blocks": 32149,
-          "toe_columns": 4173,
+          "toe_blocks": 35045,
+          "toe_columns": 4327,
           "ground_y": 16,
           "bottom_below_ground": 16,
-          "supported_columns": 5939,
-          "added_blocks": 109710
+          "supported_columns": 5954,
+          "added_blocks": 112870
         }
       }
     },
     {
       "id": "world_tree",
-      "source": "relics/world-tree/design/generated/world-tree-v4/world-tree-v4.nbt",
-      "version": "world-tree-v4",
+      "source": "relics/world-tree/design/generated/world-tree-v4-1/world-tree-v4-1.nbt",
+      "version": "world-tree-v4-1",
       "size": [
         187,
         216,
         185
       ],
-      "blocks": 291433,
+      "blocks": 293691,
       "ground_y": 8,
       "family": "world_tree",
       "biomes": [
@@ -510,16 +510,16 @@
         "minecraft:old_growth_birch_forest"
       ],
       "slope": 12,
-      "sha256": "3f19512d5d1d97ccd5efa2af59d30ef8ffa48c0269535ff472ec2586063f16e8",
+      "sha256": "b8235fd957029d39a534eef2f13924bc850155e46fd5872fc40f51ecce8eea37",
       "visually_accepted": false,
       "data_version": 3105,
       "single_template": {
         "path": "world_tree.nbt",
-        "sha256": "3f19512d5d1d97ccd5efa2af59d30ef8ffa48c0269535ff472ec2586063f16e8"
+        "sha256": "b8235fd957029d39a534eef2f13924bc850155e46fd5872fc40f51ecce8eea37"
       },
       "worldgen_template": {
         "path": "world_tree_worldgen.nbt",
-        "sha256": "6700a22372fd9638220183b7850e8bac857d46ffec0da40ed7d658615bb0eb9b",
+        "sha256": "3e265cc1ebad237c5b9fb211aabd561fd064fc77520319ac4585680e46a3a2b6",
         "anchor": [
           101,
           0,
@@ -537,25 +537,25 @@
           "horizontal_padding": 8,
           "runtime_processor": "relics:terrain_support",
           "feature_protection": "relics:placed_cells",
-          "toe_blocks": 49585,
-          "toe_columns": 6077,
+          "toe_blocks": 53951,
+          "toe_columns": 6558,
           "ground_y": 16,
           "bottom_below_ground": 16,
-          "supported_columns": 2856,
-          "added_blocks": 93678
+          "supported_columns": 3658,
+          "added_blocks": 109222
         }
       }
     },
     {
       "id": "ruined_tower",
-      "source": "relics/ruined-tower/design/generated/ruined-tower-v4/ruined-tower-v4.nbt",
-      "version": "ruined-tower-v4",
+      "source": "relics/ruined-tower/design/generated/ruined-tower-v5/ruined-tower-v5.nbt",
+      "version": "ruined-tower-v5",
       "size": [
         111,
         232,
         93
       ],
-      "blocks": 321087,
+      "blocks": 307417,
       "ground_y": 12,
       "family": "ruined_tower",
       "biomes": [
@@ -598,16 +598,16 @@
         }
       ],
       "slope": 10,
-      "sha256": "9bacd9d4792b37239d35a03ef4944c907d5d3ae49e217223eab127b962fd377c",
+      "sha256": "5be62afb4d6a3968e37c61b54e21941273c795921441dc9db8e705ced9f2765f",
       "visually_accepted": false,
       "data_version": 3105,
       "single_template": {
         "path": "ruined_tower.nbt",
-        "sha256": "9bacd9d4792b37239d35a03ef4944c907d5d3ae49e217223eab127b962fd377c"
+        "sha256": "5be62afb4d6a3968e37c61b54e21941273c795921441dc9db8e705ced9f2765f"
       },
       "worldgen_template": {
         "path": "ruined_tower_worldgen.nbt",
-        "sha256": "6d7f670fc6b246c04e591c7af9ba77cf2b86c9c9d1be53bf29c44f57fc10c775",
+        "sha256": "4d189f6d2460c70d97741ba3d7204a8d2678b913ca00af7afea42de7e4fd3605",
         "anchor": [
           63,
           0,
@@ -625,12 +625,12 @@
           "horizontal_padding": 8,
           "runtime_processor": "relics:terrain_support",
           "feature_protection": "relics:placed_cells",
-          "toe_blocks": 19036,
-          "toe_columns": 3513,
+          "toe_blocks": 19706,
+          "toe_columns": 3583,
           "ground_y": 14,
           "bottom_below_ground": 14,
-          "supported_columns": 4852,
-          "added_blocks": 66186
+          "supported_columns": 4628,
+          "added_blocks": 66784
         }
       }
     },

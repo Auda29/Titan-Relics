@@ -18,7 +18,7 @@ def check(config_path,review=False):
     root,blocks=read_structure(output.with_suffix('.nbt'))
     require(hashlib.sha256((out/f'{stem}-source.blend').read_bytes()).hexdigest()==meta['source_blend_sha256'],'Source model changed')
     require(config['reference']==meta['reference']=='https://www.instagram.com/reel/Da-s0zqi7OQ/','Wrong primary reference')
-    for key in ('revision_v5','revision_v6'):
+    for key in ('revision_v5','revision_v6','revision_v7'):
         if key not in meta:continue
         revision=meta[key]
         require(hashlib.sha256((ROOT/revision['source']).read_bytes()).hexdigest()==revision['source_sha256'],
@@ -67,7 +67,7 @@ def check(config_path,review=False):
     if 'revision_v6' in meta:
         for point in meta['revision_v6']['plate_probes_source']:
             require(any(p in seen for p in around(local(point),2)),f'Disconnected armour plate near {point}')
-    revision_key=next(key for key in ('revision_v6','revision_v5','revision_v4') if key in meta)
+    revision_key=next(key for key in ('revision_v7','revision_v6','revision_v5','revision_v4') if key in meta)
     summary[revision_key]={'reference':config['reference'],'source_blend_sha256':meta['source_blend_sha256'],
                             'ground_level':meta['ground_level_nbt_approx'],'visible_layers':root['size'][1]-meta['ground_level_nbt_approx'],
                             'head_and_pincers_connected_to_buried_body':True,'six_head_optics':True,
@@ -77,6 +77,13 @@ def check(config_path,review=False):
                              'copper_blocks':sum('copper' in s for s in blocks.values())}
     if 'revision_v6' in meta:
         summary[revision_key]['connected_plate_probes']=len(meta['revision_v6']['plate_probes_source'])
+    if 'revision_v7' in meta:
+        growth={config['materials'][k] for k in ('moss','growth')}
+        for point in meta['revision_v7']['growth_probes_source']:
+            require(any(blocks.get(p) in growth for p in around(local(point),2)),f'Missing surface growth near {point}')
+        count=sum(s in growth and p[1]>meta['ground_level_nbt_approx']+4 for p,s in blocks.items())
+        require(count>1000,'Overgrowth not visible at model scale')
+        summary[revision_key]['above_ground_growth_blocks']=count
     (out/'verification.json').write_text(json.dumps(summary,indent=2)+'\n')
     if review:base.contact_sheet(summary)
     print(json.dumps(summary[revision_key],indent=2))

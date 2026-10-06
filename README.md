@@ -3,24 +3,28 @@
 Rare, monumental discoveries for Minecraft: colossi, an obelisk, titan skulls,
 a world tree and a ruined tower.
 
-**Latest art follow-up:** [World Tree V4, Small Colossus V6 and Ruined Tower V4](docs/project/ALPHA_4_2_ART_FOLLOWUP.md)
-address the Alpha 4.2 screenshots; exported visual candidates with before/after reviews.
+**Latest art follow-up:** [Tree V4.1 ground contacts, Small Colossus V7 and Tower V5](docs/project/GROUND_WEATHERING_20261006.md)
+address the October 6 feedback. The user accepts the Tree's V4 form and foliage;
+its follow-up is limited to terrain contacts.
 
-**Current candidate build: 0.1.0-alpha.4.3 for Minecraft 26.2 / Fabric.** Seven relic
+**Current candidate build: 0.1.0-alpha.4.4 for Minecraft 26.2 / Fabric.** Seven relic
 designs are selected: **Colossus V4.1 materials B, Obelisk V4.2, Titan Skull V4
-(four biome variants), Small Colossus V6, World Tree V4, Ruined Tower V4 and
+(four biome variants), Small Colossus V7, World Tree V4.1, Ruined Tower V5 and
 Titan Skull 2 V1**. This is a visual integration build, not planned gameplay.
-Small Colossus, Tree and Tower remain visual candidates. See the
-[Alpha 4.2 art follow-up](docs/project/ALPHA_4_2_ART_FOLLOWUP.md).
+Small Colossus and Tower remain visual candidates; see the
+[latest art review](docs/project/GROUND_WEATHERING_20261006.md).
 The [Alpha 4.2 terrain correction](docs/technical/ALPHA_4_2_TERRAIN.md) adds
 chunk-local ground supports and conservative relic separation. Current validation
-is recorded in the [Alpha 4.3 test report](docs/testing/ALPHA_4_3_TEST_REPORT.md).
-Alpha 4.3 selects the new art without changing gameplay, density or terrain support
-policy. Full showcase and strict natural-placement verification passed, and the
-tested JAR is installed in “Relic Test” with an Alpha 4.2 backup and new showcase
-and natural-terrain saves. The terrain copy also passed reload and normal-editability
-checks. Existing worlds, source exports and other mods remain unchanged.
-Its own evidence is separate from the passing
+is recorded in the [Alpha 4.4 test report](docs/testing/ALPHA_4_4_TEST_REPORT.md).
+Alpha 4.4 selects the latest art, retains the accepted Tree's non-terrain cells
+exactly and uses Fabric API 0.161.0 / stable Lithostitched 1.8.0. Fresh showcase,
+strict natural placement and actual root-contact checks pass. The tested JAR is
+installed in “Relic Test” with an Alpha 4.3 backup and new showcase/terrain saves.
+The terrain copy also passes reload, saved-mask, normal-editability and root-contact
+checks. Existing worlds, model exports and the user's updated dependency JARs remain intact.
+Gameplay, density and terrain-support policy remain unchanged. Its own evidence
+is separate from the [Alpha 4.3 baseline](docs/testing/ALPHA_4_3_TEST_REPORT.md).
+Earlier evidence is also preserved in the
 [Alpha 4.2 baseline](docs/testing/ALPHA_4_2_TEST_REPORT.md); client artistic approval
 remains separate.
 The failed natural-placement baseline remains in the
@@ -36,7 +40,7 @@ core utility, and multiplayer loot remain follow-up tasks in the
 [lore/gameplay review](docs/project/LORE_GAMEPLAY_REVIEW.md); no models or generation
 rules are changed by that review.
 
-**Latest integration work, October 5, 2026:** all ten selected exports are copied
+**Latest integration work, October 6, 2026:** all ten selected exports are copied
 byte-for-byte for manual placement. Derived worldgen templates add soil-column
 foundations and a replaceable center anchor, with matching vertical-padding and
 burial contracts. A 25-point grid checks the padded natural footprint.
@@ -106,16 +110,16 @@ asset configs, Blender/export files, and gameplay decisions. Build selection is
 explicitly pinned by `tools/relic_catalog.py` and `tools/integrate_relics.py`;
 moving exports alone does not select them.
 
-## Structures in Alpha 4.3 (raw exports)
+## Structures in Alpha 4.4 (raw exports)
 
 | Relic | Overall dimensions, including base (X/Y/Z) | Design |
 | --- | --- | --- |
 | Obelisk V4.2 | 59 × 185 × 60 | Warm weathered antiprism with missing stone and sandy foot; ground Y8 |
 | Colossus V4.1 materials B | 181 × 209 × 235 | Damaged rear, open machine chest, palm-up hand and salvageable armour; ground Y77 |
 | Titan Skull V4 | 117 × 79 × 179 each | Crowned skull, broken spine and interrupted deposits; four biome palettes; ground Y8 |
-| Small Colossus V6 | 111 × 80 × 113 | Overlapping chamfered armour, slumped helmet and darker pincers; candidate; ground Y9 |
-| World Tree V4 | 187 × 216 × 185 | Spreading branch fans, connected woody skeleton and irregular foliage; candidate; ground Y8 |
-| Ruined Tower V4 | 111 × 232 × 93 | Fractured crown, broken stair and inner masonry relief, 220 visible layers; candidate; ground Y12 |
+| Small Colossus V7 | 111 × 80 × 113 | Weathered plated body with close-fitting irregular moss and patina; candidate; ground Y9 |
+| World Tree V4.1 | 187 × 216 × 185 | Accepted V4 tree unchanged, with ground-only low root transitions; ground Y8 |
+| Ruined Tower V5 | 111 × 232 × 93 | Ragged side breaches, masonry relief and grassy rubble foot, 220 visible layers; candidate; ground Y12 |
 | Titan Skull 2 V1 | 105 × 144 × 107 | Independent skull with embedded sword; ground Y12 |
 
 All use vanilla blocks and have natural generation resources for new Overworld
@@ -129,15 +133,15 @@ remain provisional; neither mod is required. Runtime coverage is recorded in the
 | Minecraft Java Edition | 26.2 |
 | Java | 25 |
 | Fabric Loader | 0.19.5 |
-| Fabric API | 0.160.0+26.2 |
-| Lithostitched | 1.8.0+beta6 for Fabric 26.2 |
+| Fabric API | 0.161.0+26.2 |
+| Lithostitched | 1.8.0 stable for Fabric 26.2 |
 
 See [Target environment](docs/technical/TARGET_ENVIRONMENT.md), the current
-[Alpha 4.3 test report](docs/testing/ALPHA_4_3_TEST_REPORT.md) and historical
+[Alpha 4.4 test report](docs/testing/ALPHA_4_4_TEST_REPORT.md) and historical
 [Alpha 3 test report](docs/testing/ALPHA_3_TEST_REPORT.md).
 
 1. Install Fabric for Minecraft 26.2.
-2. Put `relics-0.1.0-alpha.4.3+mc26.2.jar`, Fabric API, and Lithostitched in `mods/` after runtime validation.
+2. Put `relics-0.1.0-alpha.4.4+mc26.2.jar`, Fabric API, and Lithostitched in `mods/` after runtime validation.
 3. Create a fresh test world with structure generation enabled. Relics are not retroactively added to existing chunks.
 
 Dependencies are available from [Lithostitched](https://modrinth.com/mod/lithostitched) and [Fabric API](https://modrinth.com/mod/fabric-api). Their JARs are not bundled with our release.
