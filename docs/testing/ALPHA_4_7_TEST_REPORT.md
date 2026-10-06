@@ -7,7 +7,8 @@ turning to gameplay. The Alpha 4.6 photographs and saved-world audits are the
 regression baseline. **The final build passes the complete ten-variant showcase,
 strict natural generation, saved masks, foundations and supplemental contacts.**
 Global searches pass with Minecraft's normal 60-second watchdog in the tested
-seed. “Relic Test” has not been upgraded during this task.
+seed. After the initial integration/push, the user separately authorized upgrading
+“Relic Test”; Alpha 4.7 is now installed with two new inspection saves.
 
 ## Implementation
 
@@ -158,10 +159,49 @@ python tools/smoke_server.py --accept-eula --quiet --showcase
 python tools/smoke_server.py --accept-eula --quiet
 ```
 
+## Authorized profile installation and inspection saves
+
+On October 6, after the integration was pushed, the user requested replacing the
+Alpha in “Relic Test” and supplying TP commands. `tools/install_test_profile.py`
+accepted the strict final natural/showcase pair without a feature-overwrite
+exception. The installed JAR matches the tested artifact hash above; Alpha 4.5
+was hash-verified and backed up outside the profile's `mods` directory.
+Fabric API and Lithostitched remain unchanged.
+
+- `Relic Alpha 4.7 Showcase 20261006-153652`: 76 copied files verified, with only
+  the intended title/cheat metadata preparation in `level.dat`.
+- `Relic Alpha 4.7 Terrain 20261006-153657`: seed **731204**, prepared from the
+  passing natural run, excluding only recorded manual-placement regions.
+  Strict reload verification passes all ten natural structures with zero
+  mismatches, complete bounds/chunks, foundations and persisted protection.
+- A protected Colossus cell was removed and restored in the new isolated copy;
+  normal editability passed. No original save was used for this probe.
+- [Reloaded Tree contacts](alpha4-7-tree-reload-contacts.json): zero ground-level
+  gaps; the same 53 raised edges are reported separately.
+- [Reloaded buried-art contacts](alpha4-7-buried-reload-contacts.json): all 5,159
+  checked cells supported, with no missing art or unsupported cells.
+- At installation completion, all **14 original worlds / 150,458 save files**
+  and the remaining original profile files were unchanged. These records precede
+  the user's later inspection; they are not a claim about the saves after play.
+
+The [portable installation record](alpha4-7-installation.json) contains source
+hashes, preservation counts and all 20 TP viewpoints for the two named saves.
+The coordinates are specific to these saves. Backups and world files stay local.
+
+## Subsequent user screenshot review
+
+The user then supplied 54 native screenshots from the installed inspection worlds.
+The [visual review](../project/ALPHA_4_7_SCREENSHOT_REVIEW.md) publishes seven image
+sheets and the native PNG hashes. It identifies remaining visual ground skirts,
+the Skull 2 ground island and large Tower wall surfaces as proposed follow-ups.
+Those recommendations were not implemented and do not invalidate or replace
+the recorded technical acceptance. The latest push/tag request authorizes
+publishing these records, not further art or gameplay changes.
+
 ## Scope
 
 Existing profile worlds and source exports are retained. The working artifact is
-`dist/relics-0.1.0-alpha.4.7+mc26.2.jar`; “Relic Test” is still on Alpha 4.5.
-Client visual acceptance and gameplay implementation are follow-up work.
-The subsequent request authorizes integration and Git push only, not a profile
-upgrade, additional world generation or gameplay work.
+`dist/relics-0.1.0-alpha.4.7+mc26.2.jar`; “Relic Test” is now on Alpha 4.7 after
+the separately authorized installation. The earlier integration/push request
+did not itself authorize that upgrade. Overall user artistic acceptance, proposed
+visual refinements and gameplay implementation remain separate follow-up work.

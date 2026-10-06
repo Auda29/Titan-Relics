@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "scope": "Recorded installation and reload before user inspection; not a current save snapshot",
+  "date": "2026-10-06",
+  "installed_version": "0.1.0-alpha.4.7",
+  "artifact": "relics-0.1.0-alpha.4.7+mc26.2.jar",
+  "artifact_sha256": "e2d384b8ab6ea4abc379487e993d40b9f355e08db610a32e6e7bef614169dfa9",
+  "previous_version": "0.1.0-alpha.4.5",
+  "previous_version_backed_up": true,
+  "backup": "build/profile-backups/0.1.0-alpha.4.7-upgrade-20261006-153652",
+  "preservation_report_sha256": "630bcf0ef3bf831dd0786ec570e38bfe547660261d085efe395c8ccc062804b8",
+  "original_worlds_preserved": 14,
+  "original_save_files_checked": 150458,
+  "original_file_changes": [],
+  "unexpected_files_in_original_worlds": [],
+  "seed": 731204,
+  "terrain_preview_report_sha256": "862c4f6db6a51a432c296fc420167c1944503d027f59d94e1bef416720a7e2fc",
+  "natural_source_report_sha256": "c45bc0d5ad32e98cf372f6f4a5c42db43568b41fad8068ebd8a137aea8e22cca",
+  "terrain_reload_passed": true,
+  "natural_structures_verified": [
+    "relics:colossus",
+    "relics:obelisk",
+    "relics:ruined_tower",
+    "relics:small_colossus",
+    "relics:titan_skull",
+    "relics:titan_skull_2",
+    "relics:titan_skull_dry",
+    "relics:titan_skull_rock",
+    "relics:titan_skull_sand",
+    "relics:world_tree"
+  ],
+  "natural_mismatches": 0,
+  "protected_cell_editability": {
+    "position": [
+      21964,
+      196,
+      -30194
+    ],
+    "state": {
+      "Name": "minecraft:green_terracotta"
+    },
+    "persisted_mask_present": true,
+    "normal_removal_passed": true,
+    "normal_placement_passed": true
+  },
+  "contact_audits": [
+    {
+      "file": "alpha4-7-tree-reload-contacts.json",
+      "sha256": "54022c33bfc085c7bd537c2abb36f5808e9b65c93cb64ec5b525634d49071d80",
+      "passed": true
+    },
+    {
+      "file": "alpha4-7-buried-reload-contacts.json",
+      "sha256": "fb031355934db4834796d3f8043bcb265764271a1f2d2d2617219c258af9eb98",
+      "passed": true
+    }
+  ],
+  "showcase_copy_files_verified": 76,
+  "gamemode_command": "/gamemode spectator",
+  "worlds": [
+    {
+      "world_title": "Relic Alpha 4.7 Terrain 20261006-153657",
+      "commands": [
+        {
+          "structure": "relics:colossus",
+          "label": "Großer Koloss",
+          "command": "/tp @s 22189 109 -30192 90 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:obelisk",
+          "label": "Obelisk",
+          "command": "/tp @s 4336 167 -7850 180 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:titan_skull",
+          "label": "Schädel – Wiese",
+          "command": "/tp @s -10400 114 -17519 180 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:titan_skull_dry",
+          "label": "Schädel – Savanne",
+          "command": "/tp @s 1888 133 -12111 180 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:titan_skull_sand",
+          "label": "Schädel – Wüste",
+          "command": "/tp @s -22832 106 -31871 180 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:titan_skull_rock",
+          "label": "Schädel – Fels",
+          "command": "/tp @s -8895 118 35664 90 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:small_colossus",
+          "label": "Kleiner Koloss",
+          "command": "/tp @s 18592 104 -96 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:world_tree",
+          "label": "Weltenbaum",
+          "command": "/tp @s 23712 180 -45372 180 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:ruined_tower",
+          "label": "Turm",
+          "command": "/tp @s 10454 184 2752 90 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "label": "Schädel 2",
+          "command": "/tp @s -13168 128 36361 180 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        }
+      ]
+    },
+    {
+      "world_title": "Relic Alpha 4.7 Showcase 20261006-153652",
+      "commands": [
+        {
+          "structure": "relics:colossus",
+          "label": "Großer Koloss",
+          "command": "/tp @s 90 106 -32 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:obelisk",
+          "label": "Obelisk",
+          "command": "/tp @s 413 163 -32 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:titan_skull",
+          "label": "Schädel – Wiese",
+          "command": "/tp @s 826 102 -32 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:titan_skull_dry",
+          "label": "Schädel – Savanne",
+          "command": "/tp @s 1210 102 -32 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:titan_skull_sand",
+          "label": "Schädel – Wüste",
+          "command": "/tp @s 1594 102 -32 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:titan_skull_rock",
+          "label": "Schädel – Fels",
+          "command": "/tp @s 1978 102 -32 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:small_colossus",
+          "label": "Kleiner Koloss",
+          "command": "/tp @s 2359 105 -32 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:world_tree",
+          "label": "Weltenbaum",
+          "command": "/tp @s 2781 178 -32 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:ruined_tower",
+          "label": "Turm",
+          "command": "/tp @s 3127 182 -32 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "label": "Schädel 2",
+          "command": "/tp @s 3505 124 -32 0 0",
+          "camera_chunk_full": true,
+          "camera_cell_air": true
+        }
+      ]
+    }
+  ]
+}

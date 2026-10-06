@@ -24,8 +24,14 @@ previous problem sites now have zero ground-level root gaps and zero unsupported
 buried-art contacts. Fresh showcase and strict natural verification pass all ten
 variants, with zero block mismatches; global searches take 1.1–24.2 seconds in
 the tested seed under the normal 60-second watchdog.
-The requested next development focus is gameplay. Alpha 4.5 remains installed
-in “Relic Test”; the current JAR is available under `dist/`.
+Alpha 4.7 is now installed in “Relic Test” after a separate user-authorized
+upgrade, with Alpha 4.5 backed up and all 14 previous worlds preserved.
+Two new inspection saves and their TP viewpoints are recorded in the
+[installation evidence](docs/testing/alpha4-7-installation.json).
+The current JAR is available under `dist/`.
+The [54-image user screenshot review](docs/project/ALPHA_4_7_SCREENSHOT_REVIEW.md)
+records remaining visual ground skirts and Tower-wall refinements; these are
+proposals, not implemented changes or new user artistic approval.
 Real client photographs from an isolated photo copy are available in the
 [model/site overview](docs/project/reviews/alpha4-6-client-overview.png) and
 [contact-problem details](docs/project/reviews/alpha4-6-client-contacts.png).

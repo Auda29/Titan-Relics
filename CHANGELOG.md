@@ -12,7 +12,12 @@
 - Retain the full terrain grid, biome tags, separation, density and dependencies.
 - Include existing full showcase/natural acceptance and passing root/substrate
   audits, with ordinary locators under the normal 60-second watchdog.
-- Keep profile installation, new worlds and gameplay outside this integration.
+- Keep profile installation, new worlds and gameplay outside the initial integration.
+- Record the separately authorized Alpha 4.7 profile upgrade, verified Alpha 4.5
+  backup, two new inspection saves and unchanged original worlds.
+- Publish all 54 user screenshot views as six numbered contact sheets plus a
+  selected-findings sheet, with native PNG hashes and a visual review. Proposed
+  art refinements remain unimplemented; gameplay remains unchanged.
 
 See [Alpha 4.7 validation](docs/testing/ALPHA_4_7_TEST_REPORT.md).
 
