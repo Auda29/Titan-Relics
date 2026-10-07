@@ -1,0 +1,132 @@
+{
+  "scope": "Actual saved solid blocks, matched sites and crop bounds; small non-cube vegetation omitted for the cube renderer",
+  "source_reports": [
+    {
+      "path": "build/smoke/run-20261007-090359-448f2a8bf6a8/report.json",
+      "sha256": "87b453c541bfcfba0f9fdcce23bdd559a877a33cca35cf8a8c3aec733db1e97a"
+    },
+    {
+      "path": "build/smoke/run-20261007-114624-97e7a0fcf6f1/report.json",
+      "sha256": "642ecf79fcdc84163ff35120ad88cdc1405512e2f0d7446dc20d16eeaa13c658"
+    }
+  ],
+  "records": [
+    {
+      "id": "titan_skull_2",
+      "side": "before",
+      "path": "build/cave-contacts/20261007/views/titan_skull_2-before.nbt",
+      "sha256": "60994a844350fe13f9f3ec2e268371122af48dd0458ba53ba90322372ff338a6",
+      "blocks": 162344,
+      "nominal_ground_y": 10,
+      "world_ground_y": 68,
+      "omitted_non_cube_plants": 5761,
+      "origin": [
+        -13111,
+        40,
+        36329
+      ],
+      "rotation": "CLOCKWISE_180",
+      "read_errors": []
+    },
+    {
+      "id": "titan_skull_2",
+      "side": "after",
+      "path": "build/cave-contacts/20261007/views/titan_skull_2-after.nbt",
+      "sha256": "f5fb15fd7df8cb3019df8392c25af98c3a42c8e44bac2d2345f817983680d76e",
+      "blocks": 161602,
+      "nominal_ground_y": 10,
+      "world_ground_y": 68,
+      "omitted_non_cube_plants": 5750,
+      "origin": [
+        -13111,
+        40,
+        36329
+      ],
+      "rotation": "CLOCKWISE_180",
+      "read_errors": []
+    },
+    {
+      "id": "world_tree",
+      "side": "before",
+      "path": "build/cave-contacts/20261007/views/world_tree-before.nbt",
+      "sha256": "cc3e276c4ac170b85acd29706f3fb7fddd42e3abee9a1106d5bb1d2d9d588fee",
+      "blocks": 465382,
+      "nominal_ground_y": 10,
+      "world_ground_y": 67,
+      "omitted_non_cube_plants": 14854,
+      "origin": [
+        23813,
+        43,
+        -45404
+      ],
+      "rotation": "CLOCKWISE_180",
+      "read_errors": []
+    },
+    {
+      "id": "world_tree",
+      "side": "after",
+      "path": "build/cave-contacts/20261007/views/world_tree-after.nbt",
+      "sha256": "fd503288bcf543ef3e2b0a6f160fb87fecdc93e949423dbce171d25ed51cddc7",
+      "blocks": 465684,
+      "nominal_ground_y": 10,
+      "world_ground_y": 67,
+      "omitted_non_cube_plants": 14922,
+      "origin": [
+        23813,
+        43,
+        -45404
+      ],
+      "rotation": "CLOCKWISE_180",
+      "read_errors": []
+    }
+  ],
+  "texture_fallbacks": {
+    "minecraft:acacia_leaves": "minecraft:oak_leaves",
+    "minecraft:birch_leaves": "minecraft:oak_leaves",
+    "minecraft:red_mushroom": "minecraft:stone",
+    "minecraft:water": "minecraft:blue_concrete"
+  },
+  "slice_planes": [
+    [
+      "skull-cave",
+      "SCH\u00c4DEL 2 / tiefer H\u00f6hlenanschnitt",
+      "x",
+      -13139,
+      36278,
+      36301,
+      38,
+      65
+    ],
+    [
+      "tree-cave-north",
+      "BAUM / n\u00f6rdliche H\u00f6hlenwand",
+      "x",
+      23744,
+      -45565,
+      -45535,
+      40,
+      73
+    ],
+    [
+      "tree-cave-west",
+      "BAUM / westlicher Wurzeldurchtritt",
+      "z",
+      -45470,
+      23660,
+      23692,
+      40,
+      72
+    ]
+  ],
+  "slice_data_sha256": "f63d318e366ddd4377ab20a782d9aa43e9cd0d44ad31eef211e4b667c9ae3194",
+  "images": [
+    {
+      "path": "docs/project/reviews/cave-contacts-surface-20261007.png",
+      "sha256": "3bbeb961eef0f38af91a238362c73c58f2bb10224e9e30b8a224fa4e0a916d87"
+    },
+    {
+      "path": "docs/project/reviews/cave-contacts-20261007.png",
+      "sha256": "1cf24ce5dab879b0023b672e392bc25b38d415de93fd0dfc8de7afba1aeb8cb4"
+    }
+  ]
+}

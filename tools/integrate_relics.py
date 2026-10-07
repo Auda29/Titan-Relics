@@ -1,4 +1,4 @@
-"""Select pinned art and derive surface-anchored natural templates for Alpha 4.8."""
+"""Select pinned art and derive surface-anchored natural templates for Alpha 4.9."""
 from __future__ import annotations
 
 import hashlib
@@ -11,7 +11,7 @@ from terrain_foundations import POLICY, RUNTIME_POLICY, supported_blocks
 
 
 def export_relics(output: Path, manifest_path: Path) -> dict:
-    manifest = {"selection": "alpha4", "revision": "2026-10-07-native-ground-embedding-and-root-continuations",
+    manifest = {"selection": "alpha4", "revision": "2026-10-07-shallow-skull-footprint-and-sparse-root-strands",
                 "foundation_policy": POLICY,
                 "runtime_contact_policy": RUNTIME_POLICY,
                 "air_policy": "omit; preserve existing terrain", "structures": []}

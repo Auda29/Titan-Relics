@@ -1,0 +1,7383 @@
+{
+  "source_report": "build\\smoke\\run-20261007-114624-97e7a0fcf6f1\\report.json",
+  "source_report_sha256": "642ecf79fcdc84163ff35120ad88cdc1405512e2f0d7446dc20d16eeaa13c658",
+  "source_nbt_sha256": "4f4fed24edd04f207c76162dc441093fc485e90149c8bc106cf51cc4a1248f14",
+  "instances": [
+    {
+      "structure": "relics:world_tree",
+      "low_root_columns": 4338,
+      "direct_contacts": 3995,
+      "missing_expected_wood": [],
+      "low_root_gap_columns": 343,
+      "ground_level_gap_columns": 169,
+      "gaps_by_root_height_above_nominal_ground": {
+        "-19": 2,
+        "-18": 5,
+        "-17": 5,
+        "-16": 4,
+        "-15": 7,
+        "-14": 5,
+        "-13": 5,
+        "-12": 25,
+        "-11": 4,
+        "-10": 4,
+        "-9": 7,
+        "-8": 39,
+        "-7": 34,
+        "-6": 6,
+        "-5": 2,
+        "-4": 1,
+        "0": 14,
+        "1": 96,
+        "2": 78
+      },
+      "gaps": [
+        {
+          "raw_position": [
+            40,
+            17,
+            77
+          ],
+          "world_position": [
+            23765,
+            60,
+            -45489
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            41,
+            17,
+            77
+          ],
+          "world_position": [
+            23764,
+            60,
+            -45489
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            42,
+            17,
+            77
+          ],
+          "world_position": [
+            23763,
+            60,
+            -45489
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            42,
+            17,
+            78
+          ],
+          "world_position": [
+            23763,
+            60,
+            -45490
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            43,
+            17,
+            78
+          ],
+          "world_position": [
+            23762,
+            60,
+            -45490
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            45,
+            17,
+            78
+          ],
+          "world_position": [
+            23760,
+            60,
+            -45490
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            46,
+            10,
+            132
+          ],
+          "world_position": [
+            23759,
+            53,
+            -45544
+          ],
+          "height_above_nominal_ground": -14,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            46,
+            9,
+            133
+          ],
+          "world_position": [
+            23759,
+            52,
+            -45545
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            47,
+            10,
+            132
+          ],
+          "world_position": [
+            23758,
+            53,
+            -45544
+          ],
+          "height_above_nominal_ground": -14,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            47,
+            10,
+            133
+          ],
+          "world_position": [
+            23758,
+            53,
+            -45545
+          ],
+          "height_above_nominal_ground": -14,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            47,
+            9,
+            134
+          ],
+          "world_position": [
+            23758,
+            52,
+            -45546
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            47,
+            7,
+            135
+          ],
+          "world_position": [
+            23758,
+            50,
+            -45547
+          ],
+          "height_above_nominal_ground": -17,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            47,
+            6,
+            136
+          ],
+          "world_position": [
+            23758,
+            49,
+            -45548
+          ],
+          "height_above_nominal_ground": -18,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            48,
+            16,
+            125
+          ],
+          "world_position": [
+            23757,
+            59,
+            -45537
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            48,
+            16,
+            126
+          ],
+          "world_position": [
+            23757,
+            59,
+            -45538
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            48,
+            15,
+            127
+          ],
+          "world_position": [
+            23757,
+            58,
+            -45539
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            48,
+            16,
+            128
+          ],
+          "world_position": [
+            23757,
+            59,
+            -45540
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            48,
+            14,
+            131
+          ],
+          "world_position": [
+            23757,
+            57,
+            -45543
+          ],
+          "height_above_nominal_ground": -10,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            48,
+            11,
+            132
+          ],
+          "world_position": [
+            23757,
+            54,
+            -45544
+          ],
+          "height_above_nominal_ground": -13,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            48,
+            10,
+            133
+          ],
+          "world_position": [
+            23757,
+            53,
+            -45545
+          ],
+          "height_above_nominal_ground": -14,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            48,
+            9,
+            134
+          ],
+          "world_position": [
+            23757,
+            52,
+            -45546
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            48,
+            8,
+            135
+          ],
+          "world_position": [
+            23757,
+            51,
+            -45547
+          ],
+          "height_above_nominal_ground": -16,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            49,
+            17,
+            124
+          ],
+          "world_position": [
+            23756,
+            60,
+            -45536
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            49,
+            16,
+            125
+          ],
+          "world_position": [
+            23756,
+            59,
+            -45537
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            49,
+            16,
+            126
+          ],
+          "world_position": [
+            23756,
+            59,
+            -45538
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            49,
+            16,
+            127
+          ],
+          "world_position": [
+            23756,
+            59,
+            -45539
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            49,
+            16,
+            128
+          ],
+          "world_position": [
+            23756,
+            59,
+            -45540
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            49,
+            15,
+            129
+          ],
+          "world_position": [
+            23756,
+            58,
+            -45541
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            49,
+            14,
+            130
+          ],
+          "world_position": [
+            23756,
+            57,
+            -45542
+          ],
+          "height_above_nominal_ground": -10,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            49,
+            13,
+            131
+          ],
+          "world_position": [
+            23756,
+            56,
+            -45543
+          ],
+          "height_above_nominal_ground": -11,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            49,
+            12,
+            132
+          ],
+          "world_position": [
+            23756,
+            55,
+            -45544
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            49,
+            11,
+            133
+          ],
+          "world_position": [
+            23756,
+            54,
+            -45545
+          ],
+          "height_above_nominal_ground": -13,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            50,
+            17,
+            123
+          ],
+          "world_position": [
+            23755,
+            60,
+            -45535
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            50,
+            16,
+            124
+          ],
+          "world_position": [
+            23755,
+            59,
+            -45536
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            50,
+            16,
+            125
+          ],
+          "world_position": [
+            23755,
+            59,
+            -45537
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            50,
+            16,
+            126
+          ],
+          "world_position": [
+            23755,
+            59,
+            -45538
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            50,
+            16,
+            127
+          ],
+          "world_position": [
+            23755,
+            59,
+            -45539
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            50,
+            16,
+            128
+          ],
+          "world_position": [
+            23755,
+            59,
+            -45540
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            50,
+            15,
+            129
+          ],
+          "world_position": [
+            23755,
+            58,
+            -45541
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            50,
+            14,
+            130
+          ],
+          "world_position": [
+            23755,
+            57,
+            -45542
+          ],
+          "height_above_nominal_ground": -10,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            50,
+            14,
+            131
+          ],
+          "world_position": [
+            23755,
+            57,
+            -45543
+          ],
+          "height_above_nominal_ground": -10,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            50,
+            13,
+            132
+          ],
+          "world_position": [
+            23755,
+            56,
+            -45544
+          ],
+          "height_above_nominal_ground": -11,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            51,
+            24,
+            86
+          ],
+          "world_position": [
+            23754,
+            67,
+            -45498
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            51,
+            16,
+            125
+          ],
+          "world_position": [
+            23754,
+            59,
+            -45537
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            51,
+            16,
+            126
+          ],
+          "world_position": [
+            23754,
+            59,
+            -45538
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            51,
+            17,
+            127
+          ],
+          "world_position": [
+            23754,
+            60,
+            -45539
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            51,
+            17,
+            128
+          ],
+          "world_position": [
+            23754,
+            60,
+            -45540
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            51,
+            16,
+            129
+          ],
+          "world_position": [
+            23754,
+            59,
+            -45541
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            51,
+            16,
+            130
+          ],
+          "world_position": [
+            23754,
+            59,
+            -45542
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            52,
+            24,
+            87
+          ],
+          "world_position": [
+            23753,
+            67,
+            -45499
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            53,
+            24,
+            88
+          ],
+          "world_position": [
+            23752,
+            67,
+            -45500
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            54,
+            25,
+            89
+          ],
+          "world_position": [
+            23751,
+            68,
+            -45501
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            54,
+            7,
+            126
+          ],
+          "world_position": [
+            23751,
+            50,
+            -45538
+          ],
+          "height_above_nominal_ground": -17,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            54,
+            6,
+            127
+          ],
+          "world_position": [
+            23751,
+            49,
+            -45539
+          ],
+          "height_above_nominal_ground": -18,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            55,
+            26,
+            90
+          ],
+          "world_position": [
+            23750,
+            69,
+            -45502
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            55,
+            8,
+            126
+          ],
+          "world_position": [
+            23750,
+            51,
+            -45538
+          ],
+          "height_above_nominal_ground": -16,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            56,
+            26,
+            91
+          ],
+          "world_position": [
+            23749,
+            69,
+            -45503
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            56,
+            9,
+            126
+          ],
+          "world_position": [
+            23749,
+            52,
+            -45538
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            57,
+            9,
+            128
+          ],
+          "world_position": [
+            23748,
+            52,
+            -45540
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            57,
+            8,
+            129
+          ],
+          "world_position": [
+            23748,
+            51,
+            -45541
+          ],
+          "height_above_nominal_ground": -16,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            58,
+            17,
+            133
+          ],
+          "world_position": [
+            23747,
+            60,
+            -45545
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            58,
+            17,
+            134
+          ],
+          "world_position": [
+            23747,
+            60,
+            -45546
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            59,
+            16,
+            134
+          ],
+          "world_position": [
+            23746,
+            59,
+            -45546
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            59,
+            16,
+            135
+          ],
+          "world_position": [
+            23746,
+            59,
+            -45547
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            59,
+            16,
+            136
+          ],
+          "world_position": [
+            23746,
+            59,
+            -45548
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            59,
+            16,
+            137
+          ],
+          "world_position": [
+            23746,
+            59,
+            -45549
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            59,
+            16,
+            138
+          ],
+          "world_position": [
+            23746,
+            59,
+            -45550
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            60,
+            15,
+            136
+          ],
+          "world_position": [
+            23745,
+            58,
+            -45548
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            60,
+            15,
+            137
+          ],
+          "world_position": [
+            23745,
+            58,
+            -45549
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            61,
+            24,
+            78
+          ],
+          "world_position": [
+            23744,
+            67,
+            -45490
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            64,
+            25,
+            79
+          ],
+          "world_position": [
+            23741,
+            68,
+            -45491
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            75,
+            25,
+            64
+          ],
+          "world_position": [
+            23730,
+            68,
+            -45476
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            75,
+            25,
+            65
+          ],
+          "world_position": [
+            23730,
+            68,
+            -45477
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            75,
+            25,
+            66
+          ],
+          "world_position": [
+            23730,
+            68,
+            -45478
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            75,
+            25,
+            67
+          ],
+          "world_position": [
+            23730,
+            68,
+            -45479
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            75,
+            25,
+            68
+          ],
+          "world_position": [
+            23730,
+            68,
+            -45480
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            75,
+            25,
+            69
+          ],
+          "world_position": [
+            23730,
+            68,
+            -45481
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            75,
+            26,
+            70
+          ],
+          "world_position": [
+            23730,
+            69,
+            -45482
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            75,
+            26,
+            71
+          ],
+          "world_position": [
+            23730,
+            69,
+            -45483
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            75,
+            26,
+            72
+          ],
+          "world_position": [
+            23730,
+            69,
+            -45484
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            75,
+            26,
+            73
+          ],
+          "world_position": [
+            23730,
+            69,
+            -45485
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            76,
+            25,
+            69
+          ],
+          "world_position": [
+            23729,
+            68,
+            -45481
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            76,
+            25,
+            70
+          ],
+          "world_position": [
+            23729,
+            68,
+            -45482
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            76,
+            25,
+            71
+          ],
+          "world_position": [
+            23729,
+            68,
+            -45483
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            76,
+            26,
+            73
+          ],
+          "world_position": [
+            23729,
+            69,
+            -45485
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            76,
+            26,
+            74
+          ],
+          "world_position": [
+            23729,
+            69,
+            -45486
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            76,
+            26,
+            75
+          ],
+          "world_position": [
+            23729,
+            69,
+            -45487
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            76,
+            26,
+            76
+          ],
+          "world_position": [
+            23729,
+            69,
+            -45488
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            77,
+            25,
+            72
+          ],
+          "world_position": [
+            23728,
+            68,
+            -45484
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            77,
+            25,
+            73
+          ],
+          "world_position": [
+            23728,
+            68,
+            -45485
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            77,
+            26,
+            75
+          ],
+          "world_position": [
+            23728,
+            69,
+            -45487
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            77,
+            26,
+            76
+          ],
+          "world_position": [
+            23728,
+            69,
+            -45488
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            77,
+            26,
+            77
+          ],
+          "world_position": [
+            23728,
+            69,
+            -45489
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            77,
+            26,
+            78
+          ],
+          "world_position": [
+            23728,
+            69,
+            -45490
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            78,
+            25,
+            73
+          ],
+          "world_position": [
+            23727,
+            68,
+            -45485
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            78,
+            25,
+            75
+          ],
+          "world_position": [
+            23727,
+            68,
+            -45487
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            78,
+            25,
+            76
+          ],
+          "world_position": [
+            23727,
+            68,
+            -45488
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            78,
+            26,
+            77
+          ],
+          "world_position": [
+            23727,
+            69,
+            -45489
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            78,
+            26,
+            78
+          ],
+          "world_position": [
+            23727,
+            69,
+            -45490
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            78,
+            26,
+            79
+          ],
+          "world_position": [
+            23727,
+            69,
+            -45491
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            79,
+            25,
+            74
+          ],
+          "world_position": [
+            23726,
+            68,
+            -45486
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            79,
+            25,
+            75
+          ],
+          "world_position": [
+            23726,
+            68,
+            -45487
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            79,
+            25,
+            76
+          ],
+          "world_position": [
+            23726,
+            68,
+            -45488
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            79,
+            26,
+            77
+          ],
+          "world_position": [
+            23726,
+            69,
+            -45489
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            79,
+            26,
+            78
+          ],
+          "world_position": [
+            23726,
+            69,
+            -45490
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            79,
+            26,
+            79
+          ],
+          "world_position": [
+            23726,
+            69,
+            -45491
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            80,
+            25,
+            73
+          ],
+          "world_position": [
+            23725,
+            68,
+            -45485
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            80,
+            25,
+            74
+          ],
+          "world_position": [
+            23725,
+            68,
+            -45486
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            80,
+            25,
+            75
+          ],
+          "world_position": [
+            23725,
+            68,
+            -45487
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            80,
+            25,
+            76
+          ],
+          "world_position": [
+            23725,
+            68,
+            -45488
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            80,
+            26,
+            77
+          ],
+          "world_position": [
+            23725,
+            69,
+            -45489
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            80,
+            26,
+            78
+          ],
+          "world_position": [
+            23725,
+            69,
+            -45490
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            80,
+            26,
+            79
+          ],
+          "world_position": [
+            23725,
+            69,
+            -45491
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            81,
+            24,
+            68
+          ],
+          "world_position": [
+            23724,
+            67,
+            -45480
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            81,
+            25,
+            72
+          ],
+          "world_position": [
+            23724,
+            68,
+            -45484
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            81,
+            25,
+            73
+          ],
+          "world_position": [
+            23724,
+            68,
+            -45485
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            81,
+            25,
+            74
+          ],
+          "world_position": [
+            23724,
+            68,
+            -45486
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            81,
+            25,
+            75
+          ],
+          "world_position": [
+            23724,
+            68,
+            -45487
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            81,
+            26,
+            76
+          ],
+          "world_position": [
+            23724,
+            69,
+            -45488
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            81,
+            26,
+            77
+          ],
+          "world_position": [
+            23724,
+            69,
+            -45489
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            81,
+            26,
+            78
+          ],
+          "world_position": [
+            23724,
+            69,
+            -45490
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            81,
+            26,
+            79
+          ],
+          "world_position": [
+            23724,
+            69,
+            -45491
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            82,
+            24,
+            67
+          ],
+          "world_position": [
+            23723,
+            67,
+            -45479
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            82,
+            24,
+            68
+          ],
+          "world_position": [
+            23723,
+            67,
+            -45480
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            82,
+            25,
+            70
+          ],
+          "world_position": [
+            23723,
+            68,
+            -45482
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            82,
+            25,
+            71
+          ],
+          "world_position": [
+            23723,
+            68,
+            -45483
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            82,
+            25,
+            72
+          ],
+          "world_position": [
+            23723,
+            68,
+            -45484
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            82,
+            25,
+            73
+          ],
+          "world_position": [
+            23723,
+            68,
+            -45485
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            82,
+            26,
+            74
+          ],
+          "world_position": [
+            23723,
+            69,
+            -45486
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            82,
+            26,
+            75
+          ],
+          "world_position": [
+            23723,
+            69,
+            -45487
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            82,
+            26,
+            76
+          ],
+          "world_position": [
+            23723,
+            69,
+            -45488
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            82,
+            26,
+            77
+          ],
+          "world_position": [
+            23723,
+            69,
+            -45489
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            25,
+            61
+          ],
+          "world_position": [
+            23722,
+            68,
+            -45473
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            25,
+            63
+          ],
+          "world_position": [
+            23722,
+            68,
+            -45475
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            25,
+            64
+          ],
+          "world_position": [
+            23722,
+            68,
+            -45476
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            25,
+            65
+          ],
+          "world_position": [
+            23722,
+            68,
+            -45477
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            25,
+            66
+          ],
+          "world_position": [
+            23722,
+            68,
+            -45478
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            25,
+            67
+          ],
+          "world_position": [
+            23722,
+            68,
+            -45479
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            25,
+            68
+          ],
+          "world_position": [
+            23722,
+            68,
+            -45480
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            25,
+            69
+          ],
+          "world_position": [
+            23722,
+            68,
+            -45481
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            26,
+            70
+          ],
+          "world_position": [
+            23722,
+            69,
+            -45482
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            26,
+            71
+          ],
+          "world_position": [
+            23722,
+            69,
+            -45483
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            26,
+            72
+          ],
+          "world_position": [
+            23722,
+            69,
+            -45484
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            26,
+            73
+          ],
+          "world_position": [
+            23722,
+            69,
+            -45485
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            26,
+            74
+          ],
+          "world_position": [
+            23722,
+            69,
+            -45486
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            83,
+            26,
+            75
+          ],
+          "world_position": [
+            23722,
+            69,
+            -45487
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            85,
+            12,
+            80
+          ],
+          "world_position": [
+            23720,
+            55,
+            -45492
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            86,
+            12,
+            80
+          ],
+          "world_position": [
+            23719,
+            55,
+            -45492
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            86,
+            12,
+            81
+          ],
+          "world_position": [
+            23719,
+            55,
+            -45493
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            87,
+            12,
+            79
+          ],
+          "world_position": [
+            23718,
+            55,
+            -45491
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            87,
+            12,
+            80
+          ],
+          "world_position": [
+            23718,
+            55,
+            -45492
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            87,
+            12,
+            81
+          ],
+          "world_position": [
+            23718,
+            55,
+            -45493
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            87,
+            12,
+            82
+          ],
+          "world_position": [
+            23718,
+            55,
+            -45494
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            88,
+            12,
+            80
+          ],
+          "world_position": [
+            23717,
+            55,
+            -45492
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            88,
+            12,
+            81
+          ],
+          "world_position": [
+            23717,
+            55,
+            -45493
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            88,
+            12,
+            82
+          ],
+          "world_position": [
+            23717,
+            55,
+            -45494
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            88,
+            12,
+            83
+          ],
+          "world_position": [
+            23717,
+            55,
+            -45495
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            89,
+            12,
+            81
+          ],
+          "world_position": [
+            23716,
+            55,
+            -45493
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            89,
+            12,
+            82
+          ],
+          "world_position": [
+            23716,
+            55,
+            -45494
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            89,
+            12,
+            83
+          ],
+          "world_position": [
+            23716,
+            55,
+            -45495
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            89,
+            12,
+            84
+          ],
+          "world_position": [
+            23716,
+            55,
+            -45496
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            90,
+            12,
+            82
+          ],
+          "world_position": [
+            23715,
+            55,
+            -45494
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            90,
+            12,
+            83
+          ],
+          "world_position": [
+            23715,
+            55,
+            -45495
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            90,
+            12,
+            84
+          ],
+          "world_position": [
+            23715,
+            55,
+            -45496
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            91,
+            12,
+            83
+          ],
+          "world_position": [
+            23714,
+            55,
+            -45495
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            93,
+            5,
+            125
+          ],
+          "world_position": [
+            23712,
+            48,
+            -45537
+          ],
+          "height_above_nominal_ground": -19,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            98,
+            26,
+            77
+          ],
+          "world_position": [
+            23707,
+            69,
+            -45489
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            98,
+            26,
+            78
+          ],
+          "world_position": [
+            23707,
+            69,
+            -45490
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            99,
+            26,
+            76
+          ],
+          "world_position": [
+            23706,
+            69,
+            -45488
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            99,
+            26,
+            77
+          ],
+          "world_position": [
+            23706,
+            69,
+            -45489
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            99,
+            25,
+            78
+          ],
+          "world_position": [
+            23706,
+            68,
+            -45490
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            99,
+            25,
+            79
+          ],
+          "world_position": [
+            23706,
+            68,
+            -45491
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            100,
+            26,
+            75
+          ],
+          "world_position": [
+            23705,
+            69,
+            -45487
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            100,
+            26,
+            76
+          ],
+          "world_position": [
+            23705,
+            69,
+            -45488
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            100,
+            25,
+            77
+          ],
+          "world_position": [
+            23705,
+            68,
+            -45489
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            100,
+            25,
+            78
+          ],
+          "world_position": [
+            23705,
+            68,
+            -45490
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            100,
+            25,
+            79
+          ],
+          "world_position": [
+            23705,
+            68,
+            -45491
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            100,
+            25,
+            80
+          ],
+          "world_position": [
+            23705,
+            68,
+            -45492
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            100,
+            25,
+            81
+          ],
+          "world_position": [
+            23705,
+            68,
+            -45493
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            100,
+            25,
+            82
+          ],
+          "world_position": [
+            23705,
+            68,
+            -45494
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            101,
+            26,
+            75
+          ],
+          "world_position": [
+            23704,
+            69,
+            -45487
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            101,
+            25,
+            76
+          ],
+          "world_position": [
+            23704,
+            68,
+            -45488
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            101,
+            25,
+            77
+          ],
+          "world_position": [
+            23704,
+            68,
+            -45489
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            101,
+            25,
+            78
+          ],
+          "world_position": [
+            23704,
+            68,
+            -45490
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            101,
+            25,
+            82
+          ],
+          "world_position": [
+            23704,
+            68,
+            -45494
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            101,
+            25,
+            83
+          ],
+          "world_position": [
+            23704,
+            68,
+            -45495
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            101,
+            25,
+            84
+          ],
+          "world_position": [
+            23704,
+            68,
+            -45496
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            101,
+            25,
+            85
+          ],
+          "world_position": [
+            23704,
+            68,
+            -45497
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            101,
+            26,
+            86
+          ],
+          "world_position": [
+            23704,
+            69,
+            -45498
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            101,
+            26,
+            87
+          ],
+          "world_position": [
+            23704,
+            69,
+            -45499
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            102,
+            26,
+            74
+          ],
+          "world_position": [
+            23703,
+            69,
+            -45486
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            102,
+            25,
+            75
+          ],
+          "world_position": [
+            23703,
+            68,
+            -45487
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            102,
+            25,
+            76
+          ],
+          "world_position": [
+            23703,
+            68,
+            -45488
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            102,
+            25,
+            77
+          ],
+          "world_position": [
+            23703,
+            68,
+            -45489
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            102,
+            25,
+            83
+          ],
+          "world_position": [
+            23703,
+            68,
+            -45495
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            102,
+            25,
+            84
+          ],
+          "world_position": [
+            23703,
+            68,
+            -45496
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            102,
+            25,
+            85
+          ],
+          "world_position": [
+            23703,
+            68,
+            -45497
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            102,
+            26,
+            86
+          ],
+          "world_position": [
+            23703,
+            69,
+            -45498
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            103,
+            26,
+            73
+          ],
+          "world_position": [
+            23702,
+            69,
+            -45485
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            103,
+            25,
+            74
+          ],
+          "world_position": [
+            23702,
+            68,
+            -45486
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            103,
+            25,
+            75
+          ],
+          "world_position": [
+            23702,
+            68,
+            -45487
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            103,
+            25,
+            83
+          ],
+          "world_position": [
+            23702,
+            68,
+            -45495
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            103,
+            25,
+            84
+          ],
+          "world_position": [
+            23702,
+            68,
+            -45496
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            103,
+            26,
+            85
+          ],
+          "world_position": [
+            23702,
+            69,
+            -45497
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            103,
+            26,
+            86
+          ],
+          "world_position": [
+            23702,
+            69,
+            -45498
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            104,
+            26,
+            72
+          ],
+          "world_position": [
+            23701,
+            69,
+            -45484
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            104,
+            26,
+            73
+          ],
+          "world_position": [
+            23701,
+            69,
+            -45485
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            104,
+            25,
+            74
+          ],
+          "world_position": [
+            23701,
+            68,
+            -45486
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            104,
+            25,
+            83
+          ],
+          "world_position": [
+            23701,
+            68,
+            -45495
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            104,
+            25,
+            84
+          ],
+          "world_position": [
+            23701,
+            68,
+            -45496
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            104,
+            26,
+            85
+          ],
+          "world_position": [
+            23701,
+            69,
+            -45497
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            105,
+            26,
+            72
+          ],
+          "world_position": [
+            23700,
+            69,
+            -45484
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            105,
+            25,
+            73
+          ],
+          "world_position": [
+            23700,
+            68,
+            -45485
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            105,
+            25,
+            82
+          ],
+          "world_position": [
+            23700,
+            68,
+            -45494
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            105,
+            25,
+            83
+          ],
+          "world_position": [
+            23700,
+            68,
+            -45495
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            105,
+            26,
+            84
+          ],
+          "world_position": [
+            23700,
+            69,
+            -45496
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            105,
+            26,
+            85
+          ],
+          "world_position": [
+            23700,
+            69,
+            -45497
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            106,
+            26,
+            71
+          ],
+          "world_position": [
+            23699,
+            69,
+            -45483
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            106,
+            25,
+            72
+          ],
+          "world_position": [
+            23699,
+            68,
+            -45484
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            106,
+            25,
+            73
+          ],
+          "world_position": [
+            23699,
+            68,
+            -45485
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            106,
+            25,
+            82
+          ],
+          "world_position": [
+            23699,
+            68,
+            -45494
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            106,
+            25,
+            83
+          ],
+          "world_position": [
+            23699,
+            68,
+            -45495
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            106,
+            26,
+            84
+          ],
+          "world_position": [
+            23699,
+            69,
+            -45496
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            107,
+            26,
+            71
+          ],
+          "world_position": [
+            23698,
+            69,
+            -45483
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            107,
+            25,
+            72
+          ],
+          "world_position": [
+            23698,
+            68,
+            -45484
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            107,
+            25,
+            82
+          ],
+          "world_position": [
+            23698,
+            68,
+            -45494
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            107,
+            26,
+            83
+          ],
+          "world_position": [
+            23698,
+            69,
+            -45495
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            107,
+            26,
+            84
+          ],
+          "world_position": [
+            23698,
+            69,
+            -45496
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            108,
+            26,
+            70
+          ],
+          "world_position": [
+            23697,
+            69,
+            -45482
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            108,
+            25,
+            71
+          ],
+          "world_position": [
+            23697,
+            68,
+            -45483
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            108,
+            25,
+            81
+          ],
+          "world_position": [
+            23697,
+            68,
+            -45493
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            108,
+            25,
+            82
+          ],
+          "world_position": [
+            23697,
+            68,
+            -45494
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            108,
+            26,
+            83
+          ],
+          "world_position": [
+            23697,
+            69,
+            -45495
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            109,
+            25,
+            71
+          ],
+          "world_position": [
+            23696,
+            68,
+            -45483
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            109,
+            25,
+            81
+          ],
+          "world_position": [
+            23696,
+            68,
+            -45493
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            109,
+            26,
+            82
+          ],
+          "world_position": [
+            23696,
+            69,
+            -45494
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            109,
+            26,
+            83
+          ],
+          "world_position": [
+            23696,
+            69,
+            -45495
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            110,
+            26,
+            69
+          ],
+          "world_position": [
+            23695,
+            69,
+            -45481
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            110,
+            25,
+            81
+          ],
+          "world_position": [
+            23695,
+            68,
+            -45493
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            110,
+            26,
+            82
+          ],
+          "world_position": [
+            23695,
+            69,
+            -45494
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            111,
+            24,
+            79
+          ],
+          "world_position": [
+            23694,
+            67,
+            -45491
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            111,
+            25,
+            80
+          ],
+          "world_position": [
+            23694,
+            68,
+            -45492
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            111,
+            26,
+            81
+          ],
+          "world_position": [
+            23694,
+            69,
+            -45493
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            112,
+            26,
+            68
+          ],
+          "world_position": [
+            23693,
+            69,
+            -45480
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            112,
+            25,
+            69
+          ],
+          "world_position": [
+            23693,
+            68,
+            -45481
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            112,
+            24,
+            78
+          ],
+          "world_position": [
+            23693,
+            67,
+            -45490
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            112,
+            25,
+            79
+          ],
+          "world_position": [
+            23693,
+            68,
+            -45491
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            112,
+            25,
+            80
+          ],
+          "world_position": [
+            23693,
+            68,
+            -45492
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            112,
+            26,
+            81
+          ],
+          "world_position": [
+            23693,
+            69,
+            -45493
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            113,
+            25,
+            68
+          ],
+          "world_position": [
+            23692,
+            68,
+            -45480
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            113,
+            24,
+            78
+          ],
+          "world_position": [
+            23692,
+            67,
+            -45490
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            113,
+            25,
+            79
+          ],
+          "world_position": [
+            23692,
+            68,
+            -45491
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            113,
+            26,
+            80
+          ],
+          "world_position": [
+            23692,
+            69,
+            -45492
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            113,
+            7,
+            157
+          ],
+          "world_position": [
+            23692,
+            50,
+            -45569
+          ],
+          "height_above_nominal_ground": -17,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            113,
+            7,
+            158
+          ],
+          "world_position": [
+            23692,
+            50,
+            -45570
+          ],
+          "height_above_nominal_ground": -17,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            114,
+            26,
+            67
+          ],
+          "world_position": [
+            23691,
+            69,
+            -45479
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            114,
+            24,
+            77
+          ],
+          "world_position": [
+            23691,
+            67,
+            -45489
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            114,
+            25,
+            78
+          ],
+          "world_position": [
+            23691,
+            68,
+            -45490
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            114,
+            26,
+            79
+          ],
+          "world_position": [
+            23691,
+            69,
+            -45491
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            114,
+            6,
+            158
+          ],
+          "world_position": [
+            23691,
+            49,
+            -45570
+          ],
+          "height_above_nominal_ground": -18,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            114,
+            6,
+            159
+          ],
+          "world_position": [
+            23691,
+            49,
+            -45571
+          ],
+          "height_above_nominal_ground": -18,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            115,
+            25,
+            67
+          ],
+          "world_position": [
+            23690,
+            68,
+            -45479
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            115,
+            24,
+            77
+          ],
+          "world_position": [
+            23690,
+            67,
+            -45489
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            115,
+            25,
+            78
+          ],
+          "world_position": [
+            23690,
+            68,
+            -45490
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            115,
+            26,
+            79
+          ],
+          "world_position": [
+            23690,
+            69,
+            -45491
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            116,
+            24,
+            76
+          ],
+          "world_position": [
+            23689,
+            67,
+            -45488
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            116,
+            25,
+            77
+          ],
+          "world_position": [
+            23689,
+            68,
+            -45489
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            116,
+            26,
+            78
+          ],
+          "world_position": [
+            23689,
+            69,
+            -45490
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            117,
+            24,
+            76
+          ],
+          "world_position": [
+            23688,
+            67,
+            -45488
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            117,
+            25,
+            77
+          ],
+          "world_position": [
+            23688,
+            68,
+            -45489
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            118,
+            25,
+            76
+          ],
+          "world_position": [
+            23687,
+            68,
+            -45488
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            119,
+            26,
+            76
+          ],
+          "world_position": [
+            23686,
+            69,
+            -45488
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            120,
+            26,
+            75
+          ],
+          "world_position": [
+            23685,
+            69,
+            -45487
+          ],
+          "height_above_nominal_ground": 2,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            121,
+            7,
+            62
+          ],
+          "world_position": [
+            23684,
+            50,
+            -45474
+          ],
+          "height_above_nominal_ground": -17,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            121,
+            25,
+            74
+          ],
+          "world_position": [
+            23684,
+            68,
+            -45486
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            122,
+            25,
+            73
+          ],
+          "world_position": [
+            23683,
+            68,
+            -45485
+          ],
+          "height_above_nominal_ground": 1,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            128,
+            12,
+            59
+          ],
+          "world_position": [
+            23677,
+            55,
+            -45471
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            128,
+            12,
+            60
+          ],
+          "world_position": [
+            23677,
+            55,
+            -45472
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            129,
+            17,
+            49
+          ],
+          "world_position": [
+            23676,
+            60,
+            -45461
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            129,
+            16,
+            51
+          ],
+          "world_position": [
+            23676,
+            59,
+            -45463
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            129,
+            16,
+            52
+          ],
+          "world_position": [
+            23676,
+            59,
+            -45464
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            129,
+            8,
+            57
+          ],
+          "world_position": [
+            23676,
+            51,
+            -45469
+          ],
+          "height_above_nominal_ground": -16,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            129,
+            9,
+            58
+          ],
+          "world_position": [
+            23676,
+            52,
+            -45470
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            129,
+            11,
+            59
+          ],
+          "world_position": [
+            23676,
+            54,
+            -45471
+          ],
+          "height_above_nominal_ground": -13,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            129,
+            12,
+            60
+          ],
+          "world_position": [
+            23676,
+            55,
+            -45472
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            129,
+            11,
+            61
+          ],
+          "world_position": [
+            23676,
+            54,
+            -45473
+          ],
+          "height_above_nominal_ground": -13,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            129,
+            11,
+            62
+          ],
+          "world_position": [
+            23676,
+            54,
+            -45474
+          ],
+          "height_above_nominal_ground": -13,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            130,
+            16,
+            48
+          ],
+          "world_position": [
+            23675,
+            59,
+            -45460
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            130,
+            16,
+            49
+          ],
+          "world_position": [
+            23675,
+            59,
+            -45461
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            130,
+            16,
+            50
+          ],
+          "world_position": [
+            23675,
+            59,
+            -45462
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            130,
+            16,
+            51
+          ],
+          "world_position": [
+            23675,
+            59,
+            -45463
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            130,
+            15,
+            52
+          ],
+          "world_position": [
+            23675,
+            58,
+            -45464
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            130,
+            16,
+            53
+          ],
+          "world_position": [
+            23675,
+            59,
+            -45465
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            130,
+            9,
+            61
+          ],
+          "world_position": [
+            23675,
+            52,
+            -45473
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            130,
+            10,
+            62
+          ],
+          "world_position": [
+            23675,
+            53,
+            -45474
+          ],
+          "height_above_nominal_ground": -14,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            131,
+            16,
+            48
+          ],
+          "world_position": [
+            23674,
+            59,
+            -45460
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            131,
+            16,
+            49
+          ],
+          "world_position": [
+            23674,
+            59,
+            -45461
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            131,
+            16,
+            50
+          ],
+          "world_position": [
+            23674,
+            59,
+            -45462
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            131,
+            12,
+            51
+          ],
+          "world_position": [
+            23674,
+            55,
+            -45463
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            131,
+            13,
+            52
+          ],
+          "world_position": [
+            23674,
+            56,
+            -45464
+          ],
+          "height_above_nominal_ground": -11,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            131,
+            15,
+            53
+          ],
+          "world_position": [
+            23674,
+            58,
+            -45465
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            131,
+            17,
+            54
+          ],
+          "world_position": [
+            23674,
+            60,
+            -45466
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            131,
+            18,
+            55
+          ],
+          "world_position": [
+            23674,
+            61,
+            -45467
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            131,
+            20,
+            56
+          ],
+          "world_position": [
+            23674,
+            63,
+            -45468
+          ],
+          "height_above_nominal_ground": -4,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            132,
+            13,
+            52
+          ],
+          "world_position": [
+            23673,
+            56,
+            -45464
+          ],
+          "height_above_nominal_ground": -11,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            132,
+            18,
+            61
+          ],
+          "world_position": [
+            23673,
+            61,
+            -45473
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            132,
+            17,
+            62
+          ],
+          "world_position": [
+            23673,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            132,
+            17,
+            63
+          ],
+          "world_position": [
+            23673,
+            60,
+            -45475
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            133,
+            12,
+            52
+          ],
+          "world_position": [
+            23672,
+            55,
+            -45464
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            133,
+            18,
+            60
+          ],
+          "world_position": [
+            23672,
+            61,
+            -45472
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            133,
+            17,
+            61
+          ],
+          "world_position": [
+            23672,
+            60,
+            -45473
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            133,
+            17,
+            62
+          ],
+          "world_position": [
+            23672,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            133,
+            17,
+            63
+          ],
+          "world_position": [
+            23672,
+            60,
+            -45475
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            134,
+            17,
+            60
+          ],
+          "world_position": [
+            23671,
+            60,
+            -45472
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            134,
+            16,
+            61
+          ],
+          "world_position": [
+            23671,
+            59,
+            -45473
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            134,
+            16,
+            62
+          ],
+          "world_position": [
+            23671,
+            59,
+            -45474
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            134,
+            17,
+            63
+          ],
+          "world_position": [
+            23671,
+            60,
+            -45475
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            134,
+            18,
+            64
+          ],
+          "world_position": [
+            23671,
+            61,
+            -45476
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            134,
+            19,
+            65
+          ],
+          "world_position": [
+            23671,
+            62,
+            -45477
+          ],
+          "height_above_nominal_ground": -5,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            135,
+            16,
+            60
+          ],
+          "world_position": [
+            23670,
+            59,
+            -45472
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            135,
+            16,
+            61
+          ],
+          "world_position": [
+            23670,
+            59,
+            -45473
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            135,
+            16,
+            62
+          ],
+          "world_position": [
+            23670,
+            59,
+            -45474
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            135,
+            17,
+            63
+          ],
+          "world_position": [
+            23670,
+            60,
+            -45475
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            135,
+            18,
+            64
+          ],
+          "world_position": [
+            23670,
+            61,
+            -45476
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            136,
+            17,
+            60
+          ],
+          "world_position": [
+            23669,
+            60,
+            -45472
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            136,
+            16,
+            61
+          ],
+          "world_position": [
+            23669,
+            59,
+            -45473
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            136,
+            17,
+            62
+          ],
+          "world_position": [
+            23669,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            136,
+            17,
+            63
+          ],
+          "world_position": [
+            23669,
+            60,
+            -45475
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            136,
+            19,
+            64
+          ],
+          "world_position": [
+            23669,
+            62,
+            -45476
+          ],
+          "height_above_nominal_ground": -5,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            137,
+            17,
+            60
+          ],
+          "world_position": [
+            23668,
+            60,
+            -45472
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            137,
+            17,
+            61
+          ],
+          "world_position": [
+            23668,
+            60,
+            -45473
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            137,
+            17,
+            62
+          ],
+          "world_position": [
+            23668,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            137,
+            18,
+            63
+          ],
+          "world_position": [
+            23668,
+            61,
+            -45475
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            138,
+            17,
+            59
+          ],
+          "world_position": [
+            23667,
+            60,
+            -45471
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            138,
+            17,
+            60
+          ],
+          "world_position": [
+            23667,
+            60,
+            -45472
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            138,
+            16,
+            61
+          ],
+          "world_position": [
+            23667,
+            59,
+            -45473
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            138,
+            17,
+            62
+          ],
+          "world_position": [
+            23667,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            139,
+            17,
+            59
+          ],
+          "world_position": [
+            23666,
+            60,
+            -45471
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            139,
+            16,
+            60
+          ],
+          "world_position": [
+            23666,
+            59,
+            -45472
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            139,
+            17,
+            62
+          ],
+          "world_position": [
+            23666,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            140,
+            17,
+            61
+          ],
+          "world_position": [
+            23665,
+            60,
+            -45473
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            146,
+            6,
+            116
+          ],
+          "world_position": [
+            23659,
+            49,
+            -45528
+          ],
+          "height_above_nominal_ground": -18,
+          "below": "minecraft:air"
+        },
+        {
+          "raw_position": [
+            147,
+            5,
+            116
+          ],
+          "world_position": [
+            23658,
+            48,
+            -45528
+          ],
+          "height_above_nominal_ground": -19,
+          "below": "minecraft:air"
+        }
+      ],
+      "passed": true,
+      "intentional_cave_clearances": [
+        {
+          "raw_position": [
+            40,
+            17,
+            77
+          ],
+          "world_position": [
+            23765,
+            60,
+            -45489
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            41,
+            17,
+            77
+          ],
+          "world_position": [
+            23764,
+            60,
+            -45489
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            42,
+            17,
+            77
+          ],
+          "world_position": [
+            23763,
+            60,
+            -45489
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            42,
+            17,
+            78
+          ],
+          "world_position": [
+            23763,
+            60,
+            -45490
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            43,
+            17,
+            78
+          ],
+          "world_position": [
+            23762,
+            60,
+            -45490
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            45,
+            17,
+            78
+          ],
+          "world_position": [
+            23760,
+            60,
+            -45490
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            46,
+            10,
+            132
+          ],
+          "world_position": [
+            23759,
+            53,
+            -45544
+          ],
+          "height_above_nominal_ground": -14,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            46,
+            9,
+            133
+          ],
+          "world_position": [
+            23759,
+            52,
+            -45545
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            47,
+            10,
+            132
+          ],
+          "world_position": [
+            23758,
+            53,
+            -45544
+          ],
+          "height_above_nominal_ground": -14,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            47,
+            10,
+            133
+          ],
+          "world_position": [
+            23758,
+            53,
+            -45545
+          ],
+          "height_above_nominal_ground": -14,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            47,
+            9,
+            134
+          ],
+          "world_position": [
+            23758,
+            52,
+            -45546
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            47,
+            7,
+            135
+          ],
+          "world_position": [
+            23758,
+            50,
+            -45547
+          ],
+          "height_above_nominal_ground": -17,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            47,
+            6,
+            136
+          ],
+          "world_position": [
+            23758,
+            49,
+            -45548
+          ],
+          "height_above_nominal_ground": -18,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            48,
+            16,
+            125
+          ],
+          "world_position": [
+            23757,
+            59,
+            -45537
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            48,
+            16,
+            126
+          ],
+          "world_position": [
+            23757,
+            59,
+            -45538
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            48,
+            15,
+            127
+          ],
+          "world_position": [
+            23757,
+            58,
+            -45539
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            48,
+            16,
+            128
+          ],
+          "world_position": [
+            23757,
+            59,
+            -45540
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            48,
+            14,
+            131
+          ],
+          "world_position": [
+            23757,
+            57,
+            -45543
+          ],
+          "height_above_nominal_ground": -10,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            48,
+            11,
+            132
+          ],
+          "world_position": [
+            23757,
+            54,
+            -45544
+          ],
+          "height_above_nominal_ground": -13,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            48,
+            10,
+            133
+          ],
+          "world_position": [
+            23757,
+            53,
+            -45545
+          ],
+          "height_above_nominal_ground": -14,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            48,
+            9,
+            134
+          ],
+          "world_position": [
+            23757,
+            52,
+            -45546
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            48,
+            8,
+            135
+          ],
+          "world_position": [
+            23757,
+            51,
+            -45547
+          ],
+          "height_above_nominal_ground": -16,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            49,
+            17,
+            124
+          ],
+          "world_position": [
+            23756,
+            60,
+            -45536
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            49,
+            16,
+            125
+          ],
+          "world_position": [
+            23756,
+            59,
+            -45537
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            49,
+            16,
+            126
+          ],
+          "world_position": [
+            23756,
+            59,
+            -45538
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            49,
+            16,
+            127
+          ],
+          "world_position": [
+            23756,
+            59,
+            -45539
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            49,
+            16,
+            128
+          ],
+          "world_position": [
+            23756,
+            59,
+            -45540
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            49,
+            15,
+            129
+          ],
+          "world_position": [
+            23756,
+            58,
+            -45541
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            49,
+            14,
+            130
+          ],
+          "world_position": [
+            23756,
+            57,
+            -45542
+          ],
+          "height_above_nominal_ground": -10,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            49,
+            13,
+            131
+          ],
+          "world_position": [
+            23756,
+            56,
+            -45543
+          ],
+          "height_above_nominal_ground": -11,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            49,
+            12,
+            132
+          ],
+          "world_position": [
+            23756,
+            55,
+            -45544
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            49,
+            11,
+            133
+          ],
+          "world_position": [
+            23756,
+            54,
+            -45545
+          ],
+          "height_above_nominal_ground": -13,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            50,
+            17,
+            123
+          ],
+          "world_position": [
+            23755,
+            60,
+            -45535
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            50,
+            16,
+            124
+          ],
+          "world_position": [
+            23755,
+            59,
+            -45536
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            50,
+            16,
+            125
+          ],
+          "world_position": [
+            23755,
+            59,
+            -45537
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            50,
+            16,
+            126
+          ],
+          "world_position": [
+            23755,
+            59,
+            -45538
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            50,
+            16,
+            127
+          ],
+          "world_position": [
+            23755,
+            59,
+            -45539
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            50,
+            16,
+            128
+          ],
+          "world_position": [
+            23755,
+            59,
+            -45540
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            50,
+            15,
+            129
+          ],
+          "world_position": [
+            23755,
+            58,
+            -45541
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            50,
+            14,
+            130
+          ],
+          "world_position": [
+            23755,
+            57,
+            -45542
+          ],
+          "height_above_nominal_ground": -10,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            50,
+            14,
+            131
+          ],
+          "world_position": [
+            23755,
+            57,
+            -45543
+          ],
+          "height_above_nominal_ground": -10,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            50,
+            13,
+            132
+          ],
+          "world_position": [
+            23755,
+            56,
+            -45544
+          ],
+          "height_above_nominal_ground": -11,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            51,
+            24,
+            86
+          ],
+          "world_position": [
+            23754,
+            67,
+            -45498
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            51,
+            16,
+            125
+          ],
+          "world_position": [
+            23754,
+            59,
+            -45537
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            51,
+            16,
+            126
+          ],
+          "world_position": [
+            23754,
+            59,
+            -45538
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            51,
+            17,
+            127
+          ],
+          "world_position": [
+            23754,
+            60,
+            -45539
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            51,
+            17,
+            128
+          ],
+          "world_position": [
+            23754,
+            60,
+            -45540
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            51,
+            16,
+            129
+          ],
+          "world_position": [
+            23754,
+            59,
+            -45541
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            51,
+            16,
+            130
+          ],
+          "world_position": [
+            23754,
+            59,
+            -45542
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            52,
+            24,
+            87
+          ],
+          "world_position": [
+            23753,
+            67,
+            -45499
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            53,
+            24,
+            88
+          ],
+          "world_position": [
+            23752,
+            67,
+            -45500
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            54,
+            7,
+            126
+          ],
+          "world_position": [
+            23751,
+            50,
+            -45538
+          ],
+          "height_above_nominal_ground": -17,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            54,
+            6,
+            127
+          ],
+          "world_position": [
+            23751,
+            49,
+            -45539
+          ],
+          "height_above_nominal_ground": -18,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            55,
+            8,
+            126
+          ],
+          "world_position": [
+            23750,
+            51,
+            -45538
+          ],
+          "height_above_nominal_ground": -16,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            56,
+            9,
+            126
+          ],
+          "world_position": [
+            23749,
+            52,
+            -45538
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            57,
+            9,
+            128
+          ],
+          "world_position": [
+            23748,
+            52,
+            -45540
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            57,
+            8,
+            129
+          ],
+          "world_position": [
+            23748,
+            51,
+            -45541
+          ],
+          "height_above_nominal_ground": -16,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            58,
+            17,
+            133
+          ],
+          "world_position": [
+            23747,
+            60,
+            -45545
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            58,
+            17,
+            134
+          ],
+          "world_position": [
+            23747,
+            60,
+            -45546
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            59,
+            16,
+            134
+          ],
+          "world_position": [
+            23746,
+            59,
+            -45546
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            59,
+            16,
+            135
+          ],
+          "world_position": [
+            23746,
+            59,
+            -45547
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            59,
+            16,
+            136
+          ],
+          "world_position": [
+            23746,
+            59,
+            -45548
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            59,
+            16,
+            137
+          ],
+          "world_position": [
+            23746,
+            59,
+            -45549
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            59,
+            16,
+            138
+          ],
+          "world_position": [
+            23746,
+            59,
+            -45550
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            60,
+            15,
+            136
+          ],
+          "world_position": [
+            23745,
+            58,
+            -45548
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            60,
+            15,
+            137
+          ],
+          "world_position": [
+            23745,
+            58,
+            -45549
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            61,
+            24,
+            78
+          ],
+          "world_position": [
+            23744,
+            67,
+            -45490
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            81,
+            24,
+            68
+          ],
+          "world_position": [
+            23724,
+            67,
+            -45480
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            82,
+            24,
+            67
+          ],
+          "world_position": [
+            23723,
+            67,
+            -45479
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            82,
+            24,
+            68
+          ],
+          "world_position": [
+            23723,
+            67,
+            -45480
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            85,
+            12,
+            80
+          ],
+          "world_position": [
+            23720,
+            55,
+            -45492
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            86,
+            12,
+            80
+          ],
+          "world_position": [
+            23719,
+            55,
+            -45492
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            86,
+            12,
+            81
+          ],
+          "world_position": [
+            23719,
+            55,
+            -45493
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            87,
+            12,
+            79
+          ],
+          "world_position": [
+            23718,
+            55,
+            -45491
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            87,
+            12,
+            80
+          ],
+          "world_position": [
+            23718,
+            55,
+            -45492
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            87,
+            12,
+            81
+          ],
+          "world_position": [
+            23718,
+            55,
+            -45493
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            87,
+            12,
+            82
+          ],
+          "world_position": [
+            23718,
+            55,
+            -45494
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            88,
+            12,
+            80
+          ],
+          "world_position": [
+            23717,
+            55,
+            -45492
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            88,
+            12,
+            81
+          ],
+          "world_position": [
+            23717,
+            55,
+            -45493
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            88,
+            12,
+            82
+          ],
+          "world_position": [
+            23717,
+            55,
+            -45494
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            88,
+            12,
+            83
+          ],
+          "world_position": [
+            23717,
+            55,
+            -45495
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            89,
+            12,
+            81
+          ],
+          "world_position": [
+            23716,
+            55,
+            -45493
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            89,
+            12,
+            82
+          ],
+          "world_position": [
+            23716,
+            55,
+            -45494
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            89,
+            12,
+            83
+          ],
+          "world_position": [
+            23716,
+            55,
+            -45495
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            89,
+            12,
+            84
+          ],
+          "world_position": [
+            23716,
+            55,
+            -45496
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            90,
+            12,
+            82
+          ],
+          "world_position": [
+            23715,
+            55,
+            -45494
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            90,
+            12,
+            83
+          ],
+          "world_position": [
+            23715,
+            55,
+            -45495
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            90,
+            12,
+            84
+          ],
+          "world_position": [
+            23715,
+            55,
+            -45496
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            91,
+            12,
+            83
+          ],
+          "world_position": [
+            23714,
+            55,
+            -45495
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            93,
+            5,
+            125
+          ],
+          "world_position": [
+            23712,
+            48,
+            -45537
+          ],
+          "height_above_nominal_ground": -19,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            111,
+            24,
+            79
+          ],
+          "world_position": [
+            23694,
+            67,
+            -45491
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            112,
+            24,
+            78
+          ],
+          "world_position": [
+            23693,
+            67,
+            -45490
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            113,
+            24,
+            78
+          ],
+          "world_position": [
+            23692,
+            67,
+            -45490
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            113,
+            7,
+            157
+          ],
+          "world_position": [
+            23692,
+            50,
+            -45569
+          ],
+          "height_above_nominal_ground": -17,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            113,
+            7,
+            158
+          ],
+          "world_position": [
+            23692,
+            50,
+            -45570
+          ],
+          "height_above_nominal_ground": -17,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            114,
+            24,
+            77
+          ],
+          "world_position": [
+            23691,
+            67,
+            -45489
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            114,
+            6,
+            158
+          ],
+          "world_position": [
+            23691,
+            49,
+            -45570
+          ],
+          "height_above_nominal_ground": -18,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            114,
+            6,
+            159
+          ],
+          "world_position": [
+            23691,
+            49,
+            -45571
+          ],
+          "height_above_nominal_ground": -18,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            115,
+            24,
+            77
+          ],
+          "world_position": [
+            23690,
+            67,
+            -45489
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            116,
+            24,
+            76
+          ],
+          "world_position": [
+            23689,
+            67,
+            -45488
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            117,
+            24,
+            76
+          ],
+          "world_position": [
+            23688,
+            67,
+            -45488
+          ],
+          "height_above_nominal_ground": 0,
+          "below": "minecraft:air",
+          "reason": "long_native_clearance"
+        },
+        {
+          "raw_position": [
+            121,
+            7,
+            62
+          ],
+          "world_position": [
+            23684,
+            50,
+            -45474
+          ],
+          "height_above_nominal_ground": -17,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            128,
+            12,
+            59
+          ],
+          "world_position": [
+            23677,
+            55,
+            -45471
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            128,
+            12,
+            60
+          ],
+          "world_position": [
+            23677,
+            55,
+            -45472
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            129,
+            17,
+            49
+          ],
+          "world_position": [
+            23676,
+            60,
+            -45461
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            129,
+            16,
+            51
+          ],
+          "world_position": [
+            23676,
+            59,
+            -45463
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            129,
+            16,
+            52
+          ],
+          "world_position": [
+            23676,
+            59,
+            -45464
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            129,
+            8,
+            57
+          ],
+          "world_position": [
+            23676,
+            51,
+            -45469
+          ],
+          "height_above_nominal_ground": -16,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            129,
+            9,
+            58
+          ],
+          "world_position": [
+            23676,
+            52,
+            -45470
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            129,
+            11,
+            59
+          ],
+          "world_position": [
+            23676,
+            54,
+            -45471
+          ],
+          "height_above_nominal_ground": -13,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            129,
+            12,
+            60
+          ],
+          "world_position": [
+            23676,
+            55,
+            -45472
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            129,
+            11,
+            61
+          ],
+          "world_position": [
+            23676,
+            54,
+            -45473
+          ],
+          "height_above_nominal_ground": -13,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            129,
+            11,
+            62
+          ],
+          "world_position": [
+            23676,
+            54,
+            -45474
+          ],
+          "height_above_nominal_ground": -13,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            130,
+            16,
+            48
+          ],
+          "world_position": [
+            23675,
+            59,
+            -45460
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            130,
+            16,
+            49
+          ],
+          "world_position": [
+            23675,
+            59,
+            -45461
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            130,
+            16,
+            50
+          ],
+          "world_position": [
+            23675,
+            59,
+            -45462
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            130,
+            16,
+            51
+          ],
+          "world_position": [
+            23675,
+            59,
+            -45463
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            130,
+            15,
+            52
+          ],
+          "world_position": [
+            23675,
+            58,
+            -45464
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            130,
+            16,
+            53
+          ],
+          "world_position": [
+            23675,
+            59,
+            -45465
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            130,
+            9,
+            61
+          ],
+          "world_position": [
+            23675,
+            52,
+            -45473
+          ],
+          "height_above_nominal_ground": -15,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            130,
+            10,
+            62
+          ],
+          "world_position": [
+            23675,
+            53,
+            -45474
+          ],
+          "height_above_nominal_ground": -14,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            131,
+            16,
+            48
+          ],
+          "world_position": [
+            23674,
+            59,
+            -45460
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            131,
+            16,
+            49
+          ],
+          "world_position": [
+            23674,
+            59,
+            -45461
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            131,
+            16,
+            50
+          ],
+          "world_position": [
+            23674,
+            59,
+            -45462
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            131,
+            12,
+            51
+          ],
+          "world_position": [
+            23674,
+            55,
+            -45463
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            131,
+            13,
+            52
+          ],
+          "world_position": [
+            23674,
+            56,
+            -45464
+          ],
+          "height_above_nominal_ground": -11,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            131,
+            15,
+            53
+          ],
+          "world_position": [
+            23674,
+            58,
+            -45465
+          ],
+          "height_above_nominal_ground": -9,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            131,
+            17,
+            54
+          ],
+          "world_position": [
+            23674,
+            60,
+            -45466
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            131,
+            18,
+            55
+          ],
+          "world_position": [
+            23674,
+            61,
+            -45467
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            131,
+            20,
+            56
+          ],
+          "world_position": [
+            23674,
+            63,
+            -45468
+          ],
+          "height_above_nominal_ground": -4,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            132,
+            13,
+            52
+          ],
+          "world_position": [
+            23673,
+            56,
+            -45464
+          ],
+          "height_above_nominal_ground": -11,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            132,
+            18,
+            61
+          ],
+          "world_position": [
+            23673,
+            61,
+            -45473
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            132,
+            17,
+            62
+          ],
+          "world_position": [
+            23673,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            132,
+            17,
+            63
+          ],
+          "world_position": [
+            23673,
+            60,
+            -45475
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            133,
+            12,
+            52
+          ],
+          "world_position": [
+            23672,
+            55,
+            -45464
+          ],
+          "height_above_nominal_ground": -12,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            133,
+            18,
+            60
+          ],
+          "world_position": [
+            23672,
+            61,
+            -45472
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            133,
+            17,
+            61
+          ],
+          "world_position": [
+            23672,
+            60,
+            -45473
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            133,
+            17,
+            62
+          ],
+          "world_position": [
+            23672,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            133,
+            17,
+            63
+          ],
+          "world_position": [
+            23672,
+            60,
+            -45475
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            134,
+            17,
+            60
+          ],
+          "world_position": [
+            23671,
+            60,
+            -45472
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            134,
+            16,
+            61
+          ],
+          "world_position": [
+            23671,
+            59,
+            -45473
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            134,
+            16,
+            62
+          ],
+          "world_position": [
+            23671,
+            59,
+            -45474
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            134,
+            17,
+            63
+          ],
+          "world_position": [
+            23671,
+            60,
+            -45475
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            134,
+            18,
+            64
+          ],
+          "world_position": [
+            23671,
+            61,
+            -45476
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            134,
+            19,
+            65
+          ],
+          "world_position": [
+            23671,
+            62,
+            -45477
+          ],
+          "height_above_nominal_ground": -5,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            135,
+            16,
+            60
+          ],
+          "world_position": [
+            23670,
+            59,
+            -45472
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            135,
+            16,
+            61
+          ],
+          "world_position": [
+            23670,
+            59,
+            -45473
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            135,
+            16,
+            62
+          ],
+          "world_position": [
+            23670,
+            59,
+            -45474
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            135,
+            17,
+            63
+          ],
+          "world_position": [
+            23670,
+            60,
+            -45475
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            135,
+            18,
+            64
+          ],
+          "world_position": [
+            23670,
+            61,
+            -45476
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            136,
+            17,
+            60
+          ],
+          "world_position": [
+            23669,
+            60,
+            -45472
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            136,
+            16,
+            61
+          ],
+          "world_position": [
+            23669,
+            59,
+            -45473
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            136,
+            17,
+            62
+          ],
+          "world_position": [
+            23669,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            136,
+            17,
+            63
+          ],
+          "world_position": [
+            23669,
+            60,
+            -45475
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            136,
+            19,
+            64
+          ],
+          "world_position": [
+            23669,
+            62,
+            -45476
+          ],
+          "height_above_nominal_ground": -5,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            137,
+            17,
+            60
+          ],
+          "world_position": [
+            23668,
+            60,
+            -45472
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            137,
+            17,
+            61
+          ],
+          "world_position": [
+            23668,
+            60,
+            -45473
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            137,
+            17,
+            62
+          ],
+          "world_position": [
+            23668,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            137,
+            18,
+            63
+          ],
+          "world_position": [
+            23668,
+            61,
+            -45475
+          ],
+          "height_above_nominal_ground": -6,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            138,
+            17,
+            59
+          ],
+          "world_position": [
+            23667,
+            60,
+            -45471
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            138,
+            17,
+            60
+          ],
+          "world_position": [
+            23667,
+            60,
+            -45472
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            138,
+            16,
+            61
+          ],
+          "world_position": [
+            23667,
+            59,
+            -45473
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            138,
+            17,
+            62
+          ],
+          "world_position": [
+            23667,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            139,
+            17,
+            59
+          ],
+          "world_position": [
+            23666,
+            60,
+            -45471
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            139,
+            16,
+            60
+          ],
+          "world_position": [
+            23666,
+            59,
+            -45472
+          ],
+          "height_above_nominal_ground": -8,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            139,
+            17,
+            62
+          ],
+          "world_position": [
+            23666,
+            60,
+            -45474
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            140,
+            17,
+            61
+          ],
+          "world_position": [
+            23665,
+            60,
+            -45473
+          ],
+          "height_above_nominal_ground": -7,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            146,
+            6,
+            116
+          ],
+          "world_position": [
+            23659,
+            49,
+            -45528
+          ],
+          "height_above_nominal_ground": -18,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        },
+        {
+          "raw_position": [
+            147,
+            5,
+            116
+          ],
+          "world_position": [
+            23658,
+            48,
+            -45528
+          ],
+          "height_above_nominal_ground": -19,
+          "below": "minecraft:air",
+          "reason": "buried_root_underside"
+        }
+      ],
+      "unexpected_ground_level_gap_columns": 0,
+      "contact_policy": "bounded surface contacts; deep/long cave clearances remain open",
+      "scope": "Lowest log per X/Z column at/below nominal ground +2; raw gaps are retained, with explicit limited-profile cavity classification"
+    }
+  ],
+  "read_errors": [],
+  "passed": true
+}

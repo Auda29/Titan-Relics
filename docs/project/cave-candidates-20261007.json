@@ -1,0 +1,95 @@
+{
+  "status": "two visual candidates; default selection unchanged",
+  "scope": "Skull 2 shallow natural footprint and Tree strands; rock Skull retains Alpha 4.8",
+  "structures": [
+    {
+      "id": "titan_skull_2",
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-v1/titan-skull-2-v2-embedded-v1.nbt",
+      "version": "titan-skull-2-v2-embedded-v1",
+      "size": [
+        99,
+        136,
+        99
+      ],
+      "blocks": 32569,
+      "ground_y": 28,
+      "family": "titan_skull_2",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 4,
+      "sha256": "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd",
+      "visually_accepted": false,
+      "foundation_mode": "embedded_art",
+      "buried_clip_depth": 6,
+      "max_support_depth": 2,
+      "surface_contact_depth": 6,
+      "follow_art": true
+    },
+    {
+      "id": "world_tree",
+      "source": "relics/world-tree/design/generated/world-tree-v4-3-strands/world-tree-v4-3-strands.nbt",
+      "version": "world-tree-v4-3-strands",
+      "size": [
+        187,
+        228,
+        185
+      ],
+      "blocks": 289005,
+      "ground_y": 24,
+      "family": "world_tree",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:forest",
+        "minecraft:flower_forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest"
+      ],
+      "slope": 6,
+      "sha256": "4f4fed24edd04f207c76162dc441093fc485e90149c8bc106cf51cc4a1248f14",
+      "visually_accepted": false,
+      "foundation_mode": "embedded_art",
+      "root_support": true,
+      "max_support_depth": 2,
+      "surface_contact_depth": 3,
+      "follow_art": true
+    }
+  ]
+}

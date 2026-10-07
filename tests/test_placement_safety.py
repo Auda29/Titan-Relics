@@ -43,6 +43,9 @@ class PlacementSafetyTests(unittest.TestCase):
                                      "minecraft:stone" if name=='titan_skull_rock' else "minecraft:dirt"}}]}
             if name == 'world_tree':
                 expected['processors'][0]['root_support'] = True
+            if name in ('world_tree', 'titan_skull_2'):
+                expected['processors'][0].update(max_support_depth=2,
+                    surface_contact_depth=3 if name == 'world_tree' else 6, follow_art=True)
             self.assertEqual(resources[f"worldgen/processor_list/{name}_terrain.json"], expected)
 
     def test_sea_level_land_still_requires_actual_dry_surface_at_every_sample(self):

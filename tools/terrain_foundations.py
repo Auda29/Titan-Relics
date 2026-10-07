@@ -6,7 +6,7 @@ every existing model cell. Pad X/Y/Z to keep all foundation positions inside NBT
 import heapq
 
 POLICY = 'near-ground-soil-columns-v4-protected-runtime-contact'
-RUNTIME_POLICY = 'exposed-model-undersides-at-or-below-ground-v5'
+RUNTIME_POLICY = 'exposed-model-undersides-v6-explicit-bounded-cave-profiles'
 TOE_RADIUS = 8
 SOILS = {'minecraft:dirt', 'minecraft:rooted_dirt', 'minecraft:coarse_dirt',
          'minecraft:grass_block', 'minecraft:moss_block', 'minecraft:podzol',
@@ -35,13 +35,17 @@ def supported_blocks(blocks, contract):
     if contract.get('foundation_mode') == 'embedded_art':
         # These candidates deliberately omit the old platform. Do not interpret
         # anatomical moss or sword stone as a new terrain patch and regrow it.
-        result = {(x + TOE_RADIUS, y + pad, z + TOE_RADIUS): state for (x, y, z), state in blocks.items()}
+        floor = ground - contract['buried_clip_depth'] if 'buried_clip_depth' in contract else 0
+        result = {(x + TOE_RADIUS, y + pad, z + TOE_RADIUS): state for (x, y, z), state in blocks.items() if y >= floor}
         return result, natural_size(contract), {
             'method': 'embedded-art-native-terrain-v1', 'contact_mode': 'embedded_art',
             'vertical_padding': pad, 'horizontal_padding': TOE_RADIUS,
             'runtime_processor': 'relics:terrain_support', 'feature_protection': 'relics:placed_cells',
             'ground_y': ground + pad, 'bottom_below_ground': 0,
-            'supported_columns': 0, 'added_blocks': 0, 'toe_blocks': 0, 'toe_columns': 0}
+            'supported_columns': 0, 'added_blocks': 0, 'toe_blocks': 0, 'toe_columns': 0,
+            **({'buried_clip_y': floor + pad, 'omitted_buried_cells': len(blocks)-len(result)}
+               if 'buried_clip_depth' in contract else {}),
+            **{k: contract[k] for k in ('max_support_depth', 'surface_contact_depth', 'follow_art') if k in contract}}
     columns = {}
     for (x, y, z), state in blocks.items():
         if y <= ground + 4 and state.split('[')[0] in SOILS:

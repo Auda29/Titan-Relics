@@ -9,7 +9,7 @@ from pathlib import Path
 
 from relic_assets import decode_nbt
 from terrain_foundations import TOE_RADIUS, padding
-from verify_world import AIR_NAMES, AnvilWorld, states_match, transform
+from verify_world import AIR_NAMES, AnvilWorld, limited_clearance, states_match, transform
 
 ROOT = Path(__file__).resolve().parents[1]
 GAP_NAMES = AIR_NAMES | {"minecraft:water", "minecraft:lava"}
@@ -42,13 +42,28 @@ def root_contacts(world, blocks, contract, instance):
         else:
             contacts += 1
     at_ground = [g for g in gaps if g["height_above_nominal_ground"] <= 0]
+    unexpected = list(at_ground)
+    clearance_details = {}
+    if 'max_support_depth' in contract:
+        unexpected = []
+        clearances = []
+        for gap in at_ground:
+            x,y,z = gap['world_position']
+            reason = limited_clearance(world, (x,y-1,z), gap['raw_position'][1], contract)
+            if reason:
+                clearances.append({**gap, 'reason':reason})
+            else:
+                unexpected.append(gap)
+        clearance_details = {'intentional_cave_clearances':clearances,
+                             'unexpected_ground_level_gap_columns':len(unexpected),
+                             'contact_policy':'bounded surface contacts; deep/long cave clearances remain open'}
     return {"structure": "relics:world_tree", "low_root_columns": contacts + len(gaps),
             "direct_contacts": contacts, "missing_expected_wood": missing,
             "low_root_gap_columns": len(gaps), "ground_level_gap_columns": len(at_ground),
             "gaps_by_root_height_above_nominal_ground": dict(sorted(Counter(
                 g["height_above_nominal_ground"] for g in gaps).items())),
-            "gaps": gaps, "passed": not missing and not at_ground,
-            "scope": "Lowest log per X/Z column at/below nominal ground +2; raised arches are reported, not filled"}
+            "gaps": gaps, "passed": not missing and not unexpected, **clearance_details,
+            "scope": "Lowest log per X/Z column at/below nominal ground +2; raw gaps are retained, with explicit limited-profile cavity classification"}
 
 
 def main():
@@ -91,8 +106,9 @@ def main():
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({"passed": result["passed"], "instances": len(checks),
-                      "ground_level_gap_columns": sum(c["ground_level_gap_columns"] for c in checks),
-                      "raised_root_gap_columns": sum(c["low_root_gap_columns"] - c["ground_level_gap_columns"] for c in checks)}, indent=2))
+                       "ground_level_gap_columns": sum(c["ground_level_gap_columns"] for c in checks),
+                      "unexpected_ground_level_gap_columns": sum(c.get('unexpected_ground_level_gap_columns',c['ground_level_gap_columns']) for c in checks),
+                       "raised_root_gap_columns": sum(c["low_root_gap_columns"] - c["ground_level_gap_columns"] for c in checks)}, indent=2))
     return 0 if result["passed"] else 1
 
 

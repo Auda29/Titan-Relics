@@ -1,5 +1,13 @@
 # Titan Skull
 
+**Alpha 4.9 keeps all raw Skull exports unchanged.** Skull 2's natural template
+alone omits the deeply buried slice below raw Y22, with ground Y28 unchanged.
+Its bounded processor uses adjoining art material for complete contacts up to
+two cells within the six-block surface band; longer caves remain open rather
+than receiving dirt walls. Rock Skull is unchanged. See
+[the cave candidates](../../docs/testing/CAVE_CONTACTS_20261007.md) and
+[current runtime evidence](../../docs/testing/ALPHA_4_9_TEST_REPORT.md).
+
 **Alpha 4.8 selects rock Skull and Skull 2 embedded-v1**, with no authored ground
 platforms and six blocks deeper burial. Every anatomical cell and the rigid
 sword are preserved; the other three crowned-Skull palettes remain ground-v3.

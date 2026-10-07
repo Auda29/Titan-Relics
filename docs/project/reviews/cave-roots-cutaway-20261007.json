@@ -1,0 +1,32 @@
+{
+  "scope": "3D cutaway: all protected relic cells retained; native foreground Z >= -45470 hidden in this view only",
+  "bounds_min": [
+    23658,
+    40,
+    -45484
+  ],
+  "bounds_max_exclusive": [
+    23694,
+    74,
+    -45456
+  ],
+  "records": [
+    {
+      "side": "before",
+      "source_report": "build/smoke/run-20261007-090359-448f2a8bf6a8/report.json",
+      "report_sha256": "87b453c541bfcfba0f9fdcce23bdd559a877a33cca35cf8a8c3aec733db1e97a",
+      "crop_sha256": "186154deab6d198fc20ec2dfc989c44e711338b1555f68ebed7bd832ba70e53e",
+      "blocks": 13180,
+      "omitted_native_foreground_cells": 9714
+    },
+    {
+      "side": "after",
+      "source_report": "build/smoke/run-20261007-114624-97e7a0fcf6f1/report.json",
+      "report_sha256": "642ecf79fcdc84163ff35120ad88cdc1405512e2f0d7446dc20d16eeaa13c658",
+      "crop_sha256": "43b98f3fd7c0aa9166841d2ce1dd7516eef6630508d8d098d5752b799a0f4498",
+      "blocks": 12264,
+      "omitted_native_foreground_cells": 10003
+    }
+  ],
+  "image_sha256": "c72afd4bbb4b251d3502a5eb8dd8d1456fb6715f21ef9e1c20ce29fdf65e05d6"
+}

@@ -1,4 +1,4 @@
-"""Pinned visual assets with Alpha 4.8 native-ground embedding and rooted Tree.
+"""Pinned visual assets with Alpha 4.9 shallow Skull footprint and sparse Tree strands.
 
 Candidate selection is for in-game review, not a new artistic approval. No model
 is regenerated here. Families group biome variants for density/disable settings.
@@ -56,18 +56,20 @@ ASSETS = {
     "small_colossus": asset("colossus", "small-colossus-v7-ground-v3", [111, 80, 113], 233448, 13,
                              "small_colossus", MEADOW + DRY, 4,
                              "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021", False, uphill_slope=12),
-    "world_tree": {**asset("world-tree", "world-tree-v4-2-rooted", [187, 228, 185], 324127, 24,
+    "world_tree": {**asset("world-tree", "world-tree-v4-3-strands", [187, 228, 185], 289005, 24,
                           "world_tree", MEADOW + ["minecraft:forest", "minecraft:flower_forest",
                                                "minecraft:birch_forest", "minecraft:old_growth_birch_forest"], 6,
-                         "09d3f607ed03b52b57cc6882d2a27b0125a27b73df6526bbeb8c810ef0860b8b", False),
-                   "foundation_mode": "embedded_art", "root_support": True},
+                         "4f4fed24edd04f207c76162dc441093fc485e90149c8bc106cf51cc4a1248f14", False),
+                   "foundation_mode": "embedded_art", "root_support": True,
+                   "max_support_depth": 2, "surface_contact_depth": 3, "follow_art": True},
     "ruined_tower": asset("ruined-tower", "ruined-tower-v7-ground-v3", [111, 232, 93], 272528, 12,
                           "ruined_tower", MEADOW + DRY + SAND, 6,
                           "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600", False),
     "titan_skull_2": {**asset("titan-skull", "titan-skull-2-v2-embedded-v1", [99, 136, 99], 32569, 28,
                            "titan_skull_2", MEADOW + DRY, 4,
                            "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd", False),
-                     "foundation_mode": "embedded_art"},
+                     "foundation_mode": "embedded_art", "buried_clip_depth": 6,
+                     "max_support_depth": 2, "surface_contact_depth": 6, "follow_art": True},
 }
 FAMILIES = tuple(dict.fromkeys(a["family"] for a in ASSETS.values()))
 NORMAL_DENSITY = {"obelisk": (64, 32), "colossus": (80, 40), "titan_skull": (48, 24),
@@ -158,6 +160,9 @@ def worldgen_resources():
                                 "minecraft:stone" if name == "titan_skull_rock" else "minecraft:dirt"}}]}
         if a.get('root_support'):
             resources[f'worldgen/processor_list/{name}_terrain.json']['processors'][0]['root_support'] = True
+        for key in ('max_support_depth', 'surface_contact_depth', 'follow_art'):
+            if key in a:
+                resources[f'worldgen/processor_list/{name}_terrain.json']['processors'][0][key] = a[key]
         resources[f"tags/worldgen/biome/has_structure/{name}.json"] = {"replace": False, "values": a["biomes"]}
     for family in FAMILIES:
         spacing, separation = NORMAL_DENSITY[family]

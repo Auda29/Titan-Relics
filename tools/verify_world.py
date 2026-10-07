@@ -270,6 +270,7 @@ def verify_world(world_path: Path, artifact: Path, expected_structures=None) -> 
                                         and template['palette'][b['state']]['Name'] not in AIR_NAMES
                                         and (b['pos'][0], b['pos'][1] - 1, b['pos'][2]) not in authored]
                         unsupported=[]
+                        clearances=[]
                         for x, y, z in contacts:
                             p = transform((x,y-1,z), child['rotation'], result['origin'])
                             state = world.block(*p)['Name']
@@ -277,11 +278,20 @@ def verify_world(world_path: Path, artifact: Path, expected_structures=None) -> 
                                     state in {'minecraft:water','minecraft:lava','minecraft:short_grass',
                                               'minecraft:tall_grass','minecraft:fern','minecraft:large_fern',
                                               'minecraft:snow','minecraft:vine'}):
+                                if 'max_support_depth' in foundation:
+                                    reason = limited_clearance(world, p, y, foundation)
+                                    if reason:
+                                        clearances.append({'position':list(p), 'reason':reason})
+                                        continue
                                 unsupported.append(list(p))
                         result['foundation_contact'] = {'columns':len({(x,z) for x,y,z in contacts}),
                             'undersides_checked': len(contacts), 'mode': foundation.get('contact_mode', 'soil_columns'),
                             'unsupported_columns':len(unsupported),'examples':unsupported[:20],
                             'passed':bool(contacts) and not unsupported}
+                        if 'max_support_depth' in foundation:
+                            result['foundation_contact'].update(
+                                intentional_clearances=len(clearances), clearance_examples=clearances[:20],
+                                contact_policy='short-surface-gaps-only; preserve deep or longer native voids')
                         result['passed'] = result['passed'] and result['foundation_contact']['passed']
                         if foundation.get('feature_protection') == 'relics:placed_cells':
                             absent, checked_masks = [], 0
@@ -313,6 +323,33 @@ def verify_world(world_path: Path, artifact: Path, expected_structures=None) -> 
               "overlaps": overlaps,
               "passed": set(expected_structures) <= passed_types and not world.read_errors and not errors
                         and not complete_failures and not overlaps}
+
+
+def limited_clearance(world, below, raw_y, foundation):
+    """Only explicitly limited models allow underground roots/cave-spanning arches.
+
+    An unfilled SHORT surface gap remains a failure. Deep and long gaps are
+    reported, rather than silently requiring a new wall through native caves.
+    """
+    if world.block(*below) is None:
+        raise ValueError('Missing saved cell in limited-contact audit')
+    depth = foundation.get('surface_contact_depth', -1)
+    if depth >= 0 and raw_y < foundation['ground_y']-depth:
+        return 'buried_root_underside'
+    maximum = foundation['max_support_depth']
+    x,y,z = below
+    for offset in range(maximum+1):
+        state = world.block(x,y-offset,z)
+        if state is None:
+            raise ValueError('Missing saved cell in limited-contact audit')
+        name = state['Name']
+        replaceable = (name in AIR_NAMES or name.endswith('_leaves') or name in {
+            'minecraft:water','minecraft:lava','minecraft:short_grass','minecraft:tall_grass',
+            'minecraft:fern','minecraft:large_fern','minecraft:snow','minecraft:vine',
+            'minecraft:sand','minecraft:red_sand','minecraft:gravel'})
+        if not replaceable:
+            return None
+    return 'long_native_clearance'
 
 
 def structure_overlaps(instances):

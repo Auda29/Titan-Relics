@@ -1,0 +1,188 @@
+{
+  "schema_version": 1,
+  "scope": "Separately authorized natural-terrain save after reload, before user inspection",
+  "published_audit_hash_format": "contact_audits.sha256 identifies the Git LF-normalized report; native_preparation_sha256 retains an original Windows hash when different",
+  "date": "2026-10-07",
+  "installed_version": "0.1.0-alpha.4.8",
+  "artifact": "relics-0.1.0-alpha.4.8+mc26.2.jar",
+  "artifact_sha256": "2b2500a620cf54aa849600f1a49f5ecfcfcc97a48e1e57b4ac6a704178698e5d",
+  "initial_showcase_installation_record": "alpha4-8-installation.json",
+  "initial_showcase_installation_record_sha256": "790671682e4a0aeb6481017eddf124243e72871a3a8184345829cf8e067661c7",
+  "server_disposition": "TerraVista already stopped; user declined stopping a different OvergrownFirebreaks server, which then exited by itself. No process was terminated and no safety guard was bypassed.",
+  "original_worlds_preserved": 17,
+  "original_save_files_checked": 165859,
+  "original_profile_files_checked": 166114,
+  "model_files_checked": 2773,
+  "original_profile_file_changes": [],
+  "unexpected_files_outside_new_world": [],
+  "model_file_changes": [],
+  "preservation_report_sha256": "af92a19e1cca2404cf929829a3e04d0cfcf1935be4033bf838a0bc60a7ce3cf2",
+  "source_natural_report": "build/smoke/run-20261007-090359-448f2a8bf6a8/report.json",
+  "source_natural_report_sha256": "87b453c541bfcfba0f9fdcce23bdd559a877a33cca35cf8a8c3aec733db1e97a",
+  "terrain_preview_report": "build/terrain-preview/20261007-105025/report.json",
+  "terrain_preview_report_sha256": "e98b331f1a091c2b42c2caa212014a4943a8e3775f3c3acefa8402356b193503",
+  "source_natural_watchdog_ms": 60000,
+  "reload_preview_watchdog_ms": 180000,
+  "terrain_world_created": true,
+  "terrain_reload_passed": true,
+  "strict_natural_verification_passed": true,
+  "feature_overwrites_acknowledged": false,
+  "seed": 731204,
+  "world_title": "Relic Alpha 4.8 Terrain 20261007-105025",
+  "creative_mode": true,
+  "cheats_enabled": true,
+  "spawn": {
+    "pos": [
+      22189,
+      67,
+      -30192
+    ],
+    "pitch": 0.0,
+    "dimension": "minecraft:overworld",
+    "yaw": 90.0
+  },
+  "terrain_copy_files_verified": 14950,
+  "manual_test_regions_omitted": [
+    "r.0.0.mca",
+    "r.1.0.mca",
+    "r.2.0.mca",
+    "r.3.0.mca",
+    "r.4.0.mca",
+    "r.5.0.mca",
+    "r.6.0.mca"
+  ],
+  "natural_structures_verified": [
+    "relics:colossus",
+    "relics:obelisk",
+    "relics:ruined_tower",
+    "relics:small_colossus",
+    "relics:titan_skull",
+    "relics:titan_skull_2",
+    "relics:titan_skull_dry",
+    "relics:titan_skull_rock",
+    "relics:titan_skull_sand",
+    "relics:world_tree"
+  ],
+  "checked_blocks": 1422111,
+  "natural_mismatches": 0,
+  "support_contacts_checked": 73505,
+  "protected_cells_checked": 1725140,
+  "protected_cell_editability": {
+    "position": [
+      21964,
+      196,
+      -30194
+    ],
+    "state": {
+      "Name": "minecraft:green_terracotta"
+    },
+    "persisted_mask_present": true,
+    "normal_removal_passed": true,
+    "normal_placement_passed": true
+  },
+  "contact_audits": [
+    {
+      "file": "alpha4-8-tree-reload-contacts.json",
+      "sha256": "3a76db0467a62dd205c712003360de51b72ca41724da922ca64942f864990458",
+      "passed": true
+    },
+    {
+      "file": "alpha4-8-buried-reload-contacts.json",
+      "sha256": "f8077caa852470c64a42432398de4e4fae4d30b7bf25c462cd261d70b767854b",
+      "passed": true
+    },
+    {
+      "file": "alpha4-8-rooted-reload-audit.json",
+      "sha256": "7eba54a16ed8108da48e688b7459abe2a7d944484ebcfd3c5e5c900221360472",
+      "native_preparation_sha256": "c0ac0d6bea8ff522b7551526a6e79a4af40c07e5b786b1f25d1338972395f833",
+      "passed": false,
+      "support_checks_passed": true
+    }
+  ],
+  "native_cavity_air_only_audit_passed": false,
+  "native_cavity_blocked_probe_cells": 3,
+  "support_additions_audit_passed": true,
+  "gamemode_command": "/gamemode spectator",
+  "commands": [
+    {
+      "structure": "relics:titan_skull_rock",
+      "label": "Fels-Schädel (neu)",
+      "command": "/tp @s -8895 112 35664 90 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:titan_skull_2",
+      "label": "Schädel 2 (neu)",
+      "command": "/tp @s -13168 122 36361 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:world_tree",
+      "label": "Weltenbaum (neu)",
+      "command": "/tp @s 23712 171 -45372 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:colossus",
+      "label": "Großer Koloss",
+      "command": "/tp @s 22189 109 -30192 90 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:obelisk",
+      "label": "Obelisk",
+      "command": "/tp @s 4336 167 -7850 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:titan_skull",
+      "label": "Schädel – Wiese",
+      "command": "/tp @s -10400 114 -17519 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:titan_skull_dry",
+      "label": "Schädel – Savanne",
+      "command": "/tp @s 1888 133 -12111 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:titan_skull_sand",
+      "label": "Schädel – Wüste",
+      "command": "/tp @s -22832 106 -31871 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:small_colossus",
+      "label": "Kleiner Koloss",
+      "command": "/tp @s 18592 104 -96 0 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:ruined_tower",
+      "label": "Turm",
+      "command": "/tp @s 10454 184 2752 90 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    }
+  ]
+}

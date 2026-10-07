@@ -19,15 +19,23 @@ import java.util.List;
 import java.util.Set;
 
 /** Connect exposed low model undersides to actual substrate, in this chunk only. */
-public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockState artFill, boolean rootSupport) implements StructureProcessor {
+public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockState artFill, boolean rootSupport,
+        int maxSupportDepth, int surfaceContactDepth, boolean followArt) implements StructureProcessor {
     public static final MapCodec<TerrainSupportProcessor> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(Codec.intRange(0, 319).fieldOf("ground_y")
                             .forGetter(TerrainSupportProcessor::groundY),
                     Codec.BOOL.optionalFieldOf("support_art", false).forGetter(TerrainSupportProcessor::supportArt),
                     BlockState.CODEC.optionalFieldOf("art_fill", Blocks.DIRT.defaultBlockState())
                             .forGetter(TerrainSupportProcessor::artFill),
-                    Codec.BOOL.optionalFieldOf("root_support", false).forGetter(TerrainSupportProcessor::rootSupport)
+                    Codec.BOOL.optionalFieldOf("root_support", false).forGetter(TerrainSupportProcessor::rootSupport),
+                    Codec.intRange(-1, 32).optionalFieldOf("max_support_depth", -1).forGetter(TerrainSupportProcessor::maxSupportDepth),
+                    Codec.intRange(-1, 32).optionalFieldOf("surface_contact_depth", -1).forGetter(TerrainSupportProcessor::surfaceContactDepth),
+                    Codec.BOOL.optionalFieldOf("follow_art", false).forGetter(TerrainSupportProcessor::followArt)
                     ).apply(instance, TerrainSupportProcessor::new));
+
+    public TerrainSupportProcessor(int groundY, boolean supportArt, BlockState artFill, boolean rootSupport) {
+        this(groundY, supportArt, artFill, rootSupport, -1, -1, false);
+    }
 
     public TerrainSupportProcessor(int groundY, boolean supportArt, BlockState artFill) {
         this(groundY, supportArt, artFill, false);
@@ -74,22 +82,39 @@ public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockStat
         }
         var added = new HashSet<Long>();
         for (var bottom : starts) {
+            if (surfaceContactDepth >= 0 && bottom.pos().getY() < origin.getY() + groundY - surfaceContactDepth) {
+                continue; // Buried roots may cross caves; they are not foundation piers.
+            }
             BlockState fill = SOILS.contains(bottom.state().getBlock()) ? fillState(bottom.state()) : artFill;
-            if (rootSupport && net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(bottom.state().getBlock())
-                    .getPath().endsWith("_log")) {
+            if ((followArt && !(bottom.state().getBlock() instanceof net.minecraft.world.level.block.FallingBlock)) || (rootSupport && net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(bottom.state().getBlock())
+                    .getPath().endsWith("_log"))) {
                 fill = bottom.state(); // Continue the actual root, never put it on an earth pillar.
             }
+            var pending = new ArrayList<StructureBlockInfo>();
+            boolean substrate = false;
             for (BlockPos pos = bottom.pos().below(); pos.getY() >= level.getMinY(); pos = pos.below()) {
-                if (authored.contains(pos.asLong()) || added.contains(pos.asLong()) || (settings.getBoundingBox() != null
-                        && !settings.getBoundingBox().isInside(pos))) {
+                if (authored.contains(pos.asLong()) || added.contains(pos.asLong())) {
+                    substrate = true;
+                    break;
+                }
+                if (settings.getBoundingBox() != null && !settings.getBoundingBox().isInside(pos)) {
                     break;
                 }
                 BlockState existing = level.getBlockState(pos);
                 if (!replaceable(existing)) {
+                    substrate = true;
                     break;
                 }
-                result.add(new StructureBlockInfo(pos, fill, null));
-                added.add(pos.asLong());
+                if (maxSupportDepth >= 0 && pending.size() == maxSupportDepth) {
+                    break; // Long void: discard the whole proposed column, not a hanging stub.
+                }
+                pending.add(new StructureBlockInfo(pos, fill, null));
+            }
+            if (maxSupportDepth < 0 || substrate) {
+                for (var info : pending) {
+                    result.add(info);
+                    added.add(info.pos().asLong());
+                }
             }
         }
         if (level instanceof net.minecraft.server.level.WorldGenRegion) {

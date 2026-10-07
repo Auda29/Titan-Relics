@@ -1,0 +1,255 @@
+{
+  "scope": "All actual added support runs, exact same cave regions, and eight unchanged templates",
+  "reports": [
+    {
+      "path": "build/smoke/run-20261007-090359-448f2a8bf6a8/report.json",
+      "sha256": "87b453c541bfcfba0f9fdcce23bdd559a877a33cca35cf8a8c3aec733db1e97a"
+    },
+    {
+      "path": "build/smoke/run-20261007-114624-97e7a0fcf6f1/report.json",
+      "sha256": "642ecf79fcdc84163ff35120ad88cdc1405512e2f0d7446dc20d16eeaa13c658"
+    }
+  ],
+  "supports": [
+    {
+      "id": "titan_skull_2",
+      "authored_natural_cells": 25260,
+      "omitted_deep_raw_cells": 7309,
+      "runtime_cells": 448,
+      "runtime_materials": {
+        "minecraft:bone_block": 291,
+        "minecraft:dripstone_block": 46,
+        "minecraft:moss_block": 103,
+        "minecraft:calcite": 8
+      },
+      "max_runtime_column_length": 2,
+      "invalid_runs": [],
+      "ground_y_world": 68,
+      "passed": true
+    },
+    {
+      "id": "world_tree",
+      "authored_natural_cells": 289005,
+      "omitted_deep_raw_cells": 0,
+      "runtime_cells": 293,
+      "runtime_materials": {
+        "minecraft:spruce_log": 271,
+        "minecraft:mossy_stone_bricks": 22
+      },
+      "max_runtime_column_length": 2,
+      "invalid_runs": [],
+      "ground_y_world": 67,
+      "passed": true
+    }
+  ],
+  "cave_regions": [
+    {
+      "id": "skull_deep_cave",
+      "bounds": [
+        -13146,
+        38,
+        36278,
+        -13131,
+        61,
+        36302
+      ],
+      "before_protected_cells": 465,
+      "after_protected_cells": 0,
+      "released_positions_now": {
+        "minecraft:stone": 338,
+        "minecraft:air": 40,
+        "minecraft:granite": 63,
+        "minecraft:diorite": 18,
+        "minecraft:copper_ore": 2,
+        "minecraft:coal_ore": 4
+      },
+      "remaining_fraction": 0.0,
+      "accepted_art_cells_in_region": 0,
+      "missing_accepted_art": [],
+      "added_geometry_before": 465,
+      "added_geometry_after": 0,
+      "added_geometry_remaining_fraction": 0.0
+    },
+    {
+      "id": "tree_north_cave",
+      "bounds": [
+        23735,
+        40,
+        -45567,
+        23761,
+        62,
+        -45532
+      ],
+      "before_protected_cells": 2209,
+      "after_protected_cells": 682,
+      "released_positions_now": {
+        "minecraft:stone": 904,
+        "minecraft:andesite": 33,
+        "minecraft:diorite": 133,
+        "minecraft:air": 457,
+        "minecraft:dirt": 78,
+        "minecraft:grass_block": 19,
+        "minecraft:granite": 9,
+        "minecraft:copper_ore": 1
+      },
+      "remaining_fraction": 0.30873698506111363,
+      "accepted_art_cells_in_region": 523,
+      "missing_accepted_art": [],
+      "added_geometry_before": 1686,
+      "added_geometry_after": 159,
+      "added_geometry_remaining_fraction": 0.09430604982206406
+    },
+    {
+      "id": "tree_west_cave",
+      "bounds": [
+        23660,
+        40,
+        -45480,
+        23692,
+        62,
+        -45460
+      ],
+      "before_protected_cells": 2680,
+      "after_protected_cells": 505,
+      "released_positions_now": {
+        "minecraft:stone": 894,
+        "minecraft:dirt": 107,
+        "minecraft:air": 654,
+        "minecraft:granite": 403,
+        "minecraft:andesite": 129,
+        "minecraft:grass_block": 50,
+        "minecraft:coal_ore": 20,
+        "minecraft:copper_ore": 15,
+        "minecraft:short_grass": 3,
+        "minecraft:gravel": 4
+      },
+      "remaining_fraction": 0.1884328358208955,
+      "accepted_art_cells_in_region": 304,
+      "missing_accepted_art": [],
+      "added_geometry_before": 2376,
+      "added_geometry_after": 201,
+      "added_geometry_remaining_fraction": 0.0845959595959596
+    }
+  ],
+  "unchanged_templates": [
+    "colossus",
+    "obelisk",
+    "titan_skull",
+    "titan_skull_dry",
+    "titan_skull_sand",
+    "titan_skull_rock",
+    "small_colossus",
+    "ruined_tower"
+  ],
+  "face_cavities_before_after": [
+    {
+      "checked_cells": 108,
+      "blocked": [
+        {
+          "position": [
+            -13169,
+            71,
+            36317
+          ],
+          "state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          }
+        },
+        {
+          "position": [
+            -13169,
+            72,
+            36318
+          ],
+          "state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "4",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          }
+        },
+        {
+          "position": [
+            -13169,
+            72,
+            36317
+          ],
+          "state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          }
+        }
+      ],
+      "strict_air_only": false
+    },
+    {
+      "checked_cells": 108,
+      "blocked": [
+        {
+          "position": [
+            -13169,
+            71,
+            36317
+          ],
+          "state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          }
+        },
+        {
+          "position": [
+            -13169,
+            72,
+            36318
+          ],
+          "state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "4",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          }
+        },
+        {
+          "position": [
+            -13169,
+            72,
+            36317
+          ],
+          "state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          }
+        }
+      ],
+      "strict_air_only": false
+    }
+  ],
+  "face_cavity_contents_preserved": true,
+  "cave_regression_passed": true,
+  "read_errors": [
+    [],
+    []
+  ],
+  "passed": true
+}

@@ -1,5 +1,6 @@
 # World Tree design assets
 
+- [V4.3 branching-root candidate](world-tree-v4-3-strands.json): [cave-contact evidence](../../../docs/testing/CAVE_CONTACTS_20261007.md)
 - [V4.2 rooted candidate](world-tree-v4-2-rooted.json): [exports](generated/world-tree-v4-2-rooted/) and [same-site evidence](../../../docs/testing/ROOTED_EMBEDDING_20261007.md)
 - [V1 configuration](world-tree-v1.json)
 - [V1 editable source and exports](generated/world-tree-v1/)

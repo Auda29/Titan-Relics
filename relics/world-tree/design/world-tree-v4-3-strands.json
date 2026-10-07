@@ -1,0 +1,92 @@
+{
+  "repository": ".work/ObjToSchematic",
+  "commit": "b611b52c7a87cad99127908598bab019fe9e7c3f",
+  "output": "relics/world-tree/design/generated/world-tree-v4-3-strands/world-tree-v4-3-strands.schem",
+  "height": 228,
+  "planned_site_size": [
+    220,
+    216,
+    220
+  ],
+  "preview_atlas": ".work/foliage-preview-atlas",
+  "title": "WORLD-TREE-V4-3-STRANDS",
+  "subtitle": "Sparse tapered root strands / short surface contacts / open caves",
+  "reference": "https://www.instagram.com/reel/DaBgsX0C9s4/",
+  "materials": {
+    "wood": "minecraft:spruce_log[axis=y]",
+    "bark": "minecraft:stripped_spruce_log[axis=y]",
+    "cut": "minecraft:stripped_dark_oak_log[axis=y]",
+    "leaves": "minecraft:spruce_leaves[distance=7,persistent=true]",
+    "leaf_light": "minecraft:oak_leaves[distance=7,persistent=true]",
+    "moss": "minecraft:moss_block",
+    "stone": "minecraft:mossy_stone_bricks",
+    "terrain_top": "minecraft:grass_block[snowy=false]",
+    "terrain_patch": "minecraft:rooted_dirt",
+    "terrain_fill": "minecraft:dirt"
+  },
+  "material_proxies": {
+    "wood": "minecraft:spruce_log",
+    "bark": "minecraft:stripped_spruce_log",
+    "cut": "minecraft:stripped_dark_oak_log",
+    "leaves": "minecraft:green_concrete",
+    "leaf_light": "minecraft:lime_wool",
+    "moss": "minecraft:moss_block",
+    "stone": "minecraft:mossy_stone_bricks",
+    "terrain_top": "minecraft:lime_concrete",
+    "terrain_patch": "minecraft:rooted_dirt",
+    "terrain_fill": "minecraft:dirt"
+  },
+  "covered_replacements": {
+    "minecraft:grass_block[snowy=false]": "minecraft:dirt"
+  },
+  "structural_material_priority": [
+    "wood",
+    "bark",
+    "cut"
+  ],
+  "preserve_tree_palette_from": "relics/world-tree/design/generated/world-tree-v4/world-tree-v4.schem",
+  "view_labels": [
+    "01 / Editable source",
+    "02 / Actual NBT / front",
+    "03 / Actual NBT / side",
+    "04 / Actual NBT / rear"
+  ],
+  "review_footer": "V4.1 ground-only candidate. Actual NBT; crown and branches retained from accepted V4.",
+  "preview": {
+    "front": [
+      160,
+      300,
+      110
+    ],
+    "other": [
+      -250,
+      150,
+      120
+    ],
+    "back": [
+      130,
+      -300,
+      135
+    ],
+    "landscape": "new-relic-v1",
+    "ground_color": [
+      0.19,
+      0.25,
+      0.11
+    ],
+    "camera_source": [
+      300,
+      115,
+      -430
+    ],
+    "target_source": [
+      0,
+      97,
+      0
+    ],
+    "lens": 43
+  },
+  "authoring": "block-rooted-embedding-derivative",
+  "source_nbt": "relics/world-tree/design/generated/world-tree-v4-1-ground-v3/world-tree-v4-1-ground-v3.nbt",
+  "ground_y": 24
+}

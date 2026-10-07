@@ -1,8 +1,8 @@
 {
   "selection": "alpha4",
-  "revision": "2026-10-07-native-ground-embedding-and-root-continuations",
+  "revision": "2026-10-07-shallow-skull-footprint-and-sparse-root-strands",
   "foundation_policy": "near-ground-soil-columns-v4-protected-runtime-contact",
-  "runtime_contact_policy": "exposed-model-undersides-at-or-below-ground-v5",
+  "runtime_contact_policy": "exposed-model-undersides-v6-explicit-bounded-cave-profiles",
   "air_policy": "omit; preserve existing terrain",
   "structures": [
     {
@@ -483,14 +483,14 @@
     },
     {
       "id": "world_tree",
-      "source": "relics/world-tree/design/generated/world-tree-v4-2-rooted/world-tree-v4-2-rooted.nbt",
-      "version": "world-tree-v4-2-rooted",
+      "source": "relics/world-tree/design/generated/world-tree-v4-3-strands/world-tree-v4-3-strands.nbt",
+      "version": "world-tree-v4-3-strands",
       "size": [
         187,
         228,
         185
       ],
-      "blocks": 324127,
+      "blocks": 289005,
       "ground_y": 24,
       "family": "world_tree",
       "biomes": [
@@ -515,18 +515,21 @@
         "minecraft:old_growth_birch_forest"
       ],
       "slope": 6,
-      "sha256": "09d3f607ed03b52b57cc6882d2a27b0125a27b73df6526bbeb8c810ef0860b8b",
+      "sha256": "4f4fed24edd04f207c76162dc441093fc485e90149c8bc106cf51cc4a1248f14",
       "visually_accepted": false,
       "foundation_mode": "embedded_art",
       "root_support": true,
+      "max_support_depth": 2,
+      "surface_contact_depth": 3,
+      "follow_art": true,
       "data_version": 3105,
       "single_template": {
         "path": "world_tree.nbt",
-        "sha256": "09d3f607ed03b52b57cc6882d2a27b0125a27b73df6526bbeb8c810ef0860b8b"
+        "sha256": "4f4fed24edd04f207c76162dc441093fc485e90149c8bc106cf51cc4a1248f14"
       },
       "worldgen_template": {
         "path": "world_tree_worldgen.nbt",
-        "sha256": "2606dba242d28a1f2277ce7a9ab63c4b84c8a606e7f7b551a61a839da473e226",
+        "sha256": "f02938142c245e875eef32a14f6bd90920b152b8d267400581b7024dc6b79190",
         "anchor": [
           101,
           23,
@@ -550,7 +553,10 @@
           "supported_columns": 0,
           "added_blocks": 0,
           "toe_blocks": 0,
-          "toe_columns": 0
+          "toe_columns": 0,
+          "max_support_depth": 2,
+          "surface_contact_depth": 3,
+          "follow_art": true
         }
       }
     },
@@ -684,6 +690,10 @@
       "sha256": "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd",
       "visually_accepted": false,
       "foundation_mode": "embedded_art",
+      "buried_clip_depth": 6,
+      "max_support_depth": 2,
+      "surface_contact_depth": 6,
+      "follow_art": true,
       "data_version": 3105,
       "single_template": {
         "path": "titan_skull_2.nbt",
@@ -691,7 +701,7 @@
       },
       "worldgen_template": {
         "path": "titan_skull_2_worldgen.nbt",
-        "sha256": "6af07c8ab6f911d67b9b5c7da9af69106c0d1c2f7e81c0f6f440b6041d1e7ad0",
+        "sha256": "7ac077870df4d68ae325b485ba85bc0b3daf33b3b313ee406ae67c3f636f83fd",
         "anchor": [
           57,
           27,
@@ -715,7 +725,12 @@
           "supported_columns": 0,
           "added_blocks": 0,
           "toe_blocks": 0,
-          "toe_columns": 0
+          "toe_columns": 0,
+          "buried_clip_y": 22,
+          "omitted_buried_cells": 7309,
+          "max_support_depth": 2,
+          "surface_contact_depth": 6,
+          "follow_art": true
         }
       }
     }

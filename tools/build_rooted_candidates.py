@@ -61,7 +61,10 @@ def build(name):
             assert q not in recovered
             recovered[q] = s
     assert recovered == translated
-    contract = {**ASSETS[name], 'source': schem.with_suffix('.nbt').relative_to(ROOT).as_posix(),
+    # These historical Alpha 4.8 contracts predate the cave-limited profiles.
+    original = {k: v for k, v in ASSETS[name].items()
+                if k not in ('buried_clip_depth', 'max_support_depth', 'surface_contact_depth', 'follow_art')}
+    contract = {**original, 'source': schem.with_suffix('.nbt').relative_to(ROOT).as_posix(),
                 'version': stem, 'size': size, 'blocks': len(actual), 'ground_y': ground + shift,
                 'sha256': hashlib.sha256(schem.with_suffix('.nbt').read_bytes()).hexdigest(),
                 'foundation_mode': 'embedded_art', 'visually_accepted': False}

@@ -23,12 +23,13 @@ def main():
     parser.add_argument('--before', type=Path, required=True)
     parser.add_argument('--after', type=Path, required=True)
     parser.add_argument('--output', type=Path, default=ROOT / 'build/rooted-embedding/20261007/views')
+    parser.add_argument('--structures', nargs='+', choices=NAMES, default=NAMES)
     args = parser.parse_args()
     reports = [json.loads(p.read_bytes()) for p in (args.before, args.after)]
     assert all(r['passed'] and not r['showcase'] for r in reports)
     args.output.mkdir(parents=True, exist_ok=True)
     records = []
-    for name in NAMES:
+    for name in args.structures:
         instances = [next(i for i in r['world_blocks']['instances'] if i['structure'] == 'relics:' + name) for r in reports]
         contracts = [next(a for a in r['asset_selection']['structures'] if a['id'] == name) for r in reports]
         assert instances[0]['rotation'] == instances[1]['rotation']

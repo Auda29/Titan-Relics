@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "scope": "Verified terrain-only Alpha 4.9 upgrade/reload before user inspection",
+  "installed_version": "0.1.0-alpha.4.9",
+  "artifact": "relics-0.1.0-alpha.4.9+mc26.2.jar",
+  "artifact_sha256": "3dbffadf501cbc3dee3ffa66ca78f04fa5b6c6032c66f511832c47aa9d45ba22",
+  "previous_version": "0.1.0-alpha.4.8",
+  "backup": "build/profile-backups/0.1.0-alpha.4.9-upgrade-20261007-121420",
+  "previous_relic_backup_verified": true,
+  "original_worlds_preserved": 18,
+  "original_save_files_checked": 180890,
+  "original_profile_files_checked": 181159,
+  "model_files_checked": 2901,
+  "original_profile_file_changes": [],
+  "unexpected_files_outside_new_world": [],
+  "model_file_changes": [],
+  "preservation_report_sha256": "31d73c923a3f81c2c1fbc27c35f9d5915c87c0e56b442c0f4348592b0a95e382",
+  "natural_source_report": "build/smoke/run-20261007-120415-8ab6c782fdc6/report.json",
+  "natural_source_report_sha256": "30459ddbc4ea8f28e15cd67c2f9b923b532bce814afb35db63c37db04b9db955",
+  "showcase_source_report": "build/smoke/run-20261007-120404-a465bce0759b/report.json",
+  "showcase_source_report_sha256": "1d1b0756b5459233874d6c60f89943108d1d57660650e3f709fe03836929ea70",
+  "terrain_preview_report": "build/terrain-preview/20261007-121429/report.json",
+  "terrain_preview_report_sha256": "6748912dcc6d59f7d46521eabbe441ecf000c1f06dc65e4bbe30ffd529e3d435",
+  "source_watchdog_ms": 60000,
+  "reload_preview_watchdog_ms": 180000,
+  "terrain_reload_passed": true,
+  "strict_natural_verification_passed": true,
+  "feature_overwrites_acknowledged": false,
+  "new_flat_showcase_world_created": false,
+  "world_title": "Relic Alpha 4.9 Terrain 20261007-121429",
+  "seed": 731204,
+  "spawn": {
+    "pos": [
+      22189,
+      67,
+      -30192
+    ],
+    "pitch": 0.0,
+    "dimension": "minecraft:overworld",
+    "yaw": 90.0
+  },
+  "creative_mode": true,
+  "cheats_enabled": true,
+  "terrain_copy_files_verified": 14950,
+  "manual_test_regions_omitted": [
+    "r.0.0.mca",
+    "r.1.0.mca",
+    "r.2.0.mca",
+    "r.3.0.mca",
+    "r.4.0.mca",
+    "r.5.0.mca",
+    "r.6.0.mca"
+  ],
+  "natural_structures_verified": [
+    "relics:colossus",
+    "relics:obelisk",
+    "relics:ruined_tower",
+    "relics:small_colossus",
+    "relics:titan_skull",
+    "relics:titan_skull_2",
+    "relics:titan_skull_dry",
+    "relics:titan_skull_rock",
+    "relics:titan_skull_sand",
+    "relics:world_tree"
+  ],
+  "checked_blocks": 1379680,
+  "natural_mismatches": 0,
+  "support_undersides_examined": 67209,
+  "intentional_contact_clearances": {
+    "relics:titan_skull_2": 178,
+    "relics:world_tree": 177
+  },
+  "unexpected_unsupported_contacts": 0,
+  "protected_cells_checked": 1682709,
+  "protected_cell_editability": {
+    "position": [
+      21964,
+      196,
+      -30194
+    ],
+    "state": {
+      "Name": "minecraft:green_terracotta"
+    },
+    "persisted_mask_present": true,
+    "normal_removal_passed": true,
+    "normal_placement_passed": true
+  },
+  "contact_audits": [
+    {
+      "file": "alpha4-9-tree-reload-contacts.json",
+      "sha256": "8ab24102290c1ce8bc6144dc9752748477978083c674d81a42f5458d80dd6001",
+      "passed": true
+    },
+    {
+      "file": "alpha4-9-buried-reload-contacts.json",
+      "sha256": "060d5be5b6cd1b8b7198120e33080bd35c5cf81b28bb133be97d3e47bd3d3479",
+      "passed": true
+    },
+    {
+      "file": "alpha4-9-cave-reload-audit.json",
+      "sha256": "3d6847926c749bd0b23323de0142c9811eab143ea14acbddb45c95183151113b",
+      "passed": true
+    }
+  ],
+  "face_cavity_contents_preserved": true,
+  "face_cavity_strict_air_only": false,
+  "face_cavity_blocked_cells": 3,
+  "gamemode_command": "/gamemode spectator",
+  "commands": [
+    {
+      "structure": "relics:titan_skull_2",
+      "label": "Schädel 2 (neu)",
+      "command": "/tp @s -13168 122 36361 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:world_tree",
+      "label": "Weltenbaum (neu)",
+      "command": "/tp @s 23712 171 -45372 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:titan_skull_rock",
+      "label": "Fels-Schädel",
+      "command": "/tp @s -8895 112 35664 90 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:colossus",
+      "label": "Großer Koloss",
+      "command": "/tp @s 22189 109 -30192 90 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:obelisk",
+      "label": "Obelisk",
+      "command": "/tp @s 4336 167 -7850 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:titan_skull",
+      "label": "Schädel – Wiese",
+      "command": "/tp @s -10400 114 -17519 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:titan_skull_dry",
+      "label": "Schädel – Savanne",
+      "command": "/tp @s 1888 133 -12111 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:titan_skull_sand",
+      "label": "Schädel – Wüste",
+      "command": "/tp @s -22832 106 -31871 180 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:small_colossus",
+      "label": "Kleiner Koloss",
+      "command": "/tp @s 18592 104 -96 0 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    },
+    {
+      "structure": "relics:ruined_tower",
+      "label": "Turm",
+      "command": "/tp @s 10454 184 2752 90 0",
+      "camera_chunk_full": true,
+      "camera_cell_air": true,
+      "camera_head_cell_air": true
+    }
+  ]
+}

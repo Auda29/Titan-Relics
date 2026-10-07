@@ -31,9 +31,23 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Testing
 
+- [Alpha 4.9 cave-contact and root-strand integration](testing/ALPHA_4_9_TEST_REPORT.md)
+- [Alpha 4.9 fresh complete ten-variant runtime evidence](testing/alpha4-9-evidence.json)
+- [Alpha 4.9 independent bounded-support and cave regression audit](testing/alpha4-9-cave-audit.json)
+- [Alpha 4.9 explicitly classified Tree contacts](testing/alpha4-9-tree-contacts.json)
+- [Alpha 4.9 retained buried raw-Y0 contacts](testing/alpha4-9-buried-contacts.json)
+- [Alpha 4.9 installed terrain save, preservation and TP viewpoints](testing/alpha4-9-installation.json)
+- [Alpha 4.9 Tree contacts after terrain-save reload](testing/alpha4-9-tree-reload-contacts.json)
+- [Alpha 4.9 buried-art contacts after terrain-save reload](testing/alpha4-9-buried-reload-contacts.json)
+- [Alpha 4.9 independent cave audit after terrain-save reload](testing/alpha4-9-cave-reload-audit.json)
+- [October 7 Skull 2 cave footprint and branching Tree candidates](testing/CAVE_CONTACTS_20261007.md)
 - [Alpha 4.8 native-ground Skulls and rooted World Tree integration](testing/ALPHA_4_8_TEST_REPORT.md)
 - [Alpha 4.8 fresh complete ten-variant runtime evidence](testing/alpha4-8-evidence.json)
 - [Alpha 4.8 installed showcase, preservation and TP viewpoints](testing/alpha4-8-installation.json)
+- [Alpha 4.8 later terrain showcase, reload, preservation and TP viewpoints](testing/alpha4-8-terrain-installation.json)
+- [Alpha 4.8 Tree root contacts after terrain-save reload](testing/alpha4-8-tree-reload-contacts.json)
+- [Alpha 4.8 buried-art contacts after terrain-save reload](testing/alpha4-8-buried-reload-contacts.json)
+- [Alpha 4.8 reloaded embedded supports and retained native-leaf cavity failure](testing/alpha4-8-rooted-reload-audit.json)
 - [Alpha 4.8 actual Tree root contacts](testing/alpha4-8-tree-contacts.json)
 - [Alpha 4.8 retained buried raw-Y0 contacts](testing/alpha4-8-buried-contacts.json)
 - [Alpha 4.8 embedded supports and separately failed native-leaf cavity audit](testing/alpha4-8-rooted-runtime-audit.json)

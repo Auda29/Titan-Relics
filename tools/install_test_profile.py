@@ -78,6 +78,8 @@ def main() -> int:
     parser.add_argument("--profile", type=Path, required=True)
     parser.add_argument("--natural-report", type=Path, required=True)
     parser.add_argument("--showcase-report", type=Path, required=True)
+    parser.add_argument("--no-showcase-world", action="store_true",
+                        help="Keep the complete showcase acceptance gate, but do not add a flat inspection save")
     parser.add_argument("--allow-feature-overwrites", action="store_true",
                         help="Install a visual-test build with documented small natural feature edits; strict verification remains failed")
     args = parser.parse_args()
@@ -120,12 +122,15 @@ def main() -> int:
         if hashlib.sha256(jar.read_bytes()).digest() != hashlib.sha256((backup / jar.name).read_bytes()).digest():
             raise ValueError("Backup verification failed")
     label = version.removeprefix("0.1.0-alpha.")
-    title = f"Relic Alpha {label} Showcase {stamp}"
-    source_world = Path(showcase["run_directory"]) / "world"
-    prepared_level = prepare_level((source_world / "level.dat").read_bytes(), title)
-    world = args.profile / "saves" / title
-    shutil.copytree(source_world, world)
-    (world / "level.dat").write_bytes(prepared_level)
+    title = None
+    world = None
+    if not args.no_showcase_world:
+        title = f"Relic Alpha {label} Showcase {stamp}"
+        source_world = Path(showcase["run_directory"]) / "world"
+        prepared_level = prepare_level((source_world / "level.dat").read_bytes(), title)
+        world = args.profile / "saves" / title
+        shutil.copytree(source_world, world)
+        (world / "level.dat").write_bytes(prepared_level)
     pending = mods / (artifact.name + ".pending")
     shutil.copy2(artifact, pending)
     if hashlib.sha256(pending.read_bytes()).hexdigest() != checksum:
@@ -134,7 +139,7 @@ def main() -> int:
         jar.unlink()  # Only identified Relic JARs, already individually backed up.
     pending.replace(mods / artifact.name)
     result = {"artifact": str(mods / artifact.name), "sha256": checksum,
-              "backup": str(backup), "showcase_world": str(world), "world_title": title,
+              "backup": str(backup), "showcase_world": str(world) if world is not None else None, "world_title": title,
               "existing_worlds_modified": False, "strict_natural_verification_passed": natural["passed"],
               "feature_overwrites_acknowledged": args.allow_feature_overwrites,
               "natural_mismatches": [{"structure": i["structure"], "count": i["mismatch_count"],

@@ -1,5 +1,13 @@
 # World Tree
 
+**Alpha 4.9 selects V4.3 strands.** Accepted art and world pose remain unchanged
+under the same +12 Y export translation and ground Y24. Replace the later broad
+37,005-cell extrusion with 1,883 face-connected wood cells along 50 tapering
+strand/fork paths. Only short contacts of up to two cells within the three-block
+surface band are bridged; deep roots and longer cave openings remain open. See
+[candidate provenance](../../docs/testing/CAVE_CONTACTS_20261007.md) and
+[current runtime evidence](../../docs/testing/ALPHA_4_9_TEST_REPORT.md).
+
 **Alpha 4.8 selects V4.2 rooted.** Accepted wood and foliage are retained under
 a uniform +12 Y export translation, with 37,005 face-connected low wood additions.
 Ground Y24 places the accepted art four blocks deeper; exposed low roots continue

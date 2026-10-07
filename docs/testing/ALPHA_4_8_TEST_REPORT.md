@@ -107,16 +107,57 @@ unique title/cheat metadata in `level.dat`. Creative mode and cheats are verifie
 The [installation record](alpha4-8-installation.json) contains all ten TP commands;
 each viewpoint is a fully generated chunk with an air camera cell.
 
-Terrain-copy preparation stopped at the safety guard because an unrelated
+Terrain-copy preparation initially stopped at the safety guard because an unrelated
 TerraVista Java acceptance server was running. No copy/server launch or reload
-probe took place. The user explicitly chose **finish with showcase only**;
-the unrelated server was neither terminated nor bypassed. No Alpha 4.8 terrain
-save exists, and the natural-run coordinates must not be presented as commands
-for an installed terrain save. Existing Alpha 4.7 terrain worlds remain old art.
+probe took place at that stage. The user explicitly chose **finish with showcase
+only**; the unrelated server was neither terminated nor bypassed. The unchanged
+[initial installation record](alpha4-8-installation.json) describes that earlier
+state, when no Alpha 4.8 terrain save existed. Existing Alpha 4.7 terrain worlds
+remain old art.
 
 At preparation completion, all **16 previous worlds / 165,783 save files**, the
 remaining original profile files and all **2,773 model/source files** match the
 preparation inventory. No original world was opened or edited by this task.
 There is no new client artistic acceptance or release tag. The subsequent push
-request publishes the implementation and recorded evidence without new profile,
-world, art or gameplay changes.
+published the implementation and recorded evidence as commit `bae945e`, before
+the separately authorized terrain preparation below.
+
+## Later terrain-showcase preparation
+
+The user subsequently requested shutting down the blocking test server and
+preparing a separate terrain showcase with TP commands. TerraVista was already
+stopped. A different OvergrownFirebreaks server was running; the user explicitly
+declined stopping it, and it then exited by itself. No external process was
+terminated and no safety guard was bypassed.
+
+The new world is **`Relic Alpha 4.8 Terrain 20261007-105025`** in "Relic Test",
+seed **731204**, with creative mode and cheats enabled. It is a separate copy of
+the passing ten-variant natural run, not the flat manual-placement showcase.
+Seven recorded manual-placement region files are omitted from the new copy only;
+no source or previous world is modified. The isolated Relic reload server saves
+and stops normally with exit 0. Its existing 180000 ms reload watchdog is not
+substituted for the source acceptance run's ordinary 60000 ms watchdog.
+
+The [terrain installation and ten TP commands](alpha4-8-terrain-installation.json)
+link the source, reload, preservation and audit hashes. After reload:
+
+- All ten actual natural structures are complete, with **1,422,111 checked model
+  cells**, **73,505 support contacts**, **1,725,140 protected cells**, zero block
+  mismatches, missing/incomplete chunks, overlaps or read errors.
+- A persisted protected Colossus art cell is removed and restored through normal
+  server commands, in the new isolated copy only; both checks pass.
+- [Tree contacts](alpha4-8-tree-reload-contacts.json) pass with zero ground-level
+  gaps; the same 175 intentional raised edges are reported separately.
+- [Buried contacts](alpha4-8-buried-reload-contacts.json) pass all 3,835 cells.
+- [Embedded supports/cavities](alpha4-8-rooted-reload-audit.json) retain passing
+  below-ground support additions and the **failed** strict air-only category for
+  the same three native oak leaves in Skull 2. The overall audit remains false;
+  no leaves, anatomy or supports are edited to conceal that observation.
+
+All **14,950 installed terrain-copy files** match the verified local reload copy
+byte-for-byte. All ten TP cameras have air at both feet and head in fully generated
+chunks. At this follow-up's completion, all **17 pre-existing worlds / 165,859 save
+files**, all **166,114 original profile files** and **2,773 model/source files**
+match a fresh pre-preparation inventory, with no unexpected files outside the new
+world. This follow-up changes no model, runtime, dependencies or existing save;
+it does not create another commit, push, release tag or client artistic approval.

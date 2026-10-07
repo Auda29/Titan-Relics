@@ -3,33 +3,38 @@
 Rare, monumental discoveries for Minecraft: colossi, an obelisk, titan skulls,
 a world tree and a ruined tower.
 
-**Latest art follow-up:** [Native-ground Skulls and rooted World Tree](docs/testing/ROOTED_EMBEDDING_20261007.md)
-address the Alpha 4.7 screenshots. Skull anatomy and the rigid sword remain exact;
-accepted Tree wood/foliage is retained under a declared export translation.
+**Latest art follow-up:** [Open cave contacts and sparse Tree root strands](docs/testing/CAVE_CONTACTS_20261007.md)
+address the Alpha 4.8 screenshots. Skull 2's raw anatomy/sword remains exact;
+accepted Tree art and world pose are preserved while later root additions change.
 
-**Current candidate build: 0.1.0-alpha.4.8 for Minecraft 26.2 / Fabric.** Seven relic
+**Current candidate build: 0.1.0-alpha.4.9 for Minecraft 26.2 / Fabric.** Seven relic
 designs are selected: **Colossus V4.1 materials B, Obelisk V4.2, Titan Skull V4
-(four biome variants), Small Colossus V7, World Tree V4.2 rooted, Ruined Tower V7
+(four biome variants), Small Colossus V7, World Tree V4.3 strands, Ruined Tower V7
 and Titan Skull 2 V2 embedded-v1**. Rock Skull uses embedded-v1; meadow/dry/sand
 Skulls, Small Colossus and Tower retain their ground-v3 derivatives.
 This is a visual integration build, not planned gameplay. Revised terrain remains
-a visual candidate; see the [latest art candidates](docs/testing/ROOTED_EMBEDDING_20261007.md).
+a visual candidate; see the [latest art candidates](docs/testing/CAVE_CONTACTS_20261007.md).
 The [Alpha 4.2 terrain correction](docs/technical/ALPHA_4_2_TERRAIN.md) adds
 chunk-local ground supports and conservative relic separation. Current validation
-is recorded in the [Alpha 4.8 test report](docs/testing/ALPHA_4_8_TEST_REPORT.md).
-Alpha 4.8 removes authored ground platforms from Rock Skull, Skull 2 and Tree,
-without regrowing them as derived soil/toe geometry. The Skulls sit six blocks
-deeper; the accepted Tree sits four blocks deeper and gains attached low roots.
-Only the rooted Tree enables wood-state runtime root continuation.
+is recorded in the [Alpha 4.9 test report](docs/testing/ALPHA_4_9_TEST_REPORT.md).
+Alpha 4.9 replaces the Tree's later bulk root extrusion with 1,883 attached cells
+along 50 sparse strand/fork paths. Skull 2's natural template alone omits 7,309
+deeply buried cells below raw Y22; its complete raw export and ground Y28 remain.
+Both profiles bridge only complete short gaps of up to two cells in the adjoining
+art material. Deep root undersides and longer caves deliberately remain open,
+with explicit clearance classification instead of dirt walls or wooden piers.
 Alpha 4.7's surface biome anchors, full dry-land grid, site tolerances, density
-and separation remain active. Seven other raw exports are unchanged.
+and separation remain active. Eight other raw/natural template pairs are unchanged.
 The omitted-air policy still preserves native vegetation in unoccupied cells;
 the historical three-leaf Skull 2 cavity observation remains documented as a
 failed strict air-only probe, not missing art or a failed support contact.
-“Relic Test” now has the verified Alpha 4.8 JAR, with Alpha 4.7 backed up and all
-16 previous worlds preserved. The user chose the new showcase save only; no new
-terrain copy/reload was prepared. See [installation and TP commands](docs/testing/alpha4-8-installation.json).
-The current JAR is `dist/relics-0.1.0-alpha.4.8+mc26.2.jar`.
+“Relic Test” now has the verified Alpha 4.9 JAR, with Alpha 4.8 backed up and
+the separate **`Relic Alpha 4.9 Terrain 20261007-121429`** inspection save.
+All ten variants pass complete source acceptance and post-reload verification;
+bounded cave clearances remain explicitly classified, not silently filled.
+See [installation, preservation and TP commands](docs/testing/alpha4-9-installation.json).
+All 18 pre-existing worlds and source exports are preserved; no extra flat save
+is added. The current JAR is `dist/relics-0.1.0-alpha.4.9+mc26.2.jar`.
 The [54-image user screenshot review](docs/project/ALPHA_4_7_SCREENSHOT_REVIEW.md)
 records remaining visual ground skirts and Tower-wall refinements; these are
 proposals, not implemented changes or new user artistic approval.
@@ -40,6 +45,7 @@ The [saved-world contact comparison](docs/project/reviews/alpha4-7-contact-fix.p
 shows the repaired connections at the same locations.
 Fabric API 0.161.0 / stable Lithostitched 1.8.0 remain unchanged. Gameplay and
 density are still at the visual-alpha baseline. Historical evidence stays in the
+[Alpha 4.8 baseline](docs/testing/ALPHA_4_8_TEST_REPORT.md),
 [Alpha 4.7 baseline](docs/testing/ALPHA_4_7_TEST_REPORT.md),
 [Alpha 4.6 baseline](docs/testing/ALPHA_4_6_TEST_REPORT.md),
 [Alpha 4.5 baseline](docs/testing/ALPHA_4_5_TEST_REPORT.md),
@@ -61,10 +67,12 @@ core utility, and multiplayer loot remain follow-up tasks in the
 [lore/gameplay review](docs/project/LORE_GAMEPLAY_REVIEW.md); no models or generation
 rules are changed by that review.
 
-**Latest integration work, October 6, 2026:** all ten selected exports are copied
-byte-for-byte for manual placement. Derived worldgen templates add soil-column
-foundations and a replaceable center anchor, with matching vertical-padding and
-burial contracts. A 25-point grid checks the padded natural footprint.
+**Latest integration work, October 7, 2026:** all ten selected exports are copied
+byte-for-byte for manual placement. Derived worldgen templates retain matching
+padding/burial contracts and a replaceable surface-query center anchor. Soil
+profiles add foundations; the embedded profiles preserve native terrain, with
+explicit clipping/short-contact cave policy only for Skull 2 and Tree.
+A 25-point grid checks the padded natural footprint.
 Alpha 4.2 rejects failing grids early, checks sampled water directly, extends
 supports to actual ground and reserves space around other relic candidates.
 Placed model/support cells are protected from late world-generation features,
@@ -131,7 +139,7 @@ asset configs, Blender/export files, and gameplay decisions. Build selection is
 explicitly pinned by `tools/relic_catalog.py` and `tools/integrate_relics.py`;
 moving exports alone does not select them.
 
-## Structures in Alpha 4.8 (raw exports)
+## Structures in Alpha 4.9 (raw exports)
 
 | Relic | Overall dimensions, including base (X/Y/Z) | Design |
 | --- | --- | --- |
@@ -140,9 +148,9 @@ moving exports alone does not select them.
 | Titan Skull V4 ground-v3 (meadow/dry/sand) | 117 × 79 × 179 each | Preserved crowned skull/spine with low central deposits; ground Y16 |
 | Titan Skull V4 rock embedded-v1 | 117 × 79 × 179 | Preserved anatomy without authored stone/gravel platform; ground Y22 |
 | Small Colossus V7 ground-v3 | 111 × 80 × 113 | Preserved armour/growth with low soil and four blocks deeper burial; ground Y13 |
-| World Tree V4.2 rooted | 187 × 228 × 185 | Accepted wood/foliage translated +12 Y; 37,005 attached root cells, no ground platforms; ground Y24 |
+| World Tree V4.3 strands | 187 × 228 × 185 | Accepted art translated +12 Y; 1,883 sparse attached root cells along 50 paths, no ground platforms; ground Y24 |
 | Ruined Tower V7 ground-v3 | 111 × 232 × 93 | Connected collapsed side bays, broken corner and low foot; 220 visible layers; ground Y12 |
-| Titan Skull 2 V2 embedded-v1 | 99 × 136 × 99 | Preserved posed skull/sword without authored soil island; ground Y28 |
+| Titan Skull 2 V2 embedded-v1 | 99 × 136 × 99 | Complete preserved raw skull/sword; natural template alone omits the deep slice below Y22; ground Y28 |
 
 All use vanilla blocks and have natural generation resources for new Overworld
 chunks. Each rotates as one unit. Optional Terralith/Biomes O' Plenty mappings
@@ -159,11 +167,11 @@ remain provisional; neither mod is required. Runtime coverage is recorded in the
 | Lithostitched | 1.8.0 stable for Fabric 26.2 |
 
 See [Target environment](docs/technical/TARGET_ENVIRONMENT.md), the current
-[Alpha 4.8 test report](docs/testing/ALPHA_4_8_TEST_REPORT.md) and historical
+[Alpha 4.9 test report](docs/testing/ALPHA_4_9_TEST_REPORT.md) and historical
 [Alpha 3 test report](docs/testing/ALPHA_3_TEST_REPORT.md).
 
 1. Install Fabric for Minecraft 26.2.
-2. Put `relics-0.1.0-alpha.4.8+mc26.2.jar`, Fabric API, and Lithostitched in `mods/`.
+2. Put `relics-0.1.0-alpha.4.9+mc26.2.jar`, Fabric API, and Lithostitched in `mods/`.
 3. Create a fresh test world with structure generation enabled. Relics are not retroactively added to existing chunks.
 
 Dependencies are available from [Lithostitched](https://modrinth.com/mod/lithostitched) and [Fabric API](https://modrinth.com/mod/fabric-api). Their JARs are not bundled with our release.

@@ -146,6 +146,22 @@ public final class WorldgenTests {
         check(result.stream().noneMatch(c -> c.pos().getX() == 4 && c.pos().getY() < 7),
                 "Higher intentional root arches are retained");
 
+        source = List.of(cell(3, 5, 3, Blocks.BONE_BLOCK.defaultBlockState()),
+                cell(4, 5, 4, Blocks.MOSS_BLOCK.defaultBlockState()),
+                cell(5, 4, 5, Blocks.SPRUCE_LOG.defaultBlockState()),
+                cell(6, 1, 6, Blocks.SPRUCE_LOG.defaultBlockState()));
+        result = new TerrainSupportProcessor(5, true, Blocks.DIRT.defaultBlockState(), true, 2, 3, true)
+                .finalizeProcessing(world(-64, pos -> pos.getY() <= (pos.getX() == 5 ? 0 : 2)
+                        ? Blocks.STONE.defaultBlockState() : Blocks.AIR.defaultBlockState(), reads),
+                        BlockPos.ZERO, BlockPos.ZERO, source, source, settings);
+        check(result.size() == 8, "Two short anatomical contacts get two cells each");
+        check(result.subList(4, result.size()).stream().noneMatch(c -> c.state().is(Blocks.DIRT)),
+                "Short Skull contacts preserve bone/moss material rather than an earth belt");
+        check(result.stream().noneMatch(c -> c.pos().getX() == 5 && c.pos().getY() < 4),
+                "A three-cell cavity is left wholly open, with no hanging partial column");
+        check(result.stream().noneMatch(c -> c.pos().getX() == 6 && c.pos().getY() < 1),
+                "Deep root endpoints do not build piers through caves");
+
         var calls = new AtomicInteger();
         var gridCondition = new dev.worldgen.lithostitched.api.worldgen.placementcondition.PlacementCondition() {
             public boolean test(Context context, BlockPos pos) { return calls.incrementAndGet() != 3; }

@@ -1,0 +1,1208 @@
+{
+  "schema_version": 1,
+  "scope": "saved-world server evidence, not client visual or gameplay approval",
+  "runs": [
+    {
+      "run": "run-20261007-112852-9f207601b88d",
+      "report_sha256": "b3fe9493fb734e3e464c783ddc0b02434ee6e918c568abae6e68f080309f59f5",
+      "seed": 731204,
+      "showcase": false,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.9-candidate+mc26.2.jar",
+          "sha256": "ed42a21208642b03f96625cd8d37b62481d0f71b4ebef51fc574353581c52df7"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": true,
+      "failure": null,
+      "exit_code": 0,
+      "blocking_log_errors": [],
+      "expected_natural_structures": [
+        "relics:titan_skull_2",
+        "relics:world_tree"
+      ],
+      "selected_templates": [
+        "titan_skull_2",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "natural_candidate_search": {
+        "file": "same-sites.json",
+        "sha256": "47ea94fa5446284eacc44e24711bcafd90f00618848c62b15484e9bcb246a2fb",
+        "seed": 731204,
+        "scope": "Nominated start chunks; each must produce a saved natural start under the unchanged artifact rules"
+      },
+      "natural_candidate_attempts": [
+        {
+          "structure": "relics:world_tree",
+          "position": [
+            23712,
+            -45504
+          ],
+          "method": "natural candidate chunk generation; no manual natural placement",
+          "natural_start_found": true,
+          "bounding_boxes": [
+            [
+              23611,
+              43,
+              -45604,
+              23813,
+              270,
+              -45404
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "position": [
+            -13168,
+            36272
+          ],
+          "method": "natural candidate chunk generation; no manual natural placement",
+          "natural_start_found": true,
+          "bounding_boxes": [
+            [
+              -13225,
+              38,
+              36215,
+              -13111,
+              173,
+              36329
+            ]
+          ]
+        }
+      ],
+      "locate_results": [],
+      "disabled_locate_results": [],
+      "locate_timings": [],
+      "instances": [
+        {
+          "structure": "relics:titan_skull_2",
+          "template": "relics:titan_skull_2_worldgen",
+          "origin": [
+            -13111,
+            38,
+            36329
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -13225,
+            38,
+            36215,
+            -13111,
+            173,
+            36329
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 24293,
+          "matched_blocks": 24293,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 36,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 2541,
+            "undersides_checked": 2567,
+            "mode": "embedded_art",
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true,
+            "intentional_clearances": 125,
+            "clearance_examples": [
+              {
+                "position": [
+                  -13124,
+                  61,
+                  36285
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13132,
+                  67,
+                  36263
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13133,
+                  66,
+                  36266
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13133,
+                  66,
+                  36265
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13133,
+                  67,
+                  36269
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13133,
+                  67,
+                  36268
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13133,
+                  67,
+                  36267
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13134,
+                  66,
+                  36269
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13134,
+                  66,
+                  36268
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13134,
+                  67,
+                  36271
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13134,
+                  67,
+                  36270
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13135,
+                  66,
+                  36271
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13135,
+                  66,
+                  36270
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13135,
+                  67,
+                  36273
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13135,
+                  67,
+                  36272
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13136,
+                  66,
+                  36273
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13136,
+                  66,
+                  36272
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13136,
+                  67,
+                  36274
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13137,
+                  66,
+                  36274
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13137,
+                  66,
+                  36273
+                ],
+                "reason": "long_native_clearance"
+              }
+            ],
+            "contact_policy": "short-surface-gaps-only; preserve deep or longer native voids"
+          },
+          "feature_protection": {
+            "checked_cells": 24293,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:world_tree",
+          "template": "relics:world_tree_worldgen",
+          "origin": [
+            23813,
+            43,
+            -45404
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            23611,
+            43,
+            -45604,
+            23813,
+            270,
+            -45404
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 289005,
+          "matched_blocks": 289005,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 108,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 4169,
+            "undersides_checked": 4384,
+            "mode": "embedded_art",
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true,
+            "intentional_clearances": 176,
+            "clearance_examples": [
+              {
+                "position": [
+                  23765,
+                  59,
+                  -45489
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23764,
+                  59,
+                  -45489
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23763,
+                  59,
+                  -45489
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23763,
+                  59,
+                  -45490
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23762,
+                  59,
+                  -45490
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23761,
+                  59,
+                  -45490
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23760,
+                  59,
+                  -45490
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23760,
+                  60,
+                  -45491
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23759,
+                  51,
+                  -45545
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23759,
+                  52,
+                  -45544
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23759,
+                  60,
+                  -45491
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23759,
+                  61,
+                  -45492
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  48,
+                  -45548
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  49,
+                  -45547
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  51,
+                  -45546
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  52,
+                  -45544
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  52,
+                  -45545
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  60,
+                  -45491
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  61,
+                  -45492
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23757,
+                  50,
+                  -45547
+                ],
+                "reason": "buried_root_underside"
+              }
+            ],
+            "contact_policy": "short-surface-gaps-only; preserve deep or longer native voids"
+          },
+          "feature_protection": {
+            "checked_cells": 289005,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    },
+    {
+      "run": "run-20261007-113314-eada68b17d65",
+      "report_sha256": "c550ba04a7f6da40fe226d1b2de85d4114cbd8f7f568f2fe32c7e3c04078d6a7",
+      "seed": 731204,
+      "showcase": true,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.9-candidate+mc26.2.jar",
+          "sha256": "ed42a21208642b03f96625cd8d37b62481d0f71b4ebef51fc574353581c52df7"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": true,
+      "failure": null,
+      "exit_code": 0,
+      "blocking_log_errors": [],
+      "expected_natural_structures": [],
+      "selected_templates": [
+        "titan_skull_2",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "locate_results": [],
+      "disabled_locate_results": [],
+      "locate_timings": [],
+      "instances": [
+        {
+          "structure": "relics:world_tree",
+          "template": null,
+          "origin": [
+            0,
+            40,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            0,
+            40,
+            0,
+            186,
+            267,
+            184
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 289005,
+          "matched_blocks": 289005,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 33993,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 106,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "template": null,
+          "origin": [
+            384,
+            34,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            384,
+            34,
+            0,
+            482,
+            169,
+            98
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 32569,
+          "matched_blocks": 32569,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 35,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    },
+    {
+      "run": "run-20261007-114624-97e7a0fcf6f1",
+      "report_sha256": "642ecf79fcdc84163ff35120ad88cdc1405512e2f0d7446dc20d16eeaa13c658",
+      "seed": 731204,
+      "showcase": false,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.9-candidate+mc26.2.jar",
+          "sha256": "e573c5bc972118953606ca95ffdebd6b67b69dca135fec58b6e2d1aaddcc0794"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": true,
+      "failure": null,
+      "exit_code": 0,
+      "blocking_log_errors": [],
+      "expected_natural_structures": [
+        "relics:titan_skull_2",
+        "relics:world_tree"
+      ],
+      "selected_templates": [
+        "titan_skull_2",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "natural_candidate_search": {
+        "file": "same-sites.json",
+        "sha256": "47ea94fa5446284eacc44e24711bcafd90f00618848c62b15484e9bcb246a2fb",
+        "seed": 731204,
+        "scope": "Nominated start chunks; each must produce a saved natural start under the unchanged artifact rules"
+      },
+      "natural_candidate_attempts": [
+        {
+          "structure": "relics:world_tree",
+          "position": [
+            23712,
+            -45504
+          ],
+          "method": "natural candidate chunk generation; no manual natural placement",
+          "natural_start_found": true,
+          "bounding_boxes": [
+            [
+              23611,
+              43,
+              -45604,
+              23813,
+              270,
+              -45404
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "position": [
+            -13168,
+            36272
+          ],
+          "method": "natural candidate chunk generation; no manual natural placement",
+          "natural_start_found": true,
+          "bounding_boxes": [
+            [
+              -13225,
+              40,
+              36215,
+              -13111,
+              175,
+              36329
+            ]
+          ]
+        }
+      ],
+      "locate_results": [],
+      "disabled_locate_results": [],
+      "locate_timings": [],
+      "instances": [
+        {
+          "structure": "relics:titan_skull_2",
+          "template": "relics:titan_skull_2_worldgen",
+          "origin": [
+            -13111,
+            40,
+            36329
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -13225,
+            40,
+            36215,
+            -13111,
+            175,
+            36329
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 25260,
+          "matched_blocks": 25260,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 36,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 2703,
+            "undersides_checked": 2769,
+            "mode": "embedded_art",
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true,
+            "intentional_clearances": 178,
+            "clearance_examples": [
+              {
+                "position": [
+                  -13124,
+                  63,
+                  36285
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13124,
+                  65,
+                  36293
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13124,
+                  65,
+                  36292
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13125,
+                  65,
+                  36293
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13125,
+                  65,
+                  36292
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13125,
+                  65,
+                  36291
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13125,
+                  65,
+                  36290
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13125,
+                  65,
+                  36289
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13125,
+                  65,
+                  36288
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13125,
+                  65,
+                  36287
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13126,
+                  65,
+                  36293
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13126,
+                  65,
+                  36292
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13126,
+                  65,
+                  36291
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13126,
+                  65,
+                  36290
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13126,
+                  65,
+                  36289
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13126,
+                  65,
+                  36288
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13126,
+                  65,
+                  36287
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13127,
+                  65,
+                  36293
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13127,
+                  65,
+                  36292
+                ],
+                "reason": "long_native_clearance"
+              },
+              {
+                "position": [
+                  -13127,
+                  65,
+                  36291
+                ],
+                "reason": "long_native_clearance"
+              }
+            ],
+            "contact_policy": "short-surface-gaps-only; preserve deep or longer native voids"
+          },
+          "feature_protection": {
+            "checked_cells": 25260,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:world_tree",
+          "template": "relics:world_tree_worldgen",
+          "origin": [
+            23813,
+            43,
+            -45404
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            23611,
+            43,
+            -45604,
+            23813,
+            270,
+            -45404
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 289005,
+          "matched_blocks": 289005,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 108,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 4169,
+            "undersides_checked": 4384,
+            "mode": "embedded_art",
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true,
+            "intentional_clearances": 176,
+            "clearance_examples": [
+              {
+                "position": [
+                  23765,
+                  59,
+                  -45489
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23764,
+                  59,
+                  -45489
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23763,
+                  59,
+                  -45489
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23763,
+                  59,
+                  -45490
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23762,
+                  59,
+                  -45490
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23761,
+                  59,
+                  -45490
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23760,
+                  59,
+                  -45490
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23760,
+                  60,
+                  -45491
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23759,
+                  51,
+                  -45545
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23759,
+                  52,
+                  -45544
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23759,
+                  60,
+                  -45491
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23759,
+                  61,
+                  -45492
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  48,
+                  -45548
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  49,
+                  -45547
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  51,
+                  -45546
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  52,
+                  -45544
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  52,
+                  -45545
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  60,
+                  -45491
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23758,
+                  61,
+                  -45492
+                ],
+                "reason": "buried_root_underside"
+              },
+              {
+                "position": [
+                  23757,
+                  50,
+                  -45547
+                ],
+                "reason": "buried_root_underside"
+              }
+            ],
+            "contact_policy": "short-surface-gaps-only; preserve deep or longer native voids"
+          },
+          "feature_protection": {
+            "checked_cells": 289005,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    },
+    {
+      "run": "run-20261007-114624-f39200957f1a",
+      "report_sha256": "47da0adf9d83b7cea4efba92dead6268f463dd9ab25e5085bb8e0d619ab3b33e",
+      "seed": 731204,
+      "showcase": true,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.9-candidate+mc26.2.jar",
+          "sha256": "e573c5bc972118953606ca95ffdebd6b67b69dca135fec58b6e2d1aaddcc0794"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": true,
+      "failure": null,
+      "exit_code": 0,
+      "blocking_log_errors": [],
+      "expected_natural_structures": [],
+      "selected_templates": [
+        "titan_skull_2",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "locate_results": [],
+      "disabled_locate_results": [],
+      "locate_timings": [],
+      "instances": [
+        {
+          "structure": "relics:world_tree",
+          "template": null,
+          "origin": [
+            0,
+            40,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            0,
+            40,
+            0,
+            186,
+            267,
+            184
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 289005,
+          "matched_blocks": 289005,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 33993,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 106,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "template": null,
+          "origin": [
+            384,
+            36,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            384,
+            36,
+            0,
+            482,
+            171,
+            98
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 32569,
+          "matched_blocks": 32569,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 35,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    }
+  ]
+}

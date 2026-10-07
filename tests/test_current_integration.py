@@ -41,7 +41,7 @@ class CurrentIntegrationTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(data).hexdigest(), ASSETS[a["id"]]["sha256"])
             self.assertEqual(decode_nbt(data)["DataVersion"], 3105)
 
-    def test_alpha48_selects_rooted_candidates_and_keeps_seven_other_exports(self):
+    def test_alpha49_selects_cave_candidates_and_keeps_eight_other_natural_templates(self):
         unchanged_hashes = {
             "colossus": "a355b20349513cb27e6feb6fc171ca413d71da2cdb5717f7995afb4128d879b8",
             "obelisk": "ed116dcbca2a41fe403695a816e419a32a647d325c1d907d8dc1797f551cda3e",
@@ -57,8 +57,8 @@ class CurrentIntegrationTests(unittest.TestCase):
                                  "b60d3ab92e4e8b99e5674f82588c38c25a7e7fe9eb8135a3fdf22a576f7b30c4"),
             "small_colossus": ("small-colossus-v7-ground-v3", [111, 80, 113], 233448, 13, 4,
                                "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021"),
-            "world_tree": ("world-tree-v4-2-rooted", [187, 228, 185], 324127, 24, 6,
-                           "09d3f607ed03b52b57cc6882d2a27b0125a27b73df6526bbeb8c810ef0860b8b"),
+            "world_tree": ("world-tree-v4-3-strands", [187, 228, 185], 289005, 24, 6,
+                           "4f4fed24edd04f207c76162dc441093fc485e90149c8bc106cf51cc4a1248f14"),
             "ruined_tower": ("ruined-tower-v7-ground-v3", [111, 232, 93], 272528, 12, 6,
                              "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600"),
             "titan_skull_2": ("titan-skull-2-v2-embedded-v1", [99, 136, 99], 32569, 28, 4,
@@ -75,10 +75,31 @@ class CurrentIntegrationTests(unittest.TestCase):
         embedded = {'titan_skull_rock', 'titan_skull_2', 'world_tree'}
         self.assertEqual({a['id'] for a in candidates['structures']}, embedded)
         for record in candidates['structures']:
+            if record['id'] == 'titan_skull_rock':
+                self.assertEqual(ASSETS[record['id']], {k: v for k, v in record.items() if k != 'id'})
+        cave = json.loads((ROOT / 'docs/project/cave-candidates-20261007.json').read_text())
+        self.assertEqual({a['id'] for a in cave['structures']}, {'titan_skull_2', 'world_tree'})
+        for record in cave['structures']:
             self.assertEqual(ASSETS[record['id']], {k: v for k, v in record.items() if k != 'id'})
+        # Pinned Alpha 4.8 natural hashes; this regression also runs in fresh
+        # checkouts without local JARs, smoke worlds or build artifacts.
+        unchanged_natural = {
+            'colossus': 'b5cd823a55ca9008b146d35aa98d1766195b3debaad56abbf7daebee212e0311',
+            'obelisk': 'bf62468045e160c992297250faa00dc021c1e21672be6c6033df81f043987486',
+            'titan_skull': '43f1e442cc080fcddb14b187cffb8863d299ebb74da90219d54aba8f128402b4',
+            'titan_skull_dry': 'ef6fb103bdfad1a2d75ddd5509f6ff1e434f9d0b7091a236b7963250b663c626',
+            'titan_skull_sand': 'a4077f3951709e090dc3f27ca4e46d8f995fac2176cac8157f16460fbd981648',
+            'titan_skull_rock': '39a15f133729293e9d4819a32ccbbaa06503e4caca1b42abb862b104d4882e90',
+            'small_colossus': 'd98db6baf095236669ed6069a54bd86aa274df3efbcbafd673ec969999768906',
+            'ruined_tower': 'df160837cd20d1481fa420dbcdf976856aa6b937cfa2979a9ed0aea118fd1d0f',
+        }
+        for name, digest in unchanged_natural.items():
+            current = next(a for a in self.manifest['structures'] if a['id'] == name)
+            self.assertEqual(current['worldgen_template']['sha256'], digest)
         for name, contract in ASSETS.items():
             self.assertEqual(contract.get('foundation_mode') == 'embedded_art', name in embedded)
             self.assertEqual(contract.get('root_support', False), name == 'world_tree')
+            self.assertEqual('max_support_depth' in contract, name in ('titan_skull_2', 'world_tree'))
 
     def test_preserved_ground_v2_exports_keep_their_original_art_and_supports(self):
         from build_deposit_relief import baseline_contract, NAMES
@@ -125,6 +146,8 @@ class CurrentIntegrationTests(unittest.TestCase):
             self.assertNotIn('foundation_mode', baseline)
             self.assertNotIn('root_support', baseline)
             self.assertNotIn('uphill_slope', baseline)
+            for key in ('buried_clip_depth', 'max_support_depth', 'surface_contact_depth', 'follow_art'):
+                self.assertNotIn(key, baseline)
         self.assertEqual(baseline_contract('ruined_tower')['version'], 'ruined-tower-v5')
         self.assertEqual(baseline_contract('ruined_tower', True)['version'], 'ruined-tower-v6')
 
@@ -207,8 +230,10 @@ class CurrentIntegrationTests(unittest.TestCase):
         present = states(current)
         self.assertTrue(original_art.items() <= present.items())
         additions = set(present) - set(original_art)
-        self.assertEqual(len(additions), 37005)
+        self.assertEqual(len(additions), 1883)
+        self.assertEqual(provenance['new_wood_cells'], len(additions))
         self.assertEqual(provenance['new_wood_face_connected'], len(additions))
+        self.assertEqual(len(provenance['strands']), 50)
         self.assertTrue(all(present[p]['Name'] == 'minecraft:spruce_log' and p[1] <= 22 for p in additions))
         for name in ('minecraft:oak_log', 'minecraft:spruce_log', 'minecraft:oak_leaves', 'minecraft:spruce_leaves'):
             expected = {(x, y + 12, z): state for (x, y, z), state in states(previous).items() if state['Name'] == name}

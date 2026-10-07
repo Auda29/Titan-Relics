@@ -43,7 +43,8 @@ def baseline_contract(name, tower_v6=False):
     # Historical ground-v2 reproduction always used soil columns, not the later
     # embedded-art/root continuation modes or asymmetric uphill admission.
     contract = {k: v for k, v in ASSETS[name].items()
-                if k not in ('foundation_mode', 'root_support', 'uphill_slope')}
+                if k not in ('foundation_mode', 'root_support', 'uphill_slope', 'buried_clip_depth',
+                             'max_support_depth', 'surface_contact_depth', 'follow_art')}
     stem, count, checksum = BASELINE_EXPORTS[name]
     if tower_v6 and name == 'ruined_tower':
         stem, count, checksum = ('ruined-tower-v6', 298355,

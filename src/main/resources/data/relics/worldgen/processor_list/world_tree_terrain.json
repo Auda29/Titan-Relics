@@ -7,7 +7,10 @@
       "art_fill": {
         "Name": "minecraft:dirt"
       },
-      "root_support": true
+      "root_support": true,
+      "max_support_depth": 2,
+      "surface_contact_depth": 3,
+      "follow_art": true
     }
   ]
 }

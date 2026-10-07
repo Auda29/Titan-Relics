@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.1.0-alpha.4.9 — open cave contacts and sparse Tree strands
+
+- Select World Tree V4.3 strands: preserve the accepted art and world pose,
+  replacing the later bulk extrusion with 1,883 attached cells along 50 paths.
+- Keep Skull 2's complete raw anatomy/sword export and ground Y28. Clip only
+  7,309 deeply buried cells below raw Y22 from its derived natural template.
+- Limit these two profiles to complete short contacts of at most two cells in
+  the adjoining art material. Preserve longer caves and deep root clearances;
+  do not build dirt walls, wooden piers or hanging partial columns.
+- Retain eight other raw/natural templates, including rock Skull, and all
+  dependency, density, biome, slope, separation and terrain-grid settings.
+- Keep missing/short-contact failures separate from intentional cave clearances
+  and the unchanged three-leaf strict air-only finding in Skull 2.
+- Require fresh complete ten-variant acceptance before terrain-only profile
+  installation, with a verified backup and preservation of old worlds/exports.
+- Install the tested Alpha 4.9 JAR with a verified Alpha 4.8 backup and one
+  new terrain inspection save. Preserve all 18 previous worlds and source
+  exports; no additional flat world or manual cavity clearing is introduced.
+- Record the verified visual-alpha baseline with annotated tag
+  `v0.1.0-alpha.4.9`; no GitHub Release or downloadable asset is added.
+
+See [Alpha 4.9 validation](docs/testing/ALPHA_4_9_TEST_REPORT.md).
+
 ## 0.1.0-alpha.4.8 — native-ground embedding and rooted World Tree
 
 - Select the exact Rock Skull and Skull 2 embedded-v1 exports and World Tree
