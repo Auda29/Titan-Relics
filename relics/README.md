@@ -7,13 +7,17 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 | --- | --- |
 | [Colossus](colossus/README.md) | Alpha 4.6 retains V4.1 materials B and selects Small Colossus V7 ground-v3 with deeper burial; gameplay/uniqueness pending |
 | [Obelisk](obelisk/README.md) | Alpha 4.6 retains V4.2; archaeology, collectibles and maps pending |
-| [Titan Skull](titan-skull/README.md) | Alpha 4.9 keeps all raw Skull exports; Skull 2 has a shallower natural footprint and bounded art-state contacts; encounters pending |
+| [Titan Skull](titan-skull/README.md) | Skull 2's Alpha 4.9 appearance and shallow terrain footprint visually accepted October 7; all raw Skull exports unchanged; encounters pending |
 | [Ruined Tower](ruined-tower/README.md) | V7 ground-v3 collapsed-side-bay candidate with 220 visible layers selected in Alpha 4.6 |
-| [World Tree](world-tree/README.md) | Alpha 4.9 selects V4.3 strands: accepted art/pose retained, 1,883 tapered low-root cells along 50 paths and bounded cave contacts |
+| [World Tree](world-tree/README.md) | Alpha 4.9 V4.3 strands and terrain integration visually accepted October 7; 1,883 tapered low-root cells along 50 paths and bounded cave contacts |
 
 Alpha 4.9 changes two natural profiles and the later Tree root additions; eight
 other raw/natural template pairs remain exact Alpha 4.8 matches.
 Alpha 4.7's surface anchors, site tolerances and density remain unchanged.
+
+The [subsequent user acceptance](../docs/project/reviews/alpha4-9-user-acceptance-20261007.json)
+records eight new screenshots and applies only to Skull 2 and World Tree in the
+released Alpha 4.9 build. Models, runtime and historical test findings remain unchanged.
 
 See the [October 6 embedding revisions](../docs/project/EMBEDDING_20261006.md) and
 [current runtime evidence](../docs/testing/ALPHA_4_9_TEST_REPORT.md). Earlier models

@@ -1,4 +1,4 @@
-"""Run an isolated, local Fabric 26.2 server and save actual runtime evidence.
+"""Run an isolated, local Fabric server (26.2 by default; optional 1.21.1).
 
 No downloads or profile edits. --accept-eula explicitly accepts Minecraft's EULA
 for this test server: https://aka.ms/MinecraftEULA . Each run gets a fresh world.
@@ -137,7 +137,8 @@ def inspect_world(world: Path) -> dict:
     return {"saved_chunks": chunks, "natural_structure_starts": starts, "read_errors": errors}
 
 
-def prepare_classpath(cache: Path, bundler: Path, destination: Path) -> list[Path]:
+def prepare_classpath(cache: Path, bundler: Path, destination: Path,
+                      minecraft_version: str = '26.2', loader_version: str = '0.19.5') -> list[Path]:
     destination.mkdir(parents=True, exist_ok=True)
     classpath = []
     with zipfile.ZipFile(bundler) as archive:
@@ -154,7 +155,8 @@ def prepare_classpath(cache: Path, bundler: Path, destination: Path) -> list[Pat
                 if not path.exists() or sha256(path) != expected:
                     path.write_bytes(content)
                 classpath.append(path)
-    version = json.loads((cache / "meta/versions/26.2-0.19.5/26.2-0.19.5.json").read_text())
+    version_id = f'{minecraft_version}-{loader_version}'
+    version = json.loads((cache / 'meta/versions' / version_id / (version_id + '.json')).read_text())
     for library in version["libraries"]:
         if library["name"].startswith(("net.fabricmc:", "org.ow2.asm:")):
             group, artifact, version_number = library["name"].split(":")[:3]
@@ -212,10 +214,11 @@ class Console:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--accept-eula", action="store_true")
+    parser.add_argument('--minecraft-version', choices=('26.2', '1.21.1'), default='26.2')
     parser.add_argument("--artifact", type=Path)
     parser.add_argument("--java", type=Path, default=DEFAULT_JAVA)
     parser.add_argument("--cache", type=Path, default=DEFAULT_CACHE)
-    parser.add_argument("--server-bundler", type=Path, default=DEFAULT_SERVER)
+    parser.add_argument("--server-bundler", type=Path)
     parser.add_argument("--mods-source", type=Path,
                         help="Dependency directory; default: Relic Test (base), TerraVista (--integration)")
     parser.add_argument("--integration", action="store_true")
@@ -242,20 +245,26 @@ def main() -> int:
                         help="Server watchdog in milliseconds; default is Minecraft's normal 60 seconds")
     parser.add_argument("--prepare-only", action="store_true", help="Extract cached server libraries, without starting Java")
     args = parser.parse_args()
+    if args.server_bundler is None:
+        args.server_bundler = (DEFAULT_SERVER if args.minecraft_version == '26.2' else
+                              Path.home() / '.gradle/caches/fabric-loom' / args.minecraft_version / 'minecraft-server.jar')
+    if args.minecraft_version == '1.21.1' and args.integration:
+        parser.error('The existing terrain-mod pack belongs to 26.2; use base dependencies for this 1.21.1 check')
     if args.natural_candidates and (args.showcase or args.skip_locate or args.disabled_structure):
         parser.error('--natural-candidates requires enabled natural structures, without --showcase/--skip-locate')
     if args.mods_source is None:
-        args.mods_source = DEFAULT_CACHE / ("profiles/TerraVista/mods" if args.integration else "profiles/Relic Test/mods")
-    smoke = ROOT / "build/smoke"
+        args.mods_source = (ROOT / 'build/compat-mc1.21.1/dependencies' if args.minecraft_version == '1.21.1' else
+                           DEFAULT_CACHE / ("profiles/TerraVista/mods" if args.integration else "profiles/Relic Test/mods"))
+    smoke = ROOT / 'build' / ('smoke' if args.minecraft_version == '26.2' else 'smoke-mc1.21.1')
     smoke.mkdir(parents=True, exist_ok=True)
-    classpath = prepare_classpath(args.cache, args.server_bundler, smoke / "runtime")
+    classpath = prepare_classpath(args.cache, args.server_bundler, smoke / "runtime", args.minecraft_version)
     if args.prepare_only:
         print(f"Prepared {len(classpath)} cached classpath entries in {smoke / 'runtime'}")
         return 0
     if not args.accept_eula:
         parser.error("Read https://aka.ms/MinecraftEULA and pass --accept-eula to accept it for this isolated test server")
     current_version = json.loads((ROOT / "src/main/resources/fabric.mod.json").read_text(encoding="utf-8"))["version"]
-    artifact = args.artifact or ROOT / "dist" / f"relics-{current_version}+mc26.2.jar"
+    artifact = args.artifact or ROOT / "dist" / f"relics-{current_version}+mc{args.minecraft_version}.jar"
     if artifact is None or not artifact.is_file():
         parser.error("Build the alpha first or pass --artifact")
     run = smoke / (time.strftime("run-%Y%m%d-%H%M%S") + "-" + uuid.uuid4().hex[:12])
@@ -264,8 +273,11 @@ def main() -> int:
         packs = run / "world/datapacks"
         packs.mkdir(parents=True, exist_ok=True)
         shutil.copy2(args.settings_pack, packs / args.settings_pack.name)
-    files = [artifact] + [args.mods_source / name for name in BASE_MODS + (INTEGRATION_MODS if args.integration else [])]
+    base_mods = (['fabric-api-0.116.17+1.21.1.jar', 'lithostitched-1.8.0-fabric-21.1.jar']
+                 if args.minecraft_version == '1.21.1' else BASE_MODS)
+    files = [artifact] + [args.mods_source / name for name in base_mods + (INTEGRATION_MODS if args.integration else [])]
     evidence = {"seed": args.seed, "run_directory": str(run), "integration": args.integration, "showcase": args.showcase,
+                 'minecraft_version': args.minecraft_version,
                  "max_tick_time_ms": args.max_tick_time,
                  "eula_accepted_explicitly": True, "artifacts": [], "commands": [], "passed": False}
     if args.locate_from:
@@ -371,8 +383,12 @@ def main() -> int:
 
     try:
         evidence["startup"] = console.wait(r'Done \(', timeout=args.startup_timeout)
-        command("gamerule minecraft:spawn_mobs false", r"Gamerule|Unknown|Incorrect")
-        command("gamerule minecraft:random_tick_speed 0", r"Gamerule|Unknown|Incorrect")
+        if args.minecraft_version == '1.21.1':
+            command('gamerule doMobSpawning false', r'Gamerule|Unknown|Incorrect')
+            command('gamerule randomTickSpeed 0', r'Gamerule|Unknown|Incorrect')
+        else:
+            command("gamerule minecraft:spawn_mobs false", r"Gamerule|Unknown|Incorrect")
+            command("gamerule minecraft:random_tick_speed 0", r"Gamerule|Unknown|Incorrect")
         if args.settings_pack:
             response = command("datapack list enabled", r"data pack")
             evidence["settings_pack"]["enabled_response"] = response

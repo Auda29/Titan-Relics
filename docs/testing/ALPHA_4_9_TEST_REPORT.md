@@ -8,6 +8,24 @@ terrain showcase, a push and a release tag. The two exact
 build. No additional artistic changes, gameplay or terrain-mod compatibility
 claims are introduced. All historical source exports remain preserved.
 
+## Subsequent client visual acceptance — October 7
+
+After inspecting the updates, the user stated: "habe wieder ein paar screenshots
+gemacht von den updates. finde das die beiden relikte so jetzt abgenommen sind."
+**Skull 2 and World Tree are therefore visually accepted in their released
+Alpha 4.9 appearance and terrain integration.** The
+[acceptance record](../project/reviews/alpha4-9-user-acceptance-20261007.json)
+pins the existing commit, JAR and template hashes, with eight 1920 × 1054 user
+screenshots from 12:23:32–12:25:07 (three Skull, five Tree). Unchanged native copies
+and two numbered contact sheets remain in the local screenshot-review archive.
+
+This subsequent documentation does not modify models, placement/runtime policy,
+packaged resources, the installed JAR or saves. It does not approve other relic
+revisions or complete gameplay. Intentional cave clearances and the three native
+Skull 2 leaves remain in the technical evidence below. Candidate/manifests retain
+their pre-acceptance metadata; no rebuild, commit, push or tag change is part of
+recording this acceptance.
+
 ## Selection and explicit cave policy
 
 - **World Tree V4.3 strands:** 289,005 raw cells. The accepted art is retained
@@ -133,5 +151,7 @@ implementation, current/historical evidence and review images are published
 with an atomic main-branch/tag push after completed validation and terrain
 preparation. Native screenshots, worlds, backups and JAR builds remain local;
 no GitHub Release or downloadable asset is created by the tag operation.
-The tag records this visual-alpha baseline, not new client artistic acceptance,
-gameplay completion or an air-only face cavity.
+At publication, the tag recorded the visual-alpha baseline, not client artistic
+acceptance, gameplay completion or an air-only face cavity. The subsequent user
+acceptance above applies to Skull 2 and Tree at that exact baseline; it does not
+rewrite the tag or the historical runtime findings.

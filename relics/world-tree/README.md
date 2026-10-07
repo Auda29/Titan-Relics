@@ -1,5 +1,12 @@
 # World Tree
 
+**World Tree V4.3 strands and its current Alpha 4.9 terrain integration were
+visually accepted by the user on October 7, 2026.** Five new Tree screenshots
+show the base, crown, roots and cave opening; see the
+[acceptance record](../../docs/project/reviews/alpha4-9-user-acceptance-20261007.json).
+The existing model and bounded-contact policy remain unchanged; gameplay is
+outside this visual acceptance.
+
 **Alpha 4.9 selects V4.3 strands.** Accepted art and world pose remain unchanged
 under the same +12 Y export translation and ground Y24. Replace the later broad
 37,005-cell extrusion with 1,883 face-connected wood cells along 50 tapering
@@ -16,7 +23,7 @@ removed without closing higher intentional root arches. See
 [candidate provenance](../../docs/testing/ROOTED_EMBEDDING_20261007.md) and
 [current runtime status](../../docs/testing/ALPHA_4_8_TEST_REPORT.md).
 
-Latest candidate: [V4.1 ground-v3](../../docs/project/EMBEDDING_20261006.md)
+Historical candidate: [V4.1 ground-v3](../../docs/project/EMBEDDING_20261006.md)
 lowers the regular moss pads into broken ground patches. Accepted wood and
 foliage remain exact exported-block matches.
 

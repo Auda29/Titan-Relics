@@ -21,6 +21,7 @@ def summarize(path):
     return {"run": report["run_directory"].replace("\\", "/").rsplit("/", 1)[-1],
             "report_sha256": hashlib.sha256(raw).hexdigest(),
             "seed": report["seed"], "showcase": report.get("showcase", False),
+            **({'minecraft_version': report['minecraft_version']} if report.get('minecraft_version') else {}),
             "max_tick_time_ms": report.get("max_tick_time_ms"),
             "integration_mods": report.get("integration", False), "artifacts": report["artifacts"],
             "passed": report["passed"], "failure": report.get("failure"), "exit_code": report["exit_code"],

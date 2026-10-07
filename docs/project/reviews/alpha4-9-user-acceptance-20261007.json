@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-07",
+  "status": "user visually accepted both updated relics",
+  "scope": "Current Alpha 4.9 Skull 2 and World Tree appearance and terrain integration; not gameplay completion or acceptance of other relic revisions",
+  "user_statement": "habe wieder ein paar screenshots gemacht von den updates. finde das die beiden relikte so jetzt abgenommen sind.",
+  "accepted_build": {
+    "version": "0.1.0-alpha.4.9",
+    "commit": "448eb6bc05f251667ee05e0500cf748712e6cb72",
+    "tag": "v0.1.0-alpha.4.9",
+    "artifact": "relics-0.1.0-alpha.4.9+mc26.2.jar",
+    "artifact_sha256": "3dbffadf501cbc3dee3ffa66ca78f04fa5b6c6032c66f511832c47aa9d45ba22"
+  },
+  "inspection_context": {
+    "profile": "Relic Test",
+    "prepared_world": "Relic Alpha 4.9 Terrain 20261007-121429",
+    "installation_record": "docs/testing/alpha4-9-installation.json",
+    "provenance_note": "User statement follows the prepared Alpha 4.9 inspection world. Screenshot pixels alone do not independently establish the loaded world or JAR version."
+  },
+  "structures": [
+    {
+      "id": "titan_skull_2",
+      "version": "titan-skull-2-v2-embedded-v1",
+      "raw_sha256": "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd",
+      "worldgen_sha256": "7ac077870df4d68ae325b485ba85bc0b3daf33b3b313ee406ae67c3f636f83fd",
+      "ground_y": 28,
+      "buried_clip_depth": 6,
+      "max_support_depth": 2,
+      "surface_contact_depth": 6,
+      "follow_art": true,
+      "visually_accepted": true,
+      "screenshot_numbers": [1, 2, 3]
+    },
+    {
+      "id": "world_tree",
+      "version": "world-tree-v4-3-strands",
+      "raw_sha256": "4f4fed24edd04f207c76162dc441093fc485e90149c8bc106cf51cc4a1248f14",
+      "worldgen_sha256": "f02938142c245e875eef32a14f6bd90920b152b8d267400581b7024dc6b79190",
+      "ground_y": 24,
+      "root_support": true,
+      "max_support_depth": 2,
+      "surface_contact_depth": 3,
+      "follow_art": true,
+      "visually_accepted": true,
+      "screenshot_numbers": [4, 5, 6, 7, 8]
+    }
+  ],
+  "screenshot_source_directory": "E:/Roaming/ModrinthApp/profiles/Relic Test/screenshots",
+  "local_archive": "build/screenshot-review/20261007-alpha4-9-acceptance",
+  "native_copies_hash_identical": true,
+  "screenshot_dimensions": [1920, 1054],
+  "screenshots": [
+    {
+      "number": 1,
+      "filename": "2026-10-07_12.23.32.png",
+      "structure": "titan_skull_2",
+      "sha256": "78f209f7177a986a88b85fa3d0d93883503dec3bd41f2174909ddac75c4b0cb4",
+      "size_bytes": 3799058
+    },
+    {
+      "number": 2,
+      "filename": "2026-10-07_12.23.45.png",
+      "structure": "titan_skull_2",
+      "sha256": "04a24e6d948690e656b8babfe325352bbd336f12fe4708fe0a0cbd4e7cd5e4f3",
+      "size_bytes": 3353565
+    },
+    {
+      "number": 3,
+      "filename": "2026-10-07_12.23.55.png",
+      "structure": "titan_skull_2",
+      "sha256": "9f7c64dbf9724e4857407c7314230c81096f0bc9812dd81b8d1287300e39d56d",
+      "size_bytes": 3032788
+    },
+    {
+      "number": 4,
+      "filename": "2026-10-07_12.24.29.png",
+      "structure": "world_tree",
+      "sha256": "be6ace7cef490b1c4a4d837356aff8173b95a232450704e1dca41cb020a90785",
+      "size_bytes": 3203540
+    },
+    {
+      "number": 5,
+      "filename": "2026-10-07_12.24.32.png",
+      "structure": "world_tree",
+      "sha256": "58b0a916b58d9cf48be92271c2c15891a05305ccbff552e6a29e7e7a3ec0ca7c",
+      "size_bytes": 1215854
+    },
+    {
+      "number": 6,
+      "filename": "2026-10-07_12.24.38.png",
+      "structure": "world_tree",
+      "sha256": "5e43077e27d25d0816f10f5b49cb689bd0f5c08c5833753bc454f6d54faa8d68",
+      "size_bytes": 3604095
+    },
+    {
+      "number": 7,
+      "filename": "2026-10-07_12.24.44.png",
+      "structure": "world_tree",
+      "sha256": "2d69ae21164804c58e8ff2759393f8f894f322d9f66503cd0a9014af99a2ef78",
+      "size_bytes": 2848041
+    },
+    {
+      "number": 8,
+      "filename": "2026-10-07_12.25.07.png",
+      "structure": "world_tree",
+      "sha256": "c3c609a6407404402f29cd8841dd2cd151fa7ab0b67c706e065b673ee6e15e69",
+      "size_bytes": 739116
+    }
+  ],
+  "acceptance_recording_changes": "Documentation and screenshot provenance only; no models, catalog selection, packaged resources, runtime, installed JARs or saves modified",
+  "historical_metadata": "Candidate contracts and the released integration manifest retain their pre-acceptance visually_accepted=false fields. This subsequent record documents acceptance of those exact released bytes without rebuilding or retagging.",
+  "technical_observations_retained": "Intentional cave clearances and the three unchanged native Skull 2 leaves remain documented; visual acceptance does not relabel the strict air-only audit as passing."
+}

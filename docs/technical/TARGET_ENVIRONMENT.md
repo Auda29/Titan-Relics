@@ -1,6 +1,6 @@
 # Alpha target environment
 
-Inventory recorded: September 13, 2026. Documentation updated: October 6, 2026.
+Inventory recorded: September 13, 2026. Documentation updated: October 7, 2026.
 This record supports the [implementation plan](../project/UMSETZUNGSPLAN.md). The initial
 inventory was read-only and describes the state before installation. Later
 installation and upgrade steps are recorded separately below. Local paths are
@@ -31,6 +31,13 @@ database. Only the selected profile name, game version, loader, and loader versi
 were reported. The database and account information are not part of the repository.
 
 ## Java and Minecraft formats
+
+The separately requested [Alpha 4.9 compatibility profile](../../compat/mc1.21.1/README.md)
+targets **Minecraft 1.21.1 / Java 21**, with pack format 48, Fabric Loader 0.19.5,
+Fabric API 0.116.17+1.21.1 and Lithostitched 1.8.0-fabric-21.1. It uses an isolated
+build and test world, without changing Relic Test or downgrading saves. See
+[its test/release record](../testing/ALPHA_4_9_MC_1_21_1_TEST_REPORT.md).
+The remaining inventory below documents the original **26.2** target.
 
 Local runtime/compiler executables were checked with `-version`:
 

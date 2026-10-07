@@ -1,0 +1,86 @@
+{
+  "scope": "Independent runtime support-mask audit on 1.21.1; no cross-version fixed cave-box comparison",
+  "source_report": "build/smoke-mc1.21.1/run-20261007-124544-a66edad878c4/report.json",
+  "source_report_sha256": "1b3b545f22d867deeaa1d1f177507d02b7590a57b6237fe77b087984ac66ded0",
+  "minecraft": "1.21.1",
+  "seed": 731204,
+  "supports": [
+    {
+      "id": "titan_skull_2",
+      "authored_natural_cells": 25260,
+      "omitted_deep_raw_cells": 7309,
+      "runtime_cells": 448,
+      "runtime_materials": {
+        "minecraft:bone_block": 291,
+        "minecraft:dripstone_block": 46,
+        "minecraft:moss_block": 103,
+        "minecraft:calcite": 8
+      },
+      "max_runtime_column_length": 2,
+      "invalid_runs": [],
+      "ground_y_world": 68,
+      "passed": true
+    },
+    {
+      "id": "world_tree",
+      "authored_natural_cells": 289005,
+      "omitted_deep_raw_cells": 0,
+      "runtime_cells": 293,
+      "runtime_materials": {
+        "minecraft:spruce_log": 271,
+        "minecraft:mossy_stone_bricks": 22
+      },
+      "max_runtime_column_length": 2,
+      "invalid_runs": [],
+      "ground_y_world": 67,
+      "passed": true
+    }
+  ],
+  "skull_face_probe": {
+    "origin": [
+      -13111,
+      40,
+      36329
+    ],
+    "rotation": "CLOCKWISE_180",
+    "checked_cells": 108,
+    "blocked": [
+      {
+        "position": [
+          -13169,
+          72,
+          36317
+        ],
+        "state": {
+          "Properties": {
+            "waterlogged": "false",
+            "distance": "3",
+            "persistent": "false"
+          },
+          "Name": "minecraft:oak_leaves"
+        },
+        "protected": false
+      },
+      {
+        "position": [
+          -13169,
+          73,
+          36317
+        ],
+        "state": {
+          "Properties": {
+            "waterlogged": "false",
+            "distance": "3",
+            "persistent": "false"
+          },
+          "Name": "minecraft:oak_leaves"
+        },
+        "protected": false
+      }
+    ],
+    "strict_air_only_passed": false,
+    "scope": "Omitted cells preserve native scenery; independent observation, not contact acceptance"
+  },
+  "read_errors": [],
+  "passed": true
+}

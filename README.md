@@ -7,13 +7,16 @@ a world tree and a ruined tower.
 address the Alpha 4.8 screenshots. Skull 2's raw anatomy/sword remains exact;
 accepted Tree art and world pose are preserved while later root additions change.
 
-**Current candidate build: 0.1.0-alpha.4.9 for Minecraft 26.2 / Fabric.** Seven relic
+**Current visual-alpha build: 0.1.0-alpha.4.9 for Minecraft 26.2 / Fabric.** Seven relic
 designs are selected: **Colossus V4.1 materials B, Obelisk V4.2, Titan Skull V4
 (four biome variants), Small Colossus V7, World Tree V4.3 strands, Ruined Tower V7
 and Titan Skull 2 V2 embedded-v1**. Rock Skull uses embedded-v1; meadow/dry/sand
 Skulls, Small Colossus and Tower retain their ground-v3 derivatives.
-This is a visual integration build, not planned gameplay. Revised terrain remains
-a visual candidate; see the [latest art candidates](docs/testing/CAVE_CONTACTS_20261007.md).
+This is a visual integration build, not planned gameplay. **The user visually
+accepted Skull 2 and World Tree, including their current terrain integration,
+on October 7 after the Alpha 4.9 screenshot review.** See the
+[acceptance and eight screenshot hashes](docs/project/reviews/alpha4-9-user-acceptance-20261007.json).
+This does not extend to other relic revisions or gameplay completion.
 The [Alpha 4.2 terrain correction](docs/technical/ALPHA_4_2_TERRAIN.md) adds
 chunk-local ground supports and conservative relic separation. Current validation
 is recorded in the [Alpha 4.9 test report](docs/testing/ALPHA_4_9_TEST_REPORT.md).
@@ -157,6 +160,18 @@ chunks. Each rotates as one unit. Optional Terralith/Biomes O' Plenty mappings
 remain provisional; neither mod is required. Runtime coverage is recorded in the test report.
 
 ## Installation
+
+For Minecraft **1.21.1**, use the separate **Alpha 4.9 Fabric port**, not the
+26.2 JAR. See [compatibility build/install instructions](compat/mc1.21.1/README.md)
+and [its validation/release record](docs/testing/ALPHA_4_9_MC_1_21_1_TEST_REPORT.md).
+It needs Java 21+, Fabric API 0.116.17+1.21.1 and Lithostitched 1.8.0 for 1.21.1.
+**Never downgrade a 26.2 save to 1.21.1.** The requirements below describe the
+primary 26.2 build.
+
+Downloads: [Alpha 4.9 for Fabric 1.21.1](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.4.9%2Bmc1.21.1),
+or the [historical Alpha 3 for Fabric 26.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.3).
+Alpha 3 contains only the three original V3 designs and its documented natural
+feature-overwrite limitations; it is not the current seven-design 26.2 build.
 
 | Requirement | Tested alpha version |
 | --- | --- |

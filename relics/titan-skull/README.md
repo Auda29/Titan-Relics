@@ -1,5 +1,12 @@
 # Titan Skull
 
+**Skull 2's current Alpha 4.9 appearance and terrain integration were visually
+accepted by the user on October 7, 2026.** Three new Skull screenshots accompany
+the [acceptance record](../../docs/project/reviews/alpha4-9-user-acceptance-20261007.json).
+This accepts the existing shallow-footprint/bounded-contact revision, not new
+changes to the crowned Skull variants or encounter gameplay. The native-leaf
+cavity observation remains a separate technical finding.
+
 **Alpha 4.9 keeps all raw Skull exports unchanged.** Skull 2's natural template
 alone omits the deeply buried slice below raw Y22, with ground Y28 unchanged.
 Its bounded processor uses adjoining art material for complete contacts up to
@@ -15,7 +22,7 @@ See [the candidates](../../docs/testing/ROOTED_EMBEDDING_20261007.md) and
 [current runtime status](../../docs/testing/ALPHA_4_8_TEST_REPORT.md). The preserved
 Alpha 4.7 native-leaf cavity observation is not relabeled as passing.
 
-Latest candidates: [crowned Skull ground-v3 and Skull 2 V2](../../docs/project/EMBEDDING_20261006.md)
+Historical candidates: [crowned Skull ground-v3 and Skull 2 V2](../../docs/project/EMBEDDING_20261006.md)
 lower the central deposits and settle the remains into the terrain. New art and
 placement contracts are selected together in Alpha 4.6.
 

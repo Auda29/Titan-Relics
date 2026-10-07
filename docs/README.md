@@ -15,6 +15,7 @@ This directory contains only cross-project documentation and test evidence.
 - [Alpha 4.4 follow-up: irregular deposits and broken lower Tower walls](project/DEPOSIT_RELIEF_20261006.md)
 - [Alpha 4.5 follow-up: deeper embedding, low moss pads and collapsed Tower sides](project/EMBEDDING_20261006.md)
 - [Alpha 4.7: 54 user screenshots, visual review and proposed refinements](project/ALPHA_4_7_SCREENSHOT_REVIEW.md)
+- [Alpha 4.9: user acceptance of Skull 2 and World Tree, with eight screenshot hashes](project/reviews/alpha4-9-user-acceptance-20261007.json)
 - [New small-Colossus Vigilant-Class reference study](../relics/colossus/docs/SMALL_COLOSSUS_V4_REFERENCE.md)
 - [Lore bible and design guide](project/LORE-BIBLE.md)
 - [Lore/gameplay review and follow-up decisions](project/LORE_GAMEPLAY_REVIEW.md)
@@ -31,6 +32,11 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Testing
 
+- [Alpha 4.9 Minecraft 1.21.1 compatibility build and historical Alpha 3 release](testing/ALPHA_4_9_MC_1_21_1_TEST_REPORT.md)
+- [Alpha 4.9 Minecraft 1.21.1 complete ten-variant runtime evidence](testing/alpha4-9-mc1.21.1-evidence.json)
+- [Alpha 4.9 Minecraft 1.21.1 Tree contacts](testing/alpha4-9-mc1.21.1-tree-contacts.json)
+- [Alpha 4.9 Minecraft 1.21.1 buried-art contacts](testing/alpha4-9-mc1.21.1-buried-contacts.json)
+- [Alpha 4.9 Minecraft 1.21.1 bounded-support and separate face-cavity audit](testing/alpha4-9-mc1.21.1-support-audit.json)
 - [Alpha 4.9 cave-contact and root-strand integration](testing/ALPHA_4_9_TEST_REPORT.md)
 - [Alpha 4.9 fresh complete ten-variant runtime evidence](testing/alpha4-9-evidence.json)
 - [Alpha 4.9 independent bounded-support and cave regression audit](testing/alpha4-9-cave-audit.json)
