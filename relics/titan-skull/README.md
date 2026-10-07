@@ -1,5 +1,12 @@
 # Titan Skull
 
+**Alpha 4.8 selects rock Skull and Skull 2 embedded-v1**, with no authored ground
+platforms and six blocks deeper burial. Every anatomical cell and the rigid
+sword are preserved; the other three crowned-Skull palettes remain ground-v3.
+See [the candidates](../../docs/testing/ROOTED_EMBEDDING_20261007.md) and
+[current runtime status](../../docs/testing/ALPHA_4_8_TEST_REPORT.md). The preserved
+Alpha 4.7 native-leaf cavity observation is not relabeled as passing.
+
 Latest candidates: [crowned Skull ground-v3 and Skull 2 V2](../../docs/project/EMBEDDING_20261006.md)
 lower the central deposits and settle the remains into the terrain. New art and
 placement contracts are selected together in Alpha 4.6.

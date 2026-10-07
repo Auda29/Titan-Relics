@@ -1,0 +1,141 @@
+{
+  "source_report": "build/smoke/run-20261007-090359-448f2a8bf6a8/report.json",
+  "source_report_sha256": "87b453c541bfcfba0f9fdcce23bdd559a877a33cca35cf8a8c3aec733db1e97a",
+  "baseline_report": "build/smoke/run-20261006-151402-0cdd8e0578b2/report.json",
+  "baseline_report_sha256": "c45bc0d5ad32e98cf372f6f4a5c42db43568b41fad8068ebd8a137aea8e22cca",
+  "scope": "Exact saved mask additions and strict air-only 3x3x3 face-cavity checks; even native leaves fail the latter",
+  "instances": [
+    {
+      "id": "titan_skull_rock",
+      "source_sha256": "b60d3ab92e4e8b99e5674f82588c38c25a7e7fe9eb8135a3fdf22a576f7b30c4",
+      "authored_cells": 20131,
+      "additional_runtime_cells": 1441,
+      "runtime_materials": {
+        "minecraft:stone": 1441
+      },
+      "highest_addition_relative_to_ground": -1,
+      "invalid_added_supports": [],
+      "face_void_probes": 0,
+      "blocked_face_probe_cells": [],
+      "support_checks_passed": true,
+      "strict_air_only_probes_passed": true,
+      "passed": true
+    },
+    {
+      "id": "titan_skull_2",
+      "source_sha256": "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd",
+      "authored_cells": 32569,
+      "additional_runtime_cells": 1197,
+      "runtime_materials": {
+        "minecraft:dirt": 1197
+      },
+      "highest_addition_relative_to_ground": -1,
+      "invalid_added_supports": [],
+      "face_void_probes": 4,
+      "blocked_face_probe_cells": [
+        {
+          "world_position": [
+            -13169,
+            71,
+            36317
+          ],
+          "state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          },
+          "relic_protected": false,
+          "baseline_state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          },
+          "baseline_relic_protected": false,
+          "unchanged_at_same_world_position": true
+        },
+        {
+          "world_position": [
+            -13169,
+            72,
+            36318
+          ],
+          "state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "4",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          },
+          "relic_protected": false,
+          "baseline_state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "4",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          },
+          "baseline_relic_protected": false,
+          "unchanged_at_same_world_position": true
+        },
+        {
+          "world_position": [
+            -13169,
+            72,
+            36317
+          ],
+          "state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          },
+          "relic_protected": false,
+          "baseline_state": {
+            "Properties": {
+              "waterlogged": "false",
+              "distance": "3",
+              "persistent": "false"
+            },
+            "Name": "minecraft:oak_leaves"
+          },
+          "baseline_relic_protected": false,
+          "unchanged_at_same_world_position": true
+        }
+      ],
+      "support_checks_passed": true,
+      "strict_air_only_probes_passed": false,
+      "passed": false
+    },
+    {
+      "id": "world_tree",
+      "source_sha256": "09d3f607ed03b52b57cc6882d2a27b0125a27b73df6526bbeb8c810ef0860b8b",
+      "authored_cells": 324127,
+      "additional_runtime_cells": 1492,
+      "runtime_materials": {
+        "minecraft:dirt": 23,
+        "minecraft:spruce_log": 1469
+      },
+      "highest_addition_relative_to_ground": -1,
+      "invalid_added_supports": [],
+      "face_void_probes": 0,
+      "blocked_face_probe_cells": [],
+      "support_checks_passed": true,
+      "strict_air_only_probes_passed": true,
+      "passed": true
+    }
+  ],
+  "read_errors": [],
+  "baseline_read_errors": [],
+  "support_checks_passed": true,
+  "passed": false
+}

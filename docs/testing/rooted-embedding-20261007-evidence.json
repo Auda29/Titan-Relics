@@ -1,0 +1,373 @@
+{
+  "schema_version": 1,
+  "scope": "saved-world server evidence, not client visual or gameplay approval",
+  "runs": [
+    {
+      "run": "run-20261007-083649-7249c75a1654",
+      "report_sha256": "aff032e853995fc837ea32b71219c5d61b1fef143c81475fa4c975ac3f8fbaa7",
+      "seed": 731204,
+      "showcase": false,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.8-candidate+mc26.2.jar",
+          "sha256": "071c9e83d308c489234b4d856d6fad9f9b502c62d16d2f1cfe40ebf54815a7fc"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": true,
+      "failure": null,
+      "exit_code": 0,
+      "blocking_log_errors": [],
+      "expected_natural_structures": [
+        "relics:titan_skull_2",
+        "relics:titan_skull_rock",
+        "relics:world_tree"
+      ],
+      "selected_templates": [
+        "titan_skull_2",
+        "titan_skull_rock",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "natural_candidate_search": {
+        "file": "same-sites.json",
+        "sha256": "47ea94fa5446284eacc44e24711bcafd90f00618848c62b15484e9bcb246a2fb",
+        "seed": 731204,
+        "scope": "Nominated start chunks; each must produce a saved natural start under the unchanged artifact rules"
+      },
+      "natural_candidate_attempts": [
+        {
+          "structure": "relics:titan_skull_rock",
+          "position": [
+            -9024,
+            35664
+          ],
+          "method": "natural candidate chunk generation; no manual natural placement",
+          "natural_start_found": true,
+          "bounding_boxes": [
+            [
+              -9121,
+              58,
+              35598,
+              -8927,
+              136,
+              35730
+            ]
+          ]
+        },
+        {
+          "structure": "relics:world_tree",
+          "position": [
+            23712,
+            -45504
+          ],
+          "method": "natural candidate chunk generation; no manual natural placement",
+          "natural_start_found": true,
+          "bounding_boxes": [
+            [
+              23611,
+              43,
+              -45604,
+              23813,
+              270,
+              -45404
+            ]
+          ]
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "position": [
+            -13168,
+            36272
+          ],
+          "method": "natural candidate chunk generation; no manual natural placement",
+          "natural_start_found": true,
+          "bounding_boxes": [
+            [
+              -13225,
+              40,
+              36215,
+              -13111,
+              175,
+              36329
+            ]
+          ]
+        }
+      ],
+      "locate_results": [],
+      "disabled_locate_results": [],
+      "locate_timings": [],
+      "instances": [
+        {
+          "structure": "relics:titan_skull_rock",
+          "template": "relics:titan_skull_rock_worldgen",
+          "origin": [
+            -8927,
+            58,
+            35598
+          ],
+          "rotation": "CLOCKWISE_90",
+          "bounding_box": [
+            -9121,
+            58,
+            35598,
+            -8927,
+            136,
+            35730
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 20131,
+          "matched_blocks": 20131,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 38,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 2573,
+            "undersides_checked": 4330,
+            "mode": "embedded_art",
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 20131,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "template": "relics:titan_skull_2_worldgen",
+          "origin": [
+            -13111,
+            40,
+            36329
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -13225,
+            40,
+            36215,
+            -13111,
+            175,
+            36329
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 32569,
+          "matched_blocks": 32569,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 38,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 5365,
+            "undersides_checked": 9173,
+            "mode": "embedded_art",
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 32569,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        },
+        {
+          "structure": "relics:world_tree",
+          "template": "relics:world_tree_worldgen",
+          "origin": [
+            23813,
+            43,
+            -45404
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            23611,
+            43,
+            -45604,
+            23813,
+            270,
+            -45404
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 324127,
+          "matched_blocks": 324127,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 108,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "foundation_contact": {
+            "columns": 4231,
+            "undersides_checked": 4276,
+            "mode": "embedded_art",
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 324127,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    },
+    {
+      "run": "run-20261007-084710-fc7993ec449d",
+      "report_sha256": "0f0af9c7dc09df59cb9d1cdf22884c006443483b3c31da90fad9f3d8bfd3f40c",
+      "seed": 731204,
+      "showcase": true,
+      "max_tick_time_ms": 60000,
+      "integration_mods": false,
+      "artifacts": [
+        {
+          "file": "relics-0.1.0-alpha.4.8-candidate+mc26.2.jar",
+          "sha256": "071c9e83d308c489234b4d856d6fad9f9b502c62d16d2f1cfe40ebf54815a7fc"
+        },
+        {
+          "file": "fabric-api-0.161.0+26.2.jar",
+          "sha256": "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51e216a"
+        },
+        {
+          "file": "lithostitched-1.8.0-fabric-26.2.jar",
+          "sha256": "4d74a8ec2023657352ae051f1a6270bff474bf3cc46013100eff5f9ddbbdd024"
+        }
+      ],
+      "passed": true,
+      "failure": null,
+      "exit_code": 0,
+      "blocking_log_errors": [],
+      "expected_natural_structures": [],
+      "selected_templates": [
+        "titan_skull_2",
+        "titan_skull_rock",
+        "world_tree"
+      ],
+      "locate_origin": null,
+      "locate_results": [],
+      "disabled_locate_results": [],
+      "locate_timings": [],
+      "instances": [
+        {
+          "structure": "relics:titan_skull_rock",
+          "template": null,
+          "origin": [
+            0,
+            42,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            0,
+            42,
+            0,
+            116,
+            120,
+            178
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 20131,
+          "matched_blocks": 20131,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 36,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:world_tree",
+          "template": null,
+          "origin": [
+            384,
+            40,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            384,
+            40,
+            0,
+            570,
+            267,
+            184
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 324127,
+          "matched_blocks": 324127,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 33993,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 106,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        },
+        {
+          "structure": "relics:titan_skull_2",
+          "template": null,
+          "origin": [
+            768,
+            36,
+            0
+          ],
+          "rotation": "NONE",
+          "bounding_box": [
+            768,
+            36,
+            0,
+            866,
+            171,
+            98
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 32569,
+          "matched_blocks": 32569,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "chunks_spanned": 35,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "overlaps": []
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "name": "titan-skull-v4-rock-embedded-v1",
+  "rooted_embedding": {
+    "removed_terrain_cells": 91157,
+    "terrain_states": [
+      "minecraft:gravel",
+      "minecraft:stone"
+    ],
+    "source": "relics/titan-skull/design/generated/titan-skull-v4-rock-ground-v3/titan-skull-v4-rock-ground-v3.nbt",
+    "source_sha256": "6303836dd1d816900a84897ad31cd4a74e659820612d61c677612e267b47051f",
+    "source_translation": [
+      0,
+      0,
+      0
+    ],
+    "old_ground_y": 16,
+    "effective_ground_y_in_source_coordinates": 22,
+    "additional_burial": 6,
+    "preserved_art_cells": 20131,
+    "all_original_art_preserved": true,
+    "nbt_sha256": "b60d3ab92e4e8b99e5674f82588c38c25a7e7fe9eb8135a3fdf22a576f7b30c4",
+    "schematic_sha256": "40af4f638a0b169f82b742a4681b73ab7c861576f15861cd7c90cd33450bf880",
+    "blocks": 20131,
+    "size": [
+      117,
+      79,
+      179
+    ],
+    "data_version": 3105,
+    "tiles": 25,
+    "placement_contract": {
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-rock-embedded-v1/titan-skull-v4-rock-embedded-v1.nbt",
+      "version": "titan-skull-v4-rock-embedded-v1",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 20131,
+      "ground_y": 22,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:windswept_hills",
+        "minecraft:windswept_gravelly_hills",
+        "minecraft:stony_shore",
+        "minecraft:stony_peaks",
+        {
+          "id": "terralith:rocky_mountains",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "b60d3ab92e4e8b99e5674f82588c38c25a7e7fe9eb8135a3fdf22a576f7b30c4",
+      "visually_accepted": false,
+      "uphill_slope": 18,
+      "foundation_mode": "embedded_art"
+    },
+    "authored_terrain_cells": 0,
+    "in_game_tested": false,
+    "checks": [
+      "pinned source hash",
+      "exact original art after declared translation",
+      "no authored terrain platforms",
+      "schematic/NBT equality",
+      "lossless tiles",
+      "bounds"
+    ]
+  },
+  "source_translation": [
+    0,
+    0,
+    0
+  ],
+  "ground_level_nbt_approx": 22,
+  "visual_acceptance": "October 7 user-requested candidate; review pending"
+}

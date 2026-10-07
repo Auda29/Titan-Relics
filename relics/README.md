@@ -7,15 +7,15 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 | --- | --- |
 | [Colossus](colossus/README.md) | Alpha 4.6 retains V4.1 materials B and selects Small Colossus V7 ground-v3 with deeper burial; gameplay/uniqueness pending |
 | [Obelisk](obelisk/README.md) | Alpha 4.6 retains V4.2; archaeology, collectibles and maps pending |
-| [Titan Skull](titan-skull/README.md) | Alpha 4.6 selects V4's four ground-v3 biome variants and posed Skull 2 V2; encounters pending |
+| [Titan Skull](titan-skull/README.md) | Alpha 4.8 selects embedded-v1 for rock Skull and Skull 2; the other three ground-v3 palettes remain unchanged; encounters pending |
 | [Ruined Tower](ruined-tower/README.md) | V7 ground-v3 collapsed-side-bay candidate with 220 visible layers selected in Alpha 4.6 |
-| [World Tree](world-tree/README.md) | V4 wood/foliage accepted; V4.1 ground-v3 with lowered moss pads selected in Alpha 4.6 |
+| [World Tree](world-tree/README.md) | Alpha 4.8 selects V4.2 rooted: accepted wood/foliage translated +12 Y, low attached wood additions and four blocks deeper burial |
 
-Alpha 4.7 retains these exports and revises their runtime ground contacts and
-crowned-Skull site tolerance. The requested next focus is gameplay.
+Alpha 4.8 retains seven exports and selects three native-ground/rooted derivatives.
+Alpha 4.7's surface anchors, site tolerances and density remain unchanged.
 
 See the [October 6 embedding revisions](../docs/project/EMBEDDING_20261006.md) and
-[current runtime evidence](../docs/testing/ALPHA_4_7_TEST_REPORT.md). Earlier models
+[current runtime evidence](../docs/testing/ALPHA_4_8_TEST_REPORT.md). Earlier models
 and the historical Alpha 4 design decisions below remain preserved.
 
 ## In-game demos

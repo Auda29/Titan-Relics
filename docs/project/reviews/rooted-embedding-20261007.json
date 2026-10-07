@@ -1,0 +1,128 @@
+{
+  "scope": "Actual saved solid blocks, matched sites and crop bounds; small non-cube vegetation omitted for the cube renderer",
+  "source_reports": [
+    {
+      "path": "build/smoke/run-20261006-151402-0cdd8e0578b2/report.json",
+      "sha256": "c45bc0d5ad32e98cf372f6f4a5c42db43568b41fad8068ebd8a137aea8e22cca"
+    },
+    {
+      "path": "build/smoke/run-20261007-083649-7249c75a1654/report.json",
+      "sha256": "aff032e853995fc837ea32b71219c5d61b1fef143c81475fa4c975ac3f8fbaa7"
+    }
+  ],
+  "records": [
+    {
+      "id": "titan_skull_rock",
+      "side": "before",
+      "path": "build/rooted-embedding/20261007/views/titan_skull_rock-before.nbt",
+      "sha256": "94ddab95fcc7683cfa3b42004217438f11cea3a3ec520c0c795dbdca14cee3e8",
+      "blocks": 330264,
+      "nominal_ground_y": 10,
+      "world_ground_y": 80,
+      "omitted_non_cube_plants": 2927,
+      "origin": [
+        -8927,
+        64,
+        35598
+      ],
+      "rotation": "CLOCKWISE_90",
+      "read_errors": []
+    },
+    {
+      "id": "titan_skull_rock",
+      "side": "after",
+      "path": "build/rooted-embedding/20261007/views/titan_skull_rock-after.nbt",
+      "sha256": "33d38edb79ec7594421738ac3d7f2a80e50475d8ad8917ac4751bb070466256e",
+      "blocks": 317885,
+      "nominal_ground_y": 10,
+      "world_ground_y": 80,
+      "omitted_non_cube_plants": 2961,
+      "origin": [
+        -8927,
+        58,
+        35598
+      ],
+      "rotation": "CLOCKWISE_90",
+      "read_errors": []
+    },
+    {
+      "id": "titan_skull_2",
+      "side": "before",
+      "path": "build/rooted-embedding/20261007/views/titan_skull_2-before.nbt",
+      "sha256": "e057ff0647a97ca358da9765d3033360b53c3d918899ebbe64be2934f93f4044",
+      "blocks": 175900,
+      "nominal_ground_y": 10,
+      "world_ground_y": 68,
+      "omitted_non_cube_plants": 4546,
+      "origin": [
+        -13111,
+        46,
+        36329
+      ],
+      "rotation": "CLOCKWISE_180",
+      "read_errors": []
+    },
+    {
+      "id": "titan_skull_2",
+      "side": "after",
+      "path": "build/rooted-embedding/20261007/views/titan_skull_2-after.nbt",
+      "sha256": "5b4c902584fe542b13bb0a5d0870e29f776addc78f6326715bb556389b04f647",
+      "blocks": 162207,
+      "nominal_ground_y": 10,
+      "world_ground_y": 68,
+      "omitted_non_cube_plants": 5716,
+      "origin": [
+        -13111,
+        40,
+        36329
+      ],
+      "rotation": "CLOCKWISE_180",
+      "read_errors": []
+    },
+    {
+      "id": "world_tree",
+      "side": "before",
+      "path": "build/rooted-embedding/20261007/views/world_tree-before.nbt",
+      "sha256": "eb8c71cbf4ee0205a9ddc265691e20118becd974dc945bc9d5796b1a3b832576",
+      "blocks": 478637,
+      "nominal_ground_y": 10,
+      "world_ground_y": 67,
+      "omitted_non_cube_plants": 14335,
+      "origin": [
+        23813,
+        57,
+        -45404
+      ],
+      "rotation": "CLOCKWISE_180",
+      "read_errors": []
+    },
+    {
+      "id": "world_tree",
+      "side": "after",
+      "path": "build/rooted-embedding/20261007/views/world_tree-after.nbt",
+      "sha256": "3bdf67c49491d0b980666a7f3a01c3f0852ce53af8e5ada06d37c8efdea5e2f8",
+      "blocks": 465696,
+      "nominal_ground_y": 10,
+      "world_ground_y": 67,
+      "omitted_non_cube_plants": 14898,
+      "origin": [
+        23813,
+        43,
+        -45404
+      ],
+      "rotation": "CLOCKWISE_180",
+      "read_errors": []
+    }
+  ],
+  "texture_fallbacks": {
+    "minecraft:acacia_leaves": "minecraft:oak_leaves",
+    "minecraft:birch_leaves": "minecraft:oak_leaves",
+    "minecraft:lava": "minecraft:stone",
+    "minecraft:red_mushroom": "minecraft:stone",
+    "minecraft:water": "minecraft:blue_concrete"
+  },
+  "comparison": {
+    "path": "docs/project/reviews/rooted-embedding-20261007.png",
+    "sha256": "a0c8fdef8747660da2b39ab767598a10ace25c4ffbc5a560733f52c50706b911"
+  }
+}

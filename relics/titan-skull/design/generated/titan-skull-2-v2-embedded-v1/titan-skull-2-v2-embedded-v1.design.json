@@ -1,0 +1,115 @@
+{
+  "name": "titan-skull-2-v2-embedded-v1",
+  "rooted_embedding": {
+    "removed_terrain_cells": 14353,
+    "terrain_states": [
+      "minecraft:dirt",
+      "minecraft:grass_block[snowy=false]",
+      "minecraft:rooted_dirt"
+    ],
+    "void_probes_local": [
+      [
+        49,
+        32,
+        3
+      ],
+      [
+        32,
+        59,
+        27
+      ],
+      [
+        67,
+        58,
+        27
+      ],
+      [
+        49,
+        51,
+        17
+      ]
+    ],
+    "sword_bone_contact_faces": 40,
+    "source": "relics/titan-skull/design/generated/titan-skull-2-v2/titan-skull-2-v2.nbt",
+    "source_sha256": "955703762402efc16d9d05a957a78368553ed019c35aec4aa659ee3754f3522b",
+    "source_translation": [
+      0,
+      0,
+      0
+    ],
+    "old_ground_y": 22,
+    "effective_ground_y_in_source_coordinates": 28,
+    "additional_burial": 6,
+    "preserved_art_cells": 32569,
+    "all_original_art_preserved": true,
+    "nbt_sha256": "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd",
+    "schematic_sha256": "da7aca9e5cec1af4abe3bbc55f2fc946cb6a5021f0ba9ec5fe0b9d5d96ac84e4",
+    "blocks": 32569,
+    "size": [
+      99,
+      136,
+      99
+    ],
+    "data_version": 3105,
+    "tiles": 33,
+    "placement_contract": {
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-v1/titan-skull-2-v2-embedded-v1.nbt",
+      "version": "titan-skull-2-v2-embedded-v1",
+      "size": [
+        99,
+        136,
+        99
+      ],
+      "blocks": 32569,
+      "ground_y": 28,
+      "family": "titan_skull_2",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 4,
+      "sha256": "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd",
+      "visually_accepted": false,
+      "foundation_mode": "embedded_art"
+    },
+    "authored_terrain_cells": 0,
+    "in_game_tested": false,
+    "checks": [
+      "pinned source hash",
+      "exact original art after declared translation",
+      "no authored terrain platforms",
+      "schematic/NBT equality",
+      "lossless tiles",
+      "bounds"
+    ]
+  },
+  "source_translation": [
+    0,
+    0,
+    0
+  ],
+  "ground_level_nbt_approx": 28,
+  "visual_acceptance": "October 7 user-requested candidate; review pending"
+}

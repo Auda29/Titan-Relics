@@ -135,6 +135,17 @@ public final class WorldgenTests {
                     "Every low solid column reaches native rock");
         }
 
+        source = List.of(cell(3, 4, 3, Blocks.SPRUCE_LOG.defaultBlockState()),
+                cell(4, 7, 4, Blocks.SPRUCE_LOG.defaultBlockState()));
+        result = new TerrainSupportProcessor(5, true, Blocks.DIRT.defaultBlockState(), true)
+                .finalizeProcessing(world(-64, pos -> pos.getY() <= -3 ? Blocks.STONE.defaultBlockState()
+                        : Blocks.AIR.defaultBlockState(), reads), BlockPos.ZERO, BlockPos.ZERO, source, source, settings);
+        check(result.size() == 8, "Only the low root grows six blocks down to substrate");
+        check(result.subList(2, result.size()).stream().allMatch(c -> c.state().is(Blocks.SPRUCE_LOG)),
+                "Root continuation uses original wood, never a soil pedestal");
+        check(result.stream().noneMatch(c -> c.pos().getX() == 4 && c.pos().getY() < 7),
+                "Higher intentional root arches are retained");
+
         var calls = new AtomicInteger();
         var gridCondition = new dev.worldgen.lithostitched.api.worldgen.placementcondition.PlacementCondition() {
             public boolean test(Context context, BlockPos pos) { return calls.incrementAndGet() != 3; }

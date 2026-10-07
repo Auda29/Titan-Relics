@@ -1,4 +1,4 @@
-"""Pinned visual assets with Alpha 4.7 surface-anchor/contact placement.
+"""Pinned visual assets with Alpha 4.8 native-ground embedding and rooted Tree.
 
 Candidate selection is for in-game review, not a new artistic approval. No model
 is regenerated here. Families group biome variants for density/disable settings.
@@ -49,22 +49,25 @@ ASSETS = {
     "titan_skull_sand": asset("titan-skull", "titan-skull-v4-sand-ground-v3", [117, 79, 179], 111328, 16,
                               "titan_skull", SAND, 12,
                               "7106438dd1a0389dc5953f48351fa8a4aebfa1af3becd671d16288ab847bd0aa", False),
-    "titan_skull_rock": asset("titan-skull", "titan-skull-v4-rock-ground-v3", [117, 79, 179], 111288, 16,
-                              "titan_skull", ROCK, 12,
-                              "6303836dd1d816900a84897ad31cd4a74e659820612d61c677612e267b47051f", False, uphill_slope=18),
+    "titan_skull_rock": {**asset("titan-skull", "titan-skull-v4-rock-embedded-v1", [117, 79, 179], 20131, 22,
+                               "titan_skull", ROCK, 12,
+                               "b60d3ab92e4e8b99e5674f82588c38c25a7e7fe9eb8135a3fdf22a576f7b30c4", False, uphill_slope=18),
+                         "foundation_mode": "embedded_art"},
     "small_colossus": asset("colossus", "small-colossus-v7-ground-v3", [111, 80, 113], 233448, 13,
                              "small_colossus", MEADOW + DRY, 4,
                              "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021", False, uphill_slope=12),
-    "world_tree": asset("world-tree", "world-tree-v4-1-ground-v3", [187, 216, 185], 291903, 8,
-                         "world_tree", MEADOW + ["minecraft:forest", "minecraft:flower_forest",
-                                              "minecraft:birch_forest", "minecraft:old_growth_birch_forest"], 6,
-                        "fee50813242408123f4adcd1a0bacb476799359fce8e80ba5d59a49085823163", False),
+    "world_tree": {**asset("world-tree", "world-tree-v4-2-rooted", [187, 228, 185], 324127, 24,
+                          "world_tree", MEADOW + ["minecraft:forest", "minecraft:flower_forest",
+                                               "minecraft:birch_forest", "minecraft:old_growth_birch_forest"], 6,
+                         "09d3f607ed03b52b57cc6882d2a27b0125a27b73df6526bbeb8c810ef0860b8b", False),
+                   "foundation_mode": "embedded_art", "root_support": True},
     "ruined_tower": asset("ruined-tower", "ruined-tower-v7-ground-v3", [111, 232, 93], 272528, 12,
                           "ruined_tower", MEADOW + DRY + SAND, 6,
                           "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600", False),
-    "titan_skull_2": asset("titan-skull", "titan-skull-2-v2", [99, 136, 99], 46922, 22,
-                          "titan_skull_2", MEADOW + DRY, 4,
-                          "955703762402efc16d9d05a957a78368553ed019c35aec4aa659ee3754f3522b", False),
+    "titan_skull_2": {**asset("titan-skull", "titan-skull-2-v2-embedded-v1", [99, 136, 99], 32569, 28,
+                           "titan_skull_2", MEADOW + DRY, 4,
+                           "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd", False),
+                     "foundation_mode": "embedded_art"},
 }
 FAMILIES = tuple(dict.fromkeys(a["family"] for a in ASSETS.values()))
 NORMAL_DENSITY = {"obelisk": (64, 32), "colossus": (80, 40), "titan_skull": (48, 24),
@@ -153,6 +156,8 @@ def worldgen_resources():
                             "support_art": True, "art_fill": {"Name":
                                 "minecraft:sandstone" if name in ("obelisk", "titan_skull_sand") else
                                 "minecraft:stone" if name == "titan_skull_rock" else "minecraft:dirt"}}]}
+        if a.get('root_support'):
+            resources[f'worldgen/processor_list/{name}_terrain.json']['processors'][0]['root_support'] = True
         resources[f"tags/worldgen/biome/has_structure/{name}.json"] = {"replace": False, "values": a["biomes"]}
     for family in FAMILIES:
         spacing, separation = NORMAL_DENSITY[family]

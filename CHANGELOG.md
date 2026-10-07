@@ -1,5 +1,25 @@
 # Changelog
 
+## 0.1.0-alpha.4.8 — native-ground embedding and rooted World Tree
+
+- Select the exact Rock Skull and Skull 2 embedded-v1 exports and World Tree
+  V4.2 rooted derivative from the October 7 candidate index.
+- Remove their authored soil/rock platforms without changing Skull anatomy or
+  the rigid sword. Bury both Skulls six blocks deeper; retain native terrain.
+- Preserve accepted Tree wood/foliage under the declared +12 Y export translation,
+  add 37,005 connected low wood cells and place the accepted art four blocks deeper.
+- Bypass derived soil platforms only for these embedded-art exports; optionally
+  continue Tree roots with their original wood state instead of dirt pillars.
+- Keep seven other exports, dependencies, density, biomes, slopes and gameplay
+  unchanged. Preserve historical models and the failed native-leaf cavity audit.
+- Require fresh full-pack showcase/natural acceptance before profile replacement;
+  keep strict air-only cavity observations separate from supported model contacts.
+- Install the tested Alpha 4.8 JAR with a verified Alpha 4.7 backup and a separate
+  showcase save. Preserve all 16 previous worlds and model sources. The user
+  chose showcase only; do not bypass the unrelated-server terrain-copy guard.
+
+See [Alpha 4.8 validation](docs/testing/ALPHA_4_8_TEST_REPORT.md).
+
 ## 0.1.0-alpha.4.7 — ground contacts and natural placement
 
 - Integrate the prepared runtime-contact update without changing the ten raw

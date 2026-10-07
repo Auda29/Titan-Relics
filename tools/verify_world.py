@@ -261,8 +261,16 @@ def verify_world(world_path: Path, artifact: Path, expected_structures=None) -> 
                             if (y <= foundation['ground_y'] and
                                     template['palette'][block['state']]['Name'] in SOILS):
                                 bottom_columns[x,z] = min(y, bottom_columns.get((x,z), y))
+                        contacts = [(x, y, z) for (x, z), y in bottom_columns.items()]
+                        if foundation.get('contact_mode') == 'embedded_art':
+                            authored = {tuple(b['pos']) for b in template['blocks']}
+                            contacts = [tuple(b['pos']) for b in template['blocks']
+                                        if b['pos'][1] <= foundation['ground_y']
+                                        and not template['palette'][b['state']]['Name'].endswith('_leaves')
+                                        and template['palette'][b['state']]['Name'] not in AIR_NAMES
+                                        and (b['pos'][0], b['pos'][1] - 1, b['pos'][2]) not in authored]
                         unsupported=[]
-                        for (x,z), y in bottom_columns.items():
+                        for x, y, z in contacts:
                             p = transform((x,y-1,z), child['rotation'], result['origin'])
                             state = world.block(*p)['Name']
                             if (state in AIR_NAMES or state.endswith('_leaves') or
@@ -270,9 +278,10 @@ def verify_world(world_path: Path, artifact: Path, expected_structures=None) -> 
                                               'minecraft:tall_grass','minecraft:fern','minecraft:large_fern',
                                               'minecraft:snow','minecraft:vine'}):
                                 unsupported.append(list(p))
-                        result['foundation_contact'] = {'columns':len(bottom_columns),
+                        result['foundation_contact'] = {'columns':len({(x,z) for x,y,z in contacts}),
+                            'undersides_checked': len(contacts), 'mode': foundation.get('contact_mode', 'soil_columns'),
                             'unsupported_columns':len(unsupported),'examples':unsupported[:20],
-                            'passed':bool(bottom_columns) and not unsupported}
+                            'passed':bool(contacts) and not unsupported}
                         result['passed'] = result['passed'] and result['foundation_contact']['passed']
                         if foundation.get('feature_protection') == 'relics:placed_cells':
                             absent, checked_masks = [], 0

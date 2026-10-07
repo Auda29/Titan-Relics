@@ -2,7 +2,7 @@
   "processors": [
     {
       "processor_type": "relics:terrain_support",
-      "ground_y": 22,
+      "ground_y": 28,
       "support_art": true,
       "art_fill": {
         "Name": "minecraft:dirt"

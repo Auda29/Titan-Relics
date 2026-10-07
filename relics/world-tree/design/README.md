@@ -1,5 +1,6 @@
 # World Tree design assets
 
+- [V4.2 rooted candidate](world-tree-v4-2-rooted.json): [exports](generated/world-tree-v4-2-rooted/) and [same-site evidence](../../../docs/testing/ROOTED_EMBEDDING_20261007.md)
 - [V1 configuration](world-tree-v1.json)
 - [V1 editable source and exports](generated/world-tree-v1/)
 - [Review, foliage handling and reproduction](../docs/WORLD_TREE_V1.md)

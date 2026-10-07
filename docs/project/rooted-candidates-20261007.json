@@ -1,0 +1,116 @@
+{
+  "status": "visual candidates; default selection unchanged",
+  "scope": "Deeper native-terrain embedding and wood root continuations, with no authored terrain platform",
+  "structures": [
+    {
+      "id": "titan_skull_rock",
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-rock-embedded-v1/titan-skull-v4-rock-embedded-v1.nbt",
+      "version": "titan-skull-v4-rock-embedded-v1",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 20131,
+      "ground_y": 22,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:windswept_hills",
+        "minecraft:windswept_gravelly_hills",
+        "minecraft:stony_shore",
+        "minecraft:stony_peaks",
+        {
+          "id": "terralith:rocky_mountains",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "b60d3ab92e4e8b99e5674f82588c38c25a7e7fe9eb8135a3fdf22a576f7b30c4",
+      "visually_accepted": false,
+      "uphill_slope": 18,
+      "foundation_mode": "embedded_art"
+    },
+    {
+      "id": "titan_skull_2",
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-v1/titan-skull-2-v2-embedded-v1.nbt",
+      "version": "titan-skull-2-v2-embedded-v1",
+      "size": [
+        99,
+        136,
+        99
+      ],
+      "blocks": 32569,
+      "ground_y": 28,
+      "family": "titan_skull_2",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 4,
+      "sha256": "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd",
+      "visually_accepted": false,
+      "foundation_mode": "embedded_art"
+    },
+    {
+      "id": "world_tree",
+      "source": "relics/world-tree/design/generated/world-tree-v4-2-rooted/world-tree-v4-2-rooted.nbt",
+      "version": "world-tree-v4-2-rooted",
+      "size": [
+        187,
+        228,
+        185
+      ],
+      "blocks": 324127,
+      "ground_y": 24,
+      "family": "world_tree",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:forest",
+        "minecraft:flower_forest",
+        "minecraft:birch_forest",
+        "minecraft:old_growth_birch_forest"
+      ],
+      "slope": 6,
+      "sha256": "09d3f607ed03b52b57cc6882d2a27b0125a27b73df6526bbeb8c810ef0860b8b",
+      "visually_accepted": false,
+      "foundation_mode": "embedded_art",
+      "root_support": true
+    }
+  ]
+}

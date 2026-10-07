@@ -1,0 +1,323 @@
+{
+  "removed_terrain_cells": 4781,
+  "terrain_states": [
+    "minecraft:dirt",
+    "minecraft:grass_block[snowy=false]",
+    "minecraft:rooted_dirt"
+  ],
+  "root_columns_continued": 3560,
+  "new_wood_cells": 37005,
+  "new_wood_face_connected": 37005,
+  "forks": [
+    {
+      "start": [
+        24,
+        5,
+        80
+      ],
+      "control": [
+        17.533936838724618,
+        0,
+        78.34167940542324
+      ],
+      "end": [
+        11.781748373102895,
+        -7,
+        78.07274101848604
+      ]
+    },
+    {
+      "start": [
+        24,
+        5,
+        80
+      ],
+      "control": [
+        19.834232103899694,
+        0,
+        77.14537606052565
+      ],
+      "end": [
+        16.88764970439586,
+        -7,
+        73.72190528323921
+      ]
+    },
+    {
+      "start": [
+        64,
+        5,
+        43
+      ],
+      "control": [
+        61.87833809976852,
+        0,
+        37.82809988678183
+      ],
+      "end": [
+        58.98644028962099,
+        -8,
+        33.84225906511522
+      ]
+    },
+    {
+      "start": [
+        64,
+        5,
+        43
+      ],
+      "control": [
+        63.6059304413366,
+        0,
+        36.33631414433912
+      ],
+      "end": [
+        64.4395025123883,
+        -8,
+        30.638493718741053
+      ]
+    },
+    {
+      "start": [
+        145,
+        5,
+        57
+      ],
+      "control": [
+        147.79012183936084,
+        0,
+        53.45384431792374
+      ],
+      "end": [
+        149.32920651850625,
+        -9,
+        49.633998987230385
+      ]
+    },
+    {
+      "start": [
+        145,
+        5,
+        57
+      ],
+      "control": [
+        149.90362317906317,
+        0,
+        54.31588381068287
+      ],
+      "end": [
+        154.65942078771923,
+        -9,
+        53.038233973872536
+      ]
+    },
+    {
+      "start": [
+        141,
+        5,
+        113
+      ],
+      "control": [
+        146.9336866618135,
+        0,
+        114.54721123296599
+      ],
+      "end": [
+        152.269209963296,
+        -10,
+        114.733466700906
+      ]
+    },
+    {
+      "start": [
+        141,
+        5,
+        113
+      ],
+      "control": [
+        144.61286337055165,
+        0,
+        115.70318668717611
+      ],
+      "end": [
+        147.08815373191342,
+        -10,
+        118.9945295175342
+      ]
+    },
+    {
+      "start": [
+        114,
+        5,
+        156
+      ],
+      "control": [
+        116.55708094016225,
+        0,
+        160.35474879475947
+      ],
+      "end": [
+        119.76666911691237,
+        -7,
+        163.53296271702237
+      ]
+    },
+    {
+      "start": [
+        114,
+        5,
+        156
+      ],
+      "control": [
+        115.02416875886648,
+        0,
+        162.04595553683302
+      ],
+      "end": [
+        114.74469397223076,
+        -7,
+        167.37740879496397
+      ]
+    },
+    {
+      "start": [
+        40,
+        4,
+        133
+      ],
+      "control": [
+        36.42471998888543,
+        0,
+        138.6371422584608
+      ],
+      "end": [
+        34.39142039278223,
+        -8,
+        144.02469204964478
+      ]
+    },
+    {
+      "start": [
+        40,
+        4,
+        133
+      ],
+      "control": [
+        35.99779822627422,
+        0,
+        136.0797533931122
+      ],
+      "end": [
+        31.831339998417118,
+        -8,
+        137.82420913503344
+      ]
+    },
+    {
+      "start": [
+        33,
+        5,
+        92
+      ],
+      "control": [
+        27.662865509377877,
+        0,
+        93.66282754036963
+      ],
+      "end": [
+        23.440146513802222,
+        -9,
+        96.19633188897544
+      ]
+    },
+    {
+      "start": [
+        33,
+        5,
+        92
+      ],
+      "control": [
+        26.327326055762125,
+        0,
+        91.81179151483265
+      ],
+      "end": [
+        20.723838150088692,
+        -9,
+        90.48479366593781
+      ]
+    }
+  ],
+  "max_new_wood_y_before_padding": 9,
+  "source": "relics/world-tree/design/generated/world-tree-v4-1-ground-v3/world-tree-v4-1-ground-v3.nbt",
+  "source_sha256": "fee50813242408123f4adcd1a0bacb476799359fce8e80ba5d59a49085823163",
+  "source_translation": [
+    0,
+    12,
+    0
+  ],
+  "old_ground_y": 8,
+  "effective_ground_y_in_source_coordinates": 12,
+  "additional_burial": 4,
+  "preserved_art_cells": 287122,
+  "all_original_art_preserved": true,
+  "nbt_sha256": "09d3f607ed03b52b57cc6882d2a27b0125a27b73df6526bbeb8c810ef0860b8b",
+  "schematic_sha256": "fc2de0b928020e76c3c2d0ce6ac9aae59822c23226c12c4ef16b91a5862d4022",
+  "blocks": 324127,
+  "size": [
+    187,
+    228,
+    185
+  ],
+  "data_version": 3105,
+  "tiles": 124,
+  "placement_contract": {
+    "source": "relics/world-tree/design/generated/world-tree-v4-2-rooted/world-tree-v4-2-rooted.nbt",
+    "version": "world-tree-v4-2-rooted",
+    "size": [
+      187,
+      228,
+      185
+    ],
+    "blocks": 324127,
+    "ground_y": 24,
+    "family": "world_tree",
+    "biomes": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains",
+      "minecraft:meadow",
+      {
+        "id": "terralith:blooming_valley",
+        "required": false
+      },
+      {
+        "id": "terralith:blooming_plateau",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:prairie",
+        "required": false
+      },
+      "minecraft:forest",
+      "minecraft:flower_forest",
+      "minecraft:birch_forest",
+      "minecraft:old_growth_birch_forest"
+    ],
+    "slope": 6,
+    "sha256": "09d3f607ed03b52b57cc6882d2a27b0125a27b73df6526bbeb8c810ef0860b8b",
+    "visually_accepted": false,
+    "foundation_mode": "embedded_art",
+    "root_support": true
+  },
+  "authored_terrain_cells": 0,
+  "in_game_tested": false,
+  "checks": [
+    "pinned source hash",
+    "exact original art after declared translation",
+    "no authored terrain platforms",
+    "schematic/NBT equality",
+    "lossless tiles",
+    "bounds"
+  ],
+  "accepted_v4_wood_and_leaves_preserved": true
+}

@@ -37,11 +37,13 @@ class PlacementSafetyTests(unittest.TestCase):
         for name, contract in ASSETS.items():
             self.assertEqual(resources[f"worldgen/template_pool/{name}.json"]["elements"][0]["element"]["processors"],
                              f"relics:{name}_terrain")
-            self.assertEqual(resources[f"worldgen/processor_list/{name}_terrain.json"],
-                             {"processors": [{"processor_type": "relics:terrain_support", "ground_y": natural_ground(contract),
-                                "support_art": True, "art_fill": {"Name":
-                                    "minecraft:sandstone" if name in ('obelisk','titan_skull_sand') else
-                                    "minecraft:stone" if name=='titan_skull_rock' else "minecraft:dirt"}}]})
+            expected = {"processors": [{"processor_type": "relics:terrain_support", "ground_y": natural_ground(contract),
+                                 "support_art": True, "art_fill": {"Name":
+                                     "minecraft:sandstone" if name in ('obelisk','titan_skull_sand') else
+                                     "minecraft:stone" if name=='titan_skull_rock' else "minecraft:dirt"}}]}
+            if name == 'world_tree':
+                expected['processors'][0]['root_support'] = True
+            self.assertEqual(resources[f"worldgen/processor_list/{name}_terrain.json"], expected)
 
     def test_sea_level_land_still_requires_actual_dry_surface_at_every_sample(self):
         for data in worldgen_resources().values():

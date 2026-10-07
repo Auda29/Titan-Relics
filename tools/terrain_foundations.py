@@ -32,6 +32,16 @@ def supported_blocks(blocks, contract):
     ground = contract['ground_y']
     bottom = ground - contract['slope'] - 4
     pad = padding(contract)
+    if contract.get('foundation_mode') == 'embedded_art':
+        # These candidates deliberately omit the old platform. Do not interpret
+        # anatomical moss or sword stone as a new terrain patch and regrow it.
+        result = {(x + TOE_RADIUS, y + pad, z + TOE_RADIUS): state for (x, y, z), state in blocks.items()}
+        return result, natural_size(contract), {
+            'method': 'embedded-art-native-terrain-v1', 'contact_mode': 'embedded_art',
+            'vertical_padding': pad, 'horizontal_padding': TOE_RADIUS,
+            'runtime_processor': 'relics:terrain_support', 'feature_protection': 'relics:placed_cells',
+            'ground_y': ground + pad, 'bottom_below_ground': 0,
+            'supported_columns': 0, 'added_blocks': 0, 'toe_blocks': 0, 'toe_columns': 0}
     columns = {}
     for (x, y, z), state in blocks.items():
         if y <= ground + 4 and state.split('[')[0] in SOILS:

@@ -31,6 +31,13 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Testing
 
+- [Alpha 4.8 native-ground Skulls and rooted World Tree integration](testing/ALPHA_4_8_TEST_REPORT.md)
+- [Alpha 4.8 fresh complete ten-variant runtime evidence](testing/alpha4-8-evidence.json)
+- [Alpha 4.8 installed showcase, preservation and TP viewpoints](testing/alpha4-8-installation.json)
+- [Alpha 4.8 actual Tree root contacts](testing/alpha4-8-tree-contacts.json)
+- [Alpha 4.8 retained buried raw-Y0 contacts](testing/alpha4-8-buried-contacts.json)
+- [Alpha 4.8 embedded supports and separately failed native-leaf cavity audit](testing/alpha4-8-rooted-runtime-audit.json)
+- [October 7 deeper embedding candidates: rock Skull, Skull 2 and Tree roots](testing/ROOTED_EMBEDDING_20261007.md)
 - [Alpha 4.7 ground-contact and Skull-placement correction](testing/ALPHA_4_7_TEST_REPORT.md)
 - [Alpha 4.7 runtime evidence, including intermediate failures](testing/alpha4-7-evidence.json)
 - [Alpha 4.7 same-position saved-world contact comparison](project/reviews/alpha4-7-contact-fix.png)

@@ -41,7 +41,7 @@ class CurrentIntegrationTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(data).hexdigest(), ASSETS[a["id"]]["sha256"])
             self.assertEqual(decode_nbt(data)["DataVersion"], 3105)
 
-    def test_alpha47_keeps_art_and_burial_with_revised_skull_site_tolerance(self):
+    def test_alpha48_selects_rooted_candidates_and_keeps_seven_other_exports(self):
         unchanged_hashes = {
             "colossus": "a355b20349513cb27e6feb6fc171ca413d71da2cdb5717f7995afb4128d879b8",
             "obelisk": "ed116dcbca2a41fe403695a816e419a32a647d325c1d907d8dc1797f551cda3e",
@@ -53,16 +53,16 @@ class CurrentIntegrationTests(unittest.TestCase):
                                 "0d948527040a395b55615dce8704d72a2d5528b44c0b0c69ff94ea06b465eb67"),
             "titan_skull_sand": ("titan-skull-v4-sand-ground-v3", [117, 79, 179], 111328, 16, 12,
                                  "7106438dd1a0389dc5953f48351fa8a4aebfa1af3becd671d16288ab847bd0aa"),
-            "titan_skull_rock": ("titan-skull-v4-rock-ground-v3", [117, 79, 179], 111288, 16, 12,
-                                 "6303836dd1d816900a84897ad31cd4a74e659820612d61c677612e267b47051f"),
+            "titan_skull_rock": ("titan-skull-v4-rock-embedded-v1", [117, 79, 179], 20131, 22, 12,
+                                 "b60d3ab92e4e8b99e5674f82588c38c25a7e7fe9eb8135a3fdf22a576f7b30c4"),
             "small_colossus": ("small-colossus-v7-ground-v3", [111, 80, 113], 233448, 13, 4,
                                "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021"),
-            "world_tree": ("world-tree-v4-1-ground-v3", [187, 216, 185], 291903, 8, 6,
-                           "fee50813242408123f4adcd1a0bacb476799359fce8e80ba5d59a49085823163"),
+            "world_tree": ("world-tree-v4-2-rooted", [187, 228, 185], 324127, 24, 6,
+                           "09d3f607ed03b52b57cc6882d2a27b0125a27b73df6526bbeb8c810ef0860b8b"),
             "ruined_tower": ("ruined-tower-v7-ground-v3", [111, 232, 93], 272528, 12, 6,
                              "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600"),
-            "titan_skull_2": ("titan-skull-2-v2", [99, 136, 99], 46922, 22, 4,
-                             "955703762402efc16d9d05a957a78368553ed019c35aec4aa659ee3754f3522b"),
+            "titan_skull_2": ("titan-skull-2-v2-embedded-v1", [99, 136, 99], 32569, 28, 4,
+                             "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd"),
         }
         for name, contract in ASSETS.items():
             if name in revisions:
@@ -71,6 +71,14 @@ class CurrentIntegrationTests(unittest.TestCase):
                 self.assertFalse(contract["visually_accepted"])
             else:
                 self.assertEqual(contract["sha256"], unchanged_hashes[name])
+        candidates = json.loads((ROOT / 'docs/project/rooted-candidates-20261007.json').read_text())
+        embedded = {'titan_skull_rock', 'titan_skull_2', 'world_tree'}
+        self.assertEqual({a['id'] for a in candidates['structures']}, embedded)
+        for record in candidates['structures']:
+            self.assertEqual(ASSETS[record['id']], {k: v for k, v in record.items() if k != 'id'})
+        for name, contract in ASSETS.items():
+            self.assertEqual(contract.get('foundation_mode') == 'embedded_art', name in embedded)
+            self.assertEqual(contract.get('root_support', False), name == 'world_tree')
 
     def test_preserved_ground_v2_exports_keep_their_original_art_and_supports(self):
         from build_deposit_relief import baseline_contract, NAMES
@@ -114,22 +122,27 @@ class CurrentIntegrationTests(unittest.TestCase):
             self.assertNotEqual(baseline['source'], ASSETS[name]['source'])
             self.assertEqual(hashlib.sha256((ROOT / baseline['source']).read_bytes()).hexdigest(), baseline['sha256'])
             self.assertEqual((baseline['size'], baseline['ground_y'], baseline['slope']), BASELINE_GEOMETRY[name])
+            self.assertNotIn('foundation_mode', baseline)
+            self.assertNotIn('root_support', baseline)
+            self.assertNotIn('uphill_slope', baseline)
         self.assertEqual(baseline_contract('ruined_tower')['version'], 'ruined-tower-v5')
         self.assertEqual(baseline_contract('ruined_tower', True)['version'], 'ruined-tower-v6')
 
-    def test_embedding_derivatives_preserve_art_and_low_supports_not_high_pedestals(self):
+    def test_historical_ground_v3_preserves_art_and_low_supports_not_high_pedestals(self):
         from build_embedding_relief import baseline, BASELINES
         from embedding_relief import sculpt
         from inspect_ots_result import read_structure
         from terrain_foundations import TOE_RADIUS, padding
+        historical = {a['id']: {k: v for k, v in a.items() if k != 'id'} for a in
+                      json.loads((ROOT / 'docs/project/embedding-candidates-20261006.json').read_text())['structures']}
         total_checked = 0
         for name in BASELINES:
             with self.subTest(asset=name):
-                selected = ASSETS[name]
+                selected = historical[name]
                 source, old_ground, ground, slope, digest = baseline(name)
                 self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), digest)
                 self.assertEqual(selected['ground_y'], ground)
-                self.assertEqual(selected['slope'], 12 if selected['family'] == 'titan_skull' else slope)
+                self.assertEqual(selected['slope'], slope)
                 self.assertNotEqual(selected['source'], source.relative_to(ROOT).as_posix())
                 config = json.loads((source.parents[2] / (source.stem + '.json')).read_text())
                 root, original = read_structure(source)
@@ -147,7 +160,7 @@ class CurrentIntegrationTests(unittest.TestCase):
                 old_contract = {'size': root['size'], 'ground_y': old_ground,
                                 'slope': 10 if name == 'ruined_tower' else 12}
                 old_natural, _, _ = supported_blocks(original, old_contract)
-                natural = states(decode_nbt((self.output / f'{name}_worldgen.nbt').read_bytes()))
+                natural, _, _ = supported_blocks(current, selected)
                 checked = 0
                 for x, y, z in art:
                     if not 0 < y <= ground + 2:
@@ -168,23 +181,39 @@ class CurrentIntegrationTests(unittest.TestCase):
         for record in index['structures']:
             selected = ASSETS[record['id']]
             old_slope = (6 if record['id'] == 'titan_skull_rock' else 4) if selected['family'] == 'titan_skull' else selected['slope']
-            original_contract = {k: v for k, v in selected.items() if k != 'uphill_slope'}
-            self.assertEqual({k: v for k, v in record.items() if k != 'id'}, {**original_contract, 'slope': old_slope})
+            historical = {k: v for k, v in record.items() if k != 'id'}
+            self.assertEqual(record['slope'], old_slope)
+            source = ROOT / record['source']
+            self.assertEqual(hashlib.sha256(source.read_bytes()).hexdigest(), record['sha256'])
+            provenance = json.loads(source.with_name('verification.json').read_text())
+            if 'placement_contract' in provenance:
+                self.assertEqual(provenance['placement_contract'], historical)
+            if not selected.get('foundation_mode'):
+                original_contract = {k: v for k, v in selected.items() if k != 'uphill_slope'}
+                self.assertEqual(historical, {**original_contract, 'slope': old_slope})
             self.assertEqual(selected.get('uphill_slope'), {'titan_skull_rock': 18, 'small_colossus': 12}.get(record['id']))
 
-    def test_tree_ground_revision_keeps_accepted_art_except_declared_low_moss(self):
+    def test_rooted_tree_keeps_accepted_art_and_adds_only_connected_low_wood(self):
         contract = ASSETS["world_tree"]
         current = decode_nbt((ROOT / contract["source"]).read_bytes())
         previous = decode_nbt((ROOT / "relics/world-tree/design/generated/world-tree-v4/world-tree-v4.nbt").read_bytes())
-        self.assertEqual(current["size"], previous["size"])
+        provenance = json.loads((ROOT / contract['source']).with_name('verification.json').read_text())
+        self.assertEqual(provenance['source_translation'], [0, 12, 0])
+        self.assertEqual(current["size"], [previous['size'][0], previous['size'][1] + 12, previous['size'][2]])
         terrain = {"minecraft:grass_block", "minecraft:rooted_dirt", "minecraft:dirt"}
-        def art(root):
-            return {pos: state for pos, state in states(root).items() if state["Name"] not in terrain
-                    and not (state['Name'] == 'minecraft:moss_block' and pos[1] <= contract['ground_y'] + 5)}
-        self.assertEqual(art(current), art(previous))
+        original_art = {(x, y + 12, z): state for (x, y, z), state in states(previous).items()
+                        if state['Name'] not in terrain
+                        and not (state['Name'] == 'minecraft:moss_block' and y <= 13)}
+        present = states(current)
+        self.assertTrue(original_art.items() <= present.items())
+        additions = set(present) - set(original_art)
+        self.assertEqual(len(additions), 37005)
+        self.assertEqual(provenance['new_wood_face_connected'], len(additions))
+        self.assertTrue(all(present[p]['Name'] == 'minecraft:spruce_log' and p[1] <= 22 for p in additions))
         for name in ('minecraft:oak_log', 'minecraft:spruce_log', 'minecraft:oak_leaves', 'minecraft:spruce_leaves'):
-            self.assertEqual({p: s for p, s in states(current).items() if s['Name'] == name},
-                             {p: s for p, s in states(previous).items() if s['Name'] == name})
+            expected = {(x, y + 12, z): state for (x, y, z), state in states(previous).items() if state['Name'] == name}
+            self.assertTrue(expected.items() <= present.items())
+            self.assertEqual({p: s for p, s in present.items() if s['Name'] == name and p not in additions}, expected)
 
     def test_current_build_and_runtime_use_the_updated_dependency_pins(self):
         from setup_worldgen_build import FABRIC_API_SHA256, LITHOSTITCHED_SHA256

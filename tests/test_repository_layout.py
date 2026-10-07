@@ -38,7 +38,8 @@ class RepositoryLayoutTests(unittest.TestCase):
             with self.subTest(config=path.relative_to(ROOT)):
                 config = json.loads(path.read_text(encoding="utf-8"))
                 directory = path.parent / "generated"
-                if config.get('authoring') in ('block-terrain-derivative','block-embedding-derivative'):
+                if config.get('authoring') in ('block-terrain-derivative','block-embedding-derivative',
+                                               'block-rooted-embedding-derivative'):
                     source=ROOT/config['source_nbt'];output=ROOT/config['output']
                     self.assertTrue(source.is_file())
                     self.assertTrue(source.is_relative_to(directory))
@@ -51,10 +52,15 @@ class RepositoryLayoutTests(unittest.TestCase):
                     if config['authoring']=='block-terrain-derivative':
                         self.assertTrue(report['non_terrain_cells_identical'])
                         self.assertTrue(report['contact_columns_identical'])
-                    else:
+                    elif config['authoring']=='block-embedding-derivative':
                         self.assertTrue(report['immutable_art_cells_identical'])
                         self.assertTrue(report['authored_low_contacts_preserved'])
                         self.assertEqual(config['ground_y'],report['placement_contract']['ground_y'])
+                    else:
+                        self.assertTrue(report['all_original_art_preserved'])
+                        self.assertEqual(report['authored_terrain_cells'], 0)
+                        self.assertEqual(config['ground_y'],report['placement_contract']['ground_y'])
+                        self.assertEqual(report['source_translation'][0::2], [0, 0])
                     continue
                 input_path = ROOT / config["input"]
                 output = ROOT / config["output"]

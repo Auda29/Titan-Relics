@@ -19,13 +19,19 @@ import java.util.List;
 import java.util.Set;
 
 /** Connect exposed low model undersides to actual substrate, in this chunk only. */
-public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockState artFill) implements StructureProcessor {
+public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockState artFill, boolean rootSupport) implements StructureProcessor {
     public static final MapCodec<TerrainSupportProcessor> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(Codec.intRange(0, 319).fieldOf("ground_y")
                             .forGetter(TerrainSupportProcessor::groundY),
                     Codec.BOOL.optionalFieldOf("support_art", false).forGetter(TerrainSupportProcessor::supportArt),
                     BlockState.CODEC.optionalFieldOf("art_fill", Blocks.DIRT.defaultBlockState())
-                            .forGetter(TerrainSupportProcessor::artFill)).apply(instance, TerrainSupportProcessor::new));
+                            .forGetter(TerrainSupportProcessor::artFill),
+                    Codec.BOOL.optionalFieldOf("root_support", false).forGetter(TerrainSupportProcessor::rootSupport)
+                    ).apply(instance, TerrainSupportProcessor::new));
+
+    public TerrainSupportProcessor(int groundY, boolean supportArt, BlockState artFill) {
+        this(groundY, supportArt, artFill, false);
+    }
 
     public TerrainSupportProcessor(int groundY) {
         this(groundY, false, Blocks.DIRT.defaultBlockState());
@@ -69,6 +75,10 @@ public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockStat
         var added = new HashSet<Long>();
         for (var bottom : starts) {
             BlockState fill = SOILS.contains(bottom.state().getBlock()) ? fillState(bottom.state()) : artFill;
+            if (rootSupport && net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(bottom.state().getBlock())
+                    .getPath().endsWith("_log")) {
+                fill = bottom.state(); // Continue the actual root, never put it on an earth pillar.
+            }
             for (BlockPos pos = bottom.pos().below(); pos.getY() >= level.getMinY(); pos = pos.below()) {
                 if (authored.contains(pos.asLong()) || added.contains(pos.asLong()) || (settings.getBoundingBox() != null
                         && !settings.getBoundingBox().isInside(pos))) {

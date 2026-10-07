@@ -1,5 +1,13 @@
 # World Tree
 
+**Alpha 4.8 selects V4.2 rooted.** Accepted wood and foliage are retained under
+a uniform +12 Y export translation, with 37,005 face-connected low wood additions.
+Ground Y24 places the accepted art four blocks deeper; exposed low roots continue
+using their own wood state, not dirt pillars. Authored soil/moss platforms are
+removed without closing higher intentional root arches. See
+[candidate provenance](../../docs/testing/ROOTED_EMBEDDING_20261007.md) and
+[current runtime status](../../docs/testing/ALPHA_4_8_TEST_REPORT.md).
+
 Latest candidate: [V4.1 ground-v3](../../docs/project/EMBEDDING_20261006.md)
 lowers the regular moss pads into broken ground patches. Accepted wood and
 foliage remain exact exported-block matches.
