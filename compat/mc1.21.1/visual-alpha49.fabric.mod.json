@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "id": "relics",
+  "version": "0.1.0-alpha.4.9",
+  "name": "Relic Mod",
+  "description": "Seven monumental relic designs, including revised colossi, obelisk, biome-matched titan skulls, world tree and ruined tower. Visual integration alpha; gameplay pending.",
+  "authors": ["Auda29"],
+  "contact": {"sources": "https://github.com/Auda29/Relic-Mod", "issues": "https://github.com/Auda29/Relic-Mod/issues"},
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {"main": ["de.relics.RelicWorldgen"]},
+  "mixins": ["relics.mixins.json"],
+  "depends": {"fabricloader": ">=0.19.5", "minecraft": "~26.2", "java": ">=25", "fabric-resource-loader-v1": "*", "fabric-data-attachment-api-v1": "*", "lithostitched": "1.8.0"}
+}

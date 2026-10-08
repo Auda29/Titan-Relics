@@ -1,0 +1,1 @@
+{"type":"minecraft:crafting_shaped","category":"misc","pattern":["DTD","DCD","DDD"],"key":{"D":"minecraft:diamond","T":"relics:monolith_armor_trim_smithing_template","C":"minecraft:copper_block"},"result":{"id":"relics:monolith_armor_trim_smithing_template","count":2}}

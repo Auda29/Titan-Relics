@@ -8,6 +8,10 @@ test report**. The current request includes committing/pushing these planning ch
 
 ## 1. Authority and status vocabulary
 
+**Historical planning milestone:** the user subsequently authorized item/system
+implementation on a separate worktree. Its [code status and test boundaries](../testing/GAMEPLAY_IMPLEMENTATION_20261008.md)
+do not retroactively turn this planning review into gameplay acceptance.
+
 1. **User-approved design:** current sections of
    [implementation plan](UMSETZUNGSPLAN.md), [lore bible](LORE-BIBLE.md) and each
    relic's gameplay document. Preserve final mechanics/lore/rates when implementing.

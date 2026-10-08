@@ -7,6 +7,12 @@ preserved; gameplay backport support is not selected.
 
 ## 1. Authority, owners and starting values
 
+**Subsequent implementation status:** the user authorized a separate gameplay
+worktree. Standalone item/resource code and opt-in runtime adapters now exist in
+`feat/gameplay-items-runtime`; see [evidence and remaining gates](../testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
+This document retains the approved starting contract, not a claim that all its
+natural integration/recovery/runtime acceptance gates have passed.
+
 User decisions are authoritative in the [shared implementation plan](../project/UMSETZUNGSPLAN.md)
 and per-relic gameplay documents. **Engineering defaults below are delegated
 assistant starting choices**, to be validated/tuned rather than misreported as
@@ -29,7 +35,7 @@ coordinates; this work owns integration, mechanics, recipes and item artwork.
 Do not increase core capacity, enchant away magnet wear, add item light/particles,
 new powers, mobs, combat bonuses or a Tree reward chest through these defaults.
 
-Planned stable resource IDs (not registered yet): `relics:machine_core`,
+Stable resource IDs (registered by the standalone implementation): `relics:machine_core`,
 `relics:salvage_magnet`, `relics:colossus_key`,
 `relics:monolith_armor_trim_smithing_template`, trim pattern `relics:monolith`,
 recipe IDs `relics:machine_core_recharge`, `relics:salvage_magnet_repair` and

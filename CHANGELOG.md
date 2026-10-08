@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.0-alpha.5.0-dev — standalone items and opt-in gameplay fixtures (unreleased)
+
+- Register Machine Core, Salvage Magnet, Colossus Key and Monolith template with
+  original item sprites, bounded/versioned charge components, exact tooltips and
+  three core/magnet icon states; no inventory status bar.
+- Implement guarded appliance processing, passive offhand attraction/accounting,
+  state-preserving recharge/repair and vanilla-style cosmetic trim/copy resources.
+- Add scoped one-golem trial/AI, unlimited durable Vault claims, pending/resolved/
+  compensated expedition-map origins and persistent spherical Tree-aura adapters.
+- Reserve deliveries in a checksum-verified atomic journal, with player receipts
+  and visible fail-closed handling of ambiguous recovery rather than blind reissue.
+- Keep natural structures, accepted exports, distribution, both skulls, existing
+  worlds and the 1.21.1 visual Alpha 4.9 target unchanged. No natural marker hookup.
+- Add headless item/recipe/ledger tests and static mixin-target checks. No server or
+  client testing, installation or publication; runtime/release gates remain open.
+
+See [implementation evidence and limitations](docs/testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
+
 ## 0.1.0-alpha.4.9 — open cave contacts and sparse Tree strands
 
 - Select World Tree V4.3 strands: preserve the accepted art and world pose,

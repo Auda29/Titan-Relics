@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "relics:item/machine_core_empty"
+  }
+}

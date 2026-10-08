@@ -5,11 +5,14 @@
 Recorded: October 1, 2026. Updated: October 8, 2026.
 
 This document records the agreed gameplay direction for two custom Colossus loot
-rewards and their dedicated trial key. None of these items or the encounter is
-implemented yet. Capacity/durability values below are initial tuning targets, not
+rewards and their dedicated trial key. Standalone item code/assets and opt-in
+encounter adapters now exist in a separate development worktree; see
+[implementation evidence and remaining gates](../../../docs/testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
+They are not yet Minecraft-runtime accepted or integrated into natural sites.
+Capacity/durability values below are initial tuning targets, not
 final balance commitments. Charging and repair ingredients/output are selected;
 the shaped layouts and technical starting state handling are specified, while
-implementation and balance tests remain outstanding. See
+runtime integration and balance tests remain outstanding. See
 [runtime contract](../../../docs/technical/GAMEPLAY_RUNTIME.md),
 [builder markers](../../../docs/technical/GAMEPLAY_MARKERS.md) and
 [future acceptance](../../../docs/testing/GAMEPLAY_ACCEPTANCE_PLAN.md).
@@ -19,7 +22,7 @@ selected, visually accepted material version of V4.1 and is integrated in Alpha
 4.9. Gameplay implementation targets **26.2 / Fabric first**, after all-relic
 documentation and consistency review. Core utility/cost balance and implementation
 of the approved multiplayer reward policy/unique-large-site generation remain open. The cockpit defense-robot
-history is now approved below; its encounter implementation remains planning.
+history is now approved below; natural encounter integration remains pending.
 
 ## Approved crewed-machine history — October 8, 2026
 
@@ -67,7 +70,7 @@ still need planning; the self-built head ascent does not replace that arm route.
 
 The items should feel like useful machinery salvaged from an ancient mechanical
 relic, rather than generic stronger equipment. The user approved these **final
-German and English display names** (artwork and item registration remain pending):
+German and English display names** (now registered in standalone development code):
 
 | English name | German name | Role |
 | --- | --- | --- |
@@ -80,23 +83,23 @@ German and English display names** (artwork and item registration remain pending
 - **Machine Core:** a compact, angular **copper housing with an inset visible
   violet energy element**, linking the Colossus palette and recharge amethyst.
   It should read as a salvaged machine component, not a fuel lump. Exact pixel
-  artwork/model remain pending; state feedback is selected below. This is an appearance
+  sprites are generated in development; client rendering acceptance remains pending. This is an appearance
   direction, not a new recipe ingredient or permission to alter material study B.
 - **Salvage Magnet:** a compact **rectangular copper collection device with an
   iron front and a violet indicator**, not a U-shaped horseshoe magnet or round
-  module. Preserve passive offhand behavior; exact asset remains pending and state
+  module. Preserve passive offhand behavior; its original sprite now exists and state
   feedback is selected below. These visible materials do not change the approved repair recipe.
 - **Colossus Key:** an **angular copper key with a geometric head, toothed shaft
   and small violet inset**. It remains a distinct custom item, consumed by the
   compatible vault; the visual direction does not change key eligibility/binding
-  rules. Exact sprite/model remains pending.
+  rules. Its original generated-item sprite/model exists; in-game review remains pending.
 - **Core/magnet state display:** **exact remaining values in the tooltip plus
   changing inventory icons**, with distinguishable full, partly used and empty/
   broken states. **No inventory status bar** is selected. The core tooltip reports
   remaining processing operations; the magnet reports remaining durability. Name
    the empty/broken inactive condition explicitly. Technical thresholds are full
    at capacity, partial above zero and below capacity, empty/broken at zero; artwork
-   remains a deliverable. This does not authorize particles, emitted
+   exists in development, with in-game validation still pending. This does not authorize particles, emitted
   light, a new charge system for the magnet or a capacity increase.
 
 The selected Monolith trim is specified in the Obelisk plan, not as Colossus loot.

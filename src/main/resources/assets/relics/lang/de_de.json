@@ -1,0 +1,23 @@
+{
+  "item.relics.machine_core": "Maschinenkern",
+  "item.relics.salvage_magnet": "Bergungsmagnet",
+  "item.relics.colossus_key": "Colossus-Schlüssel",
+  "item.relics.monolith_armor_trim_smithing_template": "Schmiedevorlage: Monolith-Rüstungsbesatz",
+  "trim_pattern.relics.monolith": "Monolith-Rüstungsbesatz",
+  "tooltip.relics.core_charge": "Verarbeitungsvorgänge: %s / %s",
+  "tooltip.relics.magnet_wear": "Verbleibende Sammlungen: %s / %s",
+  "tooltip.relics.core_empty": "Entladen — inaktiv",
+  "tooltip.relics.magnet_broken": "Defekt — inaktiv",
+  "tooltip.relics.magnet_offhand": "Sammelt nahe Drops beim Tragen in der Nebenhand",
+  "message.relics.reward_held": "Eine Relikt-Belohnung muss nach einem unterbrochenen Speichern durch einen Administrator geprüft werden; sie wird nicht doppelt ausgegeben.",
+  "item.relics.expedition_map.pending": "Expeditionskarte — unbestätigt",
+  "item.relics.expedition_map.resolved": "Expeditionskarte — Colossus",
+  "item.relics.expedition_map.unavailable": "Expeditionskarte — Ziel nicht verfügbar",
+  "item.relics.expedition_map.compensated": "Expeditionskarte — Ersatz reserviert",
+  "item.relics.expedition_map.invalid": "Expeditionskarte — ungültiger Ursprung",
+  "tooltip.relics.map.pending": "Noch kein bestätigtes Ziel. Kopien teilen denselben Ursprung.",
+  "tooltip.relics.map.resolved": "Zeigt zum festgelegten Colossus-Ziel.",
+  "tooltip.relics.map.unavailable": "Benutzen: einmalig drei Smaragde für diesen Ursprung einlösen.",
+  "tooltip.relics.map.compensated": "Kein Ziel und keine weitere Auszahlung. Der ursprüngliche Ersatz ist bezahlt oder vorgemerkt.",
+  "tooltip.relics.map.invalid": "Unbekannter Ursprung — kein Ziel und keine Auszahlung."
+}

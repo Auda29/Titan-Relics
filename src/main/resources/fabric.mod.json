@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "id": "relics",
-   "version": "0.1.0-alpha.4.9",
+   "version": "0.1.0-alpha.5.0-dev",
   "name": "Relic Mod",
-  "description": "Seven monumental relic designs, including revised colossi, obelisk, biome-matched titan skulls, world tree and ruined tower. Visual integration alpha; gameplay pending.",
+   "description": "Monumental relics with experimental salvage items and opt-in gameplay fixtures. Minecraft runtime validation and natural marker integration pending.",
   "authors": [
     "Auda29"
   ],
@@ -23,6 +23,12 @@
     "java": ">=25",
     "fabric-resource-loader-v1": "*",
     "fabric-data-attachment-api-v1": "*",
+    "fabric-creative-tab-api-v1": "*",
+    "fabric-lifecycle-events-v1": "*",
+    "fabric-entity-events-v1": "*",
+    "fabric-events-interaction-v0": "*",
+    "fabric-networking-api-v1": "*",
+    "fabric-command-api-v2": "*",
     "lithostitched": "1.8.0"
   }
 }

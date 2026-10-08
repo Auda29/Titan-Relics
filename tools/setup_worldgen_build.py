@@ -78,7 +78,7 @@ def main():
     checked_download(file["url"], fabric_api, "sha256", FABRIC_API_SHA256)
     with zipfile.ZipFile(fabric_api) as archive:
         for name in archive.namelist():
-            if name.startswith("META-INF/jars/") and ("fabric-data-attachment-api-" in name or "fabric-api-base-" in name):
+            if name.startswith("META-INF/jars/") and name.endswith(".jar"):
                 path = CACHE / Path(name).name
                 path.write_bytes(archive.read(name))
                 classpath.append(path)

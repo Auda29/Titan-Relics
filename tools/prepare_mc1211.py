@@ -29,6 +29,9 @@ def port_java(name: str, text: str) -> str:
     text = text.replace('context.chunkPos().z()', 'context.chunkPos().z')
     text = text.replace('candidate.x()', 'candidate.x').replace('candidate.z()', 'candidate.z')
     if name == 'RelicWorldgen.java':
+        # This preserved target is visual Alpha 4.9, not an unapproved gameplay backport.
+        text = text.replace('        de.relics.gameplay.RelicItems.initialize();\n', '')
+        text = text.replace('        de.relics.gameplay.RelicGameplay.initialize();\n', '')
         text = text.replace('public final class RelicWorldgen implements ModInitializer {',
             'public final class RelicWorldgen implements ModInitializer {\n'
             '    public static final net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType<TerrainSupportProcessor> TERRAIN_SUPPORT = () -> TerrainSupportProcessor.CODEC;')
@@ -72,9 +75,9 @@ def port_java(name: str, text: str) -> str:
 
 
 def prepare(output: Path = OUTPUT) -> dict:
-    metadata = json.loads((ROOT / 'src/main/resources/fabric.mod.json').read_bytes())
+    metadata = json.loads((ROOT / 'compat/mc1.21.1/visual-alpha49.fabric.mod.json').read_bytes())
     if metadata['version'] != '0.1.0-alpha.4.9':
-        raise ValueError('This compatibility profile is pinned to Alpha 4.9; review before updating')
+        raise ValueError('This compatibility profile is pinned to visual Alpha 4.9')
     resources = output / 'resources'
     resources.mkdir(parents=True, exist_ok=True)
     manifest = export_relics(resources / 'data/relics/structure', resources / 'relics.integration.json')
@@ -83,7 +86,9 @@ def prepare(output: Path = OUTPUT) -> dict:
     metadata['depends'].update(minecraft='1.21.1', java='>=21', fabricloader='>=0.19.5')
     metadata['depends'].pop('fabric-resource-loader-v1')
     metadata['depends']['fabric-resource-loader-v0'] = '*'
-    mixins = json.loads((ROOT / 'src/main/resources/relics.mixins.json').read_bytes())
+    mixins = {'required': True, 'package': 'de.relics.mixin',
+              'mixins': ['StructureTemplateMixin', 'WorldGenRegionMixin', 'OreFeatureMixin'],
+              'injectors': {'defaultRequire': 1}}
     # Loom 1.17 statically remaps mixin selectors; there is no legacy refmap.
     mixins.update(compatibilityLevel='JAVA_21')
     files = {
@@ -101,7 +106,13 @@ def prepare(output: Path = OUTPUT) -> dict:
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(data, ensure_ascii=False, sort_keys=True, indent=2) + '\n', encoding='utf-8', newline='\n')
     sources = []
+    visual_sources = {'AllGridPlacementCondition.java', 'DryLandPlacementCondition.java',
+                      'SeparatedPlacementCondition.java', 'TerrainSupportProcessor.java',
+                      'RelicWorldgen.java', 'RelicProtection.java', 'ProtectedCells.java',
+                      'StructureTemplateMixin.java', 'WorldGenRegionMixin.java', 'OreFeatureMixin.java'}
     for source in sorted((ROOT / 'src/main/java').rglob('*.java')):
+        if source.name not in visual_sources:
+            continue
         path = output / 'java' / source.relative_to(ROOT / 'src/main/java')
         path.parent.mkdir(parents=True, exist_ok=True)
         content = port_java(source.name, source.read_text(encoding='utf-8'))

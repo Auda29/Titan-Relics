@@ -13,6 +13,8 @@ public final class RelicWorldgen implements ModInitializer {
     @Override
     @SuppressWarnings("unchecked")
     public void onInitialize() {
+        de.relics.gameplay.RelicItems.initialize();
+        de.relics.gameplay.RelicGameplay.initialize();
         RelicProtection.initialize();
         Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR,
                 Identifier.fromNamespaceAndPath("relics", "terrain_support"), TerrainSupportProcessor.CODEC);

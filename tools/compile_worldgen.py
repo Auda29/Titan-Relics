@@ -69,8 +69,7 @@ def compile_libraries() -> list[Path]:
     for outer in [fabric_api, next(p for p in libraries if p.name == "fabric-loader-0.19.5.jar")]:
         with zipfile.ZipFile(outer) as archive:
             for name in archive.namelist():
-                if name.startswith("META-INF/jars/") and any(part in name for part in (
-                        "fabric-data-attachment-api-", "fabric-api-base-", "mixinextras-fabric-")):
+                if name.startswith("META-INF/jars/") and name.endswith(".jar"):
                     path = nested / Path(name).name
                     path.write_bytes(archive.read(name))
                     libraries.append(path)
