@@ -6,6 +6,11 @@ in worktree `Relic-Mod-interiors`, branch `feat/gameplay-interiors`, based on
 Alpha 4.9 artifacts and all original exports remain unchanged. Gameplay integration
 and visual acceptance are separate follow-up gates.
 
+**Subsequent Git integration, October 8:** the standalone item/fixture worktree
+is integrated into `main` alongside these candidates. See the
+[combined code review and serverless test evidence](../testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
+No candidate export was altered or enabled in natural generation by that merge.
+
 ## Deliverables
 
 - [Five-design review](reviews/gameplay-interiors-review.png)

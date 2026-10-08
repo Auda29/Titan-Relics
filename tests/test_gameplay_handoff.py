@@ -1,12 +1,14 @@
 """Builder contract rejection cases and geometry evidence, not runtime integration."""
 import copy
+import hashlib
 import json
 from pathlib import Path
 import sys
 import unittest
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'tools'))
-from build_gameplay_interiors import ROOT,ASSETS,STEMS
+from build_gameplay_interiors import ROOT,ASSETS,STEMS,Builder,BUILDERS
 from inspect_ots_result import read_structure
+from schem_to_nbt import read_schematic
 from validate_gameplay_handoff import validate,reachable
 
 
@@ -23,6 +25,60 @@ class HandoffTests(unittest.TestCase):
     def test_all_five_sidecars_validate(self):
         for name,(s,b,size) in self.assets.items():
             with self.subTest(name=name):self.assertEqual(validate(s,b,size,self.registry),name)
+
+    def test_published_handoff_files_match_hashes_and_sizes(self):
+        index=json.loads((ROOT/'docs/project/reviews/gameplay-interiors-handoff.json').read_text())
+        self.assertEqual(index['schema_version'],1)
+        self.assertEqual(index['target'],'Minecraft 26.2 / Fabric')
+        self.assertEqual(set(index['assets']),set(STEMS))
+        for name,asset in index['assets'].items():
+            s,b,size=self.assets[name]
+            self.assertEqual(asset['size'],list(size))
+            self.assertEqual(asset['ground_y'],s['ground_y'])
+            self.assertEqual(asset['blocks'],len(b))
+            self.assertEqual(asset['markers'],len(s['markers']))
+            self.assertEqual(asset['regions'],len(s['regions']))
+            for suffix,entry in asset['files'].items():
+                with self.subTest(name=name,suffix=suffix):
+                    data=(ROOT/entry['path']).read_bytes()
+                    self.assertEqual(len(data),entry['bytes'])
+                    self.assertEqual(hashlib.sha256(data).hexdigest(),entry['sha256'])
+
+    def test_maintained_builders_reproduce_export_geometry_and_markers(self):
+        for name,(s,b,size) in self.assets.items():
+            with self.subTest(name=name):
+                builder=Builder(name);BUILDERS[name](builder)
+                self.assertEqual(builder.root['size'],list(size))
+                self.assertEqual(builder.blocks,b)
+                self.assertEqual(builder.markers,s['markers'])
+                self.assertEqual(builder.regions,s['regions'])
+
+    def test_source_formats_have_no_embedded_runtime_data(self):
+        for name,(s,b,size) in self.assets.items():
+            with self.subTest(name=name):
+                source=ROOT/s['source_nbt'];root,_=read_structure(source)
+                self.assertEqual(root['DataVersion'],3105)
+                self.assertFalse(root.get('entities'))
+                self.assertTrue(all('nbt' not in entry for entry in root['blocks']))
+                self.assertFalse(any(state in ('minecraft:air','minecraft:cave_air','minecraft:void_air') for state in b.values()))
+                self.assertEqual(read_schematic(source.with_suffix('.schem').read_bytes())[1],b)
+
+    def test_protected_geometry_and_resource_limits_remain_exact(self):
+        for name in ('colossus','obelisk','world_tree'):
+            _,b,_=self.assets[name];_,old=read_structure(ROOT/ASSETS[name]['source'])
+            if name=='colossus':
+                protected=lambda p,s:(p[2]>135 and p[1]<135) or p[2]<60
+                self.assertLess(sum('copper' in s for s in b.values()),50000)
+                self.assertLess(9*sum('raw_iron_block' in s for s in b.values()),256)
+            elif name=='obelisk':protected=lambda p,s:'terracotta' in s or p[1]>=16
+            else:
+                protected=lambda p,s:p[1]>39
+                self.assertFalse(any('budding_amethyst' in s for s in b.values()))
+                lights=('shroomlight','glow_lichen','cave_vines','firefly_bush')
+                self.assertTrue(all(p[1]<=ASSETS[name]['ground_y']+15 for p,s in b.items() if any(k in s for k in lights)))
+            with self.subTest(name=name):
+                self.assertEqual({p:s for p,s in old.items() if protected(p,s)},
+                                 {p:s for p,s in b.items() if protected(p,s)})
 
     def test_corrupt_bindings_roles_and_regions_rejected(self):
         s,b,size=self.assets['colossus']
@@ -58,7 +114,6 @@ class HandoffTests(unittest.TestCase):
 
     def test_skull_exports_not_in_handoff(self):
         self.assertTrue(all('skull' not in name for name in self.assets))
-        import hashlib
         for name,a in ASSETS.items():
             if 'skull' in name:self.assertEqual(hashlib.sha256((ROOT/a['source']).read_bytes()).hexdigest(),a['sha256'])
 

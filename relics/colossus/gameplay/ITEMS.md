@@ -6,7 +6,7 @@ Recorded: October 1, 2026. Updated: October 8, 2026.
 
 This document records the agreed gameplay direction for two custom Colossus loot
 rewards and their dedicated trial key. Standalone item code/assets and opt-in
-encounter adapters now exist in a separate development worktree; see
+encounter adapters were developed in a separate worktree and integrated into `main`; see
 [implementation evidence and remaining gates](../../../docs/testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
 They are not yet Minecraft-runtime accepted or integrated into natural sites.
 Capacity/durability values below are initial tuning targets, not

@@ -1,4 +1,4 @@
-"""Compile small placement-only Java components against cached Minecraft/Fabric.
+"""Compile placement and gameplay Java components against cached Minecraft/Fabric.
 
 No Gradle, remapping or downloads: Minecraft 26.2 ships unobfuscated classes.
 Set JAVA_HOME to a JDK 25 (a JRE is not sufficient for compiling).

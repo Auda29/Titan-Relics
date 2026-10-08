@@ -1,4 +1,4 @@
-"""Reproducible build selecting pinned exports and compiling placement-only Java code."""
+"""Reproducible build selecting pinned exports and compiling placement/gameplay Java code."""
 from __future__ import annotations
 
 import argparse
@@ -96,7 +96,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--skip-generation", action="store_true", help="Package existing, validated assets")
     parser.add_argument("--output", type=Path, default=ROOT / "dist")
-    parser.add_argument("--java-home", type=Path, help="JDK 25 directory for placement-only Java code")
+    parser.add_argument("--java-home", type=Path, help="JDK 25 directory for placement/gameplay Java code")
     args = parser.parse_args()
     if not args.skip_generation:
         subprocess.run([sys.executable, str(ROOT / "tools/integrate_relics.py")], check=True, cwd=ROOT)

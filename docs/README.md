@@ -27,7 +27,7 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Technical
 
-- [Gameplay runtime and delegated starting defaults — not implemented](technical/GAMEPLAY_RUNTIME.md)
+- [Gameplay runtime contract and delegated starting defaults — natural integration pending](technical/GAMEPLAY_RUNTIME.md)
 - [Builder gameplay sidecar/marker handoff v1](technical/GAMEPLAY_MARKERS.md)
 - [Shared distribution budget and deterministic unique-site resolver](technical/RELIC_DISTRIBUTION.md)
 - [Alpha 4.2 terrain contact, relic separation and Java build](technical/ALPHA_4_2_TERRAIN.md)
@@ -39,6 +39,7 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Testing
 
+- [Standalone gameplay implementation, main integration and serverless test boundaries](testing/GAMEPLAY_IMPLEMENTATION_20261008.md)
 - [Future 26.2 gameplay acceptance matrix — not test results](testing/GAMEPLAY_ACCEPTANCE_PLAN.md)
 - [Alpha 4.9 Minecraft 1.21.1 compatibility build and historical Alpha 3 release](testing/ALPHA_4_9_MC_1_21_1_TEST_REPORT.md)
 - [Alpha 4.9 Minecraft 1.21.1 complete ten-variant runtime evidence](testing/alpha4-9-mc1.21.1-evidence.json)

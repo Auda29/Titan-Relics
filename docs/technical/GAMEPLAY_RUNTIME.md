@@ -9,7 +9,8 @@ preserved; gameplay backport support is not selected.
 
 **Subsequent implementation status:** the user authorized a separate gameplay
 worktree. Standalone item/resource code and opt-in runtime adapters now exist in
-`feat/gameplay-items-runtime`; see [evidence and remaining gates](../testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
+`feat/gameplay-items-runtime`, subsequently integrated into `main` alongside the
+builder candidates; see [evidence and remaining gates](../testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
 This document retains the approved starting contract, not a claim that all its
 natural integration/recovery/runtime acceptance gates have passed.
 

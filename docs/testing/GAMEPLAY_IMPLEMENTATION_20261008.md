@@ -132,9 +132,11 @@ command is implemented.
 
 ## Still outside this implementation
 
-Actual builder sidecars/exports/coordinates and natural gameplay initialization,
-shared rarity/unique-site resolver, finite archaeology/chest/animal/Enderman hooks
-remain pending. In particular **no extra natural animal attempts** or substitute
+The builder's [five architectural candidates and exact sidecars](../project/GAMEPLAY_INTERIORS_HANDOFF.md)
+are now available alongside the code; they are not yet selected natural templates.
+Natural marker transformation/injection and gameplay initialization, shared
+rarity/unique-site resolver, finite archaeology/chest/animal/Enderman hooks remain
+pending. In particular **no extra natural animal attempts** or substitute
 forced spawning were added; the user requested the aura, not an unproven spawning
 shortcut. Pending-map retries currently resolve against explicitly committed
 ledger state on holder checks, not a fabricated natural target or unbounded search.
@@ -147,3 +149,46 @@ unchanged. The separate 1.21.1 preparation now reads a pinned visual Alpha 4.9
 metadata snapshot, copies only the original visual Java/mixins and strips the two
 26.2 gameplay initialization calls; it does not silently backport the new items.
 No preserved release JAR or Minecraft profile was overwritten.
+
+## Main integration and structure-agent review — October 8
+
+The user subsequently requested Git integration into `main` and review of the
+already integrated structure-agent work. Gameplay commit `1080fbc` is combined
+with builder commit `47b2989` via merge `f9280ea`; both changelog entries are
+preserved. No push, release, runtime launch or natural-site activation is implied.
+
+Reviewed the five-design NBT cutaway overview, maintained architectural builder,
+sidecar/registry validation, published file index and the raw-coordinate handoff.
+The candidates supply the trial/golem/Vault, finite chest/archaeology/Enderman and
+Tree-anchor roles needed by future integration. The optional `arm_clearance`
+extension is explicit; no current runtime marker loader silently ignores it.
+Fixture APIs need **transformed world coordinates** and explicit registration;
+they must not consume raw sidecar positions as world coordinates.
+
+Four additional builder regression tests check all published artifact hashes and
+sizes, reproduce geometry/markers/regions without rewriting exports, compare NBT
+and schematic while rejecting embedded runtime data, and protect body/hand,
+monument/upper Tree, resource limits and root-light height. Existing checks retain
+accessible rewards, five safe Enderman positions, deliberately interrupted Tower
+stairs and unchanged skull hashes. They remain serverless architectural evidence,
+not tests of actual block light, mob navigation or Minecraft template loading.
+
+Artwork JSON generation now explicitly writes LF, matching `.gitattributes` on
+Windows as well as Linux. Its reproduction test also rejects CRLF output; this
+fix changes neither artwork nor the canonically serialized package contents.
+
+Combined-tree verification passed:
+
+- **121 Python tests**, including ten builder/handoff tests and six artwork/resource
+  tests. The final strengthened protected-geometry check and LF change were followed
+  by successful focused reruns; documentation/layout checks also passed again.
+- **648 headless gameplay assertions**, **34 static mixin target contracts** and
+  **755 headless worldgen Java assertions**.
+- Two rebuilt development JARs (one validated existing-resource build and one full
+  generation/build) are byte-identical, retaining the standalone SHA-256 above.
+- `git diff --check` passes. Compared with builder commit `47b2989`, no maintained
+  design export, selected structure/worldgen resource, catalog or terrain policy
+  changed. The main checkout's existing local `.openchamber/` files are preserved.
+
+These results allow repository integration, not removal of the Minecraft/runtime,
+natural-initialization, visual, multiplayer or recovery release gates above.

@@ -1,18 +1,18 @@
 # Relic Mod
 
-**Builder worktree, October 8:** [five interior candidates and marker handoff](docs/project/GAMEPLAY_INTERIORS_HANDOFF.md)
-are available for review, with editable Blender sources, NBT/schematic and
-hash-bound sidecars. Alpha 4.9 below remains the runtime baseline.
-
 Rare, monumental discoveries for Minecraft: colossi, an obelisk, titan skulls,
 a world tree and a ruined tower.
 
-**Gameplay development worktree, October 8:** `0.1.0-alpha.5.0-dev` adds the four
+**Development code integrated into `main`, October 8:** `0.1.0-alpha.5.0-dev` adds the four
 custom items, original sprites/Monolith masks, maintenance/smithing recipes and
 opt-in golem/Vault/map/Tree-aura adapters. **Not a tested gameplay release:** no
 server/client was started at the user's request. Natural marker integration and
 the approved new distribution remain pending; existing visual structures/settings
 are unchanged. See the [implementation status and test boundaries](docs/testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
+The structure agent's [five interior candidates and marker handoff](docs/project/GAMEPLAY_INTERIORS_HANDOFF.md)
+are preserved alongside this code, with editable Blender sources, NBT/schematic
+and hash-bound sidecars. Git integration does not activate these candidates in
+natural generation or constitute visual/runtime acceptance.
 The following Alpha 4.9 section remains the preserved visual-release baseline.
 
 **Latest art follow-up:** [Open cave contacts and sparse Tree root strands](docs/testing/CAVE_CONTACTS_20261007.md)
@@ -101,8 +101,9 @@ defaults and documentation reconciliation are recorded in the
 The [gameplay acceptance matrix](docs/testing/GAMEPLAY_ACCEPTANCE_PLAN.md) lists
 future tests, not completed Minecraft evidence. No gameplay, artwork, exports,
 worlds or generation settings changed in that completed planning round. The user
-subsequently requested the separate-worktree implementation described above. Structure construction belongs to the separate
-builder; custom items/artwork and integration belong to the mod work.
+subsequently requested the separate-worktree implementation described above and
+its integration into `main`. Structure construction belongs to the separate builder;
+custom items/artwork and integration belong to the mod work.
 
 **Latest integration work, October 7, 2026:** all ten selected exports are copied
 byte-for-byte for manual placement. Derived worldgen templates retain matching

@@ -29,6 +29,7 @@ class GameplayResourceTests(unittest.TestCase):
                         with Image.open(generated) as actual, Image.open(committed) as expected:
                             self.assertEqual((actual.mode,actual.size,actual.tobytes()),(expected.mode,expected.size,expected.tobytes()))
                     else:
+                        self.assertNotIn(b'\r',generated.read_bytes(), 'Published JSON uses LF on every host')
                         self.assertEqual(hashlib.sha256(generated.read_bytes()).hexdigest(), hashlib.sha256(committed.read_bytes()).hexdigest())
 
     def test_item_sprites_models_and_states_have_complete_references(self):
