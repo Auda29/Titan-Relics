@@ -1,5 +1,9 @@
 # Relic Mod
 
+**Builder worktree, October 8:** [five interior candidates and marker handoff](docs/project/GAMEPLAY_INTERIORS_HANDOFF.md)
+are available for review, with editable Blender sources, NBT/schematic and
+hash-bound sidecars. Alpha 4.9 below remains the runtime baseline.
+
 Rare, monumental discoveries for Minecraft: colossi, an obelisk, titan skulls,
 a world tree and a ruined tower.
 

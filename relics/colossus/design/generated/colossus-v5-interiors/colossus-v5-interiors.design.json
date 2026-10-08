@@ -1,0 +1,480 @@
+{
+  "name": "colossus-v5-interiors",
+  "authoring": "block-exact architectural derivative; no global revoxelization",
+  "baseline": {
+    "source": "relics/colossus/design/generated/colossus-v4-1-materials-b/colossus-v4-1-materials-b.nbt",
+    "version": "colossus-v4-1-materials-b",
+    "size": [
+      181,
+      209,
+      235
+    ],
+    "blocks": 223161,
+    "ground_y": 77,
+    "family": "colossus",
+    "biomes": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains",
+      "minecraft:meadow",
+      {
+        "id": "terralith:blooming_valley",
+        "required": false
+      },
+      {
+        "id": "terralith:blooming_plateau",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:prairie",
+        "required": false
+      },
+      "minecraft:savanna",
+      {
+        "id": "terralith:steppe",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:scrubland",
+        "required": false
+      }
+    ],
+    "slope": 16,
+    "sha256": "a355b20349513cb27e6feb6fc171ca413d71da2cdb5717f7995afb4128d879b8",
+    "visually_accepted": true
+  },
+  "ground_level_nbt_approx": 77,
+  "size": [
+    181,
+    209,
+    235
+  ],
+  "data_version": 3105,
+  "in_game_tested": false,
+  "visual_acceptance": "review pending",
+  "evidence": {
+    "crew_stations": [
+      [
+        82,
+        174
+      ],
+      [
+        87,
+        168
+      ],
+      [
+        94,
+        166
+      ],
+      [
+        101,
+        168
+      ],
+      [
+        106,
+        174
+      ]
+    ],
+    "crew_station_count": 5,
+    "body_cavity_preserved_below_y": 135,
+    "arm_route_note": "Bounded arm_clearance regions reserve the independent elbow passage.",
+    "no_authored_ground_to_head_ascent": true,
+    "views": [
+      {
+        "label": "Cockpit / hatch / five stations",
+        "lo": [
+          70,
+          166,
+          154
+        ],
+        "hi": [
+          126,
+          173,
+          207
+        ]
+      },
+      {
+        "label": "Independent broken-arm exploration",
+        "lo": [
+          99,
+          72,
+          61
+        ],
+        "hi": [
+          151,
+          87,
+          112
+        ]
+      }
+    ]
+  },
+  "paths": [
+    {
+      "name": "hatch-to-arena",
+      "feet": [
+        [
+          94,
+          169,
+          182
+        ],
+        [
+          95,
+          169,
+          182
+        ],
+        [
+          96,
+          169,
+          182
+        ],
+        [
+          97,
+          169,
+          182
+        ],
+        [
+          98,
+          169,
+          182
+        ],
+        [
+          99,
+          169,
+          182
+        ],
+        [
+          100,
+          169,
+          182
+        ],
+        [
+          101,
+          169,
+          182
+        ],
+        [
+          102,
+          169,
+          182
+        ],
+        [
+          103,
+          169,
+          182
+        ],
+        [
+          104,
+          169,
+          182
+        ],
+        [
+          105,
+          169,
+          182
+        ],
+        [
+          106,
+          169,
+          182
+        ],
+        [
+          107,
+          169,
+          182
+        ],
+        [
+          108,
+          169,
+          182
+        ],
+        [
+          109,
+          169,
+          182
+        ],
+        [
+          110,
+          169,
+          182
+        ],
+        [
+          111,
+          169,
+          182
+        ],
+        [
+          112,
+          169,
+          182
+        ],
+        [
+          113,
+          169,
+          182
+        ],
+        [
+          114,
+          169,
+          182
+        ],
+        [
+          115,
+          169,
+          182
+        ],
+        [
+          116,
+          169,
+          182
+        ],
+        [
+          117,
+          169,
+          182
+        ],
+        [
+          118,
+          169,
+          182
+        ],
+        [
+          119,
+          169,
+          182
+        ],
+        [
+          120,
+          169,
+          182
+        ],
+        [
+          121,
+          169,
+          182
+        ]
+      ],
+      "height": 4
+    },
+    {
+      "name": "broken-elbow-to-arm-find",
+      "feet": [
+        [
+          143,
+          78,
+          104
+        ],
+        [
+          142,
+          78,
+          103
+        ],
+        [
+          141,
+          78,
+          102
+        ],
+        [
+          140,
+          78,
+          101
+        ],
+        [
+          139,
+          78,
+          100
+        ],
+        [
+          138,
+          78,
+          99
+        ],
+        [
+          137,
+          78,
+          98
+        ],
+        [
+          136,
+          78,
+          97
+        ],
+        [
+          135,
+          78,
+          96
+        ],
+        [
+          134,
+          78,
+          95
+        ],
+        [
+          133,
+          78,
+          94
+        ],
+        [
+          132,
+          78,
+          93
+        ],
+        [
+          131,
+          78,
+          92
+        ],
+        [
+          130,
+          78,
+          91
+        ],
+        [
+          129,
+          78,
+          90
+        ],
+        [
+          128,
+          78,
+          89
+        ],
+        [
+          127,
+          78,
+          88
+        ],
+        [
+          126,
+          78,
+          87
+        ],
+        [
+          125,
+          78,
+          86
+        ],
+        [
+          124,
+          78,
+          85
+        ],
+        [
+          123,
+          78,
+          84
+        ],
+        [
+          122,
+          78,
+          83
+        ],
+        [
+          121,
+          78,
+          82
+        ],
+        [
+          120,
+          78,
+          81
+        ],
+        [
+          119,
+          78,
+          80
+        ],
+        [
+          118,
+          78,
+          79
+        ],
+        [
+          117,
+          78,
+          78
+        ],
+        [
+          116,
+          78,
+          77
+        ],
+        [
+          115,
+          78,
+          76
+        ],
+        [
+          114,
+          78,
+          75
+        ],
+        [
+          113,
+          78,
+          74
+        ],
+        [
+          112,
+          78,
+          73
+        ],
+        [
+          111,
+          78,
+          72
+        ]
+      ],
+      "height": 3
+    }
+  ],
+  "changes": {
+    "added": 4825,
+    "removed": 176,
+    "remapped": 104
+  },
+  "changed_bounds": [
+    [
+      73,
+      76,
+      70
+    ],
+    [
+      145,
+      177,
+      202
+    ]
+  ],
+  "changed_groups": {
+    "cockpit-deck": 3833,
+    "arm-exploration": 647,
+    "hatch": 538,
+    "crew-stations": 85,
+    "trial-and-vault": 2
+  },
+  "nbt_sha256": "80288c118331157b483a7fefeda3d03d73f649ad0c6671be9207816b10a1c816",
+  "schematic_sha256": "38f48d1c47f5bc118b8419bbd9c5d2426a49f9467a3019337adc58b334420ac9",
+  "tiles": 127,
+  "palette": {
+    "minecraft:polished_deepslate": 41717,
+    "minecraft:weathered_copper": 1728,
+    "minecraft:brown_terracotta": 18827,
+    "minecraft:exposed_cut_copper": 12827,
+    "minecraft:green_terracotta": 14705,
+    "minecraft:light_gray_terracotta": 53717,
+    "minecraft:dirt": 4738,
+    "minecraft:andesite": 8811,
+    "minecraft:moss_block": 8411,
+    "minecraft:exposed_copper": 10641,
+    "minecraft:polished_granite": 38357,
+    "minecraft:terracotta": 6437,
+    "minecraft:black_concrete": 6166,
+    "minecraft:cut_copper": 227,
+    "minecraft:raw_iron_block": 10,
+    "minecraft:polished_basalt[axis=y]": 126,
+    "minecraft:cracked_deepslate_tiles": 337,
+    "minecraft:polished_andesite": 15,
+    "minecraft:deepslate_tile_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]": 5,
+    "minecraft:chiseled_deepslate": 6,
+    "minecraft:polished_blackstone": 1,
+    "minecraft:waxed_cut_copper": 1
+  }
+}

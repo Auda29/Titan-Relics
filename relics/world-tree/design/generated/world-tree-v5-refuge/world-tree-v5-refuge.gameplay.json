@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "structure_id": "relics:world_tree",
+  "asset_version": "world-tree-v5-refuge",
+  "source_nbt": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge.nbt",
+  "source_sha256": "c75398476f1162af8f39585edffa58337f1ca4b0bd87f4f7662fbb69ffb47087",
+  "size": [
+    187,
+    228,
+    185
+  ],
+  "ground_y": 24,
+  "coordinate_space": "raw_template",
+  "source_facing": "north",
+  "markers": [
+    {
+      "id": "tree-amethyst-center-1",
+      "role": "tree_amethyst_center",
+      "pos": [
+        94,
+        29,
+        93
+      ]
+    },
+    {
+      "id": "tree-aura-anchor-1",
+      "role": "tree_aura_anchor",
+      "pos": [
+        94,
+        24,
+        93
+      ]
+    }
+  ],
+  "regions": [
+    {
+      "id": "tree-lighting-scope-1",
+      "role": "tree_lighting_scope",
+      "min": [
+        44,
+        23,
+        55
+      ],
+      "max": [
+        138,
+        39,
+        139
+      ]
+    }
+  ]
+}

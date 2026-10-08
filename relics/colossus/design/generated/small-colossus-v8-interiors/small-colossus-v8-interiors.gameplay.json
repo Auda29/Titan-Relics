@@ -1,0 +1,2025 @@
+{
+  "schema_version": 1,
+  "structure_id": "relics:small_colossus",
+  "asset_version": "small-colossus-v8-interiors",
+  "source_nbt": "relics/colossus/design/generated/small-colossus-v8-interiors/small-colossus-v8-interiors.nbt",
+  "source_sha256": "a0c5c7067cf23273cd762c16de87def820a6c1c42d62873a03eeb3eead48537e",
+  "size": [
+    111,
+    80,
+    113
+  ],
+  "ground_y": 13,
+  "coordinate_space": "raw_template",
+  "source_facing": "north",
+  "markers": [
+    {
+      "id": "small-magnet-chest-1",
+      "role": "small_magnet_chest",
+      "pos": [
+        73,
+        19,
+        80
+      ],
+      "facing": "west",
+      "expected_block": "minecraft:waxed_cut_copper"
+    }
+  ],
+  "regions": [
+    {
+      "id": "small-interior-clearance-1",
+      "role": "small_interior_clearance",
+      "min": [
+        43,
+        18,
+        58
+      ],
+      "max": [
+        81,
+        38,
+        90
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-2",
+      "role": "small_interior_clearance",
+      "min": [
+        51,
+        39,
+        32
+      ],
+      "max": [
+        73,
+        63,
+        60
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-3",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        14,
+        40
+      ],
+      "max": [
+        65,
+        18,
+        40
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-4",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        14,
+        41
+      ],
+      "max": [
+        65,
+        18,
+        41
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-5",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        14,
+        42
+      ],
+      "max": [
+        65,
+        18,
+        42
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-6",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        14,
+        43
+      ],
+      "max": [
+        65,
+        18,
+        43
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-7",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        14,
+        44
+      ],
+      "max": [
+        65,
+        18,
+        44
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-8",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        14,
+        45
+      ],
+      "max": [
+        65,
+        18,
+        45
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-9",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        15,
+        46
+      ],
+      "max": [
+        65,
+        19,
+        46
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-10",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        15,
+        47
+      ],
+      "max": [
+        65,
+        19,
+        47
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-11",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        15,
+        48
+      ],
+      "max": [
+        65,
+        19,
+        48
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-12",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        16,
+        49
+      ],
+      "max": [
+        65,
+        20,
+        49
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-13",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        16,
+        50
+      ],
+      "max": [
+        65,
+        20,
+        50
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-14",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        16,
+        51
+      ],
+      "max": [
+        65,
+        20,
+        51
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-15",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        17,
+        52
+      ],
+      "max": [
+        65,
+        21,
+        52
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-16",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        17,
+        53
+      ],
+      "max": [
+        65,
+        21,
+        53
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-17",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        17,
+        54
+      ],
+      "max": [
+        65,
+        21,
+        54
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-18",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        18,
+        55
+      ],
+      "max": [
+        65,
+        22,
+        55
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-19",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        18,
+        56
+      ],
+      "max": [
+        65,
+        22,
+        56
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-20",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        18,
+        57
+      ],
+      "max": [
+        65,
+        22,
+        57
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-21",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        58
+      ],
+      "max": [
+        65,
+        23,
+        58
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-22",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        59
+      ],
+      "max": [
+        65,
+        23,
+        59
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-23",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        60
+      ],
+      "max": [
+        65,
+        23,
+        60
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-24",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        61
+      ],
+      "max": [
+        65,
+        23,
+        61
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-25",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        62
+      ],
+      "max": [
+        65,
+        23,
+        62
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-26",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        63
+      ],
+      "max": [
+        65,
+        23,
+        63
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-27",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        64
+      ],
+      "max": [
+        65,
+        23,
+        64
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-28",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        65
+      ],
+      "max": [
+        65,
+        23,
+        65
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-29",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        66
+      ],
+      "max": [
+        65,
+        23,
+        66
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-30",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        67
+      ],
+      "max": [
+        65,
+        23,
+        67
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-31",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        68
+      ],
+      "max": [
+        65,
+        23,
+        68
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-32",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        69
+      ],
+      "max": [
+        65,
+        23,
+        69
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-33",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        19,
+        82
+      ],
+      "max": [
+        63,
+        23,
+        82
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-34",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        20,
+        81
+      ],
+      "max": [
+        63,
+        24,
+        81
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-35",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        21,
+        80
+      ],
+      "max": [
+        63,
+        25,
+        80
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-36",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        22,
+        79
+      ],
+      "max": [
+        63,
+        26,
+        79
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-37",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        23,
+        78
+      ],
+      "max": [
+        63,
+        27,
+        78
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-38",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        24,
+        77
+      ],
+      "max": [
+        63,
+        28,
+        77
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-39",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        25,
+        76
+      ],
+      "max": [
+        63,
+        29,
+        76
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-40",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        26,
+        75
+      ],
+      "max": [
+        63,
+        30,
+        75
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-41",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        27,
+        74
+      ],
+      "max": [
+        63,
+        31,
+        74
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-42",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        28,
+        73
+      ],
+      "max": [
+        63,
+        32,
+        73
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-43",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        29,
+        72
+      ],
+      "max": [
+        63,
+        33,
+        72
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-44",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        30,
+        71
+      ],
+      "max": [
+        63,
+        34,
+        71
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-45",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        31,
+        70
+      ],
+      "max": [
+        63,
+        35,
+        70
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-46",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        32,
+        69
+      ],
+      "max": [
+        63,
+        36,
+        69
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-47",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        33,
+        68
+      ],
+      "max": [
+        63,
+        37,
+        68
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-48",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        34,
+        67
+      ],
+      "max": [
+        63,
+        38,
+        67
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-49",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        35,
+        66
+      ],
+      "max": [
+        63,
+        39,
+        66
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-50",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        36,
+        65
+      ],
+      "max": [
+        63,
+        40,
+        65
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-51",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        37,
+        64
+      ],
+      "max": [
+        63,
+        41,
+        64
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-52",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        38,
+        63
+      ],
+      "max": [
+        63,
+        42,
+        63
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-53",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        39,
+        62
+      ],
+      "max": [
+        63,
+        43,
+        62
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-54",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        40,
+        61
+      ],
+      "max": [
+        63,
+        44,
+        61
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-55",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        41,
+        60
+      ],
+      "max": [
+        63,
+        45,
+        60
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-56",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        42,
+        59
+      ],
+      "max": [
+        63,
+        46,
+        59
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    },
+    {
+      "id": "small-interior-clearance-57",
+      "role": "small_interior_clearance",
+      "min": [
+        59,
+        43,
+        58
+      ],
+      "max": [
+        63,
+        47,
+        58
+      ],
+      "replaceable_blocks": [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:dirt",
+        "minecraft:grass_block",
+        "minecraft:coarse_dirt",
+        "minecraft:rooted_dirt",
+        "minecraft:sand",
+        "minecraft:gravel",
+        "minecraft:granite",
+        "minecraft:diorite",
+        "minecraft:andesite",
+        "minecraft:tuff",
+        "minecraft:short_grass",
+        "minecraft:tall_grass",
+        "minecraft:fern",
+        "minecraft:large_fern",
+        "minecraft:oak_leaves",
+        "minecraft:birch_leaves",
+        "minecraft:spruce_leaves"
+      ]
+    }
+  ]
+}

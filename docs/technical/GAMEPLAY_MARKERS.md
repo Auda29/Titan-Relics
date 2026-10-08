@@ -1,8 +1,9 @@
 # Gameplay marker handoff — version 1
 
-Prepared: October 8, 2026. **Specification only; no builder exports, marker loader
-or gameplay injection have been implemented.** This is the handoff to the separate
-building agent, not a request to dispatch that agent or rebuild structures now.
+Prepared: October 8, 2026. **Marker loader and gameplay injection remain planned.**
+Following the user's separate builder implementation request, five
+[versioned architectural exports and sidecars](../project/GAMEPLAY_INTERIORS_HANDOFF.md)
+are now available as review candidates. This contract does not itself dispatch agents.
 
 User-approved gameplay is in the per-relic `gameplay/` documents. The format and
 cardinalities here are integration decisions under the delegated technical work.
@@ -121,6 +122,12 @@ Counts below are integration starting requirements, not extra rewards.
 | Sword-bearing Skull 2 | None | **No change or additional access/clearing review.** |
 
 The marker role supplies gameplay meaning, not an arbitrary loot-table string.
+The October 8 builder handoff adds the optional **`arm_clearance`** region role
+for the large Colossus's independent broken-elbow passage. It has the same bounded
+native-terrain allow-list and authored-solid preservation rules as the other
+Colossus clearances. This avoids falsely labeling an arm passage as cockpit space.
+The future loader must recognize this explicit role; no runtime loader existed
+when the builder added it.
 Injection roles are the spawner/vault/chest and `archaeology_*` roles;
 `colossus_hatch`, `tower_entry`, `tower_upper_destination`, aura/amethyst review
 points and entity feet are references, not runtime block replacements. Required
