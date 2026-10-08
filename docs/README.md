@@ -5,6 +5,8 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
+- [Gameplay interiors: builder exports, marker plans and integration handoff](project/GAMEPLAY_INTERIORS_HANDOFF.md)
+
 - [Concept and reference catalog](project/Minecraft-Relikte-Modplan.md)
 - [Next four relics: reference, dimensions and damage study](project/NEXT_FOUR_RELIC_DESIGN_STUDY.md)
 - [Four new V1 models, exports and visual reviews](project/NEW_RELICS_V1.md)

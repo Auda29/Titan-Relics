@@ -1,0 +1,474 @@
+{
+  "minecraft_version": "26.2",
+  "source_url": "https://raw.githubusercontent.com/misode/mcmeta/26.2-summary/blocks/data.json",
+  "source_sha256": "0b1470910281d2f7ac36544672fc04befcd600c9dab1574d0636727ae6531726",
+  "scope": "Block names, allowed properties and defaults only; not a runtime placement test",
+  "blocks": {
+    "amethyst_block": [
+      {},
+      {}
+    ],
+    "andesite": [
+      {},
+      {}
+    ],
+    "birch_leaves": [
+      {
+        "distance": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "persistent": [
+          "true",
+          "false"
+        ],
+        "waterlogged": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "distance": "7",
+        "persistent": "false",
+        "waterlogged": "false"
+      }
+    ],
+    "black_concrete": [
+      {},
+      {}
+    ],
+    "brown_terracotta": [
+      {},
+      {}
+    ],
+    "cave_vines": [
+      {
+        "age": [
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9",
+          "10",
+          "11",
+          "12",
+          "13",
+          "14",
+          "15",
+          "16",
+          "17",
+          "18",
+          "19",
+          "20",
+          "21",
+          "22",
+          "23",
+          "24",
+          "25"
+        ],
+        "berries": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "age": "0",
+        "berries": "false"
+      }
+    ],
+    "cave_vines_plant": [
+      {
+        "berries": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "berries": "false"
+      }
+    ],
+    "chiseled_deepslate": [
+      {},
+      {}
+    ],
+    "coarse_dirt": [
+      {},
+      {}
+    ],
+    "cobbled_deepslate": [
+      {},
+      {}
+    ],
+    "cracked_deepslate_bricks": [
+      {},
+      {}
+    ],
+    "cracked_deepslate_tiles": [
+      {},
+      {}
+    ],
+    "cut_copper": [
+      {},
+      {}
+    ],
+    "cut_sandstone": [
+      {},
+      {}
+    ],
+    "deepslate": [
+      {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      {
+        "axis": "y"
+      }
+    ],
+    "deepslate_bricks": [
+      {},
+      {}
+    ],
+    "deepslate_tile_stairs": [
+      {
+        "facing": [
+          "north",
+          "south",
+          "west",
+          "east"
+        ],
+        "half": [
+          "top",
+          "bottom"
+        ],
+        "shape": [
+          "straight",
+          "inner_left",
+          "inner_right",
+          "outer_left",
+          "outer_right"
+        ],
+        "waterlogged": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "facing": "north",
+        "half": "bottom",
+        "shape": "straight",
+        "waterlogged": "false"
+      }
+    ],
+    "deepslate_tiles": [
+      {},
+      {}
+    ],
+    "diorite": [
+      {},
+      {}
+    ],
+    "dirt": [
+      {},
+      {}
+    ],
+    "exposed_copper": [
+      {},
+      {}
+    ],
+    "exposed_cut_copper": [
+      {},
+      {}
+    ],
+    "fern": [
+      {},
+      {}
+    ],
+    "firefly_bush": [
+      {},
+      {}
+    ],
+    "glow_lichen": [
+      {
+        "down": [
+          "true",
+          "false"
+        ],
+        "east": [
+          "true",
+          "false"
+        ],
+        "north": [
+          "true",
+          "false"
+        ],
+        "south": [
+          "true",
+          "false"
+        ],
+        "up": [
+          "true",
+          "false"
+        ],
+        "waterlogged": [
+          "true",
+          "false"
+        ],
+        "west": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "down": "false",
+        "east": "false",
+        "north": "false",
+        "south": "false",
+        "up": "false",
+        "waterlogged": "false",
+        "west": "false"
+      }
+    ],
+    "granite": [
+      {},
+      {}
+    ],
+    "grass_block": [
+      {
+        "snowy": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "snowy": "false"
+      }
+    ],
+    "gravel": [
+      {},
+      {}
+    ],
+    "gray_terracotta": [
+      {},
+      {}
+    ],
+    "green_terracotta": [
+      {},
+      {}
+    ],
+    "large_fern": [
+      {
+        "half": [
+          "upper",
+          "lower"
+        ]
+      },
+      {
+        "half": "lower"
+      }
+    ],
+    "light_gray_terracotta": [
+      {},
+      {}
+    ],
+    "moss_block": [
+      {},
+      {}
+    ],
+    "mossy_stone_bricks": [
+      {},
+      {}
+    ],
+    "oak_leaves": [
+      {
+        "distance": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "persistent": [
+          "true",
+          "false"
+        ],
+        "waterlogged": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "distance": "7",
+        "persistent": "false",
+        "waterlogged": "false"
+      }
+    ],
+    "polished_andesite": [
+      {},
+      {}
+    ],
+    "polished_basalt": [
+      {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      {
+        "axis": "y"
+      }
+    ],
+    "polished_blackstone": [
+      {},
+      {}
+    ],
+    "polished_deepslate": [
+      {},
+      {}
+    ],
+    "polished_granite": [
+      {},
+      {}
+    ],
+    "raw_iron_block": [
+      {},
+      {}
+    ],
+    "rooted_dirt": [
+      {},
+      {}
+    ],
+    "sand": [
+      {},
+      {}
+    ],
+    "sandstone": [
+      {},
+      {}
+    ],
+    "short_grass": [
+      {},
+      {}
+    ],
+    "shroomlight": [
+      {},
+      {}
+    ],
+    "spruce_leaves": [
+      {
+        "distance": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7"
+        ],
+        "persistent": [
+          "true",
+          "false"
+        ],
+        "waterlogged": [
+          "true",
+          "false"
+        ]
+      },
+      {
+        "distance": "7",
+        "persistent": "false",
+        "waterlogged": "false"
+      }
+    ],
+    "spruce_log": [
+      {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      {
+        "axis": "y"
+      }
+    ],
+    "stone": [
+      {},
+      {}
+    ],
+    "stripped_dark_oak_log": [
+      {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      {
+        "axis": "y"
+      }
+    ],
+    "stripped_spruce_log": [
+      {
+        "axis": [
+          "x",
+          "y",
+          "z"
+        ]
+      },
+      {
+        "axis": "y"
+      }
+    ],
+    "tall_grass": [
+      {
+        "half": [
+          "upper",
+          "lower"
+        ]
+      },
+      {
+        "half": "lower"
+      }
+    ],
+    "terracotta": [
+      {},
+      {}
+    ],
+    "tuff": [
+      {},
+      {}
+    ],
+    "waxed_cut_copper": [
+      {},
+      {}
+    ],
+    "weathered_copper": [
+      {},
+      {}
+    ],
+    "weathered_cut_copper": [
+      {},
+      {}
+    ],
+    "yellow_terracotta": [
+      {},
+      {}
+    ]
+  }
+}

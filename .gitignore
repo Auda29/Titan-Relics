@@ -29,6 +29,7 @@ relics/*/design/generated/*/*
 !relics/*/design/generated/*/*.design.json
 !relics/*/design/generated/*/*.ots.json
 !relics/*/design/generated/*/verification.json
+!relics/*/design/generated/*/*.gameplay.json
 # Archived concept outputs follow the same publication policy.
 relics/*/archive/*/generated/*
 !relics/*/archive/*/generated/*review.png

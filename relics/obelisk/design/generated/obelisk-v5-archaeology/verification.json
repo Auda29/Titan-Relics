@@ -1,0 +1,33 @@
+{
+  "size": [
+    59,
+    185,
+    60
+  ],
+  "blocks": 94446,
+  "tiles": 24,
+  "markers": 8,
+  "regions": 0,
+  "checks": [
+    "source hash and revision binding",
+    "26.2 block/property report",
+    "roles/bounds/placeholder supports",
+    "entity footprints/headroom",
+    "schematic equality",
+    "lossless tile reconstruction",
+    "unchanged baseline hash",
+    "solid monument and damage preserved"
+  ],
+  "nbt_sha256": "529cd90861635ff117f5507fe79443b5a076a65e58f12f6dd051e1e24abee46c",
+  "in_game_tested": false,
+  "natural_rotation_and_chunk_injection_tested": false,
+  "actual_block_light_tested": false,
+  "visual_acceptance": "pending",
+  "editable_source": {
+    "source_blend_sha256": "c23cbb6e4ee455ede5c1cf5270df14557b9f29e3832205d0d226192c9c9ab0e5",
+    "bound_nbt_sha256": "529cd90861635ff117f5507fe79443b5a076a65e58f12f6dd051e1e24abee46c",
+    "mesh_count": 7,
+    "marker_empties": 8,
+    "opened_and_verified_in_blender": true
+  }
+}

@@ -1,5 +1,15 @@
 # Changelog
 
+## Unreleased — gameplay architecture worktree
+
+- Build versioned large/small Colossus interiors, unfinished Tower traversal,
+  exterior Obelisk archaeology and World Tree base lighting/amethyst decoration.
+- Deliver NBT/schematic, editable grouped Blender sources, gameplay sidecars,
+  coordinate plans, cutaway reviews, 26.2 state checks and builder tests.
+- Add optional `arm_clearance` for the detached-arm service passage.
+- Preserve Alpha 4.9 selection and both skulls. Runtime initialization, light tests
+  and visual acceptance remain pending.
+
 ## 0.1.0-alpha.4.9 — open cave contacts and sparse Tree strands
 
 - Select World Tree V4.3 strands: preserve the accepted art and world pose,

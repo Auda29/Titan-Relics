@@ -1,0 +1,418 @@
+{
+  "name": "small-colossus-v8-interiors",
+  "authoring": "block-exact architectural derivative; no global revoxelization",
+  "baseline": {
+    "source": "relics/colossus/design/generated/small-colossus-v7-ground-v3/small-colossus-v7-ground-v3.nbt",
+    "version": "small-colossus-v7-ground-v3",
+    "size": [
+      111,
+      80,
+      113
+    ],
+    "blocks": 233448,
+    "ground_y": 13,
+    "family": "small_colossus",
+    "biomes": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains",
+      "minecraft:meadow",
+      {
+        "id": "terralith:blooming_valley",
+        "required": false
+      },
+      {
+        "id": "terralith:blooming_plateau",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:prairie",
+        "required": false
+      },
+      "minecraft:savanna",
+      {
+        "id": "terralith:steppe",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:scrubland",
+        "required": false
+      }
+    ],
+    "slope": 4,
+    "sha256": "a64a22e00ae9d3499df0d0110273caa1db5e0075168fbbf9eb0c6978f2484021",
+    "visually_accepted": false,
+    "uphill_slope": 12
+  },
+  "ground_level_nbt_approx": 13,
+  "size": [
+    111,
+    80,
+    113
+  ],
+  "data_version": 3105,
+  "in_game_tested": false,
+  "visual_acceptance": "review pending",
+  "evidence": {
+    "intact_crew_seats": 0,
+    "views": [
+      {
+        "label": "Torn breast entry and salvage recess",
+        "lo": [
+          40,
+          12,
+          38
+        ],
+        "hi": [
+          83,
+          26,
+          95
+        ]
+      },
+      {
+        "label": "Severely decayed cockpit / connecting climb",
+        "lo": [
+          48,
+          29,
+          28
+        ],
+        "hi": [
+          77,
+          52,
+          84
+        ]
+      }
+    ]
+  },
+  "paths": [
+    {
+      "name": "breast-rupture-entry",
+      "feet": [
+        [
+          62,
+          14,
+          40
+        ],
+        [
+          62,
+          14,
+          41
+        ],
+        [
+          62,
+          14,
+          42
+        ],
+        [
+          62,
+          14,
+          43
+        ],
+        [
+          62,
+          14,
+          44
+        ],
+        [
+          62,
+          14,
+          45
+        ],
+        [
+          62,
+          15,
+          46
+        ],
+        [
+          62,
+          15,
+          47
+        ],
+        [
+          62,
+          15,
+          48
+        ],
+        [
+          62,
+          16,
+          49
+        ],
+        [
+          62,
+          16,
+          50
+        ],
+        [
+          62,
+          16,
+          51
+        ],
+        [
+          62,
+          17,
+          52
+        ],
+        [
+          62,
+          17,
+          53
+        ],
+        [
+          62,
+          17,
+          54
+        ],
+        [
+          62,
+          18,
+          55
+        ],
+        [
+          62,
+          18,
+          56
+        ],
+        [
+          62,
+          18,
+          57
+        ],
+        [
+          62,
+          19,
+          58
+        ],
+        [
+          62,
+          19,
+          59
+        ],
+        [
+          62,
+          19,
+          60
+        ],
+        [
+          62,
+          19,
+          61
+        ],
+        [
+          62,
+          19,
+          62
+        ],
+        [
+          62,
+          19,
+          63
+        ],
+        [
+          62,
+          19,
+          64
+        ],
+        [
+          62,
+          19,
+          65
+        ],
+        [
+          62,
+          19,
+          66
+        ],
+        [
+          62,
+          19,
+          67
+        ],
+        [
+          62,
+          19,
+          68
+        ],
+        [
+          62,
+          19,
+          69
+        ]
+      ],
+      "height": 3
+    },
+    {
+      "name": "ruined-maintenance-climb",
+      "feet": [
+        [
+          61,
+          19,
+          82
+        ],
+        [
+          61,
+          20,
+          81
+        ],
+        [
+          61,
+          21,
+          80
+        ],
+        [
+          61,
+          22,
+          79
+        ],
+        [
+          61,
+          23,
+          78
+        ],
+        [
+          61,
+          24,
+          77
+        ],
+        [
+          61,
+          25,
+          76
+        ],
+        [
+          61,
+          26,
+          75
+        ],
+        [
+          61,
+          27,
+          74
+        ],
+        [
+          61,
+          28,
+          73
+        ],
+        [
+          61,
+          29,
+          72
+        ],
+        [
+          61,
+          30,
+          71
+        ],
+        [
+          61,
+          31,
+          70
+        ],
+        [
+          61,
+          32,
+          69
+        ],
+        [
+          61,
+          33,
+          68
+        ],
+        [
+          61,
+          34,
+          67
+        ],
+        [
+          61,
+          35,
+          66
+        ],
+        [
+          61,
+          36,
+          65
+        ],
+        [
+          61,
+          37,
+          64
+        ],
+        [
+          61,
+          38,
+          63
+        ],
+        [
+          61,
+          39,
+          62
+        ],
+        [
+          61,
+          40,
+          61
+        ],
+        [
+          61,
+          41,
+          60
+        ],
+        [
+          61,
+          42,
+          59
+        ],
+        [
+          61,
+          43,
+          58
+        ]
+      ],
+      "height": 3
+    }
+  ],
+  "changes": {
+    "added": 197,
+    "removed": 25769,
+    "remapped": 3411
+  },
+  "changed_bounds": [
+    [
+      42,
+      13,
+      31
+    ],
+    [
+      82,
+      64,
+      91
+    ]
+  ],
+  "changed_groups": {
+    "collapsed-interior": 29377
+  },
+  "nbt_sha256": "a0c5c7067cf23273cd762c16de87def820a6c1c42d62873a03eeb3eead48537e",
+  "schematic_sha256": "62ad65893fff288707e4dbccb78e4b787803430cc1fd1cdb2f472141d2b50326",
+  "tiles": 33,
+  "palette": {
+    "minecraft:rooted_dirt": 1373,
+    "minecraft:grass_block[snowy=false]": 3358,
+    "minecraft:light_gray_terracotta": 1393,
+    "minecraft:terracotta": 135618,
+    "minecraft:dirt": 16855,
+    "minecraft:gray_terracotta": 15246,
+    "minecraft:green_terracotta": 1441,
+    "minecraft:moss_block": 4911,
+    "minecraft:brown_terracotta": 8043,
+    "minecraft:tuff": 3877,
+    "minecraft:exposed_cut_copper": 1389,
+    "minecraft:weathered_cut_copper": 6199,
+    "minecraft:polished_basalt": 3914,
+    "minecraft:black_concrete": 651,
+    "minecraft:cracked_deepslate_tiles": 3204,
+    "minecraft:polished_basalt[axis=y]": 278,
+    "minecraft:polished_deepslate": 125,
+    "minecraft:waxed_cut_copper": 1
+  }
+}

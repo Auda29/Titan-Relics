@@ -1,0 +1,115 @@
+{
+  "name": "obelisk-v5-archaeology",
+  "authoring": "block-exact architectural derivative; no global revoxelization",
+  "baseline": {
+    "source": "relics/obelisk/design/generated/obelisk-v4-2/obelisk-v4-2.nbt",
+    "version": "obelisk-v4-2",
+    "size": [
+      59,
+      185,
+      60
+    ],
+    "blocks": 94422,
+    "ground_y": 8,
+    "family": "obelisk",
+    "biomes": [
+      "minecraft:desert",
+      {
+        "id": "terralith:desert_spires",
+        "required": false
+      },
+      {
+        "id": "terralith:desert_canyon",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:dryland",
+        "required": false
+      },
+      "minecraft:badlands",
+      {
+        "id": "terralith:gravel_desert",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:wasteland",
+        "required": false
+      }
+    ],
+    "slope": 6,
+    "sha256": "ed116dcbca2a41fe403695a816e419a32a647d325c1d907d8dc1797f551cda3e",
+    "visually_accepted": true
+  },
+  "ground_level_nbt_approx": 8,
+  "size": [
+    59,
+    185,
+    60
+  ],
+  "data_version": 3105,
+  "in_game_tested": false,
+  "visual_acceptance": "review pending",
+  "evidence": {
+    "monument_above_y16_exact": true,
+    "brushable_positions": 8,
+    "views": [
+      {
+        "label": "West excavation / supported brushing pockets",
+        "lo": [
+          2,
+          5,
+          21
+        ],
+        "hi": [
+          19,
+          16,
+          49
+        ]
+      },
+      {
+        "label": "East excavation / map find",
+        "lo": [
+          42,
+          5,
+          38
+        ],
+        "hi": [
+          56,
+          16,
+          56
+        ]
+      }
+    ]
+  },
+  "paths": [],
+  "changes": {
+    "added": 24,
+    "removed": 0,
+    "remapped": 30
+  },
+  "changed_bounds": [
+    [
+      5,
+      9,
+      27
+    ],
+    [
+      50,
+      12,
+      54
+    ]
+  ],
+  "changed_groups": {
+    "exterior-archaeology": 54
+  },
+  "nbt_sha256": "529cd90861635ff117f5507fe79443b5a076a65e58f12f6dd051e1e24abee46c",
+  "schematic_sha256": "4f7318f3b5fabb2979f1ecad594d6a50725b53cd2958263c5705565ba0ab0243",
+  "tiles": 24,
+  "palette": {
+    "minecraft:sandstone": 3673,
+    "minecraft:sand": 1298,
+    "minecraft:cut_sandstone": 39,
+    "minecraft:yellow_terracotta": 86077,
+    "minecraft:terracotta": 3359
+  }
+}
