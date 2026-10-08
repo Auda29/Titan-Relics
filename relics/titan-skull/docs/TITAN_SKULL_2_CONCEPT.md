@@ -117,13 +117,14 @@ Titans worshipped the World Tree and received strength and size from it. Their
 exact nature and the campaign's motive are lost to time. **No living Titans remain**;
 ordinary current mobs and players reuse the remains. Obelisks marked cleared
 territories, with skulls scattered widely across their surroundings. Exact regional
-placement is still open. This does not decide the giant sword's owner or add a boss.
+placement is specified in the [shared distribution contract](../../../docs/technical/RELIC_DISTRIBUTION.md),
+with real density still untested. This does not decide the sword's owner or add a boss.
 
 The new skull belongs to the same family-level discovery budget as the existing
 skull and future bone variants. The updated relatively most frequent tier contains
 both skull designs and Obelisks, followed by rarer Tower/small Colossi/Tree, then
-the unique large Colossus. All remain genuinely rare; rates/distances await visual
-discussion. Adding the design must not multiply total
+the unique large Colossus. All remain genuinely rare; rates/distances are approved
+starting values with real density still untested. Adding the design must not multiply total
 Titan-remains family density unintentionally. Large-site uniqueness is not yet
 implemented.
 
@@ -132,7 +133,11 @@ inhabit the decaying remains; no exclusive item, trial, or custom enemy is
 required. Current interiors/access and natural spawning are retained; no additional
 encounters, access work or loot chests are selected for either skull design.
 
-## Next design work
+## Historical next design work
+
+The sequence below led to V1/V2 and is preserved as provenance, not a new skull
+assignment. Skull 2 V2 embedded-v1 is now accepted in Alpha 4.9; current interiors,
+access and anatomy remain unchanged under this planning round.
 
 1. Review the proposed 104 × 144 × 116 site and skull/sword proportions with the user.
 2. In later modeling, establish the skull and diagonal sword together as the

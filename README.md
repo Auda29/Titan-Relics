@@ -64,7 +64,7 @@ The [Alpha 4 integration](docs/technical/ALPHA_4_INTEGRATION.md) and
 
 **Design decision, October 2:** the large Colossus should be **unique per game
 world**, shared by all players; planned smaller Colossi may occur multiple times.
-Alpha 4 does not enforce uniqueness yet. Its future per-player core vault and
+Alpha 4.9 does not enforce uniqueness yet. Its future per-player core vault and
 Obelisk maps will serve the same large landmark. Material economy, cockpit/trial design,
 core utility, and multiplayer loot remain follow-up tasks in the
 [lore/gameplay review](docs/project/LORE_GAMEPLAY_REVIEW.md); no models or generation
@@ -79,6 +79,18 @@ it. Thousands of years later no living Titans remain; today's mobs and players
 reuse the relics. Exact Titan nature and the campaign's motive are lost to time.
 See [approved lore](docs/project/LORE-BIBLE.md). Plan all relics' gameplay and
 interiors and reconcile documentation before implementing on 26.2/Fabric first.
+
+**Planning closure, October 8:** all seven gameplay plans, technical starting
+defaults and documentation reconciliation are recorded in the
+[planning review](docs/project/GAMEPLAY_PLAN_REVIEW.md),
+[runtime contract](docs/technical/GAMEPLAY_RUNTIME.md),
+[builder marker handoff](docs/technical/GAMEPLAY_MARKERS.md) and
+[shared distribution/unique-site resolver](docs/technical/RELIC_DISTRIBUTION.md).
+The [gameplay acceptance matrix](docs/testing/GAMEPLAY_ACCEPTANCE_PLAN.md) lists
+future tests, not completed Minecraft evidence. No gameplay, artwork, exports,
+worlds or generation settings changed in this planning round; implementation
+still needs a separate request. Structure construction belongs to the separate
+builder; custom items/artwork and integration belong to the mod work.
 
 **Latest integration work, October 7, 2026:** all ten selected exports are copied
 byte-for-byte for manual placement. Derived worldgen templates retain matching

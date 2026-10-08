@@ -6,14 +6,19 @@ Recorded: October 1, 2026. Updated: October 8, 2026.
 
 This document records the agreed gameplay direction for two custom Colossus loot
 rewards and their dedicated trial key. None of these items or the encounter is
-implemented yet. Numeric values below are initial tuning targets, not final
-balance commitments. Repair and charging recipes remain open.
+implemented yet. Capacity/durability values below are initial tuning targets, not
+final balance commitments. Charging and repair ingredients/output are selected;
+the shaped layouts and technical starting state handling are specified, while
+implementation and balance tests remain outstanding. See
+[runtime contract](../../../docs/technical/GAMEPLAY_RUNTIME.md),
+[builder markers](../../../docs/technical/GAMEPLAY_MARKERS.md) and
+[future acceptance](../../../docs/testing/GAMEPLAY_ACCEPTANCE_PLAN.md).
 
 **Asset status:** [material study B](../docs/COLOSSUS_MATERIAL_STUDY_B.md) is the
 selected, visually accepted material version of V4.1 and is integrated in Alpha
 4.9. Gameplay implementation targets **26.2 / Fabric first**, after all-relic
-documentation and consistency review. Core utility/final costs, multiplayer reward
-policy and unique-large-site generation remain open. The cockpit defense-robot
+documentation and consistency review. Core utility/cost balance and implementation
+of the approved multiplayer reward policy/unique-large-site generation remain open. The cockpit defense-robot
 history is now approved below; its encounter implementation remains planning.
 
 ## Approved crewed-machine history — October 8, 2026
@@ -61,15 +66,40 @@ no key or second trial. Its recognizable rupture and precise chest/access layout
 still need planning; the self-built head ascent does not replace that arm route.
 
 The items should feel like useful machinery salvaged from an ancient mechanical
-relic, rather than generic stronger equipment. Their working names are:
+relic, rather than generic stronger equipment. The user approved these **final
+German and English display names** (artwork and item registration remain pending):
 
-| English working name | German working name | Role |
+| English name | German name | Role |
 | --- | --- | --- |
 | Machine Core | Maschinenkern | Rechargeable, long-lasting furnace fuel |
 | Salvage Magnet | Bergungsmagnet | Passive offhand item collection |
 | Colossus Key | Colossus-Schlüssel | Dedicated key for the Colossus vault |
 
-Armor trim design is explicitly deferred and is not part of this document.
+### Approved item presentation directions
+
+- **Machine Core:** a compact, angular **copper housing with an inset visible
+  violet energy element**, linking the Colossus palette and recharge amethyst.
+  It should read as a salvaged machine component, not a fuel lump. Exact pixel
+  artwork/model remain pending; state feedback is selected below. This is an appearance
+  direction, not a new recipe ingredient or permission to alter material study B.
+- **Salvage Magnet:** a compact **rectangular copper collection device with an
+  iron front and a violet indicator**, not a U-shaped horseshoe magnet or round
+  module. Preserve passive offhand behavior; exact asset remains pending and state
+  feedback is selected below. These visible materials do not change the approved repair recipe.
+- **Colossus Key:** an **angular copper key with a geometric head, toothed shaft
+  and small violet inset**. It remains a distinct custom item, consumed by the
+  compatible vault; the visual direction does not change key eligibility/binding
+  rules. Exact sprite/model remains pending.
+- **Core/magnet state display:** **exact remaining values in the tooltip plus
+  changing inventory icons**, with distinguishable full, partly used and empty/
+  broken states. **No inventory status bar** is selected. The core tooltip reports
+  remaining processing operations; the magnet reports remaining durability. Name
+   the empty/broken inactive condition explicitly. Technical thresholds are full
+   at capacity, partial above zero and below capacity, empty/broken at zero; artwork
+   remains a deliverable. This does not authorize particles, emitted
+  light, a new charge system for the magnet or a capacity increase.
+
+The selected Monolith trim is specified in the Obelisk plan, not as Colossus loot.
 The Machine Core is a guaranteed vault reward in the Colossus's head. One
 functional Salvage Magnet is guaranteed in a copper chest inside the detached
 arm; the exact chest position and access route remain open.
@@ -102,10 +132,14 @@ not automatically to every smaller Colossus.
 Titan remains retain a combined family budget. **Obelisks and both skull designs
 share the relatively most frequent tier**, followed by rarer **Tower, small Colossi
 and Tree**, then the unique landmark. All relics must remain genuinely rare and
-widely separated; exact spacing is deferred to visual review, not selected here.
+widely separated; the approved starting distribution is in the shared implementation
+plan and is not yet implemented in worldgen.
 The large landmark has a single destination, not a density target.
 The user additionally requires that destination to be **far from the shared world/
-initial player spawn**. Exact minimum distance and selection area remain open;
+initial player spawn**, with an approved **30,000-block horizontal minimum to the
+site's center**. The delegated resolver prefers 30,000–60,000 blocks, then searches
+outward 20,000-block annuli subject to the physical border, with no arbitrary
+maximum-distance cutoff; see [distribution](../../../docs/technical/RELIC_DISTRIBUTION.md).
 personal beds/respawn points do not relocate the unique site. The updated schematic
 shows about 43,012 blocks only as an illustrative distance, not an approved bound.
 The user subsequently accepted this journey's overall distance scale after the
@@ -118,7 +152,8 @@ The [Obelisk's archaeology rewards](../../obelisk/gameplay/README.md) include an
 expedition map to the unique large Colossus so players can seek it deliberately. Maps aid
 discovery; they do not bypass the head trial or vault-key requirement.
 
-Repeatable-family rates and the unique site's selection rules remain open. Alpha
+Repeatable-family starting rates and the large site's 30,000-block spawn floor
+are approved; deterministic site selection is specified but unimplemented. Alpha
 4.9 does not enforce uniqueness; this documentation changes no worldgen settings.
 
 ### Agreed encounter and reward flow
@@ -136,14 +171,35 @@ Repeatable-family rates and the unique site's selection rules remain open. Alpha
 The target flow is: **defeat the golem -> receive Colossus Key -> unlock vault ->
 salvage Machine Core**.
 
+**Approved normal encounter size and multiplayer rule:** **one defense golem per
+trial**, not a group or successive waves. Its health and damage remain unchanged
+with multiple participants; cooperation may make the fight easier. Do not add
+enemies, health or damage based on player count. The guaranteed key for each
+eligible participant is retained. **No ominous variant is selected:** Trial Omen
+must not change this encounter's golem count/stats, key or fully charged core.
+This is scoped to the Colossus; ordinary vanilla trials retain their behavior.
+
+**Approved pursuit rule:** preserve the golem's **normal movement, pathfinding,
+combat and pursuit**, with only the designated trial golem's initial player
+aggression changed: it attacks eligible players without first being struck.
+It may pursue players out of the cockpit according to normal targeting/pathfinding
+limits. No custom cockpit leash, forced return, invisible boundary or return
+teleportation is selected. This is not unlimited/global pursuit and does not
+change ordinary village/player-created golems. Trial activation, rewards and
+reset/cooldown handling are separate from this movement decision.
+
 **October 8 revision:** autonomous aggression is preferred and selected as the
 design direction, replacing the earlier player-initiated/retaliation-only plan.
 It is feasible with targeted Fabric AI/behavior code, **not guaranteed by a trial
 spawner configuration alone**. Scope the change to designated Colossus defense
 golems; ordinary village/player-created golems must not become hostile globally.
 Use automatic trial-spawner activation rather than a separate control console.
-Exact detection range, eligible player modes, target switching,
-encounter boundary/reset, counts and multiplayer scaling remain to be planned.
+The technical baseline selects Survival/Adventure registration at 14 blocks with
+vanilla visibility and a 30-minute completed-trial cooldown. Target switching follows
+normal AI; persistence/reset and target-version behavior require the runtime proof
+tests. Pursuit follows normal
+behavior without a custom cockpit boundary. Normal-trial count and multiplayer
+scaling are selected above: one golem, without waves or player-count stat scaling.
 The target-game implementation still requires validation before release.
 
 ### Review follow-up: the golem's historical role
@@ -154,7 +210,7 @@ Design the five-operator cockpit, intended hatch, activation cues, key and rewar
 presentation around that function. Why/how it remains operational remains unknown;
 present-day encounter activation uses the trial spawner's automatic player detection.
 The designated golem should attack autonomously; exact detection/targeting settings
-still need planning/testing. The retaliation-only plan is superseded.
+are in the runtime contract and need testing. The retaliation-only plan is superseded.
 The rest of the wreck does not activate. See the
 [lore/gameplay review](../../../docs/project/LORE_GAMEPLAY_REVIEW.md).
 
@@ -176,9 +232,10 @@ The rest of the wreck does not activate. See the
   Colossus to seek; smaller-Colossus vaults and shared key support are not approved.
 - A vault validates the key, not proof that its adjacent golem was killed by
   the opening player. Strict local completion enforcement is not planned.
-- Normal and ominous configurations must be considered together so an ominous
-  effect cannot accidentally substitute incompatible keys or vanilla loot. The
-  precise ominous encounter behavior remains open.
+- **No ominous Colossus variant:** Trial Omen does not strengthen or add golems,
+  change key/core rewards or grant an ominous bonus. Validate the custom spawner/
+  vault integration so the effect cannot substitute vanilla keys/loot or bypass
+  eligibility. Do not disable ominous behavior for unrelated vanilla trials.
 
 The room's appearance, exact block positions, and key artwork are deferred.
 
@@ -234,8 +291,9 @@ Removing or reinserting the core, transferring it through hoppers, saving and
 loading the world, or unloading a chunk must preserve its charge. Normal hopper
 use should be supported without resetting or duplicating fuel capacity.
 
-The exact behavior of interrupted operations, appliance progress, and automatic
-handling of depleted cores must be specified during implementation.
+The runtime contract specifies commit-only operation accounting, appliance-local
+progress, progress reset on core/mode switching and depleted-core hopper extraction.
+Implement and test those rules; ordinary burn ticks alone cannot satisfy them.
 
 ### Initial condition and recharging
 
@@ -346,8 +404,9 @@ nor change the magnet's existing offhand/range/wear/repair design. See the
 | Durability budget | Approximately 1,000 successfully collected item stacks |
 | Durability cost | One point per collected item stack, not per individual item |
 
-These values need survival testing. The exact accounting for partial pickups,
-merging item entities, and repeated attraction attempts is still to be defined.
+These values need survival testing. The technical baseline charges one point per
+positive assisted pickup transaction: partial pickup costs one, a later successful
+residual pickup another, while normally merged stacks cost one on their pickup.
 Items that are merely attracted but never picked up must not consume durability.
 
 ### Boundaries
@@ -369,8 +428,9 @@ Items that are merely attracted but never picked up must not consume durability.
   magnet + **four iron ingots + one amethyst shard -> one fully repaired magnet**.
   Amethyst replaces the earlier two-redstone proposal; the Ender Pearl alternative
   is not selected. This applies to initial small-site repairs and subsequent wear.
-  Preserve the existing item rather than creating a second magnet. Exact crafting
-  layout, state handling and survival balance still need specification/testing.
+  Preserve the existing item rather than creating a second magnet. The user selected
+  the **shaped layout below**, not a shapeless recipe. State handling and survival
+   balance still need implementation/testing; state handling is in the runtime contract.
 - For the first version, enchantments must not bypass the intended wear and
   repair loop.
 - No separate energy charge is planned for the magnet; durability supplies its
@@ -378,6 +438,18 @@ Items that are merely attracted but never picked up must not consume durability.
 
 The intended loop is: **equip in offhand -> collect nearby drops -> wear out ->
 repair**.
+
+**Approved shaped full-repair layout:**
+
+| Empty | Amethyst shard | Empty |
+| --- | --- | --- |
+| Iron ingot | Existing damaged/broken Salvage Magnet | Iron ingot |
+| Iron ingot | Empty | Iron ingot |
+
+Use one iron ingot in each of the four iron slots; all three Empty slots must be
+empty. Consume the four ingots/shard and return **one fully repaired existing
+magnet**, preserving its applicable item state without leaving a duplicate input.
+This applies both to broken small-site finds and later wear of the functional magnet.
 
 ## Review follow-up: salvage economy of the whole landmark
 
@@ -414,29 +486,20 @@ protection; no indestructible-landmark mechanic is approved. Coordinate with
 [Colossus design goals](../docs/COLOSSUS_V4.md) and the
 [shared review](../../../docs/project/LORE_GAMEPLAY_REVIEW.md).
 
-## Open decisions and acceptance checks
+## Remaining deliverables and acceptance checks
 
-### Decisions still needed
+### No further fundamental gameplay round required
 
-1. Final item names, models, textures, and feedback effects.
-2. Exact arm chest placement and access route, ordinary-loot contents and the
-   functional magnet's starting durability; the core starts fully charged.
-3. State handling/balance testing for the selected two-coal-block/one-amethyst
-   shaped core recharge, and crafting layout/state handling/balance testing for
-   the approved four-iron/one-amethyst full magnet repair.
-4. Charge and durability display, such as tooltips and a visible status bar.
-5. Core progress accounting, fuel-slot behavior, and hopper handling.
-6. Magnet pull speed, line-of-sight behavior, and pickup accounting.
-7. Multiplayer behavior and compatibility with relevant protection systems.
-8. Golem counts, multiplayer scaling, ominous behavior, and the head trial's
-   detailed layout/presentation and scoped autonomous aggression/activation rules.
-9. In-game validation and survival salvage balance of selected material study B
-   relative to special rewards; its palette/inventory choice is already approved.
-10. Five-operator cockpit/hatch and activation design for the selected defense robot and
-    visible links to the Titan conflict; its original role is no longer undecided.
-11. The core's everyday use case and combined acquisition/recharge cost.
-12. Placement of the small sites' broken magnets, survival tuning of the approved
-    10% per-site starting chance, and later-visitor expectations for shared loot.
+Technical defaults now cover icon thresholds, full arm-magnet durability, modest
+site-wide ordinary salvage, state-preserving crafting, furnace progress/hoppers,
+magnet motion/accounting, trial eligibility/cooldown and durable Vault claims.
+These are delegated starting choices, not extra user approvals or implemented code.
+
+Remaining deliverables are original item artwork/tooltip wording, builder-bound
+arm/cockpit/hatch/chest coordinates and target-version implementation/proof tests.
+Validate survival usefulness, material-B mining value, 10% small-site loot and
+multiplayer/protection compatibility against the acceptance matrix. Do not add
+feedback effects or conflict traces merely because older review lists proposed them.
 
 ### Acceptance checks
 
@@ -450,6 +513,9 @@ protection; no indestructible-landmark mechanic is approved. Coordinate with
   depleted core in the middle), returns one fully charged core and consumes the
   two coal blocks/shard without duplication. Validate depleted-core inputs/state.
 - Core state survives transfer, item drops, save/load, and chunk unloads.
+- Core/magnet tooltips show the correct remaining values and explicit empty/broken
+  states; icons update across consumption, repair/recharge and save/load. Do not
+  show an inventory status bar in place of the selected icon-state presentation.
 - The magnet activates only in the offhand and respects its range and walls.
 - Full inventories and failed pickups do not create repeated wear or noisy
   attraction loops.
@@ -466,7 +532,7 @@ protection; no indestructible-landmark mechanic is approved. Coordinate with
   exploits.
 - Test late arrivals and a large player population at the same vault, including
   save/load and eligibility retention; previously claimed rewards must not reset.
-- Resolve and test the distinct shared-chest reward policy before finalizing loot.
+- Implement/test the selected distinct shared-chest reward policy before finalizing loot.
 - Test the smaller-site magnet loot chance against its agreed roll unit and site
    frequency; no generation/load/reopening duplication or automatic refill.
 - Small-site finds are broken/inactive until repaired; the large arm's guaranteed

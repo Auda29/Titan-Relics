@@ -75,32 +75,33 @@
       <section class="panel content"><h2>Relikte im Ausschnitt</h2><div id="legend"></div><p class="small" id="counts"></p></section>
       <section class="panel content"><h2>Abstände & Regionen</h2><ul class="rules">
         <li><strong>≥ 15.000 Blöcke <span class="status">festgelegt</span></strong><span class="muted">zwischen Obelisken; Regionen berühren sich nicht</span></li>
-        <li><strong>6.000 Blöcke <span class="status proposal">Vorschlag</span></strong><span class="muted">Regionsradius; mindestens 3.000 Blöcke Lücke bei 15.000 Abstand</span></li>
-        <li><strong>≥ 2.000 Blöcke <span class="status proposal">Vorschlag</span></strong><span class="muted">zwischen übrigen Reliktpaaren</span></li>
-        <li><strong>Ein großer Colossus <span class="status">festgelegt</span></strong><span class="muted">pro Save, weit vom Weltspawn. Hier beispielhaft <span id="spawn-distance"></span> Blöcke Luftlinie; exakte Mindestentfernung noch offen.</span></li>
+        <li><strong>6.000 Blöcke <span class="status">festgelegt</span></strong><span class="muted">Regionsradius; mindestens 3.000 Blöcke Lücke bei 15.000 Abstand</span></li>
+        <li><strong>≥ 2.000 Blöcke <span class="status">festgelegt</span></strong><span class="muted">zwischen übrigen Reliktpaaren</span></li>
+        <li><strong>Ein großer Colossus <span class="status">festgelegt</span></strong><span class="muted">pro Save, mindestens 30.000 Blöcke horizontal vom Weltspawn zum Standortmittelpunkt. Hier beispielhaft <span id="spawn-distance"></span> Blöcke Luftlinie.</span></li>
       </ul></section>
       <section class="panel content" id="detail" aria-live="polite"><h2>Standortdetails</h2><p class="muted">Wähle einen Marker auf der Karte.</p></section>
     </aside>
   </div>
   <div class="bottom">
-    <section class="panel content"><h2>Auswahlchancen vor Abstandsprüfung</h2>
+    <section class="panel content"><h2>Festgelegte Startchancen vor Abstandsprüfung</h2>
       <table><thead><tr><th>Relikt / Ergebnis</th><th>In Region</th><th>Außerhalb</th></tr></thead><tbody>
         <tr><td>Obelisk</td><td>30 %</td><td>30 %</td></tr><tr><td>Schädel 1 + 2 zusammen</td><td>30 %</td><td>5 %</td></tr>
         <tr><td>Turm</td><td>2 %</td><td>2 %</td></tr><tr><td>Kleiner Colossus</td><td>2 %</td><td>2 %</td></tr>
-        <tr><td>Weltenbaum</td><td>1 %</td><td>1 %</td></tr><tr><td>Bewusst leer</td><td>35 %</td><td>60 %</td></tr>
+        <tr><td>Weltenbaum</td><td>2 %</td><td>2 %</td></tr><tr><td>Bewusst leer</td><td>34 %</td><td>59 %</td></tr>
       </tbody></table>
-      <p class="small">Ein gemeinsames Budget: höchstens ein Versuch je 5.000 × 5.000-Blöcke-Zelle. Schädelchance gilt je Versuch, nicht je Chunk. Beide Designs teilen die Chance; die vier Paletten von Schädel 1 erhalten kein Zusatzbudget.</p>
+      <p class="small">Festgelegtes gemeinsames Budget: höchstens ein Versuch je 5.000 × 5.000-Blöcke-Zelle, keine garantierte Platzierung. Schädelchance gilt je Versuch, nicht je Chunk. Beide Designs teilen die Chance; die vier Paletten von Schädel 1 erhalten kein Zusatzbudget.</p>
     </section>
     <section class="panel content"><h2>Was dieses Prüfmodell zeigt</h2>
       <p>Obelisken werden zuerst ausgewählt und mit 15.000 Blöcken Mindestabstand geprüft. Ihre akzeptierten Modellstandorte bilden die Regionen. Danach folgen die übrigen Versuche; abgelehnte Plätze bleiben leer.</p>
       <p class="warning" id="warning"></p>
-      <p class="small">Die festgelegte Rangfolge: Obelisken/Schädel relativ am häufigsten → seltener Turm/kleine Kolosse/Baum → einmaliger großer Colossus. Nach der ersten Ansicht wurden die drei mittleren Typen auf 2 % / 2 % / 1 % reduziert. Ziel: je Typ unter zehn Standorte im gezeigten Ausschnitt, kein weltweites Limit und keine künstliche Neun-Standorte-Kappung. Die Zahlen bleiben Diskussionswerte; Zufall und Terrain können Häufigkeiten verändern.</p>
+      <p class="small">Die festgelegte Rangfolge: Obelisken/Schädel relativ am häufigsten → seltener Turm/kleine Kolosse/Baum → einmaliger großer Colossus. Der Nutzer hat für die drei mittleren Typen jeweils 2 % als Startwert gewählt, statt des zwischenzeitlichen Vorschlags 2 % / 2 % / 1 %. Ziel: je Typ unter zehn Standorte im gezeigten Ausschnitt, kein weltweites Limit und keine künstliche Neun-Standorte-Kappung. Zufall und Terrain können Häufigkeiten verändern.</p>
+      <p class="small">Mit 2 % Baumchance enthält Beispiel 2 sieben Bäume und sechs Obelisken. Die gewünschte Rangfolge ist kein garantierter Zählvergleich in jedem einzelnen Ausschnitt; sie muss über viele Seeds und mit echten Terrainfiltern geprüft werden. Die Beispiele werden nicht passend neu ausgewürfelt.</p>
       <p class="small" id="checks"></p>
       <p class="small">Ohne Biome, Höhen, Wasser, tatsächliche Bauwerksgrößen und Terrain-Rejection. Kein Beweis für echte Fundhäufigkeit. Das Planungsmodell ist im Mod noch nicht implementiert.</p>
       <p class="small">Nach dem Reisezeitvergleich ist die gezeigte Entfernungsskala vom Nutzer akzeptiert. Die rund 43.000 Blöcke zum großen Colossus bleiben ein Planungsbeispiel, keine exakte Standortvorgabe oder feste Mindestentfernung für jeden Seed.</p>
     </section>
   </div>
-  <footer>Standortverteilung, Radius und genaue Spawnentfernung sind Diskussionswerte; 15.000 Blöcke Obeliskabstand, die Einmaligkeit und große Entfernung des großen Colossus vom Weltspawn sind festgelegt. Quelle: <a href="../UMSETZUNGSPLAN.md" style="color:#b9d1d5">Umsetzungsplan</a>.</footer>
+  <footer>Auswahlchancen sind festgelegte Startwerte, keine garantierten Fundquoten. Ebenfalls festgelegt: 5.000er-Versuchsbudget, 2.000 Blöcke allgemeiner Reliktabstand, 6.000 Blöcke Regionsradius, 15.000 Blöcke Obeliskabstand sowie ein großer Colossus mindestens 30.000 Blöcke vom Weltspawn. Seine konkrete Position bleibt beispielhaft. Quelle: <a href="../UMSETZUNGSPLAN.md" style="color:#b9d1d5">Umsetzungsplan</a>.</footer>
 </main>
 <script>
   const WORLD = 60000, CELL = 5000, RADIUS = 6000, OBELISK_GAP = 15000, RELIC_GAP = 2000;
@@ -149,7 +150,7 @@
         type = c.roll < (inRegion?0.45:0.325) ? 'skull1' : 'skull2';
       } else if(c.roll<0.62) type='tower';
       else if(c.roll<0.64) type='small';
-      else if(c.roll<0.65) type='tree';
+      else if(c.roll<0.66) type='tree';
       else { rejected.push({...c,reason:'Reduzierte Turm-/Colossus-/Baumhäufigkeit'}); continue; }
       if(accepted.some(o=>distance(c,o)<RELIC_GAP)) { rejected.push({...c,reason:'Allgemeiner Reliktabstand'}); continue; }
       accepted.push({...c,type,inRegion,nearest});
@@ -182,7 +183,7 @@
       const t=TYPES[site.type];
       let note='';
       if(site.type==='obelisk') note='Region: 6.000 Blöcke Radius. Andere Obelisken mindestens 15.000 Blöcke entfernt.';
-      else if(site.type==='large') note=`Einziger großer Colossus im Modell, ${format(data.spawnDistance)} Blöcke Luftlinie vom markierten Weltspawn. Die konkrete Position und Entfernung sind illustrative Werte, keine festgelegte Mindestdistanz.`;
+      else if(site.type==='large') note=`Einziger großer Colossus im Modell, ${format(data.spawnDistance)} Blöcke Luftlinie vom markierten Weltspawn. Mindestabstand: 30.000 Blöcke horizontal zum Standortmittelpunkt; die konkrete Position und Entfernung hier bleiben beispielhaft.`;
       else note=`${site.inRegion?'Innerhalb':'Außerhalb'} einer Obeliskregion. Nächster Obelisk: ${format(distance(site,site.nearest))} Blöcke entfernt.`;
       document.getElementById('detail').innerHTML=`<h2>Standortdetails</h2><div class="detail-title" style="color:${t.color}">${t.name}</div><p class="detail-data">X ${format(site.x)} · Z ${format(site.z)}</p><p class="detail-data">${note}</p>`;
     }

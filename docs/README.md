@@ -20,9 +20,14 @@ This directory contains only cross-project documentation and test evidence.
 - [Lore bible and design guide](project/LORE-BIBLE.md)
 - [Lore/gameplay review and follow-up decisions](project/LORE_GAMEPLAY_REVIEW.md)
 - [Technical implementation plan](project/UMSETZUNGSPLAN.md)
+- [Gameplay planning closure and documentation consistency review](project/GAMEPLAY_PLAN_REVIEW.md)
+- [Interactive schematic relic distribution examples](project/visualizations/relic-distribution-plan.html)
 
 ## Technical
 
+- [Gameplay runtime and delegated starting defaults — not implemented](technical/GAMEPLAY_RUNTIME.md)
+- [Builder gameplay sidecar/marker handoff v1](technical/GAMEPLAY_MARKERS.md)
+- [Shared distribution budget and deterministic unique-site resolver](technical/RELIC_DISTRIBUTION.md)
 - [Alpha 4.2 terrain contact, relic separation and Java build](technical/ALPHA_4_2_TERRAIN.md)
 - [Alpha 4 current relic integration and placement contracts](technical/ALPHA_4_INTEGRATION.md)
 - [Target environment](technical/TARGET_ENVIRONMENT.md)
@@ -32,6 +37,7 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Testing
 
+- [Future 26.2 gameplay acceptance matrix — not test results](testing/GAMEPLAY_ACCEPTANCE_PLAN.md)
 - [Alpha 4.9 Minecraft 1.21.1 compatibility build and historical Alpha 3 release](testing/ALPHA_4_9_MC_1_21_1_TEST_REPORT.md)
 - [Alpha 4.9 Minecraft 1.21.1 complete ten-variant runtime evidence](testing/alpha4-9-mc1.21.1-evidence.json)
 - [Alpha 4.9 Minecraft 1.21.1 Tree contacts](testing/alpha4-9-mc1.21.1-tree-contacts.json)

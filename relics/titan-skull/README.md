@@ -46,8 +46,9 @@ The agreed gameplay direction leaves existing interiors/access and natural mob
 spawning unchanged, with **no loot chests or authored encounters** at either skull.
 Obelisks and both skull designs share the relatively most frequent tier, followed
 by rarer Tower/small Colossi/Tree, then the unique large Colossus. **Every relic is
-still genuinely rare**, with wide separation; final rates/distances await visual
-discussion. Alpha 4.9 does not yet enforce large-site uniqueness or the final family budget.
+still genuinely rare**, with approved starting rates/distances in the gameplay
+plan and [distribution contract](../../docs/technical/RELIC_DISTRIBUTION.md).
+Actual density needs runtime validation. Alpha 4.9 does not enforce uniqueness or the shared budget.
 
 The second skull is a separate design, not another revision or ground
 palette of the current crowned skull. Together with later bone variants, it

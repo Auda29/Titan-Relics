@@ -5,10 +5,10 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 
 | Relic | Current status |
 | --- | --- |
-| [Colossus](colossus/README.md) | Alpha 4.6 retains V4.1 materials B and selects Small Colossus V7 ground-v3 with deeper burial; gameplay/uniqueness pending |
-| [Obelisk](obelisk/README.md) | Alpha 4.6 retains V4.2; archaeology, collectibles and maps pending |
+| [Colossus](colossus/README.md) | Alpha 4.9 retains V4.1 materials B and Small Colossus V7 ground-v3; gameplay/uniqueness specified, not implemented |
+| [Obelisk](obelisk/README.md) | Alpha 4.9 retains V4.2; finite archaeology, Monolith trim and maps specified, not implemented |
 | [Titan Skull](titan-skull/README.md) | Existing interiors/access accepted; natural mob spawning unchanged, no authored encounters; exports unchanged |
-| [Ruined Tower](ruined-tower/README.md) | V7 ground-v3 collapsed-side-bay candidate with 220 visible layers selected in Alpha 4.6 |
+| [Ruined Tower](ruined-tower/README.md) | Alpha 4.9 retains V7 ground-v3 with 220 visible layers; broken ascent/five ordinary Endermen/finite Ender loot specified, not implemented |
 | [World Tree](world-tree/README.md) | Alpha 4.9 V4.3 strands and terrain integration visually accepted October 7; 1,883 tapered low-root cells along 50 paths and bounded cave contacts |
 
 Alpha 4.9 changes two natural profiles and the later Tree root additions; eight
@@ -30,6 +30,10 @@ and the historical Alpha 4 design decisions below remain preserved.
 
 ## V4 studies from in-game inspection
 
+**Historical review sequence:** the V1–V4 "next" priorities below record their
+original dates, not outstanding modeling instructions. Current selection is the
+table above; current gameplay handoff is below. Preserve the earlier exports.
+
 The V3 models were selected in Alpha 3; Alpha 4 selects the latest successors.
 The following documents record the
 agreed visual findings and revision direction. Colossus V4 now has two offline
@@ -48,7 +52,7 @@ The user has **visually accepted Colossus V4.1, Obelisk V4.2 and all four Titan
 Skull V4 terrain variants**. Their latest exports are selected in Alpha 4;
 client visual acceptance of the integrated build remains separate.
 
-**Next design priority:** review the [four new V1 assets](../docs/project/NEW_RELICS_V1.md)
+**Then-next design priority (historical):** review the [four new V1 assets](../docs/project/NEW_RELICS_V1.md)
 before starting V5 architectural interiors. Ruined Tower, World Tree, the separate
 archive-derived smaller Colossus and independent sword-bearing Titan Skull 2 now
 have editable models and exports. Further skull/bone variants remain extensions.
@@ -88,11 +92,13 @@ material version and its post-salvage appearance on October 2, 2026.
 
 The updated relative tiers are **Obelisks + both skull designs -> rarer Tower +
 small Colossi + World Tree -> the unique large Colossus**. All relics must remain
-genuinely rare and widely separated, with exact rates/distances deferred to visual
-review. This supersedes the earlier Obelisks-clearly-rarer-than-skulls rule. The large
+genuinely rare and widely separated. Approved starts use one shared opportunity per
+approximately 5,000 × 5,000 blocks, 2,000-block cross-relic separation, 15,000-block
+Obelisk separation and 6,000-radius non-touching regions. This supersedes the earlier
+Obelisks-clearly-rarer-than-skulls rule. The large
 Colossus should occur **once per game world/save**, shared by all players. Planned
-**smaller Colossi may occur multiple times**, with separate rarity/loot decisions
-still open. Alpha 4 has provisional repeatable candidate rates and does not yet
+**smaller Colossi may occur multiple times**, at 2% of shared opportunities with a
+10% per-site broken-magnet chance. Alpha 4.9 has provisional independent rates and does not yet
 enforce uniqueness; future skull/bone variants share a family-level density target.
 
 Planned Obelisk maps initially lead to the same large site. Its future vault must preserve per-player
@@ -100,7 +106,8 @@ core eligibility for multiplayer; the arm magnet and Obelisk archaeology are
 shared finite finds, while small sites may yield repair-required magnets. The
 [lore/gameplay review](../docs/project/LORE_GAMEPLAY_REVIEW.md) tracks material
 economy, historical trial integration, lasting core usefulness, visible lore
-links, multiplayer distribution, and measured discovery effort as open tasks.
+links and measured discovery effort as evidence tasks; multiplayer reward policies
+are selected, not unanswered gameplay decisions.
 
 **Approved history, October 8:** all Colossi were crewed; the large machine was
 central and the smaller ones its companions. The head golem was a cockpit defense
@@ -112,8 +119,8 @@ players reuse the relics. Titan nature and the campaign's motive are lost to tim
 This supersedes the old Obelisk/golem-role alternatives and independent tower/tree
 history. See the [lore bible](../docs/project/LORE-BIBLE.md).
 
-Document gameplay, interiors, reward placement and remaining lore for all seven
-designs, then reconcile documentation before implementing on **26.2/Fabric first**.
+All seven gameplay plans and the [consistency review](../docs/project/GAMEPLAY_PLAN_REVIEW.md)
+are documented; implementation still requires a separate request on **26.2/Fabric first**.
 Crew sizes are now fixed: five in the large Colossus, two in each smaller one,
 approximately player-sized and possibly a little larger. Keep the large cavity;
 develop its cockpit/hatch, with player-found/built ascent. Small machines are
@@ -121,10 +128,10 @@ enterable but have severely decayed interiors and effectively lost cockpits from
 weaker materials. The [smaller Colossus plan](colossus/gameplay/SMALL_COLOSSUS.md)
 remains separate from the large site's core/trial; approved starting loot is a
 10% per-site chance for one broken magnet requiring repair, with placement and
-repair state handling still pending. The large defense golem should attack autonomously after automatic
+builder coordinates still pending; technical state handling is specified. The large defense golem should attack autonomously after automatic
 trial-spawner activation, without a console; scoped detection/targeting needs testing.
 Tower stair gaps require building. Ordinary mobs stay natural; the extra Enderman
-method is delegated (a small one-time generation group is recommended). Shared
+method is delegated (five ordinary Endermen placed once at generation). Shared
 finite Ender loot is 5% eye, otherwise 4–6 pearls, with site-level roll assumptions
 recorded in the Tower plan.
 Both skulls retain their accepted existing interiors and current accessibility
@@ -134,16 +141,20 @@ neither skull gets loot chests. The World Tree should have more pigs/chickens/sh
 cows through modest natural spawning, no animal spawners or farm-like refill.
 Ordinary hostiles stay natural, with dark spawning reduced through lighting; the
 effect is reward enough, without Tree loot. Approved effect starting values:
-Regeneration I within about 24 blocks
-of the trunk, refreshed during the stay and lasting five minutes after leaving.
-Exact spawn/aura geometry/refresh rules, regional placement and reward positions
-remain open. None of these systems is implemented.
+Regeneration I in a 24-block-radius sphere through walls around a fixed trunk-base
+anchor, refreshed during the stay and lasting five minutes after leaving. The
+natural anchor survives complete Tree removal; copies create no new aura. Technical
+refresh/spawn/state rules are specified; exact builder coordinates and runtime
+evidence remain pending. None of these systems is implemented.
 
 The selected World Tree light palette is glow berries, glow lichen, firefly bushes
 and sparse shroomlights. Lighting stays at the trunk/base and roots, rising
 irregularly at most 15 blocks up the trunk, with broad natural ground-level spread
 and no upper-branch/crown lights. Exact spread/positions/quantities remain open;
-amethyst clusters are optional. The approved shaped core recharge uses
+the user selected one small amethyst sphere inside the bottom of the Tree's trunk,
+instead of scattered optional clusters. It is decorative/mineable, without budding
+amethyst or regrowth, and does not control the aura. Exact builder design remains
+pending. The approved shaped core recharge uses
 the depleted core in the middle, a coal block on each side and one amethyst shard
 above, yielding one fully charged core (provisional 256 operations). Earlier
 24-coal and three-coal-block proposals are superseded; recipe code/balance testing
@@ -156,6 +167,22 @@ one template + seven diamonds + one copper block -> two templates. The Vault cor
 with no initial restoration. Magnet full repair uses a crafting table and four
 iron ingots plus one amethyst shard instead of two redstone, repairing the existing
 magnet fully without creating a second item.
+
+## Current implementation handoff
+
+- [Technical runtime/defaults](../docs/technical/GAMEPLAY_RUNTIME.md): scoped
+  single-golem trial, durable per-player Vault claims, item/furnace/pickup accounting,
+  finite rewards/map-origin persistence and natural Tree effects/spawning.
+- [Builder sidecar/markers](../docs/technical/GAMEPLAY_MARKERS.md): hash-bound
+  raw-template coordinates, role counts, transforms and versioned exports; no skull work.
+- [Shared placement/unique resolver](../docs/technical/RELIC_DISTRIBUTION.md):
+  bounded deterministic planning, no rejection rerolls and pending valid-target checks.
+- [Future acceptance tests](../docs/testing/GAMEPLAY_ACCEPTANCE_PLAN.md): API/runtime,
+  multiplayer, survival and aggregate density proof, not completed test evidence.
+
+Technical starting values are delegated choices, not new user-approved balance.
+No builder has been dispatched and no gameplay/assets/generation have been changed
+by this planning round. The 1.21.1 visual port and all historical exports stay preserved.
 
 ## Folder convention
 

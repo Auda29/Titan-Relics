@@ -2,6 +2,8 @@
 
 Updated: October 8, 2026. The visual V7 ground-v3 asset is integrated in Alpha 4.9;
 the directions below are planning, not implemented traversal, loot or encounters.
+Technical choices are in the [runtime contract](../../../docs/technical/GAMEPLAY_RUNTIME.md)
+and [builder marker handoff](../../../docs/technical/GAMEPLAY_MARKERS.md).
 
 ## Approved lore
 
@@ -17,7 +19,7 @@ The campaign occurred thousands of years ago. No living Titans remain. Modern
 Minecraft mobs and players inhabit or otherwise reuse the relics; this does not
 identify them as the original builders or campaign staff.
 
-## Interior and gameplay decisions still needed
+## Approved gameplay and builder deliverables
 
 ### Approved traversal and occupation direction
 
@@ -37,7 +39,7 @@ custom enemy roster or forced hostility is selected. The user wants more Enderme
 and delegates choosing between local frequency adjustment and a few entities
 placed during natural generation.
 
-**Integration recommendation under that delegation:** place a one-time group of
+**Selected integration baseline under that delegation:** place a one-time group of
 **five ordinary Endermen per natural Tower** at
 builder-supplied lower-area markers. This avoids replacing the biome's ordinary
 monster list or introducing a recurring mob source. Current structure data has
@@ -67,23 +69,30 @@ not both guaranteed together. Distribute that one result into the designated
 reward chest; adding incidental chests must not multiply the eye chance or pearl
 budget. The one-eye quantity/site-level roll are implementation baselines, not
 separately user-specified values. Persist loot/depletion; reopening/reloading must
-not reroll or refill it. Exact chest markers and other modest ordinary loot remain
-to be supplied/tuned. Eyes affect End progression, so validate the site's rarity
+not reroll or refill it. Exact chest markers remain a builder deliverable; no other
+ordinary Tower loot is in the initial pool. Eyes affect End progression, so validate the site's rarity
 and reward amounts together rather than creating a repeatable eye farm.
 
-### Remaining decisions
+### Remaining builder and runtime evidence
 
-- Original organizing-base functions and which unfinished parts can be explored.
+- Original room functions/reason construction stopped may stay unknown; builder
+  details must support the selected incomplete ascent, not explain every room.
 - Entrance, connected rooms/levels, stair gaps and the intended upper destination.
 - Builder markers and implementation validation for the recommended one-time
   Enderman group; ordinary natural spawning and vanilla behavior are retained.
-- Reward chest markers, optional ordinary loot and balance testing of 5% eye /
+- Reward chest marker and balance testing of 5% eye /
   otherwise 4–6 pearls under the documented starting roll scope.
 - Exploration difficulty through layout rather than added mob-spawner systems.
-- Visible campaign/unfinished-construction clues; tower frequency and any regional links.
+- Visible campaign/unfinished-construction clues; validating Tower frequency and any regional links.
+
+**Approved distribution starting value:** **2% per shared repeatable-relic opportunity**,
+inside or outside Obelisk regions, equal to small Colossi and World Trees. This is
+not an independent per-chunk roll or a world-wide site cap; placement rejection
+can reduce the realized frequency.
 
 The abandoned condition, incomplete player-built ascent, natural ordinary mobs,
 Enderman accent and finite reward rule are selected; exact construction belongs
 to the building agent, with entity-placement/loot integration still pending. First
-target is 26.2/Fabric; finish the all-relic plans and consistency review before
-implementation. Shared history: [lore bible](../../../docs/project/LORE-BIBLE.md).
+target is 26.2/Fabric. The [planning review](../../../docs/project/GAMEPLAY_PLAN_REVIEW.md)
+closes the documentation gate, not implementation authorization/runtime acceptance.
+Shared history: [lore bible](../../../docs/project/LORE-BIBLE.md).

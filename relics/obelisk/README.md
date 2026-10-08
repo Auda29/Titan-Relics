@@ -1,8 +1,8 @@
 # Obelisk
 
-**Alpha 4 selects V4.2**, with warm ochre sides, unpainted cracks and genuinely
-missing edge pieces. See [current integration](../../docs/technical/ALPHA_4_INTEGRATION.md)
-and [runtime status](../../docs/testing/ALPHA_4_TEST_REPORT.md).
+**Alpha 4.9 retains V4.2**, with warm ochre sides, unpainted cracks and genuinely
+missing edge pieces. See [original Alpha 4 integration](../../docs/technical/ALPHA_4_INTEGRATION.md)
+and [current runtime status](../../docs/testing/ALPHA_4_9_TEST_REPORT.md).
 
 - [V4.2 warm stone and missing pieces](docs/OBELISK_V4_2.md) — visually accepted; selected in Alpha 4
 - [V4.1 consistent sides and larger cracks](docs/OBELISK_V4_1.md) — previous study

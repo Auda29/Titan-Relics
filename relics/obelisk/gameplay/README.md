@@ -1,7 +1,11 @@
 # Obelisk gameplay: archaeology and expedition maps
 
 Recorded: October 1, 2026. Updated: October 8, 2026. This is an approved gameplay direction, not an
-implemented system. Exact layouts, loot tables, and generation rates remain open.
+implemented system. Rates and finite loot baseline are selected; actual builder
+positions, original trim art and runtime validation remain deliverables. Technical
+contracts: [runtime](../../../docs/technical/GAMEPLAY_RUNTIME.md),
+[markers](../../../docs/technical/GAMEPLAY_MARKERS.md),
+[distribution](../../../docs/technical/RELIC_DISTRIBUTION.md).
 
 ## Role in exploration
 
@@ -10,7 +14,7 @@ unique large Colossus. Its rewards emphasize discovery rather than combat power.
 
 - The **large Colossus is intended to occur once per game world**, shared by all
   players. Smaller Colossi may repeat, with an approved starting 10% per-site chance
-  for a broken magnet; their site frequency and exact loot placement remain open.
+  for a broken magnet and 2% per shared placement opportunity; exact loot placement remains open.
 - The Obelisk provides an additional way to find the large Colossus through an expedition
   map. Obelisks and both skull designs now share the **relatively most frequent
   tier**, ahead of the rarer Tower/small-Colossus/Tree tier and the unique landmark.
@@ -18,8 +22,8 @@ unique large Colossus. Its rewards emphasize discovery rather than combat power.
   This supersedes the earlier skulls-first/Obelisks-clearly-rarer ordering.
 - A player may still discover and explore a Colossus without finding an Obelisk
   first. The map is a discovery aid, not a progression lock.
-- Relative rarity is an agreed goal; no numeric spacing, separation, probability,
-  or biome-filter changes have been selected or applied by this planning decision. Alpha 4.9 does not yet
+- Relative rarity and the starting spacing/separation/probability budget below are
+  approved; no runtime worldgen or biome-filter changes are applied. Alpha 4.9 does not yet
   enforce the newly approved large-Colossus uniqueness rule.
 
 ## Archaeological site
@@ -32,18 +36,25 @@ foundation. This supersedes the old wayfinder-versus-single-kill-site alternativ
 The campaign happened thousands of years ago; no living Titans remain. Today's
 mobs, players and later explorers reuse or investigate the monuments.
 
-Define regional distances, counts, biome compatibility and valid site selection
-during placement planning; no new adjacency/spawn rule is implemented here. A
+Regional distances/budget and deterministic valid-site selection are now specified;
+no new adjacency/spawn rule is implemented here. A
 cleared territory does not mean the present-day site must be free of ordinary mobs.
 
-**Latest regional direction:** the user proposes concentrating the combined skull
+**Approved regional starting plan:** the user selected concentrating the combined skull
 chance around Obelisks: **30% of shared relic opportunities in a broad region**,
-with much lower chance outside. The assistant starting proposal is a **6,000-block
-radius**, **5% combined skull chance outside** and retention of the proposed
-2,000-block cross-relic separation floor. These exact radius/outside-rate values
-still await visual review. **Natural Obelisk regions must neither overlap nor
+with much lower chance outside. The user approved a **6,000-block radius**;
+the **2,000-block horizontal cross-relic center-separation floor** is also approved.
+The user also approved **5% combined skull chance outside**.
+Both skull designs share the chance equally (15% each inside / 2.5% each outside);
+Obelisk attempts have an approved **30% candidate chance**, not a guaranteed share
+of successful sites. With Tower/small Colossus/Tree at 2% each, the remaining
+**34% inside / 59% outside** is deliberately empty, before further rejection.
+The shared repeatable-relic budget is approved: **at most one opportunity per
+approximately 5,000 × 5,000-block area**, not one guaranteed successful placement
+or an independent attempt for every relic type. The unique large site is separate.
+**Natural Obelisk regions must neither overlap nor
 touch**. The user selected **at least 15,000 blocks between Obelisk centers**,
-leaving **3,000 blocks between edges** with the proposed equal 6,000-block radius.
+leaving **3,000 blocks between edges** with the approved equal 6,000-block radius.
 This stronger pair-specific rule replaces the general 2,000-block floor for
 Obelisk–Obelisk pairs; if radius changes, centers must still be farther apart than
 the sum of the radii. Actual Obelisk frequency must be reviewed alongside this
@@ -111,20 +122,27 @@ between the three policies. Details and the shared regional rarity-budget propos
   sherd, miniature-stele and displayable-stone-plate proposals; no separate
   display-only collectible is required.
 - The trim is **cosmetic**, not an armor-stat, combat or production upgrade.
-  Its approved motif follows the **angular, geometric forms of the Obelisk**.
-  Exact pixel artwork, name and icon remain open. A renamed vanilla template
+   Its approved motif follows the **angular, geometric forms of the Obelisk**.
+   The user selected **narrow vertical lines with angular branches**, echoing the
+   monument's upright silhouette and geometric details, not stepped horizontal
+   bands or a dominant central emblem. Exact per-armor pixel placement remains open.
+  **Approved name:** **Monolith-Rüstungsbesatz / Monolith Armor Trim**; the
+  archaeological reward is its smithing template. Exact pixel artwork and icon
+  remain open. A renamed vanilla template
   alone is not the intended exclusive design.
 - **Approved duplication:** follow the vanilla template-copying principle:
   **one existing template + seven diamonds + one copper block -> two templates**.
   Copper replaces the suggested sandstone as a visual/material connection to the
   Colossi; this does not establish who originally made the template. No free
-  copies or new non-vanilla smithing system are selected. Exact crafting layout
-  and smithing application data still need specification/target-version testing.
+   copies or new non-vanilla smithing system are selected. The delegated layout
+   uses the template top-middle, copper center and diamonds in the remaining seven
+   slots; smithing application/resources still need target-version testing.
 
 A complete investigation should reliably yield the special rewards. Randomness
 may vary ordinary loot, but should not leave a thorough
-excavation with only low-value common items. Exact reward placement and generation
-rules still need to be specified and tested.
+excavation with only low-value common items. The marker contract requires six common
+and two special exterior brushing positions; actual coordinates and generation
+require builder delivery and tests.
 
 ### Ordinary finds: delegated modest starting pool
 
@@ -158,8 +176,9 @@ the loot roles without requiring a large excavation or extra interior.
 
 The original purpose was selected on October 8: **cleared-territory markers**.
 Derive consistent spatial/environmental clues, including broadly surrounding
-Titan remains. Exact regional distribution and what players can infer are still
-open. Later explorers' maps link to the unique machine without making those maps
+Titan remains. The regional starting distribution is selected, but realized density
+needs testing; additional visual clues are optional rather than new required art.
+Later explorers' maps link to the unique machine without making those maps
 original Obelisk machinery or imposing a mandatory progression order.
 
 **Approved multiplayer policy:** archaeology finds, including the trim template
@@ -175,19 +194,19 @@ actual search effort with/without maps, not just candidate spacing; repeated
 destinations now reflect intentional uniqueness. See the
 [shared review](../../../docs/project/LORE_GAMEPLAY_REVIEW.md).
 
-## Open decisions
+## Remaining implementation and acceptance
 
-- Concrete rarity values and expected effort to find each relic.
+- Validate the selected starting rarity values and actual effort to find each relic.
 - Map generation/valid-target verification and implementing the approved distant/
   pending/unavailable policies, including retry/claim state; no distance cutoff.
 - Consistent single-site resolution across maps, natural generation, and save/load.
-- Spatial clues and regional skull-placement rules for the selected cleared-
-  territory role; purpose is no longer undecided.
-- Armor-trim name/icon/exact geometric artwork and smithing application data;
-  duplication ingredients/output are selected, crafting layout/testing remains.
+- Validate the specified regional skull-placement rules for the selected cleared-
+  territory role; no skull edits or mandatory new spatial clue artwork.
+- Monolith armor-trim icon/exact geometric artwork and smithing application data;
+  duplication ingredients/output/layout are specified; testing remains.
 - Builder-supplied archaeology positions and distribution of the delegated
   ordinary pool versus reliable map/template finds.
-- Exact finite reward quantities/placement and persistent depletion behavior;
+- Implement the specified finite reward quantities and persistent depletion behavior;
   shared archaeology and copyable/shareable maps are selected, not individual loot.
 
 Related decisions: [Colossus items and trials](../../colossus/gameplay/ITEMS.md).

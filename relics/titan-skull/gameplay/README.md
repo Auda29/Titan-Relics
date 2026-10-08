@@ -33,9 +33,10 @@ as-is for now. Mob spawning remains unchanged and natural; no loot chests are se
 **Updated hierarchy:** **Obelisks and both skull designs share the relatively
 most frequent tier**, followed by rarer **Tower, small Colossi and World Tree**,
 then the **unique large Colossus**. All tiers must still feel **genuinely rare and
-widely separated**, not repetitive background scenery. No exact ratio within a
-tier is selected; this supersedes the older requirement that Obelisks be clearly
-rarer than skulls. Final distances/rates will be discussed using visual examples.
+widely separated**, not repetitive background scenery. The approved starting
+candidate ratios below are not guaranteed successful-site ratios; they supersede
+the older requirement that Obelisks be clearly rarer than skulls. Validate actual
+distances/density in real worlds against the accepted schematic scale.
 
 Treat this as a combined family budget, not a full independent spawn frequency
 for every added variant. The world should retain open space between discoveries.
@@ -43,14 +44,21 @@ Further bone-site designs remain future work. Crowned-skull palettes currently
 share a set, while Skull 2 retains an independent provisional rate; the approved
 combined family budget is not fully implemented yet.
 
-The user now proposes **30% combined skull chance among shared relic opportunities
-within broad Obelisk regions**, and a much lower chance elsewhere. Starting proposals
-are a **6,000-block region radius**, **5% outside** (split between the two designs)
-and a **2,000-block minimum cross-relic distance**, all for visual review. This is
+The user approved **30% combined skull chance among shared relic opportunities
+within broad Obelisk regions**, and a much lower chance elsewhere. The user approved
+a **6,000-block region radius** and a **2,000-block minimum horizontal cross-relic
+center-to-center distance** and **5% combined skull chance outside**. The user also
+approved equal design shares: **15% each inside / 2.5% each outside**. Crowned-skull
+palettes share that design's portion. Obelisk attempts have 30% candidate chance;
+Tower/small Colossus/Tree have 2% each, leaving 34% empty inside / 59% outside.
+The user approved
+**at most one shared repeatable-relic
+opportunity per approximately 5,000 × 5,000-block area**; failed/empty attempts
+remain empty and the unique large site has a separate selection. This is
 not a per-chunk chance, extra skull roll or guaranteed skull beside every Obelisk.
 Natural Obelisk regions **must neither overlap nor touch**: the user selected
 **at least 15,000 blocks between their centers**, leaving 3,000 blocks between
-edges with the proposed equal 6,000-block radius. This replaces the generic
+edges with the approved equal 6,000-block radius. This replaces the generic
 2,000-block floor for this pair; changing radii must still preserve disjoint,
 non-touching regions. Rejected Obelisks cannot anchor regions.
 The conditional budget and deterministic anchor planning are not implemented.
@@ -62,7 +70,7 @@ integrated and visually accepted in Alpha 4.9. It is not another V4 ground palet
 It follows this family's ordinary-mob,
 no-special-item gameplay direction.
 
-No numeric rates or current alpha worldgen settings have been changed.
+Numeric planning rates are selected; current alpha worldgen settings are unchanged.
 
 ## Lore direction
 
@@ -82,16 +90,17 @@ details is approved anatomy or a required addition to every skull. This does not
 authorize changes to accepted V4 exports or introduce living Titans/custom bosses.
 
 Obelisks **marked cleared territories**. Titan skulls should be scattered across
-their broad surroundings; distance, counts, biome compatibility and regional
-selection remain to be planned. Do not interpret this as a skull guaranteed next
+their broad surroundings; the [distribution contract](../../../docs/technical/RELIC_DISTRIBUTION.md)
+specifies distances/budget/valid anchors. Runtime biome/terrain and realized-density
+validation remains. Do not interpret this as a skull guaranteed next
 to every monument. Skull 2's sword owner and exact death circumstances remain unknown.
 
 Shared lore and frequency hierarchy:
 [lore bible](../../../docs/project/LORE-BIBLE.md#relative-discovery-hierarchy).
 
-## Open decisions
+## Boundaries and future evidence
 
-- New skull/bone designs and the shared family generation budget.
-- Visible links to the Titan conflict, coordinated with the Colossus and Obelisk
-  rather than invented independently for each site; see the
+- Implement/test the selected shared family generation budget without changing skull art.
+- New skull/bone designs and visual conflict links are optional future work,
+  not required by this phase or authorization to rebuild the accepted skulls; see the
   [lore/gameplay review](../../../docs/project/LORE_GAMEPLAY_REVIEW.md).

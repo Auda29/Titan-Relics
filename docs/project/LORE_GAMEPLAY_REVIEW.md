@@ -4,7 +4,10 @@ Recorded: October 2, 2026. Updated: October 8, 2026. This records the user's rev
 design tasks. Original review suggestions are not approvals in themselves;
 subsequent decisions are recorded explicitly below. Material B is selected and
 integrated; the cockpit defense-robot history and cleared-territory Obelisk role
-are approved. Recipes, authored interiors and gameplay systems remain open.
+are approved. Recipes/reward policies are selected; authored coordinates,
+implementation and runtime evidence remain deliverables. The
+[planning closure](GAMEPLAY_PLAN_REVIEW.md) and
+[runtime defaults](../technical/GAMEPLAY_RUNTIME.md) distinguish those from unanswered gameplay.
 
 ## Review baseline and current status
 
@@ -19,8 +22,8 @@ from the earlier B / open-chest-frame geometry choice.
 
 Custom items, trials, archaeology, and expedition maps are still planning.
 The golem's original role is now a **cockpit defense robot in a crewed machine**.
-Its present activation/encounter rules, the core's everyday value/final costs,
-multiplayer reward distribution and one-large-site implementation remain open.
+Its present activation/encounter and multiplayer reward rules are selected; the
+core's final survival balance and one-large-site implementation remain unproven.
 
 The review's quantities describe **V3**, not measurements of the accepted V4
 studies. Its candidate rates are not final discovery balance. The newly approved
@@ -42,7 +45,7 @@ assumption. See [V3 integration](../technical/V3_INTEGRATION.md).
   destinations are therefore expected, not evidence of a failed variant search.
 - Uniqueness is **not implemented** in Alpha 4.9. Reliable selection of one valid
   site, persistence, searches/maps, and handling existing alpha worlds remain
-  technical design and acceptance work. Do not create additional large Colossi
+specified technical implementation and acceptance work. Do not create additional large Colossi
   simply because a map needs a destination or a player has already looted one.
 
 ## 1. Material economy: landmark versus mine
@@ -103,8 +106,9 @@ key and reward presentation from that selected role. Explain how/why the robot
 can still function if needed without inventing a cause yet. Keep the rest of the
 Colossus inactive. The golem/key/vault flow remains approved, now including scoped
 autonomous aggression as a planned requirement. Automatic trial-spawner activation
-is selected, without a console; detection/range/reset/player-mode settings still
-need planning/testing. Implementation waits for the documentation gate;
+is selected, without a console; detection/range/reset/player-mode defaults are
+specified in the runtime contract and need testing. The documentation gate is
+closed; implementation awaits a separate request and builder deliverables;
 no replacement enemy is selected. Owner: [head trial](../../relics/colossus/gameplay/ITEMS.md).
 
 **Interior scope selected October 8:** retain the large body cavity and develop
@@ -127,8 +131,9 @@ sites. **October 8 decision:** Obelisks marked territories cleared of Titans by
 the Colossi; skulls are spread across their broad surroundings. The tower was the
 unfinished organizing base; the World Tree was worshipped by Titans, gave them
 strength/size, and survived the builders' attempt to destroy it. All now belong
-to the same ancient conflict. Regional distances, placement rules, visible worship/
-attack evidence and what players can infer remain open. Later
+to the same ancient conflict. Regional distances and placement rules are selected;
+realized density needs evidence. Visible worship/attack traces are optional later
+art, not a required rebuild (especially not at the skulls). Later
 researchers' expedition maps remain a plausible explanation without requiring
 the ancient builders to have created the maps. Owners: [lore bible](LORE-BIBLE.md),
 [Skull gameplay](../../relics/titan-skull/gameplay/README.md), and
@@ -179,14 +184,14 @@ Per-player chests and replenishment are not selected. Owners:
 
 ## 6. Measure discovery effort, not only spacing
 
-The baseline uses 64-chunk Obelisk and 80-chunk Colossus spacing. Under the same
+The historical review baseline used 64-chunk Obelisk and 80-chunk Colossus spacing. Under the same
 random-spread assumptions, the latter yields approximately **36% fewer candidates
 per area** (`1 - (64 / 80)^2`), not proof of a large difference in actual discovery
 time. Biome eligibility and terrain rejection matter substantially.
 
 With the new rule, the large Colossus is no longer a density-tuned repeatable
 family. Its challenge is reaching a **single valid destination**, directly or
-with a map; repeatable smaller Colossi need their own eventual frequency target.
+with a map; repeatable smaller Colossi now have a 2% shared-opportunity starting target.
 
 **Follow-up:** measure search effort across seeds, with/without maps; check target
 validity, repeated destinations, distance/fallback behavior, and search cost.
@@ -210,5 +215,7 @@ models, implementing gameplay, or altering generation now. The later selection
 of material study B addresses the asset-choice portion of the first priority,
 not its outstanding survival-balance checks. The October 8 lore addresses the
 historical-function portion of the second priority, not the cockpit/activation
-layout or implementation. All-relic documentation and consistency review now
-precede gameplay/interior implementation on 26.2/Fabric.
+layout or implementation. The all-relic documentation/consistency review is complete;
+gameplay/interior implementation on 26.2/Fabric still needs a separate request,
+builder exports and the new acceptance matrix. Historical review suggestions do
+not override the resulting decisions or authorize optional conflict-trace rebuilds.

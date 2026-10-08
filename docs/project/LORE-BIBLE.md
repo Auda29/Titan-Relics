@@ -5,8 +5,10 @@ Original design draft: September 13, 2026. Updated: October 8, 2026.
 The five main motifs and version 0.1 scope come from the original concept.
 The October gameplay decisions establish a relative discovery hierarchy and a
 shared history clarified by the user on October 8 for all seven relic designs.
-Approved lore below is distinct from still-open rooms, encounters, rewards, and
-visual clues. The current visual build is Alpha 4.9, including material-B Colossus,
+Approved lore below is distinct from actual builder coordinates, unimplemented
+gameplay and optional visual clues. Gameplay/reward policy is selected; technical
+defaults and remaining evidence are in the [planning review](GAMEPLAY_PLAN_REVIEW.md).
+The current visual build is Alpha 4.9, including material-B Colossus,
 the smaller Colossus, both skull designs, Obelisk, Ruined Tower, and World Tree.
 Custom gameplay and unique-large-Colossus generation remain planning.
 The [lore/gameplay review](LORE_GAMEPLAY_REVIEW.md) records concerns and follow-up
@@ -40,13 +42,15 @@ and a reachable viewpoint invite exploration.
   frequencies: **Obelisks and both skull designs are the relatively most frequent
   tier**, followed by **rarer Tower, small Colossi and Tree**, then the **unique
   large Colossus: one natural site per game world**. **All relics must feel genuinely
-  rare**, with wide gaps; exact rates/distances await visual discussion. This
+  rare**, with wide gaps; approved starting rates/distances are documented below. This
   replaces the earlier requirement for Obelisks to be clearly rarer than skulls.
-- Alpha 4.9 integrates seven designs/ten visual variants. Authored interiors,
-  encounters, rewards and the broader Titan-remains density contract remain open.
+- Alpha 4.9 integrates seven designs/ten visual variants. Interior/reward scope
+  and shared density contract are specified; builder exports and gameplay runtime
+  implementation/evidence remain outstanding.
 - Initial structures use regular Minecraft blocks and original designs.
 - Shape, ground contact, and close detail must work without special lighting.
-- Selected areas are explorable. There is initially no mandatory story or new combat mechanic.
+- Selected areas are explorable. The visual alpha has no new combat mechanic;
+  planned gameplay adds the selected golem trial, not a mandatory global story.
 
 ### Approved history: the Titan conflict — October 8, 2026
 
@@ -64,8 +68,16 @@ that must be answered by inventing an origin or choosing a good side and a bad s
 - The iron golem in the large Colossus's head/cockpit was a **defense robot for
   the cockpit**. The user now prefers **autonomous attacks on players in the trial**,
   superseding retaliation-only behavior. Automatic trial-spawner detection is the
-  selected activation, without a console; detection/targeting settings remain open;
+  selected activation, without a console; detection/targeting defaults are in the
+  runtime contract and need target-version proof;
   only designated defense golems are affected, not all ordinary golems or the whole wreck.
+  The normal trial uses **one defense golem**, not multiple enemies or waves;
+  health and damage stay unchanged in multiplayer, while each eligible participant
+  still receives a key. There is **no ominous Colossus variant**: Trial Omen leaves
+  encounter strength and rewards unchanged; unrelated vanilla trials are unaffected.
+  It retains **normal movement, combat and pursuit**, including chasing players
+  out of the cockpit under normal AI limits. Only initial player aggression is
+  changed; no custom cockpit leash, forced return or teleportation is selected.
 - **Obelisks marked territories cleared of Titans by the Colossi.** Titan skulls
   are consequently found across the broad surrounding territories, not necessarily
   directly beside each marker. The original function is territorial marking, not
@@ -114,16 +126,21 @@ possible. This does not establish that only one machine ever existed historicall
 or a single builder for machines, markers, Titans and the tree. Tower and tree
 are now explicitly connected to this conflict. Alpha 4.9 does not enforce uniqueness.
 
-The unique large site must be **far from the shared world/initial player spawn**;
-exact minimum distance remains open. Personal beds and respawn positions do not
+The unique large site must be **at least 30,000 blocks horizontally from the shared
+world/initial player spawn to its center**. The delegated search prefers a
+30,000–60,000-block annulus, then expands outward without an arbitrary distance
+cutoff, respecting actual border/terrain limits. Personal beds and respawn positions do not
 move or create another site. The user reaffirmed Obelisks/skulls as the relatively
 most frequent tier and rejected too many Tower/small-Colossus/Tree sites in the
-first illustration. Reduced 2% / 2% / 1% candidate shares are assistant proposals
-shown in the revised example, not approved final rates or world-wide count caps.
+first illustration. The user now selected **2% candidate chance each for Tower,
+small Colossus and World Tree**, replacing the assistant's reduced 2% / 2% / 1%
+proposal. These are approved starting weights, not world-wide count caps or
+guaranteed successful-site shares.
 After comparing travel times with vanilla villages, the user accepted the revised
 illustration's broad distance scale, including the roughly 43,000-block journey to
-the large site. Keep this expedition scale; exact per-seed distances and a numeric
-large-site spawn minimum are not thereby fixed. No worldgen changes are authorized.
+the large site. Keep this expedition scale; exact per-seed distances are not fixed
+at 43,000. The subsequent minimum-distance answer selects 30,000 blocks as above.
+No worldgen changes are authorized.
 
 The planned large-site vault must preserve per-player eligibility so later multiplayer
 visitors can salvage a **fully charged, immediately usable core** at the same
@@ -131,13 +148,18 @@ landmark, without initial restoration. The large arm's functional magnet
 remains shared finite loot; smaller sites offer a **10% per-site starting chance
 for one repair-required magnet**, not guaranteed per-player access. Magnet full
 repair uses a crafting table, the existing magnet, **four iron ingots and one
-amethyst shard**, replacing the proposed two redstone. **Obelisk archaeology is shared and finite**;
+amethyst shard**, replacing the proposed two redstone. The approved repair is shaped:
+magnet center, shard above, iron left/right and bottom-left/bottom-right, with all
+other slots empty. **Obelisk archaeology is shared and finite**;
 later visitors may search another site or copy/share an existing expedition map.
 Its exclusive reward is now an **original cosmetic armor-trim template**, not a
 separate display-only collectible. Its motif follows the **angular, geometric
 Obelisk forms**; duplication uses **one template + seven diamonds + one copper
-block -> two templates**, linking its materials to the Colossi. Exact artwork,
-crafting layout/application data and ordinary-loot details remain open. Small sites
+block -> two templates**, linking its materials to the Colossi. The approved name
+is **Monolith-Rüstungsbesatz / Monolith Armor Trim**, with **narrow vertical lines
+and angular branches** reflecting the monument. Duplication layout and finite
+ordinary-loot baselines are specified; exact artwork/application needs delivery
+and runtime evidence. Small sites
 do not inherit the core/trial.
 
 The approved core recharge is a shaped crafting-table recipe: **depleted core in
@@ -154,15 +176,15 @@ code or alternate charcoal recipe is implemented/selected by this planning.
 | Titan skulls and future skull/bone variants | Relatively most frequent tier together with Obelisks; still genuinely rare | Explore unchanged interiors with natural mobs; no loot chests or special item |
 | Obelisks | Relatively most frequent tier together with skulls; still genuinely rare | Shared finite exterior archaeology: cosmetic armor-trim template, ordinary sherds/common finds and copyable map |
 | Large Colossus | One natural site per game world, not a repeatable density target | Technical salvage and head trial; per-player vault grants a fully charged core |
-| Smaller Colossi | Rarer repeatable tier with Tower and Tree; exact rates open | Enterable decayed interiors; modest copper/iron salvage, possible amethyst/redstone; 10% per-site broken magnet |
-| Ruined Tower | Rarer repeatable tier with small Colossi and Tree; exact rates open | Natural mobs, delegated Enderman accent; finite Ender reward: 5% eye, otherwise 4–6 pearls |
-| World Tree | Rarer tier with Tower and small Colossi; exact rates open | Illuminated peaceful refuge; more pigs/chickens/sheep/cows without spawners; regeneration is reward enough |
+| Smaller Colossi | Rarer repeatable tier with Tower and Tree; 2% per shared opportunity | Enterable decayed interiors; modest copper/iron salvage, possible amethyst/redstone; 10% per-site broken magnet |
+| Ruined Tower | Rarer repeatable tier with small Colossi and Tree; 2% per shared opportunity | Natural mobs, delegated Enderman accent; finite Ender reward: 5% eye, otherwise 4–6 pearls |
+| World Tree | Rarer repeatable tier with Tower and small Colossi; 2% per shared opportunity | Illuminated peaceful refuge; more pigs/chickens/sheep/cows without spawners; regeneration is reward enough |
 
 Frequency is a **family-level** target: adding more skull or bone variants should
 not multiply total encounter density unintentionally. Relatively most frequent
 does not mean that every landscape should be crowded with giant remains.
 
-No numeric rates or worldgen settings are changed by this decision. Future
+Numeric planning rates are now selected; no runtime worldgen settings are changed. Future
 balancing must account for biome eligibility, terrain rejection, and actual
 discovery effort, not only candidate spacing. The four crowned-skull palettes
 already share a set; Skull 2 still has an independent provisional rate. A combined
@@ -178,18 +200,26 @@ Detailed gameplay decisions are maintained with each relic:
 - Select visible links between machine and Titan remains: embedded fragments,
   corresponding damage, and later expedition marks are candidate motifs only.
 - Derive spatial clues from the selected Obelisk role: cleared territories with
-  widely distributed remains. The user now proposes 30% combined skull chance
-  within broad Obelisk regions and a much lower chance outside; the assistant
-  starting proposal is a 6,000-block radius / 5% outside, within the shared budget
-  and proposed 2,000-block separation floor. **Obelisk regions must neither overlap
+  widely distributed remains. The user approved **30% Obelisk candidate chance**
+  and **30% combined skull chance inside / 5% outside**, shared equally by the two
+  skull designs: 15% each inside / 2.5% each outside. Crowned-skull palettes share
+  that design's budget. Together with the three 2% shares, this leaves **34% empty
+  inside / 59% outside**, before additional placement rejection. The user selected
+  a **6,000-block radius** and a **2,000-block horizontal center-to-center separation
+  floor across all relic types** and **5% combined skull chance outside** within
+  the shared budget. The user approved **at most one shared repeatable-relic
+  opportunity per approximately 5,000 × 5,000-block area**, with empty/rejected
+  attempts retained and the unique large Colossus outside this budget.
+  **Obelisk regions must neither overlap
   nor touch**: the user selected **at least 15,000 blocks between their centers**,
-  leaving 3,000 blocks between edges with the proposed equal 6,000-block radius.
-  This replaces the generic floor for this pair. Radius and actual relative density
-  still await visual review; no skull at every marker is guaranteed.
+  leaving 3,000 blocks between edges with the approved equal 6,000-block radius.
+  This replaces the generic floor for this pair. Actual relative density still
+  needs validation; no skull at every marker is guaranteed.
 - Design the cockpit and trial around the selected historical defense robot.
   Autonomous player attacks are now the selected behavior direction and require
   scoped AI/runtime support. Automatic trial-spawner activation is selected;
-  detection/targeting range and reset rules still need planning/testing.
+  detection/targeting and reset/cooldown defaults are specified in the runtime
+  contract and still need target-version testing.
   Maintenance/later-installation and retaliation-only alternatives are superseded.
 - Review resource value against the unique landmark's preservation and special
   rewards; ordinary mining remains allowed. Existing worldgen-feature protection
@@ -273,15 +303,18 @@ Most exterior views are calm. Tension comes from entering a darker room, an
 ambiguous opening, or imagining how large the complete body once was.
 Version 0.1 adds no custom jump scares, bosses, or soundscapes. Sites are not
 promised to be mob-free shelters by default. The World Tree is intended as a
-peaceful source of life: more animals, rare or absent hostile spawning, and a
-trunk-focused Regeneration I within about 24 blocks, refreshed nearby and lasting
-about five minutes after leaving. These are starting values; exact spawn/arrival
-policy and effects remain open; lighting alone does not guarantee complete safety.
+peaceful source of life: more selected animals through modest natural spawning,
+lighting that reduces darkness-dependent hostile spawning, and Regeneration I in
+a 24-block sphere through walls around a fixed trunk-base anchor, lasting about
+five minutes after leaving. Ordinary hostiles/arrivals stay natural; there is no
+barrier or immunity. Technical refresh/spawn rules are specified, not tested;
+lighting alone does not guarantee complete safety.
 
 ### 4.5 Light and color
 
-Daylight, shadows, and surroundings carry the main effect. Custom light accents
-would be a later restrained addition; the glowing Ancient One is not a 0.1 requirement.
+Daylight, shadows, and surroundings carry the main effect. The Tree's approved
+root/base-only lighting is an upcoming builder addition, not in the current alpha;
+other custom light accents and the glowing Ancient One remain optional later work.
 
 | Material family | Design role | Initial vanilla palette options |
 | --- | --- | --- |
@@ -352,7 +385,8 @@ investigate its foot; that reuse is not its original purpose.
 cosmetic armor-trim template and a map to the unique large Colossus. Multiple maps
 may lead to the same site and can be copied/shared. The trim uses geometric Obelisk
 forms and can be duplicated with seven diamonds and a copper block plus the existing
-template. Regional placement and exact trim art/application remain open; no replenishing per-player finds are
+template. Regional placement is specified; exact trim art/application needs delivery
+and tests. No replenishing per-player finds are
 selected. See the
 [gameplay decisions](../../relics/obelisk/gameplay/README.md).
 
@@ -428,7 +462,8 @@ almost the same block scale. An accessible in-terrain route for these new assets
 still needs to be completed and tested.
 Alpha 4.9 selects V4.1 with material study B. Both large and smaller Colossi need
 targeted interior/access plans. Small sites have an approved starting **10% chance
-per site for one broken magnet**, requiring repair; exact placement/costs remain open.
+per site for one broken magnet**, requiring the selected shaped four-iron/shard
+repair; exact builder placement remains undelivered.
 They do not inherit the large site's trial, core or vault.
 
 ### 6.3 Ruined tower
@@ -550,14 +585,24 @@ most 15 blocks up the trunk**; no upper-branch/crown lights are selected. At gro
 level it spreads broadly and asymmetrically around the trunk/roots to reduce dark
 spawnable areas beneath the canopy. Exact spread/positions remain open, independent
 of the aura radius; firefly bushes add vanilla visuals, not a new firefly mob.
-Amethyst clusters remain an optional proposal.
+The user selected **one small amethyst sphere inside the trunk at its bottom/base**,
+instead of optional scattered clusters. It is **decorative and normally mineable**,
+with ordinary amethyst blocks/optional crystals, **no budding amethyst or crystal
+regrowth**. Exact builder design remains pending; it does not relocate or disable
+the registered aura when removed.
 The beneficial effect is reward enough; no additional Tree loot/chest or exclusive
 item is selected.
 Approved starting values are **Regeneration I within about 24 blocks of the trunk**,
-refreshed during the stay and lasting **about five minutes after leaving**. Exact
-aura reference/vertical volume, refresh cadence, stacking and neutral-mob/hostile-
-arrival rules remain open; further effects are not selected. This
+refreshed during the stay and lasting **about five minutes after leaving**. A fixed
+builder-supplied trunk-base anchor and a **24-block-radius sphere** are selected;
+the aura **works through wood, walls and terrain**, without requiring free sight.
+The exact anchor coordinate remains a builder deliverable. Technical refresh is
+every 20 ticks to 6,000 ticks with ordinary effect merging; neutral/hostile arrivals
+remain natural. These require runtime tests; further effects are not selected. This
 does not require a literal beacon or guarantee total safety from lighting alone.
+The regeneration aura **remains at its registered natural-site location even after
+heavy damage or complete removal of the Tree**. Mining stays allowed; no automatic
+restoration, indestructibility or new aura from player-built copies is selected.
 No Titan revival, player gigantism, boss or destruction quest is introduced.
 
 **Variants:** Crown shape, a broken major branch, alternative root passages.
@@ -664,11 +709,14 @@ answers these questions:
 - Do important questions remain open while visible details stay coherent?
 
 Silhouettes, palettes, player-scale comparisons, and underground inspection views
-exist and Alpha 4.9 has integrated the seven designs. The October 8 planning gate
-requires documenting all relics' gameplay, interiors, reward placement and lore,
-and reconciling conflicting documents **before implementing** those systems.
+exist and Alpha 4.9 has integrated the seven designs. The October 8 all-relic
+documentation/consistency gate is closed by the planning review; gameplay, revised
+interiors and original item/trim artwork still need a separate implementation
+request and the runtime acceptance matrix.
 Interior access and gameplay acceptance are not implied by visual-model acceptance.
 
-Final display names, preferred persistent palettes, and the amount of later reuse
-remain collaborative decisions. The October 8 history is approved internal lore;
+Item/key/Monolith German and English display names are final. Structure working
+names and optional later reuse remain illustrative, not required new decisions.
+Selected palettes stay preserved; changing them needs separate review.
+The October 8 history is approved internal lore;
 unresolved details and illustrative exploration motifs are not additional canon.

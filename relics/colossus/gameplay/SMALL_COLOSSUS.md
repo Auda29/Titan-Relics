@@ -1,8 +1,11 @@
 # Small Colossus — lore and gameplay planning
 
 Recorded: October 8, 2026. Current visual asset: V7 ground-v3 in Alpha 4.9.
-Gameplay/interior implementation is not authorized until the all-relic planning
-and documentation consistency gate is complete. First gameplay target: 26.2/Fabric.
+The [documentation gate is closed](../../../docs/project/GAMEPLAY_PLAN_REVIEW.md);
+gameplay/interior implementation still requires a separate request and actual
+builder exports. First gameplay target: 26.2/Fabric. See the
+[runtime defaults](../../../docs/technical/GAMEPLAY_RUNTIME.md) and
+[builder marker contract](../../../docs/technical/GAMEPLAY_MARKERS.md).
 
 ## Approved history
 
@@ -25,7 +28,7 @@ This connection is lore, not authorization to add live/moving machines, a boss,
 or automatically copy the large site's trial, core or vault into smaller sites.
 **Rare magnet loot is now explicitly selected below**, not inherited by default.
 
-## Decisions still needed
+## Approved gameplay and builder deliverables
 
 ### Approved interior direction
 
@@ -48,7 +51,8 @@ iron ingots and one amethyst shard**, replacing the proposed two redstone. The c
 is not per chest, player or visit;
 reopening/reloading must not reroll a site or refill its shared reward.
 
-Container and location remain open, and the chance needs survival tuning against
+The sidecar selects one copper magnet-chest marker; its coordinates remain a
+builder deliverable, and the chance needs survival tuning against
 actual site frequency. Do not implement a chance to create extra Colossi or endless
 dropped-item spawning instead of loot. No
 Machine Core, key, trial or per-player vault is selected for these sites. Ordinary
@@ -56,18 +60,23 @@ salvage uses the selected copper/iron theme, with possible amethyst/redstone,
 in modest distributed shared finite finds. Exact amounts and positions remain
 to be tuned/supplied; this does not add new bulk mineral fields to the model.
 
-### Remaining decisions
+### Remaining builder and runtime evidence
 
 - Entrance, explorable extent and targeted terrain clearing for the ruined interior.
 - Remaining machinery/crew traces without rebuilding a working or intact cockpit.
 - Exact material/decay presentation of the weaker construction while preserving
   the accepted exterior unless a separate change is approved.
-- Later inhabitants/reuse, if authored; mob roster, spawning and persistence.
-- Magnet placement/container, repair crafting layout/state handling and survival tuning of the approved
+- Ordinary mobs stay natural; no additional authored encounter/roster is required.
+- Magnet marker placement, implementation of the specified shaped-repair state handling and survival tuning of the approved
   10% per-site starting chance; initial condition is broken, not undecided.
-- Modest copper/iron salvage amounts, optional amethyst/redstone and shared
+- Validate delegated modest site-wide copper/iron/redstone/amethyst amounts and shared
   finite container positions alongside the magnet.
-- Visible companion-machine/campaign clues and final repeatable-site rarity.
+- Visible companion-machine/campaign clues and validation of the selected repeatable-site rarity.
+
+The approved distribution starting value is **2% per shared repeatable-relic
+opportunity**, inside or outside Obelisk regions, equal to Tower and World Tree.
+This is separate from the **10% magnet loot chance per successfully generated site**;
+neither percentage is a world-wide site or item cap.
 
 Related: [large Colossus items and cockpit trial](ITEMS.md),
 [shared lore](../../../docs/project/LORE-BIBLE.md), and

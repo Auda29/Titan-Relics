@@ -26,8 +26,26 @@ see [README](../../README.md) and [runtime report](../testing/ALPHA_4_9_TEST_REP
 It includes Colossus material B and placement-only Java code, **not** the planned
 items, trials, archaeology, maps, authored encounters, or large-site uniqueness.
 The older milestones and Alpha 2/3 tables below are historical planning context,
-not the current implementation inventory. Their detailed reconciliation remains
-part of the requested consistency review.
+not the current implementation inventory. The reconciled status and remaining
+evidence gates are recorded in the [planning review](GAMEPLAY_PLAN_REVIEW.md).
+
+### Planning closure and next implementation handoff
+
+The user-level gameplay round is complete. The requested technical/marker work
+and documentation reconciliation are now specified in:
+
+- [Gameplay runtime and delegated starting defaults](../technical/GAMEPLAY_RUNTIME.md)
+- [Version-1 builder sidecar/marker contract](../technical/GAMEPLAY_MARKERS.md)
+- [Deterministic shared budget and unique-site resolver](../technical/RELIC_DISTRIBUTION.md)
+- [Future gameplay acceptance matrix](../testing/GAMEPLAY_ACCEPTANCE_PLAN.md)
+- [Consistency review, authority and remaining deliverables](GAMEPLAY_PLAN_REVIEW.md)
+
+These documents close the **planning/documentation gate**, not runtime acceptance
+or implementation authorization. Actual builder coordinates/revised exports,
+original item/trim artwork, API proof gates and Minecraft tests remain deliverables.
+The present request is to complete and push documentation only. A subsequent
+implementation request can start the technical proof/item work without another
+large questionnaire; changed approved behavior still requires approval.
 
 ### Responsibility clarification — October 8, 2026
 
@@ -42,18 +60,19 @@ all-relic gameplay planning/consistency gate first.
 For the structure handoff, specify the intended experience, preserved/unchanged
 areas and necessary gameplay locations/space. The builder should later supply
 template-relative positions/markers for spawners, vaults, loot containers and
-archaeology, and references for the Tree's trunk/aura and lighting extent. Agree
-which export data or separate manifest carries these anchors so mod integration
+archaeology, and references for the Tree's trunk/aura and lighting extent. The
+[version-1 sidecar contract](../technical/GAMEPLAY_MARKERS.md) selects raw-template
+coordinates/hash binding and records roles/transforms so mod integration
 can apply rotation/translation, inject block-entity/loot data and identify natural
-sites without guessing coordinates from appearance. This is a handoff requirement,
-not an implemented manifest format or permission to change the accepted skulls.
+sites without guessing coordinates from appearance. The contract is documented,
+but its loader and actual builder markers are not implemented/delivered. It grants
+no permission to change the accepted skulls.
 
-Remaining user-level decisions concern encounter/spawn rules, loot quantities/
-sharing, Tree animals/hostile policy, item presentation and world-distribution/map
-policies. Exact authored coordinates/artwork and technical state handling follow
-from those decisions and the builder handoff; they need not all become another
-user questionnaire. No additional relic designs or definitive answers to deliberately
-lost history are required to close this phase.
+Encounter/spawn rules, sharing, Tree policy, item presentation and distribution/map
+policies are now selected. Delegated ordinary-loot quantities, recipe/icon rules,
+state handling and API proof requirements are in the runtime contract. Exact authored
+coordinates/artwork are builder/integration deliverables, not another questionnaire.
+No additional relic designs or answers to deliberately lost history are required.
 
 ### Approved lore implications — October 8, 2026
 
@@ -87,14 +106,26 @@ despawn/barrier/spawn-blocking system. No Tree loot is selected; its effect is
 reward enough. It has a trunk-focused beacon-
 style benefit: approved starting values are **Regeneration I within about 24 blocks
 of the trunk**, refreshed during the stay and lasting **about five minutes after
-leaving**. Aura reference/vertical volume, refresh cadence/stacking and neutral-
-mob/hostile-arrival policy are open; additional effects are not selected. The
-approved light palette is glow berries, glow lichen, firefly bushes and sparse
+leaving**. The selected aura volume is a **24-block-radius sphere around a fixed
+builder-supplied anchor at the trunk base**, using three-dimensional distance.
+The aura **works through wood, walls and terrain**, without a line-of-sight or
+block-obstruction requirement; spatial inclusion depends only on distance.
+The builder supplies the exact anchor. The runtime baseline refreshes every second
+to five minutes, with ordinary effect merging and no stronger-effect downgrade;
+neutral/hostile behavior stays natural. Additional effects are not selected. The
+user selected that the regeneration aura **remains at the original registered
+natural site even after damage or complete Tree removal**. Normal mining stays
+allowed; no rebuilding/protection or aura creation by copied wood/lights is selected.
+The approved light palette is glow berries, glow lichen, firefly bushes and sparse
 shroomlights. Restrict lighting to the trunk/base and root area, with irregular
 growth at most 15 blocks up the trunk and no upper-branch/crown lights. Spread
 ground-level lighting broadly/naturally around the trunk and roots to reduce dark
 spawnable canopy-shaded areas. Exact spread/positions/quantities remain open, not
-automatically equal to the 24-block aura radius. Amethyst clusters remain optional;
+automatically equal to the 24-block aura radius. The user selected **one small
+amethyst sphere inside the trunk at its bottom/base**, replacing the optional
+scattered-cluster proposal. It is **decorative and normally mineable**, with ordinary
+amethyst blocks/optional crystals, **no budding amethyst or regrowth**, and no control
+over the persistent aura. Exact builder design remains pending;
 this does not add custom firefly mobs or a guaranteed universal safe zone.
 Lighting alone does not enforce total safety. These traversal rules supersede historical
 blanket expectations of fully walkable/no-building routes.
@@ -103,17 +134,30 @@ Plan the five-operator cockpit and its historical defense robot before encounter
 implementation. **Autonomous attacks are preferred**, requiring targeted AI/runtime
 support for designated trial golems, not a global golem behavior change or spawner
 data alone. Activation uses automatic trial-spawner player detection, not a console;
-precise range/sightline/cooldown need target-version testing. Smaller Colossi offer
+the user selected **one defense golem per normal trial**, without a group or
+successive waves. Multiplayer leaves its health and damage unchanged, without
+player-count scaling; each eligible participant still receives a key. The user
+selected **no ominous Colossus variant**: Trial Omen leaves count, strength and
+key/core rewards unchanged, without affecting other vanilla trials;
+the defense golem retains **normal movement/pathfinding/combat and may pursue
+players out of the cockpit**. Only initial player aggression is changed; no
+custom cockpit leash, forced return or teleportation is selected.
+The runtime baseline uses 14-block player registration with vanilla visibility,
+Survival/Adventure only and a 30-minute completed-trial cooldown; these engineering
+defaults need target-version validation. Smaller Colossi offer
 an approved starting **10% chance per site for one broken magnet**, requiring repair;
-container/position remains open. The large
+the selected sidecar provides one copper-chest marker; its coordinates remain a
+builder deliverable. The large
 arm's shared guaranteed magnet and per-player core-vault direction are retained.
 Vault cores are **fully charged and immediately usable**, with no initial
 restoration requirement. The approved crafting-table recharge uses a depleted core
 in the middle, one coal block on each side and one amethyst shard directly above,
 yielding one fully charged core (provisional 256 operations). Magnet full repair
 uses a crafting table and the existing magnet plus four iron ingots and one
-amethyst shard in place of the proposed two redstone; exact crafting layout/state
-handling and balance testing remain.
+amethyst shard in place of the proposed two redstone. Its approved **shaped layout**
+has the magnet in the middle, shard above, iron left/right and bottom-left/bottom-right,
+with the remaining three slots empty. State handling is specified in the runtime
+contract; implementation and balance testing remain.
 
 The earlier 24-coal/four-redstone and three-coal-block proposals are superseded by
 the approved **two coal blocks + one amethyst shard + depleted core** shaped recipe.
@@ -139,26 +183,50 @@ Finds are **shared and finite**: late visitors may seek another Obelisk or copy/
 share recovered maps. No individual/replenishing archaeology is selected. Trim
 motif follows the angular geometric Obelisk forms. Approved duplication is one
 template + seven diamonds + one copper block -> two templates, with copper linking
-to the Colossi. Exact artwork/application data, crafting layout and loot layout/
-quantities remain open.
+to the Colossi. The runtime selects the normal duplication layout (template top-middle,
+copper center, diamonds in the remaining seven slots) and finite eight-block
+archaeology baseline. Exact art/coordinates and application tests remain deliverables.
 
 ### Latest loot/distribution closure — October 8, 2026
 
+- **Approved machine-item display names (German / English):** Maschinenkern /
+  Machine Core, Bergungsmagnet / Salvage Magnet, Colossus-Schlüssel / Colossus Key.
+  Artwork, presentation and item registration remain pending. The user selected
+  **Monolith-Rüstungsbesatz / Monolith Armor Trim** for the Obelisk's exclusive
+  cosmetic trim; its exact artwork/icon remains to be designed.
+  The approved pattern direction is **narrow vertical lines with angular branches**,
+  reflecting the Obelisk silhouette; exact pixel layout across armor pieces is pending.
+- **Approved Machine Core appearance:** compact angular copper housing with a
+  visible inset violet energy element. Exact artwork remains pending; state display
+  and three-state icon thresholds are specified in the runtime contract;
+  this does not change recipes or structure materials.
+- **Approved Salvage Magnet appearance:** compact rectangular copper device,
+  iron front and violet indicator, rather than a conventional U-shaped magnet.
+  Passive offhand mechanics and repair ingredients remain unchanged.
+- **Approved Colossus Key appearance:** angular copper key with geometric head,
+  toothed shaft and a small violet inset. Vault consumption/eligibility rules are
+  unchanged; exact asset creation remains pending.
+- **Approved core/magnet status display:** exact remaining values in tooltips and
+  changing item icons for full/partly used/empty or broken states, **without an
+  inventory status bar**. Full/partial/zero thresholds are specified; exact wording
+  and icon artwork are implementation deliverables.
 - Colossi ordinary loot: modest distributed copper/iron finds, with possible
   amethyst/redstone, in shared finite containers. Exact amounts/anchors are tuning/
-  builder details; do not change material B or create bulk mineral fields.
+  builder details; the runtime now selects modest site-wide starting quantities,
+  without changing material B or creating bulk mineral fields.
 - The user delegates modest ordinary archaeology loot: the Obelisk plan defines
   six ordinary brushable finds (one item each) from vanilla pottery sherds, clay,
   bricks, bones, string, seeds and small metal finds, alongside reliable map/trim
   roles. These are assistant-defined starting weights/amounts, not user-specified
   values or another exclusive reward.
 - Updated relative frequency tiers: **Obelisks + both skulls**, then **Tower +
-  small Colossi + Tree**, then the **unique large Colossus**. No precise equality/
-  ratio within tiers is selected. **All relics must be genuinely rare and widely
+  small Colossi + Tree**, then the **unique large Colossus**. The selected candidate
+  shares below define starting ratios, not guaranteed successful-site ratios.
+  **All relics must be genuinely rare and widely
   separated**, avoiding repetitive "another skull" discoveries. This supersedes
   the earlier Obelisks-clearly-rarer-than-skulls rule.
-- Discuss actual distances/density and the broad Obelisk/skull regional relationship
-  with visual world examples before selecting new rates/radii. A region means
+- The distance/region visual review is complete and the starting values below
+  are approved. Validate actual density against real-world evidence. A region means
   widely scattered surrounding remains, not a cluster beside every foundation.
 - The user has now **approved all three map exceptions** below: distant valid
   target remains the destination; temporarily unresolved maps remain unconfirmed;
@@ -168,17 +236,19 @@ quantities remain open.
 
 ### Distribution proposal and approved map exceptions
 
-Distribution numbers remain **proposals for visual review**, not implemented
-generation settings. The **map exception policy is approved**; its code/state
-handling remains unimplemented.
+The distribution's distances, region radius, opportunity budget and conditional
+candidate shares below are **user-approved starting values**, not implemented
+generation settings or guaranteed successful-site density. The **map exception
+policy is approved**; its code/state handling remains unimplemented.
 
 #### Shared repeatable-relic budget
 
-Use one combined candidate budget for all repeatable families, initially **at most
+**User-approved starting budget:** use one combined candidate budget for all repeatable families, **at most
 one opportunity per approximately 5,000 × 5,000-block area**, with seed-dependent
-positions rather than a visible regular layout. The original global 30% skull
+positions rather than a visible regular layout. This is not a guaranteed successful
+site per cell; rejected/empty opportunities remain empty. The original global 30% skull
 proposal is now refined by the user's request for higher skull likelihood only
-around Obelisks. Proposed conditional shares are:
+around Obelisks. **User-approved conditional starting shares** are:
 
 | Relic/outcome | In a valid Obelisk region | Outside such regions |
 | --- | --- | --- |
@@ -187,23 +257,24 @@ around Obelisks. Proposed conditional shares are:
 | Sword-bearing Skull 2 | 15% | 2.5% |
 | Ruined Tower | 2% | 2% |
 | Small Colossus | 2% | 2% |
-| World Tree | 1% | 1% |
-| Empty opportunity, rather than reallocating suppressed/rarer shares | 35% | 60% |
+| World Tree | 2% | 2% |
+| Empty opportunity, rather than reallocating suppressed/rarer shares | 34% | 59% |
 
 The combined skull chance is **30% inside / 5% outside**, not 30% per design,
-palette, chunk or an additional roll outside the shared budget. The outside 5%
-and radius below are assistant starting proposals, not user-selected values.
+palette, chunk or an additional roll outside the shared budget. The user approved
+the **5% combined outside chance**; the regional radius below is also user-approved.
 Do not renormalize the outside weights to fill its deliberate empty share. The unique large
 Colossus is **outside this repeatable budget**, still one natural site per save.
 The user rejected the first visualization's excessive Towers/small Colossi/Trees
 and reaffirmed the hierarchy: **Obelisks/skulls -> rarer Tower/small Colossus/Tree
--> unique large Colossus**. Revised assistant starting weights are **2% / 2% / 1%**,
-superseding the earlier 15% / 15% / 10%. The user's "under ten" is interpreted here
+-> unique large Colossus**. The user now selected **2% each for Tower, small
+Colossus and World Tree**, superseding both the first 15% / 15% / 10% illustration
+and the reduced assistant 2% / 2% / 1% proposal. The user's "under ten" is interpreted here
 as a visual count target per type in the shown 60,000 × 60,000-block example,
-**not a world-wide cap**. These weights are below 10% as well, but are not separately
-user-approved numbers. Do not impose an artificial nine-site limit or silently
+**not a world-wide cap**. The three 2% candidate weights are approved starting values,
+not guaranteed realized site ratios. Do not impose an artificial nine-site limit or silently
 resample examples to hide random variation.
-Propose a **2,000-block minimum horizontal center-to-center distance** between
+The user approved a **2,000-block minimum horizontal center-to-center distance** between
 successful natural relic sites, including different families and the large site,
 with additional model-footprint checks as needed. **Obelisk-to-Obelisk separation
 has the stronger approved non-overlapping-region constraint below**, not merely
@@ -214,11 +285,12 @@ Invalid biome/terrain candidates leave gaps; do not force a replacement structur
 or fill every area. Weights describe candidate opportunities, not guaranteed shares
 of successful placements or player sightings. The current independent structure
 sets cannot produce this combined budget by merely copying the spacing to each
-family; selecting/rejecting candidates and cross-family separation need a coherent
-future design. Visually compare representative seeds/routes before acceptance.
+family; selecting/rejecting candidates and cross-family separation follow the
+new [distribution contract](../technical/RELIC_DISTRIBUTION.md). Validate real seeds/routes against the accepted
+illustration rather than treating candidate ratios as guaranteed placement ratios.
 
-**Proposed regional radius: 6,000 blocks horizontally around a valid natural
-Obelisk**, while retaining the proposed **2,000-block relic separation floor**;
+**User-approved regional radius: 6,000 blocks horizontally around a valid natural
+Obelisk**, while retaining the approved **2,000-block relic separation floor**;
 thus nearby skulls would be broadly scattered approximately 2,000–6,000 blocks
 away, not at the monument's foot. Neither a fixed skull count nor a skull at every
 Obelisk is guaranteed. Other relics remain possible in the region.
@@ -227,10 +299,10 @@ Obelisk is guaranteed. Other relics remain possible in the region.
 overlap nor touch**, with **at least 15,000 blocks horizontally between Obelisk
 centers**. This replaces the general 2,000-block floor for this pair and supersedes
 the earlier 12,000-block touching threshold / proposed 13,000–14,000-block buffer.
-With the proposed equal **6,000-block radii**, the minimum leaves **3,000 blocks
+With the approved equal **6,000-block radii**, the minimum leaves **3,000 blocks
 between region edges**. The 15,000-block minimum is selected, not merely a buffer
 proposal; it does not require a regular grid or exactly equal pairwise distances.
-Radius and actual density still await visual review. Require **distance > R1 + R2**
+The radius is selected; actual density still needs validation. Require **distance > R1 + R2**
 as well as the 15,000-block floor if radii later change. Do not solve overlap merely
 by unioning regions or capping their stacked spawn weights.
 
@@ -241,15 +313,20 @@ by adding extra opportunities or forcing invalid terrain placements. The existin
 5,000-block opportunity grid alone cannot guarantee disjoint regions.
 
 **Schematic visual check:** [interactive distribution illustration](visualizations/relic-distribution-plan.html)
-shows three deterministic 60,000 × 60,000-block examples using these draft weights,
-approved marker separation and proposed other distances, without biome/terrain
+shows three deterministic 60,000 × 60,000-block examples using these approved starting weights,
+approved marker/general separation, region radius and large-site spawn floor, without biome/terrain
 filtering or actual Minecraft worlds. The first version exposed excessive Towers/
 small Colossi/Trees after the stronger Obelisk exclusion; the user's correction is
-shown with the revised 2% / 2% / 1% weights above, without a count cap. The current
+shown with the user-selected 2% / 2% / 2% weights above, without a count cap. The current
 illustration also marks an example world spawn and the unique large site **about
 43,012 blocks away** (coordinates chosen solely for illustration). Do not treat
 candidate weights as achieved ratios or this example distance as an approved
 minimum. The artifact does not modify templates, gameplay or worldgen settings.
+With the user-selected 2% Tree share, all three displayed examples still have
+fewer than ten Tower/small-Colossus/Tree sites per type. Example 2 has **seven
+Trees and six Obelisks**: the hierarchy is a distribution-level goal, not a hard
+ordering in every finite sample. Do not hide this by rerolling examples or capping
+counts; validate the aggregate hierarchy across many seeds and actual terrain.
 
 **User acceptance after the travel-time comparison:** the distances in the revised
 illustration are satisfactory; retain this wide-ranging expedition scale as the
@@ -257,8 +334,11 @@ planning baseline rather than reducing it to village-like spacing. This includes
 the illustrative large-Colossus journey of about 43,000 blocks from spawn. It is
 acceptance of the shown distance scale, not a requirement for those exact site
 coordinates, identical distances in every seed or a hard 43,000-block spawn floor.
-The exact large-site minimum/search band and production placement parameters still
-need specification; candidate weights remain proposals and worldgen is unchanged.
+The user subsequently selected a **30,000-block horizontal minimum from the shared
+world spawn to the large site's center**. The delegated resolver searches 30,000–60,000
+blocks first, then outward 20,000-block annuli without an arbitrary maximum-distance
+cutoff; physical border limits apply. Candidate weights are approved starting values
+and worldgen is unchanged.
 
 Region anchors must correspond to valid natural Obelisk sites,
 not rejected/nominal candidates or extra markers spawned to satisfy the rule.
@@ -268,11 +348,14 @@ chunks, retroactively add skulls, or create circular placement dependencies.
 The current independent structure sets do not implement this regional model.
 
 Obelisk/skull regional lore must **not** add bonus skulls outside this budget.
-Radius/shares/separation and biome/terrain effects still need visual review.
+The radius, general separation and shares are approved; deterministic selection
+is specified in the distribution contract. Biome/terrain API equivalence and
+realized density still need implementation/validation.
 **Approved large-site direction:** the unique large Colossus must be **far from
-the shared world/player spawn**, not a near-spawn reward. Its exact minimum distance/
-search region remains undecided; the illustrated travel-distance scale is now
-accepted as above. Do not reinterpret this
+the shared world/player spawn**, with an approved **30,000-block horizontal minimum
+to its center**, not a near-spawn reward. Its delegated search preference and
+resumable validation are specified in [Distribution](../technical/RELIC_DISTRIBUTION.md);
+the illustrated travel-distance scale is accepted as above. Do not reinterpret this
 as moving it relative to every player's bed or personal respawn point. Approved
 maps still have no maximum travel-distance cutoff.
 
@@ -294,14 +377,23 @@ maps still have no maximum travel-distance cutoff.
    remains. This compensation is not a new structure or repeatable payout. Already
    valid existing destinations stay valid even if future generation is disabled.
 
-All three cases are **approved by the user**. Specify resolution/retry feedback,
-map/compensation claim state and configuration/re-enable behavior before implementation.
+All three cases are **approved by the user**. Resolution/retry feedback, per-origin
+claim state and re-enable behavior are specified in the runtime/distribution contracts
+and remain to be implemented/tested.
 Compensation belongs to the original finite archaeological reward, not separately
 to every copied pending map; prevent map-plus-compensation double claims or copy/
 reload payouts. A mined/damaged known site is not automatically a missing
 destination or permission to create a replacement.
 
 ## Historical milestones and original implementation baseline
+
+**Archive boundary:** everything in the following original sections 1–11 describes
+the pre-Alpha-4 milestone plan and evidence at its recorded dates. Statements such
+as "current Alpha 3", the two-structure scope, old dependency versions, obsolete
+candidate spacings and no-building access criteria are **not current instructions**.
+Use the current planning/closure sections above, README/catalog and dated Alpha 4.9
+reports for present status. Preserve the historical failures and inventory; do not
+reinterpret them as gameplay test results or re-run old modeling tasks.
 
 **Design priority update, October 2, 2026:** the user has visually accepted
 Colossus V4.1, Obelisk V4.2 and all four Titan Skull V4 ground variants. Create
@@ -327,7 +419,7 @@ broader acceptance are still pending.
 Updated: October 2, 2026.
 
 This is the implementation and acceptance plan for version 0.1. **The current
-visual test build is 0.1.0-alpha.3 for Minecraft 26.2 / Fabric 0.19.5**, selecting
+visual test build was 0.1.0-alpha.3 for Minecraft 26.2 / Fabric 0.19.5**, selecting
 the three V3 exports with natural worldgen. The procedural Alpha 2 architecture,
 dimensions, phases, and evidence below remain a historical planning baseline
 where not explicitly superseded by the updates and linked V3 integration report.
@@ -728,3 +820,16 @@ A successful upload request alone is not proof of public availability.
 
 Environment discovery and basic export are already complete; the next technical
 milestone is integration and in-game acceptance of the selected new assets.
+
+## Current next work — supersedes the historical section 11
+
+1. Await a separate gameplay implementation request; no code/assets/generation
+   changes are included in this documentation push.
+2. Prove safe deterministic terrain planning, one-golem lifecycle, durable Vault
+   claims and the natural animal-spawn hook in isolated 26.2 tests.
+3. Implement item components/furnace/magnet/recipes and original artwork following
+   the runtime contract, without another major gameplay design round.
+4. Receive builder sidecars/revised versioned exports, validate hashes/transforms
+   and integrate only the selected Colossus/Obelisk/Tower/Tree changes. Leave skulls alone.
+5. Implement shared natural-site/claim/map state and run the gameplay acceptance
+   plan. Survival tuning and target-version evidence are release gates, not completed work.

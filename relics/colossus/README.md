@@ -39,32 +39,34 @@ awaits feedback. Material B is distinct from the earlier open-chest-frame choice
 ## Gameplay
 
 - [Machine Core, Salvage Magnet, Colossus Key, and head trial](gameplay/ITEMS.md)
-- [Smaller companion Colossi: crewed-machine lore and open gameplay decisions](gameplay/SMALL_COLOSSUS.md)
+- [Smaller companion Colossi: crewed-machine lore and selected gameplay](gameplay/SMALL_COLOSSUS.md)
 - [Lore/gameplay review: material economy, trial history, and lasting utility](../../docs/project/LORE_GAMEPLAY_REVIEW.md)
 
 **Approved occurrence rule:** one naturally generated **large Colossus per game
 world/save**, shared by all players. Planned **smaller Colossi may occur multiple
-times**; their final loot and frequency are not yet assigned. Alpha 4 currently uses
+times**; approved starts are 2% per shared opportunity and 10% per-site broken-magnet
+loot. Alpha 4.9 currently uses
 repeatable candidate distribution and does **not** enforce large-site uniqueness.
 Obelisk maps will initially lead to the same unique large landmark.
 
 The head trial uses an iron golem and a vault with a guaranteed Machine Core
 reward. The detached arm offers a short exploration route to a copper chest with
 a guaranteed functional Salvage Magnet, without a key or second trial. Detailed
-interiors and armor trim design are deferred. These gameplay features are
+builder coordinates and original item artwork remain deliverables. The Obelisk's
+Monolith trim is specified separately. These gameplay features are
 decisions, not implemented mechanics.
 
 The per-player vault is intended to let later multiplayer visitors obtain a core
-at that one site. The magnet's shared copper chest still needs a late-visitor
-policy. Review follow-ups are open: bulk metal recovery may overshadow rewards,
+at that one site. The magnet's copper chest is shared finite loot; later visitors
+may search small sites for broken magnets. Evidence remains: bulk recovery may overshadow rewards,
 the defense robot needs cockpit/activation design, and core capacity/cost must serve an
 everyday use case. No palette or gameplay changes are made by these notes.
 
 **Lore decision, October 8:** the large Colossus was central and the smaller ones
 its companions; all were crewed. The head golem was the cockpit's defense robot.
 The campaign is thousands of years old, with no living Titans remaining; current
-mobs and players reuse the relics. Cockpit layout, activation and encounters still
-require planning. Earlier undecided golem-role descriptions are superseded.
+mobs and players reuse the relics. Gameplay/activation are specified but not
+implemented; actual cockpit coordinates await the builder. Earlier undecided golem-role descriptions are superseded.
 
 **Interior decisions:** five near-player-sized operators in the large machine,
 two in each small one, perhaps slightly larger than players. Keep the large body's
@@ -72,5 +74,10 @@ cavity and develop mainly the cockpit, with an identifiable hatch reached throug
 player climbing/building rather than a complete authored ascent. Small Colossi
 are enterable, but their cockpits are effectively gone and interiors severely
 decayed because their original materials were weaker. Exact layouts remain open.
+
+See the [runtime contract](../../docs/technical/GAMEPLAY_RUNTIME.md),
+[builder markers](../../docs/technical/GAMEPLAY_MARKERS.md) and
+[planning closure](../../docs/project/GAMEPLAY_PLAN_REVIEW.md). No implementation
+or builder dispatch is included in this documentation round.
 
 Shared setup: [Blender workflow](../../docs/technical/BLENDER_WORKFLOW.md).

@@ -18,6 +18,8 @@ Proposed dimensions below remain the historical pre-modeling baseline.
 The October 8 [approved lore](LORE-BIBLE.md) supersedes older undecided origin/role
 alternatives. Document all relics' gameplay, interiors and rewards consistently
 before implementation, targeting **26.2/Fabric first**.
+The [planning closure](GAMEPLAY_PLAN_REVIEW.md) now records that reconciliation.
+Technical runtime/markers/distribution and future tests are specified, not implemented.
 
 ## 1. Five motifs from the Instagram references
 
@@ -44,9 +46,11 @@ lower body, damaged armor, and detached arm. A torso opening should allow interi
 - Priority: first demanding prototype.
 - Current asset work: [Colossus v2](../../relics/colossus/docs/COLOSSUS_V2.md) follows the visible form;
   [v3](../../relics/colossus/docs/COLOSSUS_V3.md) extended it underground to a torn hip for Alpha 3.
-  Alpha 4.9 selects V4.1 with material study B; crewed interiors remain to be planned.
+  Alpha 4.9 selects V4.1 with material study B; five-operator cockpit/hatch scope is
+  selected, while exact builder layout remains undelivered.
 - Occurrence: **one large Colossus per game world**. Smaller Colossi may occur
-  multiple times; frequency and loot remain separate decisions. Their current
+  multiple times; 2% shared-opportunity frequency and 10% per-site broken-magnet
+  loot are selected separately. Their current
   [Vigilant-Class reference brief](../../relics/colossus/docs/SMALL_COLOSSUS_V4_REFERENCE.md)
   replaces the archived first-concept direction.
   Large-site uniqueness is not yet implemented.
@@ -80,7 +84,8 @@ the silhouette.
   It replaces the rectangular design of [v2](../../relics/obelisk/docs/OBELISK_V2.md) as the current
   design study for Alpha 3. V4.2 is now integrated in Alpha 4.9.
 - Lore: Obelisks marked territories cleared of Titans, with skulls distributed
-  widely around them. Regional placement and archaeological reward layout remain open.
+  widely around them. Regional placement is specified; exact archaeology coordinates
+  remain a builder deliverable (six common and two special finite finds).
 
 ### 3. Monumental sci-fi ruined tower above a pale plain
 
@@ -134,7 +139,8 @@ open in the [lore bible](LORE-BIBLE.md).
   for the Colossus. The full 121 × 79 × 203 export includes a broken, partly buried
   nine-vertebra spine and a solid local hill.
   V3 was selected in Alpha 3; V4 successors now have natural placement in Alpha 4.9.
-  Authored encounters and rewards remain planning.
+  Both skulls retain accepted interiors/access and natural mobs without authored
+  encounters, access-clearing work or loot chests.
 
 #### Second independent Titan Skull
 
@@ -179,8 +185,8 @@ crown and broad root arches. The reference is a montage, not one measured tree.
 it. The Colossi's builders tried and failed to destroy it. Present-day effects,
 worship/attack evidence and rewards are not selected by this history.
 
-**Initial scope remains Obelisk and Colossus.** This catalog is not a promise to
-deliver all five motifs in version 0.1.
+**Historical initial scope was Obelisk and Colossus.** Alpha 4.9 now integrates
+seven designs/ten variants; the current gameplay planning covers all seven.
 
 ## 2. Intent and visual language
 
@@ -211,8 +217,11 @@ the exact event sequence remain unknown.
 
 The updated relative tiers are **Obelisks and both skull designs**, then **Tower,
 small Colossi and Tree**, then **one unique large Colossus per game world**.
-**All relics must remain genuinely rare and widely separated**, with actual rates/
-distances deferred to visual review. This supersedes the earlier requirement for
+**All relics must remain genuinely rare and widely separated**. The visual distance
+review is complete: shared 5,000 × 5,000 opportunities, 2,000 cross-relic center
+floor, 15,000 between Obelisks, non-touching 6,000-radius regions and 30,000 from
+initial shared spawn to unique large center are selected starting rules. Actual
+density under biome/terrain rejection remains a future test. This supersedes the earlier requirement for
 Obelisks to be clearly rarer than skulls. Small Colossi may repeat, with a starting
 10% per-site chance for one broken
 magnet requiring repair. Skull/bone variants share a family-level
@@ -244,7 +253,12 @@ lasting core utility, multiplayer reward distribution, and actual discovery effo
 Suggested solutions remain proposals; they do not authorize model changes or
 gameplay implementation.
 
-## 3. Initial scope
+## 3. Historical visual-alpha scope and upcoming gameplay
+
+The original visual-only scope below explains the alpha history. The approved
+one-golem trial, custom items/trim/maps and Tree aura are the upcoming gameplay
+phase, not a contradiction to erase or a feature already present in the alpha.
+No moving mech/custom boss/dimension or wholesale terrain regeneration is selected.
 
 Included: static vanilla-block relics, deliberately designed base forms and
 controlled variants, biome/height/terrain/frequency rules, local debris or detached
@@ -304,7 +318,8 @@ every slope. The implemented alpha sequence is described in [Worldgen](../techni
 Use designed alternatives: damaged components, present/absent optional parts,
 prepared poses, environment-appropriate surfaces and plants, and bounded burial.
 Free random recombination is not the objective. Every allowed variant must stay
-coherent and recognizable. The alpha currently has one prepared form per type.
+coherent and recognizable. Alpha 4.9 has seven designs/ten selected variants,
+including four crowned-skull palettes.
 
 ### Size and embedding
 
@@ -333,6 +348,10 @@ long sightlines may strengthen good geometry, not replace it.
 
 ## 7. Development phases
 
+**Historical roadmap:** its two-relic milestone and staged motif additions are
+preserved below. The seven current designs are already integrated; new work follows
+the technical runtime/marker handoff, not another V1 design round.
+
 | Phase | Deliverable / completion criterion |
 | --- | --- |
 | 0 — Environment | Reproducible target, exact dependencies, separate test world |
@@ -350,7 +369,11 @@ their integration and broader acceptance, not restarting environment discovery.
 **First full milestone:** a new world in the intended pack naturally produces
 both a readable desert Obelisk and a convincingly embedded Colossus without manual repair.
 
-## 8. Version 0.1 acceptance
+## 8. Historical visual version 0.1 acceptance
+
+These original criteria are not gameplay results. The
+[gameplay acceptance plan](../testing/GAMEPLAY_ACCEPTANCE_PLAN.md) covers the new
+mechanics and all seven designs, including deliberate player-built ascent/gap bridging.
 
 ### Design
 
@@ -375,11 +398,14 @@ chunk-generation time, stalls, memory, and errors. Set budgets from the baseline
 before acceptance. Static structures need no movement or AI simulation, but
 generation and rendering many blocks still have costs.
 
-## 9. Decisions still open
+## 9. Remaining deliverables and evidence
 
-- Which new designs should replace the alpha assets, and at what final game scale.
-- Terrain tolerances, density, and spacing after exploration tests.
-- Additional variants and any required custom placement/diagnostic code.
+- Versioned builder interior/archaeology/Tree-light exports and marker coordinates;
+  preserve accepted designs, both skulls and original exports.
+- Original item/Monolith trim artwork and target-version resource registration.
+- Runtime proof gates, aggregate density under real rejection, full-pack
+  compatibility/performance and survival tuning of the selected starting values.
+- Additional variants are optional future work, not required for this phase.
 - Full-release licensing and publication details.
 
 Target versions and the basic pipeline are now established. Design choices and
