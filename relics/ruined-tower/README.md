@@ -1,5 +1,11 @@
 # Ruined Tower
 
+**Lore approved October 8:** the unfinished base from which the ancient Titan-
+clearing campaign was organized. Never-completed construction accounts for its
+stronger dilapidation relative to the Colossi. Current mobs and players may reuse
+the site, thousands of years later. Rooms, inhabitants and rewards remain to be
+planned in [gameplay](gameplay/README.md); no model changes follow from this lore.
+
 **V7 ground-v3 is the latest visual candidate:** connected collapsed side bays and a broken
 corner, retaining 220 visible layers. See the [Alpha 4.5 follow-up](../../docs/project/EMBEDDING_20261006.md).
 

@@ -7,7 +7,7 @@ and implementation code in `src/`, `tools/`, and `tests/`.
 | --- | --- |
 | [Colossus](colossus/README.md) | Alpha 4.6 retains V4.1 materials B and selects Small Colossus V7 ground-v3 with deeper burial; gameplay/uniqueness pending |
 | [Obelisk](obelisk/README.md) | Alpha 4.6 retains V4.2; archaeology, collectibles and maps pending |
-| [Titan Skull](titan-skull/README.md) | Skull 2's Alpha 4.9 appearance and shallow terrain footprint visually accepted October 7; all raw Skull exports unchanged; encounters pending |
+| [Titan Skull](titan-skull/README.md) | Existing interiors/access accepted; natural mob spawning unchanged, no authored encounters; exports unchanged |
 | [Ruined Tower](ruined-tower/README.md) | V7 ground-v3 collapsed-side-bay candidate with 220 visible layers selected in Alpha 4.6 |
 | [World Tree](world-tree/README.md) | Alpha 4.9 V4.3 strands and terrain integration visually accepted October 7; 1,883 tapered low-root cells along 50 paths and bounded cave contacts |
 
@@ -86,23 +86,76 @@ occupied position. Mining reveals armour openings while preserving the head/body
 connection and all surviving component connections. The user accepted this
 material version and its post-salvage appearance on October 2, 2026.
 
-The intended discovery order is **Titan skulls and future bone/skull variants
-(most common) -> Obelisks (clearly rarer) -> the unique large Colossus**. The large
+The updated relative tiers are **Obelisks + both skull designs -> rarer Tower +
+small Colossi + World Tree -> the unique large Colossus**. All relics must remain
+genuinely rare and widely separated, with exact rates/distances deferred to visual
+review. This supersedes the earlier Obelisks-clearly-rarer-than-skulls rule. The large
 Colossus should occur **once per game world/save**, shared by all players. Planned
 **smaller Colossi may occur multiple times**, with separate rarity/loot decisions
 still open. Alpha 4 has provisional repeatable candidate rates and does not yet
 enforce uniqueness; future skull/bone variants share a family-level density target.
 
-Obelisk maps initially lead to the same large site. Its vault preserves per-player
-core eligibility for multiplayer; the shared magnet chest and archaeology still
-need later-visitor reward policies. The
+Planned Obelisk maps initially lead to the same large site. Its future vault must preserve per-player
+core eligibility for multiplayer; the arm magnet and Obelisk archaeology are
+shared finite finds, while small sites may yield repair-required magnets. The
 [lore/gameplay review](../docs/project/LORE_GAMEPLAY_REVIEW.md) tracks material
 economy, historical trial integration, lasting core usefulness, visible lore
 links, multiplayer distribution, and measured discovery effort as open tasks.
 
-The working history connects the three: a Colossus was sent to kill the Titans,
-while Obelisks served as wayfinders or marked destroyed Titans. Details remain
-open in the [lore bible](../docs/project/LORE-BIBLE.md).
+**Approved history, October 8:** all Colossi were crewed; the large machine was
+central and the smaller ones its companions. The head golem was a cockpit defense
+robot. Obelisks marked territories cleared of Titans, with skulls scattered across
+the broad surroundings. The unfinished tower organized the campaign. Titans
+worshipped the World Tree and drew strength/size from it; the Colossi's builders
+failed to destroy it. Thousands of years later no living Titans remain, and mobs/
+players reuse the relics. Titan nature and the campaign's motive are lost to time.
+This supersedes the old Obelisk/golem-role alternatives and independent tower/tree
+history. See the [lore bible](../docs/project/LORE-BIBLE.md).
+
+Document gameplay, interiors, reward placement and remaining lore for all seven
+designs, then reconcile documentation before implementing on **26.2/Fabric first**.
+Crew sizes are now fixed: five in the large Colossus, two in each smaller one,
+approximately player-sized and possibly a little larger. Keep the large cavity;
+develop its cockpit/hatch, with player-found/built ascent. Small machines are
+enterable but have severely decayed interiors and effectively lost cockpits from
+weaker materials. The [smaller Colossus plan](colossus/gameplay/SMALL_COLOSSUS.md)
+remains separate from the large site's core/trial; approved starting loot is a
+10% per-site chance for one broken magnet requiring repair, with placement and
+repair state handling still pending. The large defense golem should attack autonomously after automatic
+trial-spawner activation, without a console; scoped detection/targeting needs testing.
+Tower stair gaps require building. Ordinary mobs stay natural; the extra Enderman
+method is delegated (a small one-time generation group is recommended). Shared
+finite Ender loot is 5% eye, otherwise 4–6 pearls, with site-level roll assumptions
+recorded in the Tower plan.
+Both skulls retain their accepted existing interiors and current accessibility
+unchanged for now; no additional access/terrain-clearing review is selected.
+Their mobs spawn naturally with no extra spawners, placed enemies or spawning changes;
+neither skull gets loot chests. The World Tree should have more pigs/chickens/sheep/
+cows through modest natural spawning, no animal spawners or farm-like refill.
+Ordinary hostiles stay natural, with dark spawning reduced through lighting; the
+effect is reward enough, without Tree loot. Approved effect starting values:
+Regeneration I within about 24 blocks
+of the trunk, refreshed during the stay and lasting five minutes after leaving.
+Exact spawn/aura geometry/refresh rules, regional placement and reward positions
+remain open. None of these systems is implemented.
+
+The selected World Tree light palette is glow berries, glow lichen, firefly bushes
+and sparse shroomlights. Lighting stays at the trunk/base and roots, rising
+irregularly at most 15 blocks up the trunk, with broad natural ground-level spread
+and no upper-branch/crown lights. Exact spread/positions/quantities remain open;
+amethyst clusters are optional. The approved shaped core recharge uses
+the depleted core in the middle, a coal block on each side and one amethyst shard
+above, yielding one fully charged core (provisional 256 operations). Earlier
+24-coal and three-coal-block proposals are superseded; recipe code/balance testing
+remain pending.
+
+**Latest reward decisions:** Obelisk archaeology is shared finite loot, with an
+original cosmetic armor-trim template and copyable/shareable expedition map; trim
+motif follows geometric Obelisk forms, with exact artwork open. Duplication uses
+one template + seven diamonds + one copper block -> two templates. The Vault core starts fully charged and usable,
+with no initial restoration. Magnet full repair uses a crafting table and four
+iron ingots plus one amethyst shard instead of two redstone, repairing the existing
+magnet fully without creating a second item.
 
 ## Folder convention
 

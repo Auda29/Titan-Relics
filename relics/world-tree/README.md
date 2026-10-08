@@ -1,5 +1,28 @@
 # World Tree
 
+**Lore approved October 8:** the Titans worshipped this tree and received strength
+and size from it. The Colossi's builders tried and failed to destroy it. Thousands
+of years later no living Titans remain; current inhabitants reuse the relics.
+Visible worship/attack traces and present-day gameplay remain open in the
+[gameplay plan](gameplay/README.md). The current gameplay direction is a peaceful
+source of life, with more pigs/chickens/sheep/cows through modest local natural
+spawning, **no animal spawners or farm-like refill**, natural-looking lights to
+reduce darkness-dependent hostile spawning, and a trunk-focused benefit. Ordinary
+hostiles keep natural rules; no barrier/despawn system is selected. The effect is
+reward enough, with no Tree chest/item. Approved starting values are
+Regeneration I within about 24 blocks, refreshed during the stay and lasting five
+minutes after leaving. Aura geometry, refresh cadence/stacking and spawn rules
+remain open; additional effects are not selected. No code or
+new geometry has been implemented by this planning.
+
+**Lighting direction:** glow berries, glow lichen, firefly bushes and sparse
+shroomlights, restricted to the trunk/base and root area. Growth reaches at most
+15 blocks up the trunk, unevenly and naturally; no upper-branch/crown lights.
+At ground level it spreads broadly and irregularly around the trunk and roots
+to reduce dark spawnable areas beneath the canopy. Exact spread/positions remain
+open and are not automatically the aura's 24-block radius. Amethyst clusters are
+still optional, not a selected required addition.
+
 **World Tree V4.3 strands and its current Alpha 4.9 terrain integration were
 visually accepted by the user on October 7, 2026.** Five new Tree screenshots
 show the base, crown, roots and cave opening; see the

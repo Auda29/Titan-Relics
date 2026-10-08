@@ -111,20 +111,26 @@ inferred from the reference.
 
 ## Lore and gameplay
 
-The working history describes a Colossus sent to the planet to kill **Titans**.
-Multiple distinct skulls and other remains help communicate that the conflict
-involved more than one Titan, without adding living Titans or a boss system.
+**Approved October 8 history:** the central large Colossus and smaller crewed
+companions conducted the Titan-clearing campaign thousands of years ago. The
+Titans worshipped the World Tree and received strength and size from it. Their
+exact nature and the campaign's motive are lost to time. **No living Titans remain**;
+ordinary current mobs and players reuse the remains. Obelisks marked cleared
+territories, with skulls scattered widely across their surroundings. Exact regional
+placement is still open. This does not decide the giant sword's owner or add a boss.
 
 The new skull belongs to the same family-level discovery budget as the existing
-skull and future bone variants: this family is most common, Obelisks clearly
-rarer, and the large Colossus unique per game world. Planned smaller Colossi may
-repeat with their own undecided rarity. Adding the design must not multiply total
+skull and future bone variants. The updated relatively most frequent tier contains
+both skull designs and Obelisks, followed by rarer Tower/small Colossi/Tree, then
+the unique large Colossus. All remain genuinely rare; rates/distances await visual
+discussion. Adding the design must not multiply total
 Titan-remains family density unintentionally. Large-site uniqueness is not yet
 implemented.
 
 Use the existing [skull gameplay direction](../gameplay/README.md): ordinary mobs
 inhabit the decaying remains; no exclusive item, trial, or custom enemy is
-required. Exact encounters and placement remain to be designed.
+required. Current interiors/access and natural spawning are retained; no additional
+encounters, access work or loot chests are selected for either skull design.
 
 ## Next design work
 

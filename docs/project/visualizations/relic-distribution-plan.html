@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Relikt-Verteilung · Planungsvisualisierung</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0c1519; --panel:#142126; --edge:#293b41; --text:#e5eeea; --muted:#a2b6b9; --gold:#f1c66d; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:15px/1.5 "Segoe UI",system-ui,sans-serif; }
+    main { max-width:1450px; padding:30px; margin:auto; }
+    header { display:flex; justify-content:space-between; gap:20px; align-items:center; margin-bottom:22px; }
+    .eyebrow { color:var(--gold); font-size:12px; letter-spacing:2px; text-transform:uppercase; }
+    h1 { font-size:34px; margin:3px 0 5px; letter-spacing:-1px; }
+    h2 { font-size:18px; margin:0 0 12px; }
+    p { margin:5px 0 12px; }
+    .muted { color:var(--muted); }
+    .badge { border:1px solid #5a5437; color:#ead69b; background:#302c20; border-radius:8px; padding:9px 13px; font-size:12px; max-width:270px; }
+    .layout { display:grid; grid-template-columns:minmax(0,1fr) 315px; gap:20px; align-items:start; }
+    .panel { border:1px solid var(--edge); background:var(--panel); border-radius:14px; overflow:hidden; }
+    .toolbar { display:flex; gap:13px; flex-wrap:wrap; align-items:center; padding:14px 17px; border-bottom:1px solid var(--edge); }
+    select,button { color:var(--text); background:#203237; border:1px solid #3f555b; padding:7px 10px; border-radius:6px; font:inherit; }
+    button { cursor:pointer; } button:hover { background:#2c444a; }
+    label { cursor:pointer; font-size:13px; } input { accent-color:var(--gold); vertical-align:middle; }
+    .viewport { overflow:auto; background:#0e1b20; max-height:max(430px,min(68vh,760px)); }
+    #map { display:block; width:100%; min-width:360px; height:max(430px,min(68vh,760px)); }
+    #map text { font-family:"Segoe UI",system-ui,sans-serif; }
+    .marker { cursor:pointer; outline:none; }
+    .marker:hover .halo,.marker:focus .halo { stroke:#fff; stroke-width:2; }
+    .map-note { padding:12px 17px; color:var(--muted); font-size:12px; border-top:1px solid var(--edge); }
+    aside { display:grid; gap:16px; }
+    .content { padding:18px; }
+    .legend-row { display:grid; grid-template-columns:24px 1fr 28px; align-items:center; gap:8px; margin:8px 0; }
+    .symbol { font-weight:750; font-size:12px; border:1px solid currentColor; border-radius:5px; width:24px; height:24px; text-align:center; line-height:22px; }
+    .count { text-align:right; font-variant-numeric:tabular-nums; font-weight:600; }
+    .rules { margin:0; padding:0; list-style:none; }
+    .rules li { padding:10px 0; border-bottom:1px solid var(--edge); }
+    .rules li:last-child { border:0; padding-bottom:0; }
+    .rules strong { display:block; font-size:19px; }
+    .status { font-size:11px; border:1px solid #436653; color:#b4d8be; padding:1px 5px; border-radius:4px; margin-left:4px; white-space:nowrap; }
+    .status.proposal { color:#d8c595; border-color:#635837; }
+    #detail { min-height:130px; }
+    .detail-title { font-size:17px; font-weight:650; margin-bottom:5px; }
+    .detail-data { font-size:13px; color:var(--muted); }
+    .bottom { display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:20px; }
+    table { border-collapse:collapse; width:100%; font-size:13px; }
+    th,td { padding:7px 0; border-bottom:1px solid var(--edge); text-align:left; }
+    td:not(:first-child),th:not(:first-child) { text-align:right; }
+    .warning { border-left:3px solid var(--gold); padding-left:13px; color:#e7d5ac; }
+    .small { font-size:12px; color:var(--muted); }
+    footer { margin-top:18px; color:var(--muted); font-size:12px; }
+    @media(max-width:950px) { .layout { grid-template-columns:1fr; } aside { grid-template-columns:1fr 1fr; } aside .panel:last-child { grid-column:1/-1; } }
+    @media(max-width:600px) { main { padding:16px; } header { display:block; } h1 { font-size:28px; } .badge { margin-top:12px; max-width:none; } aside,.bottom { grid-template-columns:1fr; } .toolbar { gap:10px; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div><div class="eyebrow">Relic Mod · Planungsstand 8. Oktober 2026</div><h1>Relikt-Verteilung</h1><p class="muted">Schematische Beispielwelt · 60.000 × 60.000 Blöcke · Ansicht von oben</p></div>
+    <div class="badge">Kein echter Minecraft-Seed.<br>Keine Änderung an Mod oder Worldgen.</div>
+  </header>
+  <div class="layout">
+    <section class="panel" aria-label="Interaktive Übersichtskarte">
+      <div class="toolbar">
+        <select id="example" aria-label="Beispielverteilung"><option value="42">Beispiel 1</option><option value="137">Beispiel 2</option><option value="812">Beispiel 3</option></select>
+        <label><input id="regions" aria-label="Obeliskregionen anzeigen" type="checkbox" checked> Obeliskregionen</label>
+        <label><input id="grid" aria-label="5.000er-Raster anzeigen" type="checkbox" checked> 5.000er-Raster</label>
+        <label><input id="empty" aria-label="Leere Versuche anzeigen" type="checkbox"> Leere Versuche</label>
+        <button id="zoom" type="button">Vergrößern</button>
+      </div>
+      <div class="viewport"><svg id="map" viewBox="0 0 1020 1050" role="img" aria-labelledby="map-title map-description"></svg></div>
+      <div class="map-note">Marker anklicken für Details. Marker sind Symbole, keine maßstabsgetreuen Bauwerke. Alle Abstände beziehen sich auf Mittelpunkte.</div>
+    </section>
+    <aside>
+      <section class="panel content"><h2>Relikte im Ausschnitt</h2><div id="legend"></div><p class="small" id="counts"></p></section>
+      <section class="panel content"><h2>Abstände & Regionen</h2><ul class="rules">
+        <li><strong>≥ 15.000 Blöcke <span class="status">festgelegt</span></strong><span class="muted">zwischen Obelisken; Regionen berühren sich nicht</span></li>
+        <li><strong>6.000 Blöcke <span class="status proposal">Vorschlag</span></strong><span class="muted">Regionsradius; mindestens 3.000 Blöcke Lücke bei 15.000 Abstand</span></li>
+        <li><strong>≥ 2.000 Blöcke <span class="status proposal">Vorschlag</span></strong><span class="muted">zwischen übrigen Reliktpaaren</span></li>
+        <li><strong>Ein großer Colossus <span class="status">festgelegt</span></strong><span class="muted">pro Save, weit vom Weltspawn. Hier beispielhaft <span id="spawn-distance"></span> Blöcke Luftlinie; exakte Mindestentfernung noch offen.</span></li>
+      </ul></section>
+      <section class="panel content" id="detail" aria-live="polite"><h2>Standortdetails</h2><p class="muted">Wähle einen Marker auf der Karte.</p></section>
+    </aside>
+  </div>
+  <div class="bottom">
+    <section class="panel content"><h2>Auswahlchancen vor Abstandsprüfung</h2>
+      <table><thead><tr><th>Relikt / Ergebnis</th><th>In Region</th><th>Außerhalb</th></tr></thead><tbody>
+        <tr><td>Obelisk</td><td>30 %</td><td>30 %</td></tr><tr><td>Schädel 1 + 2 zusammen</td><td>30 %</td><td>5 %</td></tr>
+        <tr><td>Turm</td><td>2 %</td><td>2 %</td></tr><tr><td>Kleiner Colossus</td><td>2 %</td><td>2 %</td></tr>
+        <tr><td>Weltenbaum</td><td>1 %</td><td>1 %</td></tr><tr><td>Bewusst leer</td><td>35 %</td><td>60 %</td></tr>
+      </tbody></table>
+      <p class="small">Ein gemeinsames Budget: höchstens ein Versuch je 5.000 × 5.000-Blöcke-Zelle. Schädelchance gilt je Versuch, nicht je Chunk. Beide Designs teilen die Chance; die vier Paletten von Schädel 1 erhalten kein Zusatzbudget.</p>
+    </section>
+    <section class="panel content"><h2>Was dieses Prüfmodell zeigt</h2>
+      <p>Obelisken werden zuerst ausgewählt und mit 15.000 Blöcken Mindestabstand geprüft. Ihre akzeptierten Modellstandorte bilden die Regionen. Danach folgen die übrigen Versuche; abgelehnte Plätze bleiben leer.</p>
+      <p class="warning" id="warning"></p>
+      <p class="small">Die festgelegte Rangfolge: Obelisken/Schädel relativ am häufigsten → seltener Turm/kleine Kolosse/Baum → einmaliger großer Colossus. Nach der ersten Ansicht wurden die drei mittleren Typen auf 2 % / 2 % / 1 % reduziert. Ziel: je Typ unter zehn Standorte im gezeigten Ausschnitt, kein weltweites Limit und keine künstliche Neun-Standorte-Kappung. Die Zahlen bleiben Diskussionswerte; Zufall und Terrain können Häufigkeiten verändern.</p>
+      <p class="small" id="checks"></p>
+      <p class="small">Ohne Biome, Höhen, Wasser, tatsächliche Bauwerksgrößen und Terrain-Rejection. Kein Beweis für echte Fundhäufigkeit. Das Planungsmodell ist im Mod noch nicht implementiert.</p>
+      <p class="small">Nach dem Reisezeitvergleich ist die gezeigte Entfernungsskala vom Nutzer akzeptiert. Die rund 43.000 Blöcke zum großen Colossus bleiben ein Planungsbeispiel, keine exakte Standortvorgabe oder feste Mindestentfernung für jeden Seed.</p>
+    </section>
+  </div>
+  <footer>Standortverteilung, Radius und genaue Spawnentfernung sind Diskussionswerte; 15.000 Blöcke Obeliskabstand, die Einmaligkeit und große Entfernung des großen Colossus vom Weltspawn sind festgelegt. Quelle: <a href="../UMSETZUNGSPLAN.md" style="color:#b9d1d5">Umsetzungsplan</a>.</footer>
+</main>
+<script>
+  const WORLD = 60000, CELL = 5000, RADIUS = 6000, OBELISK_GAP = 15000, RELIC_GAP = 2000;
+  const SPAWN = {id:'spawn',x:10000,z:10000};
+  const TYPES = {
+    obelisk:{name:'Obelisk',symbol:'O',color:'#f1c66d'},
+    skull1:{name:'Gekrönter Schädel',symbol:'S1',color:'#ede4d4'},
+    skull2:{name:'Schädel mit Schwert',symbol:'S2',color:'#d6a8c7'},
+    tower:{name:'Ruined Tower',symbol:'T',color:'#9abcef'},
+    small:{name:'Kleiner Colossus',symbol:'K',color:'#dd9671'},
+    tree:{name:'Weltenbaum',symbol:'B',color:'#96d4a0'},
+    large:{name:'Großer Colossus',symbol:'G',color:'#70d6d6'}
+  };
+  function rng(seed) {
+    return function() {
+      seed |= 0; seed = seed + 0x6D2B79F5 | 0;
+      let t = Math.imul(seed ^ seed >>> 15, 1 | seed);
+      t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+      return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    };
+  }
+  function distance(a,b) { return Math.hypot(a.x-b.x,a.z-b.z); }
+  function visible(p) { return p.x >= 0 && p.z >= 0 && p.x < WORLD && p.z < WORLD; }
+  function makeExample(seed) {
+    const random = rng(seed), candidates = [], rejected = [];
+    // Surrounding cells reduce edge artifacts. This finite illustrative model is
+    // not the order-independent infinite-world planner needed for production.
+    for (let z=-4;z<16;z++) for (let x=-4;x<16;x++) {
+      candidates.push({id:`${x}:${z}`,x:(x+0.08+random()*0.84)*CELL,z:(z+0.08+random()*0.84)*CELL,roll:random(),priority:random()});
+    }
+    const large = {id:'large',x:45000,z:35000,type:'large'};
+    const anchors = [], accepted = [large];
+    const ordered = [...candidates].sort((a,b)=>a.priority-b.priority);
+    for (const c of ordered.filter(c=>c.roll<0.30)) {
+      if (distance(c,large)<RELIC_GAP || anchors.some(o=>distance(c,o)<OBELISK_GAP)) {
+        rejected.push({...c,reason:'Obelisk-Abstandsregel'}); continue;
+      }
+      const site = {...c,type:'obelisk'}; anchors.push(site); accepted.push(site);
+    }
+    for (const c of ordered.filter(c=>c.roll>=0.30)) {
+      const nearest = anchors.reduce((best,o)=>!best || distance(c,o)<distance(c,best)?o:best,null);
+      const inRegion = Boolean(nearest && distance(c,nearest)<=RADIUS);
+      let type;
+      if (c.roll<0.60) {
+        if (!inRegion && c.roll>=0.35) { rejected.push({...c,reason:'Niedrigere Schädelchance außerhalb'}); continue; }
+        type = c.roll < (inRegion?0.45:0.325) ? 'skull1' : 'skull2';
+      } else if(c.roll<0.62) type='tower';
+      else if(c.roll<0.64) type='small';
+      else if(c.roll<0.65) type='tree';
+      else { rejected.push({...c,reason:'Reduzierte Turm-/Colossus-/Baumhäufigkeit'}); continue; }
+      if(accepted.some(o=>distance(c,o)<RELIC_GAP)) { rejected.push({...c,reason:'Allgemeiner Reliktabstand'}); continue; }
+      accepted.push({...c,type,inRegion,nearest});
+    }
+    const sites=accepted.filter(visible), empty=rejected.filter(visible);
+    const counts=Object.fromEntries(Object.keys(TYPES).map(t=>[t,sites.filter(s=>s.type===t).length]));
+    let minimumObelisk=Infinity, minimumAll=Infinity, pair=null;
+    for(let i=0;i<sites.length;i++) for(let j=i+1;j<sites.length;j++) {
+      const d=distance(sites[i],sites[j]); minimumAll=Math.min(minimumAll,d);
+      if(sites[i].type==='obelisk' && sites[j].type==='obelisk' && d<minimumObelisk) { minimumObelisk=d; pair=[sites[i],sites[j]]; }
+    }
+    return {sites,anchors,empty,counts,minimumObelisk,minimumAll,pair,accepted,candidates,spawn:SPAWN,spawnDistance:distance(SPAWN,large)};
+  }
+  function format(n) { return Math.round(n).toLocaleString('de-DE'); }
+  globalThis.relicPlan={makeExample,distance,WORLD,CELL,RADIUS,OBELISK_GAP,RELIC_GAP};
+  if(typeof document !== 'undefined') {
+    const map=document.getElementById('map');
+    let data, expanded=false;
+    const px=x=>60+x/WORLD*900;
+    const pz=z=>60+z/WORLD*900;
+    function shape(t,x,y,c) {
+      if(t==='obelisk') return `<path d="M ${x} ${y-10} L ${x+9} ${y+8} L ${x-9} ${y+8} Z" fill="${c}"/>`;
+      if(t==='tower') return `<rect x="${x-8}" y="${y-9}" width="16" height="18" rx="2" fill="${c}"/>`;
+      if(t==='small') return `<path d="M ${x} ${y-10} L ${x+10} ${y} L ${x} ${y+10} L ${x-10} ${y} Z" fill="${c}"/>`;
+      if(t==='tree') return `<path d="M ${x} ${y-11} L ${x+10} ${y+5} L ${x+2} ${y+5} L ${x+2} ${y+11} L ${x-2} ${y+11} L ${x-2} ${y+5} L ${x-10} ${y+5} Z" fill="${c}"/>`;
+      if(t==='large') return `<path d="M ${x} ${y-14} L ${x+14} ${y} L ${x} ${y+14} L ${x-14} ${y} Z" fill="${c}"/>`;
+      return `<circle cx="${x}" cy="${y}" r="9" fill="${c}"/>`;
+    }
+    function details(site) {
+      const t=TYPES[site.type];
+      let note='';
+      if(site.type==='obelisk') note='Region: 6.000 Blöcke Radius. Andere Obelisken mindestens 15.000 Blöcke entfernt.';
+      else if(site.type==='large') note=`Einziger großer Colossus im Modell, ${format(data.spawnDistance)} Blöcke Luftlinie vom markierten Weltspawn. Die konkrete Position und Entfernung sind illustrative Werte, keine festgelegte Mindestdistanz.`;
+      else note=`${site.inRegion?'Innerhalb':'Außerhalb'} einer Obeliskregion. Nächster Obelisk: ${format(distance(site,site.nearest))} Blöcke entfernt.`;
+      document.getElementById('detail').innerHTML=`<h2>Standortdetails</h2><div class="detail-title" style="color:${t.color}">${t.name}</div><p class="detail-data">X ${format(site.x)} · Z ${format(site.z)}</p><p class="detail-data">${note}</p>`;
+    }
+    function render() {
+      data=makeExample(Number(document.getElementById('example').value));
+      const showRegions=document.getElementById('regions').checked, showGrid=document.getElementById('grid').checked, showEmpty=document.getElementById('empty').checked;
+      let svg='<title id="map-title">Schematische Verteilung der geplanten Relikte</title><desc id="map-description">60.000 Blöcke breiter Kartenausschnitt. Goldene Kreise zeigen nicht berührende Obeliskregionen. Farbige Marker zeigen die verschiedenen Relikte.</desc><defs><clipPath id="plot"><rect x="60" y="60" width="900" height="900"/></clipPath></defs><rect x="60" y="60" width="900" height="900" fill="#102329" stroke="#37515a"/>';
+      for(let v=0;v<=WORLD;v+=10000) {
+        svg+=`<text x="${px(v)}" y="39" fill="#9eb5b9" font-size="12" text-anchor="middle">${format(v)}</text><text x="48" y="${pz(v)+4}" fill="#9eb5b9" font-size="12" text-anchor="end">${v/1000}k</text>`;
+      }
+      svg+='<text x="960" y="19" fill="#9eb5b9" font-size="12" text-anchor="end">X → · Blöcke</text><text x="15" y="525" fill="#9eb5b9" font-size="12" transform="rotate(-90 15 525)">Z → · Blöcke</text><g clip-path="url(#plot)">';
+      if(showGrid) for(let v=0;v<=WORLD;v+=CELL) svg+=`<path d="M ${px(v)} 60 V 960 M 60 ${pz(v)} H 960" stroke="#55747b" stroke-opacity="${v%10000===0?0.25:0.12}" fill="none"/>`;
+      if(showRegions) for(const o of data.anchors) {
+        const r=RADIUS/WORLD*900;
+        svg+=`<circle cx="${px(o.x)}" cy="${pz(o.z)}" r="${r}" fill="#f1c66d" fill-opacity="0.075" stroke="#f1c66d" stroke-opacity="0.58" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+      }
+      if(showEmpty) for(const c of data.empty) svg+=`<path d="M ${px(c.x)-4} ${pz(c.z)-4} l 8 8 m -8 0 l 8 -8" stroke="#8fa2a5" stroke-opacity="0.6"><title>${c.reason}</title></path>`;
+      const large=data.sites.find(s=>s.type==='large'), sx=px(data.spawn.x),sy=pz(data.spawn.z),lx=px(large.x),ly=pz(large.z),mx=(sx+lx)/2,my=(sy+ly)/2;
+      svg+=`<path d="M ${sx} ${sy} L ${lx} ${ly}" stroke="#70d6d6" stroke-opacity="0.6" stroke-dasharray="9 6"/><rect x="${mx-99}" y="${my-14}" width="198" height="27" rx="5" fill="#122b30"/><text x="${mx}" y="${my+4}" fill="#a5e5e0" font-size="12" text-anchor="middle">${format(data.spawnDistance)} Blöcke · Luftlinie</text>`;
+      if(data.pair && showRegions) {
+        const [a,b]=data.pair, x=(px(a.x)+px(b.x))/2, y=(pz(a.z)+pz(b.z))/2;
+        svg+=`<path d="M ${px(a.x)} ${pz(a.z)} L ${px(b.x)} ${pz(b.z)}" stroke="#f1c66d" stroke-opacity="0.65" stroke-dasharray="3 6"/><rect x="${x-68}" y="${y-12}" width="136" height="25" rx="5" fill="#19292b"/><text x="${x}" y="${y+5}" fill="#f1d598" text-anchor="middle" font-size="12">${format(data.minimumObelisk)} Blöcke</text>`;
+      }
+      for(const site of data.sites) {
+        const t=TYPES[site.type], x=px(site.x),y=pz(site.z), r=site.type==='large'?21:16;
+        svg+=`<g class="marker" data-id="${site.id}" tabindex="0" role="button" aria-label="${t.name}, X ${format(site.x)}, Z ${format(site.z)}"><title>${t.name} · X ${format(site.x)} / Z ${format(site.z)}</title><circle class="halo" cx="${x}" cy="${y}" r="${r}" fill="#0c191e" stroke="${t.color}" stroke-opacity="0.6"/>${shape(site.type,x,y,t.color)}<text x="${x}" y="${y+4}" font-size="${site.type.startsWith('skull')?9:11}" font-weight="800" fill="#0d1a1f" text-anchor="middle">${t.symbol}</text></g>`;
+      }
+      svg+=`<g role="img" aria-label="Weltspawn, beispielhafte Position"><title>Weltspawn (Beispiel), X ${format(data.spawn.x)} / Z ${format(data.spawn.z)}</title><circle cx="${sx}" cy="${sy}" r="17" fill="#122026" stroke="#ffffff" stroke-width="2"/><text x="${sx}" y="${sy+5}" fill="#ffffff" font-size="14" font-weight="800" text-anchor="middle">W</text><rect x="${sx-43}" y="${sy-43}" width="86" height="20" rx="4" fill="#122026"/><text x="${sx}" y="${sy-29}" fill="#ffffff" font-size="12" text-anchor="middle">Weltspawn</text></g>`;
+      svg+='</g><path d="M 60 992 H 135 M 60 987 V 997 M 135 987 V 997" stroke="#cad8d3" stroke-width="2"/><text x="60" y="1018" fill="#b3c6c4" font-size="12">5.000 Blöcke</text><text x="960" y="1018" fill="#8fa7ab" font-size="12" text-anchor="end">Kreise: 6.000 Blöcke Radius · Markergröße nicht maßstäblich</text>';
+      map.innerHTML=svg;
+      for(const marker of map.querySelectorAll('.marker')) {
+        const site=data.sites.find(s=>s.id===marker.dataset.id);
+        marker.addEventListener('click',()=>details(site));
+        marker.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();details(site);}});
+      }
+      document.getElementById('legend').innerHTML=Object.entries(TYPES).map(([key,t])=>`<div class="legend-row"><span class="symbol" style="color:${t.color}">${t.symbol}</span><span>${t.name}</span><span class="count">${data.counts[key]}</span></div>`).join('')+'<div class="legend-row"><span class="symbol" style="color:#fff">W</span><span>Weltspawn (Beispiel)</span><span class="count">–</span></div>';
+      const inside=data.sites.filter(s=>s.type.startsWith('skull')&&s.inRegion).length, outside=data.sites.filter(s=>s.type.startsWith('skull')&&!s.inRegion).length;
+      document.getElementById('counts').textContent=`${data.sites.length} Standorte · ${data.empty.length} leere/abgelehnte Versuche. Schädel: ${inside} in Regionen, ${outside} außerhalb.`;
+      document.getElementById('warning').textContent=`In diesem Beispiel: ${data.counts.obelisk} Obelisken, ${data.counts.skull1+data.counts.skull2} Schädel; nur ${data.counts.tower} Türme, ${data.counts.small} kleine Kolosse und ${data.counts.tree} Weltenbäume. Die reduzierten Chancen lassen mehr Gelände bewusst leer. Der große Colossus steht weit vom beispielhaften Weltspawn entfernt.`;
+      document.getElementById('spawn-distance').textContent=format(data.spawnDistance);
+      document.getElementById('checks').textContent=`Geometrieprüfung des Ausschnitts: nächstes Obeliskpaar ${format(data.minimumObelisk)} Blöcke; kleinstes Reliktpaar ${format(data.minimumAll)} Blöcke. Die Obeliskregionen sind getrennt.`;
+      document.getElementById('detail').innerHTML='<h2>Standortdetails</h2><p class="muted">Wähle einen Marker auf der Karte.</p>';
+    }
+    for(const id of ['example','regions','grid','empty']) document.getElementById(id).addEventListener('change',render);
+    document.getElementById('zoom').addEventListener('click',()=>{expanded=!expanded;map.style.width=expanded?'160%':'100%';map.style.height=expanded?'auto':'';document.getElementById('zoom').textContent=expanded?'Übersicht':'Vergrößern';});
+    render();
+  }
+</script>
+</body>
+</html>

@@ -65,10 +65,20 @@ The [Alpha 4 integration](docs/technical/ALPHA_4_INTEGRATION.md) and
 **Design decision, October 2:** the large Colossus should be **unique per game
 world**, shared by all players; planned smaller Colossi may occur multiple times.
 Alpha 4 does not enforce uniqueness yet. Its future per-player core vault and
-Obelisk maps will serve the same large landmark. Material economy, trial history,
+Obelisk maps will serve the same large landmark. Material economy, cockpit/trial design,
 core utility, and multiplayer loot remain follow-up tasks in the
 [lore/gameplay review](docs/project/LORE_GAMEPLAY_REVIEW.md); no models or generation
 rules are changed by that review.
+
+**Lore decisions, October 8:** all Colossi were crewed; the large machine was
+central and the smaller ones its companions. The head golem was a cockpit defense
+robot. Obelisks marked cleared territories, with skulls scattered widely around
+them; the unfinished tower organized the campaign. Titans worshipped the World
+Tree and drew strength/size from it, and the Colossi's builders failed to destroy
+it. Thousands of years later no living Titans remain; today's mobs and players
+reuse the relics. Exact Titan nature and the campaign's motive are lost to time.
+See [approved lore](docs/project/LORE-BIBLE.md). Plan all relics' gameplay and
+interiors and reconcile documentation before implementing on 26.2/Fabric first.
 
 **Latest integration work, October 7, 2026:** all ten selected exports are copied
 byte-for-byte for manual placement. Derived worldgen templates retain matching

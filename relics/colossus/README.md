@@ -1,8 +1,8 @@
 # Colossus
 
-**Alpha 4.6 selects V4.1 with material study B and Small Colossus V7 ground-v3**;
-see [latest art integration](../../docs/project/EMBEDDING_20261006.md) and
-[runtime status](../../docs/testing/ALPHA_4_6_TEST_REPORT.md). Large-Colossus materials
+**Alpha 4.9 retains V4.1 with material study B and Small Colossus V7 ground-v3**;
+see [art integration history](../../docs/project/EMBEDDING_20261006.md) and
+[current runtime status](../../docs/testing/ALPHA_4_9_TEST_REPORT.md). Large-Colossus materials
 and simulated post-salvage appearance are visually accepted; the small model still
 awaits feedback. Material B is distinct from the earlier open-chest-frame choice.
 
@@ -39,6 +39,7 @@ awaits feedback. Material B is distinct from the earlier open-chest-frame choice
 ## Gameplay
 
 - [Machine Core, Salvage Magnet, Colossus Key, and head trial](gameplay/ITEMS.md)
+- [Smaller companion Colossi: crewed-machine lore and open gameplay decisions](gameplay/SMALL_COLOSSUS.md)
 - [Lore/gameplay review: material economy, trial history, and lasting utility](../../docs/project/LORE_GAMEPLAY_REVIEW.md)
 
 **Approved occurrence rule:** one naturally generated **large Colossus per game
@@ -56,7 +57,20 @@ decisions, not implemented mechanics.
 The per-player vault is intended to let later multiplayer visitors obtain a core
 at that one site. The magnet's shared copper chest still needs a late-visitor
 policy. Review follow-ups are open: bulk metal recovery may overshadow rewards,
-the golem needs a historical function, and core capacity/cost must serve an
+the defense robot needs cockpit/activation design, and core capacity/cost must serve an
 everyday use case. No palette or gameplay changes are made by these notes.
+
+**Lore decision, October 8:** the large Colossus was central and the smaller ones
+its companions; all were crewed. The head golem was the cockpit's defense robot.
+The campaign is thousands of years old, with no living Titans remaining; current
+mobs and players reuse the relics. Cockpit layout, activation and encounters still
+require planning. Earlier undecided golem-role descriptions are superseded.
+
+**Interior decisions:** five near-player-sized operators in the large machine,
+two in each small one, perhaps slightly larger than players. Keep the large body's
+cavity and develop mainly the cockpit, with an identifiable hatch reached through
+player climbing/building rather than a complete authored ascent. Small Colossi
+are enterable, but their cockpits are effectively gone and interiors severely
+decayed because their original materials were weaker. Exact layouts remain open.
 
 Shared setup: [Blender workflow](../../docs/technical/BLENDER_WORKFLOW.md).

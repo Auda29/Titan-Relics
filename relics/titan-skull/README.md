@@ -42,12 +42,12 @@ exports remain visual candidates; historical Alpha 4 art acceptance is preserved
 - [Design configurations and outputs](design/README.md)
 - [Ordinary mobs, exploration, and skull/bone-family frequency](gameplay/README.md)
 
-The agreed gameplay direction uses ordinary mobs in the decaying remains, with
-no special reward item required. Skulls and future skull/bone variants should be
-the most common relic family; Obelisks are clearly rarer. The large Colossus is
-intended to be unique per game world; planned smaller Colossi may repeat, with
-their rarity still open. Final rates and authored encounter implementation remain
-open; Alpha 4 does not yet enforce the large-site uniqueness rule.
+The agreed gameplay direction leaves existing interiors/access and natural mob
+spawning unchanged, with **no loot chests or authored encounters** at either skull.
+Obelisks and both skull designs share the relatively most frequent tier, followed
+by rarer Tower/small Colossi/Tree, then the unique large Colossus. **Every relic is
+still genuinely rare**, with wide separation; final rates/distances await visual
+discussion. Alpha 4.9 does not yet enforce large-site uniqueness or the final family budget.
 
 The second skull is a separate design, not another revision or ground
 palette of the current crowned skull. Together with later bone variants, it

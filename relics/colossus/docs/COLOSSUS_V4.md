@@ -145,17 +145,26 @@ Variante B einschließlich des gezeigten Zustands nach dem Metallabbau optisch
 freigegeben („ja so sieht das gut aus“). B ist damit die gewählte Materialfassung.
 
 **Aktueller Stand:** Palette und Mengen von Materialstudie B sind als Assetauswahl
-freigegeben. Alpha 3 verwendet weiterhin V3; B ist exportiert und offline geprüft,
-aber weder eingebunden noch in Minecraft getestet. Bergungswert und Balance zu
-Kern/Magnet bleiben zu prüfen. Golem-Hintergrund, dauerhafter Kernnutzen,
+freigegeben und in Alpha 4.9 integriert. Bergungswert und Balance zu Kern/Magnet
+bleiben zu prüfen. Die ursprüngliche Golem-Rolle ist jetzt als Cockpit-
+Verteidigungsroboter festgelegt; heutige Auslösung, dauerhafter Kernnutzen,
 Multiplayer-Belohnungen und Umsetzung der einmaligen Generierung bleiben offen.
 Materialstudie B ist nicht mit der früheren Brustgeometrie-Auswahl B zu verwechseln.
 
-Für die spätere Innenraumgestaltung müssen die historische Rolle der
-Golem-Prüfung und sichtbare Verbindungen zum Titanenkonflikt festgelegt werden.
-Sicherheits-/Wartungssystem, späterer Einbau, Maschinenfragmente im Knochen oder
-korrespondierende Schäden bleiben Alternativen. Die Review zieht keine V5-
-Innenraumarbeit vor und verändert keine bestehenden Exporte.
+**Lore-Präzisierung vom 8. Oktober:** Alle Kolosse waren bemannt; der große war
+zentral, die kleineren seine Begleiter. Der Golem war ein Verteidigungsroboter im
+Cockpit. Wartungssystem oder späterer Einbau sind damit keine offenen Alternativen
+mehr. Der große Colossus hatte fünf, jeder kleine zwei annähernd spielergroße,
+eventuell etwas größere Bediener. Der große Körperhohlraum bleibt bestehen;
+ausgebaut wird hauptsächlich der Kopf als Cockpit. Eine erkennbare Luke ist der
+vorgesehene Zugang, aber die Spieler finden/errichten ihren Aufstieg selbst.
+Keine komplette interne Treppe oder neue Deckfolge ist beschlossen. Kleine
+Kolosse bleiben betretbar, mit sehr verfallenem Innenraum und praktisch verlorenem
+Cockpit aus ursprünglich schwächerem Material. Genaue Luke/Stationen, heutige
+Auslösung und sichtbare Verbindungen zum Titanenkonflikt sind noch zu planen. Maschinenfragmente im
+Knochen oder korrespondierende Schäden sind weiterhin Vorschläge, keine Modell-
+Freigaben. Erst die Dokumentation aller Relikte und Konsistenzprüfung abschließen;
+diese Lore-Antworten verändern keine bestehenden Exporte.
 Details und Prioritäten: [Lore-/Gameplay-Review](../../../docs/project/LORE_GAMEPLAY_REVIEW.md).
 
 Dies ist eine visuelle Überarbeitung, keine Umsetzung von Maschinenkern, Magnet,

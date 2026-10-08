@@ -1,5 +1,308 @@
 # Relic Mod: technical implementation plan
 
+## Current planning gate — October 8, 2026
+
+The user selected **Minecraft 26.2 / Fabric first** for the upcoming gameplay
+work. The existing 1.21.1 visual-alpha port remains preserved; extending gameplay
+to that port is a separate later decision, not part of the first implementation.
+
+**Before gameplay implementation**, document and review the gameplay,
+interior/exploration requirements, placement of encounters/rewards, and lore for all
+seven relic designs: large Colossus, small Colossus, Obelisk, crowned Titan Skull,
+Titan Skull 2, Ruined Tower, and World Tree. Capture the user's answers in their
+per-relic documents and shared lore; proposals must remain distinct from approvals.
+No new gameplay systems, items, interior exports, or generation changes are
+authorized by this planning request.
+
+Run a documentation consistency review before proceeding: reconcile the current
+asset/build status, lore connections, reward-sharing rules, item acquisition and
+costs, unique-large-site/maps, and the shared Titan-remains density budget. Mark
+superseded passages as historical rather than leaving conflicting active rules.
+Unanswered lore may deliberately remain mysterious, but record whether it is
+internally decided, intentionally unknown, or still awaiting a design decision.
+
+The current visual baseline is **Alpha 4.9**, with seven designs/ten variants;
+see [README](../../README.md) and [runtime report](../testing/ALPHA_4_9_TEST_REPORT.md).
+It includes Colossus material B and placement-only Java code, **not** the planned
+items, trials, archaeology, maps, authored encounters, or large-site uniqueness.
+The older milestones and Alpha 2/3 tables below are historical planning context,
+not the current implementation inventory. Their detailed reconciliation remains
+part of the requested consistency review.
+
+### Responsibility clarification — October 8, 2026
+
+The user assigns **structure construction/interior authoring to another agent**.
+This planning/integration work defines gameplay requirements and then implements
+them in the mod; it does not author the structures block by block or require the
+user to approve every room coordinate. **Custom items, recipes, item models and
+textures are within this work's implementation scope.** This clarification does
+not itself start implementation or dispatch work to another session; finish the
+all-relic gameplay planning/consistency gate first.
+
+For the structure handoff, specify the intended experience, preserved/unchanged
+areas and necessary gameplay locations/space. The builder should later supply
+template-relative positions/markers for spawners, vaults, loot containers and
+archaeology, and references for the Tree's trunk/aura and lighting extent. Agree
+which export data or separate manifest carries these anchors so mod integration
+can apply rotation/translation, inject block-entity/loot data and identify natural
+sites without guessing coordinates from appearance. This is a handoff requirement,
+not an implemented manifest format or permission to change the accepted skulls.
+
+Remaining user-level decisions concern encounter/spawn rules, loot quantities/
+sharing, Tree animals/hostile policy, item presentation and world-distribution/map
+policies. Exact authored coordinates/artwork and technical state handling follow
+from those decisions and the builder handoff; they need not all become another
+user questionnaire. No additional relic designs or definitive answers to deliberately
+lost history are required to close this phase.
+
+### Approved lore implications — October 8, 2026
+
+All Colossi were crewed, with five operators in the central large machine and
+two in each smaller companion, approximately player-sized and perhaps a little
+larger. Keep the large body's current cavity and develop mainly its head/cockpit
+and identifiable hatch; players find/build their own climb. Smaller machines have
+enterable but very decayed interiors with cockpits effectively gone, explained by
+weaker original materials. Exact crew species/dimensions and interior blocks remain open.
+
+The existing interiors and current terrain-placement accessibility of both skull
+designs are accepted as-is for now. No new room layout, required mouth-to-eye
+circuit, additional access review or terrain-clearing work is in the current scope.
+Ordinary mobs spawn naturally; no extra spawners, placed enemies, spawn-rate changes
+or custom encounter/persistence logic are selected for either skull.
+Neither skull gets loot chests or another scripted reward.
+
+The tower is predominantly abandoned, with incomplete stairs requiring player
+building to reach an upper level. Ordinary mobs spawn naturally without added
+spawners/roster changes. The user delegates whether extra Endermen use local weights
+or one-time generation placement; the integration recommendation is a small
+one-time group (**five**, as selected by the user), preserving vanilla neutrality/teleportation/
+despawning. This still needs safe marker/state/worldgen validation, not both methods
+at once. Loot is **shared finite chests, 5% eye otherwise 4–6 pearls**. The documented
+starting roll scope is one Ender reward per Tower, with one eye on the rare branch.
+The World Tree is a peaceful source of life with natural-looking lights and more
+**pigs, chickens, sheep and cows**, using a modest local natural-spawn adjustment
+with normal caps/conditions, **no animal spawners or timed replenishment**. Ordinary
+hostiles remain natural, reduced through the selected lighting rather than a new
+despawn/barrier/spawn-blocking system. No Tree loot is selected; its effect is
+reward enough. It has a trunk-focused beacon-
+style benefit: approved starting values are **Regeneration I within about 24 blocks
+of the trunk**, refreshed during the stay and lasting **about five minutes after
+leaving**. Aura reference/vertical volume, refresh cadence/stacking and neutral-
+mob/hostile-arrival policy are open; additional effects are not selected. The
+approved light palette is glow berries, glow lichen, firefly bushes and sparse
+shroomlights. Restrict lighting to the trunk/base and root area, with irregular
+growth at most 15 blocks up the trunk and no upper-branch/crown lights. Spread
+ground-level lighting broadly/naturally around the trunk and roots to reduce dark
+spawnable canopy-shaded areas. Exact spread/positions/quantities remain open, not
+automatically equal to the 24-block aura radius. Amethyst clusters remain optional;
+this does not add custom firefly mobs or a guaranteed universal safe zone.
+Lighting alone does not enforce total safety. These traversal rules supersede historical
+blanket expectations of fully walkable/no-building routes.
+
+Plan the five-operator cockpit and its historical defense robot before encounter
+implementation. **Autonomous attacks are preferred**, requiring targeted AI/runtime
+support for designated trial golems, not a global golem behavior change or spawner
+data alone. Activation uses automatic trial-spawner player detection, not a console;
+precise range/sightline/cooldown need target-version testing. Smaller Colossi offer
+an approved starting **10% chance per site for one broken magnet**, requiring repair;
+container/position remains open. The large
+arm's shared guaranteed magnet and per-player core-vault direction are retained.
+Vault cores are **fully charged and immediately usable**, with no initial
+restoration requirement. The approved crafting-table recharge uses a depleted core
+in the middle, one coal block on each side and one amethyst shard directly above,
+yielding one fully charged core (provisional 256 operations). Magnet full repair
+uses a crafting table and the existing magnet plus four iron ingots and one
+amethyst shard in place of the proposed two redstone; exact crafting layout/state
+handling and balance testing remain.
+
+The earlier 24-coal/four-redstone and three-coal-block proposals are superseded by
+the approved **two coal blocks + one amethyst shard + depleted core** shaped recipe.
+Two coal blocks alone supply 160 operations, versus the core's provisional 256
+(60% more). No charcoal variant is selected. Preserve the existing core's state,
+consume recharge ingredients and prevent duplicate items/charge exploits. Recipe
+state handling and survival balance still require testing after the planning gate.
+The tower was the never-finished campaign base;
+the World Tree supplied Titan strength/size and survived attempted destruction.
+No living Titans remain; today's inhabitants are ordinary mobs/players, not
+surviving ancient crews by default. See [approved lore](LORE-BIBLE.md).
+
+Obelisks marked **cleared territories**, with skulls scattered across broad
+surroundings. Plan a regional relationship with explicit distances, counts,
+biome/terrain compatibility and interaction with the combined skull-family budget.
+This is not a requirement to attach a skull to every foundation or spawn rejected
+sites. The current independent structure sets do not enforce this regional lore.
+No generation, interior or encounter implementation follows from these answers.
+
+Obelisk exterior archaeology grants an **original cosmetic armor-trim template**
+instead of a separate display-only collectible, alongside its expedition map.
+Finds are **shared and finite**: late visitors may seek another Obelisk or copy/
+share recovered maps. No individual/replenishing archaeology is selected. Trim
+motif follows the angular geometric Obelisk forms. Approved duplication is one
+template + seven diamonds + one copper block -> two templates, with copper linking
+to the Colossi. Exact artwork/application data, crafting layout and loot layout/
+quantities remain open.
+
+### Latest loot/distribution closure — October 8, 2026
+
+- Colossi ordinary loot: modest distributed copper/iron finds, with possible
+  amethyst/redstone, in shared finite containers. Exact amounts/anchors are tuning/
+  builder details; do not change material B or create bulk mineral fields.
+- The user delegates modest ordinary archaeology loot: the Obelisk plan defines
+  six ordinary brushable finds (one item each) from vanilla pottery sherds, clay,
+  bricks, bones, string, seeds and small metal finds, alongside reliable map/trim
+  roles. These are assistant-defined starting weights/amounts, not user-specified
+  values or another exclusive reward.
+- Updated relative frequency tiers: **Obelisks + both skulls**, then **Tower +
+  small Colossi + Tree**, then the **unique large Colossus**. No precise equality/
+  ratio within tiers is selected. **All relics must be genuinely rare and widely
+  separated**, avoiding repetitive "another skull" discoveries. This supersedes
+  the earlier Obelisks-clearly-rarer-than-skulls rule.
+- Discuss actual distances/density and the broad Obelisk/skull regional relationship
+  with visual world examples before selecting new rates/radii. A region means
+  widely scattered surrounding remains, not a cluster beside every foundation.
+- The user has now **approved all three map exceptions** below: distant valid
+  target remains the destination; temporarily unresolved maps remain unconfirmed;
+  genuinely unavailable destinations yield three emeralds instead of the map.
+  Continue requiring one valid natural destination, never a rejected candidate
+  or extra Colossus made for a map.
+
+### Distribution proposal and approved map exceptions
+
+Distribution numbers remain **proposals for visual review**, not implemented
+generation settings. The **map exception policy is approved**; its code/state
+handling remains unimplemented.
+
+#### Shared repeatable-relic budget
+
+Use one combined candidate budget for all repeatable families, initially **at most
+one opportunity per approximately 5,000 × 5,000-block area**, with seed-dependent
+positions rather than a visible regular layout. The original global 30% skull
+proposal is now refined by the user's request for higher skull likelihood only
+around Obelisks. Proposed conditional shares are:
+
+| Relic/outcome | In a valid Obelisk region | Outside such regions |
+| --- | --- | --- |
+| Obelisk | 30% | 30% |
+| Crowned skull, all four palettes combined | 15% | 2.5% |
+| Sword-bearing Skull 2 | 15% | 2.5% |
+| Ruined Tower | 2% | 2% |
+| Small Colossus | 2% | 2% |
+| World Tree | 1% | 1% |
+| Empty opportunity, rather than reallocating suppressed/rarer shares | 35% | 60% |
+
+The combined skull chance is **30% inside / 5% outside**, not 30% per design,
+palette, chunk or an additional roll outside the shared budget. The outside 5%
+and radius below are assistant starting proposals, not user-selected values.
+Do not renormalize the outside weights to fill its deliberate empty share. The unique large
+Colossus is **outside this repeatable budget**, still one natural site per save.
+The user rejected the first visualization's excessive Towers/small Colossi/Trees
+and reaffirmed the hierarchy: **Obelisks/skulls -> rarer Tower/small Colossus/Tree
+-> unique large Colossus**. Revised assistant starting weights are **2% / 2% / 1%**,
+superseding the earlier 15% / 15% / 10%. The user's "under ten" is interpreted here
+as a visual count target per type in the shown 60,000 × 60,000-block example,
+**not a world-wide cap**. These weights are below 10% as well, but are not separately
+user-approved numbers. Do not impose an artificial nine-site limit or silently
+resample examples to hide random variation.
+Propose a **2,000-block minimum horizontal center-to-center distance** between
+successful natural relic sites, including different families and the large site,
+with additional model-footprint checks as needed. **Obelisk-to-Obelisk separation
+has the stronger approved non-overlapping-region constraint below**, not merely
+this general floor. These are floors, not target pairing distances or guaranteed
+5,000-block travel intervals.
+
+Invalid biome/terrain candidates leave gaps; do not force a replacement structure
+or fill every area. Weights describe candidate opportunities, not guaranteed shares
+of successful placements or player sightings. The current independent structure
+sets cannot produce this combined budget by merely copying the spacing to each
+family; selecting/rejecting candidates and cross-family separation need a coherent
+future design. Visually compare representative seeds/routes before acceptance.
+
+**Proposed regional radius: 6,000 blocks horizontally around a valid natural
+Obelisk**, while retaining the proposed **2,000-block relic separation floor**;
+thus nearby skulls would be broadly scattered approximately 2,000–6,000 blocks
+away, not at the monument's foot. Neither a fixed skull count nor a skull at every
+Obelisk is guaranteed. Other relics remain possible in the region.
+
+**User-approved regional constraint:** natural Obelisk regions must **neither
+overlap nor touch**, with **at least 15,000 blocks horizontally between Obelisk
+centers**. This replaces the general 2,000-block floor for this pair and supersedes
+the earlier 12,000-block touching threshold / proposed 13,000–14,000-block buffer.
+With the proposed equal **6,000-block radii**, the minimum leaves **3,000 blocks
+between region edges**. The 15,000-block minimum is selected, not merely a buffer
+proposal; it does not require a regular grid or exactly equal pairwise distances.
+Radius and actual density still await visual review. Require **distance > R1 + R2**
+as well as the 15,000-block floor if radii later change. Do not solve overlap merely
+by unioning regions or capping their stacked spawn weights.
+
+The stronger marker separation rejects more Obelisk attempts, so the 30% candidate
+weight is **not a guaranteed share of successful sites**. Review aggregate density,
+the intended relative tiers and the regional coverage together; do not compensate
+by adding extra opportunities or forcing invalid terrain placements. The existing
+5,000-block opportunity grid alone cannot guarantee disjoint regions.
+
+**Schematic visual check:** [interactive distribution illustration](visualizations/relic-distribution-plan.html)
+shows three deterministic 60,000 × 60,000-block examples using these draft weights,
+approved marker separation and proposed other distances, without biome/terrain
+filtering or actual Minecraft worlds. The first version exposed excessive Towers/
+small Colossi/Trees after the stronger Obelisk exclusion; the user's correction is
+shown with the revised 2% / 2% / 1% weights above, without a count cap. The current
+illustration also marks an example world spawn and the unique large site **about
+43,012 blocks away** (coordinates chosen solely for illustration). Do not treat
+candidate weights as achieved ratios or this example distance as an approved
+minimum. The artifact does not modify templates, gameplay or worldgen settings.
+
+**User acceptance after the travel-time comparison:** the distances in the revised
+illustration are satisfactory; retain this wide-ranging expedition scale as the
+planning baseline rather than reducing it to village-like spacing. This includes
+the illustrative large-Colossus journey of about 43,000 blocks from spawn. It is
+acceptance of the shown distance scale, not a requirement for those exact site
+coordinates, identical distances in every seed or a hard 43,000-block spawn floor.
+The exact large-site minimum/search band and production placement parameters still
+need specification; candidate weights remain proposals and worldgen is unchanged.
+
+Region anchors must correspond to valid natural Obelisk sites,
+not rejected/nominal candidates or extra markers spawned to satisfy the rule.
+Resolve Obelisk anchors before conditional skull selection with deterministic,
+order-independent site planning; do not base the rule solely on already visited
+chunks, retroactively add skulls, or create circular placement dependencies.
+The current independent structure sets do not implement this regional model.
+
+Obelisk/skull regional lore must **not** add bonus skulls outside this budget.
+Radius/shares/separation and biome/terrain effects still need visual review.
+**Approved large-site direction:** the unique large Colossus must be **far from
+the shared world/player spawn**, not a near-spawn reward. Its exact minimum distance/
+search region remains undecided; the illustrated travel-distance scale is now
+accepted as above. Do not reinterpret this
+as moving it relative to every player's bed or personal respawn point. Approved
+maps still have no maximum travel-distance cutoff.
+
+#### Approved map policy
+
+1. **Valid natural unique destination:** every expedition map points to it even
+   from far-away Obelisks. Do not substitute a small Colossus or generate another
+   large one. No maximum travel-distance cutoff or teleportation; distance/direction feedback
+   is useful optional presentation to specify later.
+2. **Destination not yet resolved / transient search or loading problem:** retain
+   an explicitly **unconfirmed expedition-map state** and retry target resolution;
+   publish coordinates only after validity is established. All such maps resolve
+   to the same saved destination. This requires custom item/state handling,
+   not a fabricated marker, generic empty vanilla map or permanent fallback due
+   solely to one failed/bounded search. Never reroll other archaeological loot.
+3. **Destination genuinely unavailable**, for example large-Colossus natural
+   generation disabled before any site exists: replace that site's map reward
+   with **three emeralds**, shared finite like its archaeology. The trim reward
+   remains. This compensation is not a new structure or repeatable payout. Already
+   valid existing destinations stay valid even if future generation is disabled.
+
+All three cases are **approved by the user**. Specify resolution/retry feedback,
+map/compensation claim state and configuration/re-enable behavior before implementation.
+Compensation belongs to the original finite archaeological reward, not separately
+to every copied pending map; prevent map-plus-compensation double claims or copy/
+reload payouts. A mined/damaged known site is not automatically a missing
+destination or permission to create a replacement.
+
+## Historical milestones and original implementation baseline
+
 **Design priority update, October 2, 2026:** the user has visually accepted
 Colossus V4.1, Obelisk V4.2 and all four Titan Skull V4 ground variants. Create
 the other planned relics before V5 interior architecture. The remaining original

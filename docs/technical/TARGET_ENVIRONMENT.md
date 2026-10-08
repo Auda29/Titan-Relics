@@ -1,10 +1,23 @@
 # Alpha target environment
 
-Inventory recorded: September 13, 2026. Documentation updated: October 7, 2026.
+Inventory recorded: September 13, 2026. Documentation updated: October 8, 2026.
 This record supports the [implementation plan](../project/UMSETZUNGSPLAN.md). The initial
 inventory was read-only and describes the state before installation. Later
 installation and upgrade steps are recorded separately below. Local paths are
 historical machine-specific evidence, not required paths for other contributors.
+
+## Upcoming gameplay target — October 8, 2026
+
+The user selected **Minecraft 26.2 / Fabric** for the first gameplay implementation.
+Plan and consistently document all relics' gameplay, interiors, reward placement,
+and lore before implementing them; see the
+[planning gate](../project/UMSETZUNGSPLAN.md#current-planning-gate--october-8-2026).
+The current visual-alpha dependency baseline is Java 25, Fabric Loader 0.19.5,
+Fabric API 0.161.0+26.2, and stable Lithostitched 1.8.0.
+
+The existing Alpha 4.9 port for 1.21.1 remains available as a separate visual build.
+This decision neither removes that port nor commits to simultaneous gameplay
+support. Historical inventories and validation evidence below retain their dates.
 
 ## Confirmed test profile at inventory time
 

@@ -1,19 +1,23 @@
 # Minecraft relics: concept and development plan
 
-Original concept: September 12, 2026. Updated: October 2, 2026.
+Original concept: September 12, 2026. Updated: October 8, 2026.
 
 Goal: a structure expansion for a modpack using Terralith, Tectonic, Biomes O'
-Plenty, and Dungeons & Taverns. **Alpha 3 selects Colossus, Obelisk, and Titan Skull
-V3 for Minecraft 26.2 / Fabric; accepted V4 studies await integration.**
+Plenty, and Dungeons & Taverns. **Alpha 4.9 integrates seven designs/ten variants
+for Minecraft 26.2 / Fabric. Custom gameplay and authored interiors remain planning.**
 This page preserves the creative catalog and long-term goals. See the
 [README](../../README.md) for current implementation and the
 [technical plan](UMSETZUNGSPLAN.md) for remaining acceptance work.
 
-**New asset review:** [four V1s](NEW_RELICS_V1.md) are now modeled and exported:
+**Historical initial asset review:** [four V1s](NEW_RELICS_V1.md) were modeled and exported:
 Ruined Tower (111 × 192 × 93), World Tree (193 × 216 × 169), the archive-derived
 Small Colossus (101 × 76 × 87), and sword-bearing Titan Skull 2 (105 × 144 × 107).
-They await visual acceptance and game integration. Proposed dimensions below
-remain the pre-modeling baseline.
+Their successors are now integrated; exact current choices are in the README.
+Proposed dimensions below remain the historical pre-modeling baseline.
+
+The October 8 [approved lore](LORE-BIBLE.md) supersedes older undecided origin/role
+alternatives. Document all relics' gameplay, interiors and rewards consistently
+before implementation, targeting **26.2/Fabric first**.
 
 ## 1. Five motifs from the Instagram references
 
@@ -39,13 +43,15 @@ lower body, damaged armor, and detached arm. A torso opening should allow interi
 - Technical focus: large footprint and convincing body-to-terrain transitions.
 - Priority: first demanding prototype.
 - Current asset work: [Colossus v2](../../relics/colossus/docs/COLOSSUS_V2.md) follows the visible form;
-  [v3](../../relics/colossus/docs/COLOSSUS_V3.md) extends it underground to a torn hip and is selected
-  in Alpha 3. V4.1 is visually accepted offline; integration remains pending.
+  [v3](../../relics/colossus/docs/COLOSSUS_V3.md) extended it underground to a torn hip for Alpha 3.
+  Alpha 4.9 selects V4.1 with material study B; crewed interiors remain to be planned.
 - Occurrence: **one large Colossus per game world**. Smaller Colossi may occur
   multiple times; frequency and loot remain separate decisions. Their current
   [Vigilant-Class reference brief](../../relics/colossus/docs/SMALL_COLOSSUS_V4_REFERENCE.md)
   replaces the archived first-concept direction.
   Large-site uniqueness is not yet implemented.
+- Lore: all were crewed; the large machine was central, the smaller ones companions.
+  The large cockpit's golem was its defense robot, not a later maintenance-room addition.
 
 **October 4 small-Colossus reference update:** after finding V2 too similar to the
 large machine and V3 too skeletal, the user selected
@@ -72,7 +78,9 @@ the silhouette.
 - Current asset work: [Obelisk v3](../../relics/obelisk/docs/OBELISK_V3.md), a tapered square antiprism,
   25 × 185 × 25 blocks, with a solid core and only eight blocks below ground.
   It replaces the rectangular design of [v2](../../relics/obelisk/docs/OBELISK_V2.md) as the current
-  design study and is selected in Alpha 3; accepted V4.2 integration remains pending.
+  design study for Alpha 3. V4.2 is now integrated in Alpha 4.9.
+- Lore: Obelisks marked territories cleared of Titans, with skulls distributed
+  widely around them. Regional placement and archaeological reward layout remain open.
 
 ### 3. Monumental sci-fi ruined tower above a pale plain
 
@@ -91,11 +99,16 @@ architecture jointly create the composition.
 - Variants: controlled height, damaged side sections, buried lower floors.
 - Discovery: a person feels tiny beside architecture of uncertain purpose.
 - Technical focus: modular parts, safe transitions, readable large forms.
-- Priority: expansion after the first prototypes; not implemented.
+- Original priority: expansion after the first prototypes; V7 ground-v3 is now
+  visually integrated, with authored gameplay/interiors still open.
 
 The [pre-modeling brief](../../relics/ruined-tower/docs/REFERENCE_DESIGN_STUDY.md)
 now proposes a 112 × 192 × 96 site with a 180-block visible main tower. The top
 is cropped in the reference and will be authored; the departing aircraft is excluded.
+
+**Approved lore:** the tower was the campaign's organizing base and was never
+completed, explaining its stronger dilapidation relative to the Colossi. Room
+functions and reuse are open, not an unknown original purpose or an unrelated history.
 
 ### 4. Giant skull among green hills
 
@@ -120,8 +133,8 @@ open in the [lore bible](LORE-BIBLE.md).
   76-block skull with an organic crown and open jaw, sized as a plausible opponent
   for the Colossus. The full 121 × 79 × 203 export includes a broken, partly buried
   nine-vertebra spine and a solid local hill.
-  V3 natural placement is selected in Alpha 3; authored encounters and rewards
-  remain planning. Accepted V4 ground variants await integration.
+  V3 was selected in Alpha 3; V4 successors now have natural placement in Alpha 4.9.
+  Authored encounters and rewards remain planning.
 
 #### Second independent Titan Skull
 
@@ -133,7 +146,8 @@ existing crowned skull. It is recorded in the
 [concept page](../../relics/titan-skull/docs/TITAN_SKULL_2_CONCEPT.md). Opening
 frames are now verified: a moss-covered skull with a huge diagonal embedded sword
 in a cavern/grotto. The working brief proposes a 104 × 144 × 116 site, with
-64 visible blocks of skull plus about 68 of weapon rise. Modeling remains deferred.
+64 visible blocks of skull plus about 68 of weapon rise. These are historical
+study dimensions; Skull 2 V2 is now integrated and visually accepted in Alpha 4.9.
 
 Both skull designs and future bone sites share the Titan-remains family budget.
 Their variety should communicate multiple fallen Titans, not require living
@@ -154,11 +168,16 @@ the existing landscape.
 - Variants: crown shape, broken branches, overgrown root passages.
 - Discovery: a living natural monument feels as ancient and overwhelming as machine ruins.
 - Technical focus: block count, crown silhouette, world height, and leaf behavior.
-- Priority: later separate prototype with high design/integration cost; not implemented.
+- Original priority: later separate prototype with high design/integration cost;
+  V4.3 strands and terrain integration are now visually accepted in Alpha 4.9.
 
 The [pre-modeling brief](../../relics/world-tree/docs/REFERENCE_DESIGN_STUDY.md)
 now proposes a 192 × 216 × 176 envelope, with a 208-block visible tree, layered
 crown and broad root arches. The reference is a montage, not one measured tree.
+
+**Approved lore:** Titans worshipped the tree and received strength and size from
+it. The Colossi's builders tried and failed to destroy it. Present-day effects,
+worship/attack evidence and rewards are not selected by this history.
 
 **Initial scope remains Obelisk and Colossus.** This catalog is not a promise to
 deliver all five motifs in version 0.1.
@@ -180,22 +199,47 @@ design must remain convincing without special shaders.
 
 ### Working history and discovery frequency
 
-The agreed lore direction is that a Colossus was sent to the planet to kill the
-Titans. Skull and bone relics are their remains. Obelisks served as wayfinders or
-marked places where Titans had already been destroyed; the precise interpretation
-and builders are not settled.
+The ancient campaign occurred thousands of years ago. The large Colossus was
+central, the smaller ones its companions, and **all were crewed**. The large
+cockpit's golem was a defense robot. Obelisks marked territories cleared of Titans;
+skulls are scattered across broad surroundings. The never-finished tower was the
+organizing base. Titans worshipped the World Tree and received strength/size from
+it; the builders of the Colossi failed to destroy it. No living Titans remain.
+Current mobs and players inhabit or reuse the relics. The Titans' exact nature and
+the campaign's motive are deliberately lost to time; original crew identity and
+the exact event sequence remain unknown.
 
-The intended order is **skull/bone variants most common, Obelisks clearly rarer,
-and one unique large Colossus per game world**. Smaller Colossi may occur multiple
-times; their rarity and loot are undecided. Skull/bone variants share a family-level
+The updated relative tiers are **Obelisks and both skull designs**, then **Tower,
+small Colossi and Tree**, then **one unique large Colossus per game world**.
+**All relics must remain genuinely rare and widely separated**, with actual rates/
+distances deferred to visual review. This supersedes the earlier requirement for
+Obelisks to be clearly rarer than skulls. Small Colossi may repeat, with a starting
+10% per-site chance for one broken
+magnet requiring repair. Skull/bone variants share a family-level
 frequency budget. This is a design target, not an implemented uniqueness or
 numeric worldgen change; future variants do not exist merely because they are
 included in this plan. Obelisk maps initially point to the same large landmark;
-its per-player core vault supports multiplayer, while magnet and archaeology
-sharing remain open.
+its planned per-player core vault must support multiplayer and grant a fully charged,
+immediately usable core. The large arm's functional magnet and Obelisk archaeology
+are shared finite finds. The Obelisk's exclusive reward is an original cosmetic
+armor-trim template with angular geometric Obelisk forms; expedition maps may be
+copied/shared. Template duplication uses one template + seven diamonds + one copper
+block -> two templates, connecting its materials to the Colossi. Exact artwork/
+application and loot layouts remain open. Magnet full repair uses a crafting table
+and the existing magnet plus four iron ingots and one amethyst shard instead of two redstone.
+
+Colossi ordinary salvage uses modest copper/iron finds, with possible amethyst/
+redstone. Skull interiors/access/spawning stay unchanged and **get no loot chests**.
+The Tower keeps ordinary natural mobs with an extra Enderman accent; the user
+delegates its method (one-time generation placement is the integration recommendation).
+Finite shared Ender loot follows **5% eye, otherwise 4–6 pearls**, with starting
+site-level roll/one-eye assumptions documented in its gameplay plan. The Tree
+increases pigs/chickens/sheep/cows through modest local natural spawning, with
+**no spawners or farm-like refill**; lighting reduces dark hostile-spawn surfaces
+and regeneration is reward enough, without a new Tree chest/item.
 
 The [lore/gameplay review](LORE_GAMEPLAY_REVIEW.md) records six follow-up tasks:
-material economy, the golem trial's historical function, visible conflict traces,
+material economy, cockpit/activation design for the selected defense robot, visible conflict traces,
 lasting core utility, multiplayer reward distribution, and actual discovery effort.
 Suggested solutions remain proposals; they do not authorize model changes or
 gameplay implementation.
