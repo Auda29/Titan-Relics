@@ -123,7 +123,7 @@ watchdogs, exact saved natural-start geometry and real map storage/codecs:
 
 | Seed | Shared initial spawn X/Z | Unique Colossus X/Z | Repeatable search |
 | --- | --- | --- | --- |
-| 731204 | -656 / 112 | 96136 / 48504 | Natural Obelisk at -11048 / -27912.5; exact saved half-block center |
+| 731204 | -656 / 112 | 96136 / 48504 | Natural Obelisk at -11048 / -27911.5; exact saved half-block center |
 | -48291736 | 0 / 0 | 5320 / 48040 | No confirmed repeatable site within 100,000 blocks |
 | 20260913 | -816 / -32 | -57832 / 72808 | No confirmed repeatable site within 100,000 blocks |
 
