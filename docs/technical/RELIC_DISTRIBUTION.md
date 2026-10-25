@@ -1,7 +1,9 @@
 # Shared relic distribution and unique-site resolver
 
-Prepared: October 8, 2026. **Technical starting specification, not implemented
-worldgen or measured production density.** User approvals remain in the
+Prepared: October 8, 2026. **Implemented October 25 for fresh 26.2/Fabric worlds;
+production density and survival balance are not broadly measured.** See the
+[implementation, scheduling and verification record](../testing/DISTRIBUTION_IMPLEMENTATION_20261025.md).
+User approvals remain in the
 [implementation plan](../project/UMSETZUNGSPLAN.md#distribution-proposal-and-approved-map-exceptions).
 The algorithm below is a delegated engineering choice, not a new user-selected rate.
 

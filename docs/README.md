@@ -39,6 +39,7 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Testing
 
+- [Gameplay distribution, unique destination and expedition-map implementation](testing/DISTRIBUTION_IMPLEMENTATION_20261025.md)
 - [Standalone gameplay implementation, main integration and serverless test boundaries](testing/GAMEPLAY_IMPLEMENTATION_20261008.md)
 - [Future 26.2 gameplay acceptance matrix — not test results](testing/GAMEPLAY_ACCEPTANCE_PLAN.md)
 - [Alpha 4.9 Minecraft 1.21.1 compatibility build and historical Alpha 3 release](testing/ALPHA_4_9_MC_1_21_1_TEST_REPORT.md)

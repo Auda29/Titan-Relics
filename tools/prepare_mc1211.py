@@ -32,6 +32,7 @@ def port_java(name: str, text: str) -> str:
         # This preserved target is visual Alpha 4.9, not an unapproved gameplay backport.
         text = text.replace('        de.relics.gameplay.RelicItems.initialize();\n', '')
         text = text.replace('        de.relics.gameplay.RelicGameplay.initialize();\n', '')
+        text = text.replace('        de.relics.distribution.DistributionRuntime.initialize();\n', '')
         text = text.replace('public final class RelicWorldgen implements ModInitializer {',
             'public final class RelicWorldgen implements ModInitializer {\n'
             '    public static final net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType<TerrainSupportProcessor> TERRAIN_SUPPORT = () -> TerrainSupportProcessor.CODEC;')

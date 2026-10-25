@@ -2,6 +2,14 @@
 
 ## 0.1.0-alpha.5.0-dev — standalone items and opt-in gameplay fixtures (unreleased)
 
+- Implement fresh-world shared distribution, terrain-valid Obelisk regions,
+  deterministic spacing and one persisted natural large-Colossus destination.
+- Gate candidate structure-start jobs asynchronously; preserve old worlds and
+  accepted templates. Resume interrupted searches from an atomic planning journal.
+- Connect expedition-map origins, copied maps and asynchronous relic `/locate`
+  to the same saved destination. Add operator status, plan and map commands.
+- Add production planner tests, isolated native-loader/save/reload/map checks and
+  [dated distribution evidence](docs/testing/DISTRIBUTION_IMPLEMENTATION_20261025.md).
 - Register Machine Core, Salvage Magnet, Colossus Key and Monolith template with
   original item sprites, bounded/versioned charge components, exact tooltips and
   three core/magnet icon states; no inventory status bar.
@@ -11,10 +19,10 @@
   compensated expedition-map origins and persistent spherical Tree-aura adapters.
 - Reserve deliveries in a checksum-verified atomic journal, with player receipts
   and visible fail-closed handling of ambiguous recovery rather than blind reissue.
-- Keep natural structures, accepted exports, distribution, both skulls, existing
-  worlds and the 1.21.1 visual Alpha 4.9 target unchanged. No natural marker hookup.
-- Add headless item/recipe/ledger tests and static mixin-target checks. No server or
-  client testing, installation or publication; runtime/release gates remain open.
+- Keep accepted exports, both skulls, existing worlds and the 1.21.1 visual
+  Alpha 4.9 target unchanged. Natural interior/reward marker hookup remains pending.
+- Add headless item/recipe/ledger tests and static mixin-target checks. Item-system
+  client/multiplayer acceptance and the complete gameplay release gates remain open.
 
 See [implementation evidence and limitations](docs/testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
 

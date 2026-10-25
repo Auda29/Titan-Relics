@@ -6,9 +6,12 @@ a world tree and a ruined tower.
 **Development code integrated into `main`, October 8:** `0.1.0-alpha.5.0-dev` adds the four
 custom items, original sprites/Monolith masks, maintenance/smithing recipes and
 opt-in golem/Vault/map/Tree-aura adapters. **Not a tested gameplay release:** no
-server/client was started at the user's request. Natural marker integration and
-the approved new distribution remain pending; existing visual structures/settings
-are unchanged. See the [implementation status and test boundaries](docs/testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
+server/client was started during that item implementation. Natural interior/reward
+marker integration remains pending. **October 25:** fresh 26.2/Fabric worlds now
+use the shared rarity plan, a single saved large-Colossus destination and linked
+expedition maps. Existing worlds retain legacy generation. See the
+[distribution implementation and runtime evidence](docs/testing/DISTRIBUTION_IMPLEMENTATION_20261025.md)
+and the [earlier item implementation boundaries](docs/testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
 The structure agent's [five interior candidates and marker handoff](docs/project/GAMEPLAY_INTERIORS_HANDOFF.md)
 are preserved alongside this code, with editable Blender sources, NBT/schematic
 and hash-bound sidecars. Git integration does not activate these candidates in

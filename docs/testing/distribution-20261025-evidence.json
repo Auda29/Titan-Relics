@@ -1,0 +1,914 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "minecraft": "26.2",
+  "loader": "Fabric 0.19.5",
+  "fabric_api": "0.161.0+26.2",
+  "lithostitched": "1.8.0",
+  "artifact_sha256": "1d944ec074be0fe146069533f38ac3bb5e46c68576f0e3b135bcc16785b067f7",
+  "production_source_sha256": "43669e8dcf6f29cc9decbb707a6fa9730afa202d5f560314664b694f3494f31f",
+  "automated": {
+    "committed_python_tests": 121,
+    "gameplay_assertions": 648,
+    "static_mixin_target_contracts": 41,
+    "worldgen_assertions": 755,
+    "distribution_assertions": 198920,
+    "synthetic_terrain_seeds": 30,
+    "synthetic_window_blocks": [
+      120000,
+      120000
+    ],
+    "reproducible_build": true
+  },
+  "runtime": [
+    {
+      "seed": 731204,
+      "snapshot": {
+        "policy": "relics-distribution-v1",
+        "seed": 731204,
+        "fingerprint": "16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c",
+        "spawnX": -656,
+        "spawnZ": 112,
+        "bootstrapX": -648,
+        "bootstrapZ": 120,
+        "frozen": true,
+        "unavailable": false,
+        "minX": -29999984,
+        "minZ": -29999984,
+        "maxX": 29999984,
+        "maxZ": 29999984,
+        "enabled": [
+          "OBELISK",
+          "TREE",
+          "SKULL_2",
+          "SMALL",
+          "COLOSSUS",
+          "TOWER",
+          "SKULL"
+        ],
+        "unique": {
+          "candidate": {
+            "cell": {
+              "x": 19,
+              "z": 9
+            },
+            "x": 96136,
+            "z": 48504,
+            "ticket": 6381,
+            "priority": 2284565568339078783,
+            "rotation": 3,
+            "unique": true
+          },
+          "asset": "colossus",
+          "x2": 192272,
+          "z2": 97008,
+          "surface": 73,
+          "originX": 96011,
+          "originY": -4,
+          "originZ": 48602,
+          "minX": 96011,
+          "minZ": 48406,
+          "maxX": 96261,
+          "maxZ": 48602
+        },
+        "lower": 100000,
+        "upper": 120000,
+        "cursor": 66,
+        "candidatesChecked": 1211,
+        "slices": 630,
+        "maxEvaluationNanos": 105961600
+      },
+      "passes": [
+        "stopped while unique search remained pending; persisted cursor retained",
+        "iteration 1: global locate from two origins agrees with journal",
+        "unchanged datapack reload retains planning snapshot",
+        "iteration 1: repeatable plan agrees with saved natural geometry",
+        "iteration 1: exactly one saved natural Colossus start; exact transformed center",
+        "target and original spawn unchanged after restart and setworldspawn",
+        "iteration 2: global locate from two origins agrees with journal",
+        "iteration 2: repeatable plan agrees with saved natural geometry",
+        "iteration 2: exactly one saved natural Colossus start; exact transformed center"
+      ],
+      "logs": [
+        {
+          "path": "build/distribution-runtime/731204-67076fcd/console-0.log",
+          "sha256": "1f325f9cf0f240fc194874f8ca8a7d1d9803225e7c783494d300bfb447731ba2",
+          "map_checks": [],
+          "warnings": []
+        },
+        {
+          "path": "build/distribution-runtime/731204-67076fcd/console-1.log",
+          "sha256": "3e70b438faa80d51744cc000a03e051faad102b15ea2b6214f0befae4ca7654b",
+          "map_checks": [
+            "[21:34:01] [Server thread/INFO]: [STDOUT]: Relic distribution map checks passed: pending, two origins, copied map IDs, saved target and actual reload"
+          ],
+          "warnings": [
+            "[21:34:08] [Server thread/WARN]: Can't keep up! Is the server overloaded? Running 3021ms or 60 ticks behind"
+          ]
+        },
+        {
+          "path": "build/distribution-runtime/731204-67076fcd/console-2.log",
+          "sha256": "8d4e569b24076fea9db085a4cb6e484c8f7b319084f2fc6faa162f07f30f9225",
+          "map_checks": [
+            "[21:34:20] [Server thread/INFO]: [STDOUT]: Relic distribution map checks passed: pending, two origins, copied map IDs, saved target and actual reload"
+          ],
+          "warnings": []
+        }
+      ],
+      "commands": [
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:33:45] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":731204,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-656,\"spawnZ\":112,\"bootstrapX\":-648,\"bootstrapZ\":120,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"OBELISK\",\"TREE\",\"SKULL_2\",\"SMALL\",\"COLOSSUS\",\"TOWER\",\"SKULL\"],\"lower\":30000,\"upper\":60000,\"cursor\":22,\"candidatesChecked\":22,\"slices\":14,\"maxEvaluationNanos\":40543900},\"pending\":true,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.218
+        },
+        {
+          "command": "stop",
+          "response": "[21:33:45] [Server thread/INFO]: Stopping the server",
+          "seconds": 0.046
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:33:55] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":731204,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-656,\"spawnZ\":112,\"bootstrapX\":-648,\"bootstrapZ\":120,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"OBELISK\",\"TREE\",\"SKULL_2\",\"SMALL\",\"COLOSSUS\",\"TOWER\",\"SKULL\"],\"lower\":30000,\"upper\":60000,\"cursor\":51,\"candidatesChecked\":51,\"slices\":31,\"maxEvaluationNanos\":59766700},\"pending\":true,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.078
+        },
+        {
+          "command": "locate structure relics:colossus",
+          "response": "[21:34:01] [Server thread/INFO]: The nearest relics:colossus is at [96136, ~, 48504] (108215 blocks away)",
+          "seconds": 0.047
+        },
+        {
+          "command": "execute positioned 50000 80 -50000 run locate structure relics:colossus",
+          "response": "[21:34:01] [Server thread/INFO]: The nearest relics:colossus is at [96136, ~, 48504] (108773 blocks away)",
+          "seconds": 0.031
+        },
+        {
+          "command": "locate structure #relics:relics",
+          "response": "[21:34:02] [Server thread/INFO]: The nearest #relics:relics is at [-11048, ~, -27912] (29889 blocks away)",
+          "seconds": 0.329
+        },
+        {
+          "command": "relicsdistribution plan -11048 -27912",
+          "response": "[21:34:02] [Server thread/INFO]: Relic plan Cell[x=-3, z=-6]: {\"candidate\":{\"cell\":{\"x\":-3,\"z\":-6},\"x\":-11048,\"z\":-27912,\"ticket\":2266,\"priority\":8891311666963629628,\"rotation\":2,\"unique\":false},\"asset\":\"obelisk\",\"x2\":-22096,\"z2\":-55823,\"surface\":70,\"originX\":-11011,\"originY\":60,\"originZ\":-27874,\"minX\":-11085,\"minZ\":-27949,\"maxX\":-11011,\"maxZ\":-27874}",
+          "seconds": 0.031
+        },
+        {
+          "command": "relicsdistribution plan -11048 -27912",
+          "response": "[21:34:02] [Server thread/INFO]: Relic plan Cell[x=-3, z=-6]: {\"candidate\":{\"cell\":{\"x\":-3,\"z\":-6},\"x\":-11048,\"z\":-27912,\"ticket\":2266,\"priority\":8891311666963629628,\"rotation\":2,\"unique\":false},\"asset\":\"obelisk\",\"x2\":-22096,\"z2\":-55823,\"surface\":70,\"originX\":-11011,\"originY\":60,\"originZ\":-27874,\"minX\":-11085,\"minZ\":-27949,\"maxX\":-11011,\"maxZ\":-27874}",
+          "seconds": 0.047
+        },
+        {
+          "command": "forceload add -11048 -27912",
+          "response": "[21:34:03] [Server thread/INFO]: Marked chunk [-691, -1745] in minecraft:overworld to be force loaded",
+          "seconds": 1.218
+        },
+        {
+          "command": "forceload add 96136 48504",
+          "response": "[21:34:04] [Server thread/INFO]: Marked chunk [6008, 3031] in minecraft:overworld to be force loaded",
+          "seconds": 0.813
+        },
+        {
+          "command": "execute if loaded 96136 80 48504",
+          "response": "[21:34:04] [Server thread/INFO]: Test failed",
+          "seconds": 0.0
+        },
+        {
+          "command": "execute if loaded 96136 80 48504",
+          "response": "[21:34:04] [Server thread/INFO]: Test failed",
+          "seconds": 0.0
+        },
+        {
+          "command": "execute if loaded 96136 80 48504",
+          "response": "[21:34:05] [Server thread/INFO]: Test passed",
+          "seconds": 0.046
+        },
+        {
+          "command": "setworldspawn 8000 80 -8000",
+          "response": "[21:34:05] [Server thread/INFO]: Set the world spawn point to 8000, 80, -8000 [0.0, 0.0] in minecraft:overworld",
+          "seconds": 0.063
+        },
+        {
+          "command": "reload",
+          "response": "[21:34:05] [Server thread/INFO]: Reloading!",
+          "seconds": 0.047
+        },
+        {
+          "command": "save-all flush",
+          "response": "[21:34:08] [Server thread/INFO]: Saved the game",
+          "seconds": 0.062
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:34:08] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":731204,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-656,\"spawnZ\":112,\"bootstrapX\":-648,\"bootstrapZ\":120,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"OBELISK\",\"TREE\",\"SKULL_2\",\"SMALL\",\"COLOSSUS\",\"TOWER\",\"SKULL\"],\"unique\":{\"candidate\":{\"cell\":{\"x\":19,\"z\":9},\"x\":96136,\"z\":48504,\"ticket\":6381,\"priority\":2284565568339078783,\"rotation\":3,\"unique\":true},\"asset\":\"colossus\",\"x2\":192272,\"z2\":97008,\"surface\":73,\"originX\":96011,\"originY\":-4,\"originZ\":48602,\"minX\":96011,\"minZ\":48406,\"maxX\":96261,\"maxZ\":48602},\"lower\":100000,\"upper\":120000,\"cursor\":66,\"candidatesChecked\":1211,\"slices\":630,\"maxEvaluationNanos\":105961600},\"pending\":false,\"opportunityQueries\":116,\"terrainChecks\":50,\"terrainRejected\":49,\"spacingRejected\":0,\"acceptedQueries\":2,\"materializedStartEvents\":2}",
+          "seconds": 0.0
+        },
+        {
+          "command": "stop",
+          "response": "[21:34:08] [Server thread/INFO]: Stopping the server",
+          "seconds": 0.032
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:34:20] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":731204,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-656,\"spawnZ\":112,\"bootstrapX\":-648,\"bootstrapZ\":120,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"OBELISK\",\"TREE\",\"SKULL_2\",\"SMALL\",\"COLOSSUS\",\"TOWER\",\"SKULL\"],\"unique\":{\"candidate\":{\"cell\":{\"x\":19,\"z\":9},\"x\":96136,\"z\":48504,\"ticket\":6381,\"priority\":2284565568339078783,\"rotation\":3,\"unique\":true},\"asset\":\"colossus\",\"x2\":192272,\"z2\":97008,\"surface\":73,\"originX\":96011,\"originY\":-4,\"originZ\":48602,\"minX\":96011,\"minZ\":48406,\"maxX\":96261,\"maxZ\":48602},\"lower\":100000,\"upper\":120000,\"cursor\":66,\"candidatesChecked\":1211,\"slices\":630,\"maxEvaluationNanos\":105961600},\"pending\":false,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.235
+        },
+        {
+          "command": "locate structure relics:colossus",
+          "response": "[21:34:20] [Server thread/INFO]: The nearest relics:colossus is at [96136, ~, 48504] (104693 blocks away)",
+          "seconds": 0.015
+        },
+        {
+          "command": "execute positioned 50000 80 -50000 run locate structure relics:colossus",
+          "response": "[21:34:20] [Server thread/INFO]: The nearest relics:colossus is at [96136, ~, 48504] (108773 blocks away)",
+          "seconds": 0.047
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:34:20] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":731204,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-656,\"spawnZ\":112,\"bootstrapX\":-648,\"bootstrapZ\":120,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"OBELISK\",\"TREE\",\"SKULL_2\",\"SMALL\",\"COLOSSUS\",\"TOWER\",\"SKULL\"],\"unique\":{\"candidate\":{\"cell\":{\"x\":19,\"z\":9},\"x\":96136,\"z\":48504,\"ticket\":6381,\"priority\":2284565568339078783,\"rotation\":3,\"unique\":true},\"asset\":\"colossus\",\"x2\":192272,\"z2\":97008,\"surface\":73,\"originX\":96011,\"originY\":-4,\"originZ\":48602,\"minX\":96011,\"minZ\":48406,\"maxX\":96261,\"maxZ\":48602},\"lower\":100000,\"upper\":120000,\"cursor\":66,\"candidatesChecked\":1211,\"slices\":630,\"maxEvaluationNanos\":105961600},\"pending\":false,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.047
+        },
+        {
+          "command": "stop",
+          "response": "[21:34:20] [Server thread/INFO]: Stopping the server",
+          "seconds": 0.063
+        }
+      ],
+      "evidence_sha256": "146172c502201a7fe14ab6fd61756d0b5edfc36fb61024f258c992c91076ccaf",
+      "ordinary_site": {
+        "candidate": {
+          "cell": {
+            "x": -3,
+            "z": -6
+          },
+          "x": -11048,
+          "z": -27912,
+          "ticket": 2266,
+          "priority": 8891311666963629628,
+          "rotation": 2,
+          "unique": false
+        },
+        "asset": "obelisk",
+        "x2": -22096,
+        "z2": -55823,
+        "surface": 70,
+        "originX": -11011,
+        "originY": 60,
+        "originZ": -27874,
+        "minX": -11085,
+        "minZ": -27949,
+        "maxX": -11011,
+        "maxZ": -27874
+      },
+      "interrupted_cursor": 49,
+      "world_1": {
+        "saved_chunks": 1987,
+        "natural_structure_starts": [
+          {
+            "structure": "relics:obelisk",
+            "chunk": [
+              -691,
+              -1745
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                -11085,
+                60,
+                -27949,
+                -11011,
+                246,
+                -27874
+              ]
+            ]
+          },
+          {
+            "structure": "relics:colossus",
+            "chunk": [
+              6008,
+              3031
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                96011,
+                -4,
+                48406,
+                96261,
+                204,
+                48602
+              ]
+            ]
+          }
+        ],
+        "read_errors": []
+      },
+      "world_2": {
+        "saved_chunks": 1987,
+        "natural_structure_starts": [
+          {
+            "structure": "relics:obelisk",
+            "chunk": [
+              -691,
+              -1745
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                -11085,
+                60,
+                -27949,
+                -11011,
+                246,
+                -27874
+              ]
+            ]
+          },
+          {
+            "structure": "relics:colossus",
+            "chunk": [
+              6008,
+              3031
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                96011,
+                -4,
+                48406,
+                96261,
+                204,
+                48602
+              ]
+            ]
+          }
+        ],
+        "read_errors": []
+      }
+    },
+    {
+      "seed": -48291736,
+      "snapshot": {
+        "policy": "relics-distribution-v1",
+        "seed": -48291736,
+        "fingerprint": "16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c",
+        "spawnX": 0,
+        "spawnZ": 0,
+        "bootstrapX": 8,
+        "bootstrapZ": 8,
+        "frozen": true,
+        "unavailable": false,
+        "minX": -29999984,
+        "minZ": -29999984,
+        "maxX": 29999984,
+        "maxZ": 29999984,
+        "enabled": [
+          "SMALL",
+          "COLOSSUS",
+          "OBELISK",
+          "TREE",
+          "TOWER",
+          "SKULL_2",
+          "SKULL"
+        ],
+        "unique": {
+          "candidate": {
+            "cell": {
+              "x": 1,
+              "z": 9
+            },
+            "x": 5320,
+            "z": 48040,
+            "ticket": 1936,
+            "priority": 3520839750216504943,
+            "rotation": 0,
+            "unique": true
+          },
+          "asset": "colossus",
+          "x2": 10640,
+          "z2": 96080,
+          "surface": 64,
+          "originX": 5222,
+          "originY": -13,
+          "originZ": 47915,
+          "minX": 5222,
+          "minZ": 47915,
+          "maxX": 5418,
+          "maxZ": 48165
+        },
+        "lower": 30000,
+        "upper": 60000,
+        "cursor": 63,
+        "candidatesChecked": 64,
+        "slices": 36,
+        "maxEvaluationNanos": 126170200
+      },
+      "passes": [
+        "iteration 0: global locate from two origins agrees with journal",
+        "bounded repeatable search returned no confirmed site; no replacement roll",
+        "unchanged datapack reload retains planning snapshot",
+        "iteration 0: exactly one saved natural Colossus start; exact transformed center",
+        "target and original spawn unchanged after restart and setworldspawn",
+        "iteration 1: global locate from two origins agrees with journal",
+        "iteration 1: exactly one saved natural Colossus start; exact transformed center"
+      ],
+      "logs": [
+        {
+          "path": "build/distribution-runtime/-48291736-2873e0ee/console-0.log",
+          "sha256": "edfc1272a25939d6e1f43a7647c702b68740393c255d822ae2ca40eee114a84b",
+          "map_checks": [
+            "[21:36:28] [Server thread/INFO]: [STDOUT]: Relic distribution map checks passed: pending, two origins, copied map IDs, saved target and actual reload"
+          ],
+          "warnings": [
+            "[21:36:34] [Server thread/WARN]: Can't keep up! Is the server overloaded? Running 3081ms or 61 ticks behind"
+          ]
+        },
+        {
+          "path": "build/distribution-runtime/-48291736-2873e0ee/console-1.log",
+          "sha256": "aca3d8bd57930fa84746b25a784f6e11f570049772a48f7b6867f9c19c75e9e4",
+          "map_checks": [
+            "[21:36:47] [Server thread/INFO]: [STDOUT]: Relic distribution map checks passed: pending, two origins, copied map IDs, saved target and actual reload"
+          ],
+          "warnings": []
+        }
+      ],
+      "commands": [
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:36:27] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":-48291736,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":0,\"spawnZ\":0,\"bootstrapX\":8,\"bootstrapZ\":8,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"SMALL\",\"COLOSSUS\",\"OBELISK\",\"TREE\",\"TOWER\",\"SKULL_2\",\"SKULL\"],\"lower\":30000,\"upper\":60000,\"cursor\":27,\"candidatesChecked\":27,\"slices\":16,\"maxEvaluationNanos\":18407100},\"pending\":true,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.125
+        },
+        {
+          "command": "locate structure relics:colossus",
+          "response": "[21:36:28] [Server thread/INFO]: The nearest relics:colossus is at [5320, ~, 48040] (48334 blocks away)",
+          "seconds": 0.047
+        },
+        {
+          "command": "execute positioned 50000 80 -50000 run locate structure relics:colossus",
+          "response": "[21:36:28] [Server thread/INFO]: The nearest relics:colossus is at [5320, ~, 48040] (107741 blocks away)",
+          "seconds": 0.046
+        },
+        {
+          "command": "locate structure #relics:distribution_runtime_repeatables",
+          "response": "[21:36:29] [Server thread/INFO]: Kein gültiges Ziel im Suchbereich. Wiederholbare Relikte: 100.000 Blöcke; großer Koloss: gespeicherter weltweiter Standort.",
+          "seconds": 1.454
+        },
+        {
+          "command": "forceload add 5320 48040",
+          "response": "[21:36:30] [Server thread/INFO]: Marked chunk [332, 3002] in minecraft:overworld to be force loaded",
+          "seconds": 0.75
+        },
+        {
+          "command": "execute if loaded 5320 80 48040",
+          "response": "[21:36:30] [Server thread/INFO]: Test failed",
+          "seconds": 0.015
+        },
+        {
+          "command": "execute if loaded 5320 80 48040",
+          "response": "[21:36:30] [Server thread/INFO]: Test passed",
+          "seconds": 0.031
+        },
+        {
+          "command": "setworldspawn 8000 80 -8000",
+          "response": "[21:36:30] [Server thread/INFO]: Set the world spawn point to 8000, 80, -8000 [0.0, 0.0] in minecraft:overworld",
+          "seconds": 0.047
+        },
+        {
+          "command": "reload",
+          "response": "[21:36:31] [Server thread/INFO]: Reloading!",
+          "seconds": 0.047
+        },
+        {
+          "command": "save-all flush",
+          "response": "[21:36:34] [Server thread/INFO]: Saved the game",
+          "seconds": 0.031
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:36:34] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":-48291736,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":0,\"spawnZ\":0,\"bootstrapX\":8,\"bootstrapZ\":8,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"SMALL\",\"COLOSSUS\",\"OBELISK\",\"TREE\",\"TOWER\",\"SKULL_2\",\"SKULL\"],\"unique\":{\"candidate\":{\"cell\":{\"x\":1,\"z\":9},\"x\":5320,\"z\":48040,\"ticket\":1936,\"priority\":3520839750216504943,\"rotation\":0,\"unique\":true},\"asset\":\"colossus\",\"x2\":10640,\"z2\":96080,\"surface\":64,\"originX\":5222,\"originY\":-13,\"originZ\":47915,\"minX\":5222,\"minZ\":47915,\"maxX\":5418,\"maxZ\":48165},\"lower\":30000,\"upper\":60000,\"cursor\":63,\"candidatesChecked\":64,\"slices\":36,\"maxEvaluationNanos\":126170200},\"pending\":false,\"opportunityQueries\":1256,\"terrainChecks\":530,\"terrainRejected\":530,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":1}",
+          "seconds": 0.016
+        },
+        {
+          "command": "stop",
+          "response": "[21:36:34] [Server thread/INFO]: Stopping the server",
+          "seconds": 0.015
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:36:47] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":-48291736,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":0,\"spawnZ\":0,\"bootstrapX\":8,\"bootstrapZ\":8,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"SMALL\",\"COLOSSUS\",\"OBELISK\",\"TREE\",\"TOWER\",\"SKULL_2\",\"SKULL\"],\"unique\":{\"candidate\":{\"cell\":{\"x\":1,\"z\":9},\"x\":5320,\"z\":48040,\"ticket\":1936,\"priority\":3520839750216504943,\"rotation\":0,\"unique\":true},\"asset\":\"colossus\",\"x2\":10640,\"z2\":96080,\"surface\":64,\"originX\":5222,\"originY\":-13,\"originZ\":47915,\"minX\":5222,\"minZ\":47915,\"maxX\":5418,\"maxZ\":48165},\"lower\":30000,\"upper\":60000,\"cursor\":63,\"candidatesChecked\":64,\"slices\":36,\"maxEvaluationNanos\":126170200},\"pending\":false,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.188
+        },
+        {
+          "command": "locate structure relics:colossus",
+          "response": "[21:36:47] [Server thread/INFO]: The nearest relics:colossus is at [5320, ~, 48040] (56104 blocks away)",
+          "seconds": 0.031
+        },
+        {
+          "command": "execute positioned 50000 80 -50000 run locate structure relics:colossus",
+          "response": "[21:36:47] [Server thread/INFO]: The nearest relics:colossus is at [5320, ~, 48040] (107741 blocks away)",
+          "seconds": 0.047
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:36:47] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":-48291736,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":0,\"spawnZ\":0,\"bootstrapX\":8,\"bootstrapZ\":8,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"SMALL\",\"COLOSSUS\",\"OBELISK\",\"TREE\",\"TOWER\",\"SKULL_2\",\"SKULL\"],\"unique\":{\"candidate\":{\"cell\":{\"x\":1,\"z\":9},\"x\":5320,\"z\":48040,\"ticket\":1936,\"priority\":3520839750216504943,\"rotation\":0,\"unique\":true},\"asset\":\"colossus\",\"x2\":10640,\"z2\":96080,\"surface\":64,\"originX\":5222,\"originY\":-13,\"originZ\":47915,\"minX\":5222,\"minZ\":47915,\"maxX\":5418,\"maxZ\":48165},\"lower\":30000,\"upper\":60000,\"cursor\":63,\"candidatesChecked\":64,\"slices\":36,\"maxEvaluationNanos\":126170200},\"pending\":false,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.047
+        },
+        {
+          "command": "stop",
+          "response": "[21:36:47] [Server thread/INFO]: Stopping the server",
+          "seconds": 0.046
+        }
+      ],
+      "evidence_sha256": "f9cc9bfbc5090b6e756053de97a0d33b0a757b09399248ec11c9b6daed35badd",
+      "world_0": {
+        "saved_chunks": 1258,
+        "natural_structure_starts": [
+          {
+            "structure": "relics:colossus",
+            "chunk": [
+              332,
+              3002
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                5222,
+                -13,
+                47915,
+                5418,
+                195,
+                48165
+              ]
+            ]
+          }
+        ],
+        "read_errors": []
+      },
+      "world_1": {
+        "saved_chunks": 1258,
+        "natural_structure_starts": [
+          {
+            "structure": "relics:colossus",
+            "chunk": [
+              332,
+              3002
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                5222,
+                -13,
+                47915,
+                5418,
+                195,
+                48165
+              ]
+            ]
+          }
+        ],
+        "read_errors": []
+      }
+    },
+    {
+      "seed": 20260913,
+      "snapshot": {
+        "policy": "relics-distribution-v1",
+        "seed": 20260913,
+        "fingerprint": "16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c",
+        "spawnX": -816,
+        "spawnZ": -32,
+        "bootstrapX": -808,
+        "bootstrapZ": -24,
+        "frozen": true,
+        "unavailable": false,
+        "minX": -29999984,
+        "minZ": -29999984,
+        "maxX": 29999984,
+        "maxZ": 29999984,
+        "enabled": [
+          "TOWER",
+          "COLOSSUS",
+          "OBELISK",
+          "SMALL",
+          "SKULL",
+          "TREE",
+          "SKULL_2"
+        ],
+        "unique": {
+          "candidate": {
+            "cell": {
+              "x": -12,
+              "z": 14
+            },
+            "x": -57832,
+            "z": 72808,
+            "ticket": 9585,
+            "priority": 477272376906435911,
+            "rotation": 1,
+            "unique": true
+          },
+          "asset": "colossus",
+          "x2": -115664,
+          "z2": 145616,
+          "surface": 72,
+          "originX": -57707,
+          "originY": -5,
+          "originZ": 72710,
+          "minX": -57957,
+          "minZ": 72710,
+          "maxX": -57707,
+          "maxZ": 72906
+        },
+        "lower": 80000,
+        "upper": 100000,
+        "cursor": 18,
+        "candidatesChecked": 706,
+        "slices": 377,
+        "maxEvaluationNanos": 116601500
+      },
+      "passes": [
+        "iteration 0: global locate from two origins agrees with journal",
+        "bounded repeatable search returned no confirmed site; no replacement roll",
+        "unchanged datapack reload retains planning snapshot",
+        "iteration 0: exactly one saved natural Colossus start; exact transformed center",
+        "target and original spawn unchanged after restart and setworldspawn",
+        "iteration 1: global locate from two origins agrees with journal",
+        "iteration 1: exactly one saved natural Colossus start; exact transformed center"
+      ],
+      "logs": [
+        {
+          "path": "build/distribution-runtime/20260913-fabdbcc1/console-0.log",
+          "sha256": "0ba4b2459954c2db35aaf6091c7565e85e768f3737b8626290d321c970c8f1b1",
+          "map_checks": [
+            "[21:36:48] [Server thread/INFO]: [STDOUT]: Relic distribution map checks passed: pending, two origins, copied map IDs, saved target and actual reload"
+          ],
+          "warnings": [
+            "[21:36:54] [Server thread/WARN]: Can't keep up! Is the server overloaded? Running 2907ms or 58 ticks behind"
+          ]
+        },
+        {
+          "path": "build/distribution-runtime/20260913-fabdbcc1/console-1.log",
+          "sha256": "c5cb394e312749a81e8e03cdb424d2f538b6720f34b0ac06b08bb4b5277b06e8",
+          "map_checks": [
+            "[21:37:06] [Server thread/INFO]: [STDOUT]: Relic distribution map checks passed: pending, two origins, copied map IDs, saved target and actual reload"
+          ],
+          "warnings": []
+        }
+      ],
+      "commands": [
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:36:44] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":20260913,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-816,\"spawnZ\":-32,\"bootstrapX\":-808,\"bootstrapZ\":-24,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"TOWER\",\"COLOSSUS\",\"OBELISK\",\"SMALL\",\"SKULL\",\"TREE\",\"SKULL_2\"],\"lower\":30000,\"upper\":60000,\"cursor\":20,\"candidatesChecked\":20,\"slices\":12,\"maxEvaluationNanos\":84502500},\"pending\":true,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.125
+        },
+        {
+          "command": "locate structure relics:colossus",
+          "response": "[21:36:48] [Server thread/INFO]: The nearest relics:colossus is at [-57832, ~, 72808] (92501 blocks away)",
+          "seconds": 0.031
+        },
+        {
+          "command": "execute positioned 50000 80 -50000 run locate structure relics:colossus",
+          "response": "[21:36:48] [Server thread/INFO]: The nearest relics:colossus is at [-57832, ~, 72808] (163431 blocks away)",
+          "seconds": 0.047
+        },
+        {
+          "command": "locate structure #relics:distribution_runtime_repeatables",
+          "response": "[21:36:49] [Server thread/INFO]: Kein gültiges Ziel im Suchbereich. Wiederholbare Relikte: 100.000 Blöcke; großer Koloss: gespeicherter weltweiter Standort.",
+          "seconds": 1.375
+        },
+        {
+          "command": "forceload add -57832 72808",
+          "response": "[21:36:50] [Server thread/INFO]: Marked chunk [-3615, 4550] in minecraft:overworld to be force loaded",
+          "seconds": 0.813
+        },
+        {
+          "command": "execute if loaded -57832 80 72808",
+          "response": "[21:36:50] [Server thread/INFO]: Test failed",
+          "seconds": 0.0
+        },
+        {
+          "command": "execute if loaded -57832 80 72808",
+          "response": "[21:36:51] [Server thread/INFO]: Test failed",
+          "seconds": 0.015
+        },
+        {
+          "command": "execute if loaded -57832 80 72808",
+          "response": "[21:36:51] [Server thread/INFO]: Test passed",
+          "seconds": 0.047
+        },
+        {
+          "command": "setworldspawn 8000 80 -8000",
+          "response": "[21:36:51] [Server thread/INFO]: Set the world spawn point to 8000, 80, -8000 [0.0, 0.0] in minecraft:overworld",
+          "seconds": 0.047
+        },
+        {
+          "command": "reload",
+          "response": "[21:36:51] [Server thread/INFO]: Reloading!",
+          "seconds": 0.047
+        },
+        {
+          "command": "save-all flush",
+          "response": "[21:36:54] [Server thread/INFO]: Saved the game",
+          "seconds": 0.031
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:36:54] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":20260913,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-816,\"spawnZ\":-32,\"bootstrapX\":-808,\"bootstrapZ\":-24,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"TOWER\",\"COLOSSUS\",\"OBELISK\",\"SMALL\",\"SKULL\",\"TREE\",\"SKULL_2\"],\"unique\":{\"candidate\":{\"cell\":{\"x\":-12,\"z\":14},\"x\":-57832,\"z\":72808,\"ticket\":9585,\"priority\":477272376906435911,\"rotation\":1,\"unique\":true},\"asset\":\"colossus\",\"x2\":-115664,\"z2\":145616,\"surface\":72,\"originX\":-57707,\"originY\":-5,\"originZ\":72710,\"minX\":-57957,\"minZ\":72710,\"maxX\":-57707,\"maxZ\":72906},\"lower\":80000,\"upper\":100000,\"cursor\":18,\"candidatesChecked\":706,\"slices\":377,\"maxEvaluationNanos\":116601500},\"pending\":false,\"opportunityQueries\":1264,\"terrainChecks\":543,\"terrainRejected\":543,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":1}",
+          "seconds": 0.0
+        },
+        {
+          "command": "stop",
+          "response": "[21:36:54] [Server thread/INFO]: Stopping the server",
+          "seconds": 0.047
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:37:06] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":20260913,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-816,\"spawnZ\":-32,\"bootstrapX\":-808,\"bootstrapZ\":-24,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"TOWER\",\"COLOSSUS\",\"OBELISK\",\"SMALL\",\"SKULL\",\"TREE\",\"SKULL_2\"],\"unique\":{\"candidate\":{\"cell\":{\"x\":-12,\"z\":14},\"x\":-57832,\"z\":72808,\"ticket\":9585,\"priority\":477272376906435911,\"rotation\":1,\"unique\":true},\"asset\":\"colossus\",\"x2\":-115664,\"z2\":145616,\"surface\":72,\"originX\":-57707,\"originY\":-5,\"originZ\":72710,\"minX\":-57957,\"minZ\":72710,\"maxX\":-57707,\"maxZ\":72906},\"lower\":80000,\"upper\":100000,\"cursor\":18,\"candidatesChecked\":706,\"slices\":377,\"maxEvaluationNanos\":116601500},\"pending\":false,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.172
+        },
+        {
+          "command": "locate structure relics:colossus",
+          "response": "[21:37:06] [Server thread/INFO]: The nearest relics:colossus is at [-57832, ~, 72808] (104229 blocks away)",
+          "seconds": 0.016
+        },
+        {
+          "command": "execute positioned 50000 80 -50000 run locate structure relics:colossus",
+          "response": "[21:37:06] [Server thread/INFO]: The nearest relics:colossus is at [-57832, ~, 72808] (163431 blocks away)",
+          "seconds": 0.047
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:37:06] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":20260913,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-816,\"spawnZ\":-32,\"bootstrapX\":-808,\"bootstrapZ\":-24,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"TOWER\",\"COLOSSUS\",\"OBELISK\",\"SMALL\",\"SKULL\",\"TREE\",\"SKULL_2\"],\"unique\":{\"candidate\":{\"cell\":{\"x\":-12,\"z\":14},\"x\":-57832,\"z\":72808,\"ticket\":9585,\"priority\":477272376906435911,\"rotation\":1,\"unique\":true},\"asset\":\"colossus\",\"x2\":-115664,\"z2\":145616,\"surface\":72,\"originX\":-57707,\"originY\":-5,\"originZ\":72710,\"minX\":-57957,\"minZ\":72710,\"maxX\":-57707,\"maxZ\":72906},\"lower\":80000,\"upper\":100000,\"cursor\":18,\"candidatesChecked\":706,\"slices\":377,\"maxEvaluationNanos\":116601500},\"pending\":false,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.047
+        },
+        {
+          "command": "stop",
+          "response": "[21:37:06] [Server thread/INFO]: Stopping the server",
+          "seconds": 0.062
+        }
+      ],
+      "evidence_sha256": "b0b2c645bfc57d6581d0c3c771fbaf1b483d70602d6e48ba8332c87c3006b346",
+      "world_0": {
+        "saved_chunks": 1258,
+        "natural_structure_starts": [
+          {
+            "structure": "relics:colossus",
+            "chunk": [
+              -3615,
+              4550
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                -57957,
+                -5,
+                72710,
+                -57707,
+                203,
+                72906
+              ]
+            ]
+          }
+        ],
+        "read_errors": []
+      },
+      "world_1": {
+        "saved_chunks": 1258,
+        "natural_structure_starts": [
+          {
+            "structure": "relics:colossus",
+            "chunk": [
+              -3615,
+              4550
+            ],
+            "status": "minecraft:full",
+            "pieces": 1,
+            "bounding_boxes": [
+              [
+                -57957,
+                -5,
+                72710,
+                -57707,
+                203,
+                72906
+              ]
+            ]
+          }
+        ],
+        "read_errors": []
+      }
+    },
+    {
+      "seed": 731204,
+      "snapshot": {
+        "policy": "relics-distribution-v1",
+        "seed": 731204,
+        "fingerprint": "16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c",
+        "spawnX": -656,
+        "spawnZ": 112,
+        "bootstrapX": -648,
+        "bootstrapZ": 120,
+        "frozen": true,
+        "unavailable": true,
+        "unavailableReason": "finite frozen world border exhausted",
+        "minX": -10000,
+        "minZ": -10000,
+        "maxX": 10000,
+        "maxZ": 10000,
+        "enabled": [
+          "COLOSSUS",
+          "SKULL",
+          "SKULL_2",
+          "OBELISK",
+          "TOWER",
+          "TREE",
+          "SMALL"
+        ],
+        "lower": 30000,
+        "upper": 60000,
+        "cursor": 0,
+        "candidatesChecked": 0,
+        "slices": 0,
+        "maxEvaluationNanos": 0
+      },
+      "passes": [
+        "iteration 0: finite border exhaustion persisted; no fake target/map/start",
+        "iteration 1: finite border exhaustion persisted; no fake target/map/start"
+      ],
+      "logs": [
+        {
+          "path": "build/distribution-runtime/731204-bc097f6a/console-0.log",
+          "sha256": "4f64e609a47b10479467262918ad15134eabb3934894826d0cd9412562149205",
+          "map_checks": [
+            "[21:35:09] [Server thread/INFO]: [STDOUT]: Relic distribution unavailable checks passed: finite border exhausted; no fabricated target or map ID"
+          ],
+          "warnings": []
+        },
+        {
+          "path": "build/distribution-runtime/731204-bc097f6a/console-1.log",
+          "sha256": "c8e5c008a948e81b74010fd066811f200b63ac316a16e6524124597d6c6c8f9a",
+          "map_checks": [
+            "[21:35:20] [Server thread/INFO]: [STDOUT]: Relic distribution unavailable checks passed: finite border exhausted; no fabricated target or map ID"
+          ],
+          "warnings": []
+        }
+      ],
+      "commands": [
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:35:09] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":731204,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-656,\"spawnZ\":112,\"bootstrapX\":-648,\"bootstrapZ\":120,\"frozen\":true,\"unavailable\":true,\"unavailableReason\":\"finite frozen world border exhausted\",\"minX\":-10000,\"minZ\":-10000,\"maxX\":10000,\"maxZ\":10000,\"enabled\":[\"COLOSSUS\",\"SKULL\",\"SKULL_2\",\"OBELISK\",\"TOWER\",\"TREE\",\"SMALL\"],\"lower\":30000,\"upper\":60000,\"cursor\":0,\"candidatesChecked\":0,\"slices\":0,\"maxEvaluationNanos\":0},\"pending\":false,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.125
+        },
+        {
+          "command": "locate structure relics:colossus",
+          "response": "[21:35:09] [Server thread/INFO]: Kein gültiges Ziel im Suchbereich. Wiederholbare Relikte: 100.000 Blöcke; großer Koloss: gespeicherter weltweiter Standort.",
+          "seconds": 0.047
+        },
+        {
+          "command": "save-all flush",
+          "response": "[21:35:09] [Server thread/INFO]: Saved the game",
+          "seconds": 0.422
+        },
+        {
+          "command": "stop",
+          "response": "[21:35:09] [Server thread/INFO]: Stopping the server",
+          "seconds": 0.0
+        },
+        {
+          "command": "relicsdistribution status",
+          "response": "[21:35:20] [Server thread/INFO]: {\"policy\":\"relics-distribution-v1\",\"snapshot\":{\"policy\":\"relics-distribution-v1\",\"seed\":731204,\"fingerprint\":\"16e4db050318c9cc9ea8b513340b494c065b2a433268dc0655200089b77fff8c\",\"spawnX\":-656,\"spawnZ\":112,\"bootstrapX\":-648,\"bootstrapZ\":120,\"frozen\":true,\"unavailable\":true,\"unavailableReason\":\"finite frozen world border exhausted\",\"minX\":-10000,\"minZ\":-10000,\"maxX\":10000,\"maxZ\":10000,\"enabled\":[\"COLOSSUS\",\"SKULL\",\"SKULL_2\",\"OBELISK\",\"TOWER\",\"TREE\",\"SMALL\"],\"lower\":30000,\"upper\":60000,\"cursor\":0,\"candidatesChecked\":0,\"slices\":0,\"maxEvaluationNanos\":0},\"pending\":false,\"opportunityQueries\":0,\"terrainChecks\":0,\"terrainRejected\":0,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0}",
+          "seconds": 0.047
+        },
+        {
+          "command": "locate structure relics:colossus",
+          "response": "[21:35:20] [Server thread/INFO]: Kein gültiges Ziel im Suchbereich. Wiederholbare Relikte: 100.000 Blöcke; großer Koloss: gespeicherter weltweiter Standort.",
+          "seconds": 0.031
+        },
+        {
+          "command": "save-all flush",
+          "response": "[21:35:20] [Server thread/INFO]: Saved the game",
+          "seconds": 0.078
+        },
+        {
+          "command": "stop",
+          "response": "[21:35:20] [Server thread/INFO]: Stopping the server",
+          "seconds": 0.032
+        }
+      ],
+      "evidence_sha256": "5261f9377d954b4f5d15deb7e887d4e7f1fc65b5a03bbc19a5a696f4c0089576"
+    }
+  ],
+  "limitations": [
+    "No connected-client visual or multiplayer acceptance",
+    "No full 30-seed native terrain survey or terrain-mod compatibility matrix",
+    "No survival density/travel balance acceptance",
+    "Two of three native seeds returned no repeatable relic within the bounded 100000-block locate radius; rejected tickets remain empty",
+    "No natural interior/reward/map-acquisition marker hookup",
+    "Local untracked NeoForge work excluded from the committed test/release scope"
+  ]
+}

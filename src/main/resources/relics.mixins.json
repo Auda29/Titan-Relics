@@ -2,6 +2,29 @@
   "required": true,
   "package": "de.relics.mixin",
   "compatibilityLevel": "JAVA_25",
-  "mixins": ["StructureTemplateMixin", "WorldGenRegionMixin", "OreFeatureMixin", "CoreFurnaceMixin", "CoreContainerMixin", "CoreFurnaceMenuMixin", "SalvageMagnetMixin", "ItemPickupOwnerAccessor", "DefenseGolemMixin", "RelicTrialMixin", "RelicVaultMixin", "RelicEntityRemovalMixin", "ExpeditionMapMixin", "PlayerListSaveInvoker"],
-  "injectors": {"defaultRequire": 1}
+  "mixins": [
+    "StructureTemplateMixin",
+    "WorldGenRegionMixin",
+    "OreFeatureMixin",
+    "CoreFurnaceMixin",
+    "CoreContainerMixin",
+    "CoreFurnaceMenuMixin",
+    "SalvageMagnetMixin",
+    "ItemPickupOwnerAccessor",
+    "DefenseGolemMixin",
+    "RelicTrialMixin",
+    "RelicVaultMixin",
+    "RelicEntityRemovalMixin",
+    "ExpeditionMapMixin",
+    "PlayerListSaveInvoker",
+    "DistributionSpawnMixin",
+    "DistributionStartsMixin",
+    "DistributionPlacementMixin",
+    "DistributionStructureMixin",
+    "DistributionLocateMixin",
+    "DistributionMapLocateMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
