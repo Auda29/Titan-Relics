@@ -1,0 +1,58 @@
+Verteilungsprüfung vom 27.10.2026
+
+Ergebnis
+Die aktuelle Verteilung ist zu dünn. Zusätzlich besteht ein reproduzierbarer Fehler bei der natürlichen Chunk-Generierung. Dieser Fehler hat Vorrang vor dem Balancing.
+
+Prüfumfang
+30 vorher festgelegte Seeds, je ein Fenster von 120.000 × 120.000 Blöcken um den tatsächlichen ursprünglichen Weltspawn. Echte Minecraft-26.2-/Fabric-Server mit dem unveränderten Produktions-JAR, SHA-256 1d944ec074be0fe146069533f38ac3bb5e46c68576f0e3b135bcc16785b067f7. Alle 30 Planungs-Auswertungen sind vollständig. Ein anschließender natürlicher Generierungstest stürzte ab; dieser Fehlschlag bleibt ausdrücklich im Ergebnis enthalten.
+
+Planungsergebnis
+- 17.277 gemeinsame Chancen untersucht.
+- 10.205 leere Lose entsprechend der vorgegebenen Verteilungstabelle.
+- 7.072 Lose mit einem fest gewählten Relikttyp.
+- 6.504 davon am ungeeigneten Mittelpunkt-Biom verworfen: rund 92 Prozent der belegten Lose.
+- 555 weitere Kandidaten scheiterten an Hang-, Wasser-, Höhen- oder Weltgrenzenprüfungen.
+- 13 Standorte akzeptiert: 10 Obelisken, 2 Turmruinen und 1 Schädel 2.
+- Keine gekrönten Schädel, kleinen Kolosse oder Weltenbäume in diesen Fenstern.
+- 20 von 30 Fenstern ohne wiederholbares Relikt.
+- Der weltweit eindeutige große Koloss zählt separat; alle 30 Welten fanden einen Standort.
+- Keine Ablehnungen durch Abstand/Priorität in dieser Stichprobe. Die umgekehrte Prüf-Reihenfolge liefert auf allen untersuchten Chancen identische Produktionsentscheidungen.
+
+Ursache der Leere
+Das gemeinsame 5.000-Block-Raster bietet pro Relikttyp erheblich weniger Versuche als die vorherigen unabhängigen Familien-Raster. Die Typ-Auswahl findet vor der Biom-/Geländeprüfung statt; ungültige Lose bleiben wie vorgesehen leer. Die unveränderten strengen 25-Punkt-Prüfungen verwerfen fast alle übrigen Kandidaten. Das erklärt die geringe Dichte, ohne einen Fehler in der Roh-Losverteilung vorauszusetzen.
+
+Mehrere Geländeprüfungen scheitern häufig gleichzeitig. Bei den 534 Ablehnungen innerhalb des Rasters scheitern Hangneigung 443-mal, absoluter Höhenbereich 437-mal, Wasser 400-mal, Ozean-/Flussbiom 365-mal und Schädel-Palettenbiom 75-mal. Diese Zahlen überlappen. Weitere 21 Fälle scheitern bereits an den vertikalen Modellgrenzen. Die vorgegebenen Roh-Raten werden eingehalten; die tatsächliche spielbare Häufigkeit und Typ-Hierarchie überzeugen damit noch nicht.
+
+Natürliche Generierung
+Ein vollständiger Obelisk und eine vollständige Turmruine wurden natürlich erzeugt und mit den ausgelieferten NBTs verglichen. Insgesamt 385.106 feste Modellblöcke bestanden den Vergleich, zusätzlich Schutzmasken und Bodenkontakte.
+
+Kritischer Generierungsfehler
+Seed: 1979312429623454326.
+Akzeptierter Schädel-2-Standort: Zentrum X=39640, Z=-9416.
+Auslöser: normales Laden des gesamten Standorts per /forceload, ohne /place und ohne erzwungene Strukturplatzierung.
+Fehler: "Requested chunk unavailable during world generation" in ChunkGenerator.createReferences.
+Phase: minecraft:structure_references.
+Generierender Chunk: [2470, -596].
+Angeforderter Nachbarchunk: [2465, -602].
+Tatsächlicher Nachbarstatus: minecraft:empty.
+Benötigter Status der Abhängigkeit: minecraft:structure_starts.
+Folge: Ein Generierungs-Worker scheitert; anschließend beendet der normale 60.000-ms-Watchdog den Server.
+
+Der Fehler wurde mit dem unveränderten Produktions-JAR ohne Diagnoseplaner erneut reproduziert. Ein kleiner Test-Logger speichert lediglich Minecraft-Ausnahmedetails und verändert keine Chunk-Ausführung. Der Kontrolllauf mit gleicher Minecraft-/Fabric-/Lithostitched-Konfiguration, aber ohne Relic-Mod, lädt und speichert denselben Bereich fehlerfrei und endet mit Exit-Code 0.
+
+Die Verbindung zum Relic-Generierungspfad ist damit reproduziert. Eine Beschränkung auf das Schädel-Modell oder eine einzelne fehlerhafte Codezeile ist noch nicht bewiesen. Die asynchrone Strukturstart-Freigabe und ihre Chunk-Abhängigkeiten sind ein konkreter Untersuchungsansatz. Der Fehler ist noch nicht behoben.
+
+Empfohlene Reihenfolge
+1. Chunk-Referenzfehler isolieren und beheben. Dieser Seed und paralleles natürliches Laden größerer Flächen müssen als Regression bestehen.
+2. Danach ausdrücklich über die Zahl der Standortversuche und/oder geeignete Geländetoleranzen entscheiden. Keine stillen Ersatzlose, Quoten oder automatischen Lockerungen.
+3. Die gleiche feste Stichprobe wiederholen und tatsächliche Häufigkeiten sowie Reiseentfernungen auswerten.
+
+Belege
+- docs/testing/distribution-audit-20261027.json
+- docs/testing/distribution-audit-20261027.html
+- build/distribution-audit-20261027/run-102954/manifest.json
+- build/distribution-audit-20261027/probe-104048/generation-failure-details.txt
+- build/distribution-audit-20261027/probe-104109-577826/evidence.json
+
+Grenzen und Zustand
+Endliche Vanilla-Terrain-Stichprobe, keine weltweite Abwesenheitsgarantie und keine Terrain-Mod-/Mehrspieler-Abnahme. Alle 30 Planungsfenster sind ausgewertet; die natürliche Blockprüfung umfasst zwei bestandene Modelle und einen fehlgeschlagenen Schädel-2-Generierungstest. Produktionsdateien, Regeln und vorhandene Nutzerarbeiten bleiben unverändert. Diagnose und Berichte liegen lokal, ohne Commit oder Push.

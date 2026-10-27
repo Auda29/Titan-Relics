@@ -7,7 +7,8 @@ import java.util.function.Supplier;
 public final class DistributionPlanner {
     public static final int CELL = 5000, MARGIN = 256, SEPARATION = 2000, REGION = 6000,
             OBELISK_SEPARATION = 15000, UNIQUE_MIN = 30000;
-    public static final String POLICY = "relics-distribution-v1";
+    public static final String LEGACY_POLICY = "relics-distribution-v1";
+    public static final String POLICY = "relics-distribution-v2-local64-r3072";
     public enum Family {
         COLOSSUS("colossus"), OBELISK("obelisk"), SKULL("titan_skull"), SKULL_2("titan_skull_2"),
         TOWER("ruined_tower"), SMALL("small_colossus"), TREE("world_tree"), EMPTY("");
@@ -36,15 +37,29 @@ public final class DistributionPlanner {
     private final Supplier<Site> unique;
     private final Supplier<Boolean> unavailable;
     private final int bootstrapX, bootstrapZ, bootstrapUncertainty;
+    private final String policy;
+    private final Map<Cell,List<Candidate>> locations = bounded(2048);
+    private final Map<Cell,Optional<Site>> choices = bounded(2048);
     private final Map<Key, Optional<Site>> terrain = bounded(4096);
     private final Map<Cell, Optional<Site>> obelisks = bounded(2048);
     public long opportunities, terrainChecks, terrainRejected, spacingRejected, acceptedQueries;
+    public long locationAttempts;
 
     public DistributionPlanner(long seed, Set<Family> enabled, Validator validator, Supplier<Site> unique,
             Supplier<Boolean> unavailable, int bootstrapX, int bootstrapZ, int bootstrapUncertainty) {
+        this(LEGACY_POLICY,seed,enabled,validator,unique,unavailable,bootstrapX,bootstrapZ,bootstrapUncertainty);
+    }
+    public DistributionPlanner(String policy,long seed, Set<Family> enabled, Validator validator, Supplier<Site> unique,
+            Supplier<Boolean> unavailable, int bootstrapX, int bootstrapZ, int bootstrapUncertainty) {
+        if(!Set.of(POLICY,LEGACY_POLICY).contains(policy))throw new IllegalArgumentException("Unsupported distribution policy: "+policy);
+        this.policy=policy;
         this.seed = seed; this.enabled = Set.copyOf(enabled); this.validator = validator;
         this.unique = unique; this.unavailable = unavailable;
         this.bootstrapX = bootstrapX; this.bootstrapZ = bootstrapZ; this.bootstrapUncertainty = bootstrapUncertainty;
+    }
+    public List<Candidate> candidateLocations(Cell cell) {
+        return locations.computeIfAbsent(cell,key->{var anchor=candidate(seed,key,false);
+            return policy.equals(LEGACY_POLICY)?List.of(anchor):LocationSearch.positions(seed,anchor);});
     }
     private static <K,V> Map<K,V> bounded(int limit) {
         return new LinkedHashMap<>(64, .75f, true) {
@@ -108,22 +123,30 @@ public final class DistributionPlanner {
         if (dx*dx + dz*dz < safe*safe) return true;
         throw new Pending();
     }
-    private Site raw(Candidate c, Family family) {
+    private Site rawTerrain(Candidate c, Family family) {
         if (!enabled.contains(family) || family == Family.EMPTY) return null;
         Key key = new Key(c.cell, family);
         Optional<Site> cached = terrain.get(key);
         if (cached == null) {
             terrainChecks++;
-            Site site = validator.validate(c, family);
+            Site site = null;
+            for(Candidate location:candidateLocations(c.cell)) {
+                locationAttempts++;
+                site=validator.validate(location,family);
+                if(site!=null)break;
+            }
             if (site == null) terrainRejected++;
             cached = Optional.ofNullable(site); terrain.put(key, cached);
         }
-        Site site = cached.orElse(null);
+        return cached.orElse(null);
+    }
+    private Site raw(Candidate c,Family family) {
+        Site site=rawTerrain(c,family);
         return site != null && clearLarge(site) ? site : null;
     }
     private List<Candidate> neighbors(Site center, int radius) {
         List<Candidate> result = new ArrayList<>();
-        int padding = radius + 2;
+        int padding = radius + 2 + (policy.equals(LEGACY_POLICY)?0:LocationSearch.RADIUS);
         for (int x = Math.floorDiv(center.x() - padding, CELL); x <= Math.floorDiv(center.x() + padding, CELL); x++)
             for (int z = Math.floorDiv(center.z() - padding, CELL); z <= Math.floorDiv(center.z() + padding, CELL); z++) {
                 Candidate c = candidate(seed, new Cell(x,z), false);
@@ -139,8 +162,9 @@ public final class DistributionPlanner {
         Site site = raw(c, Family.OBELISK);
         if (site != null) for (Candidate neighbor : neighbors(site, OBELISK_SEPARATION)) {
             if (neighbor.ticket >= 3000 || priority(neighbor,c) >= 0) continue;
-            Site other = raw(neighbor, Family.OBELISK);
-            if (other != null && within(site,other,OBELISK_SEPARATION,false)) {
+            Site other = policy.equals(LEGACY_POLICY)?raw(neighbor,Family.OBELISK):rawTerrain(neighbor,Family.OBELISK);
+            if (other != null && within(site,other,OBELISK_SEPARATION,false)
+                    && (policy.equals(LEGACY_POLICY) || clearLarge(other))) {
                 spacingRejected++; site = null; break;
             }
         }
@@ -150,11 +174,12 @@ public final class DistributionPlanner {
     }
     private Site eligible(Candidate c) {
         if (c.ticket < 3000 || c.ticket >= 6600) return null;
+        if(!policy.equals(LEGACY_POLICY))return eligibleLocal(c);
         // A nominal zero-size site is used only to enumerate the complete halo.
         Site nominal = new Site(c,"",2*c.x,2*c.z,0,0,0,0,0,0,0,0);
         boolean inside = false;
         List<Site> anchors = new ArrayList<>();
-        for (Candidate neighbor : neighbors(nominal, REGION + 2)) {
+        for (Candidate neighbor : neighbors(nominal, REGION + 2 + (policy.equals(LEGACY_POLICY)?0:LocationSearch.RADIUS))) {
             Site anchor = obelisk(neighbor);
             if (anchor != null) { anchors.add(anchor); if (within(nominal,anchor,REGION+2,true)) inside = true; }
         }
@@ -168,8 +193,54 @@ public final class DistributionPlanner {
             if (within(site,anchor,SEPARATION,false)) return null;
             if (within(site,anchor,REGION,true)) exactInside = true;
         }
-        if (ticket(c.ticket,exactInside) != family) site = raw(c,ticket(c.ticket,exactInside));
+        if (ticket(c.ticket,exactInside) != family) {
+            if(!policy.equals(LEGACY_POLICY))return null; // A moved site cannot obtain a different family ticket.
+            site = raw(c,ticket(c.ticket,exactInside));
+        }
         return site;
+    }
+    private List<Site> anchorsAt(Site center,int radius) {
+        List<Site> result=new ArrayList<>();
+        for(Candidate neighbor:neighbors(center,radius)) {
+            if(neighbor.ticket>=3000)continue;
+            Site terrain=rawTerrain(neighbor,Family.OBELISK);
+            // Only relevant, physically nearby candidates may require the
+            // unique-site decision. Irrelevant halo cells never block spawn.
+            if(terrain==null || !within(center,terrain,radius,true))continue;
+            Site anchor=obelisk(neighbor);if(anchor!=null)result.add(anchor);
+        }
+        return result;
+    }
+    /** First terrain fit for the original fixed family, before final spacing.
+     * The chunk gate uses this to avoid planning an unrelated distant site
+     * while vanilla is still selecting the initial spawn. */
+    public Site candidateChoice(Cell cell) {
+        if(policy.equals(LEGACY_POLICY))throw new IllegalStateException("Legacy policy has no location search");
+        Optional<Site> cached=choices.get(cell);if(cached!=null)return cached.orElse(null);
+        Candidate c=candidate(seed,cell,false);Family family;
+        if(c.ticket<3000)family=Family.OBELISK;
+        else if(c.ticket>=6600)family=Family.EMPTY;
+        else {
+            Site nominal=new Site(c,"",2*c.x,2*c.z,0,0,0,0,0,0,0,0);
+            family=ticket(c.ticket,!anchorsAt(nominal,REGION).isEmpty());
+        }
+        Site chosen=rawTerrain(c,family);choices.put(cell,Optional.ofNullable(chosen));return chosen;
+    }
+    private static Family familyOf(Site site) {
+        String id=site.asset;
+        if(id.startsWith("titan_skull_") && !id.equals("titan_skull_2"))return Family.SKULL;
+        return Arrays.stream(Family.values()).filter(f->f.id.equals(id)).findFirst().orElseThrow();
+    }
+    private Site eligibleLocal(Candidate c) {
+        Site site=candidateChoice(c.cell);if(site==null || !clearLarge(site))return null;
+        boolean inside=false;
+        for(Site anchor:anchorsAt(site,REGION)) {
+            if(within(site,anchor,SEPARATION,false))return null;
+            inside=true;
+        }
+        // Keep the original family even if relocation crosses a region edge.
+        // Such an opportunity stays empty rather than obtaining another ticket.
+        return ticket(c.ticket,inside)==familyOf(site)?site:null;
     }
     public Site plan(Cell cell) {
         opportunities++;
@@ -178,6 +249,11 @@ public final class DistributionPlanner {
         if (site == null) return null;
         if (c.ticket >= 3000) for (Candidate neighbor : neighbors(site, SEPARATION)) {
             if (priority(neighbor,c) >= 0) continue;
+            if(!policy.equals(LEGACY_POLICY)) {
+                if(neighbor.ticket<3000 || neighbor.ticket>=6600)continue;
+                Site possible=candidateChoice(neighbor.cell);
+                if(possible==null || !within(site,possible,SEPARATION,false))continue;
+            }
             Site other = eligible(neighbor);
             if (other != null && within(site,other,SEPARATION,false)) { spacingRejected++; return null; }
         }

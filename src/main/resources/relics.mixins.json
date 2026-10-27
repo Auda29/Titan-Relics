@@ -22,7 +22,8 @@
     "DistributionPlacementMixin",
     "DistributionStructureMixin",
     "DistributionLocateMixin",
-    "DistributionMapLocateMixin"
+    "DistributionMapLocateMixin",
+    "DistributionChunkMapAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

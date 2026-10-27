@@ -1,0 +1,1698 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-27",
+  "production_commit": "eb5a8d78a50a54a230601c50d9fb88f87215ddd5",
+  "artifact_sha256": "1d944ec074be0fe146069533f38ac3bb5e46c68576f0e3b135bcc16785b067f7",
+  "audit_source_sha256": "f1750b533d2995fab22a91f6a7dbd5d7f563e52dea06a55771992bf648f2c47e",
+  "audit_jar_sha256": "082dcc1e931c1fa847e9101e55af378bc82db0356e2fa997a9ef868ca6843145",
+  "rules_changed": false,
+  "scope": "Vanilla Minecraft 26.2, Fabric 0.19.5, Fabric API 0.161.0+26.2, Lithostitched 1.8.0; fresh noise-based Overworlds",
+  "window_per_seed": [
+    120000,
+    120000
+  ],
+  "seeds": 30,
+  "cells": 17277,
+  "occupied_tickets": 7072,
+  "outcomes": {
+    "absolute_height": 89,
+    "accepted": 13,
+    "center_biome": 6504,
+    "empty_ticket": 10205,
+    "slope": 443,
+    "vertical_bounds": 21,
+    "ocean_or_river_biome": 2
+  },
+  "zero_repeatable_seeds": 20,
+  "by_family": {
+    "OBELISK": {
+      "center_biome": 5034,
+      "slope": 138,
+      "accepted": 10,
+      "absolute_height": 32,
+      "ocean_or_river_biome": 2,
+      "vertical_bounds": 1
+    },
+    "EMPTY": {
+      "empty_ticket": 10205
+    },
+    "SMALL": {
+      "slope": 50,
+      "center_biome": 280,
+      "absolute_height": 13
+    },
+    "SKULL_2": {
+      "center_biome": 340,
+      "slope": 76,
+      "absolute_height": 5,
+      "accepted": 1
+    },
+    "TOWER": {
+      "vertical_bounds": 9,
+      "center_biome": 265,
+      "slope": 38,
+      "absolute_height": 5,
+      "accepted": 2
+    },
+    "SKULL": {
+      "center_biome": 348,
+      "slope": 56,
+      "absolute_height": 27
+    },
+    "TREE": {
+      "slope": 85,
+      "center_biome": 237,
+      "absolute_height": 7,
+      "vertical_bounds": 11
+    }
+  },
+  "center_biome_rejection_share_of_nonempty": 0.919683257918552,
+  "grid_failure_flags_nonexclusive": {
+    "slope": 443,
+    "absolute_height": 437,
+    "water_surface": 400,
+    "ocean_or_river_biome": 365,
+    "palette_grid_biome": 75
+  },
+  "grid_single_failure_condition": {
+    "slope": 90,
+    "ocean_or_river_biome": 2
+  },
+  "unique_validations_including_dependency_halo": 7675,
+  "natural_verification": [
+    {
+      "seed": 731204,
+      "passed": true,
+      "instances": [
+        {
+          "structure": "relics:obelisk",
+          "template": "relics:obelisk_worldgen",
+          "origin": [
+            -11011,
+            60,
+            -27874
+          ],
+          "rotation": "CLOCKWISE_180",
+          "bounding_box": [
+            -11085,
+            60,
+            -27949,
+            -11011,
+            246,
+            -27874
+          ],
+          "expected_bounding_box": [
+            -11085,
+            60,
+            -27949,
+            -11011,
+            246,
+            -27874
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 117510,
+          "matched_blocks": 117510,
+          "checked_air": 0,
+          "nature_cells_skipped": 0,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "mismatch_examples": [],
+          "chunks_spanned": 23,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true,
+          "foundation_contact": {
+            "columns": 3427,
+            "undersides_checked": 3427,
+            "mode": "soil_columns",
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 117510,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "start_chunk": [
+            -691,
+            -1745
+          ]
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "path": "build/distribution-audit-20261027/run-102954/731204/natural-proof.json",
+      "sha256": "06c16cd602200231c7356103dbc4920326e701f45cbd2d2db6abbf36a00cad61"
+    },
+    {
+      "seed": -1395013559296424347,
+      "passed": true,
+      "instances": [
+        {
+          "structure": "relics:ruined_tower",
+          "template": "relics:ruined_tower_worldgen",
+          "origin": [
+            -47054,
+            55,
+            56759
+          ],
+          "rotation": "COUNTERCLOCKWISE_90",
+          "bounding_box": [
+            -47054,
+            55,
+            56633,
+            -46946,
+            286,
+            56759
+          ],
+          "expected_bounding_box": [
+            -47054,
+            55,
+            56633,
+            -46946,
+            286,
+            56759
+          ],
+          "bounding_box_matches": true,
+          "checked_blocks": 267596,
+          "matched_blocks": 267596,
+          "checked_air": 0,
+          "nature_cells_skipped": 38073,
+          "normalized_persistent_leaf_distance": 0,
+          "mismatch_count": 0,
+          "mismatch_kinds": {},
+          "mismatch_examples": [],
+          "chunks_spanned": 42,
+          "missing_chunks": [],
+          "incomplete_chunks": [],
+          "passed": true,
+          "foundation_contact": {
+            "columns": 6226,
+            "undersides_checked": 6226,
+            "mode": "soil_columns",
+            "unsupported_columns": 0,
+            "examples": [],
+            "passed": true
+          },
+          "feature_protection": {
+            "checked_cells": 305669,
+            "unprotected_cells": 0,
+            "examples": [],
+            "passed": true
+          },
+          "start_chunk": [
+            -2938,
+            3543
+          ]
+        }
+      ],
+      "read_errors": [],
+      "verification_errors": [],
+      "path": "build/distribution-audit-20261027/run-102954/-1395013559296424347/natural-proof.json",
+      "sha256": "b9755f6d5f7c59d5d4fdd13ea30a434c8f0dddd5f16f53fb20a5561c6abdc93f"
+    }
+  ],
+  "generation_failure": {
+    "seed": 1979312429623454326,
+    "asset": "titan_skull_2",
+    "planned_center": [
+      39640,
+      -9416
+    ],
+    "initial_audit_crash": "build/distribution-audit-20261027/run-102954/1979312429623454326/crash-reports/crash-2026-10-27_10.36.37-server.txt",
+    "native_error": "Requested chunk unavailable during world generation",
+    "stage": "minecraft:structure_references",
+    "requested_chunk": [
+      2465,
+      -602
+    ],
+    "generating_chunk": [
+      2470,
+      -596
+    ],
+    "actual_status": "minecraft:empty",
+    "required_max_status": "minecraft:structure_starts",
+    "production_only_details": "build/distribution-audit-20261027/probe-104048/generation-failure-details.txt",
+    "inference": "Association with the Relic generation path is reproduced; precise faulty line/root correction is not yet proven.",
+    "control_runs": [
+      {
+        "seed": 1979312429623454326,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": 7,
+              "z": -2
+            },
+            "x": 39640,
+            "z": -9416,
+            "ticket": 3478,
+            "priority": 1645139710204856448,
+            "rotation": 1,
+            "unique": false
+          },
+          "asset": "titan_skull_2",
+          "x2": 79280,
+          "z2": -18832,
+          "surface": 69,
+          "originX": 39697,
+          "originY": 41,
+          "originZ": -9473,
+          "minX": 39583,
+          "minZ": -9473,
+          "maxX": 39697,
+          "maxZ": -9359
+        },
+        "without_relic": false,
+        "production_artifact_sha256": "1d944ec074be0fe146069533f38ac3bb5e46c68576f0e3b135bcc16785b067f7",
+        "commands": [],
+        "completed": false,
+        "failure": "Server exited 1; see C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\distribution-audit-20261027\\probe-104048\\console.log",
+        "exit_code": 1,
+        "error_lines": [
+          "[10:41:07] [Worker-Main-3/ERROR]: Caught exception in thread Thread[#40,Worker-Main-3,5,main]",
+          "[10:42:07] [Server Watchdog/ERROR]: A single server tick took 60.00 seconds (should be max 0.05)",
+          "[10:42:07] [Server Watchdog/ERROR]: Considering it to be crashed, server will forcibly shutdown.",
+          "[10:42:07] [Server Watchdog/ERROR]: This crash report has been saved to: C:\\Users\\wecke\\Projects\\Relic_Mod\\build\\distribution-audit-20261027\\probe-104048\\crash-reports\\crash-2026-10-27_10.42.07-server.txt"
+        ],
+        "path": "build/distribution-audit-20261027/probe-104048/evidence.json",
+        "sha256": "9679f5c585682467906c70a96fd25646229c6de48cb338cac0480ace96a768a4"
+      },
+      {
+        "seed": 1979312429623454326,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": 7,
+              "z": -2
+            },
+            "x": 39640,
+            "z": -9416,
+            "ticket": 3478,
+            "priority": 1645139710204856448,
+            "rotation": 1,
+            "unique": false
+          },
+          "asset": "titan_skull_2",
+          "x2": 79280,
+          "z2": -18832,
+          "surface": 69,
+          "originX": 39697,
+          "originY": 41,
+          "originZ": -9473,
+          "minX": 39583,
+          "minZ": -9473,
+          "maxX": 39697,
+          "maxZ": -9359
+        },
+        "without_relic": true,
+        "production_artifact_sha256": "1d944ec074be0fe146069533f38ac3bb5e46c68576f0e3b135bcc16785b067f7",
+        "commands": [
+          {
+            "command": "forceload add 39568 -9488 39695 -9345",
+            "response": "[10:41:22] [Server thread/INFO]: Marked 72 chunks in minecraft:overworld from [2473, -593] to [2480, -585] to be force loaded"
+          },
+          {
+            "command": "forceload add 39696 -9488 39711 -9345",
+            "response": "[10:41:22] [Server thread/INFO]: Marked 9 chunks in minecraft:overworld from [2481, -593] to [2481, -585] to be force loaded"
+          }
+        ],
+        "completed": true,
+        "exit_code": 0,
+        "error_lines": [],
+        "path": "build/distribution-audit-20261027/probe-104109-577826/evidence.json",
+        "sha256": "b36247532a71d2a594af274d9c6d907f058615c9158ace295f9514e95e1f8d24"
+      }
+    ]
+  },
+  "old_nominal_opportunities_per_120k_square": {
+    "obelisk": 13732.91015625,
+    "colossus": 8789.0625,
+    "titan_skull": 24414.0625,
+    "small_colossus": 24414.0625,
+    "world_tree": 6103.515625,
+    "ruined_tower": 8789.0625,
+    "titan_skull_2": 13732.91015625
+  },
+  "limitations": [
+    "30 deterministic windows are a finite sample, not a world-wide absence proof",
+    "The unique large Colossus is excluded from repeatable counts; all 30 worlds resolved a unique destination",
+    "Native blocks were fully verified for two selected assets; the Skull 2 sample failed during natural chunk generation",
+    "Primary rejection causes are exclusive and order-dependent; grid failure flags deliberately overlap",
+    "No density tuning, migration, interior/loot integration or multiplayer/terrain-mod compatibility acceptance"
+  ],
+  "seed_results": [
+    {
+      "seed": 731204,
+      "cell_count": 578,
+      "assigned": {
+        "EMPTY": 348,
+        "OBELISK": 181,
+        "SKULL": 9,
+        "SKULL_2": 11,
+        "SMALL": 8,
+        "TOWER": 11,
+        "TREE": 10
+      },
+      "outcomes": {
+        "absolute_height": 3,
+        "accepted": 3,
+        "center_biome": 208,
+        "empty_ticket": 348,
+        "slope": 15,
+        "vertical_bounds": 1
+      },
+      "accepted_sites": [
+        {
+          "candidate": {
+            "cell": {
+              "x": -3,
+              "z": -6
+            },
+            "x": -11048,
+            "z": -27912,
+            "ticket": 2266,
+            "priority": 8891311666963629628,
+            "rotation": 2,
+            "unique": false
+          },
+          "asset": "obelisk",
+          "x2": -22096,
+          "z2": -55823,
+          "surface": 70,
+          "originX": -11011,
+          "originY": 60,
+          "originZ": -27874,
+          "minX": -11085,
+          "minZ": -27949,
+          "maxX": -11011,
+          "maxZ": -27874
+        },
+        {
+          "candidate": {
+            "cell": {
+              "x": 3,
+              "z": -6
+            },
+            "x": 18760,
+            "z": -25432,
+            "ticket": 314,
+            "priority": 8639616861878410521,
+            "rotation": 1,
+            "unique": false
+          },
+          "asset": "obelisk",
+          "x2": 37521,
+          "z2": -50864,
+          "surface": 66,
+          "originX": 18798,
+          "originY": 56,
+          "originZ": -25469,
+          "minX": 18723,
+          "minZ": -25469,
+          "maxX": 18798,
+          "maxZ": -25395
+        },
+        {
+          "candidate": {
+            "cell": {
+              "x": 8,
+              "z": -11
+            },
+            "x": 40888,
+            "z": -50296,
+            "ticket": 220,
+            "priority": 2570276414749085092,
+            "rotation": 3,
+            "unique": false
+          },
+          "asset": "obelisk",
+          "x2": 81777,
+          "z2": -100592,
+          "surface": 64,
+          "originX": 40851,
+          "originY": 54,
+          "originZ": -50259,
+          "minX": 40851,
+          "minZ": -50333,
+          "maxX": 40926,
+          "maxZ": -50259
+        }
+      ],
+      "initial_spawn": [
+        -656,
+        112
+      ],
+      "window": [
+        -60656,
+        -59888,
+        59344,
+        60112
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/731204/audit.json",
+      "audit_sha256": "8e6103a6c4b8ed0763f9812be03da1fc1dc88f54f33c4da3f27014e7ccea7d39"
+    },
+    {
+      "seed": -48291736,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 337,
+        "OBELISK": 175,
+        "SKULL": 13,
+        "SKULL_2": 17,
+        "SMALL": 11,
+        "TOWER": 12,
+        "TREE": 11
+      },
+      "outcomes": {
+        "absolute_height": 1,
+        "center_biome": 218,
+        "empty_ticket": 337,
+        "slope": 19,
+        "vertical_bounds": 1
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-48291736/audit.json",
+      "audit_sha256": "5212f0263c3c85cb15b7f946091e7acb25a984bcec3939f831719e51e54e548a"
+    },
+    {
+      "seed": 20260913,
+      "cell_count": 575,
+      "assigned": {
+        "EMPTY": 326,
+        "OBELISK": 176,
+        "SKULL": 19,
+        "SKULL_2": 16,
+        "SMALL": 12,
+        "TOWER": 12,
+        "TREE": 14
+      },
+      "outcomes": {
+        "absolute_height": 2,
+        "center_biome": 232,
+        "empty_ticket": 326,
+        "slope": 15
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        -816,
+        -32
+      ],
+      "window": [
+        -60816,
+        -60032,
+        59184,
+        59968
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/20260913/audit.json",
+      "audit_sha256": "fe8b1879b253ca4a45970694930aeeabb299ac9fd608a73a85173af747aea077"
+    },
+    {
+      "seed": 3839861980157614551,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 357,
+        "OBELISK": 153,
+        "SKULL": 13,
+        "SKULL_2": 14,
+        "SMALL": 11,
+        "TOWER": 17,
+        "TREE": 11
+      },
+      "outcomes": {
+        "absolute_height": 3,
+        "center_biome": 201,
+        "empty_ticket": 357,
+        "slope": 15
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/3839861980157614551/audit.json",
+      "audit_sha256": "41c6aca9a7118478db6a5edfc8dc006dfb68fe7a06ab50036d177340d00790b1"
+    },
+    {
+      "seed": 4661570585687253657,
+      "cell_count": 574,
+      "assigned": {
+        "EMPTY": 333,
+        "OBELISK": 177,
+        "SKULL": 8,
+        "SKULL_2": 12,
+        "SMALL": 8,
+        "TOWER": 23,
+        "TREE": 13
+      },
+      "outcomes": {
+        "absolute_height": 4,
+        "center_biome": 214,
+        "empty_ticket": 333,
+        "slope": 22,
+        "vertical_bounds": 1
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        -688,
+        176
+      ],
+      "window": [
+        -60688,
+        -59824,
+        59312,
+        60176
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/4661570585687253657/audit.json",
+      "audit_sha256": "fe1a0a4facf47381baa77a79d8d1bde6498ef7549c8e28972892f7021ef3f48f"
+    },
+    {
+      "seed": 7235338348887853936,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 326,
+        "OBELISK": 187,
+        "SKULL": 18,
+        "SKULL_2": 11,
+        "SMALL": 9,
+        "TOWER": 12,
+        "TREE": 13
+      },
+      "outcomes": {
+        "absolute_height": 3,
+        "center_biome": 233,
+        "empty_ticket": 326,
+        "slope": 12,
+        "vertical_bounds": 2
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/7235338348887853936/audit.json",
+      "audit_sha256": "c3adbb3a1bfb2b10a55f9f2761073b6a508a41a098a8b8d9a0022eedccb6b123"
+    },
+    {
+      "seed": 5175721536809671973,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 358,
+        "OBELISK": 166,
+        "SKULL": 14,
+        "SKULL_2": 14,
+        "SMALL": 9,
+        "TOWER": 8,
+        "TREE": 7
+      },
+      "outcomes": {
+        "absolute_height": 1,
+        "center_biome": 212,
+        "empty_ticket": 358,
+        "slope": 5
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/5175721536809671973/audit.json",
+      "audit_sha256": "88fa854907cd5deaf685c9da230aad919bd29cc9c08656a4b4870016d9fcec0f"
+    },
+    {
+      "seed": 759924343391313989,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 331,
+        "OBELISK": 171,
+        "SKULL": 16,
+        "SKULL_2": 13,
+        "SMALL": 16,
+        "TOWER": 17,
+        "TREE": 12
+      },
+      "outcomes": {
+        "absolute_height": 3,
+        "center_biome": 233,
+        "empty_ticket": 331,
+        "slope": 9
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        -16,
+        -16
+      ],
+      "window": [
+        -60016,
+        -60016,
+        59984,
+        59984
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/759924343391313989/audit.json",
+      "audit_sha256": "d26045218186d554900a61967ceb81c85d1915fe2ee58f93c35d8f48535fe3d2"
+    },
+    {
+      "seed": -1395013559296424347,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 331,
+        "OBELISK": 191,
+        "SKULL": 11,
+        "SKULL_2": 13,
+        "SMALL": 14,
+        "TOWER": 8,
+        "TREE": 8
+      },
+      "outcomes": {
+        "absolute_height": 5,
+        "accepted": 2,
+        "center_biome": 224,
+        "empty_ticket": 331,
+        "slope": 14
+      },
+      "accepted_sites": [
+        {
+          "candidate": {
+            "cell": {
+              "x": -10,
+              "z": 11
+            },
+            "x": -47000,
+            "z": 56696,
+            "ticket": 6035,
+            "priority": 4752282496834673761,
+            "rotation": 3,
+            "unique": false
+          },
+          "asset": "ruined_tower",
+          "x2": -94000,
+          "z2": 113392,
+          "surface": 67,
+          "originX": -47054,
+          "originY": 55,
+          "originZ": 56759,
+          "minX": -47054,
+          "minZ": 56633,
+          "maxX": -46946,
+          "maxZ": 56759
+        },
+        {
+          "candidate": {
+            "cell": {
+              "x": -9,
+              "z": 5
+            },
+            "x": -43320,
+            "z": 26408,
+            "ticket": 435,
+            "priority": -7639917707792364764,
+            "rotation": 2,
+            "unique": false
+          },
+          "asset": "obelisk",
+          "x2": -86640,
+          "z2": 52817,
+          "surface": 69,
+          "originX": -43283,
+          "originY": 59,
+          "originZ": 26446,
+          "minX": -43357,
+          "minZ": 26371,
+          "maxX": -43283,
+          "maxZ": 26446
+        }
+      ],
+      "initial_spawn": [
+        0,
+        16
+      ],
+      "window": [
+        -60000,
+        -59984,
+        60000,
+        60016
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-1395013559296424347/audit.json",
+      "audit_sha256": "66b7b6f200bb946daf1d581a29f75a299ffa0223e36b3a990632e5d3b6e46647"
+    },
+    {
+      "seed": 8859037163509333742,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 322,
+        "OBELISK": 187,
+        "SKULL": 18,
+        "SKULL_2": 11,
+        "SMALL": 13,
+        "TOWER": 8,
+        "TREE": 17
+      },
+      "outcomes": {
+        "absolute_height": 4,
+        "accepted": 1,
+        "center_biome": 235,
+        "empty_ticket": 322,
+        "ocean_or_river_biome": 1,
+        "slope": 13
+      },
+      "accepted_sites": [
+        {
+          "candidate": {
+            "cell": {
+              "x": 3,
+              "z": 9
+            },
+            "x": 16296,
+            "z": 49528,
+            "ticket": 1663,
+            "priority": -7375428481383265508,
+            "rotation": 1,
+            "unique": false
+          },
+          "asset": "obelisk",
+          "x2": 32593,
+          "z2": 99056,
+          "surface": 64,
+          "originX": 16334,
+          "originY": 54,
+          "originZ": 49491,
+          "minX": 16259,
+          "minZ": 49491,
+          "maxX": 16334,
+          "maxZ": 49565
+        }
+      ],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/8859037163509333742/audit.json",
+      "audit_sha256": "3ddbdd932a4c1c17ec40efa24554a2221f1a439971e162167312624017ba82ec"
+    },
+    {
+      "seed": -3525022084284971214,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 357,
+        "OBELISK": 154,
+        "SKULL": 13,
+        "SKULL_2": 16,
+        "SMALL": 6,
+        "TOWER": 13,
+        "TREE": 17
+      },
+      "outcomes": {
+        "absolute_height": 2,
+        "accepted": 1,
+        "center_biome": 200,
+        "empty_ticket": 357,
+        "slope": 16
+      },
+      "accepted_sites": [
+        {
+          "candidate": {
+            "cell": {
+              "x": 0,
+              "z": -2
+            },
+            "x": 1320,
+            "z": -6024,
+            "ticket": 2093,
+            "priority": -7053166107233387717,
+            "rotation": 1,
+            "unique": false
+          },
+          "asset": "obelisk",
+          "x2": 2641,
+          "z2": -12048,
+          "surface": 67,
+          "originX": 1358,
+          "originY": 57,
+          "originZ": -6061,
+          "minX": 1283,
+          "minZ": -6061,
+          "maxX": 1358,
+          "maxZ": -5987
+        }
+      ],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-3525022084284971214/audit.json",
+      "audit_sha256": "64f3fa8b4ebf8e47ae922b9661bdef7230a4b8578e76b4e644f341885187e481"
+    },
+    {
+      "seed": 6467084408283286827,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 326,
+        "OBELISK": 181,
+        "SKULL": 16,
+        "SKULL_2": 14,
+        "SMALL": 17,
+        "TOWER": 7,
+        "TREE": 15
+      },
+      "outcomes": {
+        "absolute_height": 3,
+        "center_biome": 229,
+        "empty_ticket": 326,
+        "slope": 18
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        -32,
+        32
+      ],
+      "window": [
+        -60032,
+        -59968,
+        59968,
+        60032
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/6467084408283286827/audit.json",
+      "audit_sha256": "ea721c688fa5b617dd4788e71c1dd4284918bdaa52d13de95f5f29fad11576a1"
+    },
+    {
+      "seed": -5545491312886366460,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 323,
+        "OBELISK": 192,
+        "SKULL": 9,
+        "SKULL_2": 20,
+        "SMALL": 15,
+        "TOWER": 8,
+        "TREE": 9
+      },
+      "outcomes": {
+        "absolute_height": 2,
+        "accepted": 1,
+        "center_biome": 231,
+        "empty_ticket": 323,
+        "slope": 19
+      },
+      "accepted_sites": [
+        {
+          "candidate": {
+            "cell": {
+              "x": 3,
+              "z": 0
+            },
+            "x": 18728,
+            "z": 4216,
+            "ticket": 900,
+            "priority": 1373658370089331291,
+            "rotation": 2,
+            "unique": false
+          },
+          "asset": "obelisk",
+          "x2": 37456,
+          "z2": 8433,
+          "surface": 72,
+          "originX": 18765,
+          "originY": 62,
+          "originZ": 4254,
+          "minX": 18691,
+          "minZ": 4179,
+          "maxX": 18765,
+          "maxZ": 4254
+        }
+      ],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-5545491312886366460/audit.json",
+      "audit_sha256": "849c626ed09b8f771fe92bc31936a32ed09c23a1fe2cf37711e246f2ac3ba175"
+    },
+    {
+      "seed": 1702934470955886012,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 331,
+        "OBELISK": 184,
+        "SKULL": 14,
+        "SKULL_2": 14,
+        "SMALL": 11,
+        "TOWER": 13,
+        "TREE": 9
+      },
+      "outcomes": {
+        "absolute_height": 4,
+        "center_biome": 235,
+        "empty_ticket": 331,
+        "slope": 5,
+        "vertical_bounds": 1
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        80,
+        -16
+      ],
+      "window": [
+        -59920,
+        -60016,
+        60080,
+        59984
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/1702934470955886012/audit.json",
+      "audit_sha256": "de27c4883093649604c5aee2da0b46fdd08050d391b91264546042601d831594"
+    },
+    {
+      "seed": -6143028072789381828,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 348,
+        "OBELISK": 178,
+        "SKULL": 13,
+        "SKULL_2": 12,
+        "SMALL": 13,
+        "TOWER": 9,
+        "TREE": 3
+      },
+      "outcomes": {
+        "center_biome": 214,
+        "empty_ticket": 348,
+        "slope": 13,
+        "vertical_bounds": 1
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        96,
+        -176
+      ],
+      "window": [
+        -59904,
+        -60176,
+        60096,
+        59824
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-6143028072789381828/audit.json",
+      "audit_sha256": "9f68d1923de14b0d5873bdf8a8d78bd181bd64110f794c656574dd2cfb8a72c1"
+    },
+    {
+      "seed": -8500233593090994958,
+      "cell_count": 575,
+      "assigned": {
+        "EMPTY": 327,
+        "OBELISK": 194,
+        "SKULL": 12,
+        "SKULL_2": 7,
+        "SMALL": 11,
+        "TOWER": 12,
+        "TREE": 12
+      },
+      "outcomes": {
+        "absolute_height": 3,
+        "center_biome": 232,
+        "empty_ticket": 327,
+        "slope": 10,
+        "vertical_bounds": 3
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        -304,
+        -16
+      ],
+      "window": [
+        -60304,
+        -60016,
+        59696,
+        59984
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-8500233593090994958/audit.json",
+      "audit_sha256": "afe6a69019255be141044e45384c451b775fc31a041516ca691a021bb31f8ea2"
+    },
+    {
+      "seed": -8334351473581773898,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 337,
+        "OBELISK": 171,
+        "SKULL": 13,
+        "SKULL_2": 17,
+        "SMALL": 15,
+        "TOWER": 13,
+        "TREE": 10
+      },
+      "outcomes": {
+        "absolute_height": 4,
+        "center_biome": 209,
+        "empty_ticket": 337,
+        "ocean_or_river_biome": 1,
+        "slope": 25
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-8334351473581773898/audit.json",
+      "audit_sha256": "8a20d507e56acbb8f987d476ba055f2d3eb501314cc7e7de31686c5287f3d422"
+    },
+    {
+      "seed": 5103844486674487467,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 341,
+        "OBELISK": 163,
+        "SKULL": 16,
+        "SKULL_2": 24,
+        "SMALL": 11,
+        "TOWER": 6,
+        "TREE": 15
+      },
+      "outcomes": {
+        "absolute_height": 3,
+        "center_biome": 215,
+        "empty_ticket": 341,
+        "slope": 16,
+        "vertical_bounds": 1
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/5103844486674487467/audit.json",
+      "audit_sha256": "55de0f7c461b69905d8435c18a4ead4d42507e9b8a8aff0da021942dd1bbdefc"
+    },
+    {
+      "seed": 3375251712923108315,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 354,
+        "OBELISK": 159,
+        "SKULL": 17,
+        "SKULL_2": 11,
+        "SMALL": 10,
+        "TOWER": 17,
+        "TREE": 8
+      },
+      "outcomes": {
+        "absolute_height": 4,
+        "center_biome": 208,
+        "empty_ticket": 354,
+        "slope": 10
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/3375251712923108315/audit.json",
+      "audit_sha256": "3f1de5bdbd7d9125e81ac4883c3c19f6b616110474f62fba0bc689bc552ac039"
+    },
+    {
+      "seed": 1415535223723414435,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 356,
+        "OBELISK": 158,
+        "SKULL": 16,
+        "SKULL_2": 13,
+        "SMALL": 12,
+        "TOWER": 9,
+        "TREE": 12
+      },
+      "outcomes": {
+        "absolute_height": 2,
+        "center_biome": 203,
+        "empty_ticket": 356,
+        "slope": 13,
+        "vertical_bounds": 2
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        -32,
+        0
+      ],
+      "window": [
+        -60032,
+        -60000,
+        59968,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/1415535223723414435/audit.json",
+      "audit_sha256": "12764c8fd960c6ee548b9f99140cbc427f5975b95d647d471adc6f29d3ddde58"
+    },
+    {
+      "seed": -2484969432404454727,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 347,
+        "OBELISK": 179,
+        "SKULL": 13,
+        "SKULL_2": 12,
+        "SMALL": 8,
+        "TOWER": 7,
+        "TREE": 10
+      },
+      "outcomes": {
+        "absolute_height": 1,
+        "center_biome": 209,
+        "empty_ticket": 347,
+        "slope": 19
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        -48,
+        -16
+      ],
+      "window": [
+        -60048,
+        -60016,
+        59952,
+        59984
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-2484969432404454727/audit.json",
+      "audit_sha256": "375753324067e9e7f28143ee64997951be5eb63a284e619c44feaa398361a6f3"
+    },
+    {
+      "seed": -3577385398599520885,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 348,
+        "OBELISK": 170,
+        "SKULL": 17,
+        "SKULL_2": 14,
+        "SMALL": 13,
+        "TOWER": 5,
+        "TREE": 9
+      },
+      "outcomes": {
+        "absolute_height": 6,
+        "center_biome": 209,
+        "empty_ticket": 348,
+        "slope": 12,
+        "vertical_bounds": 1
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        -128,
+        64
+      ],
+      "window": [
+        -60128,
+        -59936,
+        59872,
+        60064
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-3577385398599520885/audit.json",
+      "audit_sha256": "9294a8eef500c41d7536813a377ee7060e1a827c1ee73aa3029126661387005b"
+    },
+    {
+      "seed": -2758431285943030073,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 349,
+        "OBELISK": 160,
+        "SKULL": 19,
+        "SKULL_2": 13,
+        "SMALL": 12,
+        "TOWER": 9,
+        "TREE": 14
+      },
+      "outcomes": {
+        "absolute_height": 4,
+        "center_biome": 210,
+        "empty_ticket": 349,
+        "slope": 13
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-2758431285943030073/audit.json",
+      "audit_sha256": "3250adc33a7a40ccadef5ac0b4466762af0d7bba741d57c2df2bedf62b4464d1"
+    },
+    {
+      "seed": 1979312429623454326,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 342,
+        "OBELISK": 168,
+        "SKULL": 20,
+        "SKULL_2": 11,
+        "SMALL": 10,
+        "TOWER": 10,
+        "TREE": 15
+      },
+      "outcomes": {
+        "absolute_height": 4,
+        "accepted": 1,
+        "center_biome": 218,
+        "empty_ticket": 342,
+        "slope": 11
+      },
+      "accepted_sites": [
+        {
+          "candidate": {
+            "cell": {
+              "x": 7,
+              "z": -2
+            },
+            "x": 39640,
+            "z": -9416,
+            "ticket": 3478,
+            "priority": 1645139710204856448,
+            "rotation": 1,
+            "unique": false
+          },
+          "asset": "titan_skull_2",
+          "x2": 79280,
+          "z2": -18832,
+          "surface": 69,
+          "originX": 39697,
+          "originY": 41,
+          "originZ": -9473,
+          "minX": 39583,
+          "minZ": -9473,
+          "maxX": 39697,
+          "maxZ": -9359
+        }
+      ],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/1979312429623454326/audit.json",
+      "audit_sha256": "30d362e05b0be478398cac6a8184566bb072f871407c23392b1c7d3333ec289c"
+    },
+    {
+      "seed": 4140992804666864414,
+      "cell_count": 575,
+      "assigned": {
+        "EMPTY": 353,
+        "OBELISK": 165,
+        "SKULL": 15,
+        "SKULL_2": 13,
+        "SMALL": 15,
+        "TOWER": 3,
+        "TREE": 11
+      },
+      "outcomes": {
+        "absolute_height": 3,
+        "accepted": 1,
+        "center_biome": 203,
+        "empty_ticket": 353,
+        "slope": 15
+      },
+      "accepted_sites": [
+        {
+          "candidate": {
+            "cell": {
+              "x": -7,
+              "z": -10
+            },
+            "x": -34424,
+            "z": -48296,
+            "ticket": 1186,
+            "priority": -2309240931475601788,
+            "rotation": 2,
+            "unique": false
+          },
+          "asset": "obelisk",
+          "x2": -68848,
+          "z2": -96591,
+          "surface": 68,
+          "originX": -34387,
+          "originY": 58,
+          "originZ": -48258,
+          "minX": -34461,
+          "minZ": -48333,
+          "maxX": -34387,
+          "maxZ": -48258
+        }
+      ],
+      "initial_spawn": [
+        -720,
+        -112
+      ],
+      "window": [
+        -60720,
+        -60112,
+        59280,
+        59888
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/4140992804666864414/audit.json",
+      "audit_sha256": "156a3127c5db29468a05a3ca442fcec3b9f1f33f40c140e3fa9b5519519d67b5"
+    },
+    {
+      "seed": -4290872030249976807,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 336,
+        "OBELISK": 187,
+        "SKULL": 13,
+        "SKULL_2": 18,
+        "SMALL": 7,
+        "TOWER": 7,
+        "TREE": 8
+      },
+      "outcomes": {
+        "absolute_height": 1,
+        "accepted": 1,
+        "center_biome": 224,
+        "empty_ticket": 336,
+        "slope": 13,
+        "vertical_bounds": 1
+      },
+      "accepted_sites": [
+        {
+          "candidate": {
+            "cell": {
+              "x": -4,
+              "z": 5
+            },
+            "x": -19128,
+            "z": 25864,
+            "ticket": 794,
+            "priority": 8092861705773886815,
+            "rotation": 0,
+            "unique": false
+          },
+          "asset": "obelisk",
+          "x2": -38256,
+          "z2": 51729,
+          "surface": 68,
+          "originX": -19165,
+          "originY": 58,
+          "originZ": 25827,
+          "minX": -19165,
+          "minZ": 25827,
+          "maxX": -19091,
+          "maxZ": 25902
+        }
+      ],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-4290872030249976807/audit.json",
+      "audit_sha256": "6c962d0b7583529a3253556fb10dd3106abf61d1f00deb1b685415d6ec1079d6"
+    },
+    {
+      "seed": 4198221456769241326,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 343,
+        "OBELISK": 172,
+        "SKULL": 16,
+        "SKULL_2": 16,
+        "SMALL": 7,
+        "TOWER": 9,
+        "TREE": 13
+      },
+      "outcomes": {
+        "absolute_height": 6,
+        "accepted": 1,
+        "center_biome": 205,
+        "empty_ticket": 343,
+        "slope": 21
+      },
+      "accepted_sites": [
+        {
+          "candidate": {
+            "cell": {
+              "x": 10,
+              "z": 6
+            },
+            "x": 54360,
+            "z": 32856,
+            "ticket": 2029,
+            "priority": -4091645790453404259,
+            "rotation": 0,
+            "unique": false
+          },
+          "asset": "obelisk",
+          "x2": 108720,
+          "z2": 65713,
+          "surface": 72,
+          "originX": 54323,
+          "originY": 62,
+          "originZ": 32819,
+          "minX": 54323,
+          "minZ": 32819,
+          "maxX": 54397,
+          "maxZ": 32894
+        }
+      ],
+      "initial_spawn": [
+        0,
+        0
+      ],
+      "window": [
+        -60000,
+        -60000,
+        60000,
+        60000
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/4198221456769241326/audit.json",
+      "audit_sha256": "c21b0cb826b934a9c7fc70c2a593c0483b2ccb858df33e9824a6ad315e2740ef"
+    },
+    {
+      "seed": 9188172609311710193,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 349,
+        "OBELISK": 165,
+        "SKULL": 19,
+        "SKULL_2": 15,
+        "SMALL": 9,
+        "TOWER": 10,
+        "TREE": 9
+      },
+      "outcomes": {
+        "absolute_height": 2,
+        "accepted": 1,
+        "center_biome": 200,
+        "empty_ticket": 349,
+        "slope": 24
+      },
+      "accepted_sites": [
+        {
+          "candidate": {
+            "cell": {
+              "x": -2,
+              "z": 2
+            },
+            "x": -8856,
+            "z": 11352,
+            "ticket": 6011,
+            "priority": 3043555353105864233,
+            "rotation": 3,
+            "unique": false
+          },
+          "asset": "ruined_tower",
+          "x2": -17712,
+          "z2": 22704,
+          "surface": 68,
+          "originX": -8910,
+          "originY": 56,
+          "originZ": 11415,
+          "minX": -8910,
+          "minZ": 11289,
+          "maxX": -8802,
+          "maxZ": 11415
+        }
+      ],
+      "initial_spawn": [
+        -608,
+        -64
+      ],
+      "window": [
+        -60608,
+        -60064,
+        59392,
+        59936
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/9188172609311710193/audit.json",
+      "audit_sha256": "ff2007f04f1664fcb89e6f6c3dd3ea45d127d0e73316ec540cbfe71ff0130dc4"
+    },
+    {
+      "seed": -8125558496228800660,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 328,
+        "OBELISK": 184,
+        "SKULL": 11,
+        "SKULL_2": 12,
+        "SMALL": 17,
+        "TOWER": 11,
+        "TREE": 13
+      },
+      "outcomes": {
+        "absolute_height": 4,
+        "center_biome": 222,
+        "empty_ticket": 328,
+        "slope": 19,
+        "vertical_bounds": 3
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        -16,
+        64
+      ],
+      "window": [
+        -60016,
+        -59936,
+        59984,
+        60064
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-8125558496228800660/audit.json",
+      "audit_sha256": "cba9c9cb28bf5bb7b04f528785dc6e68a7235d1e1e12c4b9882f32c15c42fb1d"
+    },
+    {
+      "seed": -4664826872754375992,
+      "cell_count": 576,
+      "assigned": {
+        "EMPTY": 341,
+        "OBELISK": 169,
+        "SKULL": 10,
+        "SKULL_2": 18,
+        "SMALL": 13,
+        "TOWER": 13,
+        "TREE": 12
+      },
+      "outcomes": {
+        "absolute_height": 2,
+        "center_biome": 218,
+        "empty_ticket": 341,
+        "slope": 12,
+        "vertical_bounds": 3
+      },
+      "accepted_sites": [],
+      "initial_spawn": [
+        -16,
+        -64
+      ],
+      "window": [
+        -60016,
+        -60064,
+        59984,
+        59936
+      ],
+      "reverse_order_match": true,
+      "audit_path": "build/distribution-audit-20261027/run-102954/-4664826872754375992/audit.json",
+      "audit_sha256": "7b1edd19722909c1eed1f619660b56a0abe2933853089cc0b4431cec12d34903"
+    }
+  ],
+  "planned_sites_total": 13
+}

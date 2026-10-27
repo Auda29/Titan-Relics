@@ -42,7 +42,7 @@ public final class DistributionJournal {
         } catch (Exception error) { throw new IllegalStateException("Preserve and inspect planning journal: "+file,error); }
     }
     private void validate() {
-        if (state==null || !DistributionPlanner.POLICY.equals(state.policy) || state.fingerprint==null
+        if (state==null || !Set.of(DistributionPlanner.POLICY,DistributionPlanner.LEGACY_POLICY).contains(state.policy) || state.fingerprint==null
                 || !state.fingerprint.matches("[a-f0-9]{64}") || state.enabled==null || state.cursor<0
                 || state.lower<30000 || state.upper<=state.lower || state.minX>=state.maxX || state.minZ>=state.maxZ
                 || state.unique!=null && (!state.frozen || state.unavailable || !state.unique.candidate().unique()

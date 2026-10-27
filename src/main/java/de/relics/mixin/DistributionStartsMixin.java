@@ -15,6 +15,10 @@ public abstract class DistributionStartsMixin {
     @WrapMethod(method="generateStructureStarts")
     private static CompletableFuture<ChunkAccess> relics$plannedStarts(WorldGenContext context,ChunkStep step,
             StaticCache2D<GenerationChunkHolder> chunks,ChunkAccess chunk,Operation<CompletableFuture<ChunkAccess>> original) {
-        return DistributionRuntime.beforeStarts(context.level(),chunk,()->original.call(context,step,chunks,chunk));
+        var center=chunks.get(chunk.getPos().x(),chunk.getPos().z());
+        var dispatcher=((DistributionChunkMapAccessor)context.level().getChunkSource().chunkMap).relics$worldgenDispatcher();
+        java.util.concurrent.Executor worldgenExecutor=task->dispatcher.submit(task,
+                net.minecraft.world.level.ChunkPos.pack(chunk.getPos().x(),chunk.getPos().z()),center::getQueueLevel);
+        return DistributionRuntime.beforeStarts(context.level(),chunk,()->original.call(context,step,chunks,chunk),worldgenExecutor);
     }
 }

@@ -17,7 +17,13 @@ def main():
     with tempfile.TemporaryDirectory(dir=ROOT / 'build', prefix='distribution-unit-') as directory:
         subprocess.run([str(compiler), '--release', '25', '-encoding', 'UTF-8', '-proc:none',
                         '-classpath', cp, '-d', directory,
-                        str(ROOT / 'src/test/java/de/relics/DistributionTests.java')], check=True)
+                        str(ROOT / 'src/test/java/de/relics/DistributionTests.java'),
+                        str(ROOT / 'src/test/java/de/relics/LocationSearchTests.java'),
+                        str(ROOT / 'src/test/java/de/relics/WorldgenGateTests.java')], check=True)
+        subprocess.run([str(compiler.with_name('java.exe' if os.name == 'nt' else 'java')),
+                        '-classpath', os.pathsep.join([directory, cp]), 'de.relics.WorldgenGateTests'], cwd=directory, check=True)
+        subprocess.run([str(compiler.with_name('java.exe' if os.name == 'nt' else 'java')),
+                        '-classpath', os.pathsep.join([directory, cp]), 'de.relics.LocationSearchTests'], cwd=directory, check=True)
         subprocess.run([str(compiler.with_name('java.exe' if os.name == 'nt' else 'java')),
                         '-classpath', os.pathsep.join([directory, cp]), 'de.relics.DistributionTests',
                         directory], cwd=directory, check=True)

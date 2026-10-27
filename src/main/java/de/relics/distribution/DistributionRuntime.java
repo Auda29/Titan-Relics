@@ -13,7 +13,6 @@ import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.util.Util;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.chunk.*;
 import net.minecraft.world.level.levelgen.structure.*;
@@ -39,6 +38,7 @@ public final class DistributionRuntime implements AutoCloseable {
     private final DistributionPlanner planner;
     private final CompletableFuture<Void> ready=new CompletableFuture<>();
     private final Map<Cell,CompletableFuture<Site>> decisions=new LinkedHashMap<>(64,.75f,true);
+    private final Map<Cell,CompletableFuture<Site>> selections=new LinkedHashMap<>(64,.75f,true);
     private volatile Site unique;
     private volatile boolean unavailable,closed;
     private volatile Throwable failure;
@@ -67,7 +67,7 @@ public final class DistributionRuntime implements AutoCloseable {
         if(s.unique!=null && !s.unique.equals(validator.validate(s.unique.candidate(),Family.COLOSSUS)))
             throw new IllegalStateException("Saved unique destination no longer matches the exact terrain/transform contract");
         unique=s.unique;unavailable=s.unavailable;
-        planner=new DistributionPlanner(s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
+        planner=new DistributionPlanner(s.policy,s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
         actor=Executors.newSingleThreadScheduledExecutor(r->{Thread t=new Thread(r,"Relic planning "+s.seed);t.setDaemon(true);return t;});
         if(fresh)journal.flush();
         if(s.frozen)startResolver();
@@ -173,54 +173,69 @@ public final class DistributionRuntime implements AutoCloseable {
         if(failure!=null || closed)return;failure=error;LOG.error("Relic planning stopped; no speculative placement or replacement destination",error);
         ready.completeExceptionally(error);
         synchronized(decisions){for(var future:decisions.values())future.completeExceptionally(error);}
+        synchronized(selections){for(var future:selections.values())future.completeExceptionally(error);}
     }
     private CompletableFuture<Site> decision(Cell cell) {
-        synchronized(decisions) {
-            var existing=decisions.get(cell);if(existing!=null)return existing;
+        return request(cell,false);
+    }
+    private CompletableFuture<Site> request(Cell cell,boolean selectionOnly) {
+        var requests=selectionOnly?selections:decisions;
+        synchronized(requests) {
+            var existing=requests.get(cell);if(existing!=null)return existing;
             if(failure!=null)return CompletableFuture.failedFuture(failure);
-            var future=new CompletableFuture<Site>();decisions.put(cell,future);
+            if(closed)return CompletableFuture.failedFuture(new CancellationException("World stopping"));
+            var future=new CompletableFuture<Site>();requests.put(cell,future);
             // Completed entries alone may be evicted. Pending requests are shared.
-            if(decisions.size()>2048) {
-                var iterator=decisions.entrySet().iterator();
-                while(decisions.size()>2048 && iterator.hasNext()){var e=iterator.next();if(e.getValue().isDone())iterator.remove();}
+            if(requests.size()>2048) {
+                var iterator=requests.entrySet().iterator();
+                while(requests.size()>2048 && iterator.hasNext()){var e=iterator.next();if(e.getValue().isDone())iterator.remove();}
             }
-            actor.execute(()->evaluate(cell,future));return future;
+            actor.execute(()->evaluate(cell,future,selectionOnly));return future;
         }
     }
-    private void evaluate(Cell cell,CompletableFuture<Site> future) {
+    private void evaluate(Cell cell,CompletableFuture<Site> future,boolean selectionOnly) {
         try {
             if(failure!=null)throw new IllegalStateException("Planning paused",failure);
-            future.complete(planner.plan(cell));
+            future.complete(selectionOnly?planner.candidateChoice(cell):planner.plan(cell));
         } catch(Pending pending) {
-            ready.whenComplete((ignored,error)->{if(error!=null)future.completeExceptionally(error);else actor.execute(()->evaluate(cell,future));});
+            ready.whenComplete((ignored,error)->{if(error!=null)future.completeExceptionally(error);else actor.execute(()->evaluate(cell,future,selectionOnly));});
         } catch(Throwable error){future.completeExceptionally(error);fail(error);}
     }
-    public static CompletableFuture<ChunkAccess> beforeStarts(ServerLevel level,ChunkAccess chunk,Supplier<CompletableFuture<ChunkAccess>> original) {
+    private CompletableFuture<Site> ordinaryAt(Cell cell,ChunkPos pos) {
+        if(journal.state.policy.equals(LEGACY_POLICY))return decision(cell);
+        return request(cell,true).thenCompose(site->site!=null && site.candidate().chunkX()==pos.x() && site.candidate().chunkZ()==pos.z()
+                ?decision(cell):CompletableFuture.completedFuture(null));
+    }
+    public static CompletableFuture<ChunkAccess> beforeStarts(ServerLevel level,ChunkAccess chunk,
+            Supplier<CompletableFuture<ChunkAccess>> original,Executor worldgenExecutor) {
         var runtime=get(level);if(runtime==null)return original.get();
         if(runtime.failure!=null)return CompletableFuture.failedFuture(runtime.failure);
         ChunkPos pos=chunk.getPos();
         Cell cell=new Cell(Math.floorDiv(pos.getMinBlockX(),CELL),Math.floorDiv(pos.getMinBlockZ(),CELL));
         Candidate ordinary=candidate(level.getSeed(),cell,false),large=candidate(level.getSeed(),cell,true);
         CompletableFuture<Site> result;
-        boolean ordinaryChunk=pos.x()==ordinary.chunkX() && pos.z()==ordinary.chunkZ();
+        boolean ordinaryChunk=runtime.journal.state.policy.equals(LEGACY_POLICY)
+                ?pos.x()==ordinary.chunkX() && pos.z()==ordinary.chunkZ():LocationSearch.mayContain(ordinary,pos.x(),pos.z());
         boolean possibleLarge=distance(large,runtime.journal.state.bootstrapX,runtime.journal.state.bootstrapZ)>=UNIQUE_MIN-182;
         if(pos.x()==large.chunkX() && pos.z()==large.chunkZ() && possibleLarge) {
             result=runtime.ready.thenCompose(ignored->runtime.unique!=null && runtime.unique.candidate().cell().equals(cell)
-                    ?CompletableFuture.completedFuture(runtime.unique):ordinaryChunk?runtime.decision(cell):CompletableFuture.completedFuture(null));
-        } else if(pos.x()==ordinary.chunkX() && pos.z()==ordinary.chunkZ())result=runtime.decision(cell);
+                    ?CompletableFuture.completedFuture(runtime.unique):ordinaryChunk?runtime.ordinaryAt(cell,pos):CompletableFuture.completedFuture(null));
+        } else if(ordinaryChunk)result=runtime.ordinaryAt(cell,pos);
         else result=CompletableFuture.completedFuture(null);
-        return result.thenComposeAsync(site->{
+        return WorldgenGate.resume(result,site->{
             if(runtime.failure!=null)return CompletableFuture.failedFuture(runtime.failure);
-            GENERATING.set(new Generation(runtime,site));
+            Site placed=site!=null && site.candidate().chunkX()==pos.x() && site.candidate().chunkZ()==pos.z()?site:null;
+            GENERATING.set(new Generation(runtime,placed));
             try{return original.get();}finally{GENERATING.remove();}
-        },Util.backgroundExecutor());
+        },worldgenExecutor);
     }
     /** null means this is not a managed relic placement. */
-    public static Boolean placement(Object placement,ChunkGeneratorStructureState state) {
+    public static Boolean placement(Object placement,ChunkGeneratorStructureState state,int chunkX,int chunkZ) {
         var runtime=STATES.get(state);if(runtime==null)return null;
         Family family=runtime.validator.placement(placement);if(family==null)return null;
         Generation current=GENERATING.get();
         return current!=null && current.runtime==runtime && current.site!=null
+                && current.site.candidate().chunkX()==chunkX && current.site.candidate().chunkZ()==chunkZ
                 && family.id.equals(familyOf(current.site.asset()));
     }
     private static String familyOf(String asset){return asset.startsWith("titan_skull_") && !asset.equals("titan_skull_2")?"titan_skull":asset;}
@@ -248,10 +263,11 @@ public final class DistributionRuntime implements AutoCloseable {
             actor.execute(()->{
                 List<Candidate> cells=new ArrayList<>();
                 int radius=100000;
-                for(int x=Math.floorDiv(origin.getX()-radius,CELL);x<=Math.floorDiv(origin.getX()+radius,CELL);x++)
-                    for(int z=Math.floorDiv(origin.getZ()-radius,CELL);z<=Math.floorDiv(origin.getZ()+radius,CELL);z++) {
+                int margin=journal.state.policy.equals(LEGACY_POLICY)?0:LocationSearch.RADIUS;
+                for(int x=Math.floorDiv(origin.getX()-radius-margin,CELL);x<=Math.floorDiv(origin.getX()+radius+margin,CELL);x++)
+                    for(int z=Math.floorDiv(origin.getZ()-radius-margin,CELL);z<=Math.floorDiv(origin.getZ()+radius+margin,CELL);z++) {
                         Candidate c=candidate(level.getSeed(),new Cell(x,z),false);
-                        if(distance(c,origin.getX(),origin.getZ())<=radius)cells.add(c);
+                        if(distance(c,origin.getX(),origin.getZ())<=radius+margin+2)cells.add(c);
                     }
                 cells.sort(Comparator.comparingDouble(c->distance(c,origin.getX(),origin.getZ())));
                 Site initial=unique!=null && requested.test(validator.holder(unique.asset()))?unique:null;
@@ -267,15 +283,19 @@ public final class DistributionRuntime implements AutoCloseable {
             long deadline=System.nanoTime()+2000000;
             for(int count=0;count<8 && cursor<cells.size();count++,cursor++) {
                 Candidate c=cells.get(cursor);
-                if(best!=null && distance(c,origin.getX(),origin.getZ())>Math.hypot((double)best.x()-origin.getX(),(double)best.z()-origin.getZ())+2)break;
+                if(best!=null && locateLowerBound(c,origin)>Math.hypot((double)best.x()-origin.getX(),(double)best.z()-origin.getZ())+2)break;
                 Site site=planner.plan(c.cell());
-                if(site!=null && requested.test(validator.holder(site.asset())) && (best==null
+                if(site!=null && Math.hypot((double)site.x()-origin.getX(),(double)site.z()-origin.getZ())<=100000
+                        && requested.test(validator.holder(site.asset())) && (best==null
                         || Math.hypot((double)site.x()-origin.getX(),(double)site.z()-origin.getZ())<Math.hypot((double)best.x()-origin.getX(),(double)best.z()-origin.getZ())))best=site;
                 if(System.nanoTime()>=deadline){cursor++;break;}
             }
-            if(cursor>=cells.size() || best!=null && distance(cells.get(cursor),origin.getX(),origin.getZ())>Math.hypot((double)best.x()-origin.getX(),(double)best.z()-origin.getZ())+2)result.complete(best);
+            if(cursor>=cells.size() || best!=null && locateLowerBound(cells.get(cursor),origin)>Math.hypot((double)best.x()-origin.getX(),(double)best.z()-origin.getZ())+2)result.complete(best);
             else {int next=cursor;Site found=best;actor.schedule(()->locateSlice(cells,next,found,requested,origin,result),1,TimeUnit.MILLISECONDS);}
         }catch(Throwable error){result.completeExceptionally(error);fail(error);}
+    }
+    private double locateLowerBound(Candidate candidate,BlockPos origin) {
+        return distance(candidate,origin.getX(),origin.getZ())-(journal.state.policy.equals(LEGACY_POLICY)?0:LocationSearch.RADIUS);
     }
     public Holder<Structure> holder(Site site){return validator.holder(site.asset());}
     public com.mojang.datafixers.util.Pair<BlockPos,Holder<Structure>> mapTarget(net.minecraft.core.HolderSet<Structure> requested) {
@@ -285,10 +305,11 @@ public final class DistributionRuntime implements AutoCloseable {
         return com.mojang.datafixers.util.Pair.of(new BlockPos(site.x(),site.surface(),site.z()),validator.holder(site.asset()));
     }
     public String status() {
-        var report=new LinkedHashMap<String,Object>();report.put("policy",POLICY);report.put("snapshot",journal.state);
+        var report=new LinkedHashMap<String,Object>();report.put("policy",journal.state.policy);report.put("snapshot",journal.state);
         report.put("pending",!ready.isDone());report.put("failure",failure==null?null:failure.toString());
         report.put("opportunityQueries",planner.opportunities);report.put("terrainChecks",planner.terrainChecks);report.put("terrainRejected",planner.terrainRejected);
         report.put("spacingRejected",planner.spacingRejected);report.put("acceptedQueries",planner.acceptedQueries);report.put("materializedStartEvents",materialized);
+        report.put("locationAttempts",planner.locationAttempts);
         return new GsonBuilder().create().toJson(report);
     }
     @Override public void close() {
@@ -296,6 +317,7 @@ public final class DistributionRuntime implements AutoCloseable {
         var cancellation=new CancellationException("World stopping; pending planning will resume from its journal");
         ready.completeExceptionally(cancellation);
         synchronized(decisions){for(var future:decisions.values())future.completeExceptionally(cancellation);}
+        synchronized(selections){for(var future:selections.values())future.completeExceptionally(cancellation);}
         actor.shutdown();
         try{if(!actor.awaitTermination(5,TimeUnit.SECONDS))actor.shutdownNow();}catch(InterruptedException interrupted){actor.shutdownNow();Thread.currentThread().interrupt();}
         LEVELS.remove(level);STATES.remove(level.getChunkSource().getGeneratorState());

@@ -3,6 +3,9 @@
 Prepared: October 8, 2026. **Implemented October 25 for fresh 26.2/Fabric worlds;
 production density and survival balance are not broadly measured.** See the
 [implementation, scheduling and verification record](../testing/DISTRIBUTION_IMPLEMENTATION_20261025.md).
+The October 27 correction introduces the versioned local search described below
+and fixes asynchronous structure-start scheduling. Existing v1 saves keep v1
+coordinates. See the [correction evidence](../testing/DISTRIBUTION_FIX_20261027.md).
 User approvals remain in the
 [implementation plan](../project/UMSETZUNGSPLAN.md#distribution-proposal-and-approved-map-exceptions).
 The algorithm below is a delegated engineering choice, not a new user-selected rate.
@@ -35,7 +38,7 @@ old rewards/regions silently. Runtime generation disabling is discussed below.
 
 ## 2. Shared opportunity and exact ticket ranges
 
-Use mathematical floor division for signed cell coordinates. Derive one position
+Use mathematical floor division for signed cell coordinates. Derive one nominal position
 per cell from independent versioned seed streams; keep a 256-block margin inside
 the cell and snap to the owning chunk center. This margin prevents snapping into
 another cell; it does not guarantee 2,000-block separation. Use independent
@@ -45,6 +48,29 @@ Bind the planned center to the actual transformed natural footprint's horizontal
 center, solving its origin before validation; do not use a lower corner/jigsaw
 connector in the final distance checks. Record any deterministic half-block/parity
 adjustment, keep it inside the cell margin and validate the **actual** placed center.
+
+### October 27 local search for new worlds
+
+New snapshots use `relics-distribution-v2-local64-r3072`. The existing nominal
+position is probe zero. Up to 63 additional deterministic, distinct chunk centers
+lie within 3,072 blocks of it, inside the same cell and 256-block cell margin.
+The family ticket, priority and rotation remain those of the original cell.
+The first terrain-valid position is the cell's only candidate. Failure of all
+64 positions, final spacing or exact region membership leaves the cell empty.
+There is no retry after spacing rejection and no replacement family roll.
+
+Obelisk tickets remain independent of region membership. Other tickets are
+classified at the nominal position using accepted Obelisks, then checked again
+at the actual transformed center. If that move would change the selected family,
+the opportunity stays empty. Skull palettes use the compatible biome at each
+probe, within the same skull family. Terrain, biome, height, water and footprint
+predicates remain unchanged. The unique large-Colossus stream is unchanged.
+
+The journal container remains `relics_distribution_v1.json`; its explicit
+`policy` field selects the algorithm. Loading `relics-distribution-v1` retains
+the single original position, previous decisions and saved large destination.
+Existing worlds without a journal retain their legacy independent placements.
+There is no automatic migration or retrogen.
 
 Draw one integer `u` in **0..9,999**:
 
@@ -118,6 +144,19 @@ Validation of a Phase-C neighbor includes its region query. A query must therefo
 cover the nested **2,000 + 6,000 + 15,000-block** dependency halo, plus cell-position
 and footprint margins; never query only the rendered map rectangle. Cache pure
 results by policy/seed/cell, with no need to load or decorate neighbor chunks.
+
+V2 neighborhood enumeration includes the 3,072-block search radius and then
+filters by actual physical distance before requiring a unique-site decision.
+The structure-start gate first selects a cell's terrain candidate. Only its
+actual start chunk requests final spacing acceptance. Other searched chunks
+continue without planning a distant start. During initial spawn selection this
+keeps the relevant dependency halo inside the proven safe bootstrap disk.
+
+An unfinished planning dependency resumes structure-start generation through
+Minecraft's own `ChunkTaskDispatcher`, using the start chunk's queue priority.
+It must not resume on a generic worker pool: chunk-status completion mutates
+generation dependencies that assume the native serial dispatcher. Already
+completed dependencies keep the caller's synchronous native execution path.
 
 **API proof gate:** the same base-terrain/biome/height/water predicates must run in
 the planner and natural structure-start path, without generating neighbors or
@@ -196,5 +235,6 @@ border cases and simultaneous map requests. Do not infer world-level rarity from
 three examples or interpret a seed's seven Trees/six Obelisks as a count-cap bug.
 
 See [Gameplay acceptance](../testing/GAMEPLAY_ACCEPTANCE_PLAN.md). Implementation
-and runtime performance proof remain future work; this document closes the
-algorithm choice, not those evidence gates.
+and runtime evidence for 26.2/Fabric are recorded in the dated implementation
+and correction reports above. Terrain-mod compatibility, wider performance
+coverage and survival balance still require separate acceptance evidence.

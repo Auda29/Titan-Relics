@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class DistributionPlacementMixin {
     @Inject(method="isStructureChunk",at=@At("HEAD"),cancellable=true)
     private void relics$sharedPlacement(ChunkGeneratorStructureState state,int x,int z,CallbackInfoReturnable<Boolean> ci) {
-        Boolean result=DistributionRuntime.placement(this,state);
+        Boolean result=DistributionRuntime.placement(this,state,x,z);
         if(result!=null)ci.setReturnValue(result);
     }
 }
