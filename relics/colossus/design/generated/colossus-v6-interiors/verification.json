@@ -1,0 +1,43 @@
+{
+  "size": [
+    181,
+    209,
+    235
+  ],
+  "blocks": 228031,
+  "tiles": 127,
+  "markers": 5,
+  "regions": 13,
+  "checks": [
+    "source hash and revision binding",
+    "26.2 block/property report",
+    "roles/bounds/placeholder supports",
+    "entity footprints/headroom",
+    "schematic equality",
+    "lossless tile reconstruction",
+    "unchanged baseline hash",
+    "new architecture face-connected to surviving baseline",
+    "two-block player routes / continuous support",
+    "body cavity / original hand / resource limits preserved"
+  ],
+  "nbt_sha256": "4c65e4cc8fd57dbccacf765241df70951a95e65e886b4ac4f17d9ebaf96c3b99",
+  "in_game_tested": false,
+  "natural_rotation_and_chunk_injection_tested": false,
+  "actual_block_light_tested": false,
+  "visual_acceptance": "pending",
+  "revision_checks": [
+    "five station blocks exact",
+    "substantial cockpit geometry",
+    "two clear sightlines through helmet",
+    "independent arm route"
+  ],
+  "revision_changed_blocks": 752,
+  "editable_source": {
+    "source_blend_sha256": "c0d7ffa157eefe1bf8d842e0fd0b053338ed1c8018025b0dd2d25b1b9650da91",
+    "bound_nbt_sha256": "4c65e4cc8fd57dbccacf765241df70951a95e65e886b4ac4f17d9ebaf96c3b99",
+    "mesh_count": 35,
+    "marker_empties": 5,
+    "marker_contents_and_positions_verified": true,
+    "opened_and_verified_in_blender": true
+  }
+}

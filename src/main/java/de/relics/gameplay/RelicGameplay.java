@@ -87,6 +87,7 @@ public final class RelicGameplay {
     private static TreeCell cell(Point p) { return new TreeCell(p.dimension(), Math.floorDiv(p.x(), 32), Math.floorDiv(p.y(), 32), Math.floorDiv(p.z(), 32)); }
     private static boolean eligible(Player player) { return player.isAlive() && !player.isCreative() && !player.isSpectator(); }
     public static void initialize() {
+        RewardDrops.initialize();
         ServerLifecycleEvents.SERVER_STARTED.register(server -> runtime(server));
         ServerLifecycleEvents.SERVER_STOPPED.register(server -> RUNTIMES.remove(server));
         ServerTickEvents.START_LEVEL_TICK.register(SalvageMagnet::scan);
@@ -102,6 +103,7 @@ public final class RelicGameplay {
             if (server.overworld().getGameTime() % 20 != 0) return;
             for (ServerPlayer player : server.getPlayerList().getPlayers()) {
                 refreshTree(player);
+                unlockMaintenance(player);
                 deliverQueued(player);
             }
         });
@@ -125,6 +127,14 @@ public final class RelicGameplay {
             return InteractionResult.PASS;
         });
         GameplayFixtures.initialize();
+    }
+    public static void unlockMaintenance(ServerPlayer player) {
+        for(boolean core:new boolean[]{true,false}) {
+            var key=ResourceKey.create(Registries.RECIPE,RelicItems.id(core?"machine_core_recharge":"salvage_magnet_repair"));
+            if(player.getRecipeBook().contains(key))continue;
+            if(player.getInventory().getNonEquipmentItems().stream().anyMatch(stack->core?RelicItems.core(stack):RelicItems.magnet(stack)))
+                player.awardRecipesByKey(List.of(key));
+        }
     }
     /** Explicit isolated registration only; natural registration is gated on validated builder markers. */
     public static void registerFixture(ServerLevel level, String name, BlockPos spawner, BlockPos golem, BlockPos vault) {
@@ -150,6 +160,45 @@ public final class RelicGameplay {
         if (rt.ledger.state.trees.putIfAbsent("fixture:" + name, point(level, anchor)) != null)
             throw new IllegalArgumentException("Tree ID already registered");
         rt.ledger.flush(); rt.rebuild();
+    }
+    public static void registerNatural(ServerLevel level,String id,BlockPos spawner,BlockPos golem,BlockPos vault) {
+        if(!id.startsWith("natural:"))throw new IllegalArgumentException("Not a natural site");
+        var rt=runtime(level.getServer());Site existing=rt.ledger.state.sites.get(id);
+        if(existing!=null) {
+            if(existing.fixture || !existing.spawner.equals(point(level,spawner)) || !existing.golemSpawn.equals(point(level,golem)) || !existing.vault.equals(point(level,vault)))
+                throw new IllegalStateException("Frozen natural site anchors differ");
+            return;
+        }
+        Site site=new Site();site.id=id;site.spawner=point(level,spawner);site.golemSpawn=point(level,golem);site.vault=point(level,vault);
+        rt.ledger.state.sites.put(id,site);rt.ledger.flush();rt.rebuild();
+    }
+    public static void registerNaturalTree(ServerLevel level,String id,BlockPos anchor) {
+        if(!id.startsWith("natural:"))throw new IllegalArgumentException("Not a natural tree");
+        var rt=runtime(level.getServer());var p=point(level,anchor);var previous=rt.ledger.state.trees.putIfAbsent(id,p);
+        if(previous!=null && !previous.equals(p))throw new IllegalStateException("Frozen Tree anchor differs");
+        if(previous==null){rt.ledger.flush();rt.rebuild();}
+    }
+    public static void configureNaturalBlock(ServerLevel level,BlockPos pos,String role) {
+        if(role.equals("colossus_vault") && level.getBlockEntity(pos) instanceof VaultBlockEntity block) {
+            var previous=block.getConfig();var table=ResourceKey.create(Registries.LOOT_TABLE,RelicItems.id("gameplay/vault_core"));
+            block.setConfig(new VaultConfig(table,previous.activationRange(),previous.deactivationRange(),new ItemStack(RelicItems.COLOSSUS_KEY),Optional.of(table),previous.playerDetector(),previous.entitySelector()));
+            block.setChanged();
+        } else if(role.equals("colossus_trial_spawner") && level.getBlockEntity(pos) instanceof net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity block) {
+            block.getTrialSpawner().overrideEntityToSpawn(EntityTypes.IRON_GOLEM,level);block.setChanged();
+        } else throw new IllegalStateException("Natural encounter block unavailable at "+pos);
+    }
+    public static ItemStack archaeologyMap(ServerLevel level,String id) {
+        var journal=ledger(level.getServer());var origin=journal.state.origins.get(id);
+        if(origin==null) {
+            origin=new Origin();origin.id=id;
+            if(journal.state.targetUnavailable)origin.phase=OriginPhase.COMPENSATED;
+            journal.state.origins.put(id,origin);journal.flush();
+        }
+        // Called only for an unfinished owning-chunk action. Its brushable
+        // contents and completion marker save together, so a journal write
+        // interrupted before the chunk save can safely repeat this assignment.
+        if(origin.phase==OriginPhase.COMPENSATED)return new ItemStack(Items.EMERALD,3);
+        var map=new ItemStack(Items.FILLED_MAP);map.set(MAP_ORIGIN,id);updateMap(map,level);return map;
     }
     public static void refreshTree(ServerPlayer player) {
         if (!eligible(player)) return;
@@ -186,6 +235,8 @@ public final class RelicGameplay {
             if (site.phase != TrialPhase.READY && site.participants.addAll(detected)) changed = true;
         }
         if (site.phase == TrialPhase.READY && !detected.isEmpty() && spawner.canSpawnInLevel(level)) {
+            if(site.activationAt==0){site.activationAt=time+40;level.levelEvent(3013,block,detected.size());changed=true;}
+            if(time>=site.activationAt) {
             IronGolem golem = EntityTypes.IRON_GOLEM.create(level, EntitySpawnReason.TRIAL_SPAWNER);
             if (golem != null && level.hasChunkAt(pos(site.golemSpawn))) {
                 golem.setPos(Vec3.atBottomCenterOf(pos(site.golemSpawn)));
@@ -196,10 +247,14 @@ public final class RelicGameplay {
                     rt.ledger.flush(); // UUID reserved BEFORE any entity can exist.
                     ((DefenseGolem)golem).relics$mark(site.encounter);
                     golem.setPersistenceRequired();
-                    if (level.addFreshEntity(golem)) site.phase = TrialPhase.ACTIVE;
+                    if (level.addFreshEntity(golem)) {
+                        site.phase = TrialPhase.ACTIVE;
+                        level.levelEvent(3011,block,0);level.levelEvent(3012,pos(site.golemSpawn),0);
+                    }
                     else { site.phase = TrialPhase.COOLDOWN; site.cooldown = time + 36000; site.participants.clear(); }
                     changed = true;
                 }
+            }
             }
         } else if (site.phase == TrialPhase.ACTIVE || site.phase == TrialPhase.SPAWN_PENDING || site.phase == TrialPhase.ENTITY_UNKNOWN) {
             Entity tracked = level.getEntity(UUID.fromString(site.golem));
@@ -210,10 +265,9 @@ public final class RelicGameplay {
             }
             // Absence is not death: no chunk loading, replacement or reward.
         }
+        if(site.phase==TrialPhase.READY && detected.isEmpty() && site.activationAt!=0){site.activationAt=0;changed=true;}
         if (changed) rt.ledger.flush();
-        TrialSpawnerState visual = site.phase == TrialPhase.READY ? TrialSpawnerState.WAITING_FOR_PLAYERS
-                : site.phase == TrialPhase.COOLDOWN ? TrialSpawnerState.COOLDOWN : TrialSpawnerState.ACTIVE;
-        if (spawner.getState() != visual) spawner.setState(level, visual);
+        RelicPresentation.trial(level,block,spawner,site,time);
         return true;
     }
     public static void entityRemoved(Entity entity, Entity.RemovalReason reason) {
@@ -230,21 +284,9 @@ public final class RelicGameplay {
         }
     }
     public static boolean tickVault(ServerLevel level, BlockPos block, VaultSharedData shared) {
-        if (!runtime(level.getServer()).vaults.containsKey(point(level, block))) return false;
-        boolean changed = !shared.getDisplayItem().is(RelicItems.MACHINE_CORE);
-        if (changed) shared.setDisplayItem(new ItemStack(RelicItems.MACHINE_CORE));
-        var state = level.getBlockState(block);
-        var next = state;
-        if (state.hasProperty(BlockStateProperties.VAULT_STATE) && state.getValue(BlockStateProperties.VAULT_STATE) != VaultState.ACTIVE) {
-            next = state.setValue(BlockStateProperties.VAULT_STATE, VaultState.ACTIVE); level.setBlock(block, next, 3); changed = true;
-        }
-        if (state.hasProperty(BlockStateProperties.OMINOUS) && state.getValue(BlockStateProperties.OMINOUS)) {
-            next = next.setValue(BlockStateProperties.OMINOUS, false); level.setBlock(block,next,3); changed = true;
-        }
-        if (changed) {
-            if (level.getBlockEntity(block) != null) level.getBlockEntity(block).setChanged();
-            level.sendBlockUpdated(block, state, next, 2);
-        }
+        var rt=runtime(level.getServer());var site=rt.vaults.get(point(level,block));
+        if(site==null)return false;
+        RelicPresentation.vault(level,block,shared,site,rt.ledger);
         return true;
     }
     public static boolean claimVault(ServerLevel level, BlockPos block, Player player, ItemStack key) {
@@ -254,13 +296,32 @@ public final class RelicGameplay {
         Delivery delivery = rt.ledger.reserveVault(site, player.getUUID().toString());
         if (delivery == null) return true;
         rt.ledger.flush(); // reservation is unlimited and independent of VaultServerData's finite list.
+        if(!RewardDrops.payKey(recipient,delivery,key))return true;
         attemptDelivery(recipient, delivery, key);
         return true;
     }
     private static Set<String> receipts(ServerPlayer player) { return ((AttachmentTarget)player).getAttachedOrCreate(RECEIPTS); }
+    public static boolean hasReceipt(ServerPlayer player,String id){return receipts(player).contains(id);}
+    public static boolean recordReceipt(ServerPlayer player,String id) {
+        var copy=new HashSet<>(receipts(player));copy.add(id);
+        ((AttachmentTarget)player).setAttached(RECEIPTS,Set.copyOf(copy));
+        player.getInventory().setChanged();
+        ((de.relics.mixin.PlayerListSaveInvoker)player.level().getServer().getPlayerList()).relics$savePlayer(player);
+        return savedReceipt(player.level().getServer(),player.getStringUUID(),id);
+    }
+    public static boolean savedReceipt(MinecraftServer server,String player,String id) {
+        try {
+            var file=server.getWorldPath(LevelResource.PLAYER_DATA_DIR).resolve(player+".dat");
+            if(!java.nio.file.Files.exists(file))return false;
+            var data=NbtIo.readCompressed(file,NbtAccounter.unlimitedHeap());
+            return data.getCompoundOrEmpty(AttachmentTarget.NBT_ATTACHMENT_KEY).getListOrEmpty("relics:delivery_receipts")
+                    .stream().anyMatch(tag->id.equals(tag.asString().orElse(null)));
+        }catch(Exception error){LOG.error("Receipt read failed for {} / {}",player,id,error);return false;}
+    }
     public static void reconcilePlayer(ServerPlayer player) {
         GameplayLedger journal = ledger(player.level().getServer()); boolean changed = false;
         for (Delivery delivery : journal.state.deliveries.values()) if (delivery.player.equals(player.getUUID().toString())) {
+            changed |= RewardDrops.reconcilePayment(player,delivery);
             changed |= journal.reconcile(delivery, receipts(player));
             if (delivery.phase == DeliveryPhase.AMBIGUOUS) {
                 LOG.error("Reward {} held for reconciliation; no automatic reissue", delivery.id);
@@ -268,6 +329,7 @@ public final class RelicGameplay {
             }
         }
         if (changed) journal.flush();
+        RewardDrops.reconcileLoaded(player.level().getServer());
         deliverQueued(player);
     }
     private static void deliverQueued(ServerPlayer player) {
@@ -275,7 +337,7 @@ public final class RelicGameplay {
         for (Delivery delivery : journal.state.deliveries.values()) {
             if (delivery.phase != DeliveryPhase.QUEUED || !delivery.player.equals(player.getUUID().toString())) continue;
             ItemStack payment = ItemStack.EMPTY;
-            if (delivery.reward != Reward.KEY) {
+            if (delivery.reward == Reward.EMERALDS || delivery.reward == Reward.CORE && !delivery.keyPaid) {
                 for (int slot = 0; slot < player.getInventory().getContainerSize(); slot++) {
                     ItemStack candidate = player.getInventory().getItem(slot);
                     if (delivery.reward == Reward.CORE ? candidate.is(RelicItems.COLOSSUS_KEY)
@@ -289,6 +351,8 @@ public final class RelicGameplay {
     private static void attemptDelivery(ServerPlayer player, Delivery delivery, ItemStack payment) {
         GameplayLedger journal = ledger(player.level().getServer());
         if (delivery.phase != DeliveryPhase.QUEUED || !delivery.player.equals(player.getUUID().toString()) || !eligible(player)) return;
+        long time=player.level().getServer().overworld().getGameTime();
+        if(time<delivery.notBefore)return;
         if (receipts(player).contains(delivery.id)) { delivery.phase = DeliveryPhase.DELIVERED; journal.flush(); return; }
         ItemStack reward = switch (delivery.reward) {
             case KEY -> new ItemStack(RelicItems.COLOSSUS_KEY);
@@ -306,7 +370,11 @@ public final class RelicGameplay {
             }
             reward = results.getFirst().copy();
         }
-        // Conservative: only admit a complete reward. No shared drops or partial payouts.
+        if(delivery.reward!=Reward.EMERALDS) {
+            RewardDrops.dispatch(player,delivery,payment,reward);
+            return;
+        }
+        // Emerald compensation keeps its existing complete inventory transaction.
         int space = 0;
         for (ItemStack slot : player.getInventory().getNonEquipmentItems()) {
             if (slot.isEmpty()) space += reward.getMaxStackSize();
@@ -321,19 +389,8 @@ public final class RelicGameplay {
         int expected = reward.getCount();
         player.getInventory().add(reward);
         if (!reward.isEmpty()) throw new IllegalStateException("Validated reward insertion failed (" + expected + "); delivery held: " + delivery.id);
-        var copy = new HashSet<>(receipts(player)); copy.add(delivery.id);
-        ((AttachmentTarget)player).setAttached(RECEIPTS, Set.copyOf(copy));
-        player.getInventory().setChanged();
-        ((de.relics.mixin.PlayerListSaveInvoker)player.level().getServer().getPlayerList()).relics$savePlayer(player);
-        // Vanilla catches save exceptions. Verify the receipt actually reached player.dat before acknowledging.
-        try {
-            var file = player.level().getServer().getWorldPath(LevelResource.PLAYER_DATA_DIR).resolve(player.getStringUUID() + ".dat");
-            var data = NbtIo.readCompressed(file, NbtAccounter.unlimitedHeap());
-            boolean saved = data.getCompoundOrEmpty(AttachmentTarget.NBT_ATTACHMENT_KEY).getListOrEmpty("relics:delivery_receipts")
-                    .stream().anyMatch(tag -> delivery.id.equals(tag.asString().orElse(null)));
-            if (saved) { delivery.phase = DeliveryPhase.DELIVERED; journal.flush(); }
-            else LOG.error("Receipt not verified on disk for {}; retain IN_FLIGHT", delivery.id);
-        } catch (Exception e) { LOG.error("Receipt verification failed for {}; retain IN_FLIGHT", delivery.id, e); }
+        if(recordReceipt(player,delivery.id)){delivery.phase=DeliveryPhase.DELIVERED;journal.flush();}
+        else LOG.error("Receipt not verified on disk for {}; retain IN_FLIGHT",delivery.id);
     }
     public static ItemStack createPendingMap(ServerLevel level, String id) {
         GameplayLedger journal = ledger(level.getServer());

@@ -1,0 +1,412 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "cf1d2e56315bcbce11bb37d363b5c34815a5cb33",
+  "target": "Minecraft 26.2 / Fabric",
+  "status": "Approved by Niklas on 2026-10-27; natural integration and verification documented in docs/testing/NATURAL_INTERIORS_20261027.md",
+  "sidecar_extension": "Optional arm_clearance for the large detached arm; native terrain only, preserve source solids",
+  "unchanged_skulls": {
+    "titan_skull": {
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-meadow-ground-v3/titan-skull-v4-meadow-ground-v3.nbt",
+      "version": "titan-skull-v4-meadow-ground-v3",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 111328,
+      "ground_y": 16,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "b189932ac224097ba030a649ea2b44c898aaa4fdfbddb42b8797c32851ae5969",
+      "visually_accepted": false
+    },
+    "titan_skull_dry": {
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-dry-ground-v3/titan-skull-v4-dry-ground-v3.nbt",
+      "version": "titan-skull-v4-dry-ground-v3",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 111328,
+      "ground_y": 16,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "0d948527040a395b55615dce8704d72a2d5528b44c0b0c69ff94ea06b465eb67",
+      "visually_accepted": false
+    },
+    "titan_skull_sand": {
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-sand-ground-v3/titan-skull-v4-sand-ground-v3.nbt",
+      "version": "titan-skull-v4-sand-ground-v3",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 111328,
+      "ground_y": 16,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:desert",
+        {
+          "id": "terralith:desert_spires",
+          "required": false
+        },
+        {
+          "id": "terralith:desert_canyon",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:dryland",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "7106438dd1a0389dc5953f48351fa8a4aebfa1af3becd671d16288ab847bd0aa",
+      "visually_accepted": false
+    },
+    "titan_skull_rock": {
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-rock-embedded-v1/titan-skull-v4-rock-embedded-v1.nbt",
+      "version": "titan-skull-v4-rock-embedded-v1",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 20131,
+      "ground_y": 22,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:windswept_hills",
+        "minecraft:windswept_gravelly_hills",
+        "minecraft:stony_shore",
+        "minecraft:stony_peaks",
+        {
+          "id": "terralith:rocky_mountains",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "b60d3ab92e4e8b99e5674f82588c38c25a7e7fe9eb8135a3fdf22a576f7b30c4",
+      "visually_accepted": false,
+      "uphill_slope": 18,
+      "foundation_mode": "embedded_art"
+    },
+    "titan_skull_2": {
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-v1/titan-skull-2-v2-embedded-v1.nbt",
+      "version": "titan-skull-2-v2-embedded-v1",
+      "size": [
+        99,
+        136,
+        99
+      ],
+      "blocks": 32569,
+      "ground_y": 28,
+      "family": "titan_skull_2",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 4,
+      "sha256": "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd",
+      "visually_accepted": false,
+      "foundation_mode": "embedded_art",
+      "buried_clip_depth": 6,
+      "max_support_depth": 2,
+      "surface_contact_depth": 6,
+      "follow_art": true
+    }
+  },
+  "assets": {
+    "colossus": {
+      "files": {
+        ".nbt": {
+          "path": "relics/colossus/design/generated/colossus-v6-interiors/colossus-v6-interiors.nbt",
+          "sha256": "4c65e4cc8fd57dbccacf765241df70951a95e65e886b4ac4f17d9ebaf96c3b99",
+          "bytes": 739367
+        },
+        ".schem": {
+          "path": "relics/colossus/design/generated/colossus-v6-interiors/colossus-v6-interiors.schem",
+          "sha256": "eecb359daabca6ca538150031410e5eef81ec5c1a9129e916a149d7f03b4c657",
+          "bytes": 188132
+        },
+        ".gameplay.json": {
+          "path": "relics/colossus/design/generated/colossus-v6-interiors/colossus-v6-interiors.gameplay.json",
+          "sha256": "eef7934f0d6050b2fba604fa1d23cc727954565d9dcf6b9a1ff3f13a182b9cc9",
+          "bytes": 12478
+        },
+        ".design.json": {
+          "path": "relics/colossus/design/generated/colossus-v6-interiors/colossus-v6-interiors.design.json",
+          "sha256": "00d9c5e85f07c58af9dcf0481a894f10d755cc90e3059204ac66d76637c7fdb5",
+          "bytes": 8634
+        },
+        "-source.blend": {
+          "path": "relics/colossus/design/generated/colossus-v6-interiors/colossus-v6-interiors-source.blend",
+          "sha256": "c0d7ffa157eefe1bf8d842e0fd0b053338ed1c8018025b0dd2d25b1b9650da91",
+          "bytes": 29990021
+        },
+        "-review.png": {
+          "path": "relics/colossus/design/generated/colossus-v6-interiors/colossus-v6-interiors-review.png",
+          "sha256": "ab60645069129dd20c4b8b010f24f150206de7c54cc39b8bb3330cc1f41bf2ad",
+          "bytes": 4650678
+        },
+        "-markers-review.png": {
+          "path": "relics/colossus/design/generated/colossus-v6-interiors/colossus-v6-interiors-markers-review.png",
+          "sha256": "a88a352e59cdcb5f3102fd7d783e5da3ea2c02c3ebd714d2f9e4d51538c6b85d",
+          "bytes": 117081
+        }
+      },
+      "size": [
+        181,
+        209,
+        235
+      ],
+      "ground_y": 77,
+      "blocks": 228031,
+      "markers": 5,
+      "regions": 13
+    },
+    "small_colossus": {
+      "files": {
+        ".nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v9-interiors/small-colossus-v9-interiors.nbt",
+          "sha256": "565b8461b8aed3d4ab1bdca35859790b280d39167c970a80df96a2dab75d68c0",
+          "bytes": 591871
+        },
+        ".schem": {
+          "path": "relics/colossus/design/generated/small-colossus-v9-interiors/small-colossus-v9-interiors.schem",
+          "sha256": "98fdd13a12a74dc3c52bc041a29cd743c3534248cd3c919114b6e1a6f2a012cf",
+          "bytes": 42094
+        },
+        ".gameplay.json": {
+          "path": "relics/colossus/design/generated/small-colossus-v9-interiors/small-colossus-v9-interiors.gameplay.json",
+          "sha256": "8f04301febc6842f7584f0fdf0fc5e52e9acd7a62e65f087ba1fecdcbd284f20",
+          "bytes": 49915
+        },
+        ".design.json": {
+          "path": "relics/colossus/design/generated/small-colossus-v9-interiors/small-colossus-v9-interiors.design.json",
+          "sha256": "0bac7156d3b0f4d45f84a6e917be9f88b0d1a262830df3c0169b727c2d73b5f3",
+          "bytes": 7233
+        },
+        "-source.blend": {
+          "path": "relics/colossus/design/generated/small-colossus-v9-interiors/small-colossus-v9-interiors-source.blend",
+          "sha256": "152d6c7c17baaeeea168939ccc5b4c61ff2c1363255824360e3b8c99ed78d567",
+          "bytes": 2182002
+        },
+        "-review.png": {
+          "path": "relics/colossus/design/generated/small-colossus-v9-interiors/small-colossus-v9-interiors-review.png",
+          "sha256": "e7855e7b26cd8e46cedd21e0e7af08028b17baf0c692cc42a66ad8bdccfd22aa",
+          "bytes": 2117165
+        },
+        "-markers-review.png": {
+          "path": "relics/colossus/design/generated/small-colossus-v9-interiors/small-colossus-v9-interiors-markers-review.png",
+          "sha256": "76e6e30a8bfb39ff89b26b6a67d5ce06696eaf20bde98c26cdc571a1315f1bd8",
+          "bytes": 75422
+        }
+      },
+      "size": [
+        111,
+        80,
+        113
+      ],
+      "ground_y": 13,
+      "blocks": 208011,
+      "markers": 1,
+      "regions": 57
+    },
+    "ruined_tower": {
+      "files": {
+        ".nbt": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors.nbt",
+          "sha256": "4f5fd420eb1461b8e1b3f1c9f8f90ede3e801ea8d1e20972aab3d78d9a9fad8d",
+          "bytes": 793043
+        },
+        ".schem": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors.schem",
+          "sha256": "2c32a3d349346cb141507ddbcc3372f21a5744be8253067b31a7f90764d226bd",
+          "bytes": 30903
+        },
+        ".gameplay.json": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors.gameplay.json",
+          "sha256": "f260b75d46422599d24153f453ee2bb14a6a4b0d5795f3ba22b978c0ace2be13",
+          "bytes": 278311
+        },
+        ".design.json": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors.design.json",
+          "sha256": "472df5b0775343327164f41acde70443a48448bf45cc3490550529f14fb61084",
+          "bytes": 5191
+        },
+        "-source.blend": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors-source.blend",
+          "sha256": "a1aacf4ffce6bdb3e71fa6bee9a49c8f7871dfc50c9f7bb41da0fd24282d818b",
+          "bytes": 5388301
+        },
+        "-review.png": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors-review.png",
+          "sha256": "50ce4eebc90c52e11674c20246b8e5128a9a620863c30fa7b7d8bde928b340fd",
+          "bytes": 2127920
+        },
+        "-markers-review.png": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors-markers-review.png",
+          "sha256": "8413e8b7f82af97770f3223205662e166f8191abf728055806dd048bf875052c",
+          "bytes": 121392
+        }
+      },
+      "size": [
+        111,
+        232,
+        93
+      ],
+      "ground_y": 12,
+      "blocks": 270997,
+      "markers": 8,
+      "regions": 322
+    },
+    "obelisk": {
+      "files": {
+        ".nbt": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology.nbt",
+          "sha256": "ed2093a9bba2b391bacddb684b62255cb8ec60748b73bc8409a30395c27e33e6",
+          "bytes": 262622
+        },
+        ".schem": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology.schem",
+          "sha256": "634840f9f95d8994e5d9d1dbed2fa422a390171db8eb931cf9803be156c415c9",
+          "bytes": 4256
+        },
+        ".gameplay.json": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology.gameplay.json",
+          "sha256": "bcc96ed4042ccf527050f56aa6541edc846e79f1cdd4a6dc9167eecb5e285f5b",
+          "bytes": 2021
+        },
+        ".design.json": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology.design.json",
+          "sha256": "fb39fda8a5473da9532a086be24b468436504853cdc4e2bdede8253df1474132",
+          "bytes": 2590
+        },
+        "-source.blend": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology-source.blend",
+          "sha256": "ee86a589c9bc6cac0dcbe14ff353c09bf7078c2681b740cc63fd24a947651df0",
+          "bytes": 1303207
+        },
+        "-review.png": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology-review.png",
+          "sha256": "1cfad0ab7a125e479ee71417824306e0522fcc887a5e9c6135081c306406f33a",
+          "bytes": 2172485
+        },
+        "-markers-review.png": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology-markers-review.png",
+          "sha256": "478765cb72af1c37d0055b4bf28601d75021555e533da05dee28a3d0bbd2833a",
+          "bytes": 109993
+        }
+      },
+      "size": [
+        59,
+        185,
+        60
+      ],
+      "ground_y": 8,
+      "blocks": 94470,
+      "markers": 8,
+      "regions": 0
+    },
+    "world_tree": {
+      "files": {
+        ".nbt": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge.nbt",
+          "sha256": "c75398476f1162af8f39585edffa58337f1ca4b0bd87f4f7662fbb69ffb47087",
+          "bytes": 851245
+        },
+        ".schem": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge.schem",
+          "sha256": "c4b0ebebc0340e3ca06e5d884c3c54768075f13a7c39e1bdcc22e67a0b9fb8d9",
+          "bytes": 117892
+        },
+        ".gameplay.json": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge.gameplay.json",
+          "sha256": "cbf98f2ccc914df61ef466fccbccd07bc8899de2cb41af2569165f2caf5856ea",
+          "bytes": 952
+        },
+        ".design.json": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge.design.json",
+          "sha256": "5f272a16b03b8e193ebc98de57c8f23e31a9f870eb373c171b290bfd3841d4c5",
+          "bytes": 9190
+        },
+        "-source.blend": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge-source.blend",
+          "sha256": "ee077841deda96e6acd46b8f5c6d12a8572193202daa389728ae5575c7d0d6a0",
+          "bytes": 15816571
+        },
+        "-review.png": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge-review.png",
+          "sha256": "37a7f5263b112bf2265f1fe581c76f5e3b91bb9293e4757ff2afe525aa5f12d8",
+          "bytes": 2172433
+        },
+        "-markers-review.png": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge-markers-review.png",
+          "sha256": "f9d9b0abcc4515ab75d2af3f5dbe0a51dced181865d24edd42000bf12e141acf",
+          "bytes": 85810
+        }
+      },
+      "size": [
+        187,
+        228,
+        185
+      ],
+      "ground_y": 24,
+      "blocks": 288900,
+      "markers": 2,
+      "regions": 1
+    }
+  }
+}

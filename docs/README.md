@@ -5,6 +5,9 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
+- [Alpha 5.0: current implementation, evidence and remaining release checks](project/ALPHA_5_STATUS_20261027.md)
+- [Approved October 27 interior decisions](project/INTERIOR_DECISIONS_20261027.md)
+- [October 27 model revisions and export verification](project/GAMEPLAY_INTERIORS_FEEDBACK_20261027_IMPLEMENTATION.md)
 - [Gameplay interiors: builder exports, marker plans and integration handoff](project/GAMEPLAY_INTERIORS_HANDOFF.md)
 
 - [Concept and reference catalog](project/Minecraft-Relikte-Modplan.md)
@@ -27,7 +30,7 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Technical
 
-- [Gameplay runtime contract and delegated starting defaults — natural integration pending](technical/GAMEPLAY_RUNTIME.md)
+- [Gameplay runtime starting contract and implementation updates](technical/GAMEPLAY_RUNTIME.md)
 - [Builder gameplay sidecar/marker handoff v1](technical/GAMEPLAY_MARKERS.md)
 - [Shared distribution budget and deterministic unique-site resolver](technical/RELIC_DISTRIBUTION.md)
 - [Alpha 4.2 terrain contact, relic separation and Java build](technical/ALPHA_4_2_TERRAIN.md)
@@ -39,6 +42,10 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Testing
 
+- [October 27 natural interiors, marker initialization and restart checks](testing/NATURAL_INTERIORS_20261027.md)
+- [October 27 native Trial/Vault presentation and recipe-book checks](testing/GAMEPLAY_PRESENTATION_20261027.md)
+- [October 27 real personal reward-drop checks](testing/REWARD_DROPS_20261027.md)
+- [Latest: immediate key consumption, both magnet hands and expanded locating](testing/HAND_VAULT_LOCATE_20261027.md)
 - [Gameplay distribution, unique destination and expedition-map implementation](testing/DISTRIBUTION_IMPLEMENTATION_20261025.md)
 - [Standalone gameplay implementation, main integration and serverless test boundaries](testing/GAMEPLAY_IMPLEMENTATION_20261008.md)
 - [Future 26.2 gameplay acceptance matrix — not test results](testing/GAMEPLAY_ACCEPTANCE_PLAN.md)

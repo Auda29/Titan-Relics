@@ -40,8 +40,15 @@ public final class TerrainValidator implements Validator {
     private final Map<Object,Family> placements=new IdentityHashMap<>();
     public final Set<Family> enabled=EnumSet.noneOf(Family.class);
     public final String fingerprint;
+    private final String interiors;
 
     public TerrainValidator(ServerLevel level, int minX,int minZ,int maxX,int maxZ) {
+        this(level,minX,minZ,maxX,maxZ,de.relics.gameplay.NaturalInteriors.LEGACY);
+    }
+    public TerrainValidator(ServerLevel level,int minX,int minZ,int maxX,int maxZ,String interiors) {
+        if(!Set.of(de.relics.gameplay.NaturalInteriors.LEGACY,de.relics.gameplay.NaturalInteriors.REVISION).contains(interiors))
+            throw new IllegalStateException("Unsupported frozen interior revision");
+        this.interiors=interiors;
         registries=level.registryAccess(); generator=level.getChunkSource().getGenerator();
         random=level.getChunkSource().randomState(); templates=level.getStructureManager(); seed=level.getSeed();
         height=LevelHeightAccessor.create(level.getMinY(),level.getHeight());
@@ -131,6 +138,23 @@ public final class TerrainValidator implements Validator {
             if(box.getXSpan()!=size.get(0).getAsInt() || box.getYSpan()!=size.get(1).getAsInt() || box.getZSpan()!=size.get(2).getAsInt())
                 throw new IllegalStateException("Pinned template geometry differs: "+name);
             signature.add("pool/"+name,net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool.DIRECT_CODEC.encodeStart(ops,pool).getOrThrow());
+            if(interiors.equals(de.relics.gameplay.NaturalInteriors.REVISION) && de.relics.gameplay.NaturalInteriors.hasAsset(name)) {
+                JsonObject selected=null;
+                for(var item:de.relics.gameplay.NaturalInteriors.manifest().getAsJsonArray("structures"))
+                    if(item.getAsJsonObject().get("id").getAsString().equals(name))selected=item.getAsJsonObject();
+                if(selected==null)throw new IllegalStateException("Missing approved interior "+name);
+                String template=selected.getAsJsonObject("worldgen_template").get("path").getAsString();
+                try(var stream=level.getServer().getResourceManager().getResource(id("structure/"+template)).orElseThrow().open()) {
+                    if(!java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(stream.readAllBytes()))
+                            .equals(selected.getAsJsonObject("worldgen_template").get("sha256").getAsString()))throw new IllegalStateException("Approved template differs");
+                }catch(Exception error){throw new IllegalStateException("Cannot verify approved interior",error);}
+                var json=new JsonObject();json.addProperty("element_type","minecraft:single_pool_element");
+                json.addProperty("location","relics:"+template.substring(0,template.length()-4));json.addProperty("processors","relics:"+name+"_terrain");json.addProperty("projection","rigid");
+                element=StructurePoolElement.CODEC.parse(ops,json).getOrThrow();
+                var chosen=element.getBoundingBox(templates,BlockPos.ZERO,Rotation.NONE);
+                if(chosen.getXSpan()!=box.getXSpan() || chosen.getYSpan()!=box.getYSpan() || chosen.getZSpan()!=box.getZSpan())throw new IllegalStateException("Approved interior transform changed");
+                signature.add("interior/"+name,selected);
+            }
             profiles.put(name,new Profile(name,family,ground,box.getXSpan(),box.getYSpan(),box.getZSpan(),holder,element,condition));
             structureIds.put(holder.value(),name);
         }
@@ -143,6 +167,11 @@ public final class TerrainValidator implements Validator {
     public String structure(Structure structure){return structureIds.get(structure);}
     public Holder.Reference<Structure> holder(String asset){return profiles.get(asset).holder;}
     public boolean hasRepeatable(java.util.function.Predicate<Holder<Structure>> requested){return profiles.values().stream().anyMatch(p->p.family!=Family.COLOSSUS && requested.test(p.holder));}
+    public Set<Family> repeatableFamilies(java.util.function.Predicate<Holder<Structure>> requested) {
+        Set<Family> result=EnumSet.noneOf(Family.class);
+        for(var profile:profiles.values())if(profile.family!=Family.COLOSSUS && requested.test(profile.holder))result.add(profile.family);
+        return result;
+    }
     @Override public Site validate(Candidate c,Family family) {
         int surface=generator.getFirstFreeHeight(c.x(),c.z(),Heightmap.Types.WORLD_SURFACE_WG,height,random);
         var biome=generator.getBiomeSource().getNoiseBiome(QuartPos.fromBlock(c.x()),QuartPos.fromBlock(surface),QuartPos.fromBlock(c.z()),random.sampler());
@@ -167,6 +196,8 @@ public final class TerrainValidator implements Validator {
         Rotation rotation=Rotation.values()[site.candidate().rotation()];
         var piece=new PoolElementStructurePiece(templates,p.element,origin,p.element.getGroundLevelDelta(),rotation,
                 p.element.getBoundingBox(templates,origin,rotation),LiquidSettings.IGNORE_WATERLOGGING);
+        if(interiors.equals(de.relics.gameplay.NaturalInteriors.REVISION) && de.relics.gameplay.NaturalInteriors.hasAsset(site.asset()))
+            ((de.relics.gameplay.NaturalPiece)(Object)piece).relics$setSite(de.relics.gameplay.NaturalInteriors.certificate(seed,site));
         return new StructureStart(p.holder.value(),new ChunkPos(site.candidate().chunkX(),site.candidate().chunkZ()),0,new PiecesContainer(List.of(piece)));
     }
 }

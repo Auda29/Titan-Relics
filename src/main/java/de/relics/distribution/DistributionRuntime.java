@@ -26,6 +26,7 @@ import static de.relics.distribution.DistributionPlanner.*;
 
 /** Serial planning actor and asynchronous STRUCTURE_STARTS dependency. Never waits on a chunk. */
 public final class DistributionRuntime implements AutoCloseable {
+    public static final int LOCATE_RADIUS=500000;
     private static final org.slf4j.Logger LOG=LoggerFactory.getLogger("relics/distribution");
     private static final Map<ServerLevel,DistributionRuntime> LEVELS=new ConcurrentHashMap<>();
     private static final Map<ChunkGeneratorStructureState,DistributionRuntime> STATES=new ConcurrentHashMap<>();
@@ -50,11 +51,12 @@ public final class DistributionRuntime implements AutoCloseable {
         Path file=level.getServer().getWorldPath(LevelResource.ROOT).resolve("data/relics_distribution_v1.json");
         var border=level.getWorldBorder();
         DistributionJournal.State initial=new DistributionJournal.State();
+        initial.interiors=fresh?de.relics.gameplay.NaturalInteriors.REVISION:DistributionJournal.interiorRevision(file);
         initial.seed=level.getSeed();
         int absolute=Math.min(29999984,level.getServer().getAbsoluteMaxWorldSize());
         initial.minX=(int)Math.ceil(Math.max(-absolute,border.getMinX())); initial.maxX=(int)Math.floor(Math.min(absolute,border.getMaxX()));
         initial.minZ=(int)Math.ceil(Math.max(-absolute,border.getMinZ())); initial.maxZ=(int)Math.floor(Math.min(absolute,border.getMaxZ()));
-        validator=new TerrainValidator(level,initial.minX,initial.minZ,initial.maxX,initial.maxZ);
+        validator=new TerrainValidator(level,initial.minX,initial.minZ,initial.maxX,initial.maxZ,initial.interiors);
         initial.fingerprint=validator.fingerprint;initial.enabled=Set.copyOf(validator.enabled);
         BlockPos approximate=level.getChunkSource().randomState().sampler().findSpawnPosition();
         initial.bootstrapX=Math.floorDiv(approximate.getX(),16)*16+8;initial.bootstrapZ=Math.floorDiv(approximate.getZ(),16)*16+8;
@@ -80,7 +82,7 @@ public final class DistributionRuntime implements AutoCloseable {
             for(var runtime:LEVELS.values())if(runtime.level.getServer()==server) {
                 var s=runtime.journal.state;
                 try {
-                    var current=new TerrainValidator(runtime.level,s.minX,s.minZ,s.maxX,s.maxZ);
+                    var current=new TerrainValidator(runtime.level,s.minX,s.minZ,s.maxX,s.maxZ,s.interiors);
                     if(!current.fingerprint.equals(s.fingerprint) || !current.enabled.equals(s.enabled))
                         throw new IllegalStateException("Datapack reload changed frozen relic settings. Restore the original setup and restart; policy migration requires a fresh world.");
                     LOG.info("Relic distribution settings unchanged after datapack reload");
@@ -117,6 +119,7 @@ public final class DistributionRuntime implements AutoCloseable {
                 }))));
     }
     public static DistributionRuntime get(ServerLevel level){return LEVELS.get(level);}
+    public String interiorRevision(){return journal.state.interiors;}
     public static void attach(ServerLevel level,boolean fresh) {
         if(level.dimension()!=Level.OVERWORLD || LEVELS.containsKey(level))return;
         Path file=level.getServer().getWorldPath(LevelResource.ROOT).resolve("data/relics_distribution_v1.json");
@@ -261,17 +264,18 @@ public final class DistributionRuntime implements AutoCloseable {
         ready.whenComplete((ignored,error)->{
             if(error!=null){result.completeExceptionally(error);return;}
             actor.execute(()->{
+                Site initial=unique!=null && requested.test(validator.holder(unique.asset()))?unique:null;
+                var families=validator.repeatableFamilies(requested);
+                if(families.isEmpty()){result.complete(initial);return;}
                 List<Candidate> cells=new ArrayList<>();
-                int radius=100000;
+                int radius=LOCATE_RADIUS;
                 int margin=journal.state.policy.equals(LEGACY_POLICY)?0:LocationSearch.RADIUS;
                 for(int x=Math.floorDiv(origin.getX()-radius-margin,CELL);x<=Math.floorDiv(origin.getX()+radius+margin,CELL);x++)
                     for(int z=Math.floorDiv(origin.getZ()-radius-margin,CELL);z<=Math.floorDiv(origin.getZ()+radius+margin,CELL);z++) {
                         Candidate c=candidate(level.getSeed(),new Cell(x,z),false);
-                        if(distance(c,origin.getX(),origin.getZ())<=radius+margin+2)cells.add(c);
+                        if(distance(c,origin.getX(),origin.getZ())<=radius+margin+2 && LocationSearch.mayMatch(c.ticket(),families))cells.add(c);
                     }
                 cells.sort(Comparator.comparingDouble(c->distance(c,origin.getX(),origin.getZ())));
-                Site initial=unique!=null && requested.test(validator.holder(unique.asset()))?unique:null;
-                if(!validator.hasRepeatable(requested)) {result.complete(initial);return;}
                 locateSlice(cells,0,initial,requested,origin,result);
             });
         });return result;
@@ -285,7 +289,7 @@ public final class DistributionRuntime implements AutoCloseable {
                 Candidate c=cells.get(cursor);
                 if(best!=null && locateLowerBound(c,origin)>Math.hypot((double)best.x()-origin.getX(),(double)best.z()-origin.getZ())+2)break;
                 Site site=planner.plan(c.cell());
-                if(site!=null && Math.hypot((double)site.x()-origin.getX(),(double)site.z()-origin.getZ())<=100000
+                if(site!=null && Math.hypot((double)site.x()-origin.getX(),(double)site.z()-origin.getZ())<=LOCATE_RADIUS
                         && requested.test(validator.holder(site.asset())) && (best==null
                         || Math.hypot((double)site.x()-origin.getX(),(double)site.z()-origin.getZ())<Math.hypot((double)best.x()-origin.getX(),(double)best.z()-origin.getZ())))best=site;
                 if(System.nanoTime()>=deadline){cursor++;break;}

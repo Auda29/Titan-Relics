@@ -71,6 +71,20 @@ public final class DistributionTests {
         initial.enabled=EnumSet.allOf(Family.class);initial.minX=initial.minZ=-100000;initial.maxX=initial.maxZ=100000;
         var journal=new DistributionJournal(file,initial);journal.state.frozen=true;journal.state.cursor=7;journal.flush();
         var restored=new DistributionJournal(file,null);check(restored.state.cursor==7 && restored.state.seed==731204,"atomic cursor reload");
+        check(DistributionJournal.interiorRevision(file).equals("legacy"),"old snapshot keeps visual templates");
+        journal.state.interiors="interiors-20261027-v1";journal.flush();
+        check(DistributionJournal.interiorRevision(file).equals("interiors-20261027-v1"),"approved interiors survive restart");
+        String valid=Files.readString(file);
+        var envelope=com.google.gson.JsonParser.parseString(valid).getAsJsonObject();
+        var payload=com.google.gson.JsonParser.parseString(envelope.get("payload").getAsString()).getAsJsonObject();
+        payload.remove("interiors");envelope.addProperty("payload",payload.toString());
+        envelope.addProperty("sha256",DistributionJournal.hash(payload.toString()));Files.writeString(file,envelope.toString());
+        check(new DistributionJournal(file,null).state.interiors.equals("legacy"),"pre-interior journal defaults to legacy");
+        payload.addProperty("interiors","unknown-future-revision");envelope.addProperty("payload",payload.toString());
+        envelope.addProperty("sha256",DistributionJournal.hash(payload.toString()));Files.writeString(file,envelope.toString());
+        boolean unknown=false;try{new DistributionJournal(file,null);}catch(IllegalStateException expected){unknown=true;}
+        check(unknown,"unknown interior revision is preserved and rejected");
+        Files.writeString(file,valid);
         Files.writeString(file,Files.readString(file).replace("731204","731205"));
         boolean corrupt=false;try{new DistributionJournal(file,null);}catch(IllegalStateException expected){corrupt=true;}
         check(corrupt,"checksum failure does not reset planning");

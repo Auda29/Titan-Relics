@@ -1,6 +1,22 @@
 # Changelog
 
-## 0.1.0-alpha.5.0-dev — standalone items and opt-in gameplay fixtures (unreleased)
+## 0.1.0-alpha.5.0-dev — natural gameplay and approved interiors (unreleased)
+
+- Integrate approved Colossus V6, Small Colossus V9, Tower V9, Obelisk V6 and
+  retained World Tree V5 into new gameplay worlds, with bounded clearances,
+  marker initialization and saved completion state. Preserve legacy selections.
+- Use native Trial Spawner/Vault phases and real personal reward drops, with
+  owner/hopper protection and persisted pickup receipts. Consume the Vault key
+  immediately on successful use; collect the separately ejected core later.
+- Enable the charged magnet in either selected hand, leave other inventory
+  slots inactive and increase attraction acceleration/speed by ten percent.
+- Add maintenance recipe-book displays/unlocks. Extend asynchronous relic
+  locating to 500,000 blocks without changing rarity or generation decisions.
+- Record model approval, isolated natural-generation checks, two-player server
+  reward/restart checks and the final build checksum in the
+  [October 27 development status](docs/project/ALPHA_5_STATUS_20261027.md).
+  Final graphical-client, complete Survival and real multiplayer acceptance
+  remain open; the planned Tree animal-spawn adjustment is not implemented.
 
 - Implement fresh-world shared distribution, terrain-valid Obelisk regions,
   deterministic spacing and one persisted natural large-Colossus destination.
@@ -13,14 +29,14 @@
 - Register Machine Core, Salvage Magnet, Colossus Key and Monolith template with
   original item sprites, bounded/versioned charge components, exact tooltips and
   three core/magnet icon states; no inventory status bar.
-- Implement guarded appliance processing, passive offhand attraction/accounting,
+- Implement guarded appliance processing, held-item attraction/accounting,
   state-preserving recharge/repair and vanilla-style cosmetic trim/copy resources.
 - Add scoped one-golem trial/AI, unlimited durable Vault claims, pending/resolved/
   compensated expedition-map origins and persistent spherical Tree-aura adapters.
 - Reserve deliveries in a checksum-verified atomic journal, with player receipts
   and visible fail-closed handling of ambiguous recovery rather than blind reissue.
-- Keep accepted exports, both skulls, existing worlds and the 1.21.1 visual
-  Alpha 4.9 target unchanged. Natural interior/reward marker hookup remains pending.
+- Preserve historical exports, both skulls, existing worlds and the 1.21.1 visual
+  Alpha 4.9 target. New worlds select the approved gameplay interiors.
 - Add headless item/recipe/ledger tests and static mixin-target checks. Item-system
   client/multiplayer acceptance and the complete gameplay release gates remain open.
 

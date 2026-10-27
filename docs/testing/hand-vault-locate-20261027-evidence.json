@@ -1,0 +1,311 @@
+{
+  "date": "2026-10-27",
+  "target": "Minecraft 26.2 / Fabric",
+  "artifact_sha256": "caffeb247121ee1ea501ecf68eaa1c2af07801420c7dbeb5cae636f9d041acfe",
+  "reproducible_build": true,
+  "gameplay": {
+    "artifact_sha256": "caffeb247121ee1ea501ecf68eaa1c2af07801420c7dbeb5cae636f9d041acfe",
+    "passed": true,
+    "proof": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=5b9ca1b0-8992-48d9-aecf-cf00d9c23d61\n",
+    "exit_code": 0,
+    "restart_preserved_claims_and_timeline": true,
+    "restart_result": "[15:24:50] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive",
+    "magnet_proof": "offhand_max_speed=0.3850000000000001\noffhand_remaining=999\nmain_hand_max_speed=0.385\nmain_hand_remaining=999\ninventory_only_inactive=true\n"
+  },
+  "gameplay_report": "build/gameplay-feedback-20261027/server-152401-887803/evidence.json",
+  "locate": {
+    "seed": 7176494076711744605,
+    "origin": [
+      -68776,
+      -12600
+    ],
+    "artifact_sha256": "caffeb247121ee1ea501ecf68eaa1c2af07801420c7dbeb5cae636f9d041acfe",
+    "search_radius": 500000,
+    "results": [
+      {
+        "type": "small_colossus",
+        "command": "execute positioned -68776 80 -12600 run locate structure #relics:small_colossus",
+        "response": "[15:23:50] [Server thread/INFO]: The nearest #relics:small_colossus is at [31560, ~, -76616] (119018 blocks away)",
+        "seconds": 14.984,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": 6,
+              "z": -16
+            },
+            "x": 31560,
+            "z": -76616,
+            "ticket": 6278,
+            "priority": -9019438013178279690,
+            "rotation": 0,
+            "unique": false
+          },
+          "asset": "small_colossus",
+          "x2": 63120,
+          "z2": -153232,
+          "surface": 68,
+          "originX": 31497,
+          "originY": 55,
+          "originZ": -76680,
+          "minX": 31497,
+          "minZ": -76680,
+          "maxX": 31623,
+          "maxZ": -76552
+        }
+      },
+      {
+        "type": "ruined_tower",
+        "command": "execute positioned -68776 80 -12600 run locate structure #relics:ruined_tower",
+        "response": "[15:23:55] [Server thread/INFO]: The nearest #relics:ruined_tower is at [-123320, ~, 5336] (57417 blocks away)",
+        "seconds": 4.5,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": -25,
+              "z": 1
+            },
+            "x": -123320,
+            "z": 5336,
+            "ticket": 6096,
+            "priority": 8076652919693146892,
+            "rotation": 0,
+            "unique": false
+          },
+          "asset": "ruined_tower",
+          "x2": -246640,
+          "z2": 10672,
+          "surface": 68,
+          "originX": -123383,
+          "originY": 56,
+          "originZ": 5282,
+          "minX": -123383,
+          "minZ": 5282,
+          "maxX": -123257,
+          "maxZ": 5390
+        }
+      },
+      {
+        "type": "world_tree",
+        "command": "execute positioned -68776 80 -12600 run locate structure #relics:world_tree",
+        "response": "[15:24:52] [Server thread/INFO]: The nearest #relics:world_tree is at [134136, ~, -55912] (207483 blocks away)",
+        "seconds": 57.594,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": 26,
+              "z": -12
+            },
+            "x": 134136,
+            "z": -55912,
+            "ticket": 6428,
+            "priority": 1494948571595726759,
+            "rotation": 1,
+            "unique": false
+          },
+          "asset": "world_tree",
+          "x2": 268272,
+          "z2": -111824,
+          "surface": 67,
+          "originX": 134236,
+          "originY": 43,
+          "originZ": -56013,
+          "minX": 134036,
+          "minZ": -56013,
+          "maxX": 134236,
+          "maxZ": -55811
+        }
+      },
+      {
+        "type": "titan_skull",
+        "command": "execute positioned -68776 80 -12600 run locate structure #relics:titan_skull",
+        "response": "[15:26:00] [Server thread/INFO]: The nearest #relics:titan_skull is at [59368, ~, 51752] (143395 blocks away)",
+        "seconds": 67.547,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": 11,
+              "z": 10
+            },
+            "x": 59368,
+            "z": 51752,
+            "ticket": 3038,
+            "priority": -2175468217849802288,
+            "rotation": 3,
+            "unique": false
+          },
+          "asset": "titan_skull_sand",
+          "x2": 118736,
+          "z2": 103504,
+          "surface": 69,
+          "originX": 59271,
+          "originY": 53,
+          "originZ": 51818,
+          "minX": 59271,
+          "minZ": 51686,
+          "maxX": 59465,
+          "maxZ": 51818
+        }
+      },
+      {
+        "type": "titan_skull_2",
+        "command": "execute positioned -68776 80 -12600 run locate structure #relics:titan_skull_2",
+        "response": "[15:26:06] [Server thread/INFO]: The nearest #relics:titan_skull_2 is at [-123688, ~, 88584] (115124 blocks away)",
+        "seconds": 6.109,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": -25,
+              "z": 17
+            },
+            "x": -123688,
+            "z": 88584,
+            "ticket": 3375,
+            "priority": -3245923524574506771,
+            "rotation": 0,
+            "unique": false
+          },
+          "asset": "titan_skull_2",
+          "x2": -247376,
+          "z2": 177168,
+          "surface": 68,
+          "originX": -123745,
+          "originY": 40,
+          "originZ": 88527,
+          "minX": -123745,
+          "minZ": 88527,
+          "maxX": -123631,
+          "maxZ": 88641
+        }
+      }
+    ],
+    "passed": true,
+    "fingerprint_matches_player_world": true,
+    "block_verification": [
+      {
+        "structure": "relics:small_colossus",
+        "template": "relics:small_colossus_gameplay_worldgen",
+        "origin": [
+          31497,
+          55,
+          -76680
+        ],
+        "rotation": "NONE",
+        "bounding_box": [
+          31497,
+          55,
+          -76680,
+          31623,
+          134,
+          -76552
+        ],
+        "expected_bounding_box": [
+          31497,
+          55,
+          -76680,
+          31623,
+          134,
+          -76552
+        ],
+        "bounding_box_matches": true,
+        "checked_blocks": 188436,
+        "matched_blocks": 188436,
+        "checked_air": 0,
+        "nature_cells_skipped": 29877,
+        "normalized_persistent_leaf_distance": 0,
+        "mismatch_count": 0,
+        "mismatch_kinds": {},
+        "mismatch_examples": [],
+        "chunks_spanned": 43,
+        "missing_chunks": [],
+        "incomplete_chunks": [],
+        "passed": true,
+        "clearance_cells": 26618,
+        "blocked_clearances": 0,
+        "unprotected_clearances": 0
+      },
+      {
+        "structure": "relics:world_tree",
+        "template": "relics:world_tree_gameplay_worldgen",
+        "origin": [
+          134236,
+          43,
+          -56013
+        ],
+        "rotation": "CLOCKWISE_90",
+        "bounding_box": [
+          134036,
+          43,
+          -56013,
+          134236,
+          270,
+          -55811
+        ],
+        "expected_bounding_box": [
+          134036,
+          43,
+          -56013,
+          134236,
+          270,
+          -55811
+        ],
+        "bounding_box_matches": true,
+        "checked_blocks": 288900,
+        "matched_blocks": 288900,
+        "checked_air": 0,
+        "nature_cells_skipped": 0,
+        "normalized_persistent_leaf_distance": 0,
+        "mismatch_count": 0,
+        "mismatch_kinds": {},
+        "mismatch_examples": [],
+        "chunks_spanned": 118,
+        "missing_chunks": [],
+        "incomplete_chunks": [],
+        "passed": true,
+        "clearance_cells": 0,
+        "blocked_clearances": 0,
+        "unprotected_clearances": 0
+      }
+    ]
+  },
+  "locate_report": "build/hand-vault-locate-20261027/locate-152319-017593/evidence.json",
+  "unfiltered_reference_same_sites": true,
+  "assertions": {
+    "gameplay": 663,
+    "mixin_targets": 52,
+    "executor": 1008,
+    "location_search": 755716,
+    "distribution": 198924,
+    "resource_tests": 6
+  },
+  "preservation": {
+    "baseline_files": 1118,
+    "unchanged_files": 1104,
+    "intentional_changes": [
+      "src/main/java/de/relics/distribution/DistributionRuntime.java",
+      "src/main/java/de/relics/distribution/LocationSearch.java",
+      "src/main/java/de/relics/distribution/TerrainValidator.java",
+      "src/main/java/de/relics/gameplay/GameplayLedger.java",
+      "src/main/java/de/relics/gameplay/RelicGameplay.java",
+      "src/main/java/de/relics/gameplay/RewardDrops.java",
+      "src/main/java/de/relics/gameplay/SalvageMagnet.java",
+      "src/main/java/de/relics/mixin/DistributionLocateMixin.java",
+      "src/main/java/de/relics/mixin/SalvageMagnetMixin.java",
+      "src/main/resources/assets/relics/lang/de_de.json",
+      "src/main/resources/assets/relics/lang/en_us.json",
+      "src/test/java/de/relics/GameplayPresentationChecks.java",
+      "src/test/java/de/relics/GameplayTests.java",
+      "src/test/java/de/relics/LocationSearchTests.java"
+    ],
+    "approved_export_files_unchanged": 35,
+    "unrelated_changes": []
+  },
+  "player_world": {
+    "seed": 7176494076711744605,
+    "fingerprint": "1065c923e12c1ea34e951a9bfee90bdbea46f3d977573aad572b8a75b3969097",
+    "profile_and_world_inspection": "Read-only metadata, journal and matching relic log lines; no profile installation or world launch"
+  },
+  "limits": [
+    "Graphical-client acceptance remains manual",
+    "No proof of one transaction across arbitrary hard crashes of player/entity/journal files"
+  ]
+}

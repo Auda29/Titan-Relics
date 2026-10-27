@@ -23,7 +23,13 @@
     "DistributionStructureMixin",
     "DistributionLocateMixin",
     "DistributionMapLocateMixin",
-    "DistributionChunkMapAccessor"
+    "DistributionChunkMapAccessor",
+    "NaturalPieceMixin",
+    "NaturalBrushAccessor",
+    "TrialPresentationAccessor",
+    "VaultPresentationAccessor",
+    "RewardDropMixin",
+    "RewardHopperMixin"
   ],
   "injectors": {
     "defaultRequire": 1

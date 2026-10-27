@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "structure_id": "relics:obelisk",
+  "asset_version": "obelisk-v6-archaeology",
+  "source_nbt": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology.nbt",
+  "source_sha256": "ed2093a9bba2b391bacddb684b62255cb8ec60748b73bc8409a30395c27e33e6",
+  "size": [
+    59,
+    185,
+    60
+  ],
+  "ground_y": 8,
+  "coordinate_space": "raw_template",
+  "source_facing": "north",
+  "markers": [
+    {
+      "id": "archaeology-common-1",
+      "role": "archaeology_common",
+      "pos": [
+        8,
+        11,
+        28
+      ],
+      "expected_block": "minecraft:sand"
+    },
+    {
+      "id": "archaeology-common-2",
+      "role": "archaeology_common",
+      "pos": [
+        13,
+        12,
+        35
+      ],
+      "expected_block": "minecraft:sand"
+    },
+    {
+      "id": "archaeology-common-3",
+      "role": "archaeology_common",
+      "pos": [
+        9,
+        11,
+        41
+      ],
+      "expected_block": "minecraft:sand"
+    },
+    {
+      "id": "archaeology-common-4",
+      "role": "archaeology_common",
+      "pos": [
+        45,
+        11,
+        45
+      ],
+      "expected_block": "minecraft:sand"
+    },
+    {
+      "id": "archaeology-common-5",
+      "role": "archaeology_common",
+      "pos": [
+        49,
+        11,
+        48
+      ],
+      "expected_block": "minecraft:sand"
+    },
+    {
+      "id": "archaeology-common-6",
+      "role": "archaeology_common",
+      "pos": [
+        44,
+        11,
+        51
+      ],
+      "expected_block": "minecraft:sand"
+    },
+    {
+      "id": "archaeology-trim-1",
+      "role": "archaeology_trim",
+      "pos": [
+        14,
+        11,
+        27
+      ],
+      "expected_block": "minecraft:sand"
+    },
+    {
+      "id": "archaeology-map-1",
+      "role": "archaeology_map",
+      "pos": [
+        48,
+        10,
+        42
+      ],
+      "expected_block": "minecraft:sand"
+    }
+  ],
+  "regions": []
+}

@@ -1,0 +1,41 @@
+{
+  "size": [
+    111,
+    80,
+    113
+  ],
+  "blocks": 208011,
+  "tiles": 33,
+  "markers": 1,
+  "regions": 57,
+  "checks": [
+    "source hash and revision binding",
+    "26.2 block/property report",
+    "roles/bounds/placeholder supports",
+    "entity footprints/headroom",
+    "schematic equality",
+    "lossless tile reconstruction",
+    "unchanged baseline hash",
+    "new architecture face-connected to surviving baseline",
+    "two-block player routes / continuous support"
+  ],
+  "nbt_sha256": "565b8461b8aed3d4ab1bdca35859790b280d39167c970a80df96a2dab75d68c0",
+  "in_game_tested": false,
+  "natural_rotation_and_chunk_injection_tested": false,
+  "actual_block_light_tested": false,
+  "visual_acceptance": "pending",
+  "revision_checks": [
+    "salvage geometry",
+    "entry to chest",
+    "upper cockpit unchanged"
+  ],
+  "revision_changed_blocks": 156,
+  "editable_source": {
+    "source_blend_sha256": "152d6c7c17baaeeea168939ccc5b4c61ff2c1363255824360e3b8c99ed78d567",
+    "bound_nbt_sha256": "565b8461b8aed3d4ab1bdca35859790b280d39167c970a80df96a2dab75d68c0",
+    "mesh_count": 24,
+    "marker_empties": 1,
+    "marker_contents_and_positions_verified": true,
+    "opened_and_verified_in_blender": true
+  }
+}

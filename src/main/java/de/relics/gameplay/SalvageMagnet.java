@@ -10,13 +10,20 @@ import net.minecraft.world.phys.HitResult;
 import java.util.HashMap;
 import java.util.Map;
 
-/** Spatial item queries around functional offhands; no global item/player cross product. */
+/** Spatial queries around a magnet held in either hand; ordinary inventory slots stay inactive. */
 public final class SalvageMagnet {
+    public static final double ACCELERATION=0.08*1.10, MAX_SPEED=0.35*1.10;
     private SalvageMagnet() { }
+    public static ItemStack heldMagnet(Player player) {
+        var main=player.getMainHandItem();
+        if(RelicItems.magnet(main) && RelicItems.remaining(main,false)>0)return main;
+        var off=player.getOffhandItem();
+        return RelicItems.magnet(off) && RelicItems.remaining(off,false)>0?off:ItemStack.EMPTY;
+    }
     public static boolean eligible(ItemEntity item, ServerPlayer player) {
         if (item.isRemoved() || item.hasPickUpDelay() || !player.isAlive() || player.isCreative() || player.isSpectator()
                 || item.level() != player.level() || item.distanceToSqr(player) > 64) return false;
-        ItemStack magnet = player.getOffhandItem();
+        ItemStack magnet = heldMagnet(player);
         if (!RelicItems.magnet(magnet) || RelicItems.remaining(magnet, false) == 0 || item.getItem().isEmpty()) return false;
         var target = ((de.relics.mixin.ItemPickupOwnerAccessor)item).relics$pickupOwner();
         if (target != null && !target.equals(player.getUUID())) return false;
@@ -33,7 +40,7 @@ public final class SalvageMagnet {
         if (level.getGameTime() % 4 != 0) return;
         Map<ItemEntity, ServerPlayer> nearest = new HashMap<>();
         for (ServerPlayer player : level.players()) {
-            ItemStack magnet = player.getOffhandItem();
+            ItemStack magnet = heldMagnet(player);
             if (!RelicItems.magnet(magnet) || RelicItems.remaining(magnet, false) == 0 || !player.isAlive() || player.isCreative() || player.isSpectator()) continue;
             for (ItemEntity item : level.getEntitiesOfClass(ItemEntity.class, player.getBoundingBox().inflate(8))) {
                 if (!eligible(item, player)) continue;

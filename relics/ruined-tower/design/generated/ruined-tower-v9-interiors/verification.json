@@ -1,0 +1,41 @@
+{
+  "size": [
+    111,
+    232,
+    93
+  ],
+  "blocks": 270997,
+  "tiles": 69,
+  "markers": 8,
+  "regions": 322,
+  "checks": [
+    "source hash and revision binding",
+    "26.2 block/property report",
+    "roles/bounds/placeholder supports",
+    "entity footprints/headroom",
+    "schematic equality",
+    "lossless tile reconstruction",
+    "unchanged baseline hash",
+    "new architecture face-connected to surviving baseline",
+    "two-block player routes / continuous support"
+  ],
+  "nbt_sha256": "4f5fd420eb1461b8e1b3f1c9f8f90ede3e801ea8d1e20972aab3d78d9a9fad8d",
+  "in_game_tested": false,
+  "natural_rotation_and_chunk_injection_tested": false,
+  "actual_block_light_tested": false,
+  "visual_acceptance": "pending",
+  "revision_checks": [
+    "hall detail",
+    "chest route",
+    "all original ascent geometry and gaps preserved"
+  ],
+  "revision_changed_blocks": 30,
+  "editable_source": {
+    "source_blend_sha256": "a1aacf4ffce6bdb3e71fa6bee9a49c8f7871dfc50c9f7bb41da0fd24282d818b",
+    "bound_nbt_sha256": "4f5fd420eb1461b8e1b3f1c9f8f90ede3e801ea8d1e20972aab3d78d9a9fad8d",
+    "mesh_count": 22,
+    "marker_empties": 8,
+    "marker_contents_and_positions_verified": true,
+    "opened_and_verified_in_blender": true
+  }
+}

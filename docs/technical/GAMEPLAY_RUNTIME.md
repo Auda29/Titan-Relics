@@ -5,6 +5,15 @@ No Java gameplay, resources, item artwork, marker loader or generation changes
 are implemented by this document. Existing 1.21.1 visual-alpha artifacts remain
 preserved; gameplay backport support is not selected.
 
+**October 27 implementation update:** natural initialization of the approved
+interiors, native Trial/Vault presentation and personal world reward drops are
+implemented. Successful Vault use consumes its key immediately. A charged magnet
+works in either selected hand, with acceleration `0.088` and speed cap `0.385`;
+other inventory slots remain inactive. These implemented values supersede the
+starting values below. Tree animal-spawn adjustment remains unimplemented.
+See [current status and remaining acceptance](../project/ALPHA_5_STATUS_20261027.md).
+The original contract below remains as planning history.
+
 ## 1. Authority, owners and starting values
 
 **Subsequent implementation status:** the user authorized a separate gameplay

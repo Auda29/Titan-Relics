@@ -1,0 +1,31 @@
+{
+  "date": "2026-10-27",
+  "target": "Minecraft 26.2 / Fabric",
+  "artifact": "dist/relics-0.1.0-alpha.5.0-dev+mc26.2.jar",
+  "artifact_sha256": "0f25a3a57a471c5d3f393a5210cc9046bc92abc7d3fc3884f4095ebfe86d2f5c",
+  "byte_identical_build": true,
+  "headless_gameplay_assertions": 657,
+  "static_mixin_contracts": 49,
+  "resource_tests": 6,
+  "runtime": {
+    "artifact_sha256": "0f25a3a57a471c5d3f393a5210cc9046bc92abc7d3fc3884f4095ebfe86d2f5c",
+    "passed": true,
+    "proof": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ndeliveries=4\n",
+    "exit_code": 0,
+    "restart_preserved_claims_and_timeline": true
+  },
+  "runtime_report": "build/gameplay-feedback-20261027/server-143139-554169/evidence.json",
+  "preservation": {
+    "baseline_files": 1106,
+    "unchanged_files": 1101,
+    "intentional_changes": [
+      "src/main/java/de/relics/gameplay/GameplayLedger.java",
+      "src/main/java/de/relics/gameplay/MaintenanceRecipe.java",
+      "src/main/java/de/relics/gameplay/RelicGameplay.java",
+      "src/main/resources/relics.mixins.json",
+      "src/test/java/de/relics/GameplayTests.java"
+    ],
+    "unrelated_changes": []
+  },
+  "limitation": "Native server state/effect packets and two packet-sink Survival players; graphical client display and sound still require manual review."
+}

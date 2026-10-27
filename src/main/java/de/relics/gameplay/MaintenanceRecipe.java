@@ -9,6 +9,11 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CraftingInput;
 import net.minecraft.world.item.crafting.CustomRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.PlacementInfo;
+import net.minecraft.world.item.crafting.display.*;
+import net.minecraft.world.item.ItemStackTemplate;
+import java.util.*;
 import net.minecraft.world.level.Level;
 
 /** CraftingInput trims blank borders. Core's all-empty bottom row is normalized away. */
@@ -44,4 +49,25 @@ public final class MaintenanceRecipe extends CustomRecipe {
         return result;
     }
     @Override public RecipeSerializer<? extends CustomRecipe> getSerializer() { return core ? CORE : MAGNET; }
+    @Override public boolean isSpecial() { return false; }
+    @Override public boolean showNotification() { return true; }
+    private List<Optional<Ingredient>> ingredients() {
+        var empty=Optional.<Ingredient>empty();
+        var shard=Optional.of(Ingredient.of(Items.AMETHYST_SHARD));
+        var metal=Optional.of(Ingredient.of(core?Items.COAL_BLOCK:Items.IRON_INGOT));
+        var relic=Optional.of(Ingredient.of(core?RelicItems.MACHINE_CORE:RelicItems.SALVAGE_MAGNET));
+        return core?List.of(empty,shard,empty,metal,relic,metal)
+                :List.of(empty,shard,empty,metal,relic,metal,metal,empty,metal);
+    }
+    @Override public PlacementInfo placementInfo() { return PlacementInfo.createFromOptionals(ingredients()); }
+    @Override public List<RecipeDisplay> display() {
+        var slots=new ArrayList<SlotDisplay>();
+        for(var ingredient:ingredients())slots.add(ingredient.<SlotDisplay>map(Ingredient::display).orElse(SlotDisplay.Empty.INSTANCE));
+        var depleted=new ItemStack(core?RelicItems.MACHINE_CORE:RelicItems.SALVAGE_MAGNET);
+        RelicItems.setRemaining(depleted,core,0);
+        slots.set(4,new SlotDisplay.ItemStackSlotDisplay(ItemStackTemplate.fromNonEmptyStack(depleted)));
+        return List.of(new ShapedCraftingRecipeDisplay(3,core?2:3,slots,
+                new SlotDisplay.ItemSlotDisplay(core?RelicItems.MACHINE_CORE:RelicItems.SALVAGE_MAGNET),
+                new SlotDisplay.ItemSlotDisplay(Items.CRAFTING_TABLE)));
+    }
 }

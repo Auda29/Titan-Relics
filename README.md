@@ -3,20 +3,19 @@
 Rare, monumental discoveries for Minecraft: colossi, an obelisk, titan skulls,
 a world tree and a ruined tower.
 
-**Development code integrated into `main`, October 8:** `0.1.0-alpha.5.0-dev` adds the four
-custom items, original sprites/Monolith masks, maintenance/smithing recipes and
-opt-in golem/Vault/map/Tree-aura adapters. **Not a tested gameplay release:** no
-server/client was started during that item implementation. Natural interior/reward
-marker integration remains pending. **October 25:** fresh 26.2/Fabric worlds now
-use the shared rarity plan, a single saved large-Colossus destination and linked
-expedition maps. Existing worlds retain legacy generation. See the
-[distribution implementation and runtime evidence](docs/testing/DISTRIBUTION_IMPLEMENTATION_20261025.md)
-and the [earlier item implementation boundaries](docs/testing/GAMEPLAY_IMPLEMENTATION_20261008.md).
-The structure agent's [five interior candidates and marker handoff](docs/project/GAMEPLAY_INTERIORS_HANDOFF.md)
-are preserved alongside this code, with editable Blender sources, NBT/schematic
-and hash-bound sidecars. Git integration does not activate these candidates in
-natural generation or constitute visual/runtime acceptance.
-The following Alpha 4.9 section remains the preserved visual-release baseline.
+**Current development status, October 27:** `0.1.0-alpha.5.0-dev` for Minecraft
+26.2 / Fabric integrates the approved interiors, natural gameplay initialization,
+shared distribution, one saved large Colossus and linked expedition maps.
+Trial/Vault rewards drop into the world; successful Vault use consumes the key
+immediately. The magnet works in either selected hand, with ten percent faster
+motion, and relic locating searches up to 500,000 blocks.
+
+Isolated native-server checks pass. Final client acceptance of the latest fixes,
+a complete Survival run and real multiplayer checks remain open. See the
+[current status and release checklist](docs/project/ALPHA_5_STATUS_20261027.md)
+and the [latest test evidence](docs/testing/HAND_VAULT_LOCATE_20261027.md).
+Existing worlds retain their saved generation/interior selection. The following
+Alpha 4.9 section records the preserved visual-release baseline.
 
 **Latest art follow-up:** [Open cave contacts and sparse Tree root strands](docs/testing/CAVE_CONTACTS_20261007.md)
 address the Alpha 4.8 screenshots. Skull 2's raw anatomy/sword remains exact;

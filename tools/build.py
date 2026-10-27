@@ -55,6 +55,9 @@ def check_resources(resources: Path = RESOURCES) -> dict:
                 raise ValueError(f"Missing/stale template: {template}")
         if entry["single_template"]["sha256"] != ASSETS[entry["id"]]["sha256"]:
             raise ValueError(f"Wrong selected export: {entry['id']}")
+    if resources == RESOURCES or (resources / 'relics.gameplay.integration.json').exists():
+        from integrate_gameplay_interiors import integrate
+        integrate(resources,verify=True)
     return metadata
 
 
@@ -62,6 +65,14 @@ def write_archive(destination: Path, resources: Path = RESOURCES, classes: Path 
     destination.parent.mkdir(parents=True, exist_ok=True)
     selected_templates = {f"data/relics/structure/{name}{suffix}.nbt"
                           for name in ASSETS for suffix in ("", "_worldgen")}
+    gameplay=resources/'relics.gameplay.integration.json'
+    if gameplay.exists():
+        for entry in json.loads(gameplay.read_text())['structures']:
+            for kind in ('single_template','worldgen_template'):
+                p=resources/'data/relics/structure'/entry[kind]['path']
+                if hashlib.sha256(p.read_bytes()).hexdigest()!=entry[kind]['sha256']:
+                    raise ValueError('Stale gameplay template: '+str(p))
+                selected_templates.add('data/relics/structure/'+entry[kind]['path'])
     with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in sorted(resources.rglob("*")):
             if not path.is_file():
@@ -100,6 +111,7 @@ def main() -> int:
     args = parser.parse_args()
     if not args.skip_generation:
         subprocess.run([sys.executable, str(ROOT / "tools/integrate_relics.py")], check=True, cwd=ROOT)
+        subprocess.run([sys.executable, str(ROOT / "tools/integrate_gameplay_interiors.py")], check=True, cwd=ROOT)
     metadata = check_resources()
     classes = compile_worldgen(args.java_home)
     artifact = args.output.resolve() / f"relics-{metadata['version']}+mc26.2.jar"

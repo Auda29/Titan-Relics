@@ -8,7 +8,7 @@
   "tooltip.relics.magnet_wear": "Verbleibende Sammlungen: %s / %s",
   "tooltip.relics.core_empty": "Entladen — inaktiv",
   "tooltip.relics.magnet_broken": "Defekt — inaktiv",
-  "tooltip.relics.magnet_offhand": "Sammelt nahe Drops beim Tragen in der Nebenhand",
+  "tooltip.relics.magnet_offhand": "Sammelt nahe Drops beim Halten in der Haupt- oder Nebenhand",
   "message.relics.reward_held": "Eine Relikt-Belohnung muss nach einem unterbrochenen Speichern durch einen Administrator geprüft werden; sie wird nicht doppelt ausgegeben.",
   "item.relics.expedition_map.pending": "Expeditionskarte — unbestätigt",
   "item.relics.expedition_map.resolved": "Expeditionskarte — Colossus",

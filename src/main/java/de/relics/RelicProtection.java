@@ -58,4 +58,11 @@ public final class RelicProtection {
         var cells = ((AttachmentTarget) chunk).getAttached(CELLS);
         return cells != null && cells.contains(pos);
     }
+    /** Empty approved passage cells also need protection from later features. */
+    public static void recordCell(WorldGenLevel level,BlockPos pos) {
+        if(!(level instanceof WorldGenRegion region) || !region.isWithinWriteZone(pos))
+            throw new IllegalStateException("Natural interior write outside owning chunk");
+        var chunk=region.getChunk(pos.getX()>>4,pos.getZ()>>4);
+        ((AttachmentTarget)chunk).getAttachedOrCreate(CELLS).add(pos);chunk.markUnsaved();
+    }
 }

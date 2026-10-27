@@ -15,6 +15,7 @@ public final class RelicWorldgen implements ModInitializer {
     public void onInitialize() {
         de.relics.gameplay.RelicItems.initialize();
         de.relics.gameplay.RelicGameplay.initialize();
+        de.relics.gameplay.NaturalInteriors.initialize();
         de.relics.distribution.DistributionRuntime.initialize();
         RelicProtection.initialize();
         Registry.register(BuiltInRegistries.STRUCTURE_PROCESSOR,

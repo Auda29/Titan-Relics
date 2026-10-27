@@ -8,7 +8,7 @@
   "tooltip.relics.magnet_wear": "Collections remaining: %s / %s",
   "tooltip.relics.core_empty": "Depleted — inactive",
   "tooltip.relics.magnet_broken": "Broken — inactive",
-  "tooltip.relics.magnet_offhand": "Collects nearby drops while held in the offhand",
+  "tooltip.relics.magnet_offhand": "Collects nearby drops while held in the main hand or offhand",
   "message.relics.reward_held": "A relic reward needs administrator reconciliation after an interrupted save; it will not be issued twice.",
   "item.relics.expedition_map.pending": "Expedition Map — Unconfirmed",
   "item.relics.expedition_map.resolved": "Expedition Map — Colossus",

@@ -10,6 +10,10 @@ public final class LocationSearchTests {
     private static void check(boolean value,String message){checks++;if(!value)throw new AssertionError(message);}
     private static Site site(Candidate c,Family family){return new Site(c,family.id,2*c.x(),2*c.z(),70,c.x()-40,0,c.z()-40,c.x()-40,c.z()-40,c.x()+40,c.z()+40);}
     public static void main(String[] args) {
+        for(int ticket=0;ticket<10000;ticket++)for(Family family:Family.values()) {
+            boolean expected=family!=Family.EMPTY && (DistributionPlanner.ticket(ticket,false)==family || DistributionPlanner.ticket(ticket,true)==family);
+            check(LocationSearch.mayMatch(ticket,Set.of(family))==expected,"locate ticket filter preserves both region cases");
+        }
         for(long seed:new long[]{0,-1,731204,-48291736,20260913,Long.MIN_VALUE})for(int x=-8;x<=8;x++)for(int z=-8;z<=8;z++) {
             Cell cell=new Cell(x,z);Candidate anchor=candidate(seed,cell,false);var probes=LocationSearch.positions(seed,anchor);
             check(probes.size()==64 && probes.getFirst().equals(anchor),"bounded probes retain original first position");

@@ -14,6 +14,7 @@ public final class DistributionJournal {
     private static final Gson JSON = new GsonBuilder().setPrettyPrinting().create();
     public static final class State {
         public String policy = DistributionPlanner.POLICY;
+        public String interiors = "legacy";
         public long seed;
         public String fingerprint;
         public int spawnX, spawnZ, bootstrapX, bootstrapZ;
@@ -26,6 +27,13 @@ public final class DistributionJournal {
         public long candidatesChecked, slices, maxEvaluationNanos;
     }
     private record Envelope(int version, String sha256, String payload) { }
+    public static String interiorRevision(Path file) {
+        try {
+            var envelope=JSON.fromJson(Files.readString(file),Envelope.class);
+            if(envelope==null || envelope.version()!=1 || !hash(envelope.payload()).equals(envelope.sha256()))throw new IllegalStateException("Invalid snapshot checksum");
+            return JSON.fromJson(envelope.payload(),State.class).interiors;
+        }catch(Exception error){throw new IllegalStateException("Preserve and inspect planning snapshot",error);}
+    }
     public final State state;
     public long replacementRetries;
     private final Path file;
@@ -42,7 +50,8 @@ public final class DistributionJournal {
         } catch (Exception error) { throw new IllegalStateException("Preserve and inspect planning journal: "+file,error); }
     }
     private void validate() {
-        if (state==null || !Set.of(DistributionPlanner.POLICY,DistributionPlanner.LEGACY_POLICY).contains(state.policy) || state.fingerprint==null
+        if (state==null || state.interiors==null || !Set.of("legacy","interiors-20261027-v1").contains(state.interiors)
+                || !Set.of(DistributionPlanner.POLICY,DistributionPlanner.LEGACY_POLICY).contains(state.policy) || state.fingerprint==null
                 || !state.fingerprint.matches("[a-f0-9]{64}") || state.enabled==null || state.cursor<0
                 || state.lower<30000 || state.upper<=state.lower || state.minX>=state.maxX || state.minZ>=state.maxZ
                 || state.unique!=null && (!state.frozen || state.unavailable || !state.unique.candidate().unique()

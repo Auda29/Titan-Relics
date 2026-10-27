@@ -120,6 +120,14 @@ public final class GameplayTests {
         ItemStack core = stack(RelicItems.MACHINE_CORE); RelicItems.setRemaining(core, true, 0);
         core.set(DataComponents.CUSTOM_NAME, Component.literal("Kept name"));
         var recharge = new MaintenanceRecipe(true);
+        check(!recharge.isSpecial() && recharge.showNotification(),"Core recipe is visible in the crafting book");
+        check(!recharge.placementInfo().isImpossibleToPlace() && recharge.placementInfo().slotsToIngredientIndex().size()==6,"Core book placement retains the normalized 3x2 shape");
+        var coreDisplay=(net.minecraft.world.item.crafting.display.ShapedCraftingRecipeDisplay)recharge.display().getFirst();
+        check(coreDisplay.width()==3 && coreDisplay.height()==2,"Core book sends shaped display");
+        var depletedDisplay=(net.minecraft.world.item.crafting.display.SlotDisplay.ItemStackSlotDisplay)coreDisplay.ingredients().get(4);
+        check(RelicItems.remaining(depletedDisplay.stack().create(),true)==0,"Book explicitly shows depleted core input");
+        var encodedDisplay=net.minecraft.world.item.crafting.display.RecipeDisplay.CODEC.encodeStart(ops,coreDisplay).getOrThrow();
+        check(net.minecraft.world.item.crafting.display.RecipeDisplay.CODEC.parse(ops,encodedDisplay).getOrThrow() instanceof net.minecraft.world.item.crafting.display.ShapedCraftingRecipeDisplay,"Book display round-trips native codec");
         check(recharge.matches(coreInput(core, Items.COAL_BLOCK), null), "Approved core shape matches normalized 3x3");
         ItemStack charged = recharge.assemble(coreInput(core, Items.COAL_BLOCK));
         check(charged.getCount() == 1 && RelicItems.remaining(charged, true) == 256, "Recharge one full existing core");
@@ -137,6 +145,7 @@ public final class GameplayTests {
         check(!recharge.matches(CraftingInput.of(3,3,extra), null), "Extra occupied bottom cell rejected");
         check(!recharge.matches(CraftingInput.of(2,2,List.of(core,stack(Items.COAL_BLOCK),stack(Items.AMETHYST_SHARD),ItemStack.EMPTY)),null), "2x2 grid rejected");
         var repair = new MaintenanceRecipe(false); ItemStack magnet = stack(RelicItems.SALVAGE_MAGNET);
+        check(!repair.isSpecial() && repair.display().size()==1 && repair.placementInfo().slotsToIngredientIndex().size()==9,"Magnet repair is also visible and placeable");
         check(!repair.matches(magnetInput(magnet), null), "Full magnet rejected");
         for (int left : List.of(999, 1, 0)) {
             RelicItems.setRemaining(magnet, false, left);
@@ -229,6 +238,8 @@ public final class GameplayTests {
         site.phase = TrialPhase.ENTITY_UNKNOWN; site.participants.add(player); String second = UUID.randomUUID().toString(); site.participants.add(second);
         check(!journal.completeEncounter(site,UUID.randomUUID().toString(),site.encounter,true,100), "Unrelated golem cannot complete trial");
         check(journal.completeEncounter(site,site.golem,site.encounter,true,100), "Confirmed tracked death resolves unknown encounter");
+        check(site.rewardAnimationUntil==180,"Trial reward keeps a saved shutter animation window");
+        check(journal.state.deliveries.values().stream().filter(d->d.reward==GameplayLedger.Reward.KEY).allMatch(d->d.notBefore==160),"Keys wait for spawner reward presentation");
         check(site.phase == TrialPhase.COOLDOWN && site.cooldown == 36100, "Saved-time 36000-tick cooldown");
         check(journal.state.terminalGolems.contains(site.golem), "Confirmed terminal UUID tombstone prevents stale saved resurrection");
         check(journal.state.deliveries.containsKey("trial:"+site.encounter+":"+player) && journal.state.deliveries.containsKey("trial:"+site.encounter+":"+second), "One key each including late participant");
@@ -251,12 +262,26 @@ public final class GameplayTests {
         check(journal.reserveCompensation(resolved,player) == null && resolved.phase == OriginPhase.MAP_RESOLVED, "Deactivation cannot compensate an already resolved map");
         journal.state.trees.put("fixture:tree",new Point("minecraft:overworld",-33,70,-33)); journal.flush(); journal = new GameplayLedger(file);
         check(journal.state.trees.size()==1 && journal.state.origins.size()==2, "Tree anchors/map origins survive reload independent of blocks");
+        check(journal.state.sites.get(site.id).rewardAnimationUntil==180 && journal.state.deliveries.values().stream()
+                .filter(d->d.reward==Reward.KEY).allMatch(d->d.notBefore==160),"Reward timeline survives ledger reload");
         Point anchor = journal.state.trees.get("fixture:tree");
         check(TreeAura.contains(anchor,-32.5,70.5,-32.5), "Block-center anchor and negative coordinates");
         check(TreeAura.contains(anchor,-8.5,70.5,-32.5) && !TreeAura.contains(anchor,-8.499,70.5,-32.5), "Inclusive 24-block sphere boundary");
         check(!TreeAura.contains(anchor,-9,94,-32.5), "Sphere is not an infinite cylinder or box");
         rejected(() -> new Point("bad dimension",0,0,0), "Invalid dimension fails anchor decoding");
         rejected(() -> new Point("minecraft:overworld",Integer.MIN_VALUE,0,0), "Out-of-world signed-coordinate overflow rejected");
+        Delivery drop=journal.queue("physical-test",player,Reward.KEY,site.id);
+        drop.phase=DeliveryPhase.DROP_RESERVED;drop.dropUuid=UUID.randomUUID().toString();drop.dropPoint=site.spawner;
+        check(!journal.reconcile(drop,Set.of()),"Uncertain dispatch is not silently reissued");
+        drop.phase=DeliveryPhase.DROPPED;journal.flush();journal=new GameplayLedger(file);
+        drop=journal.state.deliveries.get("physical-test");
+        check(drop.dropUuid!=null && drop.dropPoint!=null && drop.phase==DeliveryPhase.DROPPED,"Uncollected physical reward survives ledger reload");
+        check(!journal.reconcile(drop,Set.of()) && drop.phase==DeliveryPhase.DROPPED,"Uncollected world entity is not mistaken for missing inventory receipt");
+        check(journal.reconcile(drop,Set.of(drop.id)) && drop.phase==DeliveryPhase.DELIVERED,"Saved pickup receipt completes physical reward");
+        Delivery paid=journal.queue("paid-before-ejection",player,Reward.CORE,site.id);paid.keyPaid=true;journal.flush();
+        journal=new GameplayLedger(file);paid=journal.state.deliveries.get("paid-before-ejection");
+        check(paid.keyPaid && paid.phase==DeliveryPhase.QUEUED,"Consumed key remains paid while the core is still queued");
+        check(!journal.reconcile(paid,Set.of()) && paid.phase==DeliveryPhase.QUEUED,"A paid key does not falsely complete core pickup");
         Files.writeString(file,Files.readString(file).replace("fixture:tree","fixture:corruption"));
         rejected(() -> new GameplayLedger(file), "Tampered ledger fails closed rather than refilling rewards");
     }

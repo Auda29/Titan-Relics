@@ -5,6 +5,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import de.relics.gameplay.RelicItems;
 import de.relics.gameplay.SalvageMagnet;
 import de.relics.gameplay.MagnetAttraction;
+import de.relics.gameplay.RewardDrops;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -27,8 +28,8 @@ public abstract class SalvageMagnetMixin implements MagnetAttraction {
     @Unique private long relics$lastScan;
 
     @Override public void relics$select(ServerPlayer player) {
-        if (!player.getUUID().equals(relics$collector) || player.getOffhandItem() != relics$magnet) relics$lastPull = -1000;
-        relics$collector = player.getUUID(); relics$magnet = player.getOffhandItem();
+        if (!player.getUUID().equals(relics$collector) || SalvageMagnet.heldMagnet(player) != relics$magnet) relics$lastPull = -1000;
+        relics$collector = player.getUUID(); relics$magnet = SalvageMagnet.heldMagnet(player);
         relics$lastScan = player.level().getGameTime();
     }
     @Inject(method = "tick", at = @At("TAIL"))
@@ -37,12 +38,12 @@ public abstract class SalvageMagnetMixin implements MagnetAttraction {
         if (!(item.level() instanceof ServerLevel level) || item.isRemoved()) return;
         if (relics$collector == null) return;
         ServerPlayer player = level.getServer().getPlayerList().getPlayer(relics$collector);
-        if (player == null || level.getGameTime() - relics$lastScan > 4 || player.getOffhandItem() != relics$magnet || !SalvageMagnet.eligible(item, player)) {
+        if (player == null || level.getGameTime() - relics$lastScan > 4 || SalvageMagnet.heldMagnet(player) != relics$magnet || !SalvageMagnet.eligible(item, player)) {
             relics$collector = null; relics$magnet = null; return;
         }
         Vec3 direction = player.position().add(0, 0.5, 0).subtract(item.position()).normalize();
-        Vec3 motion = item.getDeltaMovement().add(direction.scale(0.08));
-        if (motion.lengthSqr() > 0.35 * 0.35) motion = motion.normalize().scale(0.35);
+        Vec3 motion = item.getDeltaMovement().add(direction.scale(SalvageMagnet.ACCELERATION));
+        if (motion.lengthSqr() > SalvageMagnet.MAX_SPEED * SalvageMagnet.MAX_SPEED) motion = motion.normalize().scale(SalvageMagnet.MAX_SPEED);
         item.setDeltaMovement(motion);
         item.hurtMarked = true;
         relics$lastPull = level.getGameTime();
@@ -50,9 +51,9 @@ public abstract class SalvageMagnetMixin implements MagnetAttraction {
     @WrapOperation(method = "playerTouch", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/player/Inventory;add(Lnet/minecraft/world/item/ItemStack;)Z"))
     private boolean relics$chargePickup(Inventory inventory, ItemStack incoming, Operation<Boolean> original, Player player) {
         int before = incoming.getCount();
-        boolean result = original.call(inventory, incoming);
         ItemEntity item = (ItemEntity)(Object) this;
-        if (incoming.getCount() < before && player.getUUID().equals(relics$collector) && player.getOffhandItem() == relics$magnet
+        boolean result = RewardDrops.pickup(item,inventory,incoming,original,player);
+        if (incoming.getCount() < before && player.getUUID().equals(relics$collector) && SalvageMagnet.heldMagnet(player) == relics$magnet
                 && item.level().getGameTime() - relics$lastPull <= 4 && RelicItems.remaining(relics$magnet, false) > 0) {
             RelicItems.setRemaining(relics$magnet, false, RelicItems.remaining(relics$magnet, false) - 1);
         }

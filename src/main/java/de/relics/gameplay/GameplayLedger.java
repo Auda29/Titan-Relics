@@ -22,7 +22,7 @@ public final class GameplayLedger {
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     public enum TrialPhase { READY, SPAWN_PENDING, ACTIVE, ENTITY_UNKNOWN, COOLDOWN }
     public enum OriginPhase { PENDING, MAP_RESOLVED, COMPENSATED }
-    public enum DeliveryPhase { QUEUED, IN_FLIGHT, DELIVERED, AMBIGUOUS }
+    public enum DeliveryPhase { QUEUED, PAYMENT_PENDING, DROP_RESERVED, DROPPED, IN_FLIGHT, DELIVERED, AMBIGUOUS }
     public enum Reward { KEY, CORE, EMERALDS }
     public record Point(String dimension, int x, int y, int z) {
         public Point {
@@ -37,6 +37,7 @@ public final class GameplayLedger {
         public TrialPhase phase = TrialPhase.READY;
         public String encounter, golem;
         public long cooldown;
+        public long activationAt, rewardAnimationUntil, vaultAnimationUntil;
         public Set<String> participants = new HashSet<>();
     }
     public static final class Origin {
@@ -49,6 +50,11 @@ public final class GameplayLedger {
         public String id, player, source;
         public Reward reward;
         public DeliveryPhase phase = DeliveryPhase.QUEUED;
+        public long notBefore;
+        public boolean presentationStarted;
+        public String dropUuid;
+        public Point dropPoint;
+        public boolean keyPaid;
     }
     public static final class State {
         public int version = 1;
@@ -96,6 +102,10 @@ public final class GameplayLedger {
             if (!id.equals(delivery.id) || delivery.phase == null || delivery.reward == null || delivery.source == null)
                 throw new IllegalStateException("Invalid delivery " + id);
             UUID.fromString(delivery.player);
+            if(delivery.dropUuid!=null)UUID.fromString(delivery.dropUuid);
+            if((delivery.phase==DeliveryPhase.DROP_RESERVED || delivery.phase==DeliveryPhase.DROPPED)
+                    && (delivery.dropUuid==null || delivery.dropPoint==null || delivery.reward==Reward.EMERALDS))
+                throw new IllegalStateException("Missing physical reward provenance: "+id);
         });
         state.vaultClaims.forEach((claim, delivery) -> {
             if (!state.deliveries.containsKey(delivery) || state.deliveries.get(delivery).reward != Reward.CORE)
@@ -146,8 +156,14 @@ public final class GameplayLedger {
     public boolean completeEncounter(Site site, String golem, String encounter, boolean defeated, long time) {
         if (!java.util.Objects.equals(site.golem, golem) || !java.util.Objects.equals(site.encounter, encounter)
                 || site.phase == TrialPhase.COOLDOWN || site.phase == TrialPhase.READY) return false;
-        if (defeated) for (String player : site.participants)
-            queue("trial:" + site.encounter + ":" + player, player, Reward.KEY, site.id);
+        if (defeated) {
+            site.rewardAnimationUntil=time+80;
+            for (String player : site.participants) {
+                var delivery=queue("trial:" + site.encounter + ":" + player, player, Reward.KEY, site.id);
+                delivery.notBefore=time+60;
+            }
+        }
+        site.activationAt=0;
         site.phase = TrialPhase.COOLDOWN; site.cooldown = time + 36000;
         state.terminalGolems.add(golem);
         site.participants.clear(); return true;

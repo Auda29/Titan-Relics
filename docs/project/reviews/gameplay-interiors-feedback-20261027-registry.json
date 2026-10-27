@@ -1,0 +1,12 @@
+{
+  "minecraft_version": "26.2",
+  "server_jar_sha256": "183c0499c5f855570ee487dd38e141a53f0121f83a0b07a3bac2d8b6698823e8",
+  "query": "tools/InteriorRegistryEvidence.java",
+  "result": "minecraft:black_stained_glass: properties=[]; states=1",
+  "blocks": {
+    "black_stained_glass": [
+      {},
+      {}
+    ]
+  }
+}

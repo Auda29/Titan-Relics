@@ -8,6 +8,11 @@ public final class LocationSearch {
     public static final int RADIUS=3072, ATTEMPTS=64;
     private static final long DOMAIN=0x493fba7d6e21c805L;
     private LocationSearch() { }
+    /** A locate query can skip tickets that cannot yield any requested family in either region. */
+    public static boolean mayMatch(int ticket,Set<Family> requested) {
+        Family outside=DistributionPlanner.ticket(ticket,false),inside=DistributionPlanner.ticket(ticket,true);
+        return outside!=Family.EMPTY && requested.contains(outside) || inside!=Family.EMPTY && requested.contains(inside);
+    }
     public static List<Candidate> positions(long seed,Candidate anchor) {
         if(anchor.unique())return List.of(anchor);
         List<Candidate> result=new ArrayList<>();result.add(anchor);Set<Long> seen=new HashSet<>();seen.add(0L);

@@ -20,3 +20,9 @@ gradlew text eol=lf
 *.ogg binary
 *.nbt binary
 *.jar binary
+
+# Preserve the exact bytes referenced by the approved interior handoff hashes.
+relics/colossus/design/generated/colossus-v6-interiors/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+relics/colossus/design/generated/small-colossus-v9-interiors/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+relics/obelisk/design/generated/obelisk-v6-archaeology/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+relics/ruined-tower/design/generated/ruined-tower-v9-interiors/*.json -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

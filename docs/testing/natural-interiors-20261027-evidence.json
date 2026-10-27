@@ -1,0 +1,2016 @@
+{
+  "date": "2026-10-27",
+  "target": "Minecraft 26.2 / Fabric",
+  "baseline_commit": "cf1d2e56315bcbce11bb37d363b5c34815a5cb33",
+  "artifact": "dist/relics-0.1.0-alpha.5.0-dev+mc26.2.jar",
+  "artifact_sha256": "4421a9a03cc3d926484196fc4f94db42c521bd110f1e58aa5cb68176aba76783",
+  "reproducible_build": true,
+  "natural_runs": [
+    {
+      "raw_report": "build/interior-integration-20261027/native-135115-801901/evidence.json",
+      "raw_sha256": "14f792497e4552dca9735dcf4eafac3fecd2f769405ed8c491d7d48d10fd58ec",
+      "target_unavailable": false,
+      "partial_restart": false,
+      "worlds": [
+        {
+          "seed": -48291736,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": 11,
+                  "z": 5
+                },
+                "x": 56584,
+                "z": 27832,
+                "ticket": 6337,
+                "priority": 7148134744104744328,
+                "rotation": 1,
+                "unique": false
+              },
+              "asset": "small_colossus",
+              "x2": 113168,
+              "z2": 55664,
+              "surface": 63,
+              "originX": 56648,
+              "originY": 50,
+              "originZ": 27769,
+              "minX": 56520,
+              "minZ": 27769,
+              "maxX": 56648,
+              "maxZ": 27895
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:small_colossus",
+              "template": "relics:small_colossus_gameplay_worldgen",
+              "origin": [
+                56648,
+                50,
+                27769
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "expected_bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 188436,
+              "matched_blocks": 188436,
+              "checked_air": 0,
+              "nature_cells_skipped": 29877,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 45,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 26618,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "native_initialization": [
+            {
+              "asset": "small_colossus",
+              "site_id": "natural:-48291736:small_colossus:11:5",
+              "markers": [
+                {
+                  "role": "small_magnet_chest",
+                  "x": 56560,
+                  "y": 69,
+                  "z": 27850,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:copper_ingot",
+                      "count": 12
+                    },
+                    {
+                      "item": "minecraft:iron_ingot",
+                      "count": 5
+                    },
+                    {
+                      "item": "minecraft:redstone",
+                      "count": 1
+                    },
+                    {
+                      "item": "minecraft:amethyst_shard",
+                      "count": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "native_after_restart": [
+            {
+              "asset": "small_colossus",
+              "site_id": "natural:-48291736:small_colossus:11:5",
+              "markers": [
+                {
+                  "role": "small_magnet_chest",
+                  "x": 56560,
+                  "y": 69,
+                  "z": 27850,
+                  "block": "minecraft:air"
+                }
+              ]
+            }
+          ],
+          "partial_saved_pieces": [],
+          "passed": true
+        },
+        {
+          "seed": 731204,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": -11,
+                  "z": -6
+                },
+                "x": -53176,
+                "z": -28920,
+                "ticket": 625,
+                "priority": 2496308181309163861,
+                "rotation": 0,
+                "unique": false
+              },
+              "asset": "obelisk",
+              "x2": -106352,
+              "z2": -57839,
+              "surface": 67,
+              "originX": -53213,
+              "originY": 57,
+              "originZ": -28957,
+              "minX": -53213,
+              "minZ": -28957,
+              "maxX": -53139,
+              "maxZ": -28882
+            },
+            {
+              "candidate": {
+                "cell": {
+                  "x": -11,
+                  "z": 6
+                },
+                "x": -53160,
+                "z": 31272,
+                "ticket": 1695,
+                "priority": 2605195123915950883,
+                "rotation": 2,
+                "unique": false
+              },
+              "asset": "obelisk",
+              "x2": -106320,
+              "z2": 62545,
+              "surface": 68,
+              "originX": -53123,
+              "originY": 58,
+              "originZ": 31310,
+              "minX": -53197,
+              "minZ": 31235,
+              "maxX": -53123,
+              "maxZ": 31310
+            },
+            {
+              "candidate": {
+                "cell": {
+                  "x": 19,
+                  "z": 9
+                },
+                "x": 96136,
+                "z": 48504,
+                "ticket": 6381,
+                "priority": 2284565568339078783,
+                "rotation": 3,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 192272,
+              "z2": 97008,
+              "surface": 73,
+              "originX": 96011,
+              "originY": -4,
+              "originZ": 48602,
+              "minX": 96011,
+              "minZ": 48406,
+              "maxX": 96261,
+              "maxZ": 48602
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:obelisk",
+              "template": "relics:obelisk_gameplay_worldgen",
+              "origin": [
+                -53213,
+                57,
+                -28957
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -53213,
+                57,
+                -28957,
+                -53139,
+                243,
+                -28882
+              ],
+              "expected_bounding_box": [
+                -53213,
+                57,
+                -28957,
+                -53139,
+                243,
+                -28882
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 117575,
+              "matched_blocks": 117575,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 23,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            },
+            {
+              "structure": "relics:obelisk",
+              "template": "relics:obelisk_gameplay_worldgen",
+              "origin": [
+                -53123,
+                58,
+                31310
+              ],
+              "rotation": "CLOCKWISE_180",
+              "bounding_box": [
+                -53197,
+                58,
+                31235,
+                -53123,
+                244,
+                31310
+              ],
+              "expected_bounding_box": [
+                -53197,
+                58,
+                31235,
+                -53123,
+                244,
+                31310
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 117575,
+              "matched_blocks": 117575,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 23,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            },
+            {
+              "structure": "relics:colossus",
+              "template": "relics:colossus_gameplay_worldgen",
+              "origin": [
+                96011,
+                -4,
+                48602
+              ],
+              "rotation": "COUNTERCLOCKWISE_90",
+              "bounding_box": [
+                96011,
+                -4,
+                48406,
+                96261,
+                204,
+                48602
+              ],
+              "expected_bounding_box": [
+                96011,
+                -4,
+                48406,
+                96261,
+                204,
+                48602
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 263905,
+              "matched_blocks": 263905,
+              "checked_air": 0,
+              "nature_cells_skipped": 7466,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 111,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 16013,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "native_initialization": [
+            {
+              "asset": "obelisk",
+              "site_id": "natural:731204:obelisk:-11:-6",
+              "markers": [
+                {
+                  "role": "archaeology_common",
+                  "x": -53197,
+                  "y": 70,
+                  "z": -28921,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:wheat_seeds"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53192,
+                  "y": 71,
+                  "z": -28914,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:clay_ball"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53196,
+                  "y": 70,
+                  "z": -28908,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:angler_pottery_sherd"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53160,
+                  "y": 70,
+                  "z": -28904,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:archer_pottery_sherd"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53156,
+                  "y": 70,
+                  "z": -28901,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:copper_ingot"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53161,
+                  "y": 70,
+                  "z": -28898,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:brick"
+                },
+                {
+                  "role": "archaeology_trim",
+                  "x": -53191,
+                  "y": 70,
+                  "z": -28922,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "relics:monolith_armor_trim_smithing_template"
+                },
+                {
+                  "role": "archaeology_map",
+                  "x": -53157,
+                  "y": 69,
+                  "z": -28907,
+                  "block": "minecraft:suspicious_sand",
+                  "target": "Point[dimension=minecraft:overworld, x=96136, y=73, z=48504]",
+                  "map_id": 0,
+                  "item": "minecraft:filled_map"
+                }
+              ]
+            },
+            {
+              "asset": "obelisk",
+              "site_id": "natural:731204:obelisk:-11:6",
+              "markers": [
+                {
+                  "role": "archaeology_common",
+                  "x": -53139,
+                  "y": 71,
+                  "z": 31274,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:bone"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53144,
+                  "y": 72,
+                  "z": 31267,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:wheat_seeds"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53140,
+                  "y": 71,
+                  "z": 31261,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:archer_pottery_sherd"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53176,
+                  "y": 71,
+                  "z": 31257,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:string"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53180,
+                  "y": 71,
+                  "z": 31254,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:wheat_seeds"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53175,
+                  "y": 71,
+                  "z": 31251,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:iron_nugget"
+                },
+                {
+                  "role": "archaeology_trim",
+                  "x": -53145,
+                  "y": 71,
+                  "z": 31275,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "relics:monolith_armor_trim_smithing_template"
+                },
+                {
+                  "role": "archaeology_map",
+                  "x": -53179,
+                  "y": 70,
+                  "z": 31260,
+                  "block": "minecraft:suspicious_sand",
+                  "target": "Point[dimension=minecraft:overworld, x=96136, y=73, z=48504]",
+                  "map_id": 1,
+                  "item": "minecraft:filled_map"
+                }
+              ]
+            },
+            {
+              "asset": "colossus",
+              "site_id": "natural:731204:colossus:19:9",
+              "markers": [
+                {
+                  "role": "colossus_hatch",
+                  "x": 96201,
+                  "y": 165,
+                  "z": 48476,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "colossus_golem_spawn",
+                  "x": 96202,
+                  "y": 165,
+                  "z": 48500,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "colossus_trial_spawner",
+                  "x": 96212,
+                  "y": 165,
+                  "z": 48500,
+                  "block": "minecraft:trial_spawner"
+                },
+                {
+                  "role": "colossus_vault",
+                  "x": 96209,
+                  "y": 165,
+                  "z": 48510,
+                  "block": "minecraft:vault"
+                },
+                {
+                  "role": "colossus_arm_magnet_chest",
+                  "x": 96089,
+                  "y": 74,
+                  "z": 48484,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:copper_ingot",
+                      "count": 24
+                    },
+                    {
+                      "item": "minecraft:iron_ingot",
+                      "count": 14
+                    },
+                    {
+                      "item": "minecraft:redstone",
+                      "count": 3
+                    },
+                    {
+                      "item": "relics:salvage_magnet",
+                      "count": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "native_after_restart": [
+            {
+              "asset": "obelisk",
+              "site_id": "natural:731204:obelisk:-11:-6",
+              "markers": [
+                {
+                  "role": "archaeology_common",
+                  "x": -53197,
+                  "y": 70,
+                  "z": -28921,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53192,
+                  "y": 71,
+                  "z": -28914,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53196,
+                  "y": 70,
+                  "z": -28908,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53160,
+                  "y": 70,
+                  "z": -28904,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53156,
+                  "y": 70,
+                  "z": -28901,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53161,
+                  "y": 70,
+                  "z": -28898,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_trim",
+                  "x": -53191,
+                  "y": 70,
+                  "z": -28922,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_map",
+                  "x": -53157,
+                  "y": 69,
+                  "z": -28907,
+                  "block": "minecraft:sand"
+                }
+              ]
+            },
+            {
+              "asset": "obelisk",
+              "site_id": "natural:731204:obelisk:-11:6",
+              "markers": [
+                {
+                  "role": "archaeology_common",
+                  "x": -53139,
+                  "y": 71,
+                  "z": 31274,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53144,
+                  "y": 72,
+                  "z": 31267,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53140,
+                  "y": 71,
+                  "z": 31261,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53176,
+                  "y": 71,
+                  "z": 31257,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53180,
+                  "y": 71,
+                  "z": 31254,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53175,
+                  "y": 71,
+                  "z": 31251,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_trim",
+                  "x": -53145,
+                  "y": 71,
+                  "z": 31275,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_map",
+                  "x": -53179,
+                  "y": 70,
+                  "z": 31260,
+                  "block": "minecraft:sand"
+                }
+              ]
+            },
+            {
+              "asset": "colossus",
+              "site_id": "natural:731204:colossus:19:9",
+              "markers": [
+                {
+                  "role": "colossus_hatch",
+                  "x": 96201,
+                  "y": 165,
+                  "z": 48476,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "colossus_golem_spawn",
+                  "x": 96202,
+                  "y": 165,
+                  "z": 48500,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "colossus_trial_spawner",
+                  "x": 96212,
+                  "y": 165,
+                  "z": 48500,
+                  "block": "minecraft:trial_spawner"
+                },
+                {
+                  "role": "colossus_vault",
+                  "x": 96209,
+                  "y": 165,
+                  "z": 48510,
+                  "block": "minecraft:vault"
+                },
+                {
+                  "role": "colossus_arm_magnet_chest",
+                  "x": 96089,
+                  "y": 74,
+                  "z": 48484,
+                  "block": "minecraft:air"
+                }
+              ]
+            }
+          ],
+          "partial_saved_pieces": [],
+          "passed": true
+        },
+        {
+          "seed": 20260913,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": -4,
+                  "z": 4
+                },
+                "x": -19336,
+                "z": 20456,
+                "ticket": 6513,
+                "priority": -978740296379991234,
+                "rotation": 3,
+                "unique": false
+              },
+              "asset": "world_tree",
+              "x2": -38672,
+              "z2": 40912,
+              "surface": 68,
+              "originX": -19436,
+              "originY": 44,
+              "originZ": 20557,
+              "minX": -19436,
+              "minZ": 20355,
+              "maxX": -19236,
+              "maxZ": 20557
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:world_tree",
+              "template": "relics:world_tree_gameplay_worldgen",
+              "origin": [
+                -19436,
+                44,
+                20557
+              ],
+              "rotation": "COUNTERCLOCKWISE_90",
+              "bounding_box": [
+                -19436,
+                44,
+                20355,
+                -19236,
+                271,
+                20557
+              ],
+              "expected_bounding_box": [
+                -19436,
+                44,
+                20355,
+                -19236,
+                271,
+                20557
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 288900,
+              "matched_blocks": 288900,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 116,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "native_initialization": [
+            {
+              "asset": "world_tree",
+              "site_id": "natural:20260913:world_tree:-4:4",
+              "markers": [
+                {
+                  "role": "tree_amethyst_center",
+                  "x": -19335,
+                  "y": 73,
+                  "z": 20455,
+                  "block": "minecraft:amethyst_block"
+                },
+                {
+                  "role": "tree_aura_anchor",
+                  "x": -19335,
+                  "y": 68,
+                  "z": 20455,
+                  "block": "minecraft:spruce_log"
+                }
+              ]
+            }
+          ],
+          "native_after_restart": [
+            {
+              "asset": "world_tree",
+              "site_id": "natural:20260913:world_tree:-4:4",
+              "markers": [
+                {
+                  "role": "tree_amethyst_center",
+                  "x": -19335,
+                  "y": 73,
+                  "z": 20455,
+                  "block": "minecraft:amethyst_block"
+                },
+                {
+                  "role": "tree_aura_anchor",
+                  "x": -19335,
+                  "y": 68,
+                  "z": 20455,
+                  "block": "minecraft:spruce_log"
+                }
+              ]
+            }
+          ],
+          "partial_saved_pieces": [],
+          "passed": true
+        },
+        {
+          "seed": 4661570585687253657,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": -1,
+                  "z": 5
+                },
+                "x": -2248,
+                "z": 28408,
+                "ticket": 6079,
+                "priority": 5119561929695289679,
+                "rotation": 0,
+                "unique": false
+              },
+              "asset": "ruined_tower",
+              "x2": -4496,
+              "z2": 56816,
+              "surface": 67,
+              "originX": -2311,
+              "originY": 55,
+              "originZ": 28354,
+              "minX": -2311,
+              "minZ": 28354,
+              "maxX": -2185,
+              "maxZ": 28462
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:ruined_tower",
+              "template": "relics:ruined_tower_gameplay_worldgen",
+              "origin": [
+                -2311,
+                55,
+                28354
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -2311,
+                55,
+                28354,
+                -2185,
+                286,
+                28462
+              ],
+              "expected_bounding_box": [
+                -2311,
+                55,
+                28354,
+                -2185,
+                286,
+                28462
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 266065,
+              "matched_blocks": 266065,
+              "checked_air": 0,
+              "nature_cells_skipped": 38072,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 42,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 14767,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "native_initialization": [
+            {
+              "asset": "ruined_tower",
+              "site_id": "natural:4661570585687253657:ruined_tower:-1:5",
+              "markers": [
+                {
+                  "role": "tower_entry",
+                  "x": -2246,
+                  "y": 70,
+                  "z": 28382,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2256,
+                  "y": 70,
+                  "z": 28396,
+                  "block": "minecraft:air",
+                  "uuid": "b0f9d200-75dc-3b33-b1b4-14a7cec637ea"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2238,
+                  "y": 70,
+                  "z": 28395,
+                  "block": "minecraft:air",
+                  "uuid": "2f17b6d6-6614-3300-a82f-b2b411f8cdfd"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2256,
+                  "y": 70,
+                  "z": 28407,
+                  "block": "minecraft:air",
+                  "uuid": "7369e8b1-0949-3df7-b762-99983da1f202"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2237,
+                  "y": 70,
+                  "z": 28410,
+                  "block": "minecraft:air",
+                  "uuid": "1659604d-17ca-3bf9-9e4c-5ebdebd9b3fd"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2232,
+                  "y": 70,
+                  "z": 28402,
+                  "block": "minecraft:air",
+                  "uuid": "aacbb1cf-199e-30ba-a5dd-bb12eaba6ca8"
+                },
+                {
+                  "role": "tower_ender_chest",
+                  "x": -2231,
+                  "y": 70,
+                  "z": 28417,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:ender_pearl",
+                      "count": 6
+                    }
+                  ]
+                },
+                {
+                  "role": "tower_upper_destination",
+                  "x": -2231,
+                  "y": 229,
+                  "z": 28419,
+                  "block": "minecraft:air"
+                }
+              ]
+            }
+          ],
+          "native_after_restart": [
+            {
+              "asset": "ruined_tower",
+              "site_id": "natural:4661570585687253657:ruined_tower:-1:5",
+              "markers": [
+                {
+                  "role": "tower_entry",
+                  "x": -2246,
+                  "y": 70,
+                  "z": 28382,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2256,
+                  "y": 70,
+                  "z": 28396,
+                  "block": "minecraft:air",
+                  "uuid": "b0f9d200-75dc-3b33-b1b4-14a7cec637ea"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2238,
+                  "y": 70,
+                  "z": 28395,
+                  "block": "minecraft:air",
+                  "uuid": "2f17b6d6-6614-3300-a82f-b2b411f8cdfd"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2256,
+                  "y": 70,
+                  "z": 28407,
+                  "block": "minecraft:air",
+                  "uuid": "7369e8b1-0949-3df7-b762-99983da1f202"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2237,
+                  "y": 70,
+                  "z": 28410,
+                  "block": "minecraft:air",
+                  "uuid": "1659604d-17ca-3bf9-9e4c-5ebdebd9b3fd"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2232,
+                  "y": 70,
+                  "z": 28402,
+                  "block": "minecraft:air",
+                  "uuid": "aacbb1cf-199e-30ba-a5dd-bb12eaba6ca8"
+                },
+                {
+                  "role": "tower_ender_chest",
+                  "x": -2231,
+                  "y": 70,
+                  "z": 28417,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "tower_upper_destination",
+                  "x": -2231,
+                  "y": 229,
+                  "z": 28419,
+                  "block": "minecraft:air"
+                }
+              ]
+            }
+          ],
+          "partial_saved_pieces": [],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "raw_report": "build/interior-integration-20261027/native-135100/evidence.json",
+      "raw_sha256": "a2b5754552a80d41584eeb0701391a89cdb62adda66d597f97f42e4801d6c988",
+      "target_unavailable": true,
+      "partial_restart": false,
+      "worlds": [
+        {
+          "seed": 731204,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": -11,
+                  "z": -6
+                },
+                "x": -53176,
+                "z": -28920,
+                "ticket": 625,
+                "priority": 2496308181309163861,
+                "rotation": 0,
+                "unique": false
+              },
+              "asset": "obelisk",
+              "x2": -106352,
+              "z2": -57839,
+              "surface": 67,
+              "originX": -53213,
+              "originY": 57,
+              "originZ": -28957,
+              "minX": -53213,
+              "minZ": -28957,
+              "maxX": -53139,
+              "maxZ": -28882
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:obelisk",
+              "template": "relics:obelisk_gameplay_worldgen",
+              "origin": [
+                -53213,
+                57,
+                -28957
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -53213,
+                57,
+                -28957,
+                -53139,
+                243,
+                -28882
+              ],
+              "expected_bounding_box": [
+                -53213,
+                57,
+                -28957,
+                -53139,
+                243,
+                -28882
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 117575,
+              "matched_blocks": 117575,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 23,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "native_initialization": [
+            {
+              "asset": "obelisk",
+              "site_id": "natural:731204:obelisk:-11:-6",
+              "markers": [
+                {
+                  "role": "archaeology_common",
+                  "x": -53197,
+                  "y": 70,
+                  "z": -28921,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:wheat_seeds"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53192,
+                  "y": 71,
+                  "z": -28914,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:clay_ball"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53196,
+                  "y": 70,
+                  "z": -28908,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:angler_pottery_sherd"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53160,
+                  "y": 70,
+                  "z": -28904,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:archer_pottery_sherd"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53156,
+                  "y": 70,
+                  "z": -28901,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:copper_ingot"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53161,
+                  "y": 70,
+                  "z": -28898,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:brick"
+                },
+                {
+                  "role": "archaeology_trim",
+                  "x": -53191,
+                  "y": 70,
+                  "z": -28922,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "relics:monolith_armor_trim_smithing_template"
+                },
+                {
+                  "role": "archaeology_map",
+                  "x": -53157,
+                  "y": 69,
+                  "z": -28907,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:emerald"
+                }
+              ]
+            }
+          ],
+          "native_after_restart": [
+            {
+              "asset": "obelisk",
+              "site_id": "natural:731204:obelisk:-11:-6",
+              "markers": [
+                {
+                  "role": "archaeology_common",
+                  "x": -53197,
+                  "y": 70,
+                  "z": -28921,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53192,
+                  "y": 71,
+                  "z": -28914,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53196,
+                  "y": 70,
+                  "z": -28908,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53160,
+                  "y": 70,
+                  "z": -28904,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53156,
+                  "y": 70,
+                  "z": -28901,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53161,
+                  "y": 70,
+                  "z": -28898,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_trim",
+                  "x": -53191,
+                  "y": 70,
+                  "z": -28922,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_map",
+                  "x": -53157,
+                  "y": 69,
+                  "z": -28907,
+                  "block": "minecraft:sand"
+                }
+              ]
+            }
+          ],
+          "partial_saved_pieces": [],
+          "passed": true
+        }
+      ]
+    },
+    {
+      "raw_report": "build/interior-integration-20261027/native-135439-836703/evidence.json",
+      "raw_sha256": "14d32e184751d8685ce2473ec462e027dc48baf57a46dfb8c154f8792a38a12e",
+      "target_unavailable": false,
+      "partial_restart": true,
+      "worlds": [
+        {
+          "seed": 731204,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": -11,
+                  "z": -6
+                },
+                "x": -53176,
+                "z": -28920,
+                "ticket": 625,
+                "priority": 2496308181309163861,
+                "rotation": 0,
+                "unique": false
+              },
+              "asset": "obelisk",
+              "x2": -106352,
+              "z2": -57839,
+              "surface": 67,
+              "originX": -53213,
+              "originY": 57,
+              "originZ": -28957,
+              "minX": -53213,
+              "minZ": -28957,
+              "maxX": -53139,
+              "maxZ": -28882
+            },
+            {
+              "candidate": {
+                "cell": {
+                  "x": -11,
+                  "z": 6
+                },
+                "x": -53160,
+                "z": 31272,
+                "ticket": 1695,
+                "priority": 2605195123915950883,
+                "rotation": 2,
+                "unique": false
+              },
+              "asset": "obelisk",
+              "x2": -106320,
+              "z2": 62545,
+              "surface": 68,
+              "originX": -53123,
+              "originY": 58,
+              "originZ": 31310,
+              "minX": -53197,
+              "minZ": 31235,
+              "maxX": -53123,
+              "maxZ": 31310
+            },
+            {
+              "candidate": {
+                "cell": {
+                  "x": 19,
+                  "z": 9
+                },
+                "x": 96136,
+                "z": 48504,
+                "ticket": 6381,
+                "priority": 2284565568339078783,
+                "rotation": 3,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 192272,
+              "z2": 97008,
+              "surface": 73,
+              "originX": 96011,
+              "originY": -4,
+              "originZ": 48602,
+              "minX": 96011,
+              "minZ": 48406,
+              "maxX": 96261,
+              "maxZ": 48602
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:obelisk",
+              "template": "relics:obelisk_gameplay_worldgen",
+              "origin": [
+                -53213,
+                57,
+                -28957
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -53213,
+                57,
+                -28957,
+                -53139,
+                243,
+                -28882
+              ],
+              "expected_bounding_box": [
+                -53213,
+                57,
+                -28957,
+                -53139,
+                243,
+                -28882
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 117575,
+              "matched_blocks": 117575,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 23,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            },
+            {
+              "structure": "relics:obelisk",
+              "template": "relics:obelisk_gameplay_worldgen",
+              "origin": [
+                -53123,
+                58,
+                31310
+              ],
+              "rotation": "CLOCKWISE_180",
+              "bounding_box": [
+                -53197,
+                58,
+                31235,
+                -53123,
+                244,
+                31310
+              ],
+              "expected_bounding_box": [
+                -53197,
+                58,
+                31235,
+                -53123,
+                244,
+                31310
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 117575,
+              "matched_blocks": 117575,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 23,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            },
+            {
+              "structure": "relics:colossus",
+              "template": "relics:colossus_gameplay_worldgen",
+              "origin": [
+                96011,
+                -4,
+                48602
+              ],
+              "rotation": "COUNTERCLOCKWISE_90",
+              "bounding_box": [
+                96011,
+                -4,
+                48406,
+                96261,
+                204,
+                48602
+              ],
+              "expected_bounding_box": [
+                96011,
+                -4,
+                48406,
+                96261,
+                204,
+                48602
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 263905,
+              "matched_blocks": 263905,
+              "checked_air": 0,
+              "nature_cells_skipped": 7466,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 111,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 16013,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "native_initialization": [
+            {
+              "asset": "obelisk",
+              "site_id": "natural:731204:obelisk:-11:-6",
+              "markers": [
+                {
+                  "role": "archaeology_common",
+                  "x": -53197,
+                  "y": 70,
+                  "z": -28921,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:wheat_seeds"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53192,
+                  "y": 71,
+                  "z": -28914,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:clay_ball"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53196,
+                  "y": 70,
+                  "z": -28908,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:angler_pottery_sherd"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53160,
+                  "y": 70,
+                  "z": -28904,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:archer_pottery_sherd"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53156,
+                  "y": 70,
+                  "z": -28901,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:copper_ingot"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53161,
+                  "y": 70,
+                  "z": -28898,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:brick"
+                },
+                {
+                  "role": "archaeology_trim",
+                  "x": -53191,
+                  "y": 70,
+                  "z": -28922,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "relics:monolith_armor_trim_smithing_template"
+                },
+                {
+                  "role": "archaeology_map",
+                  "x": -53157,
+                  "y": 69,
+                  "z": -28907,
+                  "block": "minecraft:suspicious_sand",
+                  "target": "Point[dimension=minecraft:overworld, x=96136, y=73, z=48504]",
+                  "map_id": 0,
+                  "item": "minecraft:filled_map"
+                }
+              ]
+            },
+            {
+              "asset": "obelisk",
+              "site_id": "natural:731204:obelisk:-11:6",
+              "markers": [
+                {
+                  "role": "archaeology_common",
+                  "x": -53139,
+                  "y": 71,
+                  "z": 31274,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:bone"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53144,
+                  "y": 72,
+                  "z": 31267,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:wheat_seeds"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53140,
+                  "y": 71,
+                  "z": 31261,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:archer_pottery_sherd"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53176,
+                  "y": 71,
+                  "z": 31257,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:string"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53180,
+                  "y": 71,
+                  "z": 31254,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:wheat_seeds"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53175,
+                  "y": 71,
+                  "z": 31251,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "minecraft:iron_nugget"
+                },
+                {
+                  "role": "archaeology_trim",
+                  "x": -53145,
+                  "y": 71,
+                  "z": 31275,
+                  "block": "minecraft:suspicious_sand",
+                  "item": "relics:monolith_armor_trim_smithing_template"
+                },
+                {
+                  "role": "archaeology_map",
+                  "x": -53179,
+                  "y": 70,
+                  "z": 31260,
+                  "block": "minecraft:suspicious_sand",
+                  "target": "Point[dimension=minecraft:overworld, x=96136, y=73, z=48504]",
+                  "map_id": 1,
+                  "item": "minecraft:filled_map"
+                }
+              ]
+            },
+            {
+              "asset": "colossus",
+              "site_id": "natural:731204:colossus:19:9",
+              "markers": [
+                {
+                  "role": "colossus_hatch",
+                  "x": 96201,
+                  "y": 165,
+                  "z": 48476,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "colossus_golem_spawn",
+                  "x": 96202,
+                  "y": 165,
+                  "z": 48500,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "colossus_trial_spawner",
+                  "x": 96212,
+                  "y": 165,
+                  "z": 48500,
+                  "block": "minecraft:trial_spawner"
+                },
+                {
+                  "role": "colossus_vault",
+                  "x": 96209,
+                  "y": 165,
+                  "z": 48510,
+                  "block": "minecraft:vault"
+                },
+                {
+                  "role": "colossus_arm_magnet_chest",
+                  "x": 96089,
+                  "y": 74,
+                  "z": 48484,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:copper_ingot",
+                      "count": 24
+                    },
+                    {
+                      "item": "minecraft:iron_ingot",
+                      "count": 14
+                    },
+                    {
+                      "item": "minecraft:redstone",
+                      "count": 3
+                    },
+                    {
+                      "item": "relics:salvage_magnet",
+                      "count": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "native_after_restart": [
+            {
+              "asset": "obelisk",
+              "site_id": "natural:731204:obelisk:-11:-6",
+              "markers": [
+                {
+                  "role": "archaeology_common",
+                  "x": -53197,
+                  "y": 70,
+                  "z": -28921,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53192,
+                  "y": 71,
+                  "z": -28914,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53196,
+                  "y": 70,
+                  "z": -28908,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53160,
+                  "y": 70,
+                  "z": -28904,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53156,
+                  "y": 70,
+                  "z": -28901,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53161,
+                  "y": 70,
+                  "z": -28898,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_trim",
+                  "x": -53191,
+                  "y": 70,
+                  "z": -28922,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_map",
+                  "x": -53157,
+                  "y": 69,
+                  "z": -28907,
+                  "block": "minecraft:sand"
+                }
+              ]
+            },
+            {
+              "asset": "obelisk",
+              "site_id": "natural:731204:obelisk:-11:6",
+              "markers": [
+                {
+                  "role": "archaeology_common",
+                  "x": -53139,
+                  "y": 71,
+                  "z": 31274,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53144,
+                  "y": 72,
+                  "z": 31267,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53140,
+                  "y": 71,
+                  "z": 31261,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53176,
+                  "y": 71,
+                  "z": 31257,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53180,
+                  "y": 71,
+                  "z": 31254,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_common",
+                  "x": -53175,
+                  "y": 71,
+                  "z": 31251,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_trim",
+                  "x": -53145,
+                  "y": 71,
+                  "z": 31275,
+                  "block": "minecraft:sand"
+                },
+                {
+                  "role": "archaeology_map",
+                  "x": -53179,
+                  "y": 70,
+                  "z": 31260,
+                  "block": "minecraft:sand"
+                }
+              ]
+            },
+            {
+              "asset": "colossus",
+              "site_id": "natural:731204:colossus:19:9",
+              "markers": [
+                {
+                  "role": "colossus_hatch",
+                  "x": 96201,
+                  "y": 165,
+                  "z": 48476,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "colossus_golem_spawn",
+                  "x": 96202,
+                  "y": 165,
+                  "z": 48500,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "colossus_trial_spawner",
+                  "x": 96212,
+                  "y": 165,
+                  "z": 48500,
+                  "block": "minecraft:trial_spawner"
+                },
+                {
+                  "role": "colossus_vault",
+                  "x": 96209,
+                  "y": 165,
+                  "z": 48510,
+                  "block": "minecraft:vault"
+                },
+                {
+                  "role": "colossus_arm_magnet_chest",
+                  "x": 96089,
+                  "y": 74,
+                  "z": 48484,
+                  "block": "minecraft:air"
+                }
+              ]
+            }
+          ],
+          "partial_saved_pieces": [
+            {
+              "structure": "relics:obelisk",
+              "template": "relics:obelisk_gameplay_worldgen",
+              "certificate": "{\"revision\":\"interiors-20261027-v1\",\"asset\":\"obelisk\",\"site\":\"natural:731204:obelisk:-11:-6\",\"x\":-53213,\"y\":57,\"z\":-28957,\"rotation\":0}"
+            },
+            {
+              "structure": "relics:obelisk",
+              "template": "relics:obelisk_gameplay_worldgen",
+              "certificate": "{\"revision\":\"interiors-20261027-v1\",\"asset\":\"obelisk\",\"site\":\"natural:731204:obelisk:-11:6\",\"x\":-53123,\"y\":58,\"z\":31310,\"rotation\":2}"
+            },
+            {
+              "structure": "relics:colossus",
+              "template": "relics:colossus_gameplay_worldgen",
+              "certificate": "{\"revision\":\"interiors-20261027-v1\",\"asset\":\"colossus\",\"site\":\"natural:731204:colossus:19:9\",\"x\":96011,\"y\":-4,\"z\":48602,\"rotation\":3}"
+            }
+          ],
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "legacy_worlds": [
+    {
+      "seed": 1979312429623454326,
+      "site": {
+        "candidate": {
+          "cell": {
+            "x": 7,
+            "z": -2
+          },
+          "x": 39640,
+          "z": -9416,
+          "ticket": 3478,
+          "priority": 1645139710204856448,
+          "rotation": 1,
+          "unique": false
+        },
+        "asset": "titan_skull_2",
+        "x2": 79280,
+        "z2": -18832,
+        "surface": 69,
+        "originX": 39697,
+        "originY": 41,
+        "originZ": -9473,
+        "minX": 39583,
+        "minZ": -9473,
+        "maxX": 39697,
+        "maxZ": -9359
+      },
+      "without_relic": false,
+      "production_artifact_sha256": "4421a9a03cc3d926484196fc4f94db42c521bd110f1e58aa5cb68176aba76783",
+      "commands": [
+        {
+          "command": "forceload add 39568 -9488 39695 -9345",
+          "response": "[13:53:28] [Server thread/INFO]: Marked 72 chunks in minecraft:overworld from [2473, -593] to [2480, -585] to be force loaded"
+        },
+        {
+          "command": "forceload add 39696 -9488 39711 -9345",
+          "response": "[13:53:28] [Server thread/INFO]: Marked 9 chunks in minecraft:overworld from [2481, -593] to [2481, -585] to be force loaded"
+        }
+      ],
+      "copied_test_world": "build\\distribution-audit-20261027\\probe-104048\\world",
+      "saved_policy_and_target_preserved": true,
+      "full_footprint_loaded": true,
+      "completed": true,
+      "exit_code": 0,
+      "error_lines": []
+    },
+    {
+      "seed": 731204,
+      "site": {
+        "candidate": {
+          "cell": {
+            "x": -11,
+            "z": -6
+          },
+          "x": -53176,
+          "z": -28920,
+          "ticket": 625,
+          "priority": 2496308181309163861,
+          "rotation": 0,
+          "unique": false
+        },
+        "asset": "obelisk",
+        "x2": -106352,
+        "z2": -57839,
+        "surface": 67,
+        "originX": -53213,
+        "originY": 57,
+        "originZ": -28957,
+        "minX": -53213,
+        "minZ": -28957,
+        "maxX": -53139,
+        "maxZ": -28882
+      },
+      "without_relic": false,
+      "production_artifact_sha256": "4421a9a03cc3d926484196fc4f94db42c521bd110f1e58aa5cb68176aba76783",
+      "commands": [
+        {
+          "command": "forceload add -53216 -28960 -53137 -28881",
+          "response": "[13:53:47] [Server thread/INFO]: Marked 25 chunks in minecraft:overworld from [-3326, -1810] to [-3322, -1806] to be force loaded"
+        }
+      ],
+      "copied_test_world": "build\\distribution-audit-20261027\\run-112640\\731204\\world",
+      "saved_policy_and_target_preserved": true,
+      "full_footprint_loaded": true,
+      "completed": true,
+      "exit_code": 0,
+      "error_lines": []
+    }
+  ],
+  "regressions": {
+    "existing_python_tests": 121,
+    "new_integration_tests": 3,
+    "worldgen_assertions": 755,
+    "static_mixin_targets": 45,
+    "gameplay_assertions": 648,
+    "executor_assertions": 1008,
+    "search_assertions": 675716,
+    "distribution_assertions": 198924
+  },
+  "preservation": {
+    "baseline_files": 1095,
+    "unchanged_files": 1082,
+    "intentional_changes": [
+      "docs/project/GAMEPLAY_INTERIORS_FEEDBACK_20261027_IMPLEMENTATION.md",
+      "docs/project/INTERIOR_DECISIONS_20261027.md",
+      "docs/project/reviews/gameplay-interiors-feedback-20261027-handoff.json",
+      "src/main/java/de/relics/RelicProtection.java",
+      "src/main/java/de/relics/RelicWorldgen.java",
+      "src/main/java/de/relics/distribution/DistributionJournal.java",
+      "src/main/java/de/relics/distribution/DistributionRuntime.java",
+      "src/main/java/de/relics/distribution/TerrainValidator.java",
+      "src/main/java/de/relics/gameplay/RelicGameplay.java",
+      "src/main/resources/relics.mixins.json",
+      "src/test/java/de/relics/DistributionTests.java",
+      "src/test/java/de/relics/GameplayMixinTargets.java",
+      "tools/build.py"
+    ],
+    "approved_handoff_files_verified": 35,
+    "unrelated_changes": []
+  },
+  "limits": [
+    "No visual Minecraft block-light acceptance or complete Survival playthrough",
+    "No proof for arbitrary hard process crashes across separate chunk, entity and player files",
+    "Fabric 26.2 only; existing NeoForge work preserved"
+  ]
+}

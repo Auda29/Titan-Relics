@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-27",
+  "target": "Minecraft 26.2 / Fabric",
+  "artifact_sha256": "5df5f53d4ebe7e9a09ae28a64836648453969fd99c6365f1d56ccff005d8d3a3",
+  "reproducible_build": true,
+  "magnet": {
+    "previous_acceleration": 0.08,
+    "acceleration": 0.088,
+    "previous_speed_cap": 0.35,
+    "speed_cap": 0.385,
+    "native_probe": "max_speed=0.38500000000000006\nremaining=999\n"
+  },
+  "runtime": {
+    "artifact_sha256": "5df5f53d4ebe7e9a09ae28a64836648453969fd99c6365f1d56ccff005d8d3a3",
+    "passed": true,
+    "proof": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=0ad4a14a-c571-41b5-bb0d-c6d9d60bcd4f\n",
+    "exit_code": 0,
+    "restart_preserved_claims_and_timeline": true
+  },
+  "runtime_report": "build/gameplay-feedback-20261027/server-145647-761397/evidence.json",
+  "runtime_test_source_sha256": "fa5ec1d06177378ec06861f21aaaa4baf8bd4a92a32216b4424f510b50a587c0",
+  "headless_gameplay_assertions": 661,
+  "static_mixin_contracts": 52,
+  "resource_tests": 6,
+  "physical_drops": {
+    "two_personal_keys": true,
+    "full_inventory_preserves_world_reward": true,
+    "hopper_and_other_player_rejected": true,
+    "ordinary_hopper_works": true,
+    "core_survives_restart_with_same_uuid": true,
+    "four_saved_pickup_receipts": true,
+    "stale_entity_snapshot_discarded": true
+  },
+  "preservation": {
+    "baseline_files": 1113,
+    "unchanged_files": 1105,
+    "intentional_changes": [
+      "src/main/java/de/relics/gameplay/GameplayLedger.java",
+      "src/main/java/de/relics/gameplay/RelicGameplay.java",
+      "src/main/java/de/relics/gameplay/SalvageMagnet.java",
+      "src/main/java/de/relics/mixin/SalvageMagnetMixin.java",
+      "src/main/resources/relics.mixins.json",
+      "src/test/java/de/relics/GameplayPresentationChecks.java",
+      "src/test/java/de/relics/GameplayTests.java",
+      "tools/test_gameplay_presentation_server.py"
+    ],
+    "approved_handoff_files_verified": 35,
+    "unrelated_changes": []
+  },
+  "limits": [
+    "Packet-sink players; final visual client acceptance remains manual",
+    "Arbitrary hard crashes across separate player/entity/journal saves are not proven exactly-once; missing/ambiguous rewards are never blindly reissued"
+  ]
+}

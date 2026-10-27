@@ -26,7 +26,7 @@ public abstract class DistributionLocateMixin {
         source.sendSuccess(()->Component.literal("Relikt-Standort wird geprüft. Die Suche läuft im Hintergrund."),false);
         runtime.locate(requested,origin).whenComplete((site,error)->source.getServer().execute(()->{
             if(error!=null)source.sendFailure(Component.literal("Relikt-Suche angehalten: "+error.getMessage()));
-            else if(site==null)source.sendFailure(Component.literal("Kein gültiges Ziel im Suchbereich. Wiederholbare Relikte: 100.000 Blöcke; großer Koloss: gespeicherter weltweiter Standort."));
+            else if(site==null)source.sendFailure(Component.literal("Kein gültiges Ziel im Suchbereich. Wiederholbare Relikte: 500.000 Blöcke; großer Koloss: gespeicherter weltweiter Standort."));
             else {
                 var coordinates=Component.literal("["+site.x()+", ~, "+site.z()+"]").withStyle(style->style
                         .withColor(net.minecraft.ChatFormatting.GREEN)

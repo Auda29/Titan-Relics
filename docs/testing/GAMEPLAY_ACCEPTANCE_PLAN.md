@@ -1,5 +1,11 @@
 # Gameplay acceptance plan — future evidence, not results
 
+**Status update, October 27:** this is the original acceptance matrix. Several
+automated and isolated native-server gates have since run; their results and
+the remaining client/release checks are linked in the
+[current Alpha 5.0 status](../project/ALPHA_5_STATUS_20261027.md).
+The original October 8 text below is historical, not the current test inventory.
+
 Prepared: October 8, 2026. Target: **Minecraft 26.2 / Fabric**, Java 25, Loader
 0.19.5, Fabric API 0.161.0+26.2 and stable Lithostitched 1.8.0 baseline. Record
 actual artifact/dependency hashes at test time. These tests are **not yet run**;

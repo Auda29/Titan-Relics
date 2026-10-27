@@ -1,5 +1,10 @@
 # Relic Mod: technical implementation plan
 
+The [October 27 Alpha 5.0 status](ALPHA_5_STATUS_20261027.md) records the current
+implementation, approved interiors, test evidence and remaining release checks.
+The October 8 planning gate below is historical and has been followed by the
+authorized implementation.
+
 ## Current planning gate — October 8, 2026
 
 The user selected **Minecraft 26.2 / Fabric first** for the upcoming gameplay

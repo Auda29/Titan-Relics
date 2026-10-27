@@ -1,0 +1,40 @@
+{
+  "size": [
+    59,
+    185,
+    60
+  ],
+  "blocks": 94470,
+  "tiles": 24,
+  "markers": 8,
+  "regions": 0,
+  "checks": [
+    "source hash and revision binding",
+    "26.2 block/property report",
+    "roles/bounds/placeholder supports",
+    "entity footprints/headroom",
+    "schematic equality",
+    "lossless tile reconstruction",
+    "unchanged baseline hash",
+    "solid monument and damage preserved"
+  ],
+  "nbt_sha256": "ed2093a9bba2b391bacddb684b62255cb8ec60748b73bc8409a30395c27e33e6",
+  "in_game_tested": false,
+  "natural_rotation_and_chunk_injection_tested": false,
+  "actual_block_light_tested": false,
+  "visual_acceptance": "pending",
+  "revision_checks": [
+    "landmarks at both areas",
+    "monument and terracotta exact",
+    "eight open supported brushing tops"
+  ],
+  "revision_changed_blocks": 34,
+  "editable_source": {
+    "source_blend_sha256": "ee86a589c9bc6cac0dcbe14ff353c09bf7078c2681b740cc63fd24a947651df0",
+    "bound_nbt_sha256": "ed2093a9bba2b391bacddb684b62255cb8ec60748b73bc8409a30395c27e33e6",
+    "mesh_count": 9,
+    "marker_empties": 8,
+    "marker_contents_and_positions_verified": true,
+    "opened_and_verified_in_blender": true
+  }
+}

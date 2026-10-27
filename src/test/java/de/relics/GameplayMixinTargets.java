@@ -58,7 +58,13 @@ public final class GameplayMixinTargets {
                 } else if (annotation.desc.equals("Lorg/spongepowered/asm/mixin/gen/Accessor;")) {
                     String selector = (String)value(annotation,"value");
                     String descriptor = Type.getReturnType(method.desc).getDescriptor();
-                    if (target.fields.stream().noneMatch(f -> f.name.equals(selector) && f.desc.equals(descriptor)))
+                    if(descriptor.equals("V")) {
+                        var arguments=Type.getArgumentTypes(method.desc);
+                        if(arguments.length!=1)throw new AssertionError(name+": accessor setter must have one field value");
+                        descriptor=arguments[0].getDescriptor();
+                    } else if(Type.getArgumentTypes(method.desc).length!=0)throw new AssertionError(name+": accessor getter has arguments");
+                    final String fieldDescriptor=descriptor;
+                    if (target.fields.stream().noneMatch(f -> f.name.equals(selector) && f.desc.equals(fieldDescriptor)))
                         throw new AssertionError(name+": missing accessor "+selector);
                     checked++;
                 } else if (annotation.desc.equals("Lorg/spongepowered/asm/mixin/injection/Inject;")

@@ -1,0 +1,254 @@
+{
+  "name": "ruined-tower-v9-interiors",
+  "authoring": "block-exact architectural derivative; no global revoxelization",
+  "baseline": {
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v7-ground-v3/ruined-tower-v7-ground-v3.nbt",
+    "version": "ruined-tower-v7-ground-v3",
+    "size": [
+      111,
+      232,
+      93
+    ],
+    "blocks": 272528,
+    "ground_y": 12,
+    "family": "ruined_tower",
+    "biomes": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains",
+      "minecraft:meadow",
+      {
+        "id": "terralith:blooming_valley",
+        "required": false
+      },
+      {
+        "id": "terralith:blooming_plateau",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:prairie",
+        "required": false
+      },
+      "minecraft:savanna",
+      {
+        "id": "terralith:steppe",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:scrubland",
+        "required": false
+      },
+      "minecraft:desert",
+      {
+        "id": "terralith:desert_spires",
+        "required": false
+      },
+      {
+        "id": "terralith:desert_canyon",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:dryland",
+        "required": false
+      }
+    ],
+    "slope": 6,
+    "sha256": "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600",
+    "visually_accepted": false
+  },
+  "ground_level_nbt_approx": 12,
+  "size": [
+    111,
+    232,
+    93
+  ],
+  "data_version": 3105,
+  "in_game_tested": false,
+  "visual_acceptance": "review pending",
+  "evidence": {
+    "stair_gaps": [
+      [
+        31,
+        37
+      ],
+      [
+        90,
+        97
+      ],
+      [
+        157,
+        164
+      ],
+      [
+        229,
+        236
+      ],
+      [
+        289,
+        296
+      ]
+    ],
+    "stair_step_count": 281,
+    "stair_start": [
+      41,
+      15,
+      29
+    ],
+    "stair_end": [
+      72,
+      174,
+      57
+    ],
+    "views": [
+      {
+        "label": "Lower hall / five Enderman positions",
+        "lo": [
+          36,
+          11,
+          16
+        ],
+        "hi": [
+          82,
+          25,
+          67
+        ]
+      },
+      {
+        "label": "Unfinished wall-side ascent / player-built gaps",
+        "lo": [
+          38,
+          25,
+          26
+        ],
+        "hi": [
+          79,
+          179,
+          65
+        ]
+      }
+    ],
+    "feedback_revision": "2026-10-27; previous gameplay markers and regions preserved"
+  },
+  "paths": [
+    {
+      "name": "tower-entry",
+      "feet": [
+        [
+          57,
+          15,
+          20
+        ],
+        [
+          57,
+          15,
+          21
+        ],
+        [
+          57,
+          15,
+          22
+        ],
+        [
+          57,
+          15,
+          23
+        ],
+        [
+          57,
+          15,
+          24
+        ],
+        [
+          57,
+          15,
+          25
+        ],
+        [
+          57,
+          15,
+          26
+        ],
+        [
+          57,
+          15,
+          27
+        ],
+        [
+          57,
+          15,
+          28
+        ],
+        [
+          57,
+          15,
+          29
+        ],
+        [
+          57,
+          15,
+          30
+        ],
+        [
+          57,
+          15,
+          31
+        ],
+        [
+          57,
+          15,
+          32
+        ],
+        [
+          57,
+          15,
+          33
+        ]
+      ],
+      "height": 3
+    }
+  ],
+  "changes": {
+    "added": 2725,
+    "removed": 4256,
+    "remapped": 2818
+  },
+  "changed_bounds": [
+    [
+      40,
+      12,
+      17
+    ],
+    [
+      77,
+      178,
+      62
+    ]
+  ],
+  "changed_groups": {
+    "unfinished-ascent": 3820,
+    "lower-hall": 5949,
+    "worn-hall-details": 30
+  },
+  "nbt_sha256": "4f5fd420eb1461b8e1b3f1c9f8f90ede3e801ea8d1e20972aab3d78d9a9fad8d",
+  "schematic_sha256": "2c32a3d349346cb141507ddbcc3372f21a5744be8253067b31a7f90764d226bd",
+  "tiles": 69,
+  "palette": {
+    "minecraft:deepslate_bricks": 4405,
+    "minecraft:cobbled_deepslate": 15064,
+    "minecraft:grass_block[snowy=false]": 2676,
+    "minecraft:rooted_dirt": 978,
+    "minecraft:deepslate_tiles": 219019,
+    "minecraft:dirt": 2255,
+    "minecraft:brown_terracotta": 167,
+    "minecraft:polished_deepslate": 16842,
+    "minecraft:polished_basalt": 1816,
+    "minecraft:cracked_deepslate_bricks": 4731,
+    "minecraft:cracked_deepslate_tiles": 2518,
+    "minecraft:deepslate_tile_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]": 162,
+    "minecraft:polished_basalt[axis=y]": 76,
+    "minecraft:waxed_cut_copper": 1,
+    "minecraft:deepslate_tile_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]": 111,
+    "minecraft:deepslate_tile_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]": 93,
+    "minecraft:deepslate_tile_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]": 78,
+    "minecraft:chiseled_deepslate": 5
+  }
+}
