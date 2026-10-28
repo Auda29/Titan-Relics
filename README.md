@@ -29,9 +29,9 @@ spacing; legacy frequent/rare spacing overrides are unsupported by the gameplay 
 | Minecraft | Loader | Release | Java |
 |---|---|---|---|
 | 26.2 | Fabric | [Alpha 5.0](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0) | 25+ |
-| 1.21.1 | Fabric | [Alpha 5.0.1](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.1%2Bmc1.21.1) | 21+ |
-| 1.21.1 | NeoForge | [Alpha 5.0.1](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.1%2Bmc1.21.1-neoforge) | 21+ |
-| 26.2 | NeoForge | [Alpha 5.0.1](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.1%2Bmc26.2-neoforge) | 25+ |
+| 1.21.1 | Fabric | [Alpha 5.0.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.2%2Bmc1.21.1) | 21+ |
+| 1.21.1 | NeoForge | [Alpha 5.0.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.2%2Bmc1.21.1-neoforge) | 21+ |
+| 26.2 | NeoForge | [Alpha 5.0.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.2%2Bmc26.2-neoforge) | 25+ |
 
 Use the matching game/loader JAR and install its listed dependencies separately.
 See the [Fabric 1.21.1](compat/alpha5-fabric-1.21.1/README.md),

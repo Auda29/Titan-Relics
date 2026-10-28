@@ -5,6 +5,8 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
+- [Alpha 5.0.2: maintenance recipe network codec fix and native packet tests](testing/ALPHA_5_0_2_RECIPE_CODEC_20261028.md)
+
 - [Alpha 5.0.1 Fabric/NeoForge 1.21.1 release verification](testing/ALPHA_5_0_1_1_21_1_20261028.md)
 - [Alpha 5.0.1 NeoForge 26.2 release verification](testing/ALPHA_5_0_1_NEOFORGE_26_2_20261028.md)
 

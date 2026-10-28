@@ -29,6 +29,10 @@ def native_java(name: str,text: str,minecraft: str,test=False):
     text=text.replace('(level,chunk,generated)->','(level,chunk)->')
     if name in ('RelicItems.java','MaintenanceRecipe.java'):
         text=text.replace('Registry.register(', 'de.relics.platform.NeoRegistrations.register(')
+    if name=='MaintenanceRecipe.java' and minecraft=='26.2':
+        old='StreamCodec.unit(new MaintenanceRecipe(core))'
+        if text.count(old)!=1:raise ValueError('Review the modern maintenance codec before adapting it')
+        text=text.replace(old,'StreamCodec.<net.minecraft.network.RegistryFriendlyByteBuf,Boolean>unit(core).map(MaintenanceRecipe::new,recipe->recipe.core)')
     if name=='RelicItems.java':
         assignments=[]
         def defer_item(match):
@@ -95,6 +99,37 @@ def modern_checks(text):
     return text
 
 
+def modern_recipe_packet(text):
+    body='''        var manager=level.recipeAccess();
+        var packet=new ClientboundUpdateRecipesPacket(manager.getSynchronizedItemProperties(),manager.getSynchronizedStonecutterRecipes());
+        var decoded=roundTrip(ClientboundUpdateRecipesPacket.STREAM_CODEC,packet,level.registryAccess());
+        check(decoded.itemSets().keySet().equals(packet.itemSets().keySet()),"Recipe property synchronization changed keys");
+        var entries=new ArrayList<net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket.Entry>();
+        for(boolean core:new boolean[]{true,false}) {
+            var id=RelicItems.id(core?"machine_core_recharge":"salvage_magnet_repair");
+            int before=entries.size();
+            manager.listDisplaysForRecipe(ResourceKey.create(Registries.RECIPE,id),
+                    display->entries.add(new net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket.Entry(display,true,true)));
+            check(entries.size()==before+1,"Recipe book lost maintenance display");
+        }
+        var book=roundTrip(net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket.STREAM_CODEC,
+                new net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket(entries,true),level.registryAccess());
+        check(book.replace() && book.entries().size()==2,"Recipe book synchronization lost entries");
+        for(int i=0;i<2;i++) {
+            var entry=book.entries().get(i);
+            check(entry.contents().id().equals(entries.get(i).contents().id()),"Recipe display ID changed");
+            check(entry.notification() && entry.highlight(),"Recipe display flags changed");
+            check(entry.contents().display() instanceof net.minecraft.world.item.crafting.display.ShapedCraftingRecipeDisplay,"Non-shaped maintenance display");
+            var shape=(net.minecraft.world.item.crafting.display.ShapedCraftingRecipeDisplay)entry.contents().display();
+            check(shape.width()==3 && shape.height()==(i==0?2:3),"Recipe display shape changed");
+        }
+'''
+    start=text.index('        // VERSIONED_PACKET_START')
+    end=text.index('        // VERSIONED_PACKET_END',start)+len('        // VERSIONED_PACKET_END')
+    text=text[:start]+body+text[end:]
+    return text.replace('full_update_packet_roundtrip=true\\n','full_update_packet_roundtrip=true\\nrecipe_book_packet_roundtrip=true\\n')
+
+
 def metadata(minecraft,mod='relics'):
     target=TARGETS[minecraft]
     if mod=='relics':
@@ -103,7 +138,7 @@ loaderVersion="[1,)"
 license="All-Rights-Reserved"
 [[mods]]
 modId="relics"
-version="0.1.0-alpha.5.0.1"
+version="0.1.0-alpha.5.0.2"
 displayName="Relic Mod"
 authors="Auda29"
 description="Alpha 5 relic structures, exploration and finite personal rewards."
@@ -140,7 +175,7 @@ config="animal-probe.mixins.json"
 [[dependencies.relics_port_checks]]
 modId="relics"
 type="required"
-versionRange="[0.1.0-alpha.5.0.1]"
+versionRange="[0.1.0-alpha.5.0.2]"
 ordering="AFTER"
 side="BOTH"
 '''
@@ -192,7 +227,8 @@ def prepare(minecraft):
         relative=path.relative_to(test_source) if path.is_relative_to(test_source) else path.relative_to(ROOT/'compat/alpha5-fabric-1.21.1/src/test/adapters')
         if relative.parts[:3]==('de','relics','testmixin'):relative=Path('de/relics/validation/mixin')/path.name
         text=path.read_text(encoding='utf-8')
-        if not legacy and path.name=='PortChecks.java':text=modern_checks(text)
+        if not legacy and path.name in ('PortChecks.java','RecipeNetworkChecks.java'):text=modern_checks(text)
+        if not legacy and path.name=='RecipeNetworkChecks.java':text=modern_recipe_packet(text)
         text=native_java(path.name,text,minecraft,test=True)
         if 'package de.relics.validation;' in text:relative=Path('de/relics/validation')/path.name
         destination=output/'test'/relative;destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(text,encoding='utf-8',newline='\n')
@@ -214,6 +250,6 @@ public final class PortTestMod {
     test_resources=output/'test-resources';(test_resources/'META-INF').mkdir(parents=True)
     (test_resources/'META-INF/neoforge.mods.toml').write_text(metadata(minecraft,'checks'),encoding='utf-8',newline='\n')
     (test_resources/'animal-probe.mixins.json').write_text(json.dumps({'required':True,'package':'de.relics.validation.mixin','compatibilityLevel':'JAVA_'+str(TARGETS[minecraft]['java']),'mixins':['TreeAnimalProbeMixin','LegacyPlayerListAccess','ConnectionChannelAccess'],'injectors':{'defaultRequire':1}}),encoding='utf-8')
-    report={'loader':'neoforge','minecraft':minecraft,'version':'0.1.0-alpha.5.0.1','sources':sources,'neoforge':TARGETS[minecraft]['neo']}
+    report={'loader':'neoforge','minecraft':minecraft,'version':'0.1.0-alpha.5.0.2','sources':sources,'neoforge':TARGETS[minecraft]['neo']}
     (project/'build/adapter-manifest.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     return report

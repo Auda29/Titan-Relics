@@ -28,7 +28,11 @@ public final class MaintenanceRecipe extends ShapedRecipe {
     private static RecipeSerializer<MaintenanceRecipe> serializer(boolean core) {
         return new RecipeSerializer<>() {
             public MapCodec<MaintenanceRecipe> codec(){return MapCodec.unit(()->new MaintenanceRecipe(core));}
-            public StreamCodec<RegistryFriendlyByteBuf,MaintenanceRecipe> streamCodec(){return StreamCodec.unit(new MaintenanceRecipe(core));}
+            public StreamCodec<RegistryFriendlyByteBuf,MaintenanceRecipe> streamCodec(){
+                // The serializer ID selects the variant; recipe instances are not singletons.
+                return StreamCodec.<RegistryFriendlyByteBuf,Boolean>unit(core)
+                        .map(MaintenanceRecipe::new,recipe->recipe.core);
+            }
         };
     }
     public static void initialize() {

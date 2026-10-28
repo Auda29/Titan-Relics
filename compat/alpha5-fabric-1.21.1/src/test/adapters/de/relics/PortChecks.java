@@ -30,6 +30,7 @@ public final class PortChecks implements ModInitializer {
     }
     private static void run(ServerLevel level) throws Exception {
         checks=0;
+        RecipeNetworkChecks.run(level);
         for(boolean core:new boolean[]{true,false}) {
             var id=RelicItems.id(core?"machine_core_recharge":"salvage_magnet_repair");
             var holder=level.getRecipeManager().byKey(id).orElseThrow();

@@ -1,7 +1,7 @@
-# Alpha 5.0.1 for Minecraft 1.21.1 / NeoForge
+# Alpha 5.0.2 for Minecraft 1.21.1 / NeoForge
 
 Native NeoForge port of the full Alpha 5 gameplay and approved interior selection.
-Player JAR: `relics-0.1.0-alpha.5.0.1+mc1.21.1-neoforge.jar`.
+Player JAR: `relics-0.1.0-alpha.5.0.2+mc1.21.1-neoforge.jar`.
 
 Requires Minecraft 1.21.1, Java 21+, NeoForge 21.1.256+ and Lithostitched 1.8.0
 for NeoForge 1.21/1.21.1. Install dependencies separately. Fabric API is not used.
@@ -44,8 +44,8 @@ packages, as required by the native module loader. The server harness reads the
 prepared official NeoForge installation under `build/neoforge/runtime-1.21.1/`.
 
 ```shell
-python tools/test_alpha5_port_server.py --loader neoforge --minecraft 1.21.1 --accept-eula --java /path/to/java21 --artifact dist/relics-0.1.0-alpha.5.0.1+mc1.21.1-neoforge.jar --test-mod compat/alpha5-neoforge-1.21.1/build/validation/relics-alpha5-port-checks+mc1.21.1-neoforge.jar --suite
-python tools/test_alpha5_natural.py --loader neoforge --minecraft 1.21.1 --accept-eula --java /path/to/java21 --artifact dist/relics-0.1.0-alpha.5.0.1+mc1.21.1-neoforge.jar --test-mod compat/alpha5-neoforge-1.21.1/build/validation/relics-alpha5-port-checks+mc1.21.1-neoforge.jar
+python tools/test_alpha5_port_server.py --loader neoforge --minecraft 1.21.1 --accept-eula --java /path/to/java21 --artifact dist/relics-0.1.0-alpha.5.0.2+mc1.21.1-neoforge.jar --test-mod compat/alpha5-neoforge-1.21.1/build/validation/relics-alpha5-port-checks+mc1.21.1-neoforge.jar --suite
+python tools/test_alpha5_natural.py --loader neoforge --minecraft 1.21.1 --accept-eula --java /path/to/java21 --artifact dist/relics-0.1.0-alpha.5.0.2+mc1.21.1-neoforge.jar --test-mod compat/alpha5-neoforge-1.21.1/build/validation/relics-alpha5-port-checks+mc1.21.1-neoforge.jar
 ```
 
 Use a new native 1.21.1 world for all Alpha 5 gameplay. Existing visual worlds
@@ -53,3 +53,8 @@ retain legacy selection. Switching loaders or downgrading a 26.2 save is not a
 provided migration. Launcher profiles and their saves are not changed by builds
 or tests. Native server tests use simulated players and do not claim a new
 graphical two-client or modpack/shader acceptance.
+
+Alpha 5.0.2 fixes maintenance recipe network serialization. Updating the same
+game/loader from Alpha 5.0.1 retains existing worlds and items. Tests now encode
+and decode real recipe synchronization packets; see the
+[recipe-codec report](../../docs/testing/ALPHA_5_0_2_RECIPE_CODEC_20261028.md).
