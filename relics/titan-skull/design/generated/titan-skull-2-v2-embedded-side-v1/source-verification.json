@@ -1,0 +1,8 @@
+{
+  "fresh_reopen": true,
+  "voxel_cells_equal_nbt": 32422,
+  "independent_surface_rebuild_equal": true,
+  "surface_sha256": "119caa253e4e4c880cab34c99adfe315cad18117ef1b6735d370bfeb4b8da576",
+  "blend_sha256": "7cf615f5c6b56ec731ebb5e830bb803def48923da4325cf85ad07a85396ee1a4",
+  "bound_nbt_sha256": "0a8e66aebb437b9062f3bbcc87c84d38735fa361fbc8f179f99473a5185a4c80"
+}

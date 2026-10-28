@@ -304,8 +304,8 @@ ambiguous opening, or imagining how large the complete body once was.
 Version 0.1 adds no custom jump scares, bosses, or soundscapes. Sites are not
 promised to be mob-free shelters by default. The World Tree is intended as a
 peaceful source of life: more selected animals through modest natural spawning,
-lighting that reduces darkness-dependent hostile spawning, and Regeneration I in
-a 24-block sphere through walls around a fixed trunk-base anchor, lasting about
+lighting that reduces darkness-dependent hostile spawning, and Regeneration II and Resistance II in
+a 80-block sphere through walls around a fixed trunk-base anchor, lasting about
 five minutes after leaving. Ordinary hostiles/arrivals stay natural; there is no
 barrier or immunity. Technical refresh/spawn rules are specified, not tested;
 lighting alone does not guarantee complete safety.
@@ -592,9 +592,9 @@ regrowth**. Exact builder design remains pending; it does not relocate or disabl
 the registered aura when removed.
 The beneficial effect is reward enough; no additional Tree loot/chest or exclusive
 item is selected.
-Approved starting values are **Regeneration I within about 24 blocks of the trunk**,
+Approved starting values are **Regeneration II and Resistance II within 80 blocks of the trunk**,
 refreshed during the stay and lasting **about five minutes after leaving**. A fixed
-builder-supplied trunk-base anchor and a **24-block-radius sphere** are selected;
+builder-supplied trunk-base anchor and a **80-block-radius sphere** are selected;
 the aura **works through wood, walls and terrain**, without requiring free sight.
 The exact anchor coordinate remains a builder deliverable. Technical refresh is
 every 20 ticks to 6,000 ticks with ordinary effect merging; neutral/hostile arrivals

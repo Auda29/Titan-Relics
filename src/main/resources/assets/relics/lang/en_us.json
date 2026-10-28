@@ -5,7 +5,7 @@
   "item.relics.monolith_armor_trim_smithing_template": "Monolith Armor Trim Smithing Template",
   "trim_pattern.relics.monolith": "Monolith Armor Trim",
   "tooltip.relics.core_charge": "Processing operations: %s / %s",
-  "tooltip.relics.magnet_wear": "Collections remaining: %s / %s",
+  "tooltip.relics.magnet_wear": "Items remaining: %s / %s",
   "tooltip.relics.core_empty": "Depleted — inactive",
   "tooltip.relics.magnet_broken": "Broken — inactive",
   "tooltip.relics.magnet_offhand": "Collects nearby drops while held in the main hand or offhand",

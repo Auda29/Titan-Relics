@@ -52,11 +52,17 @@ public abstract class SalvageMagnetMixin implements MagnetAttraction {
     private boolean relics$chargePickup(Inventory inventory, ItemStack incoming, Operation<Boolean> original, Player player) {
         int before = incoming.getCount();
         ItemEntity item = (ItemEntity)(Object) this;
-        boolean result = RewardDrops.pickup(item,inventory,incoming,original,player);
-        if (incoming.getCount() < before && player.getUUID().equals(relics$collector) && SalvageMagnet.heldMagnet(player) == relics$magnet
-                && item.level().getGameTime() - relics$lastPull <= 4 && RelicItems.remaining(relics$magnet, false) > 0) {
-            RelicItems.setRemaining(relics$magnet, false, RelicItems.remaining(relics$magnet, false) - 1);
-        }
+        boolean assisted = player.getUUID().equals(relics$collector) && SalvageMagnet.heldMagnet(player) == relics$magnet
+                && item.level().getGameTime() - relics$lastPull <= 4 && RelicItems.remaining(relics$magnet, false) > 0;
+        int budget = assisted ? RelicItems.remaining(relics$magnet, false) : before;
+        // Limit assisted insertion to the remaining item budget. Ordinary pickups
+        // and personal-reward owner/receipt checks keep their existing behavior.
+        int offered = Math.min(before,budget);
+        ItemStack transfer = offered < before ? incoming.copyWithCount(offered) : incoming;
+        boolean result = RewardDrops.pickup(item,inventory,transfer,original,player);
+        int picked = offered - transfer.getCount();
+        if (transfer != incoming && picked > 0) incoming.shrink(picked);
+        if (assisted && picked > 0) RelicItems.setRemaining(relics$magnet, false, budget - picked);
         if (incoming.getCount() < before) { relics$collector = null; relics$magnet = null; }
         return result;
     }

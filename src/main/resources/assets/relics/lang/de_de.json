@@ -5,7 +5,7 @@
   "item.relics.monolith_armor_trim_smithing_template": "Schmiedevorlage: Monolith-Rüstungsbesatz",
   "trim_pattern.relics.monolith": "Monolith-Rüstungsbesatz",
   "tooltip.relics.core_charge": "Verarbeitungsvorgänge: %s / %s",
-  "tooltip.relics.magnet_wear": "Verbleibende Sammlungen: %s / %s",
+  "tooltip.relics.magnet_wear": "Verbleibende Items: %s / %s",
   "tooltip.relics.core_empty": "Entladen — inaktiv",
   "tooltip.relics.magnet_broken": "Defekt — inaktiv",
   "tooltip.relics.magnet_offhand": "Sammelt nahe Drops beim Halten in der Haupt- oder Nebenhand",

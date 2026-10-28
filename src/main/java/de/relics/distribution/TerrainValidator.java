@@ -46,7 +46,7 @@ public final class TerrainValidator implements Validator {
         this(level,minX,minZ,maxX,maxZ,de.relics.gameplay.NaturalInteriors.LEGACY);
     }
     public TerrainValidator(ServerLevel level,int minX,int minZ,int maxX,int maxZ,String interiors) {
-        if(!Set.of(de.relics.gameplay.NaturalInteriors.LEGACY,de.relics.gameplay.NaturalInteriors.REVISION).contains(interiors))
+        if(!de.relics.gameplay.NaturalInteriors.LEGACY.equals(interiors) && !de.relics.gameplay.NaturalInteriors.supports(interiors))
             throw new IllegalStateException("Unsupported frozen interior revision");
         this.interiors=interiors;
         registries=level.registryAccess(); generator=level.getChunkSource().getGenerator();
@@ -138,9 +138,9 @@ public final class TerrainValidator implements Validator {
             if(box.getXSpan()!=size.get(0).getAsInt() || box.getYSpan()!=size.get(1).getAsInt() || box.getZSpan()!=size.get(2).getAsInt())
                 throw new IllegalStateException("Pinned template geometry differs: "+name);
             signature.add("pool/"+name,net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool.DIRECT_CODEC.encodeStart(ops,pool).getOrThrow());
-            if(interiors.equals(de.relics.gameplay.NaturalInteriors.REVISION) && de.relics.gameplay.NaturalInteriors.hasAsset(name)) {
+            if(de.relics.gameplay.NaturalInteriors.hasAsset(interiors,name)) {
                 JsonObject selected=null;
-                for(var item:de.relics.gameplay.NaturalInteriors.manifest().getAsJsonArray("structures"))
+                for(var item:de.relics.gameplay.NaturalInteriors.manifest(interiors).getAsJsonArray("structures"))
                     if(item.getAsJsonObject().get("id").getAsString().equals(name))selected=item.getAsJsonObject();
                 if(selected==null)throw new IllegalStateException("Missing approved interior "+name);
                 String template=selected.getAsJsonObject("worldgen_template").get("path").getAsString();
@@ -196,8 +196,8 @@ public final class TerrainValidator implements Validator {
         Rotation rotation=Rotation.values()[site.candidate().rotation()];
         var piece=new PoolElementStructurePiece(templates,p.element,origin,p.element.getGroundLevelDelta(),rotation,
                 p.element.getBoundingBox(templates,origin,rotation),LiquidSettings.IGNORE_WATERLOGGING);
-        if(interiors.equals(de.relics.gameplay.NaturalInteriors.REVISION) && de.relics.gameplay.NaturalInteriors.hasAsset(site.asset()))
-            ((de.relics.gameplay.NaturalPiece)(Object)piece).relics$setSite(de.relics.gameplay.NaturalInteriors.certificate(seed,site));
+        if(de.relics.gameplay.NaturalInteriors.hasAsset(interiors,site.asset()))
+            ((de.relics.gameplay.NaturalPiece)(Object)piece).relics$setSite(de.relics.gameplay.NaturalInteriors.certificate(seed,site,interiors));
         return new StructureStart(p.holder.value(),new ChunkPos(site.candidate().chunkX(),site.candidate().chunkZ()),0,new PiecesContainer(List.of(piece)));
     }
 }

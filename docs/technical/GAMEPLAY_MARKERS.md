@@ -117,7 +117,7 @@ Counts below are integration starting requirements, not extra rewards.
 | Small Colossus | 1 `small_magnet_chest`; any other containers are `colossus_salvage_chest` | Accessible but severely decayed interior, cockpit effectively gone. The single magnet roll is per site; ordinary salvage is shared across all its containers. Do not restore two seats or inherit a trial/vault/core. Targeted `small_interior_clearance` only if the builder's new interior needs it. |
 | Obelisk | 6 distinct `archaeology_common`, 1 `archaeology_trim`, 1 `archaeology_map` | Eight exterior suspicious sand/gravel positions with readable excavation clues. Keep the monument solid; no underground dungeon, authored guard or special chest requirement. Trim/map positions must be reachable by careful brushing. |
 | Ruined Tower | 5 distinct `tower_enderman_spawn`, 1 `tower_ender_chest`, 1 `tower_entry`, 1 `tower_upper_destination` | Lower dungeon with safe Enderman feet/head space and vanilla behavior. Incomplete stairs require player building toward the upper destination. Only targeted `tower_route_clearance` if needed; no complete staircase or repeatable spawner. |
-| World Tree | 1 `tree_aura_anchor`, 1 `tree_amethyst_center` | One or more `tree_lighting_scope` regions around trunk/base/roots. Small decorative amethyst sphere inside the bottom of the trunk; no budding amethyst. No loot markers. Aura is a 24-block sphere through walls, independent of remaining blocks. |
+| World Tree | 1 `tree_aura_anchor`, 1 `tree_amethyst_center` | One or more `tree_lighting_scope` regions around trunk/base/roots. Small decorative amethyst sphere inside the bottom of the trunk; no budding amethyst. No loot markers. Aura is a 80-block sphere through walls, independent of remaining blocks. |
 | Crowned Skull, all palettes | None | **No change or additional access/clearing review.** |
 | Sword-bearing Skull 2 | None | **No change or additional access/clearing review.** |
 
@@ -141,7 +141,7 @@ does not need to author their block-entity contents.
 For the Tree, `tree_amethyst_center` is a **review marker only**, not an aura switch
 or new machine block. Lighting may rise unevenly at most 15 blocks above the
 builder-marked local trunk base; no crown/upper-branch lights. Ground coverage
-follows the root area and actual shaded spawnable ground, not a perfect 24-block
+follows the root area and actual shaded spawnable ground, not a perfect 80-block
 ring. The integrator must measure real light; firefly visuals are not proof of
 spawn suppression. Ordinary natural hostile spawning/arrivals remain unchanged.
 

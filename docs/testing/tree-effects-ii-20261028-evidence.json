@@ -1,0 +1,38 @@
+{
+  "sha256": "8b07064ecec2f5b9e443f568866278e8c4e88aa19cc3fbccef67d4b61d928342",
+  "radius_blocks": 80,
+  "effects": {
+    "regeneration": 2,
+    "resistance": 2
+  },
+  "duration_ticks": 6000,
+  "native": {
+    "artifact_sha256": "8b07064ecec2f5b9e443f568866278e8c4e88aa19cc3fbccef67d4b61d928342",
+    "passed": true,
+    "tree_aura_0": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n",
+    "proof": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=8dd07d00-df4f-4697-830e-f0d27d581f0f\n",
+    "exit_code": 0,
+    "tree_aura_1": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n",
+    "restart_preserved_claims_and_timeline": true,
+    "restart_result": "[11:24:39] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive",
+    "magnet_proof": "offhand_max_speed=0.38500000000000006\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n"
+  },
+  "installation": {
+    "installed": true,
+    "profile_was_closed": true,
+    "sha256": "8b07064ecec2f5b9e443f568866278e8c4e88aa19cc3fbccef67d4b61d928342",
+    "backup": "build/tree-effects-ii-20261028/installed-backup-d4ef373e.jar",
+    "previous_sha256": "d4ef373eeeec47f92a90ac65c7f5e69fdea3a4a37ffb0ecb88afdfc1cbc5c985",
+    "original_worlds_changed": false
+  },
+  "artifact_delta": {
+    "sha256": "8b07064ecec2f5b9e443f568866278e8c4e88aa19cc3fbccef67d4b61d928342",
+    "changed": [
+      "de/relics/gameplay/RelicGameplay.class"
+    ],
+    "resources_and_other_classes_identical": true
+  },
+  "byte_identical_rebuild": true,
+  "headless_gameplay_assertions": 665,
+  "static_mixin_contracts": 52
+}

@@ -35,7 +35,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--accept-eula', action='store_true')
     parser.add_argument('--java-home', type=Path, required=True)
-    parser.add_argument('--artifact', type=Path, default=ROOT / 'dist/relics-0.1.0-alpha.5.0-dev+mc26.2.jar')
+    parser.add_argument('--artifact', type=Path, default=ROOT / 'dist/relics-0.1.0-alpha.5.0+mc26.2.jar')
     parser.add_argument('--seeds', nargs='+', type=int)
     parser.add_argument('--jobs', type=int, choices=(1, 2), default=2)
     parser.add_argument('--no-natural-checks', action='store_true')

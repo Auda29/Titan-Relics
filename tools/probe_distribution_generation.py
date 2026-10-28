@@ -24,7 +24,7 @@ def main():
     p.add_argument('--accept-eula',action='store_true')
     p.add_argument('--vanilla',action='store_true')
     p.add_argument('--audit',type=Path,required=True)
-    p.add_argument('--artifact',type=Path,default=ROOT/'build/distribution-artifacts/relics-0.1.0-alpha.5.0-dev+mc26.2.jar')
+    p.add_argument('--artifact',type=Path,default=ROOT/'build/distribution-artifacts/relics-0.1.0-alpha.5.0+mc26.2.jar')
     p.add_argument('--world-copy',type=Path,help='Copy an earlier isolated build/ test world; never open its source')
     args=p.parse_args()
     if not args.accept_eula:p.error('Read https://aka.ms/MinecraftEULA and accept for this isolated probe')

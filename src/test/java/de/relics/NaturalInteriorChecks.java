@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.attachment.v1.*;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.*;
@@ -35,11 +36,19 @@ public class NaturalInteriorChecks implements ModInitializer {
             var field=NaturalInteriors.class.getDeclaredField("DATA");field.setAccessible(true);
             var attachment=(AttachmentType<NaturalInteriors.ChunkData>)field.get(null);
             for(var row:rows) {
-                Site site=JSON.fromJson(row,Site.class);String encoded=NaturalInteriors.certificate(level.getSeed(),site);
+                Site site=JSON.fromJson(row,Site.class);
+                String revision=de.relics.distribution.DistributionRuntime.get(level).interiorRevision();
+                String encoded=NaturalInteriors.certificate(level.getSeed(),site,revision);
                 var cert=JSON.fromJson(encoded,NaturalInteriors.Certificate.class);
                 JsonObject asset=null;
-                for(var a:NaturalInteriors.manifest().getAsJsonArray("structures"))if(a.getAsJsonObject().get("id").getAsString().equals(site.asset()))asset=a.getAsJsonObject();
-                if(asset==null || !asset.has("gameplay"))throw new AssertionError("No approved natural template");
+                for(var a:NaturalInteriors.manifest(revision).getAsJsonArray("structures"))if(a.getAsJsonObject().get("id").getAsString().equals(site.asset()))asset=a.getAsJsonObject();
+                if(asset==null)throw new AssertionError("No approved natural template");
+                if(!asset.has("gameplay")) {
+                    if(!site.asset().equals("titan_skull_2"))throw new AssertionError("Missing gameplay contract");
+                    JsonObject visual=new JsonObject();visual.addProperty("asset",site.asset());
+                    visual.addProperty("visual_only",true);visual.addProperty("version",asset.get("version").getAsString());
+                    proof.add(visual);continue;
+                }
                 JsonObject report=new JsonObject();report.addProperty("asset",site.asset());report.addProperty("site_id",cert.site());
                 JsonArray markers=new JsonArray();
                 for(var item:asset.getAsJsonObject("gameplay").getAsJsonArray("markers")) {
@@ -51,6 +60,12 @@ public class NaturalInteriorChecks implements ModInitializer {
                     if(data==null || !data.completed.contains(action)){System.out.println("INTERIORS_PENDING");return;}
                     JsonObject rec=new JsonObject();rec.addProperty("role",role);rec.addProperty("x",p.getX());rec.addProperty("y",p.getY());rec.addProperty("z",p.getZ());
                     rec.addProperty("block",BuiltInRegistries.BLOCK.getKey(level.getBlockState(p).getBlock()).toString());
+                    if(!restarted && m.has("facing") && level.getBlockState(p).hasProperty(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING)) {
+                        var expected=net.minecraft.world.level.block.Rotation.values()[cert.rotation()].rotate(
+                                net.minecraft.core.Direction.valueOf(m.get("facing").getAsString().toUpperCase(java.util.Locale.ROOT)));
+                        if(level.getBlockState(p).getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.HORIZONTAL_FACING)!=expected)
+                            throw new AssertionError("Rotated marker facing differs at "+p);
+                    }
                     if(role.endsWith("_chest")) {
                         if(restarted) {if(!level.getBlockState(p).isAir())throw new AssertionError("Removed chest refilled");}
                         else {
@@ -62,6 +77,10 @@ public class NaturalInteriorChecks implements ModInitializer {
                             }
                             if(loot.isEmpty())throw new AssertionError("Uninitialized natural loot");
                             if(site.asset().equals("colossus") && !fullMagnet)throw new AssertionError("Missing full arm magnet");
+                            if((site.asset().equals("colossus") && !revision.equals("interiors-20261027-v1")
+                                    || site.asset().equals("small_colossus") && Set.of("interiors-20261028-v3","interiors-20261028-v4","interiors-20261028-v5").contains(revision)
+                                    || site.asset().equals("ruined_tower") && Set.of("interiors-20261028-v4","interiors-20261028-v5").contains(revision))
+                                    && !level.getBlockState(p.above()).isAir())throw new AssertionError("Terrain blocks chest lid");
                             rec.add("loot",loot);if(mutate)level.setBlock(p,Blocks.AIR.defaultBlockState(),3);
                         }
                     } else if(role.startsWith("archaeology_")) {
@@ -96,7 +115,8 @@ public class NaturalInteriorChecks implements ModInitializer {
                     } else if(role.equals("tower_enderman_spawn")) {
                         UUID uuid=UUID.nameUUIDFromBytes(action.getBytes(StandardCharsets.UTF_8));var entity=level.getEntity(uuid);
                         if(restarted && entity!=null)throw new AssertionError("Enderman regenerated after removal");
-                        if(!restarted && entity==null)throw new AssertionError("Initial Enderman absent");
+                        if(!restarted && EntityTypes.ENDERMAN.canSpawn(level) && entity==null)throw new AssertionError("Initial Enderman absent");
+                        if(!EntityTypes.ENDERMAN.canSpawn(level) && entity!=null)throw new AssertionError("Hostile encounter present on Peaceful");
                         rec.addProperty("uuid",uuid.toString());if(mutate && entity!=null)entity.discard();
                     } else if(role.equals("tree_aura_anchor")) {
                         var anchor=RelicGameplay.ledger(level.getServer()).state.trees.get(cert.site());

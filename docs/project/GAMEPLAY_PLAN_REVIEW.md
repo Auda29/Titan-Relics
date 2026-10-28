@@ -42,7 +42,7 @@ downfall and exact event sequence are not blockers to invent answers for.
 | Crowned Skull V4, four palettes | Existing interiors/access/natural mobs unchanged; no loot chests or authored encounters; palettes share their design budget | Distribution validation only; **no builder/marker/clearing work** |
 | Skull 2 V2 embedded-v1 | Same unchanged gameplay policy; accepted sword/anatomy/terrain integration; sword owner unknown | Distribution validation only; **no builder/marker/clearing work** |
 | Ruined Tower V7 ground-v3 | Never-finished base, abandoned, incomplete stairs bridged by player; five one-time ordinary Endermen; one finite site roll: 5% one eye otherwise 4–6 pearls | Lower-area entity/chest and entry/upper destination markers; safe one-time placement and vanilla behavior tests |
-| World Tree V4.3 strands | Peaceful refuge; selected natural animals, root/base-only lights up to 15 blocks, small internal decorative amethyst sphere; Regeneration I in 24-block through-wall sphere, five-minute departure tail, saved anchor survives removal | Builder anchor/lights/sphere, natural-spawn/effect integration and actual light/survival tests; no Tree loot |
+| World Tree V4.3 strands | Peaceful refuge; selected natural animals, root/base-only lights up to 15 blocks, small internal decorative amethyst sphere; Regeneration II and Resistance II in 80-block through-wall sphere, five-minute departure tail, saved anchor survives removal | Builder anchor/lights/sphere, natural-spawn/effect integration and actual light/survival tests; no Tree loot |
 
 Visual-alpha geometry/export selection remains unchanged. Material B stays
 **25,423 copper blocks + 10 raw iron blocks (90 raw iron items)** with intact V4.1

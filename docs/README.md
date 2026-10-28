@@ -5,6 +5,14 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
+- [October 28: Regeneration II and Resistance II in the 80-block Tree aura](project/TREE_EFFECTS_II_20261028.md)
+
+- [October 28: accepted Skull/Tree state and 80-block aura](project/TREE_AURA_80_20261028.md)
+
+- [October 28: Skull side chip, grounded Tree bushes and 50-block aura](project/TREE_SKULL_FEEDBACK_20261028.md)
+
+- [October 28: shorter Small Colossus entrance, Tower chest and revised armor trim](project/INTERIORS_V4_20261028.md)
+
 - [Alpha 5.0: current implementation, evidence and remaining release checks](project/ALPHA_5_STATUS_20261027.md)
 - [Approved October 27 interior decisions](project/INTERIOR_DECISIONS_20261027.md)
 - [October 27 model revisions and export verification](project/GAMEPLAY_INTERIORS_FEEDBACK_20261027_IMPLEMENTATION.md)
@@ -42,6 +50,8 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Testing
 
+- [October 28: per-item magnet budget, Small Colossus V10 and Peaceful load fix](testing/MAGNET_SMALL_COLOSSUS_20261028.md)
+- [October 28 Colossus V7 landmarks, terrain clearance and V6 save compatibility](testing/COLOSSUS_LANDMARKS_20261028.md)
 - [October 27 natural interiors, marker initialization and restart checks](testing/NATURAL_INTERIORS_20261027.md)
 - [October 27 native Trial/Vault presentation and recipe-book checks](testing/GAMEPLAY_PRESENTATION_20261027.md)
 - [October 27 real personal reward-drop checks](testing/REWARD_DROPS_20261027.md)

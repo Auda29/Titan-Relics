@@ -1,0 +1,2279 @@
+{
+  "artifact": "dist/relics-0.1.0-alpha.5.0-dev+mc26.2.jar",
+  "sha256": "f63fd48eba6acc84201800406916380946315b823022b6c08c6f1d343d70ef50",
+  "revision": "interiors-20261028-v4",
+  "python": {
+    "tests": 150,
+    "errors": 0,
+    "failures": 0,
+    "seconds": 428.40600000000086,
+    "excluded": "Independent unchanged NeoForge compatibility work"
+  },
+  "targeted_after_validator_line_ending_fix": {
+    "tower_tests": 4,
+    "passed": true,
+    "handoff_bytes_preserved": true
+  },
+  "java": {
+    "test_gameplay": {
+      "passed": true,
+      "checks": [
+        "52 static",
+        "663 headless"
+      ]
+    },
+    "test_distribution": {
+      "passed": true,
+      "checks": [
+        "1008 worldgen",
+        "755716 versioned",
+        "198924 distribution"
+      ]
+    },
+    "test_worldgen_java": {
+      "passed": true,
+      "checks": [
+        "755 assertions"
+      ]
+    }
+  },
+  "servers": {
+    "small": {
+      "evidence_path": "build/colossus-landmarks-20261028/native-102033-504991/evidence.json",
+      "artifact_sha256": "f63fd48eba6acc84201800406916380946315b823022b6c08c6f1d343d70ef50",
+      "runs": [
+        {
+          "seed": -48291736,
+          "rotation": 1,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 11,
+                "z": 5
+              },
+              "x": 56584,
+              "z": 27832,
+              "ticket": 6337,
+              "priority": 7148134744104744328,
+              "rotation": 1,
+              "unique": false
+            },
+            "asset": "small_colossus",
+            "x2": 113168,
+            "z2": 55664,
+            "surface": 63,
+            "originX": 56648,
+            "originY": 50,
+            "originZ": 27769,
+            "minX": 56520,
+            "minZ": 27769,
+            "maxX": 56648,
+            "maxZ": 27895
+          },
+          "frozen": {
+            "fingerprint": "e046e40523d28ec21c36192ee89cb3bbc366d9d2fd706a3e4e55780c65f81dc1",
+            "interiors": "interiors-20261028-v4",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 1,
+                  "z": 9
+                },
+                "x": 5320,
+                "z": 48040,
+                "ticket": 1936,
+                "priority": 3520839750216504943,
+                "rotation": 0,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 10640,
+              "z2": 96080,
+              "surface": 64,
+              "originX": 5222,
+              "originY": -13,
+              "originZ": 47915,
+              "minX": 5222,
+              "minZ": 47915,
+              "maxX": 5418,
+              "maxZ": 48165
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:small_colossus",
+              "template": "relics:small_colossus_gameplay_v11_worldgen",
+              "origin": [
+                56648,
+                50,
+                27769
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "expected_bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 188414,
+              "matched_blocks": 188414,
+              "checked_air": 0,
+              "nature_cells_skipped": 29877,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 45,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 26388,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "small_colossus",
+              "site_id": "natural:-48291736:small_colossus:11:5",
+              "markers": [
+                {
+                  "role": "small_magnet_chest",
+                  "x": 56587,
+                  "y": 94,
+                  "z": 27844,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:copper_ingot",
+                      "count": 12
+                    },
+                    {
+                      "item": "minecraft:iron_ingot",
+                      "count": 5
+                    },
+                    {
+                      "item": "minecraft:redstone",
+                      "count": 1
+                    },
+                    {
+                      "item": "minecraft:amethyst_shard",
+                      "count": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 20260913,
+          "rotation": 0,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 0,
+                "z": 0
+              },
+              "x": 3160,
+              "z": 1400,
+              "ticket": 6367,
+              "priority": 4807374634302220034,
+              "rotation": 0,
+              "unique": false
+            },
+            "asset": "small_colossus",
+            "x2": 6320,
+            "z2": 2800,
+            "surface": 69,
+            "originX": 3097,
+            "originY": 56,
+            "originZ": 1336,
+            "minX": 3097,
+            "minZ": 1336,
+            "maxX": 3223,
+            "maxZ": 1464
+          },
+          "frozen": {
+            "fingerprint": "e046e40523d28ec21c36192ee89cb3bbc366d9d2fd706a3e4e55780c65f81dc1",
+            "interiors": "interiors-20261028-v4",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": -12,
+                  "z": 14
+                },
+                "x": -57832,
+                "z": 72808,
+                "ticket": 9585,
+                "priority": 477272376906435911,
+                "rotation": 1,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": -115664,
+              "z2": 145616,
+              "surface": 72,
+              "originX": -57707,
+              "originY": -5,
+              "originZ": 72710,
+              "minX": -57957,
+              "minZ": 72710,
+              "maxX": -57707,
+              "maxZ": 72906
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:small_colossus",
+              "template": "relics:small_colossus_gameplay_v11_worldgen",
+              "origin": [
+                3097,
+                56,
+                1336
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                3097,
+                56,
+                1336,
+                3223,
+                135,
+                1464
+              ],
+              "expected_bounding_box": [
+                3097,
+                56,
+                1336,
+                3223,
+                135,
+                1464
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 188414,
+              "matched_blocks": 188414,
+              "checked_air": 0,
+              "nature_cells_skipped": 29877,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 43,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 26388,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "small_colossus",
+              "site_id": "natural:20260913:small_colossus:0:0",
+              "markers": [
+                {
+                  "role": "small_magnet_chest",
+                  "x": 3172,
+                  "y": 100,
+                  "z": 1397,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:copper_ingot",
+                      "count": 19
+                    },
+                    {
+                      "item": "minecraft:iron_ingot",
+                      "count": 4
+                    },
+                    {
+                      "item": "minecraft:redstone",
+                      "count": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 6467084408283286827,
+          "rotation": 2,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": -6,
+                "z": -2
+              },
+              "x": -28936,
+              "z": -6808,
+              "ticket": 6376,
+              "priority": 3378453073598438204,
+              "rotation": 2,
+              "unique": false
+            },
+            "asset": "small_colossus",
+            "x2": -57872,
+            "z2": -13616,
+            "surface": 66,
+            "originX": -28873,
+            "originY": 53,
+            "originZ": -6744,
+            "minX": -28999,
+            "minZ": -6872,
+            "maxX": -28873,
+            "maxZ": -6744
+          },
+          "frozen": {
+            "fingerprint": "e046e40523d28ec21c36192ee89cb3bbc366d9d2fd706a3e4e55780c65f81dc1",
+            "interiors": "interiors-20261028-v4",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": -17,
+                  "z": 14
+                },
+                "x": -84712,
+                "z": 72296,
+                "ticket": 7923,
+                "priority": 4717868827251031519,
+                "rotation": 0,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": -169424,
+              "z2": 144592,
+              "surface": 72,
+              "originX": -84810,
+              "originY": -5,
+              "originZ": 72171,
+              "minX": -84810,
+              "minZ": 72171,
+              "maxX": -84614,
+              "maxZ": 72421
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:small_colossus",
+              "template": "relics:small_colossus_gameplay_v11_worldgen",
+              "origin": [
+                -28873,
+                53,
+                -6744
+              ],
+              "rotation": "CLOCKWISE_180",
+              "bounding_box": [
+                -28999,
+                53,
+                -6872,
+                -28873,
+                132,
+                -6744
+              ],
+              "expected_bounding_box": [
+                -28999,
+                53,
+                -6872,
+                -28873,
+                132,
+                -6744
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 188414,
+              "matched_blocks": 188414,
+              "checked_air": 0,
+              "nature_cells_skipped": 29877,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 45,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 26388,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "small_colossus",
+              "site_id": "natural:6467084408283286827:small_colossus:-6:-2",
+              "markers": [
+                {
+                  "role": "small_magnet_chest",
+                  "x": -28948,
+                  "y": 97,
+                  "z": -6805,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:copper_ingot",
+                      "count": 13
+                    },
+                    {
+                      "item": "minecraft:iron_ingot",
+                      "count": 5
+                    },
+                    {
+                      "item": "minecraft:redstone",
+                      "count": 2
+                    },
+                    {
+                      "item": "minecraft:amethyst_shard",
+                      "count": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 759924343391313989,
+          "rotation": 3,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 5,
+                "z": 11
+              },
+              "x": 25720,
+              "z": 57704,
+              "ticket": 6368,
+              "priority": 1238485523558598889,
+              "rotation": 3,
+              "unique": false
+            },
+            "asset": "small_colossus",
+            "x2": 51440,
+            "z2": 115408,
+            "surface": 64,
+            "originX": 25656,
+            "originY": 51,
+            "originZ": 57767,
+            "minX": 25656,
+            "minZ": 57641,
+            "maxX": 25784,
+            "maxZ": 57767
+          },
+          "frozen": {
+            "fingerprint": "e046e40523d28ec21c36192ee89cb3bbc366d9d2fd706a3e4e55780c65f81dc1",
+            "interiors": "interiors-20261028-v4",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 12,
+                  "z": -27
+                },
+                "x": 64200,
+                "z": -132424,
+                "ticket": 7909,
+                "priority": -2506488383630700335,
+                "rotation": 1,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 128400,
+              "z2": -264848,
+              "surface": 65,
+              "originX": 64325,
+              "originY": -12,
+              "originZ": -132522,
+              "minX": 64075,
+              "minZ": -132522,
+              "maxX": 64325,
+              "maxZ": -132326
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:small_colossus",
+              "template": "relics:small_colossus_gameplay_v11_worldgen",
+              "origin": [
+                25656,
+                51,
+                57767
+              ],
+              "rotation": "COUNTERCLOCKWISE_90",
+              "bounding_box": [
+                25656,
+                51,
+                57641,
+                25784,
+                130,
+                57767
+              ],
+              "expected_bounding_box": [
+                25656,
+                51,
+                57641,
+                25784,
+                130,
+                57767
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 188414,
+              "matched_blocks": 188414,
+              "checked_air": 0,
+              "nature_cells_skipped": 29877,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 44,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 26388,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "small_colossus",
+              "site_id": "natural:759924343391313989:small_colossus:5:11",
+              "markers": [
+                {
+                  "role": "small_magnet_chest",
+                  "x": 25717,
+                  "y": 95,
+                  "z": 57692,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:copper_ingot",
+                      "count": 20
+                    },
+                    {
+                      "item": "minecraft:iron_ingot",
+                      "count": 4
+                    },
+                    {
+                      "item": "minecraft:redstone",
+                      "count": 2
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "seed": -48291736,
+          "rotation": 1,
+          "upgrade_from_v6": true,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 11,
+                "z": 5
+              },
+              "x": 56584,
+              "z": 27832,
+              "ticket": 6337,
+              "priority": 7148134744104744328,
+              "rotation": 1,
+              "unique": false
+            },
+            "asset": "small_colossus",
+            "x2": 113168,
+            "z2": 55664,
+            "surface": 63,
+            "originX": 56648,
+            "originY": 50,
+            "originZ": 27769,
+            "minX": 56520,
+            "minZ": 27769,
+            "maxX": 56648,
+            "maxZ": 27895
+          },
+          "frozen": {
+            "fingerprint": "77f05dc12ab7ea0f34b6ccdf55737fcbb7cc97114229d814898bdb6dcba8ff31",
+            "interiors": "interiors-20261028-v3",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 1,
+                  "z": 9
+                },
+                "x": 5320,
+                "z": 48040,
+                "ticket": 1936,
+                "priority": 3520839750216504943,
+                "rotation": 0,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 10640,
+              "z2": 96080,
+              "surface": 64,
+              "originX": 5222,
+              "originY": -13,
+              "originZ": 47915,
+              "minX": 5222,
+              "minZ": 47915,
+              "maxX": 5418,
+              "maxZ": 48165
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:small_colossus",
+              "template": "relics:small_colossus_gameplay_v10_worldgen",
+              "origin": [
+                56648,
+                50,
+                27769
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "expected_bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 188463,
+              "matched_blocks": 188463,
+              "checked_air": 0,
+              "nature_cells_skipped": 29877,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 45,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 26591,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "small_colossus",
+              "site_id": "natural:-48291736:small_colossus:11:5",
+              "markers": [
+                {
+                  "role": "small_magnet_chest",
+                  "x": 56587,
+                  "y": 94,
+                  "z": 27844,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:copper_ingot",
+                      "count": 12
+                    },
+                    {
+                      "item": "minecraft:iron_ingot",
+                      "count": 5
+                    },
+                    {
+                      "item": "minecraft:redstone",
+                      "count": 1
+                    },
+                    {
+                      "item": "minecraft:amethyst_shard",
+                      "count": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "tower": {
+      "evidence_path": "build/colossus-landmarks-20261028/native-102033-504473/evidence.json",
+      "artifact_sha256": "f63fd48eba6acc84201800406916380946315b823022b6c08c6f1d343d70ef50",
+      "runs": [
+        {
+          "seed": 4661570585687253657,
+          "rotation": 0,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": -1,
+                "z": 5
+              },
+              "x": -2248,
+              "z": 28408,
+              "ticket": 6079,
+              "priority": 5119561929695289679,
+              "rotation": 0,
+              "unique": false
+            },
+            "asset": "ruined_tower",
+            "x2": -4496,
+            "z2": 56816,
+            "surface": 67,
+            "originX": -2311,
+            "originY": 55,
+            "originZ": 28354,
+            "minX": -2311,
+            "minZ": 28354,
+            "maxX": -2185,
+            "maxZ": 28462
+          },
+          "frozen": {
+            "fingerprint": "e046e40523d28ec21c36192ee89cb3bbc366d9d2fd706a3e4e55780c65f81dc1",
+            "interiors": "interiors-20261028-v4",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 1,
+                  "z": -12
+                },
+                "x": 7816,
+                "z": -59064,
+                "ticket": 9931,
+                "priority": -8187427099704008154,
+                "rotation": 1,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 15632,
+              "z2": -118128,
+              "surface": 79,
+              "originX": 7941,
+              "originY": 2,
+              "originZ": -59162,
+              "minX": 7691,
+              "minZ": -59162,
+              "maxX": 7941,
+              "maxZ": -58966
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:ruined_tower",
+              "template": "relics:ruined_tower_gameplay_v10_worldgen",
+              "origin": [
+                -2311,
+                55,
+                28354
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -2311,
+                55,
+                28354,
+                -2185,
+                286,
+                28462
+              ],
+              "expected_bounding_box": [
+                -2311,
+                55,
+                28354,
+                -2185,
+                286,
+                28462
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 266110,
+              "matched_blocks": 266110,
+              "checked_air": 0,
+              "nature_cells_skipped": 38072,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 42,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 14722,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "ruined_tower",
+              "site_id": "natural:4661570585687253657:ruined_tower:-1:5",
+              "markers": [
+                {
+                  "role": "tower_entry",
+                  "x": -2246,
+                  "y": 70,
+                  "z": 28382,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2256,
+                  "y": 70,
+                  "z": 28396,
+                  "block": "minecraft:air",
+                  "uuid": "b0f9d200-75dc-3b33-b1b4-14a7cec637ea"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2238,
+                  "y": 70,
+                  "z": 28395,
+                  "block": "minecraft:air",
+                  "uuid": "2f17b6d6-6614-3300-a82f-b2b411f8cdfd"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2256,
+                  "y": 70,
+                  "z": 28407,
+                  "block": "minecraft:air",
+                  "uuid": "7369e8b1-0949-3df7-b762-99983da1f202"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2237,
+                  "y": 70,
+                  "z": 28410,
+                  "block": "minecraft:air",
+                  "uuid": "1659604d-17ca-3bf9-9e4c-5ebdebd9b3fd"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -2232,
+                  "y": 70,
+                  "z": 28402,
+                  "block": "minecraft:air",
+                  "uuid": "aacbb1cf-199e-30ba-a5dd-bb12eaba6ca8"
+                },
+                {
+                  "role": "tower_ender_chest",
+                  "x": -2245,
+                  "y": 70,
+                  "z": 28417,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:ender_pearl",
+                      "count": 6
+                    }
+                  ]
+                },
+                {
+                  "role": "tower_upper_destination",
+                  "x": -2231,
+                  "y": 229,
+                  "z": 28419,
+                  "block": "minecraft:air"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 4661570585687253657,
+          "rotation": 3,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 1,
+                "z": 9
+              },
+              "x": 7752,
+              "z": 47736,
+              "ticket": 6179,
+              "priority": 3661408945104435007,
+              "rotation": 3,
+              "unique": false
+            },
+            "asset": "ruined_tower",
+            "x2": 15504,
+            "z2": 95472,
+            "surface": 66,
+            "originX": 7698,
+            "originY": 54,
+            "originZ": 47799,
+            "minX": 7698,
+            "minZ": 47673,
+            "maxX": 7806,
+            "maxZ": 47799
+          },
+          "frozen": {
+            "fingerprint": "e046e40523d28ec21c36192ee89cb3bbc366d9d2fd706a3e4e55780c65f81dc1",
+            "interiors": "interiors-20261028-v4",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 1,
+                  "z": -12
+                },
+                "x": 7816,
+                "z": -59064,
+                "ticket": 9931,
+                "priority": -8187427099704008154,
+                "rotation": 1,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 15632,
+              "z2": -118128,
+              "surface": 79,
+              "originX": 7941,
+              "originY": 2,
+              "originZ": -59162,
+              "minX": 7691,
+              "minZ": -59162,
+              "maxX": 7941,
+              "maxZ": -58966
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:ruined_tower",
+              "template": "relics:ruined_tower_gameplay_v10_worldgen",
+              "origin": [
+                7698,
+                54,
+                47799
+              ],
+              "rotation": "COUNTERCLOCKWISE_90",
+              "bounding_box": [
+                7698,
+                54,
+                47673,
+                7806,
+                285,
+                47799
+              ],
+              "expected_bounding_box": [
+                7698,
+                54,
+                47673,
+                7806,
+                285,
+                47799
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 266110,
+              "matched_blocks": 266110,
+              "checked_air": 0,
+              "nature_cells_skipped": 38072,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 42,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 14722,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "ruined_tower",
+              "site_id": "natural:4661570585687253657:ruined_tower:1:9",
+              "markers": [
+                {
+                  "role": "tower_entry",
+                  "x": 7726,
+                  "y": 69,
+                  "z": 47734,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": 7740,
+                  "y": 69,
+                  "z": 47744,
+                  "block": "minecraft:air",
+                  "uuid": "32644d8e-49b0-3c50-b76a-887fce758a3e"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": 7739,
+                  "y": 69,
+                  "z": 47726,
+                  "block": "minecraft:air",
+                  "uuid": "027c8be4-896f-31d0-b528-d13192efbd1f"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": 7751,
+                  "y": 69,
+                  "z": 47744,
+                  "block": "minecraft:air",
+                  "uuid": "1ee55235-f31f-3889-a1bd-302e0c8ff9d0"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": 7754,
+                  "y": 69,
+                  "z": 47725,
+                  "block": "minecraft:air",
+                  "uuid": "5ec8df40-c283-3134-bbf3-131d491bcd55"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": 7746,
+                  "y": 69,
+                  "z": 47720,
+                  "block": "minecraft:air",
+                  "uuid": "14dd93f7-8f02-36f6-89c6-9ed864803db6"
+                },
+                {
+                  "role": "tower_ender_chest",
+                  "x": 7761,
+                  "y": 69,
+                  "z": 47733,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:ender_pearl",
+                      "count": 4
+                    }
+                  ]
+                },
+                {
+                  "role": "tower_upper_destination",
+                  "x": 7763,
+                  "y": 228,
+                  "z": 47719,
+                  "block": "minecraft:air"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 4140992804666864414,
+          "rotation": 2,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 8,
+                "z": -8
+              },
+              "x": 42440,
+              "z": -37288,
+              "ticket": 6195,
+              "priority": 8156589938056525494,
+              "rotation": 2,
+              "unique": false
+            },
+            "asset": "ruined_tower",
+            "x2": 84880,
+            "z2": -74576,
+            "surface": 69,
+            "originX": 42503,
+            "originY": 57,
+            "originZ": -37234,
+            "minX": 42377,
+            "minZ": -37342,
+            "maxX": 42503,
+            "maxZ": -37234
+          },
+          "frozen": {
+            "fingerprint": "e046e40523d28ec21c36192ee89cb3bbc366d9d2fd706a3e4e55780c65f81dc1",
+            "interiors": "interiors-20261028-v4",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": -2,
+                  "z": -16
+                },
+                "x": -5896,
+                "z": -76520,
+                "ticket": 329,
+                "priority": -205371080159946563,
+                "rotation": 2,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": -11792,
+              "z2": -153040,
+              "surface": 76,
+              "originX": -5798,
+              "originY": -1,
+              "originZ": -76395,
+              "minX": -5994,
+              "minZ": -76645,
+              "maxX": -5798,
+              "maxZ": -76395
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:ruined_tower",
+              "template": "relics:ruined_tower_gameplay_v10_worldgen",
+              "origin": [
+                42503,
+                57,
+                -37234
+              ],
+              "rotation": "CLOCKWISE_180",
+              "bounding_box": [
+                42377,
+                57,
+                -37342,
+                42503,
+                288,
+                -37234
+              ],
+              "expected_bounding_box": [
+                42377,
+                57,
+                -37342,
+                42503,
+                288,
+                -37234
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 266110,
+              "matched_blocks": 266110,
+              "checked_air": 0,
+              "nature_cells_skipped": 38072,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 42,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 14722,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "ruined_tower",
+              "site_id": "natural:4140992804666864414:ruined_tower:8:-8",
+              "markers": [
+                {
+                  "role": "tower_entry",
+                  "x": 42438,
+                  "y": 72,
+                  "z": -37262,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": 42448,
+                  "y": 72,
+                  "z": -37276,
+                  "block": "minecraft:air",
+                  "uuid": "feec8ed3-8806-3d3b-80f5-e38dca5f8b7c"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": 42430,
+                  "y": 72,
+                  "z": -37275,
+                  "block": "minecraft:air",
+                  "uuid": "ab2f6c10-ed5b-373e-b907-671ce7efbffd"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": 42448,
+                  "y": 72,
+                  "z": -37287,
+                  "block": "minecraft:air",
+                  "uuid": "51497e77-0e26-3e12-95e1-716774a551e4"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": 42429,
+                  "y": 72,
+                  "z": -37290,
+                  "block": "minecraft:air",
+                  "uuid": "9b9e8d0c-7708-32a8-b1ae-0bfa91b46afe"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": 42424,
+                  "y": 72,
+                  "z": -37282,
+                  "block": "minecraft:air",
+                  "uuid": "62ff720a-40a0-3866-bebc-77eeec5832dc"
+                },
+                {
+                  "role": "tower_ender_chest",
+                  "x": 42437,
+                  "y": 72,
+                  "z": -37297,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:ender_pearl",
+                      "count": 4
+                    }
+                  ]
+                },
+                {
+                  "role": "tower_upper_destination",
+                  "x": 42423,
+                  "y": 231,
+                  "z": -37299,
+                  "block": "minecraft:air"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 7235338348887853936,
+          "rotation": 1,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": -5,
+                "z": 11
+              },
+              "x": -23208,
+              "z": 56808,
+              "ticket": 6076,
+              "priority": 3217422647067270475,
+              "rotation": 1,
+              "unique": false
+            },
+            "asset": "ruined_tower",
+            "x2": -46416,
+            "z2": 113616,
+            "surface": 64,
+            "originX": -23154,
+            "originY": 52,
+            "originZ": 56745,
+            "minX": -23262,
+            "minZ": 56745,
+            "maxX": -23154,
+            "maxZ": 56871
+          },
+          "frozen": {
+            "fingerprint": "e046e40523d28ec21c36192ee89cb3bbc366d9d2fd706a3e4e55780c65f81dc1",
+            "interiors": "interiors-20261028-v4",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 22,
+                  "z": 13
+                },
+                "x": 113368,
+                "z": 67848,
+                "ticket": 5139,
+                "priority": -6241448325864666840,
+                "rotation": 0,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 226736,
+              "z2": 135696,
+              "surface": 82,
+              "originX": 113270,
+              "originY": 5,
+              "originZ": 67723,
+              "minX": 113270,
+              "minZ": 67723,
+              "maxX": 113466,
+              "maxZ": 67973
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:ruined_tower",
+              "template": "relics:ruined_tower_gameplay_v10_worldgen",
+              "origin": [
+                -23154,
+                52,
+                56745
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                -23262,
+                52,
+                56745,
+                -23154,
+                283,
+                56871
+              ],
+              "expected_bounding_box": [
+                -23262,
+                52,
+                56745,
+                -23154,
+                283,
+                56871
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 266110,
+              "matched_blocks": 266110,
+              "checked_air": 0,
+              "nature_cells_skipped": 38072,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 42,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 14722,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "ruined_tower",
+              "site_id": "natural:7235338348887853936:ruined_tower:-5:11",
+              "markers": [
+                {
+                  "role": "tower_entry",
+                  "x": -23182,
+                  "y": 67,
+                  "z": 56810,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -23196,
+                  "y": 67,
+                  "z": 56800,
+                  "block": "minecraft:air",
+                  "uuid": "9e18accc-298c-3287-9e28-9f4f3e4bf238"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -23195,
+                  "y": 67,
+                  "z": 56818,
+                  "block": "minecraft:air",
+                  "uuid": "c26491d8-7824-36b9-ad7e-2560679e902e"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -23207,
+                  "y": 67,
+                  "z": 56800,
+                  "block": "minecraft:air",
+                  "uuid": "6ccad9ec-131c-3f32-a2ce-89a153ba63ed"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -23210,
+                  "y": 67,
+                  "z": 56819,
+                  "block": "minecraft:air",
+                  "uuid": "617a01a4-efb6-3907-a244-a7261793ca26"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -23202,
+                  "y": 67,
+                  "z": 56824,
+                  "block": "minecraft:air",
+                  "uuid": "bca4fb1d-97de-3ea0-8afc-f6acc230145b"
+                },
+                {
+                  "role": "tower_ender_chest",
+                  "x": -23217,
+                  "y": 67,
+                  "z": 56811,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:ender_pearl",
+                      "count": 4
+                    }
+                  ]
+                },
+                {
+                  "role": "tower_upper_destination",
+                  "x": -23219,
+                  "y": 226,
+                  "z": 56825,
+                  "block": "minecraft:air"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 7235338348887853936,
+          "rotation": 1,
+          "upgrade_from_v6": true,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": -5,
+                "z": 11
+              },
+              "x": -23208,
+              "z": 56808,
+              "ticket": 6076,
+              "priority": 3217422647067270475,
+              "rotation": 1,
+              "unique": false
+            },
+            "asset": "ruined_tower",
+            "x2": -46416,
+            "z2": 113616,
+            "surface": 64,
+            "originX": -23154,
+            "originY": 52,
+            "originZ": 56745,
+            "minX": -23262,
+            "minZ": 56745,
+            "maxX": -23154,
+            "maxZ": 56871
+          },
+          "frozen": {
+            "fingerprint": "77f05dc12ab7ea0f34b6ccdf55737fcbb7cc97114229d814898bdb6dcba8ff31",
+            "interiors": "interiors-20261028-v3",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 22,
+                  "z": 13
+                },
+                "x": 113368,
+                "z": 67848,
+                "ticket": 5139,
+                "priority": -6241448325864666840,
+                "rotation": 0,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 226736,
+              "z2": 135696,
+              "surface": 82,
+              "originX": 113270,
+              "originY": 5,
+              "originZ": 67723,
+              "minX": 113270,
+              "minZ": 67723,
+              "maxX": 113466,
+              "maxZ": 67973
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:ruined_tower",
+              "template": "relics:ruined_tower_gameplay_worldgen",
+              "origin": [
+                -23154,
+                52,
+                56745
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                -23262,
+                52,
+                56745,
+                -23154,
+                283,
+                56871
+              ],
+              "expected_bounding_box": [
+                -23262,
+                52,
+                56745,
+                -23154,
+                283,
+                56871
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 266065,
+              "matched_blocks": 266065,
+              "checked_air": 0,
+              "nature_cells_skipped": 38072,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 42,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 14767,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "ruined_tower",
+              "site_id": "natural:7235338348887853936:ruined_tower:-5:11",
+              "markers": [
+                {
+                  "role": "tower_entry",
+                  "x": -23182,
+                  "y": 67,
+                  "z": 56810,
+                  "block": "minecraft:air"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -23196,
+                  "y": 67,
+                  "z": 56800,
+                  "block": "minecraft:air",
+                  "uuid": "9e18accc-298c-3287-9e28-9f4f3e4bf238"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -23195,
+                  "y": 67,
+                  "z": 56818,
+                  "block": "minecraft:air",
+                  "uuid": "c26491d8-7824-36b9-ad7e-2560679e902e"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -23207,
+                  "y": 67,
+                  "z": 56800,
+                  "block": "minecraft:air",
+                  "uuid": "6ccad9ec-131c-3f32-a2ce-89a153ba63ed"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -23210,
+                  "y": 67,
+                  "z": 56819,
+                  "block": "minecraft:air",
+                  "uuid": "617a01a4-efb6-3907-a244-a7261793ca26"
+                },
+                {
+                  "role": "tower_enderman_spawn",
+                  "x": -23202,
+                  "y": 67,
+                  "z": 56824,
+                  "block": "minecraft:air",
+                  "uuid": "bca4fb1d-97de-3ea0-8afc-f6acc230145b"
+                },
+                {
+                  "role": "tower_ender_chest",
+                  "x": -23217,
+                  "y": 67,
+                  "z": 56825,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:ender_pearl",
+                      "count": 4
+                    }
+                  ]
+                },
+                {
+                  "role": "tower_upper_destination",
+                  "x": -23219,
+                  "y": 226,
+                  "z": 56825,
+                  "block": "minecraft:air"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "partial_upgrade": {
+      "evidence_path": "build/colossus-landmarks-20261028/native-102353-900413/evidence.json",
+      "artifact_sha256": "f63fd48eba6acc84201800406916380946315b823022b6c08c6f1d343d70ef50",
+      "runs": [
+        {
+          "seed": -48291736,
+          "rotation": 1,
+          "upgrade_from_v6": true,
+          "partial_upgrade": true,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 11,
+                "z": 5
+              },
+              "x": 56584,
+              "z": 27832,
+              "ticket": 6337,
+              "priority": 7148134744104744328,
+              "rotation": 1,
+              "unique": false
+            },
+            "asset": "small_colossus",
+            "x2": 113168,
+            "z2": 55664,
+            "surface": 63,
+            "originX": 56648,
+            "originY": 50,
+            "originZ": 27769,
+            "minX": 56520,
+            "minZ": 27769,
+            "maxX": 56648,
+            "maxZ": 27895
+          },
+          "frozen": {
+            "fingerprint": "77f05dc12ab7ea0f34b6ccdf55737fcbb7cc97114229d814898bdb6dcba8ff31",
+            "interiors": "interiors-20261028-v3",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 1,
+                  "z": 9
+                },
+                "x": 5320,
+                "z": 48040,
+                "ticket": 1936,
+                "priority": 3520839750216504943,
+                "rotation": 0,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 10640,
+              "z2": 96080,
+              "surface": 64,
+              "originX": 5222,
+              "originY": -13,
+              "originZ": 47915,
+              "minX": 5222,
+              "minZ": 47915,
+              "maxX": 5418,
+              "maxZ": 48165
+            }
+          },
+          "partial_saved_certificate": "{\"revision\":\"interiors-20261028-v3\",\"asset\":\"small_colossus\",\"site\":\"natural:-48291736:small_colossus:11:5\",\"x\":56648,\"y\":50,\"z\":27769,\"rotation\":1}",
+          "blocks": [
+            {
+              "structure": "relics:small_colossus",
+              "template": "relics:small_colossus_gameplay_v10_worldgen",
+              "origin": [
+                56648,
+                50,
+                27769
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "expected_bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 188463,
+              "matched_blocks": 188463,
+              "checked_air": 0,
+              "nature_cells_skipped": 29877,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 45,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 26591,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "small_colossus",
+              "site_id": "natural:-48291736:small_colossus:11:5",
+              "markers": [
+                {
+                  "role": "small_magnet_chest",
+                  "x": 56587,
+                  "y": 94,
+                  "z": 27844,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:copper_ingot",
+                      "count": 12
+                    },
+                    {
+                      "item": "minecraft:iron_ingot",
+                      "count": 5
+                    },
+                    {
+                      "item": "minecraft:redstone",
+                      "count": 1
+                    },
+                    {
+                      "item": "minecraft:amethyst_shard",
+                      "count": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "peaceful": {
+      "evidence_path": "build/interior-integration-20261027/native-102345-175251/evidence.json",
+      "artifact_sha256": "f63fd48eba6acc84201800406916380946315b823022b6c08c6f1d343d70ef50",
+      "target_unavailable": false,
+      "partial_restart": false,
+      "peaceful": true,
+      "runs": [
+        {
+          "seed": 4661570585687253657,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": -1,
+                  "z": 5
+                },
+                "x": -2248,
+                "z": 28408,
+                "ticket": 6079,
+                "priority": 5119561929695289679,
+                "rotation": 0,
+                "unique": false
+              },
+              "asset": "ruined_tower",
+              "x2": -4496,
+              "z2": 56816,
+              "surface": 67,
+              "originX": -2311,
+              "originY": 55,
+              "originZ": 28354,
+              "minX": -2311,
+              "minZ": 28354,
+              "maxX": -2185,
+              "maxZ": 28462
+            }
+          ],
+          "commands": [
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[10:24:02] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsdistribution plan -2248 28408",
+              "response": "[10:24:04] [Server thread/INFO]: Relic plan Cell[x=-1, z=5]: {\"candidate\":{\"cell\":{\"x\":-1,\"z\":5},\"x\":-2248,\"z\":28408,\"ticket\":6079,\"priority\":5119561929695289679,\"rotation\":0,\"unique\":false},\"asset\":\"ruined_tower\",\"x2\":-4496,\"z2\":56816,\"surface\":67,\"originX\":-2311,\"originY\":55,\"originZ\":28354,\"minX\":-2311,\"minZ\":28354,\"maxX\":-2185,\"maxZ\":28462}"
+            },
+            {
+              "command": "forceload add -2320 28352 -2193 28463",
+              "response": "[10:24:07] [Server thread/INFO]: Marked 56 chunks in minecraft:overworld from [-145, 1772] to [-138, 1778] to be force loaded"
+            },
+            {
+              "command": "forceload add -2192 28352 -2177 28463",
+              "response": "[10:24:07] [Server thread/INFO]: Marked 7 chunks in minecraft:overworld from [-137, 1772] to [-137, 1778] to be force loaded"
+            },
+            {
+              "command": "execute if loaded -2320 80 28352",
+              "response": "[10:24:07] [Server thread/INFO]: Test failed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28352",
+              "response": "[10:24:07] [Server thread/INFO]: Test failed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28352",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28368",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28384",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28400",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28416",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28432",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28448",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28352",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28368",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28384",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28400",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28416",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28432",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28448",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28352",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28368",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28384",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28400",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28416",
+              "response": "[10:24:08] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28432",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28448",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28352",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28368",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28384",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28400",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28416",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28432",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28448",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28352",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28368",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28384",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28400",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28416",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28432",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28448",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28352",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28368",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28384",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28400",
+              "response": "[10:24:09] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28416",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28432",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28448",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28352",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28368",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28384",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28400",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28416",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28432",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28448",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28352",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28368",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28384",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28400",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28416",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28432",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28448",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28352",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28368",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28384",
+              "response": "[10:24:10] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28400",
+              "response": "[10:24:11] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28416",
+              "response": "[10:24:11] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28432",
+              "response": "[10:24:11] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28448",
+              "response": "[10:24:11] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[10:24:11] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[10:24:11] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[10:24:11] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[10:24:31] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[10:24:31] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "relicsinteriorstest mutate",
+              "response": "[10:24:32] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS mutated"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[10:24:32] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[10:24:32] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[10:24:46] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[10:24:46] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[10:24:46] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[10:24:46] [Server thread/INFO]: Stopping the server"
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:ruined_tower",
+              "template": "relics:ruined_tower_gameplay_v10_worldgen",
+              "origin": [
+                -2311,
+                55,
+                28354
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -2311,
+                55,
+                28354,
+                -2185,
+                286,
+                28462
+              ],
+              "expected_bounding_box": [
+                -2311,
+                55,
+                28354,
+                -2185,
+                286,
+                28462
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 266110,
+              "matched_blocks": 266110,
+              "checked_air": 0,
+              "nature_cells_skipped": 38072,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 42,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 14722,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "failures": []
+    },
+    "presentation": {
+      "evidence_path": "build/gameplay-feedback-20261027/server-102335-233224/evidence.json",
+      "artifact_sha256": "f63fd48eba6acc84201800406916380946315b823022b6c08c6f1d343d70ef50",
+      "passed": true,
+      "proof": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=368bb711-7538-4ee1-82b4-5107a0189084\n",
+      "exit_code": 0,
+      "restart_preserved_claims_and_timeline": true,
+      "restart_result": "[10:24:25] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive",
+      "magnet_proof": "offhand_max_speed=0.38500000000000006\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n"
+    }
+  },
+  "frozen_manifests": {
+    "relics.gameplay.integration.json": "8af3ed4996f7dddce8182c184a4aa0b434a469f248005b2428322ce0bc116407",
+    "relics.gameplay.landmarks.integration.json": "82fc688fc07514017654858eb24a33998625a864722e162e3eb02bfb3f58228e",
+    "relics.gameplay.small_landmarks.integration.json": "2a1c6b7ad244ebf845d075327f5fb3f71483fb527f9a223e2994a25661df15a1"
+  },
+  "handoff_bindings": {
+    "small-colossus-short-entry-20261028-handoff.json": 220,
+    "tower-chest-20261028-handoff.json": 306,
+    "interiors-short-entry-tower-20261028-handoff.json": 307
+  },
+  "reproducibility": {
+    "sha256": "f63fd48eba6acc84201800406916380946315b823022b6c08c6f1d343d70ef50",
+    "byte_identical": true
+  },
+  "artifact_delta": {
+    "sha256": "f63fd48eba6acc84201800406916380946315b823022b6c08c6f1d343d70ef50",
+    "changed": [
+      "assets/relics/textures/trims/entity/humanoid/monolith.png",
+      "assets/relics/textures/trims/entity/humanoid_leggings/monolith.png",
+      "de/relics/distribution/DistributionJournal.class",
+      "de/relics/distribution/DistributionRuntime.class",
+      "de/relics/gameplay/NaturalInteriors$Catalog.class",
+      "de/relics/gameplay/NaturalInteriors.class"
+    ],
+    "added": [
+      "data/relics/structure/ruined_tower_gameplay_v10.nbt",
+      "data/relics/structure/ruined_tower_gameplay_v10_worldgen.nbt",
+      "data/relics/structure/small_colossus_gameplay_v11.nbt",
+      "data/relics/structure/small_colossus_gameplay_v11_worldgen.nbt",
+      "relics.gameplay.short_entry_tower.integration.json"
+    ],
+    "removed": [],
+    "templates": 38,
+    "runtime_class_only_inlined_default_revision": true
+  },
+  "preservation": {
+    "baseline_files": 1339,
+    "unchanged_files": 1321,
+    "intentional_root_changes": [
+      ".gitattributes",
+      ".gitignore",
+      "CHANGELOG.md",
+      "README.md",
+      "docs/README.md",
+      "docs/project/ALPHA_5_STATUS_20261027.md",
+      "docs/technical/GAMEPLAY_RUNTIME.md",
+      "src/main/java/de/relics/distribution/DistributionJournal.java",
+      "src/main/java/de/relics/gameplay/NaturalInteriors.java",
+      "src/main/resources/assets/relics/textures/trims/entity/humanoid/monolith.png",
+      "src/main/resources/assets/relics/textures/trims/entity/humanoid_leggings/monolith.png",
+      "src/test/java/de/relics/NaturalInteriorChecks.java",
+      "tests/test_gameplay_resources.py",
+      "tests/test_natural_interiors.py",
+      "tools/generate_gameplay_art.py",
+      "tools/integrate_gameplay_interiors.py",
+      "tools/test_colossus_landmarks_server.py",
+      "tools/validate_gameplay_handoff.py"
+    ],
+    "previous_models_and_compatibility_unchanged": true
+  },
+  "installation": {
+    "installed": true,
+    "profile": "E:/Roaming/ModrinthApp/profiles/Relic Test",
+    "artifact_sha256": "f63fd48eba6acc84201800406916380946315b823022b6c08c6f1d343d70ef50",
+    "backup": "build/interiors-v4-20261028/installed-backup-b5e8b537.jar",
+    "backup_sha256": "b5e8b537ef69d8a74a1482cadbcae345eec245fb4f7d707b3806b31f3d7b4b52",
+    "profile_was_closed": true,
+    "original_worlds_opened_or_changed": false
+  },
+  "native_trim_evidence": "docs/project/reviews/monolith-native-armor-26.2.json",
+  "remaining": [
+    "Graphical client visual acceptance for Small V11, Tower V10 and new trim",
+    "Complete Survival and real multiplayer release acceptance"
+  ]
+}

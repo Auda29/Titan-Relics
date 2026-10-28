@@ -1,0 +1,933 @@
+{
+  "artifact": "dist/relics-0.1.0-alpha.5.0-dev+mc26.2.jar",
+  "sha256": "66b93cea03f14818ccfefe217c9f9266178c929fdf5789c2f56a1988a30534e4",
+  "revision": "interiors-20261028-v5",
+  "radius_blocks": 50,
+  "python": {
+    "tests": 156,
+    "errors": 0,
+    "failures": 0,
+    "seconds": 414.90699999999924,
+    "excluded": "Unrelated unchanged NeoForge compatibility work"
+  },
+  "java": {
+    "test_gameplay": {
+      "passed": true,
+      "checks": [
+        "52 static",
+        "665 headless"
+      ]
+    },
+    "test_worldgen_java": {
+      "passed": true,
+      "checks": [
+        "764 assertions"
+      ]
+    },
+    "test_distribution": {
+      "passed": true,
+      "checks": [
+        "1008 worldgen",
+        "755716 versioned",
+        "198924 distribution"
+      ]
+    }
+  },
+  "servers": {
+    "skull": {
+      "path": "build/colossus-landmarks-20261028/native-105420-548647/evidence.json",
+      "artifact_sha256": "66b93cea03f14818ccfefe217c9f9266178c929fdf5789c2f56a1988a30534e4",
+      "runs": [
+        {
+          "seed": -48291736,
+          "rotation": 1,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 10,
+                "z": -10
+              },
+              "x": 53288,
+              "z": -47272,
+              "ticket": 3452,
+              "priority": -990000706214843401,
+              "rotation": 1,
+              "unique": false
+            },
+            "asset": "titan_skull_2",
+            "x2": 106576,
+            "z2": -94544,
+            "surface": 69,
+            "originX": 53345,
+            "originY": 41,
+            "originZ": -47329,
+            "minX": 53231,
+            "minZ": -47329,
+            "maxX": 53345,
+            "maxZ": -47215
+          },
+          "frozen": {
+            "fingerprint": "0351cf5835e4b5acb72d7163328552699db92c4abfd0b35aae88470e6c4e8a0e",
+            "interiors": "interiors-20261028-v5",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 1,
+                  "z": 9
+                },
+                "x": 5320,
+                "z": 48040,
+                "ticket": 1936,
+                "priority": 3520839750216504943,
+                "rotation": 0,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 10640,
+              "z2": 96080,
+              "surface": 64,
+              "originX": 5222,
+              "originY": -13,
+              "originZ": 47915,
+              "minX": 5222,
+              "minZ": 47915,
+              "maxX": 5418,
+              "maxZ": 48165
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:titan_skull_2",
+              "template": "relics:titan_skull_2_side_v1_worldgen",
+              "origin": [
+                53345,
+                41,
+                -47329
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                53231,
+                41,
+                -47329,
+                53345,
+                176,
+                -47215
+              ],
+              "expected_bounding_box": [
+                53231,
+                41,
+                -47329,
+                53345,
+                176,
+                -47215
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 25149,
+              "matched_blocks": 25149,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 37,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0,
+              "removed_chip_cells_checked": 111
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "titan_skull_2",
+              "site_id": "natural:-48291736:titan_skull_2:10:-10",
+              "markers": []
+            }
+          ]
+        },
+        {
+          "seed": 731204,
+          "rotation": 0,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": -4,
+                "z": -9
+              },
+              "x": -18568,
+              "z": -43944,
+              "ticket": 4796,
+              "priority": -7828706360305242401,
+              "rotation": 0,
+              "unique": false
+            },
+            "asset": "titan_skull_2",
+            "x2": -37136,
+            "z2": -87888,
+            "surface": 66,
+            "originX": -18625,
+            "originY": 38,
+            "originZ": -44001,
+            "minX": -18625,
+            "minZ": -44001,
+            "maxX": -18511,
+            "maxZ": -43887
+          },
+          "frozen": {
+            "fingerprint": "0351cf5835e4b5acb72d7163328552699db92c4abfd0b35aae88470e6c4e8a0e",
+            "interiors": "interiors-20261028-v5",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 19,
+                  "z": 9
+                },
+                "x": 96136,
+                "z": 48504,
+                "ticket": 6381,
+                "priority": 2284565568339078783,
+                "rotation": 3,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 192272,
+              "z2": 97008,
+              "surface": 73,
+              "originX": 96011,
+              "originY": -4,
+              "originZ": 48602,
+              "minX": 96011,
+              "minZ": 48406,
+              "maxX": 96261,
+              "maxZ": 48602
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:titan_skull_2",
+              "template": "relics:titan_skull_2_side_v1_worldgen",
+              "origin": [
+                -18625,
+                38,
+                -44001
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -18625,
+                38,
+                -44001,
+                -18511,
+                173,
+                -43887
+              ],
+              "expected_bounding_box": [
+                -18625,
+                38,
+                -44001,
+                -18511,
+                173,
+                -43887
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 25149,
+              "matched_blocks": 25149,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 37,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0,
+              "removed_chip_cells_checked": 111
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "titan_skull_2",
+              "site_id": "natural:731204:titan_skull_2:-4:-9",
+              "markers": []
+            }
+          ]
+        },
+        {
+          "seed": 5103844486674487467,
+          "rotation": 2,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 3,
+                "z": 8
+              },
+              "x": 18904,
+              "z": 44536,
+              "ticket": 3394,
+              "priority": 7456205510770694718,
+              "rotation": 2,
+              "unique": false
+            },
+            "asset": "titan_skull_2",
+            "x2": 37808,
+            "z2": 89072,
+            "surface": 67,
+            "originX": 18961,
+            "originY": 39,
+            "originZ": 44593,
+            "minX": 18847,
+            "minZ": 44479,
+            "maxX": 18961,
+            "maxZ": 44593
+          },
+          "frozen": {
+            "fingerprint": "0351cf5835e4b5acb72d7163328552699db92c4abfd0b35aae88470e6c4e8a0e",
+            "interiors": "interiors-20261028-v5",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 5,
+                  "z": -26
+                },
+                "x": 25768,
+                "z": -126680,
+                "ticket": 6901,
+                "priority": -3936206458774838348,
+                "rotation": 2,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 51536,
+              "z2": -253360,
+              "surface": 71,
+              "originX": 25866,
+              "originY": -6,
+              "originZ": -126555,
+              "minX": 25670,
+              "minZ": -126805,
+              "maxX": 25866,
+              "maxZ": -126555
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:titan_skull_2",
+              "template": "relics:titan_skull_2_side_v1_worldgen",
+              "origin": [
+                18961,
+                39,
+                44593
+              ],
+              "rotation": "CLOCKWISE_180",
+              "bounding_box": [
+                18847,
+                39,
+                44479,
+                18961,
+                174,
+                44593
+              ],
+              "expected_bounding_box": [
+                18847,
+                39,
+                44479,
+                18961,
+                174,
+                44593
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 25149,
+              "matched_blocks": 25149,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 39,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0,
+              "removed_chip_cells_checked": 111
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "titan_skull_2",
+              "site_id": "natural:5103844486674487467:titan_skull_2:3:8",
+              "markers": []
+            }
+          ]
+        },
+        {
+          "seed": -48291736,
+          "rotation": 1,
+          "upgrade_from_v6": true,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 10,
+                "z": -10
+              },
+              "x": 53288,
+              "z": -47272,
+              "ticket": 3452,
+              "priority": -990000706214843401,
+              "rotation": 1,
+              "unique": false
+            },
+            "asset": "titan_skull_2",
+            "x2": 106576,
+            "z2": -94544,
+            "surface": 69,
+            "originX": 53345,
+            "originY": 41,
+            "originZ": -47329,
+            "minX": 53231,
+            "minZ": -47329,
+            "maxX": 53345,
+            "maxZ": -47215
+          },
+          "frozen": {
+            "fingerprint": "e046e40523d28ec21c36192ee89cb3bbc366d9d2fd706a3e4e55780c65f81dc1",
+            "interiors": "interiors-20261028-v4",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 1,
+                  "z": 9
+                },
+                "x": 5320,
+                "z": 48040,
+                "ticket": 1936,
+                "priority": 3520839750216504943,
+                "rotation": 0,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 10640,
+              "z2": 96080,
+              "surface": 64,
+              "originX": 5222,
+              "originY": -13,
+              "originZ": 47915,
+              "minX": 5222,
+              "minZ": 47915,
+              "maxX": 5418,
+              "maxZ": 48165
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:titan_skull_2",
+              "template": "relics:titan_skull_2_worldgen",
+              "origin": [
+                53345,
+                41,
+                -47329
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                53231,
+                41,
+                -47329,
+                53345,
+                176,
+                -47215
+              ],
+              "expected_bounding_box": [
+                53231,
+                41,
+                -47329,
+                53345,
+                176,
+                -47215
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 25260,
+              "matched_blocks": 25260,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 39,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "titan_skull_2",
+              "visual_only": true,
+              "version": "titan-skull-2-v2-embedded-v1"
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "tree": {
+      "path": "build/colossus-landmarks-20261028/native-105420-549651/evidence.json",
+      "artifact_sha256": "66b93cea03f14818ccfefe217c9f9266178c929fdf5789c2f56a1988a30534e4",
+      "runs": [
+        {
+          "seed": 20260913,
+          "rotation": 3,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": -4,
+                "z": 4
+              },
+              "x": -19336,
+              "z": 20456,
+              "ticket": 6513,
+              "priority": -978740296379991234,
+              "rotation": 3,
+              "unique": false
+            },
+            "asset": "world_tree",
+            "x2": -38672,
+            "z2": 40912,
+            "surface": 68,
+            "originX": -19436,
+            "originY": 44,
+            "originZ": 20557,
+            "minX": -19436,
+            "minZ": 20355,
+            "maxX": -19236,
+            "maxZ": 20557
+          },
+          "frozen": {
+            "fingerprint": "0351cf5835e4b5acb72d7163328552699db92c4abfd0b35aae88470e6c4e8a0e",
+            "interiors": "interiors-20261028-v5",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": -12,
+                  "z": 14
+                },
+                "x": -57832,
+                "z": 72808,
+                "ticket": 9585,
+                "priority": 477272376906435911,
+                "rotation": 1,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": -115664,
+              "z2": 145616,
+              "surface": 72,
+              "originX": -57707,
+              "originY": -5,
+              "originZ": 72710,
+              "minX": -57957,
+              "minZ": 72710,
+              "maxX": -57707,
+              "maxZ": 72906
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:world_tree",
+              "template": "relics:world_tree_gameplay_worldgen",
+              "origin": [
+                -19436,
+                44,
+                20557
+              ],
+              "rotation": "COUNTERCLOCKWISE_90",
+              "bounding_box": [
+                -19436,
+                44,
+                20355,
+                -19236,
+                271,
+                20557
+              ],
+              "expected_bounding_box": [
+                -19436,
+                44,
+                20355,
+                -19236,
+                271,
+                20557
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 288894,
+              "matched_blocks": 288894,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 116,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0,
+              "grounded_plants": [
+                {
+                  "source": [
+                    -19311,
+                    68,
+                    20474
+                  ],
+                  "placed": [
+                    -19311,
+                    65,
+                    20474
+                  ],
+                  "within_vertical_limit": true
+                },
+                {
+                  "source": [
+                    -19361,
+                    68,
+                    20448
+                  ],
+                  "placed": [
+                    -19361,
+                    64,
+                    20448
+                  ],
+                  "within_vertical_limit": true
+                },
+                {
+                  "source": [
+                    -19338,
+                    68,
+                    20424
+                  ],
+                  "placed": [
+                    -19338,
+                    65,
+                    20424
+                  ],
+                  "within_vertical_limit": true
+                }
+              ]
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "world_tree",
+              "site_id": "natural:20260913:world_tree:-4:4",
+              "markers": [
+                {
+                  "role": "tree_amethyst_center",
+                  "x": -19335,
+                  "y": 73,
+                  "z": 20455,
+                  "block": "minecraft:amethyst_block"
+                },
+                {
+                  "role": "tree_aura_anchor",
+                  "x": -19335,
+                  "y": 68,
+                  "z": 20455,
+                  "block": "minecraft:spruce_log"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "seed": 8859037163509333742,
+          "rotation": 1,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 4,
+                "z": 7
+              },
+              "x": 23704,
+              "z": 35352,
+              "ticket": 6560,
+              "priority": 7184914979297518689,
+              "rotation": 1,
+              "unique": false
+            },
+            "asset": "world_tree",
+            "x2": 47408,
+            "z2": 70704,
+            "surface": 68,
+            "originX": 23804,
+            "originY": 44,
+            "originZ": 35251,
+            "minX": 23604,
+            "minZ": 35251,
+            "maxX": 23804,
+            "maxZ": 35453
+          },
+          "frozen": {
+            "fingerprint": "0351cf5835e4b5acb72d7163328552699db92c4abfd0b35aae88470e6c4e8a0e",
+            "interiors": "interiors-20261028-v5",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": -35,
+                  "z": -4
+                },
+                "x": -173032,
+                "z": -16152,
+                "ticket": 9412,
+                "priority": 6355183596885120134,
+                "rotation": 1,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": -346064,
+              "z2": -32304,
+              "surface": 72,
+              "originX": -172907,
+              "originY": -5,
+              "originZ": -16250,
+              "minX": -173157,
+              "minZ": -16250,
+              "maxX": -172907,
+              "maxZ": -16054
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:world_tree",
+              "template": "relics:world_tree_gameplay_worldgen",
+              "origin": [
+                23804,
+                44,
+                35251
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                23604,
+                44,
+                35251,
+                23804,
+                271,
+                35453
+              ],
+              "expected_bounding_box": [
+                23604,
+                44,
+                35251,
+                23804,
+                271,
+                35453
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 288894,
+              "matched_blocks": 288894,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 118,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0,
+              "grounded_plants": [
+                {
+                  "source": [
+                    23679,
+                    68,
+                    35334
+                  ],
+                  "placed": [
+                    23679,
+                    70,
+                    35334
+                  ],
+                  "within_vertical_limit": true
+                },
+                {
+                  "source": [
+                    23729,
+                    68,
+                    35360
+                  ],
+                  "placed": [
+                    23729,
+                    64,
+                    35360
+                  ],
+                  "within_vertical_limit": true
+                },
+                {
+                  "source": [
+                    23706,
+                    68,
+                    35384
+                  ],
+                  "placed": null,
+                  "within_vertical_limit": true
+                }
+              ]
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "world_tree",
+              "site_id": "natural:8859037163509333742:world_tree:4:7",
+              "markers": [
+                {
+                  "role": "tree_amethyst_center",
+                  "x": 23703,
+                  "y": 73,
+                  "z": 35353,
+                  "block": "minecraft:amethyst_block"
+                },
+                {
+                  "role": "tree_aura_anchor",
+                  "x": 23703,
+                  "y": 68,
+                  "z": 35353,
+                  "block": "minecraft:spruce_log"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "presentation": {
+      "path": "build/gameplay-feedback-20261027/server-105547-090833/evidence.json",
+      "artifact_sha256": "66b93cea03f14818ccfefe217c9f9266178c929fdf5789c2f56a1988a30534e4",
+      "passed": true,
+      "tree_aura_0": "radius=50.0\npositions_and_modes=45\nspatial_two_cell_lookup=true\nspherical_boundary=true\n",
+      "proof": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=b489c9dc-c013-4ed0-ad22-e6cc9cc9df5c\n",
+      "exit_code": 0,
+      "tree_aura_1": "radius=50.0\npositions_and_modes=45\nspatial_two_cell_lookup=true\nspherical_boundary=true\n",
+      "restart_preserved_claims_and_timeline": true,
+      "restart_result": "[10:56:39] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive",
+      "magnet_proof": "offhand_max_speed=0.385\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.385\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n"
+    }
+  },
+  "frozen_manifests": {
+    "relics.gameplay.integration.json": "8af3ed4996f7dddce8182c184a4aa0b434a469f248005b2428322ce0bc116407",
+    "relics.gameplay.landmarks.integration.json": "82fc688fc07514017654858eb24a33998625a864722e162e3eb02bfb3f58228e",
+    "relics.gameplay.short_entry_tower.integration.json": "9edf03417e27289a733730139130a846b3d36ddf637d5d35f4a18ac8d9713ecc",
+    "relics.gameplay.small_landmarks.integration.json": "2a1c6b7ad244ebf845d075327f5fb3f71483fb527f9a223e2994a25661df15a1",
+    "relics.integration.json": "c1445b004af213e2cbc729c08b9e0c8969d57a141994ee990d1cc817f7c56df9"
+  },
+  "preservation": {
+    "baseline_files": 1509,
+    "unchanged_files": 1483,
+    "authorized_root_changes": [
+      ".gitattributes",
+      ".gitignore",
+      "CHANGELOG.md",
+      "README.md",
+      "docs/README.md",
+      "docs/project/ALPHA_5_STATUS_20261027.md",
+      "docs/project/GAMEPLAY_PLAN_REVIEW.md",
+      "docs/project/LORE-BIBLE.md",
+      "docs/project/UMSETZUNGSPLAN.md",
+      "docs/technical/GAMEPLAY_MARKERS.md",
+      "docs/technical/GAMEPLAY_RUNTIME.md",
+      "relics/world-tree/README.md",
+      "relics/world-tree/gameplay/README.md",
+      "src/main/java/de/relics/TerrainSupportProcessor.java",
+      "src/main/java/de/relics/distribution/DistributionJournal.java",
+      "src/main/java/de/relics/gameplay/NaturalInteriors.java",
+      "src/main/java/de/relics/gameplay/RelicGameplay.java",
+      "src/main/java/de/relics/gameplay/TreeAura.java",
+      "src/test/java/de/relics/GameplayTests.java",
+      "src/test/java/de/relics/NaturalInteriorChecks.java",
+      "src/test/java/de/relics/WorldgenTests.java",
+      "tests/test_natural_interiors.py",
+      "tools/integrate_gameplay_interiors.py",
+      "tools/test_colossus_landmarks_server.py",
+      "tools/test_gameplay_presentation_server.py",
+      "tools/test_natural_interiors_server.py"
+    ],
+    "prior_models_unchanged": true,
+    "separate_compatibility_work_unchanged": true,
+    "worker_bindings_verified": 66
+  },
+  "reproducibility": {
+    "sha256": "66b93cea03f14818ccfefe217c9f9266178c929fdf5789c2f56a1988a30534e4",
+    "byte_identical": true
+  },
+  "installation": {
+    "installed": true,
+    "profile": "E:/Roaming/ModrinthApp/profiles/Relic Test",
+    "sha256": "66b93cea03f14818ccfefe217c9f9266178c929fdf5789c2f56a1988a30534e4",
+    "previous_sha256": "f63fd48eba6acc84201800406916380946315b823022b6c08c6f1d343d70ef50",
+    "backup": "build/tree-skull-feedback-20261028/installed-backup-f63fd48e.jar",
+    "profile_was_closed": true,
+    "original_worlds_opened_or_changed": false
+  },
+  "artifact_delta": {
+    "sha256": "66b93cea03f14818ccfefe217c9f9266178c929fdf5789c2f56a1988a30534e4",
+    "changed": [
+      "de/relics/TerrainSupportProcessor.class",
+      "de/relics/distribution/DistributionJournal.class",
+      "de/relics/distribution/DistributionRuntime.class",
+      "de/relics/gameplay/NaturalInteriors$Catalog.class",
+      "de/relics/gameplay/NaturalInteriors.class",
+      "de/relics/gameplay/RelicGameplay.class",
+      "de/relics/gameplay/TreeAura.class"
+    ],
+    "added": [
+      "data/relics/structure/titan_skull_2_side_v1.nbt",
+      "data/relics/structure/titan_skull_2_side_v1_worldgen.nbt",
+      "relics.gameplay.tree_skull.integration.json"
+    ],
+    "removed": [],
+    "templates": 40
+  },
+  "natural_rotations_tested": {
+    "titan_skull_2": [
+      0,
+      1,
+      2
+    ],
+    "world_tree": [
+      1,
+      3
+    ]
+  },
+  "remaining": "Graphical client visual acceptance of the new Skull variant and grounded plants"
+}

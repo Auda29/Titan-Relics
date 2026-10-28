@@ -1,0 +1,1390 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "cf1d2e56315bcbce11bb37d363b5c34815a5cb33",
+  "target": "Minecraft 26.2 / Fabric",
+  "status": "Colossus V7 model handoff; visual review and runtime integration pending",
+  "sidecar_extension": "Optional arm_clearance for the large detached arm; native terrain only, preserve source solids",
+  "unchanged_skulls": {
+    "titan_skull": {
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-meadow-ground-v3/titan-skull-v4-meadow-ground-v3.nbt",
+      "version": "titan-skull-v4-meadow-ground-v3",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 111328,
+      "ground_y": 16,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "b189932ac224097ba030a649ea2b44c898aaa4fdfbddb42b8797c32851ae5969",
+      "visually_accepted": false
+    },
+    "titan_skull_dry": {
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-dry-ground-v3/titan-skull-v4-dry-ground-v3.nbt",
+      "version": "titan-skull-v4-dry-ground-v3",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 111328,
+      "ground_y": 16,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "0d948527040a395b55615dce8704d72a2d5528b44c0b0c69ff94ea06b465eb67",
+      "visually_accepted": false
+    },
+    "titan_skull_sand": {
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-sand-ground-v3/titan-skull-v4-sand-ground-v3.nbt",
+      "version": "titan-skull-v4-sand-ground-v3",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 111328,
+      "ground_y": 16,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:desert",
+        {
+          "id": "terralith:desert_spires",
+          "required": false
+        },
+        {
+          "id": "terralith:desert_canyon",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:dryland",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "7106438dd1a0389dc5953f48351fa8a4aebfa1af3becd671d16288ab847bd0aa",
+      "visually_accepted": false
+    },
+    "titan_skull_rock": {
+      "source": "relics/titan-skull/design/generated/titan-skull-v4-rock-embedded-v1/titan-skull-v4-rock-embedded-v1.nbt",
+      "version": "titan-skull-v4-rock-embedded-v1",
+      "size": [
+        117,
+        79,
+        179
+      ],
+      "blocks": 20131,
+      "ground_y": 22,
+      "family": "titan_skull",
+      "biomes": [
+        "minecraft:windswept_hills",
+        "minecraft:windswept_gravelly_hills",
+        "minecraft:stony_shore",
+        "minecraft:stony_peaks",
+        {
+          "id": "terralith:rocky_mountains",
+          "required": false
+        }
+      ],
+      "slope": 12,
+      "sha256": "b60d3ab92e4e8b99e5674f82588c38c25a7e7fe9eb8135a3fdf22a576f7b30c4",
+      "visually_accepted": false,
+      "uphill_slope": 18,
+      "foundation_mode": "embedded_art"
+    },
+    "titan_skull_2": {
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-v1/titan-skull-2-v2-embedded-v1.nbt",
+      "version": "titan-skull-2-v2-embedded-v1",
+      "size": [
+        99,
+        136,
+        99
+      ],
+      "blocks": 32569,
+      "ground_y": 28,
+      "family": "titan_skull_2",
+      "biomes": [
+        "minecraft:plains",
+        "minecraft:sunflower_plains",
+        "minecraft:meadow",
+        {
+          "id": "terralith:blooming_valley",
+          "required": false
+        },
+        {
+          "id": "terralith:blooming_plateau",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:prairie",
+          "required": false
+        },
+        "minecraft:savanna",
+        {
+          "id": "terralith:steppe",
+          "required": false
+        },
+        {
+          "id": "biomesoplenty:scrubland",
+          "required": false
+        }
+      ],
+      "slope": 4,
+      "sha256": "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd",
+      "visually_accepted": false,
+      "foundation_mode": "embedded_art",
+      "buried_clip_depth": 6,
+      "max_support_depth": 2,
+      "surface_contact_depth": 6,
+      "follow_art": true
+    }
+  },
+  "assets": {
+    "colossus": {
+      "files": {
+        ".nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks.nbt",
+          "sha256": "88bda1cb8edeabee23bd61562f9388f2ad2dd41cceebcb06934fb09788d837d3",
+          "bytes": 739607
+        },
+        ".schem": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks.schem",
+          "sha256": "a4f8f27a78065ec3e2159f4c2d9ee8111308ff8e234e8357b336bce4757aedb8",
+          "bytes": 188236
+        },
+        ".gameplay.json": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks.gameplay.json",
+          "sha256": "3dec009b4733c190adbf004156636d18ff896121e28b9838c58594b505fd3391",
+          "bytes": 14174
+        },
+        ".design.json": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks.design.json",
+          "sha256": "c405b35fb88474357dfd97d32534cf76064eca03abb39a65657b30808b09d5ee",
+          "bytes": 8425
+        },
+        ".groups.json": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks.groups.json",
+          "sha256": "a8caac720dbfac0abefba3f9fa18058709008519e26d1a2813994aa7d3b5c126",
+          "bytes": 1277
+        },
+        ".manifest.json": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks.manifest.json",
+          "sha256": "7ba1a0f7c014ff91e52f681d9963cfbe423aee73d7a5918c5b23713edd64e669",
+          "bytes": 27184
+        },
+        "-source.blend": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks-source.blend",
+          "sha256": "7d2287ad3179e03e2ee71fea9086f8522bb31a277959b101c3d98126f19ab92c",
+          "bytes": 30139414
+        },
+        "01-overview.png": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/01-overview.png",
+          "sha256": "3cc5825253258e332dbf5499efed731698659cae5435ed7baa53adf8ae4bfe6c",
+          "bytes": 2142503
+        },
+        "02-arm-find.png": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/02-arm-find.png",
+          "sha256": "1573a8892a830f48b558d65499b055e3853e5290952ff35ef94fe45ac7b8fc25",
+          "bytes": 2123977
+        },
+        "03-guard.png": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/03-guard.png",
+          "sha256": "999b5af069a8ab80f6b836af04f93842b429afe56cf3623eebf51f2f1d722c6a",
+          "bytes": 2187071
+        },
+        "04-vault-console.png": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/04-vault-console.png",
+          "sha256": "13e56485009b7dba14ccd40331277dd74d7000b577ce41a8af87e97d063886de",
+          "bytes": 2265151
+        },
+        "arm-review.png": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/arm-review.png",
+          "sha256": "c24b62be9808082d541e7b2c0849cceeb91fbef1b00da423caf681ecd09ed3ac",
+          "bytes": 1399858
+        },
+        "guard-review.png": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/guard-review.png",
+          "sha256": "2d42b7c33eee78f6fc92f2ac94234d74e8ab4c51bc44f620ad126809e44fed7f",
+          "bytes": 1483602
+        },
+        "overview-review.png": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/overview-review.png",
+          "sha256": "d8d2a2383a97cbbb17f9f10c0a55899052f8a6a799a8673f34724dfd9d879a6e",
+          "bytes": 1384457
+        },
+        "vault-review.png": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/vault-review.png",
+          "sha256": "72a65f5add594e48ff075cc36b63dd9058ae393c7755d7f7669ad975a080e9df",
+          "bytes": 1524128
+        },
+        "verification.json": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/verification.json",
+          "sha256": "8c8dc1bf7b44272ee220d96e91f9cb139d7416a37f7d401e13da34cc2c105054",
+          "bytes": 818
+        },
+        "source-verification.json": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/source-verification.json",
+          "sha256": "bbb50851dffdd27fbe5011bbe322b73086dd999b83db2740773ff56337d570df",
+          "bytes": 338
+        }
+      },
+      "tiles": {
+        "tile_0_128_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_128_128.nbt",
+          "sha256": "40c092b6e001fd6d49cd3b104804195764051a70e443efb138b09b5b83223d99",
+          "bytes": 359
+        },
+        "tile_0_128_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_128_160.nbt",
+          "sha256": "81299483c9b4722d9d425e9456f795ff3cf0b52fe893e444fffc718cfb1937e4",
+          "bytes": 3809
+        },
+        "tile_0_128_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_128_192.nbt",
+          "sha256": "51cbdb35387c8ca01e33d756aa08a1cc84c2a3f0ec4d4118da47e0c99f6e1855",
+          "bytes": 1810
+        },
+        "tile_0_32_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_32_128.nbt",
+          "sha256": "fa80c8e4295af6707d8c7d39fbdf6bae2eace2120364acfe0485ea7869bcd937",
+          "bytes": 869
+        },
+        "tile_0_32_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_32_160.nbt",
+          "sha256": "24c08c008f4f3ba0b768ec800375447392924d6d486222044ce83b8979f42bd5",
+          "bytes": 4281
+        },
+        "tile_0_32_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_32_192.nbt",
+          "sha256": "c0783a09b2280886c1a78563886e422f47d002ccf2a49ef8587a6c6ff0e5d96e",
+          "bytes": 1910
+        },
+        "tile_0_32_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_32_224.nbt",
+          "sha256": "88821e93db3818a4d2ef074f25d47f1bbe097b75bcb8027d200548348865b8f6",
+          "bytes": 216
+        },
+        "tile_0_64_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_64_128.nbt",
+          "sha256": "31992b8bd210bb9cab54c338bdbfeb624cf26fe04c263a4916c707cfa85f87c1",
+          "bytes": 350
+        },
+        "tile_0_64_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_64_160.nbt",
+          "sha256": "005fc2ab4f8583c18344e11e28be97086d41e1bf5b12d7536625a3359140fa3e",
+          "bytes": 9624
+        },
+        "tile_0_64_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_64_192.nbt",
+          "sha256": "76b4877fbfeb76c4459b35d0557e70093e6369486d0cb75c1bf5bec6c7188106",
+          "bytes": 6344
+        },
+        "tile_0_64_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_64_224.nbt",
+          "sha256": "188e6841488445fbba2a067458ead55d4a9ee82ec86a89b48c74ec13ff3f85e8",
+          "bytes": 1703
+        },
+        "tile_0_96_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_96_128.nbt",
+          "sha256": "cd1bbe8b48bcdcc9f84c2bfc2851c3e241aed5d0effbb6754e7a52dd1acdee38",
+          "bytes": 2077
+        },
+        "tile_0_96_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_96_160.nbt",
+          "sha256": "6f4e6c938479b0328c600f2b356cb95828b040021c3a78c7e5bee8b404a45947",
+          "bytes": 6747
+        },
+        "tile_0_96_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_96_192.nbt",
+          "sha256": "1f33b1d04a73eedaf1f0092980ec69e4bdf5ea3352a404599f0b48cf2e83ea02",
+          "bytes": 7394
+        },
+        "tile_0_96_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_0_96_224.nbt",
+          "sha256": "4aeae86fe8579c4ee2655e85ff916e9f2f18f6c6b1e0a7d04b03b19ffe5ff8e7",
+          "bytes": 1187
+        },
+        "tile_128_0_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_0_160.nbt",
+          "sha256": "f6832af6cc8a924a3bcd851590efaa00cf4911820358cf22e2c7c5111f94ace1",
+          "bytes": 3121
+        },
+        "tile_128_0_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_0_192.nbt",
+          "sha256": "e4ae4fb962f944b3eb69703171fdef17d302faf99df33c2083e2e30937c34190",
+          "bytes": 2287
+        },
+        "tile_128_128_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_128_160.nbt",
+          "sha256": "1523b73d97b4b97a0c21c2397c63f9057394a171cb4991eaef222e201a11ff14",
+          "bytes": 4936
+        },
+        "tile_128_128_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_128_192.nbt",
+          "sha256": "b4298f9317ad2c4dd894758e2793be38f525fd81254acd51972d1663c3371ce9",
+          "bytes": 2394
+        },
+        "tile_128_160_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_160_160.nbt",
+          "sha256": "f4366ff466598ece45a3e3cec29364bd2efaee3dac2e2eee3f828919ae2bfd24",
+          "bytes": 235
+        },
+        "tile_128_32_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_32_128.nbt",
+          "sha256": "559af5dcda9bf4d8dd1a4e146a5381d5c369596f3b870fb8e291e976db8b0d8d",
+          "bytes": 1928
+        },
+        "tile_128_32_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_32_160.nbt",
+          "sha256": "7652c3a5547ceea0f43121eb82d91642731097db99b2e86083f8c8e00946f924",
+          "bytes": 9871
+        },
+        "tile_128_32_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_32_192.nbt",
+          "sha256": "33e6759a74ef5d408d666a7f9e42984b731dd980aa2825606a01b3dbdb3be165",
+          "bytes": 9769
+        },
+        "tile_128_32_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_32_224.nbt",
+          "sha256": "43c6542dc0e83b1f2065dedda494b4e6b9483f77a8e4f6d81919f4a569535407",
+          "bytes": 357
+        },
+        "tile_128_32_64.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_32_64.nbt",
+          "sha256": "ec5d2b4f241b25560d91a9743d80d7bef09b1bc0b247fcd63ce0b388ac7f303b",
+          "bytes": 1527
+        },
+        "tile_128_32_96.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_32_96.nbt",
+          "sha256": "3fa01bfba33a256fd980f805849c3d81fc9546e645fb67628417a313b78c915f",
+          "bytes": 901
+        },
+        "tile_128_64_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_64_128.nbt",
+          "sha256": "568d1ac64c1ef1b1a8c0d4e78a1a1174f64354325403b9b4ea121cae3c68132a",
+          "bytes": 2614
+        },
+        "tile_128_64_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_64_160.nbt",
+          "sha256": "be49130a4a302eb54bf23637bfdb237f4ad65df4eef6c11d01fcde9d38bf6030",
+          "bytes": 10176
+        },
+        "tile_128_64_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_64_192.nbt",
+          "sha256": "fe8eec406e845a5f58ee61f93f40c9f5c4149e6d6bc491eb63b0a506f836cb48",
+          "bytes": 7575
+        },
+        "tile_128_64_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_64_224.nbt",
+          "sha256": "2938450e27d4d0702be8734abee7b85d53c0ebb25e4c3dbd46b718d7e7da7e37",
+          "bytes": 2784
+        },
+        "tile_128_64_64.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_64_64.nbt",
+          "sha256": "65aa91592dcbedb1eaa83f680005a8933d2c37368530d5c5651246bf409a4b60",
+          "bytes": 8168
+        },
+        "tile_128_64_96.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_64_96.nbt",
+          "sha256": "0368d046b1b4f0bc0ddde6c1a5a3b8b0774b5aff681a80708eb632c4ac917777",
+          "bytes": 3434
+        },
+        "tile_128_96_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_96_128.nbt",
+          "sha256": "b30ee4cd9825d7adecc9b04d20bff0e6b76d2227b924d3cbca59475cfef1d122",
+          "bytes": 1588
+        },
+        "tile_128_96_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_96_160.nbt",
+          "sha256": "ff28adbdf324ffcb14a359f49d5128691f6b9b00e0d49b9f51609df4d1ac5920",
+          "bytes": 13772
+        },
+        "tile_128_96_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_96_192.nbt",
+          "sha256": "986b887ecb22d323a037db9b843bc1b05e13ab83cbbf76aaf56f487d8b608f55",
+          "bytes": 9384
+        },
+        "tile_128_96_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_128_96_224.nbt",
+          "sha256": "c5421bceef94b762118689b826cb290ccb780f62b5bd1bd3a639ebc14551f606",
+          "bytes": 1543
+        },
+        "tile_160_32_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_160_32_160.nbt",
+          "sha256": "acedde3957539277d4d67a110c947ff198d12a8944540c0079a269eccafa9ffb",
+          "bytes": 1069
+        },
+        "tile_160_32_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_160_32_192.nbt",
+          "sha256": "2643e9fdda81a7d1081da6322b5cd1ff9e3a68a6bbee0f5c80e90d24e5ba05f4",
+          "bytes": 1504
+        },
+        "tile_160_32_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_160_32_224.nbt",
+          "sha256": "b49fc337778e2cc173f6a3d2a77002cf78adf0e3aed36ae99907137705f4a7a1",
+          "bytes": 145
+        },
+        "tile_160_64_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_160_64_160.nbt",
+          "sha256": "b50f62b31ee4c7018cb57aff24d7fcf35687ea49b11ff852d4570468b54b1325",
+          "bytes": 2815
+        },
+        "tile_160_64_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_160_64_192.nbt",
+          "sha256": "85a12451c064d780682c96e1df9958c9a60713873f4b37a3967e6757837eba2f",
+          "bytes": 2920
+        },
+        "tile_160_64_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_160_64_224.nbt",
+          "sha256": "17d3ab011adab262d0f6dd9f785f84feb23bc3923d797fc8122d9371c3ed19ae",
+          "bytes": 813
+        },
+        "tile_160_96_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_160_96_160.nbt",
+          "sha256": "c50f05dadf158b25352d1afe289ef65242de1545a44a5944a3fcb4c5f984cc3b",
+          "bytes": 2228
+        },
+        "tile_160_96_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_160_96_192.nbt",
+          "sha256": "0ac2f9674a359f36e8b7ddd730027e606aea60f308103adc6ecd92326e2061ee",
+          "bytes": 3003
+        },
+        "tile_160_96_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_160_96_224.nbt",
+          "sha256": "98b608233d7af78d3fb985cf652bef73a755eac033a97cc60cc9aca251c5e7ac",
+          "bytes": 390
+        },
+        "tile_32_0_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_0_160.nbt",
+          "sha256": "ba1c5cbe917e2e3685605e4ce57292f06ce6d46e02596705d72a6d9444101e93",
+          "bytes": 2607
+        },
+        "tile_32_0_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_0_192.nbt",
+          "sha256": "e42264e23bc4e53c7dc08ad918a92ac873d17ddcd36870410abd011379dacebd",
+          "bytes": 1656
+        },
+        "tile_32_128_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_128_128.nbt",
+          "sha256": "ff55352bc9054c5294900429834b7818352e5617e369a248b0d4e3d11d73f847",
+          "bytes": 531
+        },
+        "tile_32_128_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_128_160.nbt",
+          "sha256": "6fc7f9c044e5fd00395a88574d106d27866f3471ad0787a5088fe3c5c9a54e4f",
+          "bytes": 13397
+        },
+        "tile_32_128_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_128_192.nbt",
+          "sha256": "578bd3a517c066b7357d6513cb8d023483b3210b495f8fbbbec2363d79a2f86c",
+          "bytes": 5151
+        },
+        "tile_32_160_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_160_160.nbt",
+          "sha256": "184ec1630c21b25484ead6ba67963bcc2205bbee3fe7f9e990ad40dc04a350d8",
+          "bytes": 249
+        },
+        "tile_32_32_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_32_128.nbt",
+          "sha256": "6c333e3f2d005bc685f023be29ead0e006f90dd4b93b45b28a05b9dffb50c4a8",
+          "bytes": 793
+        },
+        "tile_32_32_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_32_160.nbt",
+          "sha256": "dce0d7537c2d9e45627c97bdaedf32e009eede9ad007e84d489e0bb09e9d65e3",
+          "bytes": 8524
+        },
+        "tile_32_32_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_32_192.nbt",
+          "sha256": "865f917a7712254a5b025d64c48593b8f5abb6f775008e6880d4224df87824a3",
+          "bytes": 7164
+        },
+        "tile_32_32_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_32_224.nbt",
+          "sha256": "b13e89712eeb280ec57bad4b5d935d89f72f332e8852d311b0402f1888095ed6",
+          "bytes": 737
+        },
+        "tile_32_64_0.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_64_0.nbt",
+          "sha256": "ddbfcafecbc14f990328b8c42d22db80ab923c0710edf95b0737a786dda2941a",
+          "bytes": 6751
+        },
+        "tile_32_64_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_64_128.nbt",
+          "sha256": "e215483987b17471933494d0a93f4e0c58103c0a966d397a68a94912fa233778",
+          "bytes": 3116
+        },
+        "tile_32_64_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_64_160.nbt",
+          "sha256": "6809c7ca0e5a7674a33d8d85c83c6e24ca861425d5ea1e235756c32b2d870fd7",
+          "bytes": 10970
+        },
+        "tile_32_64_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_64_192.nbt",
+          "sha256": "faa627bc5838f47281c8b74774172c0cf3d1c449c122f002e9c9a598b55d1f32",
+          "bytes": 9267
+        },
+        "tile_32_64_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_64_224.nbt",
+          "sha256": "e21c51b4dc8123a0383b17e410388ed8b2a556be3aed66321f03d2311ff80fed",
+          "bytes": 4814
+        },
+        "tile_32_64_32.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_64_32.nbt",
+          "sha256": "1b8953be096b58dea9915bcaafdab73b733d3560d270e7f3879ccd7b9886ba65",
+          "bytes": 1775
+        },
+        "tile_32_96_0.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_96_0.nbt",
+          "sha256": "2b536a6b619747531a9f11ee86db521a32e02201186bee99990a416dd03b2919",
+          "bytes": 291
+        },
+        "tile_32_96_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_96_128.nbt",
+          "sha256": "300893f9e35ed9b6f5d427adbf2c685d3092251bd2b137bc60d078a799ccedd1",
+          "bytes": 5133
+        },
+        "tile_32_96_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_96_160.nbt",
+          "sha256": "f7a5b3c42f757ef8298c4f3a05cc5033f0526f27811639caff137f19de11c981",
+          "bytes": 8878
+        },
+        "tile_32_96_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_96_192.nbt",
+          "sha256": "81dd6b051448b8505380aa9ae1cfbdef4295e4bdadb69cc4615dfbd3d279bc7b",
+          "bytes": 9987
+        },
+        "tile_32_96_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_32_96_224.nbt",
+          "sha256": "fd51af5cb77f2ac47840747b43c6a4bd6452fdfe7f0e57f395d088acd78fef29",
+          "bytes": 1870
+        },
+        "tile_64_0_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_0_128.nbt",
+          "sha256": "fd600eeff7a12585214b3eb6c0f6568fb54b63fcf76f506fdc29facd4847e774",
+          "bytes": 213
+        },
+        "tile_64_0_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_0_160.nbt",
+          "sha256": "4a5041c5e621b2863e3d8a82427bb87cec9b8ad73d1035271037f7c977912249",
+          "bytes": 8701
+        },
+        "tile_64_0_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_0_192.nbt",
+          "sha256": "649cfc8f8950d9bee2110e8b49906e9a817ac0f020e96027ffb0b7c9955665c8",
+          "bytes": 8954
+        },
+        "tile_64_128_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_128_128.nbt",
+          "sha256": "229c39310a86bac89e385376624b52319340cb237817d7fbdfb951d0f5e670bc",
+          "bytes": 8378
+        },
+        "tile_64_128_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_128_160.nbt",
+          "sha256": "2552c966531eabdbc07495616d94be84a0abd32b540558f4e1881b78d5dba0b3",
+          "bytes": 24262
+        },
+        "tile_64_128_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_128_192.nbt",
+          "sha256": "b820e51acaf4a9fc2d6a6c9d370948978b1c8dafbee4601522a6ecebd0294025",
+          "bytes": 14991
+        },
+        "tile_64_128_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_128_224.nbt",
+          "sha256": "ecde75fc321ea12f152f4af7f4a6cd182d302ed209173b0a9abd56855cc7a8d3",
+          "bytes": 141
+        },
+        "tile_64_160_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_160_128.nbt",
+          "sha256": "45b501e6c61b2db02ed138a1e5cde87a4681f3f19fb685dca75f2130d5c5e4aa",
+          "bytes": 4005
+        },
+        "tile_64_160_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_160_160.nbt",
+          "sha256": "d08093639126124fcc98dcb3f27ccaf6f475f8d542aa7093217b2e6ea7721b38",
+          "bytes": 19570
+        },
+        "tile_64_160_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_160_192.nbt",
+          "sha256": "84b5f212bcaaba033f8a66fa1a65008134fcc7a6fa70f6a797c75dfdd9c80e7b",
+          "bytes": 7996
+        },
+        "tile_64_192_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_192_128.nbt",
+          "sha256": "045d7ab306bfaa74797362f76e3d2a0c1201146cf405ee5460683635d9c1c0b0",
+          "bytes": 375
+        },
+        "tile_64_192_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_192_160.nbt",
+          "sha256": "aa12441db79a65af10718b5b26b680913f8f2de260f02a8eaf07b0cdb24f1dfd",
+          "bytes": 7849
+        },
+        "tile_64_192_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_192_192.nbt",
+          "sha256": "d1e710e03eb681051b3b1ca29599abb9d9b71c2e773bd51fa0e4d425c39f78b8",
+          "bytes": 1211
+        },
+        "tile_64_32_0.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_32_0.nbt",
+          "sha256": "0e9640899a366838599b13d9538a3d15f5d50727a70699bd6fcda02130df3e8a",
+          "bytes": 144
+        },
+        "tile_64_32_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_32_128.nbt",
+          "sha256": "14b88c4baff12c38aaecdaac3419b5d08b621a03330d789159afa82e0ce84d2c",
+          "bytes": 2462
+        },
+        "tile_64_32_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_32_160.nbt",
+          "sha256": "522d02b78c6f430717cbef6834f75798fe6d4c17a04c96bfe8cf0ed04f0a40ca",
+          "bytes": 11829
+        },
+        "tile_64_32_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_32_192.nbt",
+          "sha256": "0c242095e7a027698d4db14b3259bbc500ee3d23857bb0bad9bc61085f420551",
+          "bytes": 14821
+        },
+        "tile_64_32_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_32_224.nbt",
+          "sha256": "fb076a6bbc26fed3df81f103d4a6f71595e3dca2cfccfcbc3e7d05ca7bc59f45",
+          "bytes": 1843
+        },
+        "tile_64_32_32.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_32_32.nbt",
+          "sha256": "eacb7be00cdd56805ba846773b9b53d2fdbb5ab9e30d8caa8d5e9d1c862cd809",
+          "bytes": 3620
+        },
+        "tile_64_32_64.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_32_64.nbt",
+          "sha256": "b704f56688e517367f3dfa6cef68d95aa2233cce8c168bf08ec6fc42a4cb009d",
+          "bytes": 633
+        },
+        "tile_64_64_0.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_64_0.nbt",
+          "sha256": "0f34577c74de850c3a7031093492115062474737226c17389120d88efd9ee143",
+          "bytes": 6677
+        },
+        "tile_64_64_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_64_128.nbt",
+          "sha256": "7d73d2b2654734b0a84cf17a35b6300eb4ededd8d258d268c949420d7d529651",
+          "bytes": 6475
+        },
+        "tile_64_64_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_64_160.nbt",
+          "sha256": "fd8b205cb695d84dc84c21b587f5975d1943b26948743d85ad67df02999e7d93",
+          "bytes": 11601
+        },
+        "tile_64_64_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_64_192.nbt",
+          "sha256": "9a23ccdc33717e1f568e27d9fdd888304b944268d10511b652650cff1251b86d",
+          "bytes": 12594
+        },
+        "tile_64_64_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_64_224.nbt",
+          "sha256": "ae272533ebe99ddd2d94915c7091158b9f3fcc18f6b81f907789a94174d24a40",
+          "bytes": 4461
+        },
+        "tile_64_64_32.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_64_32.nbt",
+          "sha256": "14711de2b30075a22c735608eef98b9d5cb6f15e9c116ccc0eb9fbe4776c8f4c",
+          "bytes": 14278
+        },
+        "tile_64_64_64.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_64_64.nbt",
+          "sha256": "959920a76dcb2db9de336343acdcf674687a1e25c7f48ded91646950b07b3883",
+          "bytes": 3004
+        },
+        "tile_64_96_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_96_128.nbt",
+          "sha256": "46e98741a25eaa81e6da9d938fdb4beb937882d59a833394cf70b4f9cf9282aa",
+          "bytes": 8114
+        },
+        "tile_64_96_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_96_160.nbt",
+          "sha256": "355ba38a3ee926507845cf3e886b14979163027079a385a10895ee2c07905b68",
+          "bytes": 8511
+        },
+        "tile_64_96_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_96_192.nbt",
+          "sha256": "b785e0027fe5f801be731ad953f79e27c0489d3c04fa7b9d15a2ebb93d329005",
+          "bytes": 10405
+        },
+        "tile_64_96_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_64_96_224.nbt",
+          "sha256": "b440d7148efe136169728db80715cb073102c26c1f918b6c0456ccc16449e94b",
+          "bytes": 2861
+        },
+        "tile_96_0_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_0_128.nbt",
+          "sha256": "7833c786e2986fc09d918a633fd12adf435c2880b90f9c9243a4fbe4b01cfdc8",
+          "bytes": 250
+        },
+        "tile_96_0_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_0_160.nbt",
+          "sha256": "14d1f0c0a7d82e963048f5f53e4ffcfb70d077589cbe3094ccebdf1bdab13b21",
+          "bytes": 6684
+        },
+        "tile_96_0_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_0_192.nbt",
+          "sha256": "95d1395bc394adc4df2295a4516c8ddaa4ce27a6d9353794fb74cb62ff5143d9",
+          "bytes": 9158
+        },
+        "tile_96_128_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_128_128.nbt",
+          "sha256": "a405285c4c068241a1aa6a3a133a997444b36194b69b2ca752c33decba047731",
+          "bytes": 8502
+        },
+        "tile_96_128_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_128_160.nbt",
+          "sha256": "78a787a2a34069b359de7396a5e1e7d5a258c812b1e619d70c70468d5512bbc8",
+          "bytes": 27512
+        },
+        "tile_96_128_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_128_192.nbt",
+          "sha256": "6c3dc01c4a0a26b5a26cd8e0d0b028db957367e16f2d4d744491834600419320",
+          "bytes": 14160
+        },
+        "tile_96_160_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_160_128.nbt",
+          "sha256": "08937b6e1e4ce9ae2e2cbf6bcdf2d6c148d7449de33d38d59649c246e6ff64e3",
+          "bytes": 5884
+        },
+        "tile_96_160_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_160_160.nbt",
+          "sha256": "17d75b5893642631c714426eb01467e3ac03597397e650c2ded437b9f539f796",
+          "bytes": 18905
+        },
+        "tile_96_160_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_160_192.nbt",
+          "sha256": "ede205e6f06567922965dce6e000a2c5fec734d0db655821af651d118b2ca6ad",
+          "bytes": 7935
+        },
+        "tile_96_192_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_192_128.nbt",
+          "sha256": "f1d9bf0c34eafadbee8669086fa754893b05979270944f7a3642ef05e4fe9e62",
+          "bytes": 259
+        },
+        "tile_96_192_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_192_160.nbt",
+          "sha256": "2a53c5f60d65ebdbb580b254a971e39d80cc3d3d34f2f5d68fa8957977d2da42",
+          "bytes": 8262
+        },
+        "tile_96_192_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_192_192.nbt",
+          "sha256": "a0d3d1390206e700e52aab4e2c29558d34139a7d765516d554405940d38453a8",
+          "bytes": 1364
+        },
+        "tile_96_32_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_32_128.nbt",
+          "sha256": "15653ba555f93b7caa8098fffdb8ef5a6f65d518726a2680625ec2283dd10b52",
+          "bytes": 4632
+        },
+        "tile_96_32_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_32_160.nbt",
+          "sha256": "08921ad74bfdc16ad27d1824a5a543e3ff2eac9643a07f0325a8d9ccb458c6b0",
+          "bytes": 10726
+        },
+        "tile_96_32_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_32_192.nbt",
+          "sha256": "dd0c1a28c22b76e1d5cb2e16e1e533d5e9e49d93dcfd0fccef61e25b0c38a8de",
+          "bytes": 11810
+        },
+        "tile_96_32_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_32_224.nbt",
+          "sha256": "5789dfd78523f025ccdd577160ead14d5e349ee9ee7c43e5a60428d043b8c17e",
+          "bytes": 1320
+        },
+        "tile_96_32_32.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_32_32.nbt",
+          "sha256": "ea952fa6ce33ebd4c5967b502c482963e9380695668eef7f3117e7aa4f068026",
+          "bytes": 1804
+        },
+        "tile_96_32_64.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_32_64.nbt",
+          "sha256": "a193db6fab1df6c8501bc737a9adaec571ad1f4e2430ea3748a770a5ebd63d99",
+          "bytes": 3718
+        },
+        "tile_96_32_96.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_32_96.nbt",
+          "sha256": "3486de04f2d6566fbdabafa1785a911f9198ff0cc013178d7d4f67309cac70aa",
+          "bytes": 363
+        },
+        "tile_96_64_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_64_128.nbt",
+          "sha256": "f9063f3b865cfef0c6a4a32d688aa0611bc74d7a30615443bddf0ea58c9f0852",
+          "bytes": 5202
+        },
+        "tile_96_64_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_64_160.nbt",
+          "sha256": "27b2a027698ba2dcedd4820f91307dd2327285e4ac5d70b57bf9826197c3b2c6",
+          "bytes": 10034
+        },
+        "tile_96_64_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_64_192.nbt",
+          "sha256": "85941a721f4cd7c9f7bee12587774c9f5a8cd9f6ae72dc1812249f5841381e85",
+          "bytes": 9567
+        },
+        "tile_96_64_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_64_224.nbt",
+          "sha256": "3311ed9d0b08d7406803128c7e88af48e8b6483ae2666b7bcf25d97ac2d767f8",
+          "bytes": 4804
+        },
+        "tile_96_64_32.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_64_32.nbt",
+          "sha256": "cf23f7c7cb5cb8237045f8214e9658a604b8d0969221c83c72387c08b8821015",
+          "bytes": 6660
+        },
+        "tile_96_64_64.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_64_64.nbt",
+          "sha256": "2497240e6e91461fa2ae5230d803201775462ed056c2af7a8d89f6fc73c4c843",
+          "bytes": 11276
+        },
+        "tile_96_64_96.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_64_96.nbt",
+          "sha256": "c48345e7cfab7bab4228587056c0ec4ad3c5b36be6ffe895f793d62644f53453",
+          "bytes": 3463
+        },
+        "tile_96_96_128.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_96_128.nbt",
+          "sha256": "132318fedb65ab3d91f3706546192c6af984f0c50de2f592b25fc8f51e8e1b29",
+          "bytes": 7269
+        },
+        "tile_96_96_160.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_96_160.nbt",
+          "sha256": "ad3ce42b717a392ded42b71641ad61dc6813bbb944922b5d777003e1212e89b5",
+          "bytes": 3199
+        },
+        "tile_96_96_192.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_96_192.nbt",
+          "sha256": "ea7c75f31b460ce7a267fb0a8e7fba817ea6d0973bf55cd54722f9c057a7cc47",
+          "bytes": 7798
+        },
+        "tile_96_96_224.nbt": {
+          "path": "relics/colossus/design/generated/colossus-v7-landmarks/colossus-v7-landmarks_tiles/tile_96_96_224.nbt",
+          "sha256": "1a4349217b4fa9d0d680f411d551833664f7bfe4a3183e1ef82f78b53db39cd5",
+          "bytes": 1522
+        }
+      },
+      "size": [
+        181,
+        209,
+        235
+      ],
+      "ground_y": 77,
+      "blocks": 228100,
+      "markers": 5,
+      "regions": 15,
+      "marker_coordinates": {
+        "colossus_hatch": {
+          "pos": [
+            118,
+            169,
+            182
+          ],
+          "facing": "east"
+        },
+        "colossus_golem_spawn": {
+          "pos": [
+            94,
+            169,
+            190
+          ]
+        },
+        "colossus_trial_spawner": {
+          "pos": [
+            94,
+            169,
+            183
+          ],
+          "expected_block": "minecraft:chiseled_deepslate"
+        },
+        "colossus_vault": {
+          "pos": [
+            94,
+            169,
+            164
+          ],
+          "facing": "south",
+          "expected_block": "minecraft:polished_blackstone"
+        },
+        "colossus_arm_magnet_chest": {
+          "pos": [
+            110,
+            78,
+            70
+          ],
+          "facing": "south",
+          "expected_block": "minecraft:waxed_cut_copper"
+        }
+      }
+    },
+    "small_colossus": {
+      "files": {
+        "01-overview.png": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/01-overview.png",
+          "sha256": "17632b41d141569f4bc4d45531e4443cd5d3ff001d90e25b9bba7e7eedadbcd6",
+          "bytes": 2259246
+        },
+        "02-context.png": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/02-context.png",
+          "sha256": "3d37225b67cc082b0269c568b73a191747fec311fc6c19cc359890f96085f16f",
+          "bytes": 2112517
+        },
+        "03-frame.png": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/03-frame.png",
+          "sha256": "651350398c941ebd0f1ac133e6304cb9cf92a63a63803abf52dfad9e345257b2",
+          "bytes": 2242900
+        },
+        "context-review.png": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/context-review.png",
+          "sha256": "a8a5ae8fbb02bf5c095fcdf7ff0e354330476ac4399b80a7b3134857fb8c5a0f",
+          "bytes": 1398440
+        },
+        "frame-review.png": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/frame-review.png",
+          "sha256": "04a2cc1e5cb2b817c45fc713e157bbc95077e68fd7e71dafa829379c72c722cd",
+          "bytes": 1506266
+        },
+        "overview-review.png": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/overview-review.png",
+          "sha256": "0dc32055714171d8414a4eecb72a723b454c483ae9049610dcc0a9de78cc0af8",
+          "bytes": 1471216
+        },
+        "preservation.json": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/preservation.json",
+          "sha256": "4c408877a6f9ace15707e52202445637c7cce6a99daac4881b796de4e13b7ea9",
+          "bytes": 526
+        },
+        "small-colossus-v10-landmarks-source.blend": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks-source.blend",
+          "sha256": "be547535958ea46d10631f8cab7eb7bad48c86c2864cc198a5514fc82ab7b4c0",
+          "bytes": 2370635
+        },
+        "small-colossus-v10-landmarks.design.json": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks.design.json",
+          "sha256": "549d38d401b8a707fc48ea5c4799332bb20bad639d0060b9f7843fe1ea267103",
+          "bytes": 8149
+        },
+        "small-colossus-v10-landmarks.gameplay.json": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks.gameplay.json",
+          "sha256": "bb68266d5403bebaf96aa96ae0df28af5e570cafdd3d225cb0ba45a9dbb98dcc",
+          "bytes": 51644
+        },
+        "small-colossus-v10-landmarks.groups.json": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks.groups.json",
+          "sha256": "4901e4a7401b50fc6932f556ba1629fd3db4469f1a8542966fce3085dd2b539b",
+          "bytes": 445
+        },
+        "small-colossus-v10-landmarks.manifest.json": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks.manifest.json",
+          "sha256": "397f503e54676b4de81d6772c0ffc99e5963e9979440ca39d7451ad1c179b7e0",
+          "bytes": 7349
+        },
+        "small-colossus-v10-landmarks.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks.nbt",
+          "sha256": "7d88093eece8e8de1d8b8ca3e316ae516e8b5c6dcdfc20b50b8fc35586133db8",
+          "bytes": 591951
+        },
+        "small-colossus-v10-landmarks.schem": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks.schem",
+          "sha256": "8343d2e700320c8ae22ba2f4c816aff0633becdc0e5f7b64cf1c7a483ebbccd5",
+          "bytes": 42136
+        },
+        "source-verification.json": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/source-verification.json",
+          "sha256": "4396f8bfc22ab14b3ff65ad601decb14fa9816ec1e3f6761d91beffff906882f",
+          "bytes": 337
+        },
+        "verification.json": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/verification.json",
+          "sha256": "ecddee70e582783c1cd05da6d1d6e52a61178aa659f089c9eda86bc23d626e6a",
+          "bytes": 752
+        },
+        "tools/build_small_colossus_landmarks.py": {
+          "path": "tools/build_small_colossus_landmarks.py",
+          "sha256": "4c948177f7ae01c02e98e38d85f34f753af81528e70c0b5a94f92231f3e40d64",
+          "bytes": 3349
+        },
+        "tools/render_small_colossus_landmarks.py": {
+          "path": "tools/render_small_colossus_landmarks.py",
+          "sha256": "6ad86a81641866809bbb8bf9eab6e01830cca13beb15dd913f71a77bf3af047a",
+          "bytes": 3839
+        },
+        "tools/finalize_small_colossus_landmarks.py": {
+          "path": "tools/finalize_small_colossus_landmarks.py",
+          "sha256": "d03b1996be4b01d85ad41dfe20b262ec64ec01353a0eafd29653a463025ebd90",
+          "bytes": 10436
+        },
+        "tests/test_small_colossus_landmarks.py": {
+          "path": "tests/test_small_colossus_landmarks.py",
+          "sha256": "637010341f185a3d90fb17cfa592847407fb4b0ef1192dcee5a91128dafcf1c2",
+          "bytes": 4493
+        },
+        "SMALL_COLOSSUS_LANDMARKS_20261028.md": {
+          "path": "docs/project/SMALL_COLOSSUS_LANDMARKS_20261028.md",
+          "sha256": "a9ff4ade064256c3d2ec9876b83f22f98fb812d64229cba9ebc22751d9e32bbf",
+          "bytes": 6739
+        }
+      },
+      "tiles": {
+        "tile_0_0_0.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_0_0_0.nbt",
+          "sha256": "4a555c28d1614ad56e6be16601ffdc0d2344f91718982fb0a05b31eac27f6e8e",
+          "bytes": 16521
+        },
+        "tile_0_0_32.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_0_0_32.nbt",
+          "sha256": "b3b7dde09d16837a4823f2dec36507f04caab78e05e5c2177164ed943939f9d1",
+          "bytes": 32411
+        },
+        "tile_0_0_64.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_0_0_64.nbt",
+          "sha256": "5fb984cd0dd4b5b6b7cc3fa464289d173eae735873808573dabee02f0e797576",
+          "bytes": 13014
+        },
+        "tile_0_32_32.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_0_32_32.nbt",
+          "sha256": "173bf07b0c6ae4fcba4f73949851cc53f916eb4533fedfbee500104868d0a31d",
+          "bytes": 15028
+        },
+        "tile_0_32_64.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_0_32_64.nbt",
+          "sha256": "614272f73fd214fa51704989af567db58f3a62daa596449af9c61ac732b52385",
+          "bytes": 10013
+        },
+        "tile_32_0_0.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_0_0.nbt",
+          "sha256": "725f928686c37f328539b68c2dce2cecd544b6a242112bc5feedf3ac5d771759",
+          "bytes": 261
+        },
+        "tile_32_0_32.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_0_32.nbt",
+          "sha256": "b44a636810112df866625deab1269d00e25f0a5e42d749825ac35a81e3f1e1db",
+          "bytes": 27455
+        },
+        "tile_32_0_64.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_0_64.nbt",
+          "sha256": "8afe3df16818cfda3bf80456017aa826655f291333a3e9b1e8f110ba98acee6a",
+          "bytes": 69592
+        },
+        "tile_32_0_96.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_0_96.nbt",
+          "sha256": "399808acb6cb21a6341d0521aa82cb1ffa763d66d405e2bd24c3e1f9061a8929",
+          "bytes": 12080
+        },
+        "tile_32_32_0.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_32_0.nbt",
+          "sha256": "5c4f912843137d8787c7d45edcde58e5c37df7dc3b6fb13261ecaf797a448b1c",
+          "bytes": 6288
+        },
+        "tile_32_32_32.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_32_32.nbt",
+          "sha256": "6433b9eaeb961f076c35b135e8632dc9e4d34d6ed8139d705fa9f2a6c797bcc4",
+          "bytes": 52592
+        },
+        "tile_32_32_64.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_32_64.nbt",
+          "sha256": "d53310e3ad7ebab01829a416cb01544ab02aa04445191b56cddbfead4ea518bf",
+          "bytes": 41297
+        },
+        "tile_32_32_96.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_32_96.nbt",
+          "sha256": "63e52faeade58b4784d2ecdf9ae164daa55bb9d5b46e20a2960c857342b7d144",
+          "bytes": 178
+        },
+        "tile_32_64_0.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_64_0.nbt",
+          "sha256": "7f7cfcba06d63eb29d6ab8731d386b70428b75a66a3fd763ed3495933e7d0873",
+          "bytes": 2712
+        },
+        "tile_32_64_32.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_64_32.nbt",
+          "sha256": "0a7ff5f09dd3be30a7dd77df8c543da48d9e8361ae7ee2cb2d0ebd7dc1e3a36f",
+          "bytes": 20458
+        },
+        "tile_32_64_64.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_32_64_64.nbt",
+          "sha256": "ef0525ea29e55f9399a06da89ae7af00272ab07b8676ae9676c9057f0fe49f87",
+          "bytes": 1434
+        },
+        "tile_64_0_0.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_0_0.nbt",
+          "sha256": "079b807da7ace35701884536231172ea10e663b96cd894732c4be381c52cec34",
+          "bytes": 2201
+        },
+        "tile_64_0_32.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_0_32.nbt",
+          "sha256": "a1534cd382ba7c8b550200ff6e95fdb57a31d914eed465dfcee73bb60530c013",
+          "bytes": 36620
+        },
+        "tile_64_0_64.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_0_64.nbt",
+          "sha256": "ca3b393f442eb30684c05d9f40d1022c6305209e158b62ebc4050d776186be4e",
+          "bytes": 57563
+        },
+        "tile_64_0_96.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_0_96.nbt",
+          "sha256": "0620738f2092c097f0c085e4b5d6414c834b7ff4bbef950b27fab6e0d6237436",
+          "bytes": 6302
+        },
+        "tile_64_32_0.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_32_0.nbt",
+          "sha256": "74ea22e69c78a79c26ac4c11d13ef7fdc2de41c27b61eb9c72e0882c115dde08",
+          "bytes": 10488
+        },
+        "tile_64_32_32.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_32_32.nbt",
+          "sha256": "0775f9cda74cef2471b6495a974fccabe517e4a6729810e42097992387ef0d82",
+          "bytes": 61381
+        },
+        "tile_64_32_64.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_32_64.nbt",
+          "sha256": "c8f2e55919ab6a36a724e2ed73a166d4743456cd7b02bcb2bf76f65da5251ac6",
+          "bytes": 40568
+        },
+        "tile_64_32_96.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_32_96.nbt",
+          "sha256": "aceea5059583d0e3e550d99140f3762f7b763cbe30f02c6df6951ebe165a3227",
+          "bytes": 149
+        },
+        "tile_64_64_0.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_64_0.nbt",
+          "sha256": "a3d22552a8439ae3539fb658373f90ed33be9c078125ca9fef72264fe98b37ec",
+          "bytes": 3595
+        },
+        "tile_64_64_32.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_64_32.nbt",
+          "sha256": "1176abf3a39ab472048059e681dd29ba7953d0819a7ab6677ebe6634c218ad77",
+          "bytes": 28501
+        },
+        "tile_64_64_64.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_64_64_64.nbt",
+          "sha256": "1a95894b56c41d4eb154d9c1b6dd6c07e95d9e68ec8e58d51173e294c36e9a2d",
+          "bytes": 1448
+        },
+        "tile_96_0_0.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_96_0_0.nbt",
+          "sha256": "a7db1ccc37b495c6c6270b5930dae5ecb5310297e233f707481dc4b9e1f620b6",
+          "bytes": 1387
+        },
+        "tile_96_0_32.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_96_0_32.nbt",
+          "sha256": "b254c7be83962595b765249629374b2d22534b757a68f3e64420e96929e38b6d",
+          "bytes": 9750
+        },
+        "tile_96_0_64.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_96_0_64.nbt",
+          "sha256": "1c745f9a7a74b4bccda64d59890e6617891e190e733ed6bb6668d695ad6d1214",
+          "bytes": 5407
+        },
+        "tile_96_0_96.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_96_0_96.nbt",
+          "sha256": "e8743767ff39e56e3787de5770d20c6070790216a090894aafc5fb258ab99f03",
+          "bytes": 295
+        },
+        "tile_96_32_32.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_96_32_32.nbt",
+          "sha256": "6923fdd4334df2b889db018e27a9664ba4448d187c59142cef52e214812cbf24",
+          "bytes": 8280
+        },
+        "tile_96_32_64.nbt": {
+          "path": "relics/colossus/design/generated/small-colossus-v10-landmarks/small-colossus-v10-landmarks_tiles/tile_96_32_64.nbt",
+          "sha256": "329a0e1677efd9b27c09db3224af5827d4b9fb47e75545a4e43a9db17c4c5434",
+          "bytes": 7582
+        }
+      },
+      "size": [
+        111,
+        80,
+        113
+      ],
+      "ground_y": 13,
+      "blocks": 208038,
+      "markers": 1,
+      "regions": 59,
+      "marker_coordinates": {
+        "small_magnet_chest": {
+          "pos": [
+            67,
+            44,
+            53
+          ],
+          "facing": "west",
+          "expected_block": "minecraft:waxed_cut_copper"
+        }
+      }
+    },
+    "ruined_tower": {
+      "files": {
+        ".nbt": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors.nbt",
+          "sha256": "4f5fd420eb1461b8e1b3f1c9f8f90ede3e801ea8d1e20972aab3d78d9a9fad8d",
+          "bytes": 793043
+        },
+        ".schem": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors.schem",
+          "sha256": "2c32a3d349346cb141507ddbcc3372f21a5744be8253067b31a7f90764d226bd",
+          "bytes": 30903
+        },
+        ".gameplay.json": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors.gameplay.json",
+          "sha256": "f260b75d46422599d24153f453ee2bb14a6a4b0d5795f3ba22b978c0ace2be13",
+          "bytes": 278311
+        },
+        ".design.json": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors.design.json",
+          "sha256": "472df5b0775343327164f41acde70443a48448bf45cc3490550529f14fb61084",
+          "bytes": 5191
+        },
+        "-source.blend": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors-source.blend",
+          "sha256": "a1aacf4ffce6bdb3e71fa6bee9a49c8f7871dfc50c9f7bb41da0fd24282d818b",
+          "bytes": 5388301
+        },
+        "-review.png": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors-review.png",
+          "sha256": "50ce4eebc90c52e11674c20246b8e5128a9a620863c30fa7b7d8bde928b340fd",
+          "bytes": 2127920
+        },
+        "-markers-review.png": {
+          "path": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors-markers-review.png",
+          "sha256": "8413e8b7f82af97770f3223205662e166f8191abf728055806dd048bf875052c",
+          "bytes": 121392
+        }
+      },
+      "size": [
+        111,
+        232,
+        93
+      ],
+      "ground_y": 12,
+      "blocks": 270997,
+      "markers": 8,
+      "regions": 322
+    },
+    "obelisk": {
+      "files": {
+        ".nbt": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology.nbt",
+          "sha256": "ed2093a9bba2b391bacddb684b62255cb8ec60748b73bc8409a30395c27e33e6",
+          "bytes": 262622
+        },
+        ".schem": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology.schem",
+          "sha256": "634840f9f95d8994e5d9d1dbed2fa422a390171db8eb931cf9803be156c415c9",
+          "bytes": 4256
+        },
+        ".gameplay.json": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology.gameplay.json",
+          "sha256": "bcc96ed4042ccf527050f56aa6541edc846e79f1cdd4a6dc9167eecb5e285f5b",
+          "bytes": 2021
+        },
+        ".design.json": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology.design.json",
+          "sha256": "fb39fda8a5473da9532a086be24b468436504853cdc4e2bdede8253df1474132",
+          "bytes": 2590
+        },
+        "-source.blend": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology-source.blend",
+          "sha256": "ee86a589c9bc6cac0dcbe14ff353c09bf7078c2681b740cc63fd24a947651df0",
+          "bytes": 1303207
+        },
+        "-review.png": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology-review.png",
+          "sha256": "1cfad0ab7a125e479ee71417824306e0522fcc887a5e9c6135081c306406f33a",
+          "bytes": 2172485
+        },
+        "-markers-review.png": {
+          "path": "relics/obelisk/design/generated/obelisk-v6-archaeology/obelisk-v6-archaeology-markers-review.png",
+          "sha256": "478765cb72af1c37d0055b4bf28601d75021555e533da05dee28a3d0bbd2833a",
+          "bytes": 109993
+        }
+      },
+      "size": [
+        59,
+        185,
+        60
+      ],
+      "ground_y": 8,
+      "blocks": 94470,
+      "markers": 8,
+      "regions": 0
+    },
+    "world_tree": {
+      "files": {
+        ".nbt": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge.nbt",
+          "sha256": "c75398476f1162af8f39585edffa58337f1ca4b0bd87f4f7662fbb69ffb47087",
+          "bytes": 851245
+        },
+        ".schem": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge.schem",
+          "sha256": "c4b0ebebc0340e3ca06e5d884c3c54768075f13a7c39e1bdcc22e67a0b9fb8d9",
+          "bytes": 117892
+        },
+        ".gameplay.json": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge.gameplay.json",
+          "sha256": "cbf98f2ccc914df61ef466fccbccd07bc8899de2cb41af2569165f2caf5856ea",
+          "bytes": 952
+        },
+        ".design.json": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge.design.json",
+          "sha256": "5f272a16b03b8e193ebc98de57c8f23e31a9f870eb373c171b290bfd3841d4c5",
+          "bytes": 9190
+        },
+        "-source.blend": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge-source.blend",
+          "sha256": "ee077841deda96e6acd46b8f5c6d12a8572193202daa389728ae5575c7d0d6a0",
+          "bytes": 15816571
+        },
+        "-review.png": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge-review.png",
+          "sha256": "37a7f5263b112bf2265f1fe581c76f5e3b91bb9293e4757ff2afe525aa5f12d8",
+          "bytes": 2172433
+        },
+        "-markers-review.png": {
+          "path": "relics/world-tree/design/generated/world-tree-v5-refuge/world-tree-v5-refuge-markers-review.png",
+          "sha256": "f9d9b0abcc4515ab75d2af3f5dbe0a51dced181865d24edd42000bf12e141acf",
+          "bytes": 85810
+        }
+      },
+      "size": [
+        187,
+        228,
+        185
+      ],
+      "ground_y": 24,
+      "blocks": 288900,
+      "markers": 2,
+      "regions": 1
+    }
+  }
+}

@@ -404,13 +404,14 @@ nor change the magnet's existing offhand/range/wear/repair design. See the
 | Property | Starting value |
 | --- | --- |
 | Attraction radius | 8 blocks |
-| Durability budget | Approximately 1,000 successfully collected item stacks |
-| Durability cost | One point per collected item stack, not per individual item |
+| Durability budget | 1,000 successfully collected individual items |
+| Durability cost | One point per individual item inserted by the magnet |
 
-These values need survival testing. The technical baseline charges one point per
-positive assisted pickup transaction: partial pickup costs one, a later successful
-residual pickup another, while normally merged stacks cost one on their pickup.
-Items that are merely attracted but never picked up must not consume durability.
+On October 28 the user changed wear accounting to individual items. A full
+64-item stack costs 64 points. A partial pickup costs exactly the number inserted.
+One assisted insertion cannot exceed the remaining budget. Failed pickups and
+items that are merely attracted consume nothing. Ordinary nonmagnetic pickup
+remains available after depletion. This replaces the earlier per-stack rule.
 
 ### Boundaries
 

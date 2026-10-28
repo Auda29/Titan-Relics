@@ -1,0 +1,80 @@
+{
+  "blend": "relics/titan-skull/design/generated/titan-skull-2-v2/titan-skull-2-v2-source.blend",
+  "sha256": "c8b07883db323fe0f0785d594cd0bfc13076a3914fe50bdc368e5f3e31e564a7",
+  "design_sha256": "9d9a2d67717d41653b760ac3ce8553cf62731847c10f0224eea5c90887b68a12",
+  "blocks_per_source_unit": 0.9859508693102558,
+  "chips": [
+    {
+      "object": "09 | Local broken bone chip",
+      "source_center": [
+        -42.99999973871937,
+        2.0000000261280633,
+        -12.000000352728856
+      ],
+      "materials": [
+        "mineral"
+      ],
+      "export_float_bounds": [
+        [
+          2.9578526079307674,
+          21.589818766463452,
+          26.327044075445464
+        ],
+        [
+          10.845459562412813,
+          26.51957311301473,
+          36.186552768548026
+        ]
+      ],
+      "selected": false
+    },
+    {
+      "object": "09 | Local broken bone chip.001",
+      "source_center": [
+        40.00000026128063,
+        1.0,
+        -36.000000274344664
+      ],
+      "materials": [
+        "mineral"
+      ],
+      "export_float_bounds": [
+        [
+          84.791774760682,
+          20.603867897153194,
+          2.6642232119993263
+        ],
+        [
+          92.67938171516404,
+          25.533622243704475,
+          12.523731905101885
+        ]
+      ],
+      "selected": true
+    },
+    {
+      "object": "09 | Local broken bone chip.002",
+      "source_center": [
+        20.000000052256127,
+        0.5,
+        47.999999712591304
+      ],
+      "materials": [
+        "mineral"
+      ],
+      "export_float_bounds": [
+        [
+          65.07275737447688,
+          20.110892462498068,
+          85.48409623406081
+        ],
+        [
+          72.96036432895893,
+          25.040646809049345,
+          95.34360492716337
+        ]
+      ],
+      "selected": false
+    }
+  ]
+}

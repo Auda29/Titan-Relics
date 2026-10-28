@@ -1,0 +1,1669 @@
+{
+  "source": "colossus-v7-landmarks.schem",
+  "size": [
+    181,
+    209,
+    235
+  ],
+  "data_version": 3105,
+  "source_offset": [
+    0,
+    0,
+    0
+  ],
+  "air_policy": "omit",
+  "blocks": 228100,
+  "tiles": [
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_32_128.nbt",
+      "origin": [
+        0,
+        32,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_32_160.nbt",
+      "origin": [
+        0,
+        32,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_32_192.nbt",
+      "origin": [
+        0,
+        32,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_32_224.nbt",
+      "origin": [
+        0,
+        32,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_64_128.nbt",
+      "origin": [
+        0,
+        64,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_64_160.nbt",
+      "origin": [
+        0,
+        64,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_64_192.nbt",
+      "origin": [
+        0,
+        64,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_64_224.nbt",
+      "origin": [
+        0,
+        64,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_96_128.nbt",
+      "origin": [
+        0,
+        96,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_96_160.nbt",
+      "origin": [
+        0,
+        96,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_96_192.nbt",
+      "origin": [
+        0,
+        96,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_96_224.nbt",
+      "origin": [
+        0,
+        96,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_128_128.nbt",
+      "origin": [
+        0,
+        128,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_128_160.nbt",
+      "origin": [
+        0,
+        128,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_0_128_192.nbt",
+      "origin": [
+        0,
+        128,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_0_160.nbt",
+      "origin": [
+        32,
+        0,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_0_192.nbt",
+      "origin": [
+        32,
+        0,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_32_128.nbt",
+      "origin": [
+        32,
+        32,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_32_160.nbt",
+      "origin": [
+        32,
+        32,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_32_192.nbt",
+      "origin": [
+        32,
+        32,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_32_224.nbt",
+      "origin": [
+        32,
+        32,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_64_0.nbt",
+      "origin": [
+        32,
+        64,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_64_32.nbt",
+      "origin": [
+        32,
+        64,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_64_128.nbt",
+      "origin": [
+        32,
+        64,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_64_160.nbt",
+      "origin": [
+        32,
+        64,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_64_192.nbt",
+      "origin": [
+        32,
+        64,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_64_224.nbt",
+      "origin": [
+        32,
+        64,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_96_0.nbt",
+      "origin": [
+        32,
+        96,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_96_128.nbt",
+      "origin": [
+        32,
+        96,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_96_160.nbt",
+      "origin": [
+        32,
+        96,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_96_192.nbt",
+      "origin": [
+        32,
+        96,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_96_224.nbt",
+      "origin": [
+        32,
+        96,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_128_128.nbt",
+      "origin": [
+        32,
+        128,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_128_160.nbt",
+      "origin": [
+        32,
+        128,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_128_192.nbt",
+      "origin": [
+        32,
+        128,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_32_160_160.nbt",
+      "origin": [
+        32,
+        160,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_0_128.nbt",
+      "origin": [
+        64,
+        0,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_0_160.nbt",
+      "origin": [
+        64,
+        0,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_0_192.nbt",
+      "origin": [
+        64,
+        0,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_32_0.nbt",
+      "origin": [
+        64,
+        32,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_32_32.nbt",
+      "origin": [
+        64,
+        32,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_32_64.nbt",
+      "origin": [
+        64,
+        32,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_32_128.nbt",
+      "origin": [
+        64,
+        32,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_32_160.nbt",
+      "origin": [
+        64,
+        32,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_32_192.nbt",
+      "origin": [
+        64,
+        32,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_32_224.nbt",
+      "origin": [
+        64,
+        32,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_64_0.nbt",
+      "origin": [
+        64,
+        64,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_64_32.nbt",
+      "origin": [
+        64,
+        64,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_64_64.nbt",
+      "origin": [
+        64,
+        64,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_64_128.nbt",
+      "origin": [
+        64,
+        64,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_64_160.nbt",
+      "origin": [
+        64,
+        64,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_64_192.nbt",
+      "origin": [
+        64,
+        64,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_64_224.nbt",
+      "origin": [
+        64,
+        64,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_96_128.nbt",
+      "origin": [
+        64,
+        96,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_96_160.nbt",
+      "origin": [
+        64,
+        96,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_96_192.nbt",
+      "origin": [
+        64,
+        96,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_96_224.nbt",
+      "origin": [
+        64,
+        96,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_128_128.nbt",
+      "origin": [
+        64,
+        128,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_128_160.nbt",
+      "origin": [
+        64,
+        128,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_128_192.nbt",
+      "origin": [
+        64,
+        128,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_128_224.nbt",
+      "origin": [
+        64,
+        128,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_160_128.nbt",
+      "origin": [
+        64,
+        160,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_160_160.nbt",
+      "origin": [
+        64,
+        160,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_160_192.nbt",
+      "origin": [
+        64,
+        160,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_192_128.nbt",
+      "origin": [
+        64,
+        192,
+        128
+      ],
+      "size": [
+        32,
+        17,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_192_160.nbt",
+      "origin": [
+        64,
+        192,
+        160
+      ],
+      "size": [
+        32,
+        17,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_64_192_192.nbt",
+      "origin": [
+        64,
+        192,
+        192
+      ],
+      "size": [
+        32,
+        17,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_0_128.nbt",
+      "origin": [
+        96,
+        0,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_0_160.nbt",
+      "origin": [
+        96,
+        0,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_0_192.nbt",
+      "origin": [
+        96,
+        0,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_32_32.nbt",
+      "origin": [
+        96,
+        32,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_32_64.nbt",
+      "origin": [
+        96,
+        32,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_32_96.nbt",
+      "origin": [
+        96,
+        32,
+        96
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_32_128.nbt",
+      "origin": [
+        96,
+        32,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_32_160.nbt",
+      "origin": [
+        96,
+        32,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_32_192.nbt",
+      "origin": [
+        96,
+        32,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_32_224.nbt",
+      "origin": [
+        96,
+        32,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_64_32.nbt",
+      "origin": [
+        96,
+        64,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_64_64.nbt",
+      "origin": [
+        96,
+        64,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_64_96.nbt",
+      "origin": [
+        96,
+        64,
+        96
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_64_128.nbt",
+      "origin": [
+        96,
+        64,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_64_160.nbt",
+      "origin": [
+        96,
+        64,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_64_192.nbt",
+      "origin": [
+        96,
+        64,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_64_224.nbt",
+      "origin": [
+        96,
+        64,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_96_128.nbt",
+      "origin": [
+        96,
+        96,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_96_160.nbt",
+      "origin": [
+        96,
+        96,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_96_192.nbt",
+      "origin": [
+        96,
+        96,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_96_224.nbt",
+      "origin": [
+        96,
+        96,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_128_128.nbt",
+      "origin": [
+        96,
+        128,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_128_160.nbt",
+      "origin": [
+        96,
+        128,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_128_192.nbt",
+      "origin": [
+        96,
+        128,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_160_128.nbt",
+      "origin": [
+        96,
+        160,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_160_160.nbt",
+      "origin": [
+        96,
+        160,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_160_192.nbt",
+      "origin": [
+        96,
+        160,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_192_128.nbt",
+      "origin": [
+        96,
+        192,
+        128
+      ],
+      "size": [
+        32,
+        17,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_192_160.nbt",
+      "origin": [
+        96,
+        192,
+        160
+      ],
+      "size": [
+        32,
+        17,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_96_192_192.nbt",
+      "origin": [
+        96,
+        192,
+        192
+      ],
+      "size": [
+        32,
+        17,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_0_160.nbt",
+      "origin": [
+        128,
+        0,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_0_192.nbt",
+      "origin": [
+        128,
+        0,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_32_64.nbt",
+      "origin": [
+        128,
+        32,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_32_96.nbt",
+      "origin": [
+        128,
+        32,
+        96
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_32_128.nbt",
+      "origin": [
+        128,
+        32,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_32_160.nbt",
+      "origin": [
+        128,
+        32,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_32_192.nbt",
+      "origin": [
+        128,
+        32,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_32_224.nbt",
+      "origin": [
+        128,
+        32,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_64_64.nbt",
+      "origin": [
+        128,
+        64,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_64_96.nbt",
+      "origin": [
+        128,
+        64,
+        96
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_64_128.nbt",
+      "origin": [
+        128,
+        64,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_64_160.nbt",
+      "origin": [
+        128,
+        64,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_64_192.nbt",
+      "origin": [
+        128,
+        64,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_64_224.nbt",
+      "origin": [
+        128,
+        64,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_96_128.nbt",
+      "origin": [
+        128,
+        96,
+        128
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_96_160.nbt",
+      "origin": [
+        128,
+        96,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_96_192.nbt",
+      "origin": [
+        128,
+        96,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_96_224.nbt",
+      "origin": [
+        128,
+        96,
+        224
+      ],
+      "size": [
+        32,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_128_160.nbt",
+      "origin": [
+        128,
+        128,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_128_192.nbt",
+      "origin": [
+        128,
+        128,
+        192
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_128_160_160.nbt",
+      "origin": [
+        128,
+        160,
+        160
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_160_32_160.nbt",
+      "origin": [
+        160,
+        32,
+        160
+      ],
+      "size": [
+        21,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_160_32_192.nbt",
+      "origin": [
+        160,
+        32,
+        192
+      ],
+      "size": [
+        21,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_160_32_224.nbt",
+      "origin": [
+        160,
+        32,
+        224
+      ],
+      "size": [
+        21,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_160_64_160.nbt",
+      "origin": [
+        160,
+        64,
+        160
+      ],
+      "size": [
+        21,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_160_64_192.nbt",
+      "origin": [
+        160,
+        64,
+        192
+      ],
+      "size": [
+        21,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_160_64_224.nbt",
+      "origin": [
+        160,
+        64,
+        224
+      ],
+      "size": [
+        21,
+        32,
+        11
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_160_96_160.nbt",
+      "origin": [
+        160,
+        96,
+        160
+      ],
+      "size": [
+        21,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_160_96_192.nbt",
+      "origin": [
+        160,
+        96,
+        192
+      ],
+      "size": [
+        21,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "colossus-v7-landmarks_tiles/tile_160_96_224.nbt",
+      "origin": [
+        160,
+        96,
+        224
+      ],
+      "size": [
+        21,
+        32,
+        11
+      ]
+    }
+  ]
+}

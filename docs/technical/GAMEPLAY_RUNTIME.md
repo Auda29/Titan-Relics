@@ -10,7 +10,8 @@ interiors, native Trial/Vault presentation and personal world reward drops are
 implemented. Successful Vault use consumes its key immediately. A charged magnet
 works in either selected hand, with acceleration `0.088` and speed cap `0.385`;
 other inventory slots remain inactive. These implemented values supersede the
-starting values below. Tree animal-spawn adjustment remains unimplemented.
+starting values below. The Tree animal adjustment is implemented and cap-tested
+for Alpha 5.0; see section 7.
 See [current status and remaining acceptance](../project/ALPHA_5_STATUS_20261027.md).
 The original contract below remains as planning history.
 
@@ -32,13 +33,13 @@ coordinates; this work owns integration, mechanics, recipes and item artwork.
 | System | Starting technical choice |
 | --- | --- |
 | Item stacks | Core and magnet: maximum stack size 1; key: 64; store item state in versioned persistent components, not names/lore text |
-| Core capacity / magnet durability | Existing provisional 256 operations / 1,000 successful pickup transactions; large arm starts with full magnet durability |
+| Core capacity / magnet durability | 256 operations / 1,000 individually collected items; large arm starts with full magnet durability |
 | Item icon thresholds | Full at capacity, partly used at `0 < remaining < capacity`, empty/broken at zero; exact values in tooltip; **no inventory bar** |
 | Trial player registration | Survival/Adventure only, 14-block spawner detection radius and ordinary vanilla visibility checks; automatic, no console |
 | Trial population | One normal iron golem, simultaneous/total count 1, all additional-player count increments zero; no stat scaling or ominous replacement |
 | Trial cooldown | Vanilla-style 36,000 server ticks (30 minutes) after completion; adapter must verify 26.2 lifecycle behavior |
 | Magnet scan / motion | Scan eligible nearby items every 4 server ticks, with collision/pickup recheck before each pull; acceleration target 0.08 blocks/tick per tick, speed cap 0.35 blocks/tick |
-| Tree effect refresh | Every 20 server ticks; Regeneration I for 6,000 ticks (5 minutes); 24-block 3-D sphere, through walls |
+| Tree effect refresh | Every 20 server ticks; Regeneration II and Resistance II for 6,000 ticks (5 minutes); 80-block 3-D sphere, through walls |
 | Tree animal area | Surface habitats within 64 horizontal blocks of aura anchor; normal terrain/light/population rules, not the aura's sphere |
 | Tree animal adjustment | At most one extra normal selected-species attempt per eligible vanilla local creature attempt; see section 7, not guaranteed twice as many animals |
 
@@ -247,7 +248,7 @@ blocks, mobs, XP, players or global dimensions. Before pulling, check:
 Apply bounded velocity, not teleportation/inventory extraction. Recheck collision
 and pickup eligibility before impulses; use ordinary movement collision and normal
 pickup to finish. Stop when the inventory fills, ownership changes, the magnet
-leaves the offhand, durability reaches zero or the item leaves range. Do not keep
+leaves the selected hand, durability reaches zero or the item leaves range. Do not keep
 tugging uncollectable items or charge failed attempts. Vanilla pickup delays still
 apply to a player dropping their own items.
 
@@ -256,11 +257,11 @@ a short-lived server-side attraction claim. It does not override actual item own
 or prevent normal nonmagnetic pickup. Clear it when eligibility changes; do not
 persist fake owners onto ordinary items.
 
-Wear is **one point per positive magnet-assisted pickup transaction**, not per
-individual item or attempted pull. A partially accepted stack costs one; a later
-successful residual pickup costs another. Normal entity merging can produce a
-single collected stack and one cost. This defines the previously open partial/
-merge accounting as a technical baseline. Attribute only recent assisted pulls
+**October 28 user decision:** wear is one point per individual item successfully
+inserted through magnet assistance. A 64-item stack costs 64 points; partial
+pickup costs the actual inserted count. Limit assisted insertion to the remaining
+budget. Failed pickups and attempted pulls cost nothing. This supersedes the
+earlier per-transaction baseline. Attribute only recent assisted pulls
 to that magnet, and debit after actual positive inventory insertion. At zero retain
 the broken item and cease assistance; do not destroy it. Test two-player races,
 full inventories and mutation/merge between query and pickup.
@@ -271,11 +272,11 @@ may still occur without a functioning magnet and must not create negative wear.
 ## 7. World Tree effect, animals and lighting
 
 Every second, check living Survival/Adventure players against persisted natural Tree anchors
-using squared 3-D distance **`<= 24²`** from the saved builder block-center anchor.
+using squared 3-D distance **`<= 80²`** from the saved builder block-center anchor.
 Use the player's feet position as the delegated distance point; Creative/Spectator
 skip the gameplay effect but remain usable for separate visual test fixtures.
-No sight ray, remaining-tree test, beacon pyramid or payment. Refresh Regeneration
-I to five minutes; do not multiply strength/duration across sources or replace a
+No sight ray, remaining-tree test, beacon pyramid or payment. Refresh Regeneration II
+and Resistance II to five minutes; do not multiply strength/duration across sources or replace a
 stronger/longer existing effect with a weaker/shorter one. Use normal effect merging
 including hidden lower effects, and test potion/beacon interactions and milk.
 Milk removes the current effect normally; remaining in range refreshes it again.
@@ -298,9 +299,13 @@ before every extra attempt; unrelated creatures keep their original behavior.
 Do not just double all species weights and claim this doubles animal abundance.
 No separate refill clock, placed animal dispenser, mob spawner or direct cap bypass.
 This is a maximum attempt budget, not a guaranteed herd or a timer farm; a full
-creature cap can yield no increase. The exact 26.2 safe hook is a prototype gate.
-If it cannot preserve these constraints, report that limitation instead of
-substituting forced spawning. Measure actual presence before tuning.
+creature cap can yield no increase. The native 26.2 hook observes successful
+selected-species spawns inside the ordinary chunk pass. It permits one extra
+candidate in the same loaded chunk within 64 horizontal blocks and eight
+vertical blocks of a saved anchor. It reruns native biome selection,
+player/spawn distance, habitat, obstruction and density checks and charges the
+same SpawnState. Breeding, commands, spawners, chunk-generation herds and
+unrelated species are unaffected. Actual abundance depends on ordinary caps and habitat.
 
 Builder lights remain root/base-only, unevenly up to 15 blocks high. Measure
 shaded spawnable surfaces within the authored root lighting scope separately
@@ -356,3 +361,22 @@ After a separate implementation request:
 API inability, ambiguous reward recovery, unacceptable stalls or false anchors
 block the affected feature/release. Technical defaults can be tuned with evidence;
 changing approved mechanics, distances or reward policies requires renewed approval.
+
+
+## October 28 interior revision V4
+
+Fresh worlds select `interiors-20261028-v4`: accepted Large Colossus V7,
+Small Colossus V11, Tower V10, accepted Obelisk V6 and retained World Tree V5.
+The new Small entrance is six blocks shorter; its upper chest remains unchanged.
+The Tower chest is centered on the rear wall opposite the entrance, at raw
+[58,15,55], facing north. The new stand and existing source solids are excluded
+from native terrain clearance. V1, V2 and V3 remain available with their exact
+previous manifests, coordinates and template bytes; existing worlds do not move
+loot or structures. See [integration and review](../project/INTERIORS_V4_20261028.md).
+
+Monolith now uses isolated one-pixel angular marks on the native 26.2 equipment
+UVs. The native netherite alpha mask constrains the pattern, so helmet openings,
+lower bare arms and upper boot transparency remain clear. Existing smithing
+material palettes still determine the color. IDs, recipes, item art and armor
+statistics are unchanged. The texture updates existing trimmed armor after
+resource reload or game restart, independently of world interior revision.

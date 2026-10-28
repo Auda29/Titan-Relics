@@ -58,6 +58,8 @@ public final class RelicGameplay {
     private static final AttachmentType<Set<String>> RECEIPTS = AttachmentRegistry.create(RelicItems.id("delivery_receipts"),
             builder -> builder.initializer(Set::of).persistent(Codec.STRING.listOf().xmap(Set::copyOf, List::copyOf)).copyOnDeath());
     private static final Map<MinecraftServer, Runtime> RUNTIMES = new WeakHashMap<>();
+    private static final int TREE_CELL_SIZE=32;
+    private static final int TREE_CELL_RANGE=(int)Math.ceil(TreeAura.RADIUS/TREE_CELL_SIZE);
 
     private record TreeCell(String dimension, int x, int y, int z) { }
     private static final class Runtime {
@@ -84,7 +86,7 @@ public final class RelicGameplay {
         return new Point(level.dimension().identifier().toString(), pos.getX(), pos.getY(), pos.getZ());
     }
     private static BlockPos pos(Point point) { return new BlockPos(point.x(), point.y(), point.z()); }
-    private static TreeCell cell(Point p) { return new TreeCell(p.dimension(), Math.floorDiv(p.x(), 32), Math.floorDiv(p.y(), 32), Math.floorDiv(p.z(), 32)); }
+    private static TreeCell cell(Point p) { return new TreeCell(p.dimension(), Math.floorDiv(p.x(), TREE_CELL_SIZE), Math.floorDiv(p.y(), TREE_CELL_SIZE), Math.floorDiv(p.z(), TREE_CELL_SIZE)); }
     private static boolean eligible(Player player) { return player.isAlive() && !player.isCreative() && !player.isSpectator(); }
     public static void initialize() {
         RewardDrops.initialize();
@@ -204,15 +206,23 @@ public final class RelicGameplay {
         if (!eligible(player)) return;
         Runtime rt = runtime(player.level().getServer());
         TreeCell cell = cell(point(player.level(), player.blockPosition()));
-        for (int x = -1; x <= 1; x++) for (int y = -1; y <= 1; y++) for (int z = -1; z <= 1; z++) {
+        for (int x = -TREE_CELL_RANGE; x <= TREE_CELL_RANGE; x++) for (int y = -TREE_CELL_RANGE; y <= TREE_CELL_RANGE; y++) for (int z = -TREE_CELL_RANGE; z <= TREE_CELL_RANGE; z++) {
             for (Point anchor : rt.treeCells.getOrDefault(new TreeCell(cell.dimension, cell.x+x, cell.y+y, cell.z+z), List.of())) {
                 if (TreeAura.contains(anchor, player.getX(), player.getY(), player.getZ())) {
                     // Normal merge retains stronger/longer active effects and hidden lower effects.
-                    player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 6000, 0, true, true));
+                    player.addEffect(new MobEffectInstance(MobEffects.REGENERATION, 6000, 1, true, true));
+                    player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE, 6000, 1, true, true));
                     return;
                 }
             }
         }
+    }
+    public static boolean treeHabitat(ServerLevel level,BlockPos pos) {
+        var rt=runtime(level.getServer());TreeCell cell=cell(point(level,pos));
+        for(int x=-2;x<=2;x++)for(int y=-1;y<=1;y++)for(int z=-2;z<=2;z++)
+            for(Point anchor:rt.treeCells.getOrDefault(new TreeCell(cell.dimension,cell.x+x,cell.y+y,cell.z+z),List.of()))
+                if(TreeAnimals.contains(anchor,pos.getX()+.5,pos.getY(),pos.getZ()+.5))return true;
+        return false;
     }
     public static boolean tickTrial(ServerLevel level, BlockPos block, TrialSpawner spawner) {
         Runtime rt = runtime(level.getServer());

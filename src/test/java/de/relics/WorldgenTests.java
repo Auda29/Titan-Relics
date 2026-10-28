@@ -116,6 +116,39 @@ public final class WorldgenTests {
                 cell(7, 9, 7, Blocks.BONE_BLOCK.defaultBlockState()),
                 cell(7, 6, 7, Blocks.DIRT.defaultBlockState()));
         var settings = new StructurePlaceSettings().setBoundingBox(box);
+        var bushes=List.of(cell(8,20,8,Blocks.ROOTED_DIRT.defaultBlockState()),
+                cell(8,21,8,Blocks.FIREFLY_BUSH.defaultBlockState()),
+                cell(9,21,9,Blocks.SPRUCE_LOG.defaultBlockState()));
+        var treeProcessor=new TerrainSupportProcessor(21,true,Blocks.DIRT.defaultBlockState(),true,2,3,true);
+        var planted=treeProcessor.finalizeProcessing(world(-64,p->p.getY()<=16
+                ? Blocks.GRASS_BLOCK.defaultBlockState():Blocks.AIR.defaultBlockState(),reads),
+                BlockPos.ZERO,BlockPos.ZERO,bushes,bushes,settings);
+        check(planted.stream().anyMatch(i->i.pos().equals(new BlockPos(8,17,8)) && i.state().is(Blocks.FIREFLY_BUSH)),
+                "Bush moves down four blocks onto actual terrain instead of a floating socket");
+        check(planted.stream().anyMatch(i->i.pos().equals(new BlockPos(8,16,8)) && i.state().is(Blocks.ROOTED_DIRT)),
+                "Bush soil replaces the surface, with no earth pillar");
+        check(planted.stream().filter(i->i.pos().getX()==8).count()==2 && planted.contains(bushes.get(2)),
+                "Only the source bush pair moves; other art and all intervening air stay intact");
+        planted=treeProcessor.finalizeProcessing(world(-64,p->p.getY()<=24
+                ? Blocks.DIRT.defaultBlockState():Blocks.AIR.defaultBlockState(),reads),
+                BlockPos.ZERO,BlockPos.ZERO,bushes,bushes,settings);
+        check(planted.stream().anyMatch(i->i.pos().equals(new BlockPos(8,25,8)) && i.state().is(Blocks.FIREFLY_BUSH)),
+                "Bush follows uphill terrain too");
+        for(var terrain:List.<Function<BlockPos,BlockState>>of(p->Blocks.AIR.defaultBlockState(),
+                p->p.getY()<=16?Blocks.STONE.defaultBlockState():Blocks.WATER.defaultBlockState(),
+                p->p.getY()<=16?Blocks.CHEST.defaultBlockState():Blocks.AIR.defaultBlockState())) {
+            planted=treeProcessor.finalizeProcessing(world(-64,terrain,reads),BlockPos.ZERO,BlockPos.ZERO,bushes,bushes,settings);
+            check(planted.stream().noneMatch(i->i.pos().getX()==8),"No bush or detached socket over void, water or container");
+        }
+        var blocked=List.of(bushes.get(0),bushes.get(1),cell(8,17,8,Blocks.SPRUCE_LOG.defaultBlockState()));
+        planted=treeProcessor.finalizeProcessing(world(-64,p->p.getY()<=16?Blocks.DIRT.defaultBlockState():Blocks.AIR.defaultBlockState(),reads),
+                BlockPos.ZERO,BlockPos.ZERO,blocked,blocked,settings);
+        check(planted.contains(blocked.get(2)) && planted.stream().noneMatch(i->i.state().is(Blocks.FIREFLY_BUSH)),
+                "A planned root blocks relocation and is never overwritten");
+        var outside=List.of(cell(-1,20,0,Blocks.ROOTED_DIRT.defaultBlockState()),cell(-1,21,0,Blocks.FIREFLY_BUSH.defaultBlockState()));
+        planted=treeProcessor.finalizeProcessing(world(-64,p->{throw new AssertionError("Neighboring chunk read for bush");},reads),
+                BlockPos.ZERO,BlockPos.ZERO,outside,outside,settings);
+        check(planted.equals(outside),"Bush logic never reads or writes outside the owning chunk");
         result = new TerrainSupportProcessor(10, true, Blocks.SANDSTONE.defaultBlockState())
                 .finalizeProcessing(world(-64, pos -> pos.getY() <= -3 ? Blocks.STONE.defaultBlockState()
                         : Blocks.WATER.defaultBlockState(), reads), BlockPos.ZERO, BlockPos.ZERO, source, source, settings);

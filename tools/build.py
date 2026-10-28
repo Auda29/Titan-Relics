@@ -56,8 +56,8 @@ def check_resources(resources: Path = RESOURCES) -> dict:
         if entry["single_template"]["sha256"] != ASSETS[entry["id"]]["sha256"]:
             raise ValueError(f"Wrong selected export: {entry['id']}")
     if resources == RESOURCES or (resources / 'relics.gameplay.integration.json').exists():
-        from integrate_gameplay_interiors import integrate
-        integrate(resources,verify=True)
+        from integrate_gameplay_interiors import integrate,MANIFESTS
+        for revision in MANIFESTS:integrate(resources,verify=True,revision=revision)
     return metadata
 
 
@@ -65,8 +65,9 @@ def write_archive(destination: Path, resources: Path = RESOURCES, classes: Path 
     destination.parent.mkdir(parents=True, exist_ok=True)
     selected_templates = {f"data/relics/structure/{name}{suffix}.nbt"
                           for name in ASSETS for suffix in ("", "_worldgen")}
-    gameplay=resources/'relics.gameplay.integration.json'
-    if gameplay.exists():
+    from integrate_gameplay_interiors import MANIFESTS
+    for gameplay in (resources/name for name in MANIFESTS.values()):
+        if not gameplay.exists():continue
         for entry in json.loads(gameplay.read_text())['structures']:
             for kind in ('single_template','worldgen_template'):
                 p=resources/'data/relics/structure'/entry[kind]['path']

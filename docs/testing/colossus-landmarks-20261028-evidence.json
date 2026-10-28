@@ -1,0 +1,1073 @@
+{
+  "date": "2026-10-28",
+  "target": "Minecraft 26.2 / Fabric",
+  "artifact_sha256": "783188f8d07f3b1cef04190cc20cae96257ec1c77a33a65e0326db93bf7b51ec",
+  "reproducible_package": true,
+  "model_bound_files_verified": 172,
+  "native": {
+    "artifact_sha256": "783188f8d07f3b1cef04190cc20cae96257ec1c77a33a65e0326db93bf7b51ec",
+    "runs": [
+      {
+        "seed": -4685435945225202909,
+        "rotation": 1,
+        "upgrade_from_v6": false,
+        "passed": true,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": 5,
+              "z": -12
+            },
+            "x": 26520,
+            "z": -57320,
+            "ticket": 9808,
+            "priority": 7101292439516050829,
+            "rotation": 1,
+            "unique": true
+          },
+          "asset": "colossus",
+          "x2": 53040,
+          "z2": -114640,
+          "surface": 64,
+          "originX": 26645,
+          "originY": -13,
+          "originZ": -57418,
+          "minX": 26395,
+          "minZ": -57418,
+          "maxX": 26645,
+          "maxZ": -57222
+        },
+        "encounter": "natural golem spawned in marker clearance\nkey ejected at central guard structure and collected\nconsole vault consumed key immediately\nconsole core ejected into world and collected separately\n",
+        "frozen": {
+          "fingerprint": "dc00a6a29be19b4b81a657a30b665440610897fbfad1693548e530764a91202e",
+          "interiors": "interiors-20261028-v2",
+          "unique": {
+            "candidate": {
+              "cell": {
+                "x": 5,
+                "z": -12
+              },
+              "x": 26520,
+              "z": -57320,
+              "ticket": 9808,
+              "priority": 7101292439516050829,
+              "rotation": 1,
+              "unique": true
+            },
+            "asset": "colossus",
+            "x2": 53040,
+            "z2": -114640,
+            "surface": 64,
+            "originX": 26645,
+            "originY": -13,
+            "originZ": -57418,
+            "minX": 26395,
+            "minZ": -57418,
+            "maxX": 26645,
+            "maxZ": -57222
+          }
+        },
+        "blocks": [
+          {
+            "structure": "relics:colossus",
+            "template": "relics:colossus_gameplay_v7_worldgen",
+            "origin": [
+              26645,
+              -13,
+              -57418
+            ],
+            "rotation": "CLOCKWISE_90",
+            "bounding_box": [
+              26395,
+              -13,
+              -57418,
+              26645,
+              195,
+              -57222
+            ],
+            "expected_bounding_box": [
+              26395,
+              -13,
+              -57418,
+              26645,
+              195,
+              -57222
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 263974,
+            "matched_blocks": 263974,
+            "checked_air": 0,
+            "nature_cells_skipped": 7466,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 111,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 16055,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          }
+        ],
+        "initial_markers": [
+          {
+            "asset": "colossus",
+            "site_id": "natural:-4685435945225202909:colossus:5:-12",
+            "markers": [
+              {
+                "role": "colossus_hatch",
+                "x": 26455,
+                "y": 156,
+                "z": -57292,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_golem_spawn",
+                "x": 26447,
+                "y": 156,
+                "z": -57316,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_trial_spawner",
+                "x": 26454,
+                "y": 156,
+                "z": -57316,
+                "block": "minecraft:trial_spawner"
+              },
+              {
+                "role": "colossus_vault",
+                "x": 26473,
+                "y": 156,
+                "z": -57316,
+                "block": "minecraft:vault"
+              },
+              {
+                "role": "colossus_arm_magnet_chest",
+                "x": 26567,
+                "y": 65,
+                "z": -57300,
+                "block": "minecraft:waxed_copper_chest",
+                "loot": [
+                  {
+                    "item": "minecraft:copper_ingot",
+                    "count": 27
+                  },
+                  {
+                    "item": "minecraft:iron_ingot",
+                    "count": 13
+                  },
+                  {
+                    "item": "minecraft:redstone",
+                    "count": 4
+                  },
+                  {
+                    "item": "relics:salvage_magnet",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "seed": 3528628362682006658,
+        "rotation": 0,
+        "upgrade_from_v6": false,
+        "passed": true,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": -11,
+              "z": -12
+            },
+            "x": -53656,
+            "z": -56008,
+            "ticket": 7687,
+            "priority": -1337218522182824984,
+            "rotation": 0,
+            "unique": true
+          },
+          "asset": "colossus",
+          "x2": -107312,
+          "z2": -112016,
+          "surface": 66,
+          "originX": -53754,
+          "originY": -11,
+          "originZ": -56133,
+          "minX": -53754,
+          "minZ": -56133,
+          "maxX": -53558,
+          "maxZ": -55883
+        },
+        "encounter": "natural golem spawned in marker clearance\nkey ejected at central guard structure and collected\nconsole vault consumed key immediately\nconsole core ejected into world and collected separately\n",
+        "frozen": {
+          "fingerprint": "dc00a6a29be19b4b81a657a30b665440610897fbfad1693548e530764a91202e",
+          "interiors": "interiors-20261028-v2",
+          "unique": {
+            "candidate": {
+              "cell": {
+                "x": -11,
+                "z": -12
+              },
+              "x": -53656,
+              "z": -56008,
+              "ticket": 7687,
+              "priority": -1337218522182824984,
+              "rotation": 0,
+              "unique": true
+            },
+            "asset": "colossus",
+            "x2": -107312,
+            "z2": -112016,
+            "surface": 66,
+            "originX": -53754,
+            "originY": -11,
+            "originZ": -56133,
+            "minX": -53754,
+            "minZ": -56133,
+            "maxX": -53558,
+            "maxZ": -55883
+          }
+        },
+        "blocks": [
+          {
+            "structure": "relics:colossus",
+            "template": "relics:colossus_gameplay_v7_worldgen",
+            "origin": [
+              -53754,
+              -11,
+              -56133
+            ],
+            "rotation": "NONE",
+            "bounding_box": [
+              -53754,
+              -11,
+              -56133,
+              -53558,
+              197,
+              -55883
+            ],
+            "expected_bounding_box": [
+              -53754,
+              -11,
+              -56133,
+              -53558,
+              197,
+              -55883
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 263974,
+            "matched_blocks": 263974,
+            "checked_air": 0,
+            "nature_cells_skipped": 7466,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 112,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 16055,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          }
+        ],
+        "initial_markers": [
+          {
+            "asset": "colossus",
+            "site_id": "natural:3528628362682006658:colossus:-11:-12",
+            "markers": [
+              {
+                "role": "colossus_hatch",
+                "x": -53628,
+                "y": 158,
+                "z": -55943,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_golem_spawn",
+                "x": -53652,
+                "y": 158,
+                "z": -55935,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_trial_spawner",
+                "x": -53652,
+                "y": 158,
+                "z": -55942,
+                "block": "minecraft:trial_spawner"
+              },
+              {
+                "role": "colossus_vault",
+                "x": -53652,
+                "y": 158,
+                "z": -55961,
+                "block": "minecraft:vault"
+              },
+              {
+                "role": "colossus_arm_magnet_chest",
+                "x": -53636,
+                "y": 67,
+                "z": -56055,
+                "block": "minecraft:waxed_copper_chest",
+                "loot": [
+                  {
+                    "item": "minecraft:copper_ingot",
+                    "count": 40
+                  },
+                  {
+                    "item": "minecraft:iron_ingot",
+                    "count": 11
+                  },
+                  {
+                    "item": "minecraft:redstone",
+                    "count": 1
+                  },
+                  {
+                    "item": "minecraft:amethyst_shard",
+                    "count": 1
+                  },
+                  {
+                    "item": "relics:salvage_magnet",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "seed": 7176494076711744605,
+        "rotation": 2,
+        "upgrade_from_v6": false,
+        "passed": true,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": -14,
+              "z": -3
+            },
+            "x": -68776,
+            "z": -12600,
+            "ticket": 7916,
+            "priority": -4843799698108114983,
+            "rotation": 2,
+            "unique": true
+          },
+          "asset": "colossus",
+          "x2": -137552,
+          "z2": -25200,
+          "surface": 71,
+          "originX": -68678,
+          "originY": -6,
+          "originZ": -12475,
+          "minX": -68874,
+          "minZ": -12725,
+          "maxX": -68678,
+          "maxZ": -12475
+        },
+        "encounter": "natural golem spawned in marker clearance\nkey ejected at central guard structure and collected\nconsole vault consumed key immediately\nconsole core ejected into world and collected separately\n",
+        "frozen": {
+          "fingerprint": "dc00a6a29be19b4b81a657a30b665440610897fbfad1693548e530764a91202e",
+          "interiors": "interiors-20261028-v2",
+          "unique": {
+            "candidate": {
+              "cell": {
+                "x": -14,
+                "z": -3
+              },
+              "x": -68776,
+              "z": -12600,
+              "ticket": 7916,
+              "priority": -4843799698108114983,
+              "rotation": 2,
+              "unique": true
+            },
+            "asset": "colossus",
+            "x2": -137552,
+            "z2": -25200,
+            "surface": 71,
+            "originX": -68678,
+            "originY": -6,
+            "originZ": -12475,
+            "minX": -68874,
+            "minZ": -12725,
+            "maxX": -68678,
+            "maxZ": -12475
+          }
+        },
+        "blocks": [
+          {
+            "structure": "relics:colossus",
+            "template": "relics:colossus_gameplay_v7_worldgen",
+            "origin": [
+              -68678,
+              -6,
+              -12475
+            ],
+            "rotation": "CLOCKWISE_180",
+            "bounding_box": [
+              -68874,
+              -6,
+              -12725,
+              -68678,
+              202,
+              -12475
+            ],
+            "expected_bounding_box": [
+              -68874,
+              -6,
+              -12725,
+              -68678,
+              202,
+              -12475
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 263974,
+            "matched_blocks": 263974,
+            "checked_air": 0,
+            "nature_cells_skipped": 7466,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 112,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 16055,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          }
+        ],
+        "initial_markers": [
+          {
+            "asset": "colossus",
+            "site_id": "natural:7176494076711744605:colossus:-14:-3",
+            "markers": [
+              {
+                "role": "colossus_hatch",
+                "x": -68804,
+                "y": 163,
+                "z": -12665,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_golem_spawn",
+                "x": -68780,
+                "y": 163,
+                "z": -12673,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_trial_spawner",
+                "x": -68780,
+                "y": 163,
+                "z": -12666,
+                "block": "minecraft:trial_spawner"
+              },
+              {
+                "role": "colossus_vault",
+                "x": -68780,
+                "y": 163,
+                "z": -12647,
+                "block": "minecraft:vault"
+              },
+              {
+                "role": "colossus_arm_magnet_chest",
+                "x": -68796,
+                "y": 72,
+                "z": -12553,
+                "block": "minecraft:waxed_copper_chest",
+                "loot": [
+                  {
+                    "item": "minecraft:copper_ingot",
+                    "count": 39
+                  },
+                  {
+                    "item": "minecraft:iron_ingot",
+                    "count": 11
+                  },
+                  {
+                    "item": "minecraft:amethyst_shard",
+                    "count": 2
+                  },
+                  {
+                    "item": "relics:salvage_magnet",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "seed": 731204,
+        "rotation": 3,
+        "upgrade_from_v6": false,
+        "passed": true,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": 19,
+              "z": 9
+            },
+            "x": 96136,
+            "z": 48504,
+            "ticket": 6381,
+            "priority": 2284565568339078783,
+            "rotation": 3,
+            "unique": true
+          },
+          "asset": "colossus",
+          "x2": 192272,
+          "z2": 97008,
+          "surface": 73,
+          "originX": 96011,
+          "originY": -4,
+          "originZ": 48602,
+          "minX": 96011,
+          "minZ": 48406,
+          "maxX": 96261,
+          "maxZ": 48602
+        },
+        "encounter": "natural golem spawned in marker clearance\nkey ejected at central guard structure and collected\nconsole vault consumed key immediately\nconsole core ejected into world and collected separately\n",
+        "frozen": {
+          "fingerprint": "dc00a6a29be19b4b81a657a30b665440610897fbfad1693548e530764a91202e",
+          "interiors": "interiors-20261028-v2",
+          "unique": {
+            "candidate": {
+              "cell": {
+                "x": 19,
+                "z": 9
+              },
+              "x": 96136,
+              "z": 48504,
+              "ticket": 6381,
+              "priority": 2284565568339078783,
+              "rotation": 3,
+              "unique": true
+            },
+            "asset": "colossus",
+            "x2": 192272,
+            "z2": 97008,
+            "surface": 73,
+            "originX": 96011,
+            "originY": -4,
+            "originZ": 48602,
+            "minX": 96011,
+            "minZ": 48406,
+            "maxX": 96261,
+            "maxZ": 48602
+          }
+        },
+        "blocks": [
+          {
+            "structure": "relics:colossus",
+            "template": "relics:colossus_gameplay_v7_worldgen",
+            "origin": [
+              96011,
+              -4,
+              48602
+            ],
+            "rotation": "COUNTERCLOCKWISE_90",
+            "bounding_box": [
+              96011,
+              -4,
+              48406,
+              96261,
+              204,
+              48602
+            ],
+            "expected_bounding_box": [
+              96011,
+              -4,
+              48406,
+              96261,
+              204,
+              48602
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 263974,
+            "matched_blocks": 263974,
+            "checked_air": 0,
+            "nature_cells_skipped": 7466,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 111,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 16055,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          }
+        ],
+        "initial_markers": [
+          {
+            "asset": "colossus",
+            "site_id": "natural:731204:colossus:19:9",
+            "markers": [
+              {
+                "role": "colossus_hatch",
+                "x": 96201,
+                "y": 165,
+                "z": 48476,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_golem_spawn",
+                "x": 96209,
+                "y": 165,
+                "z": 48500,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_trial_spawner",
+                "x": 96202,
+                "y": 165,
+                "z": 48500,
+                "block": "minecraft:trial_spawner"
+              },
+              {
+                "role": "colossus_vault",
+                "x": 96183,
+                "y": 165,
+                "z": 48500,
+                "block": "minecraft:vault"
+              },
+              {
+                "role": "colossus_arm_magnet_chest",
+                "x": 96089,
+                "y": 74,
+                "z": 48484,
+                "block": "minecraft:waxed_copper_chest",
+                "loot": [
+                  {
+                    "item": "minecraft:copper_ingot",
+                    "count": 24
+                  },
+                  {
+                    "item": "minecraft:iron_ingot",
+                    "count": 14
+                  },
+                  {
+                    "item": "minecraft:redstone",
+                    "count": 3
+                  },
+                  {
+                    "item": "relics:salvage_magnet",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "seed": -4685435945225202909,
+        "rotation": 1,
+        "upgrade_from_v6": true,
+        "passed": true,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": 5,
+              "z": -12
+            },
+            "x": 26520,
+            "z": -57320,
+            "ticket": 9808,
+            "priority": 7101292439516050829,
+            "rotation": 1,
+            "unique": true
+          },
+          "asset": "colossus",
+          "x2": 53040,
+          "z2": -114640,
+          "surface": 64,
+          "originX": 26645,
+          "originY": -13,
+          "originZ": -57418,
+          "minX": 26395,
+          "minZ": -57418,
+          "maxX": 26645,
+          "maxZ": -57222
+        },
+        "frozen": {
+          "fingerprint": "1065c923e12c1ea34e951a9bfee90bdbea46f3d977573aad572b8a75b3969097",
+          "interiors": "interiors-20261027-v1",
+          "unique": {
+            "candidate": {
+              "cell": {
+                "x": 5,
+                "z": -12
+              },
+              "x": 26520,
+              "z": -57320,
+              "ticket": 9808,
+              "priority": 7101292439516050829,
+              "rotation": 1,
+              "unique": true
+            },
+            "asset": "colossus",
+            "x2": 53040,
+            "z2": -114640,
+            "surface": 64,
+            "originX": 26645,
+            "originY": -13,
+            "originZ": -57418,
+            "minX": 26395,
+            "minZ": -57418,
+            "maxX": 26645,
+            "maxZ": -57222
+          }
+        },
+        "blocks": [
+          {
+            "structure": "relics:colossus",
+            "template": "relics:colossus_gameplay_worldgen",
+            "origin": [
+              26645,
+              -13,
+              -57418
+            ],
+            "rotation": "CLOCKWISE_90",
+            "bounding_box": [
+              26395,
+              -13,
+              -57418,
+              26645,
+              195,
+              -57222
+            ],
+            "expected_bounding_box": [
+              26395,
+              -13,
+              -57418,
+              26645,
+              195,
+              -57222
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 263905,
+            "matched_blocks": 263905,
+            "checked_air": 0,
+            "nature_cells_skipped": 7466,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 111,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 16013,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          }
+        ],
+        "initial_markers": [
+          {
+            "asset": "colossus",
+            "site_id": "natural:-4685435945225202909:colossus:5:-12",
+            "markers": [
+              {
+                "role": "colossus_hatch",
+                "x": 26455,
+                "y": 156,
+                "z": -57292,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_golem_spawn",
+                "x": 26454,
+                "y": 156,
+                "z": -57316,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_trial_spawner",
+                "x": 26444,
+                "y": 156,
+                "z": -57316,
+                "block": "minecraft:trial_spawner"
+              },
+              {
+                "role": "colossus_vault",
+                "x": 26447,
+                "y": 156,
+                "z": -57326,
+                "block": "minecraft:vault"
+              },
+              {
+                "role": "colossus_arm_magnet_chest",
+                "x": 26567,
+                "y": 65,
+                "z": -57300,
+                "block": "minecraft:waxed_copper_chest",
+                "loot": [
+                  {
+                    "item": "minecraft:copper_ingot",
+                    "count": 27
+                  },
+                  {
+                    "item": "minecraft:iron_ingot",
+                    "count": 13
+                  },
+                  {
+                    "item": "minecraft:redstone",
+                    "count": 4
+                  },
+                  {
+                    "item": "relics:salvage_magnet",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "failures": []
+  },
+  "native_report": "build/colossus-landmarks-20261028/native-082620-829469/evidence.json",
+  "presentation": {
+    "artifact_sha256": "783188f8d07f3b1cef04190cc20cae96257ec1c77a33a65e0326db93bf7b51ec",
+    "passed": true,
+    "proof": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=4e170283-c2c2-43b9-a5cf-caa137d2563f\n",
+    "exit_code": 0,
+    "restart_preserved_claims_and_timeline": true,
+    "restart_result": "[08:27:22] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive",
+    "magnet_proof": "offhand_max_speed=0.385\noffhand_remaining=999\nmain_hand_max_speed=0.385\nmain_hand_remaining=999\ninventory_only_inactive=true\n"
+  },
+  "presentation_report": "build/gameplay-feedback-20261027/server-082631-136416/evidence.json",
+  "partial_upgrade": {
+    "artifact_sha256": "783188f8d07f3b1cef04190cc20cae96257ec1c77a33a65e0326db93bf7b51ec",
+    "runs": [
+      {
+        "seed": -4685435945225202909,
+        "rotation": 1,
+        "upgrade_from_v6": true,
+        "partial_upgrade": true,
+        "passed": true,
+        "site": {
+          "candidate": {
+            "cell": {
+              "x": 5,
+              "z": -12
+            },
+            "x": 26520,
+            "z": -57320,
+            "ticket": 9808,
+            "priority": 7101292439516050829,
+            "rotation": 1,
+            "unique": true
+          },
+          "asset": "colossus",
+          "x2": 53040,
+          "z2": -114640,
+          "surface": 64,
+          "originX": 26645,
+          "originY": -13,
+          "originZ": -57418,
+          "minX": 26395,
+          "minZ": -57418,
+          "maxX": 26645,
+          "maxZ": -57222
+        },
+        "frozen": {
+          "fingerprint": "1065c923e12c1ea34e951a9bfee90bdbea46f3d977573aad572b8a75b3969097",
+          "interiors": "interiors-20261027-v1",
+          "unique": {
+            "candidate": {
+              "cell": {
+                "x": 5,
+                "z": -12
+              },
+              "x": 26520,
+              "z": -57320,
+              "ticket": 9808,
+              "priority": 7101292439516050829,
+              "rotation": 1,
+              "unique": true
+            },
+            "asset": "colossus",
+            "x2": 53040,
+            "z2": -114640,
+            "surface": 64,
+            "originX": 26645,
+            "originY": -13,
+            "originZ": -57418,
+            "minX": 26395,
+            "minZ": -57418,
+            "maxX": 26645,
+            "maxZ": -57222
+          }
+        },
+        "partial_saved_certificate": "{\"revision\":\"interiors-20261027-v1\",\"asset\":\"colossus\",\"site\":\"natural:-4685435945225202909:colossus:5:-12\",\"x\":26645,\"y\":-13,\"z\":-57418,\"rotation\":1}",
+        "blocks": [
+          {
+            "structure": "relics:colossus",
+            "template": "relics:colossus_gameplay_worldgen",
+            "origin": [
+              26645,
+              -13,
+              -57418
+            ],
+            "rotation": "CLOCKWISE_90",
+            "bounding_box": [
+              26395,
+              -13,
+              -57418,
+              26645,
+              195,
+              -57222
+            ],
+            "expected_bounding_box": [
+              26395,
+              -13,
+              -57418,
+              26645,
+              195,
+              -57222
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 263905,
+            "matched_blocks": 263905,
+            "checked_air": 0,
+            "nature_cells_skipped": 7466,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 111,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 16013,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          }
+        ],
+        "initial_markers": [
+          {
+            "asset": "colossus",
+            "site_id": "natural:-4685435945225202909:colossus:5:-12",
+            "markers": [
+              {
+                "role": "colossus_hatch",
+                "x": 26455,
+                "y": 156,
+                "z": -57292,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_golem_spawn",
+                "x": 26454,
+                "y": 156,
+                "z": -57316,
+                "block": "minecraft:air"
+              },
+              {
+                "role": "colossus_trial_spawner",
+                "x": 26444,
+                "y": 156,
+                "z": -57316,
+                "block": "minecraft:trial_spawner"
+              },
+              {
+                "role": "colossus_vault",
+                "x": 26447,
+                "y": 156,
+                "z": -57326,
+                "block": "minecraft:vault"
+              },
+              {
+                "role": "colossus_arm_magnet_chest",
+                "x": 26567,
+                "y": 65,
+                "z": -57300,
+                "block": "minecraft:waxed_copper_chest",
+                "loot": [
+                  {
+                    "item": "minecraft:copper_ingot",
+                    "count": 27
+                  },
+                  {
+                    "item": "minecraft:iron_ingot",
+                    "count": 13
+                  },
+                  {
+                    "item": "minecraft:redstone",
+                    "count": 4
+                  },
+                  {
+                    "item": "relics:salvage_magnet",
+                    "count": 1
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "failures": []
+  },
+  "partial_upgrade_report": "build/colossus-landmarks-20261028/native-083036-749102/evidence.json",
+  "checks": {
+    "gameplay_assertions": 663,
+    "static_mixin_targets": 52,
+    "worldgen_assertions": 755,
+    "executor_assertions": 1008,
+    "location_assertions": 755716,
+    "synthetic_distribution_assertions": 198924,
+    "main_hand_magnet_pickup_items": 64,
+    "main_hand_magnet_pickup_wear_cost": 1
+  },
+  "preservation": {
+    "baseline_files": 1122,
+    "unchanged_files": 1108,
+    "intentional_changes": [
+      ".gitattributes",
+      ".gitignore",
+      "CHANGELOG.md",
+      "README.md",
+      "docs/README.md",
+      "src/main/java/de/relics/distribution/DistributionJournal.java",
+      "src/main/java/de/relics/distribution/TerrainValidator.java",
+      "src/main/java/de/relics/gameplay/NaturalInteriors.java",
+      "src/test/java/de/relics/GameplayPresentationChecks.java",
+      "src/test/java/de/relics/NaturalInteriorChecks.java",
+      "tests/test_natural_interiors.py",
+      "tools/build.py",
+      "tools/integrate_gameplay_interiors.py",
+      "tools/test_natural_interiors_server.py"
+    ],
+    "v1_manifest_byte_identical": true
+  },
+  "first_failed_ore_run": "build/colossus-landmarks-20261028/native-082058-857985/evidence.json",
+  "scope": "No user world/profile edits, installation, commit or push",
+  "limits": [
+    "Visual acceptance and real Minecraft lighting remain manual",
+    "No proof of arbitrary hard-crash atomicity across player/entity/journal saves"
+  ],
+  "python_suite": {
+    "tests": 133,
+    "passed": true,
+    "separate_local_neoforge_tests_excluded": true
+  }
+}

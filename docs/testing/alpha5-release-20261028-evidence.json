@@ -1,0 +1,3863 @@
+{
+  "version": "0.1.0-alpha.5.0",
+  "minecraft": "26.2",
+  "loader": "fabric",
+  "artifact": "dist/relics-0.1.0-alpha.5.0+mc26.2.jar",
+  "sha256": "f588041e4ce79df9ee898e18c844f999c2ff4915cc0684e689df06e07147d7da",
+  "export_jar_identical": true,
+  "handoff_bindings": {
+    "records_checked": 1598,
+    "passed": true
+  },
+  "local_python_suite": {
+    "tests": 156,
+    "errors": 0,
+    "failures": 5,
+    "seconds": 383.3289999999997
+  },
+  "export_link_failures_corrected": true,
+  "targeted_doc_and_handoff_tests": 5,
+  "java_assertions": {
+    "gameplay": 677,
+    "mixin_contracts": 63,
+    "worldgen": 764,
+    "executor": 1008,
+    "search": 755716,
+    "distribution": 198924
+  },
+  "native": {
+    "animals": {
+      "path": "build/alpha5-release-20261028/animals-115245-076099/evidence.json",
+      "artifact_sha256": "f588041e4ce79df9ee898e18c844f999c2ff4915cc0684e689df06e07147d7da",
+      "passed": true,
+      "proof": "natural_hook=true\nextra_spawns=4\nordinary_spawns=8\nobserved_callbacks=8\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n",
+      "exit_code": 0
+    },
+    "export_animals": {
+      "path": "build/alpha5-release-20261028/source-export/build/alpha5-release-20261028/animals-120400-695773/evidence.json",
+      "artifact_sha256": "f588041e4ce79df9ee898e18c844f999c2ff4915cc0684e689df06e07147d7da",
+      "passed": true,
+      "proof": "natural_hook=true\nextra_spawns=4\nordinary_spawns=8\nobserved_callbacks=8\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n",
+      "exit_code": 0
+    },
+    "presentation": {
+      "path": "build/gameplay-feedback-20261027/server-115305-931633/evidence.json",
+      "artifact_sha256": "f588041e4ce79df9ee898e18c844f999c2ff4915cc0684e689df06e07147d7da",
+      "passed": true,
+      "tree_aura_0": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n",
+      "proof": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=3fc47838-3d10-4a40-a2ae-bf31032d47a6\n",
+      "exit_code": 0,
+      "tree_aura_1": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n",
+      "restart_preserved_claims_and_timeline": true,
+      "restart_result": "[11:53:56] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive",
+      "magnet_proof": "offhand_max_speed=0.38500000000000006\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n"
+    },
+    "natural": {
+      "path": "build/interior-integration-20261027/native-115255-380982/evidence.json",
+      "artifact_sha256": "f588041e4ce79df9ee898e18c844f999c2ff4915cc0684e689df06e07147d7da",
+      "target_unavailable": false,
+      "partial_restart": false,
+      "peaceful": false,
+      "runs": [
+        {
+          "seed": -48291736,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": 11,
+                  "z": 5
+                },
+                "x": 56584,
+                "z": 27832,
+                "ticket": 6337,
+                "priority": 7148134744104744328,
+                "rotation": 1,
+                "unique": false
+              },
+              "asset": "small_colossus",
+              "x2": 113168,
+              "z2": 55664,
+              "surface": 63,
+              "originX": 56648,
+              "originY": 50,
+              "originZ": 27769,
+              "minX": 56520,
+              "minZ": 27769,
+              "maxX": 56648,
+              "maxZ": 27895
+            }
+          ],
+          "commands": [
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:53:12] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsdistribution plan 56584 27832",
+              "response": "[11:53:13] [Server thread/INFO]: Relic plan Cell[x=11, z=5]: {\"candidate\":{\"cell\":{\"x\":11,\"z\":5},\"x\":56584,\"z\":27832,\"ticket\":6337,\"priority\":7148134744104744328,\"rotation\":1,\"unique\":false},\"asset\":\"small_colossus\",\"x2\":113168,\"z2\":55664,\"surface\":63,\"originX\":56648,\"originY\":50,\"originZ\":27769,\"minX\":56520,\"minZ\":27769,\"maxX\":56648,\"maxZ\":27895}"
+            },
+            {
+              "command": "forceload add 56512 27760 56639 27903",
+              "response": "[11:53:17] [Server thread/INFO]: Marked 72 chunks in minecraft:overworld from [3532, 1735] to [3539, 1743] to be force loaded"
+            },
+            {
+              "command": "forceload add 56640 27760 56655 27903",
+              "response": "[11:53:17] [Server thread/INFO]: Marked 9 chunks in minecraft:overworld from [3540, 1735] to [3540, 1743] to be force loaded"
+            },
+            {
+              "command": "execute if loaded 56512 80 27760",
+              "response": "[11:53:17] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56512 80 27776",
+              "response": "[11:53:17] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56512 80 27792",
+              "response": "[11:53:17] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56512 80 27808",
+              "response": "[11:53:17] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56512 80 27824",
+              "response": "[11:53:17] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56512 80 27840",
+              "response": "[11:53:17] [Server thread/INFO]: Test failed"
+            },
+            {
+              "command": "execute if loaded 56512 80 27840",
+              "response": "[11:53:17] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56512 80 27856",
+              "response": "[11:53:17] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56512 80 27872",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56512 80 27888",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56528 80 27760",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56528 80 27776",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56528 80 27792",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56528 80 27808",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56528 80 27824",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56528 80 27840",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56528 80 27856",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56528 80 27872",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56528 80 27888",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56544 80 27760",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56544 80 27776",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56544 80 27792",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56544 80 27808",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56544 80 27824",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56544 80 27840",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56544 80 27856",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56544 80 27872",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56544 80 27888",
+              "response": "[11:53:18] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56560 80 27760",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56560 80 27776",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56560 80 27792",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56560 80 27808",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56560 80 27824",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56560 80 27840",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56560 80 27856",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56560 80 27872",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56560 80 27888",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56576 80 27760",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56576 80 27776",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56576 80 27792",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56576 80 27808",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56576 80 27824",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56576 80 27840",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56576 80 27856",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56576 80 27872",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56576 80 27888",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56592 80 27760",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56592 80 27776",
+              "response": "[11:53:19] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56592 80 27792",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56592 80 27808",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56592 80 27824",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56592 80 27840",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56592 80 27856",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56592 80 27872",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56592 80 27888",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56608 80 27760",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56608 80 27776",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56608 80 27792",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56608 80 27808",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56608 80 27824",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56608 80 27840",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56608 80 27856",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56608 80 27872",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56608 80 27888",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56624 80 27760",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56624 80 27776",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56624 80 27792",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56624 80 27808",
+              "response": "[11:53:20] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56624 80 27824",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56624 80 27840",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56624 80 27856",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56624 80 27872",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56624 80 27888",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56640 80 27760",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56640 80 27776",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56640 80 27792",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56640 80 27808",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56640 80 27824",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56640 80 27840",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56640 80 27856",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56640 80 27872",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 56640 80 27888",
+              "response": "[11:53:21] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:53:21] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:53:21] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:53:21] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:53:40] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:53:41] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "relicsinteriorstest mutate",
+              "response": "[11:53:41] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS mutated"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:53:41] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:53:41] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:53:56] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:53:56] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:53:56] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:53:56] [Server thread/INFO]: Stopping the server"
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:small_colossus",
+              "template": "relics:small_colossus_gameplay_v11_worldgen",
+              "origin": [
+                56648,
+                50,
+                27769
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "expected_bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 188414,
+              "matched_blocks": 188414,
+              "checked_air": 0,
+              "nature_cells_skipped": 29877,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 45,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 26388,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "passed": true
+        },
+        {
+          "seed": 731204,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": -11,
+                  "z": -6
+                },
+                "x": -53176,
+                "z": -28920,
+                "ticket": 625,
+                "priority": 2496308181309163861,
+                "rotation": 0,
+                "unique": false
+              },
+              "asset": "obelisk",
+              "x2": -106352,
+              "z2": -57839,
+              "surface": 67,
+              "originX": -53213,
+              "originY": 57,
+              "originZ": -28957,
+              "minX": -53213,
+              "minZ": -28957,
+              "maxX": -53139,
+              "maxZ": -28882
+            },
+            {
+              "candidate": {
+                "cell": {
+                  "x": -11,
+                  "z": 6
+                },
+                "x": -53160,
+                "z": 31272,
+                "ticket": 1695,
+                "priority": 2605195123915950883,
+                "rotation": 2,
+                "unique": false
+              },
+              "asset": "obelisk",
+              "x2": -106320,
+              "z2": 62545,
+              "surface": 68,
+              "originX": -53123,
+              "originY": 58,
+              "originZ": 31310,
+              "minX": -53197,
+              "minZ": 31235,
+              "maxX": -53123,
+              "maxZ": 31310
+            },
+            {
+              "candidate": {
+                "cell": {
+                  "x": 19,
+                  "z": 9
+                },
+                "x": 96136,
+                "z": 48504,
+                "ticket": 6381,
+                "priority": 2284565568339078783,
+                "rotation": 3,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 192272,
+              "z2": 97008,
+              "surface": 73,
+              "originX": 96011,
+              "originY": -4,
+              "originZ": 48602,
+              "minX": 96011,
+              "minZ": 48406,
+              "maxX": 96261,
+              "maxZ": 48602
+            }
+          ],
+          "commands": [
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:53:13] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsdistribution status",
+              "response": "[11:53:20] [Server thread/INFO]: {\"policy\":\"relics-distribution-v2-local64-r3072\",\"snapshot\":{\"policy\":\"relics-distribution-v2-local64-r3072\",\"interiors\":\"interiors-20261028-v5\",\"seed\":731204,\"fingerprint\":\"0351cf5835e4b5acb72d7163328552699db92c4abfd0b35aae88470e6c4e8a0e\",\"spawnX\":-656,\"spawnZ\":112,\"bootstrapX\":-648,\"bootstrapZ\":120,\"frozen\":true,\"unavailable\":false,\"minX\":-29999984,\"minZ\":-29999984,\"maxX\":29999984,\"maxZ\":29999984,\"enabled\":[\"SKULL_2\",\"SMALL\",\"TOWER\",\"SKULL\",\"OBELISK\",\"TREE\",\"COLOSSUS\"],\"unique\":{\"candidate\":{\"cell\":{\"x\":19,\"z\":9},\"x\":96136,\"z\":48504,\"ticket\":6381,\"priority\":2284565568339078783,\"rotation\":3,\"unique\":true},\"asset\":\"colossus\",\"x2\":192272,\"z2\":97008,\"surface\":73,\"originX\":96011,\"originY\":-4,\"originZ\":48602,\"minX\":96011,\"minZ\":48406,\"maxX\":96261,\"maxZ\":48602},\"lower\":100000,\"upper\":120000,\"cursor\":66,\"candidatesChecked\":1211,\"slices\":651,\"maxEvaluationNanos\":121303600},\"pending\":false,\"opportunityQueries\":0,\"terrainChecks\":2,\"terrainRejected\":2,\"spacingRejected\":0,\"acceptedQueries\":0,\"materializedStartEvents\":0,\"locationAttempts\":128}"
+            },
+            {
+              "command": "relicsdistribution plan -53176 -28920",
+              "response": "[11:53:20] [Server thread/INFO]: Relic plan Cell[x=-11, z=-6]: {\"candidate\":{\"cell\":{\"x\":-11,\"z\":-6},\"x\":-53176,\"z\":-28920,\"ticket\":625,\"priority\":2496308181309163861,\"rotation\":0,\"unique\":false},\"asset\":\"obelisk\",\"x2\":-106352,\"z2\":-57839,\"surface\":67,\"originX\":-53213,\"originY\":57,\"originZ\":-28957,\"minX\":-53213,\"minZ\":-28957,\"maxX\":-53139,\"maxZ\":-28882}"
+            },
+            {
+              "command": "forceload add -53216 -28960 -53137 -28881",
+              "response": "[11:53:22] [Server thread/INFO]: Marked 25 chunks in minecraft:overworld from [-3326, -1810] to [-3322, -1806] to be force loaded"
+            },
+            {
+              "command": "relicsdistribution plan -53160 31272",
+              "response": "[11:53:23] [Server thread/INFO]: Relic plan Cell[x=-11, z=6]: {\"candidate\":{\"cell\":{\"x\":-11,\"z\":6},\"x\":-53160,\"z\":31272,\"ticket\":1695,\"priority\":2605195123915950883,\"rotation\":2,\"unique\":false},\"asset\":\"obelisk\",\"x2\":-106320,\"z2\":62545,\"surface\":68,\"originX\":-53123,\"originY\":58,\"originZ\":31310,\"minX\":-53197,\"minZ\":31235,\"maxX\":-53123,\"maxZ\":31310}"
+            },
+            {
+              "command": "forceload add -53200 31232 -53121 31311",
+              "response": "[11:53:24] [Server thread/INFO]: Marked 25 chunks in minecraft:overworld from [-3325, 1952] to [-3321, 1956] to be force loaded"
+            },
+            {
+              "command": "forceload add 96000 48400 96127 48607",
+              "response": "[11:53:28] [Server thread/INFO]: Marked 104 chunks in minecraft:overworld from [6000, 3025] to [6007, 3037] to be force loaded"
+            },
+            {
+              "command": "forceload add 96128 48400 96255 48607",
+              "response": "[11:53:31] [Server thread/INFO]: Marked 104 chunks in minecraft:overworld from [6008, 3025] to [6015, 3037] to be force loaded"
+            },
+            {
+              "command": "forceload add 96256 48400 96271 48607",
+              "response": "[11:53:31] [Server thread/INFO]: Marked 13 chunks in minecraft:overworld from [6016, 3025] to [6016, 3037] to be force loaded"
+            },
+            {
+              "command": "execute if loaded -53216 80 -28960",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53216 80 -28944",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53216 80 -28928",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53216 80 -28912",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53216 80 -28896",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53200 80 -28960",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53200 80 -28944",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53200 80 -28928",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53200 80 -28912",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53200 80 -28896",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53184 80 -28960",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53184 80 -28944",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53184 80 -28928",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53184 80 -28912",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53184 80 -28896",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53168 80 -28960",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53168 80 -28944",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53168 80 -28928",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53168 80 -28912",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53168 80 -28896",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53152 80 -28960",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53152 80 -28944",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53152 80 -28928",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53152 80 -28912",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53152 80 -28896",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53200 80 31232",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53200 80 31248",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53200 80 31264",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53200 80 31280",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53200 80 31296",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53184 80 31232",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53184 80 31248",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53184 80 31264",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53184 80 31280",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53184 80 31296",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53168 80 31232",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53168 80 31248",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53168 80 31264",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53168 80 31280",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53168 80 31296",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53152 80 31232",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53152 80 31248",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53152 80 31264",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53152 80 31280",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53152 80 31296",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53136 80 31232",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53136 80 31248",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53136 80 31264",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53136 80 31280",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -53136 80 31296",
+              "response": "[11:53:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48400",
+              "response": "[11:53:31] [Server thread/INFO]: Test failed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48400",
+              "response": "[11:53:31] [Server thread/INFO]: Test failed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48400",
+              "response": "[11:53:32] [Server thread/INFO]: Test failed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48400",
+              "response": "[11:53:32] [Server thread/INFO]: Test failed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48400",
+              "response": "[11:53:32] [Server thread/INFO]: Test failed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48400",
+              "response": "[11:53:32] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48416",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48432",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48448",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48464",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48480",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48496",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48512",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48528",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48544",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48560",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48576",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96000 80 48592",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48400",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48416",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48432",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48448",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48464",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48480",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48496",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48512",
+              "response": "[11:53:33] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48528",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48544",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48560",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48576",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96016 80 48592",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48400",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48416",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48432",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48448",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48464",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48480",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48496",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48512",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48528",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48544",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48560",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48576",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96032 80 48592",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48400",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48416",
+              "response": "[11:53:34] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48432",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48448",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48464",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48480",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48496",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48512",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48528",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48544",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48560",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48576",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96048 80 48592",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48400",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48416",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48432",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48448",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48464",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48480",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48496",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48512",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48528",
+              "response": "[11:53:35] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48544",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48560",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48576",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96064 80 48592",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48400",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48416",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48432",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48448",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48464",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48480",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48496",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48512",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48528",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48544",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48560",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48576",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96080 80 48592",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48400",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48416",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48432",
+              "response": "[11:53:36] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48448",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48464",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48480",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48496",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48512",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48528",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48544",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48560",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48576",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96096 80 48592",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48400",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48416",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48432",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48448",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48464",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48480",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48496",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48512",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48528",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48544",
+              "response": "[11:53:37] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48560",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48576",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96112 80 48592",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48400",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48416",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48432",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48448",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48464",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48480",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48496",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48512",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48528",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48544",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48560",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48576",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96128 80 48592",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48400",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48416",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48432",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48448",
+              "response": "[11:53:38] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48464",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48480",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48496",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48512",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48528",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48544",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48560",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48576",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96144 80 48592",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48400",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48416",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48432",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48448",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48464",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48480",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48496",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48512",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48528",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48544",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48560",
+              "response": "[11:53:39] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48576",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96160 80 48592",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48400",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48416",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48432",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48448",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48464",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48480",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48496",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48512",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48528",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48544",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48560",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48576",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96176 80 48592",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48400",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48416",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48432",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48448",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48464",
+              "response": "[11:53:40] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48480",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48496",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48512",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48528",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48544",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48560",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48576",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96192 80 48592",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48400",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48416",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48432",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48448",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48464",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48480",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48496",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48512",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48528",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48544",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48560",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48576",
+              "response": "[11:53:41] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96208 80 48592",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48400",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48416",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48432",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48448",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48464",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48480",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48496",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48512",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48528",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48544",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48560",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48576",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96224 80 48592",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48400",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48416",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48432",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48448",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48464",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48480",
+              "response": "[11:53:42] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48496",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48512",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48528",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48544",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48560",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48576",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96240 80 48592",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48400",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48416",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48432",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48448",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48464",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48480",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48496",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48512",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48528",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48544",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48560",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48576",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded 96256 80 48592",
+              "response": "[11:53:43] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:53:44] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:53:44] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:53:44] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:54:19] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:54:19] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "relicsinteriorstest mutate",
+              "response": "[11:54:19] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS mutated"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:54:19] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:54:19] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:54:36] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:54:36] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:54:37] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:54:37] [Server thread/INFO]: Stopping the server"
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:obelisk",
+              "template": "relics:obelisk_gameplay_worldgen",
+              "origin": [
+                -53213,
+                57,
+                -28957
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -53213,
+                57,
+                -28957,
+                -53139,
+                243,
+                -28882
+              ],
+              "expected_bounding_box": [
+                -53213,
+                57,
+                -28957,
+                -53139,
+                243,
+                -28882
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 117575,
+              "matched_blocks": 117575,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 23,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            },
+            {
+              "structure": "relics:obelisk",
+              "template": "relics:obelisk_gameplay_worldgen",
+              "origin": [
+                -53123,
+                58,
+                31310
+              ],
+              "rotation": "CLOCKWISE_180",
+              "bounding_box": [
+                -53197,
+                58,
+                31235,
+                -53123,
+                244,
+                31310
+              ],
+              "expected_bounding_box": [
+                -53197,
+                58,
+                31235,
+                -53123,
+                244,
+                31310
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 117575,
+              "matched_blocks": 117575,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 23,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            },
+            {
+              "structure": "relics:colossus",
+              "template": "relics:colossus_gameplay_v7_worldgen",
+              "origin": [
+                96011,
+                -4,
+                48602
+              ],
+              "rotation": "COUNTERCLOCKWISE_90",
+              "bounding_box": [
+                96011,
+                -4,
+                48406,
+                96261,
+                204,
+                48602
+              ],
+              "expected_bounding_box": [
+                96011,
+                -4,
+                48406,
+                96261,
+                204,
+                48602
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 263974,
+              "matched_blocks": 263974,
+              "checked_air": 0,
+              "nature_cells_skipped": 7466,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 111,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 16055,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "passed": true
+        },
+        {
+          "seed": 20260913,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": -4,
+                  "z": 4
+                },
+                "x": -19336,
+                "z": 20456,
+                "ticket": 6513,
+                "priority": -978740296379991234,
+                "rotation": 3,
+                "unique": false
+              },
+              "asset": "world_tree",
+              "x2": -38672,
+              "z2": 40912,
+              "surface": 68,
+              "originX": -19436,
+              "originY": 44,
+              "originZ": 20557,
+              "minX": -19436,
+              "minZ": 20355,
+              "maxX": -19236,
+              "maxZ": 20557
+            }
+          ],
+          "commands": [
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:54:13] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsdistribution plan -19336 20456",
+              "response": "[11:54:18] [Server thread/INFO]: Relic plan Cell[x=-4, z=4]: {\"candidate\":{\"cell\":{\"x\":-4,\"z\":4},\"x\":-19336,\"z\":20456,\"ticket\":6513,\"priority\":-978740296379991234,\"rotation\":3,\"unique\":false},\"asset\":\"world_tree\",\"x2\":-38672,\"z2\":40912,\"surface\":68,\"originX\":-19436,\"originY\":44,\"originZ\":20557,\"minX\":-19436,\"minZ\":20355,\"maxX\":-19236,\"maxZ\":20557}"
+            },
+            {
+              "command": "forceload add -19440 20352 -19313 20559",
+              "response": "[11:54:23] [Server thread/INFO]: Marked 104 chunks in minecraft:overworld from [-1215, 1272] to [-1208, 1284] to be force loaded"
+            },
+            {
+              "command": "forceload add -19312 20352 -19233 20559",
+              "response": "[11:54:25] [Server thread/INFO]: Marked 65 chunks in minecraft:overworld from [-1207, 1272] to [-1203, 1284] to be force loaded"
+            },
+            {
+              "command": "execute if loaded -19440 80 20352",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20368",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20384",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20400",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20416",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20432",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20448",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20464",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20480",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20496",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20512",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20528",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19440 80 20544",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20352",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20368",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20384",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20400",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20416",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20432",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20448",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20464",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20480",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20496",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20512",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20528",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19424 80 20544",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20352",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20368",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20384",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20400",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20416",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20432",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20448",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20464",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20480",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20496",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20512",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20528",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19408 80 20544",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20352",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20368",
+              "response": "[11:54:25] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20384",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20400",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20416",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20432",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20448",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20464",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20480",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20496",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20512",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20528",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19392 80 20544",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20352",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20368",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20384",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20400",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20416",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20432",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20448",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20464",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20480",
+              "response": "[11:54:26] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20496",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20512",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20528",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19376 80 20544",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20352",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20368",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20384",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20400",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20416",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20432",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20448",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20464",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20480",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20496",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20512",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20528",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19360 80 20544",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20352",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20368",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20384",
+              "response": "[11:54:27] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20400",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20416",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20432",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20448",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20464",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20480",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20496",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20512",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20528",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19344 80 20544",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20352",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20368",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20384",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20400",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20416",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20432",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20448",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20464",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20480",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20496",
+              "response": "[11:54:28] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20512",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20528",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19328 80 20544",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20352",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20368",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20384",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20400",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20416",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20432",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20448",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20464",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20480",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20496",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20512",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20528",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19312 80 20544",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20352",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20368",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20384",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20400",
+              "response": "[11:54:29] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20416",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20432",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20448",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20464",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20480",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20496",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20512",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20528",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19296 80 20544",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20352",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20368",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20384",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20400",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20416",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20432",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20448",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20464",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20480",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20496",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20512",
+              "response": "[11:54:30] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20528",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19280 80 20544",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20352",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20368",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20384",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20400",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20416",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20432",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20448",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20464",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20480",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20496",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20512",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20528",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19264 80 20544",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20352",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20368",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20384",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20400",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20416",
+              "response": "[11:54:31] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20432",
+              "response": "[11:54:32] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20448",
+              "response": "[11:54:32] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20464",
+              "response": "[11:54:32] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20480",
+              "response": "[11:54:32] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20496",
+              "response": "[11:54:32] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20512",
+              "response": "[11:54:32] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20528",
+              "response": "[11:54:32] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -19248 80 20544",
+              "response": "[11:54:32] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:54:32] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:54:32] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:54:32] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:54:54] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:54:54] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "relicsinteriorstest mutate",
+              "response": "[11:54:54] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS mutated"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:54:55] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:54:55] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:55:11] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:55:11] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:55:11] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:55:11] [Server thread/INFO]: Stopping the server"
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:world_tree",
+              "template": "relics:world_tree_gameplay_worldgen",
+              "origin": [
+                -19436,
+                44,
+                20557
+              ],
+              "rotation": "COUNTERCLOCKWISE_90",
+              "bounding_box": [
+                -19436,
+                44,
+                20355,
+                -19236,
+                271,
+                20557
+              ],
+              "expected_bounding_box": [
+                -19436,
+                44,
+                20355,
+                -19236,
+                271,
+                20557
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 288894,
+              "matched_blocks": 288894,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 116,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0,
+              "grounded_plants": [
+                {
+                  "source": [
+                    -19311,
+                    68,
+                    20474
+                  ],
+                  "placed": [
+                    -19311,
+                    65,
+                    20474
+                  ],
+                  "within_vertical_limit": true
+                },
+                {
+                  "source": [
+                    -19361,
+                    68,
+                    20448
+                  ],
+                  "placed": [
+                    -19361,
+                    64,
+                    20448
+                  ],
+                  "within_vertical_limit": true
+                },
+                {
+                  "source": [
+                    -19338,
+                    68,
+                    20424
+                  ],
+                  "placed": [
+                    -19338,
+                    65,
+                    20424
+                  ],
+                  "within_vertical_limit": true
+                }
+              ]
+            }
+          ],
+          "passed": true
+        },
+        {
+          "seed": 4661570585687253657,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": -1,
+                  "z": 5
+                },
+                "x": -2248,
+                "z": 28408,
+                "ticket": 6079,
+                "priority": 5119561929695289679,
+                "rotation": 0,
+                "unique": false
+              },
+              "asset": "ruined_tower",
+              "x2": -4496,
+              "z2": 56816,
+              "surface": 67,
+              "originX": -2311,
+              "originY": 55,
+              "originZ": 28354,
+              "minX": -2311,
+              "minZ": 28354,
+              "maxX": -2185,
+              "maxZ": 28462
+            }
+          ],
+          "commands": [
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:54:55] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsdistribution plan -2248 28408",
+              "response": "[11:54:57] [Server thread/INFO]: Relic plan Cell[x=-1, z=5]: {\"candidate\":{\"cell\":{\"x\":-1,\"z\":5},\"x\":-2248,\"z\":28408,\"ticket\":6079,\"priority\":5119561929695289679,\"rotation\":0,\"unique\":false},\"asset\":\"ruined_tower\",\"x2\":-4496,\"z2\":56816,\"surface\":67,\"originX\":-2311,\"originY\":55,\"originZ\":28354,\"minX\":-2311,\"minZ\":28354,\"maxX\":-2185,\"maxZ\":28462}"
+            },
+            {
+              "command": "forceload add -2320 28352 -2193 28463",
+              "response": "[11:55:00] [Server thread/INFO]: Marked 56 chunks in minecraft:overworld from [-145, 1772] to [-138, 1778] to be force loaded"
+            },
+            {
+              "command": "forceload add -2192 28352 -2177 28463",
+              "response": "[11:55:00] [Server thread/INFO]: Marked 7 chunks in minecraft:overworld from [-137, 1772] to [-137, 1778] to be force loaded"
+            },
+            {
+              "command": "execute if loaded -2320 80 28352",
+              "response": "[11:55:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28368",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28384",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28400",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28416",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28432",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28448",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28352",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28368",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28384",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28400",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28416",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28432",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28448",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28352",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28368",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28384",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28400",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28416",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28432",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28448",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28352",
+              "response": "[11:55:01] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28368",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28384",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28400",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28416",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28432",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28448",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28352",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28368",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28384",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28400",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28416",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28432",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28448",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28352",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28368",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28384",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28400",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28416",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28432",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28448",
+              "response": "[11:55:02] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28352",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28368",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28384",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28400",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28416",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28432",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28448",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28352",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28368",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28384",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28400",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28416",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28432",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28448",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28352",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28368",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28384",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28400",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28416",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28432",
+              "response": "[11:55:03] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28448",
+              "response": "[11:55:04] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:55:04] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:55:04] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:55:04] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:55:24] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:55:24] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "relicsinteriorstest mutate",
+              "response": "[11:55:24] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS mutated"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:55:24] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:55:24] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[11:55:38] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[11:55:38] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[11:55:38] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[11:55:38] [Server thread/INFO]: Stopping the server"
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:ruined_tower",
+              "template": "relics:ruined_tower_gameplay_v10_worldgen",
+              "origin": [
+                -2311,
+                55,
+                28354
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -2311,
+                55,
+                28354,
+                -2185,
+                286,
+                28462
+              ],
+              "expected_bounding_box": [
+                -2311,
+                55,
+                28354,
+                -2185,
+                286,
+                28462
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 266110,
+              "matched_blocks": 266110,
+              "checked_air": 0,
+              "nature_cells_skipped": 38072,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 42,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 14722,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "failures": []
+    },
+    "upgrade": {
+      "path": "build/colossus-landmarks-20261028/native-115357-520804/evidence.json",
+      "artifact_sha256": "f588041e4ce79df9ee898e18c844f999c2ff4915cc0684e689df06e07147d7da",
+      "runs": [
+        {
+          "seed": -48291736,
+          "rotation": 1,
+          "upgrade_from_v6": true,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": 11,
+                "z": 5
+              },
+              "x": 56584,
+              "z": 27832,
+              "ticket": 6337,
+              "priority": 7148134744104744328,
+              "rotation": 1,
+              "unique": false
+            },
+            "asset": "small_colossus",
+            "x2": 113168,
+            "z2": 55664,
+            "surface": 63,
+            "originX": 56648,
+            "originY": 50,
+            "originZ": 27769,
+            "minX": 56520,
+            "minZ": 27769,
+            "maxX": 56648,
+            "maxZ": 27895
+          },
+          "frozen": {
+            "fingerprint": "e046e40523d28ec21c36192ee89cb3bbc366d9d2fd706a3e4e55780c65f81dc1",
+            "interiors": "interiors-20261028-v4",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 1,
+                  "z": 9
+                },
+                "x": 5320,
+                "z": 48040,
+                "ticket": 1936,
+                "priority": 3520839750216504943,
+                "rotation": 0,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 10640,
+              "z2": 96080,
+              "surface": 64,
+              "originX": 5222,
+              "originY": -13,
+              "originZ": 47915,
+              "minX": 5222,
+              "minZ": 47915,
+              "maxX": 5418,
+              "maxZ": 48165
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:small_colossus",
+              "template": "relics:small_colossus_gameplay_v11_worldgen",
+              "origin": [
+                56648,
+                50,
+                27769
+              ],
+              "rotation": "CLOCKWISE_90",
+              "bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "expected_bounding_box": [
+                56520,
+                50,
+                27769,
+                56648,
+                129,
+                27895
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 188414,
+              "matched_blocks": 188414,
+              "checked_air": 0,
+              "nature_cells_skipped": 29877,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 45,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 26388,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "small_colossus",
+              "site_id": "natural:-48291736:small_colossus:11:5",
+              "markers": [
+                {
+                  "role": "small_magnet_chest",
+                  "x": 56587,
+                  "y": 94,
+                  "z": 27844,
+                  "block": "minecraft:waxed_copper_chest",
+                  "loot": [
+                    {
+                      "item": "minecraft:copper_ingot",
+                      "count": 12
+                    },
+                    {
+                      "item": "minecraft:iron_ingot",
+                      "count": 5
+                    },
+                    {
+                      "item": "minecraft:redstone",
+                      "count": 1
+                    },
+                    {
+                      "item": "minecraft:amethyst_shard",
+                      "count": 1
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "skull": {
+      "path": "build/colossus-landmarks-20261028/native-120350-515825/evidence.json",
+      "artifact_sha256": "f588041e4ce79df9ee898e18c844f999c2ff4915cc0684e689df06e07147d7da",
+      "runs": [
+        {
+          "seed": 731204,
+          "rotation": 0,
+          "upgrade_from_v6": false,
+          "partial_upgrade": false,
+          "passed": true,
+          "site": {
+            "candidate": {
+              "cell": {
+                "x": -4,
+                "z": -9
+              },
+              "x": -18568,
+              "z": -43944,
+              "ticket": 4796,
+              "priority": -7828706360305242401,
+              "rotation": 0,
+              "unique": false
+            },
+            "asset": "titan_skull_2",
+            "x2": -37136,
+            "z2": -87888,
+            "surface": 66,
+            "originX": -18625,
+            "originY": 38,
+            "originZ": -44001,
+            "minX": -18625,
+            "minZ": -44001,
+            "maxX": -18511,
+            "maxZ": -43887
+          },
+          "frozen": {
+            "fingerprint": "0351cf5835e4b5acb72d7163328552699db92c4abfd0b35aae88470e6c4e8a0e",
+            "interiors": "interiors-20261028-v5",
+            "unique": {
+              "candidate": {
+                "cell": {
+                  "x": 19,
+                  "z": 9
+                },
+                "x": 96136,
+                "z": 48504,
+                "ticket": 6381,
+                "priority": 2284565568339078783,
+                "rotation": 3,
+                "unique": true
+              },
+              "asset": "colossus",
+              "x2": 192272,
+              "z2": 97008,
+              "surface": 73,
+              "originX": 96011,
+              "originY": -4,
+              "originZ": 48602,
+              "minX": 96011,
+              "minZ": 48406,
+              "maxX": 96261,
+              "maxZ": 48602
+            }
+          },
+          "blocks": [
+            {
+              "structure": "relics:titan_skull_2",
+              "template": "relics:titan_skull_2_side_v1_worldgen",
+              "origin": [
+                -18625,
+                38,
+                -44001
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -18625,
+                38,
+                -44001,
+                -18511,
+                173,
+                -43887
+              ],
+              "expected_bounding_box": [
+                -18625,
+                38,
+                -44001,
+                -18511,
+                173,
+                -43887
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 25149,
+              "matched_blocks": 25149,
+              "checked_air": 0,
+              "nature_cells_skipped": 0,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 37,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 0,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0,
+              "removed_chip_cells_checked": 111
+            }
+          ],
+          "initial_markers": [
+            {
+              "asset": "titan_skull_2",
+              "site_id": "natural:731204:titan_skull_2:-4:-9",
+              "markers": []
+            }
+          ]
+        }
+      ],
+      "failures": []
+    },
+    "peaceful": {
+      "path": "build/interior-integration-20261027/native-120438-117100/evidence.json",
+      "artifact_sha256": "f588041e4ce79df9ee898e18c844f999c2ff4915cc0684e689df06e07147d7da",
+      "target_unavailable": false,
+      "partial_restart": false,
+      "peaceful": true,
+      "runs": [
+        {
+          "seed": 4661570585687253657,
+          "sites": [
+            {
+              "candidate": {
+                "cell": {
+                  "x": -1,
+                  "z": 5
+                },
+                "x": -2248,
+                "z": 28408,
+                "ticket": 6079,
+                "priority": 5119561929695289679,
+                "rotation": 0,
+                "unique": false
+              },
+              "asset": "ruined_tower",
+              "x2": -4496,
+              "z2": 56816,
+              "surface": 67,
+              "originX": -2311,
+              "originY": 55,
+              "originZ": 28354,
+              "minX": -2311,
+              "minZ": 28354,
+              "maxX": -2185,
+              "maxZ": 28462
+            }
+          ],
+          "commands": [
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[12:04:52] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsdistribution plan -2248 28408",
+              "response": "[12:04:54] [Server thread/INFO]: Relic plan Cell[x=-1, z=5]: {\"candidate\":{\"cell\":{\"x\":-1,\"z\":5},\"x\":-2248,\"z\":28408,\"ticket\":6079,\"priority\":5119561929695289679,\"rotation\":0,\"unique\":false},\"asset\":\"ruined_tower\",\"x2\":-4496,\"z2\":56816,\"surface\":67,\"originX\":-2311,\"originY\":55,\"originZ\":28354,\"minX\":-2311,\"minZ\":28354,\"maxX\":-2185,\"maxZ\":28462}"
+            },
+            {
+              "command": "forceload add -2320 28352 -2193 28463",
+              "response": "[12:04:57] [Server thread/INFO]: Marked 56 chunks in minecraft:overworld from [-145, 1772] to [-138, 1778] to be force loaded"
+            },
+            {
+              "command": "forceload add -2192 28352 -2177 28463",
+              "response": "[12:04:57] [Server thread/INFO]: Marked 7 chunks in minecraft:overworld from [-137, 1772] to [-137, 1778] to be force loaded"
+            },
+            {
+              "command": "execute if loaded -2320 80 28352",
+              "response": "[12:04:57] [Server thread/INFO]: Test failed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28352",
+              "response": "[12:04:57] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28368",
+              "response": "[12:04:57] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28384",
+              "response": "[12:04:57] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28400",
+              "response": "[12:04:57] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28416",
+              "response": "[12:04:57] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28432",
+              "response": "[12:04:57] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2320 80 28448",
+              "response": "[12:04:57] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28352",
+              "response": "[12:04:57] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28368",
+              "response": "[12:04:57] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28384",
+              "response": "[12:04:57] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28400",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28416",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28432",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2304 80 28448",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28352",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28368",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28384",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28400",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28416",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28432",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2288 80 28448",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28352",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28368",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28384",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28400",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28416",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28432",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2272 80 28448",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28352",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28368",
+              "response": "[12:04:58] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28384",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28400",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28416",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28432",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2256 80 28448",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28352",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28368",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28384",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28400",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28416",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28432",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2240 80 28448",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28352",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28368",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28384",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28400",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28416",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28432",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2224 80 28448",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28352",
+              "response": "[12:04:59] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28368",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28384",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28400",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28416",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28432",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2208 80 28448",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28352",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28368",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28384",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28400",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28416",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28432",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "execute if loaded -2192 80 28448",
+              "response": "[12:05:00] [Server thread/INFO]: Test passed"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[12:05:00] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[12:05:00] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[12:05:00] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[12:05:18] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[12:05:18] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+            },
+            {
+              "command": "relicsinteriorstest mutate",
+              "response": "[12:05:18] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS mutated"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[12:05:18] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[12:05:18] [Server thread/INFO]: Stopping the server"
+            },
+            {
+              "command": "gamerule minecraft:random_tick_speed 0",
+              "response": "[12:05:32] [Server thread/INFO]: Gamerule random_tick_speed is now set to: 0"
+            },
+            {
+              "command": "relicsinteriorstest verify",
+              "response": "[12:05:32] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+            },
+            {
+              "command": "save-all flush",
+              "response": "[12:05:32] [Server thread/INFO]: Saved the game"
+            },
+            {
+              "command": "stop",
+              "response": "[12:05:32] [Server thread/INFO]: Stopping the server"
+            }
+          ],
+          "block_verification": [
+            {
+              "structure": "relics:ruined_tower",
+              "template": "relics:ruined_tower_gameplay_v10_worldgen",
+              "origin": [
+                -2311,
+                55,
+                28354
+              ],
+              "rotation": "NONE",
+              "bounding_box": [
+                -2311,
+                55,
+                28354,
+                -2185,
+                286,
+                28462
+              ],
+              "expected_bounding_box": [
+                -2311,
+                55,
+                28354,
+                -2185,
+                286,
+                28462
+              ],
+              "bounding_box_matches": true,
+              "checked_blocks": 266110,
+              "matched_blocks": 266110,
+              "checked_air": 0,
+              "nature_cells_skipped": 38072,
+              "normalized_persistent_leaf_distance": 0,
+              "mismatch_count": 0,
+              "mismatch_kinds": {},
+              "mismatch_examples": [],
+              "chunks_spanned": 42,
+              "missing_chunks": [],
+              "incomplete_chunks": [],
+              "passed": true,
+              "clearance_cells": 14722,
+              "blocked_clearances": 0,
+              "unprotected_clearances": 0
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "failures": []
+    }
+  },
+  "user_acceptance": {
+    "visual_and_gameplay": true,
+    "two_real_clients_and_reconnect": "User confirmed: Ja, ohne Probleme"
+  },
+  "ci_requirement": "Full 157-test suite and native animal hook on the final Git commit before release publication",
+  "excluded_work": "Separate NeoForge port, evidence and its shared reader/documentation changes remain local"
+}

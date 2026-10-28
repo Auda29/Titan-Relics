@@ -1,0 +1,1343 @@
+{
+  "source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-side-v1/titan-skull-2-v2-embedded-side-v1.nbt",
+  "version": "titan-skull-2-v2-embedded-side-v1",
+  "sha256": "0a8e66aebb437b9062f3bbcc87c84d38735fa361fbc8f179f99473a5185a4c80",
+  "size": [
+    99,
+    136,
+    99
+  ],
+  "ground_y": 28,
+  "buried_clip_depth": 6,
+  "blocks": 32422,
+  "source_offset": [
+    0,
+    0,
+    0
+  ],
+  "data_version": 3105,
+  "baseline_source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-v1/titan-skull-2-v2-embedded-v1.nbt",
+  "baseline_sha256": "80d4cb89afd047eca45b54b53c95cd32d130b54dec834e6664e3fe3786a86dcd",
+  "baseline_blocks": 32569,
+  "removed_count": 147,
+  "removed_source_center": [
+    40,
+    1,
+    -36
+  ],
+  "removed_bounds": [
+    [
+      85,
+      21,
+      3
+    ],
+    [
+      92,
+      25,
+      12
+    ]
+  ],
+  "removed_cells": [
+    {
+      "pos": [
+        85,
+        22,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        22,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        22,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        22,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        23,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        23,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        23,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        23,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        23,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        23,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        24,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        24,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        24,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        24,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        24,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        85,
+        24,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        21,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        21,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        21,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        21,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        22,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        22,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        22,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        22,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        23,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        23,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        24,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        24,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        25,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        25,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        25,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        25,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        25,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        86,
+        25,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        21,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        21,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        21,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        21,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        21,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        21,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        22,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        22,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        22,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        23,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        23,
+        12
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        24,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        24,
+        12
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        25,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        25,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        25,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        25,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        25,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        25,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        25,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        87,
+        25,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        21,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        21,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        21,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        21,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        21,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        21,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        21,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        21,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        22,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        22,
+        12
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        23,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        23,
+        12
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        24,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        24,
+        12
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        25,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        25,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        25,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        25,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        25,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        25,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        25,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        88,
+        25,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        21,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        21,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        21,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        21,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        21,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        21,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        21,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        21,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        22,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        22,
+        12
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        23,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        23,
+        12
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        24,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        24,
+        12
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        25,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        25,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        25,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        25,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        25,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        25,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        25,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        89,
+        25,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        21,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        21,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        21,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        21,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        21,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        21,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        22,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        22,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        23,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        23,
+        12
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        24,
+        3
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        24,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        24,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        25,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        25,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        25,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        25,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        25,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        90,
+        25,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        21,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        21,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        21,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        21,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        22,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        22,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        23,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        23,
+        11
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        24,
+        4
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        24,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        24,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        25,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        25,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        25,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        91,
+        25,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        22,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        22,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        22,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        22,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        23,
+        5
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        23,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        23,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        23,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        23,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        23,
+        10
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        24,
+        6
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        24,
+        7
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        24,
+        8
+      ],
+      "state": "minecraft:dripstone_block"
+    },
+    {
+      "pos": [
+        92,
+        24,
+        9
+      ],
+      "state": "minecraft:dripstone_block"
+    }
+  ],
+  "remaining_cell_records_sha256": "137836293394328368b0f896843505444802d7e1657cffce93f515ddbc73f344",
+  "remaining_cell_records_byte_identical": true,
+  "other_root_tags_identical": true,
+  "rotations": [
+    {
+      "rotation": "NONE",
+      "size": [
+        99,
+        136,
+        99
+      ],
+      "rotated_min_offset": [
+        0,
+        0,
+        0
+      ],
+      "rotated_max_offset": [
+        98,
+        135,
+        98
+      ],
+      "schematic_offset": [
+        0,
+        0,
+        0
+      ],
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-side-v1/titan-skull-2-v2-embedded-side-v1.nbt",
+      "sha256": "0a8e66aebb437b9062f3bbcc87c84d38735fa361fbc8f179f99473a5185a4c80",
+      "remaining_cells_equal": true
+    },
+    {
+      "rotation": "CLOCKWISE_90",
+      "size": [
+        99,
+        136,
+        99
+      ],
+      "rotated_min_offset": [
+        -98,
+        0,
+        0
+      ],
+      "rotated_max_offset": [
+        0,
+        135,
+        98
+      ],
+      "schematic_offset": [
+        0,
+        0,
+        0
+      ],
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-side-v1/titan-skull-2-v2-embedded-side-v1.nbt",
+      "sha256": "0a8e66aebb437b9062f3bbcc87c84d38735fa361fbc8f179f99473a5185a4c80",
+      "remaining_cells_equal": true
+    },
+    {
+      "rotation": "CLOCKWISE_180",
+      "size": [
+        99,
+        136,
+        99
+      ],
+      "rotated_min_offset": [
+        -98,
+        0,
+        -98
+      ],
+      "rotated_max_offset": [
+        0,
+        135,
+        0
+      ],
+      "schematic_offset": [
+        0,
+        0,
+        0
+      ],
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-side-v1/titan-skull-2-v2-embedded-side-v1.nbt",
+      "sha256": "0a8e66aebb437b9062f3bbcc87c84d38735fa361fbc8f179f99473a5185a4c80",
+      "remaining_cells_equal": true
+    },
+    {
+      "rotation": "COUNTERCLOCKWISE_90",
+      "size": [
+        99,
+        136,
+        99
+      ],
+      "rotated_min_offset": [
+        0,
+        0,
+        -98
+      ],
+      "rotated_max_offset": [
+        98,
+        135,
+        0
+      ],
+      "schematic_offset": [
+        0,
+        0,
+        0
+      ],
+      "source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-side-v1/titan-skull-2-v2-embedded-side-v1.nbt",
+      "sha256": "0a8e66aebb437b9062f3bbcc87c84d38735fa361fbc8f179f99473a5185a4c80",
+      "remaining_cells_equal": true
+    }
+  ],
+  "schematic_sha256": "d61e59cab19457cc267f2fad8628679fc59e77ce85332e3d5e373630490125c5",
+  "in_game_tested": false,
+  "editable_source": "relics/titan-skull/design/generated/titan-skull-2-v2-embedded-side-v1/titan-skull-2-v2-embedded-side-v1-source.blend",
+  "editable_source_sha256": "7cf615f5c6b56ec731ebb5e830bb803def48923da4325cf85ad07a85396ee1a4",
+  "source_verification_sha256": "7af0665943a38f4554538b8e6662c9a3092c3c12809d295f947a38c703335bcb",
+  "original_source_binding_sha256": "21a893aa0a69743b91de73b5a0612b4f385d0989acc8b7a0f06b449128f04210",
+  "tests": {
+    "run": "python -m unittest discover -s tests -p test_skull_side_revision.py -v",
+    "passed": 5,
+    "log_sha256": "42762965192351f32b1cedbad8969e3a1925d115921fbcc0f8398ca2889cfd32"
+  },
+  "screenshot": {
+    "path": "C:/Users/wecke/.t3/userdata/attachments/3b16f7b5-d783-4edd-85e9-c9f42e834457-7627a8b9-3bd3-4838-9eab-278aa43d0015.png",
+    "sha256": "b193dca12b91578378410a104c004758cf045ea3f42ee4737cdf70b9081f3452"
+  },
+  "hash_manifest": "hashes.json"
+}

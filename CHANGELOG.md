@@ -1,7 +1,36 @@
 # Changelog
 
-## 0.1.0-alpha.5.0-dev — natural gameplay and approved interiors (unreleased)
+## 0.1.0-alpha.5.0 — natural gameplay and approved interiors (2026-10-28)
 
+- Add bounded extra natural animal attempts near saved Tree anchors for pigs,
+  chickens, sheep and cows, with native habitat, distance, collision and population
+  checks. No timer, forced refill or breeding bonus.
+- Grant Regeneration II and Resistance II in the 80-block Tree aura, preserving
+  the five-minute tail and normal merging with stronger or longer effects.
+- Remove only the isolated 147-block Dripstone chip beside Titan Skull 2;
+  retain skull anatomy, sword, roots, other fragments and old world selections.
+- Ground World Tree firefly-bush/soil pairs on a safe surface in the same column,
+  within six blocks vertically; omit unsafe sites without leaving soil pillars.
+- Expand the saved Tree aura to an 80-block sphere, including spatial-bucket
+  lookup across three cells, while keeping Regeneration I and the five-minute tail.
+- Shorten the Small Colossus lower entrance by six blocks (V11) and frame the
+  Tower chest at the middle rear wall opposite the entrance (V10). New worlds
+  use V4; V1/V2/V3 world templates and fingerprints remain frozen.
+- Rework Monolith trim on baked Minecraft 26.2 armor UVs: separate narrow angular
+  details, clear helmet/arm/boot openings and native material palette colors.
+- Record provisional acceptance of Large Colossus V7 and Obelisk V6. Small
+  Colossus V11, Tower V10 and revised trim await visual in-game acceptance.
+- Count magnet wear per item actually inserted, including partial pickups and
+  exhaustion; keep ordinary pickup available and label the remaining item budget.
+- Move the Small Colossus V10 chest into a framed stand at the top of the second
+  stair. Keep the V3 selection for worlds created with that build.
+- Skip native tower hostile-spawn actions that Minecraft disallows on Peaceful,
+  preventing a repeated world-load crash without refilling completed actions.
+- Add Colossus V7 arm-chest framing, a central Trial Spawner guard structure and
+  a Vault console at the middle crew station. Reserve chest-lid/access air and
+  remove native terrain ores within the bounded V7 clearance regions.
+- Freeze the new interior revision for fresh worlds while retaining V6 templates,
+  marker coordinates and fingerprints for existing saves. V7 is provisionally accepted; see [October 28 checks](docs/testing/COLOSSUS_LANDMARKS_20261028.md).
 - Integrate approved Colossus V6, Small Colossus V9, Tower V9, Obelisk V6 and
   retained World Tree V5 into new gameplay worlds, with bounded clearances,
   marker initialization and saved completion state. Preserve legacy selections.

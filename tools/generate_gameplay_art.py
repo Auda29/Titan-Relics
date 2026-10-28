@@ -57,18 +57,36 @@ def generate():
                        {'parent': 'minecraft:item/generated', 'textures': {'layer0': f'relics:item/{name}{variant}'}})
             write_json(ASSETS / 'items' / f'{name}{variant}.json',
                        {'model': {'type': 'minecraft:model', 'model': f'relics:item/{name}{variant}'}})
+    generate_trim()
+
+def trim_mask(leggings=False):
+    """One-pixel fractured vertical details on verified 26.2 equipment UV faces."""
+    image=Image.new('RGBA',(64,32));draw=ImageDraw.Draw(image)
+    main=(192,192,192,255);branch=(128,128,128,255)
+    def stem(x,y,height,side=1):
+        draw.line([(x,y),(x,y+height-1)],fill=main)
+        draw.point((x+side,y+1),fill=branch)
+    if leggings:
+        # Waist fragments and upper-leg marks stop before the native boot area.
+        for x,side in ((21,1),(26,-1),(33,1),(38,-1)):stem(x,28,2,side)
+        for x in (18,29):draw.point((x,29),fill=branch)
+        for x in (1,5,9,13):stem(x,21,4,1)
+    else:
+        # Helmet face opening stays clear; each side/back receives a short mark.
+        stem(10,9,2,-1);stem(13,9,2,1)
+        for x,side in ((3,-1),(20,1),(26,1),(29,-1)):stem(x,10,3,side)
+        # Separate chest columns, with no neck, belt or shared leg-UV overpaint.
+        stem(21,24,5,1);stem(26,24,5,-1)
+        stem(34,23,5,-1);stem(37,23,5,1)
+        stem(18,24,4,-1);stem(29,24,4,1)
+        # Pauldrons occupy the upper arm only; boot marks start at the ankle.
+        for x in (41,45,49,53):stem(x,21,3,1)
+        for x in (1,5,9,13):stem(x,27,3,1)
+    return image
+
+def generate_trim():
     for leggings in (False, True):
-        image = Image.new('RGBA', (64, 32)); draw = ImageDraw.Draw(image)
-        # Vanilla humanoid UV faces, independently drawn upright/angular branches.
-        faces = [(4,20,7,31),(20,20,23,31)] if leggings else [(8,8,15,15),(20,20,27,31),(44,20,47,31),(4,20,7,31),(20,20,23,31)]
-        for x0,y0,x1,y1 in faces:
-            x = (x0+x1)//2
-            draw.line([(x,y0+1),(x,y1-1)], fill=(224,224,224,255))
-            draw.line([(x,y0+3),(x0,y0+1)], fill=(160,160,160,255))
-            draw.line([(x,y1-4),(x1,y1-2)], fill=(160,160,160,255))
-        if leggings:
-            draw.line([(22,20),(22,29)],fill=(224,224,224,255))
-            draw.line([(22,24),(26,21)],fill=(160,160,160,255))
+        image=trim_mask(leggings)
         target = ASSETS / 'textures/trims/entity' / ('humanoid_leggings' if leggings else 'humanoid') / 'monolith.png'
         target.parent.mkdir(parents=True, exist_ok=True); image.save(target)
     materials = ['amethyst','copper','copper_darker','diamond','diamond_darker','emerald','gold','gold_darker','iron','iron_darker','lapis','netherite','netherite_darker','quartz','redstone','resin']

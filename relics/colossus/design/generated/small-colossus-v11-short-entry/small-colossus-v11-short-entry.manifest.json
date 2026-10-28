@@ -1,0 +1,447 @@
+{
+  "source": "small-colossus-v11-short-entry.schem",
+  "size": [
+    111,
+    80,
+    113
+  ],
+  "data_version": 3105,
+  "source_offset": [
+    0,
+    0,
+    0
+  ],
+  "air_policy": "omit",
+  "blocks": 207989,
+  "tiles": [
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_0_0_0.nbt",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_0_0_32.nbt",
+      "origin": [
+        0,
+        0,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_0_0_64.nbt",
+      "origin": [
+        0,
+        0,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_0_32_32.nbt",
+      "origin": [
+        0,
+        32,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_0_32_64.nbt",
+      "origin": [
+        0,
+        32,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_0_0.nbt",
+      "origin": [
+        32,
+        0,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_0_32.nbt",
+      "origin": [
+        32,
+        0,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_0_64.nbt",
+      "origin": [
+        32,
+        0,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_0_96.nbt",
+      "origin": [
+        32,
+        0,
+        96
+      ],
+      "size": [
+        32,
+        32,
+        17
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_32_0.nbt",
+      "origin": [
+        32,
+        32,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_32_32.nbt",
+      "origin": [
+        32,
+        32,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_32_64.nbt",
+      "origin": [
+        32,
+        32,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_32_96.nbt",
+      "origin": [
+        32,
+        32,
+        96
+      ],
+      "size": [
+        32,
+        32,
+        17
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_64_0.nbt",
+      "origin": [
+        32,
+        64,
+        0
+      ],
+      "size": [
+        32,
+        16,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_64_32.nbt",
+      "origin": [
+        32,
+        64,
+        32
+      ],
+      "size": [
+        32,
+        16,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_32_64_64.nbt",
+      "origin": [
+        32,
+        64,
+        64
+      ],
+      "size": [
+        32,
+        16,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_0_0.nbt",
+      "origin": [
+        64,
+        0,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_0_32.nbt",
+      "origin": [
+        64,
+        0,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_0_64.nbt",
+      "origin": [
+        64,
+        0,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_0_96.nbt",
+      "origin": [
+        64,
+        0,
+        96
+      ],
+      "size": [
+        32,
+        32,
+        17
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_32_0.nbt",
+      "origin": [
+        64,
+        32,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_32_32.nbt",
+      "origin": [
+        64,
+        32,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_32_64.nbt",
+      "origin": [
+        64,
+        32,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_32_96.nbt",
+      "origin": [
+        64,
+        32,
+        96
+      ],
+      "size": [
+        32,
+        32,
+        17
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_64_0.nbt",
+      "origin": [
+        64,
+        64,
+        0
+      ],
+      "size": [
+        32,
+        16,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_64_32.nbt",
+      "origin": [
+        64,
+        64,
+        32
+      ],
+      "size": [
+        32,
+        16,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_64_64_64.nbt",
+      "origin": [
+        64,
+        64,
+        64
+      ],
+      "size": [
+        32,
+        16,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_96_0_0.nbt",
+      "origin": [
+        96,
+        0,
+        0
+      ],
+      "size": [
+        15,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_96_0_32.nbt",
+      "origin": [
+        96,
+        0,
+        32
+      ],
+      "size": [
+        15,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_96_0_64.nbt",
+      "origin": [
+        96,
+        0,
+        64
+      ],
+      "size": [
+        15,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_96_0_96.nbt",
+      "origin": [
+        96,
+        0,
+        96
+      ],
+      "size": [
+        15,
+        32,
+        17
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_96_32_32.nbt",
+      "origin": [
+        96,
+        32,
+        32
+      ],
+      "size": [
+        15,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "small-colossus-v11-short-entry_tiles/tile_96_32_64.nbt",
+      "origin": [
+        96,
+        32,
+        64
+      ],
+      "size": [
+        15,
+        32,
+        32
+      ]
+    }
+  ]
+}

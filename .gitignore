@@ -30,6 +30,17 @@ relics/*/design/generated/*/*
 !relics/*/design/generated/*/*.ots.json
 !relics/*/design/generated/*/verification.json
 !relics/*/design/generated/*/*.gameplay.json
+# V7's complete handoff binds its review inputs, mesh groups and all NBT tiles.
+!relics/colossus/design/generated/colossus-v7-landmarks/**
+relics/colossus/design/generated/colossus-v7-landmarks/*.blend1
+!relics/colossus/design/generated/small-colossus-v10-landmarks/**
+relics/colossus/design/generated/small-colossus-v10-landmarks/*.blend1
+!relics/colossus/design/generated/small-colossus-v11-short-entry/**
+relics/colossus/design/generated/small-colossus-v11-short-entry/*.blend1
+!relics/ruined-tower/design/generated/ruined-tower-v10-chest/**
+relics/ruined-tower/design/generated/ruined-tower-v10-chest/*.blend1
+!relics/titan-skull/design/generated/titan-skull-2-v2-embedded-side-v1/**
+relics/titan-skull/design/generated/titan-skull-2-v2-embedded-side-v1/*.blend1
 # Archived concept outputs follow the same publication policy.
 relics/*/archive/*/generated/*
 !relics/*/archive/*/generated/*review.png

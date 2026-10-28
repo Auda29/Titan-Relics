@@ -11,9 +11,7 @@ from verify_world import AnvilWorld,verify_piece,transform,protected_cell,AIR_NA
 def blocks_proof(world,artifact,sites):
     result=[];anvil=AnvilWorld(world)
     with zipfile.ZipFile(artifact) as archive:
-        manifest=json.loads(archive.read('relics.gameplay.integration.json'))
         for site in sites:
-            contract=next(a for a in manifest['structures'] if a['id']==site['asset'])
             found=[]
             for chunk in anvil.chunks():
                 start=chunk.get('structures',{}).get('starts',{}).get('relics:'+site['asset'])
@@ -21,11 +19,19 @@ def blocks_proof(world,artifact,sites):
                     if [ch['PosX'],ch['PosY'],ch['PosZ']]==[site['originX'],site['originY'],site['originZ']])
             assert len(found)==1,(site['asset'],len(found))
             child=found[0];location=child['pool_element']['location'].split(':')[1]
-            assert location==site['asset']+'_gameplay_worldgen'
-            assert 'relics_natural_site' in child
+            from integrate_gameplay_interiors import MANIFESTS
+            if 'relics_natural_site' in child:
+                certificate=json.loads(child['relics_natural_site'])
+                manifest=json.loads(archive.read(MANIFESTS[certificate['revision']]))
+            else:
+                assert site['asset']=='titan_skull_2','Missing natural gameplay certificate'
+                manifest=json.loads(archive.read('relics.integration.json'))
+            contract=next(a for a in manifest['structures'] if a['id']==site['asset'])
+            assert location+'.nbt'==contract['worldgen_template']['path']
             expected=read_nbt(gzip.decompress(archive.read('data/relics/structure/'+location+'.nbt')))
-            offset=contract['gameplay']['offset']
-            injected={tuple(a+b for a,b in zip(m['pos'],offset)) for m in contract['gameplay']['markers'] if 'expected_block' in m}
+            gameplay=contract.get('gameplay',{'offset':[8,contract['worldgen_template']['foundation']['vertical_padding'],8],'markers':[],'clearance_runs':[]})
+            offset=gameplay['offset']
+            injected={tuple(a+b for a,b in zip(m['pos'],offset)) for m in gameplay['markers'] if 'expected_block' in m}
             restored=[]
             for b in expected['blocks']:
                 if tuple(b['pos']) in injected:continue # Verified as native initialized blocks by test mod.
@@ -37,6 +43,26 @@ def blocks_proof(world,artifact,sites):
                     expected['palette'].append(state);b={'pos':b['pos'],'state':len(expected['palette'])-1}
                 restored.append(b)
             expected['blocks']=restored
+            plants=[]
+            if site['asset']=='world_tree':
+                states={tuple(b['pos']):expected['palette'][b['state']]['Name'] for b in expected['blocks']}
+                skip=set()
+                for p,name in states.items():
+                    below=(p[0],p[1]-1,p[2])
+                    if name!='minecraft:firefly_bush' or states.get(below)!='minecraft:rooted_dirt':continue
+                    skip.update((p,below));original=transform(p,child['rotation'],[child['PosX'],child['PosY'],child['PosZ']])
+                    actual=[]
+                    for y in range(original[1]-6,original[1]+7):
+                        pos=(original[0],y,original[2]);base=(pos[0],y-1,pos[2])
+                        if anvil.block(*pos)['Name']!='minecraft:firefly_bush' or anvil.block(*base)['Name']!='minecraft:rooted_dirt':continue
+                        assert protected_cell(anvil.chunk(pos[0]//16,pos[2]//16),pos)
+                        assert protected_cell(anvil.chunk(base[0]//16,base[2]//16),base)
+                        bed=anvil.block(base[0],base[1]-1,base[2])['Name']
+                        assert bed not in AIR_NAMES|{'minecraft:water','minecraft:lava'},('Floating bush socket',base,bed)
+                        actual.append(list(pos))
+                    assert len(actual)<=1,('Duplicated authored bush',original,actual)
+                    plants.append({'source':list(original),'placed':actual[0] if actual else None,'within_vertical_limit':True})
+                expected['blocks']=[b for b in expected['blocks'] if tuple(b['pos']) not in skip]
             # The general verifier predates multi-face blocks. Native lichen
             # rotation rotates the face keys as well as facing/axis values.
             turns={'NONE':0,'CLOCKWISE_90':1,'CLOCKWISE_180':2,'COUNTERCLOCKWISE_90':3}[child['rotation']]
@@ -49,7 +75,7 @@ def blocks_proof(world,artifact,sites):
             proof=verify_piece(anvil,'relics:'+site['asset'],child,expected)
             assert proof['passed'],proof
             clear=0;blocked=[];unprotected=[]
-            for x,y,z0,z1 in contract['gameplay']['clearance_runs']:
+            for x,y,z0,z1 in gameplay['clearance_runs']:
                 for z in range(z0,z1+1):
                     p=transform((x,y,z),child['rotation'],proof['origin']);clear+=1
                     if anvil.block(*p)['Name'] not in AIR_NAMES:blocked.append(list(p))
@@ -57,6 +83,15 @@ def blocks_proof(world,artifact,sites):
                     if not protected_cell(ch,p):unprotected.append(list(p))
             assert not blocked and not unprotected,(site['asset'],blocked[:12],unprotected[:12])
             proof.update(clearance_cells=clear,blocked_clearances=len(blocked),unprotected_clearances=len(unprotected))
+            if site['asset']=='world_tree':proof['grounded_plants']=plants
+            if site['asset']=='titan_skull_2' and contract['version']=='titan-skull-2-v2-embedded-side-v1':
+                side=json.loads((ROOT/contract['source']).with_name('handoff.json').read_text());checked=0
+                for cell in side['removed_cells']:
+                    if cell['pos'][1]<contract['ground_y']-contract['buried_clip_depth']:continue
+                    p=transform(tuple(v+o for v,o in zip(cell['pos'],contract['gameplay']['offset'])),child['rotation'],proof['origin'])
+                    assert anvil.block(*p)['Name']!='minecraft:dripstone_block',('Removed chip remains',p)
+                    checked+=1
+                proof['removed_chip_cells_checked']=checked
             result.append(proof)
     return result
 
@@ -64,6 +99,8 @@ def main():
     p=argparse.ArgumentParser();p.add_argument('--accept-eula',action='store_true');p.add_argument('--java-home',type=Path,required=True);p.add_argument('--artifact',type=Path,required=True)
     p.add_argument('--unavailable',action='store_true',help='Disable the large Colossus before world creation and verify archaeology compensation')
     p.add_argument('--resume',action='store_true',help='Restart after loading only the central chunks, then complete the saved pieces')
+    p.add_argument('--peaceful',action='store_true',help='Verify tower initialization and restart without hostile entities on Peaceful')
+    p.add_argument('--tower-only',action='store_true',help='Verify just the tower on Normal, including five initial Endermen')
     args=p.parse_args()
     if not args.accept_eula:p.error('Accept the Minecraft EULA for isolated tests with --accept-eula')
     artifact=args.artifact.resolve();deps=compile_libraries();cp=[p for p in deps if p.name=='fabric-loader-0.19.5.jar' or any(v in {'libraries','loader-libraries','versions'} for v in p.parts)]
@@ -83,9 +120,10 @@ def main():
         cases[seed]=[next(s for s in row['sites'] if s['asset']==asset)]
     row=next(r for r in baseline['seed_results'] if r['seed']==731204)
     cases[731204].append(next(s for s in row['sites'] if s['asset']=='obelisk' and s['candidate']['rotation']==2))
-    if args.unavailable:cases={731204:cases[731204][:1]}
+    if args.peaceful or args.tower_only:cases={4661570585687253657:cases[4661570585687253657]}
+    elif args.unavailable:cases={731204:cases[731204][:1]}
     elif args.resume:cases={731204:cases[731204]}
-    report={'artifact_sha256':hashlib.sha256(artifact.read_bytes()).hexdigest(),'target_unavailable':args.unavailable,'partial_restart':args.resume,'runs':[],'failures':[]}
+    report={'artifact_sha256':hashlib.sha256(artifact.read_bytes()).hexdigest(),'target_unavailable':args.unavailable,'partial_restart':args.resume,'peaceful':args.peaceful,'runs':[],'failures':[]}
     print('NATIVE_INTERIORS',run,flush=True)
     def check(seed,sites):
         root=run/str(seed);(root/'mods').mkdir(parents=True)
@@ -100,7 +138,7 @@ def main():
         props={'server-ip':'127.0.0.1','server-port':port,'online-mode':'true','white-list':'true','enforce-whitelist':'true','level-name':'world','level-seed':seed,
             'generate-structures':'true','view-distance':2,'simulation-distance':2,'pause-when-empty-seconds':0,'max-tick-time':60000,'difficulty':'peaceful'}
         # Normal difficulty retains ordinary naturally initialized Endermen.
-        props['difficulty']='normal'
+        props['difficulty']='peaceful' if args.peaceful else 'normal'
         (root/'server.properties').write_text(''.join(f'{k}={v}\n' for k,v in props.items()));(root/'eula.txt').write_text('eula=true\n')
         argv=['-Xms256M','-Xmx3G','-XX:ActiveProcessorCount=4','-Djava.awt.headless=true','-Drelics.interior.testConfig='+str(root/'sites.json'),
               '-cp',os.pathsep.join(map(str,cp)),'net.fabricmc.loader.impl.launch.knot.KnotServer','nogui']

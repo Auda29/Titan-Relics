@@ -40,8 +40,9 @@ a modest locally scoped natural-spawn adjustment with normal spawn conditions an
 population limits, not timer-based entity injection or cap-bypassing replenishment.
 The delegated runtime baseline permits at most one extra ordinary selected-species
 attempt per eligible local vanilla creature attempt within 64 horizontal blocks
-of the saved anchor. Normal caps/checks apply; the safe hook and actual density
-remain to be validated/tuned, not a guaranteed herd or independent refill timer.
+of the saved anchor. The native hook is implemented and cap-tested. Actual
+density depends on ordinary habitat and population conditions, not a guaranteed
+herd or independent refill timer.
 Other ordinary mob behavior remains natural as at the Tower; do not add a hostile
 roster, hostile spawn-rate override, barrier or automatic despawn. Planned lighting
 is the selected means of reducing darkness-dependent hostile spawning.
@@ -49,12 +50,13 @@ is the selected means of reducing darkness-dependent hostile spawning.
 **The beneficial effect is reward enough.** No loot chest, exclusive Tree item or
 additional reward encounter is selected.
 
-### Approved effect starting values: Regeneration I around the trunk
+### Approved effect starting values: Regeneration II and Resistance II around the trunk
 
-The user approved these **provisional starting values**:
+The user approved these **provisional starting values**. On October 28 the
+user increased the radius first to 50 and then to **80 blocks**:
 
-- **Regeneration I**, concentrated around the trunk.
-- A **sphere with a 24-block radius** around a **builder-supplied fixed anchor at
+- **Regeneration II and Resistance II**, concentrated around the trunk.
+- A **sphere with an 80-block radius** around a **builder-supplied fixed anchor at
   the trunk base**; use three-dimensional distance, not an unlimited-height cylinder.
   The exact template-relative anchor remains to be supplied.
 - **No line-of-sight requirement:** the aura works through wood, walls and terrain
@@ -64,7 +66,7 @@ The user approved these **provisional starting values**:
   **five minutes after leaving**. No interaction/payment is selected.
 
 These values require survival/combat balance testing, not an invented final effect
-bundle. Additional effects are not selected. The technical baseline refreshes
+bundle. The user selected both level-II effects on October 28; other effects are not selected. The technical baseline refreshes
 every 20 ticks to 6,000 ticks, with normal effect merging and independent player
 checks, without downgrading stronger/longer effects. "Beacon-style" describes
 the beneficial effect, not a selected literal beacon block, pyramid, beam, mineral
@@ -91,7 +93,7 @@ visitors Titans or authorize revival/growth. No permanent/global benefit is chos
 - At ground level, the growth/light sources should spread **broadly around the
   trunk and along/between the roots**, paying attention to dark areas beneath the
   canopy. Use irregular clusters/gaps, not equal spacing, a perfect ring or blanket
-  coverage. Exact horizontal extent remains open; the effect's 24-block radius is
+  coverage. Exact horizontal extent remains open; the effect's 80-block radius is
   not automatically a lighting boundary.
 - Light coverage should reduce darkness-dependent hostile spawning beneath the
   canopy. Validate actual in-game light/spawn conditions when this is implemented;
@@ -117,7 +119,7 @@ and save/load behavior still need implementation/validation.
   15-block-height scope, plus builder design/anchor for the selected small internal
   amethyst sphere at the trunk base.
 - Exact builder-supplied aura anchor and runtime validation of refresh/effect merging
-  and multiplayer behavior; tune the approved Regeneration I / 24-block radius /
+  and multiplayer behavior; tune the approved Regeneration II and Resistance II / 80-block radius /
   five-minute post-departure values without treating them as final balance.
 - Validate the specified modest natural-spawn adjustment for the selected pigs, chickens,
   sheep and cows, respecting normal population/terrain limits and no spawners.

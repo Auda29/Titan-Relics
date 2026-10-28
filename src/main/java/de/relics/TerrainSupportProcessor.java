@@ -53,6 +53,7 @@ public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockStat
     public List<StructureBlockInfo> finalizeProcessing(ServerLevelAccessor level, BlockPos origin,
             BlockPos reference, List<StructureBlockInfo> originals, List<StructureBlockInfo> processed,
             StructurePlaceSettings settings) {
+        if (rootSupport) processed = groundTreeBushes(level, processed, settings);
         // Minecraft 26.2 supplies only this chunk's cells unless a processor asks
         // for the entire piece. Never read or write a neighbouring chunk here.
         var bottoms = new HashMap<Long, StructureBlockInfo>();
@@ -119,6 +120,49 @@ public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockStat
         }
         if (level instanceof net.minecraft.server.level.WorldGenRegion) {
             RelicProtection.record(level, result);
+        }
+        return result;
+    }
+
+    /** Plant the three authored bush/soil pairs flush with nearby native ground.
+     * Never build a soil pillar; omit a pair when its column has no safe surface.
+     * The original template, trunk, roots and all other decorations stay intact.
+     */
+    private static List<StructureBlockInfo> groundTreeBushes(ServerLevelAccessor level,
+            List<StructureBlockInfo> source, StructurePlaceSettings settings) {
+        var soils=new HashSet<Long>();
+        var authored=new HashSet<Long>();
+        for(var info:source) {
+            authored.add(info.pos().asLong());
+            if(info.state().is(Blocks.ROOTED_DIRT))soils.add(info.pos().asLong());
+        }
+        var pairs=source.stream().filter(i->i.state().is(Blocks.FIREFLY_BUSH)
+                && soils.contains(i.pos().below().asLong())
+                && (settings.getBoundingBox()==null || settings.getBoundingBox().isInside(i.pos())
+                    && settings.getBoundingBox().isInside(i.pos().below()))).toList();
+        if(pairs.isEmpty())return source;
+        var removed=new HashSet<Long>();
+        for(var bush:pairs){removed.add(bush.pos().asLong());removed.add(bush.pos().below().asLong());}
+        authored.removeAll(removed);
+        var result=new ArrayList<StructureBlockInfo>();
+        for(var info:source)if(!removed.contains(info.pos().asLong()))result.add(info);
+        for(var bush:pairs) {
+            BlockPos base=bush.pos().below();
+            for(int dy=6;dy>=-6;dy--) {
+                BlockPos soil=base.offset(0,dy,0),plant=soil.above();
+                if(soil.getY()<=level.getMinY() || settings.getBoundingBox()!=null
+                        && (!settings.getBoundingBox().isInside(soil.below()) || !settings.getBoundingBox().isInside(plant)))continue;
+                if(authored.contains(soil.asLong()) || authored.contains(plant.asLong()))continue;
+                var ground=level.getBlockState(soil);var space=level.getBlockState(plant);
+                if(!SOILS.contains(ground.getBlock()) || ground.hasBlockEntity() || !ground.getFluidState().isEmpty()
+                        || replaceable(level.getBlockState(soil.below()))
+                        || !space.getFluidState().isEmpty() || space.hasBlockEntity()
+                        || !(space.isAir() || space.canBeReplaced())
+                        || space.getBlock() instanceof net.minecraft.world.level.block.LeavesBlock)continue;
+                result.add(new StructureBlockInfo(soil,Blocks.ROOTED_DIRT.defaultBlockState(),null));
+                result.add(new StructureBlockInfo(plant,bush.state(),bush.nbt()));
+                authored.add(soil.asLong());authored.add(plant.asLong());break;
+            }
         }
         return result;
     }

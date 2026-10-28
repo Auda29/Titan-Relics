@@ -65,7 +65,7 @@ class GameplayResourceTests(unittest.TestCase):
                 visible = [pixel for pixel in image.getdata() if pixel[3]]
                 self.assertGreater(len(visible),0)
                 self.assertLess(len(visible),200, 'Narrow trim, not full armor coverage')
-                self.assertTrue(all(r==g==b and r in (224,160) and a==255 for r,g,b,a in visible))
+                self.assertTrue(all(r==g==b and r in (192,128) and a==255 for r,g,b,a in visible))
 
     def test_translations_match_and_recipes_do_not_add_unapproved_construction(self):
         resources = ROOT / 'src/main/resources'
@@ -77,6 +77,23 @@ class GameplayResourceTests(unittest.TestCase):
         self.assertEqual({p.stem for p in (resources/'data/relics/recipe').glob('*.json')},
                          {'machine_core_recharge','salvage_magnet_repair','monolith_template_copy','monolith_armor_trim'})
         self.assertEqual(json.loads((resources/'data/relics/recipe/monolith_template_copy.json').read_text())['pattern'],['DTD','DCD','DDD'])
+
+    def test_trim_stays_on_native_equipment_and_off_transparent_openings(self):
+        # Native 26.2 baked meshes and equipment alpha were extracted separately
+        # with ArmorUvEvidence.java; this catches arm/boot/face overpainting.
+        evidence=json.loads((ROOT/'docs/project/reviews/monolith-native-armor-26.2.json').read_text())
+        self.assertEqual(len(evidence['faces']),60)
+        self.assertEqual({f['slot'] for f in evidence['faces']},{'head','chest','legs','feet'})
+        for kind,opaque in evidence['opaque_uv'].items():
+            mask=Image.open(ROOT/'src/main/resources/assets/relics/textures/trims/entity'/kind/'monolith.png').convert('RGBA')
+            visible={y*64+x for y in range(32) for x in range(64) if mask.getpixel((x,y))[3]}
+            self.assertTrue(visible<=set(opaque),kind+' paints transparent native armor')
+            relevant=[f for f in evidence['faces'] if (f['slot']=='legs')==(kind=='humanoid_leggings')]
+            used=set()
+            for face in relevant:
+                xs=[round(v[3]*64) for v in face['vertices']];ys=[round(v[4]*32) for v in face['vertices']]
+                used.update(y*64+x for y in range(min(ys),max(ys)) for x in range(min(xs),max(xs)))
+            self.assertTrue(visible<=used,'Trim outside baked native UV faces')
 
     def test_legacy_visual_metadata_does_not_inherit_gameplay_dependencies(self):
         legacy = json.loads((ROOT/'compat/mc1.21.1/visual-alpha49.fabric.mod.json').read_text())

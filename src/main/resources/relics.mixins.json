@@ -29,7 +29,10 @@
     "TrialPresentationAccessor",
     "VaultPresentationAccessor",
     "RewardDropMixin",
-    "RewardHopperMixin"
+    "RewardHopperMixin",
+    "TreeAnimalSpawnerAccess",
+    "TreeAnimalCapAccess",
+    "TreeAnimalSpawnMixin"
   ],
   "injectors": {
     "defaultRequire": 1

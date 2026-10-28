@@ -266,8 +266,20 @@ public final class GameplayTests {
                 .filter(d->d.reward==Reward.KEY).allMatch(d->d.notBefore==160),"Reward timeline survives ledger reload");
         Point anchor = journal.state.trees.get("fixture:tree");
         check(TreeAura.contains(anchor,-32.5,70.5,-32.5), "Block-center anchor and negative coordinates");
-        check(TreeAura.contains(anchor,-8.5,70.5,-32.5) && !TreeAura.contains(anchor,-8.499,70.5,-32.5), "Inclusive 24-block sphere boundary");
-        check(!TreeAura.contains(anchor,-9,94,-32.5), "Sphere is not an infinite cylinder or box");
+        check(TreeAura.contains(anchor,47.5,70.5,-32.5) && !TreeAura.contains(anchor,47.501,70.5,-32.5), "Inclusive 80-block sphere boundary");
+        check(TreeAura.contains(anchor,-112.5,70.5,-32.5) && !TreeAura.contains(anchor,-112.501,70.5,-32.5), "Negative 80-block sphere boundary");
+        check(TreeAura.contains(anchor,-32.5,150.5,-32.5) && !TreeAura.contains(anchor,-32.5,150.501,-32.5), "Vertical 80-block sphere boundary");
+        check(!TreeAura.contains(anchor,31.5,134.5,-32.5), "Sphere is not an infinite cylinder or box");
+        check(TreeAnimals.contains(anchor,31.5,70.5,-32.5) && !TreeAnimals.contains(anchor,31.501,70.5,-32.5),"Animal habitat has its own inclusive 64-block radius");
+        check(TreeAnimals.contains(anchor,-32.5,78.5,-32.5) && !TreeAnimals.contains(anchor,-32.5,78.501,-32.5),"Animal habitat stays near the surface anchor height");
+        check(!TreeAnimals.contains(anchor,17.5,70.5,17.5),"Animal habitat is circular, not square");
+        for(var type:List.of(net.minecraft.world.entity.EntityTypes.PIG,net.minecraft.world.entity.EntityTypes.CHICKEN,
+                net.minecraft.world.entity.EntityTypes.SHEEP,net.minecraft.world.entity.EntityTypes.COW))check(TreeAnimals.selected(type),"Selected refuge animal");
+        for(var type:List.of(net.minecraft.world.entity.EntityTypes.HORSE,net.minecraft.world.entity.EntityTypes.WOLF,
+                net.minecraft.world.entity.EntityTypes.ZOMBIE))check(!TreeAnimals.selected(type),"Unrelated species is unchanged");
+        check(!TreeAnimals.afterNaturalSpawn(null,null,null),"No standalone animal injection without the natural-spawn context");
+        try{TreeAnimals.withContext(null,null,null,()->{throw new IllegalArgumentException("fixture");});}catch(IllegalArgumentException expected) { }
+        check(!TreeAnimals.afterNaturalSpawn(null,null,null),"Spawn context clears even after errors");
         rejected(() -> new Point("bad dimension",0,0,0), "Invalid dimension fails anchor decoding");
         rejected(() -> new Point("minecraft:overworld",Integer.MIN_VALUE,0,0), "Out-of-world signed-coordinate overflow rejected");
         Delivery drop=journal.queue("physical-test",player,Reward.KEY,site.id);

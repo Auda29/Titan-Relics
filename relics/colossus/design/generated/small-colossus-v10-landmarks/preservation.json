@@ -1,0 +1,15 @@
+{
+  "baseline": "build/magnet-small-landmarks-20261028/model-baseline.json",
+  "verified_files": 1278,
+  "changed_files": [
+    "src/main/java/de/relics/gameplay/NaturalInteriors.java",
+    "src/test/java/de/relics/NaturalInteriorChecks.java",
+    "tools/test_natural_interiors_server.py"
+  ],
+  "authorized_root_changes": [
+    "src/main/java/de/relics/gameplay/NaturalInteriors.java",
+    "src/test/java/de/relics/NaturalInteriorChecks.java",
+    "tools/test_natural_interiors_server.py"
+  ],
+  "unauthorized_changes": []
+}

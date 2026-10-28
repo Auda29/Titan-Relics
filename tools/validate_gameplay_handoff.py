@@ -163,7 +163,11 @@ def inspect(path,registry):
             'checks':checks,'nbt_sha256':sidecar['source_sha256'],
             'in_game_tested':False,'natural_rotation_and_chunk_injection_tested':False,
             'actual_block_light_tested':False,'visual_acceptance':'pending'}
-    (nbt.parent/'verification.json').write_text(json.dumps(report,indent=2)+'\n')
+    target=nbt.parent/'verification.json'
+    # Published reports are hash-bound. Rechecking on Windows must preserve the
+    # existing line endings rather than silently replacing LF with CRLF.
+    newline='\r\n' if target.is_file() and b'\r\n' in target.read_bytes() else '\n'
+    target.write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline=newline)
     print(name,': PASS',len(checks),'checks');return report
 
 def main():

@@ -80,6 +80,41 @@ public final class GameplayPresentationChecks implements ModInitializer {
     private static int count(ServerPlayer player,Item item) {
         return player.getInventory().getNonEquipmentItems().stream().filter(s->s.is(item)).mapToInt(ItemStack::getCount).sum();
     }
+    private static void itemBudgetCases() {
+        var inventory=b.getInventory();
+        var saved=inventory.getNonEquipmentItems().stream().map(ItemStack::copy).toList();
+        var savedOffhand=b.getOffhandItem().copy();
+        ItemEntity partial=null;
+        try {
+            b.setItemSlot(net.minecraft.world.entity.EquipmentSlot.OFFHAND,ItemStack.EMPTY);
+            for(int slot=0;slot<36;slot++)inventory.setItem(slot,new ItemStack(Items.COBBLESTONE,64));
+            b.setItemSlot(net.minecraft.world.entity.EquipmentSlot.MAINHAND,new ItemStack(RelicItems.SALVAGE_MAGNET));
+            RelicItems.setRemaining(b.getMainHandItem(),false,12);
+            inventory.setItem(35,new ItemStack(Items.IRON_INGOT,63));
+            partial=new ItemEntity(world,b.getX()+4,b.getY()+1,b.getZ(),new ItemStack(Items.IRON_INGOT,5),0,0,0);
+            partial.setNoPickUpDelay();partial.setNoGravity(true);world.addFreshEntity(partial);
+            ((MagnetAttraction)partial).relics$select(b);partial.tick();partial.playerTouch(b);
+            require(count(b,Items.IRON_INGOT)==64 && partial.getItem().getCount()==4,"Inventory partial pickup did not conserve item counts");
+            require(RelicItems.remaining(b.getMainHandItem(),false)==11,"One inserted item must cost one point");
+            partial.discard();
+            inventory.setItem(35,ItemStack.EMPTY);RelicItems.setRemaining(b.getMainHandItem(),false,3);
+            partial=new ItemEntity(world,b.getX()+4,b.getY()+1,b.getZ(),new ItemStack(Items.IRON_INGOT,7),0,0,0);
+            partial.setNoPickUpDelay();partial.setNoGravity(true);world.addFreshEntity(partial);
+            ((MagnetAttraction)partial).relics$select(b);partial.tick();
+            inventory.setItem(35,new ItemStack(Items.COBBLESTONE,64));partial.playerTouch(b);
+            require(partial.getItem().getCount()==7 && RelicItems.remaining(b.getMainHandItem(),false)==3,"Failed insertion charged wear or lost items");
+            inventory.setItem(35,ItemStack.EMPTY);
+            ((MagnetAttraction)partial).relics$select(b);partial.tick();partial.playerTouch(b);
+            require(count(b,Items.IRON_INGOT)==3 && partial.getItem().getCount()==4,"Assisted transfer exceeded the last three points");
+            require(RelicItems.remaining(b.getMainHandItem(),false)==0 && SalvageMagnet.heldMagnet(b).isEmpty(),"Depleted magnet remained active");
+            partial.playerTouch(b);
+            require(count(b,Items.IRON_INGOT)==7 && partial.isRemoved() && RelicItems.remaining(b.getMainHandItem(),false)==0,"Ordinary pickup after depletion failed");
+        } finally {
+            if(partial!=null && partial.isAlive())partial.discard();
+            for(int slot=0;slot<36;slot++)inventory.setItem(slot,saved.get(slot));
+            b.setItemSlot(net.minecraft.world.entity.EquipmentSlot.OFFHAND,savedOffhand);
+        }
+    }
     private static void insert(ServerPlayer player) {
         var block=(VaultBlockEntity)world.getBlockEntity(VAULT);
         ItemStack key=player.getInventory().getNonEquipmentItems().stream().filter(s->s.is(RelicItems.COLOSSUS_KEY)).findFirst().orElse(ItemStack.EMPTY);
@@ -202,18 +237,18 @@ public final class GameplayPresentationChecks implements ModInitializer {
             }
             if(count(b,Items.COPPER_INGOT)==3) {
                 require(maxMagnetSpeed>.35 && maxMagnetSpeed<=SalvageMagnet.MAX_SPEED+1e-8,"Magnet velocity did not use increased cap: "+maxMagnetSpeed);
-                require(RelicItems.remaining(b.getOffhandItem(),false)==999,"Successful native magnet pickup did not debit exactly once");
+                require(RelicItems.remaining(b.getOffhandItem(),false)==997,"Three inserted items must cost three points");
                 var stale=new ItemEntity(world,-2,122,0,new ItemStack(RelicItems.MACHINE_CORE));stale.setUUID(collectedUuid);
                 var field=RewardDrops.class.getDeclaredField("ID");field.setAccessible(true);
                 @SuppressWarnings("unchecked") var attachment=(net.fabricmc.fabric.api.attachment.v1.AttachmentType<String>)field.get(null);
                 ((net.fabricmc.fabric.api.attachment.v1.AttachmentTarget)stale).setAttached(attachment,collectedId);
                 world.addFreshEntity(stale);
                 require(stale.isRemoved() && count(b,RelicItems.MACHINE_CORE)==1,"Stale entity snapshot duplicated an acknowledged core");
-                Files.writeString(Path.of("magnet-proof.txt"),"offhand_max_speed="+maxMagnetSpeed+"\noffhand_remaining=999\n");
+                Files.writeString(Path.of("magnet-proof.txt"),"offhand_max_speed="+maxMagnetSpeed+"\noffhand_items=3\noffhand_remaining=997\n");
                 b.getInventory().setItem(18,b.getMainHandItem());
                 b.setItemSlot(net.minecraft.world.entity.EquipmentSlot.MAINHAND,new ItemStack(RelicItems.SALVAGE_MAGNET));
                 require(SalvageMagnet.heldMagnet(b)==b.getMainHandItem(),"Main hand must win when both hands hold a magnet");
-                magnetProbe=new ItemEntity(world,b.getX()+6,b.getY()+3,b.getZ(),new ItemStack(Items.GOLD_INGOT,2));
+                magnetProbe=new ItemEntity(world,b.getX()+6,b.getY()+3,b.getZ(),new ItemStack(Items.GOLD_INGOT,64));
                 magnetProbe.setNoPickUpDelay();world.addFreshEntity(magnetProbe);maxMagnetSpeed=0;stage=12;
             }
         }else if(stage==12) {
@@ -221,16 +256,17 @@ public final class GameplayPresentationChecks implements ModInitializer {
                 maxMagnetSpeed=Math.max(maxMagnetSpeed,magnetProbe.getDeltaMovement().length());
                 if(magnetProbe.distanceToSqr(b)<1)magnetProbe.playerTouch(b);
             }
-            if(count(b,Items.GOLD_INGOT)==2) {
+            if(count(b,Items.GOLD_INGOT)==64) {
                 require(maxMagnetSpeed>.35 && maxMagnetSpeed<=SalvageMagnet.MAX_SPEED+1e-8,"Main-hand attraction is missing or too fast");
-                require(RelicItems.remaining(b.getMainHandItem(),false)==999 && RelicItems.remaining(b.getOffhandItem(),false)==999,"Main-hand pickup charged the wrong magnet or both magnets");
+                require(RelicItems.remaining(b.getMainHandItem(),false)==936 && RelicItems.remaining(b.getOffhandItem(),false)==997,"A 64-item pickup must charge only its active magnet by 64");
                 b.getInventory().setItem(17,b.getOffhandItem());b.setItemSlot(net.minecraft.world.entity.EquipmentSlot.OFFHAND,ItemStack.EMPTY);
                 require(SalvageMagnet.heldMagnet(b)==b.getMainHandItem(),"Magnet with only main hand equipped is inactive");
+                itemBudgetCases();
                 b.getInventory().setItem(16,b.getMainHandItem());b.setItemSlot(net.minecraft.world.entity.EquipmentSlot.MAINHAND,ItemStack.EMPTY);
                 require(SalvageMagnet.heldMagnet(b).isEmpty(),"Magnet in ordinary inventory is active");
                 magnetProbe=new ItemEntity(world,b.getX()+6,120.1,b.getZ(),new ItemStack(Items.DIAMOND),0,0,0);
                 magnetProbe.setNoPickUpDelay();world.addFreshEntity(magnetProbe);inventoryProbeAt=now;stage=13;
-                Files.writeString(Path.of("magnet-proof.txt"),"main_hand_max_speed="+maxMagnetSpeed+"\nmain_hand_remaining=999\n",StandardOpenOption.APPEND);
+                Files.writeString(Path.of("magnet-proof.txt"),"main_hand_max_speed="+maxMagnetSpeed+"\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\n",StandardOpenOption.APPEND);
             }
         }else if(stage==13 && now-inventoryProbeAt>=24) {
             require(magnetProbe.isAlive() && Math.abs(magnetProbe.getX()-(b.getX()+6))<.001 && count(b,Items.DIAMOND)==0,"Inventory-only magnet attracted an item");

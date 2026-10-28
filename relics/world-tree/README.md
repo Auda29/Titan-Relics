@@ -11,8 +11,8 @@ spawning, **no animal spawners or farm-like refill**, natural-looking lights to
 reduce darkness-dependent hostile spawning, and a trunk-focused benefit. Ordinary
 hostiles keep natural rules; no barrier/despawn system is selected. The effect is
 reward enough, with no Tree chest/item. Approved starting values are
-Regeneration I within about 24 blocks, refreshed during the stay and lasting five
-minutes after leaving. The selected 24-block sphere works through walls and
+Regeneration II and Resistance II within 80 blocks, refreshed during the stay and lasting five
+minutes after leaving. The selected 80-block sphere works through walls and
 persists at its saved original anchor even after complete Tree removal; copies
 create no aura. Technical refresh/effect merging and natural spawn defaults are
 in the [runtime contract](../../docs/technical/GAMEPLAY_RUNTIME.md), awaiting tests;
@@ -24,7 +24,7 @@ shroomlights, restricted to the trunk/base and root area. Growth reaches at most
 15 blocks up the trunk, unevenly and naturally; no upper-branch/crown lights.
 At ground level it spreads broadly and irregularly around the trunk and roots
 to reduce dark spawnable areas beneath the canopy. Exact spread/positions remain
-open and are not automatically the aura's 24-block radius. The user selected
+open and are not automatically the aura's 80-block radius. The user selected
 **one small amethyst sphere inside the trunk at its bottom/base**, rather than
 scattered optional clusters. It is decorative and mineable, without budding amethyst
 or regrowth, and does not control the persistent aura. Exact builder design remains pending.

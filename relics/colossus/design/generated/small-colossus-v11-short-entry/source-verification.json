@@ -1,0 +1,10 @@
+{
+  "source_blend_sha256": "6205703af7c1ff890c73e21b89a58c6b8080e7e8979e75d41891182cd4706bc1",
+  "bound_nbt_sha256": "77026f72aa37ec72ef3722f9750a56fa820c327192f42924b05029497951c707",
+  "mesh_count": 21,
+  "marker_empties": 1,
+  "markers_verified": true,
+  "edited_group_faces_matched_to_export": 58168,
+  "fresh_process": true,
+  "all_meshes_equal_fresh_nbt_reconstruction": true
+}

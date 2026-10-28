@@ -15,10 +15,10 @@ def main():
     run=ROOT/'build/gameplay-feedback-20261027'/datetime.now().strftime('server-%H%M%S-%f');(run/'mods').mkdir(parents=True)
     classes=run/'test-classes';classes.mkdir()
     subprocess.run([str(java/'javac.exe'),'--release','25','-encoding','UTF-8','-proc:none','-classpath',os.pathsep.join(map(str,[artifact,*deps])),
-        '-d',str(classes),str(ROOT/'src/test/java/de/relics/GameplayPresentationChecks.java')],check=True)
+                    '-d',str(classes),str(ROOT/'src/test/java/de/relics/GameplayPresentationChecks.java'),str(ROOT/'src/test/java/de/relics/TreeAuraChecks.java')],check=True)
     with zipfile.ZipFile(run/'mods/presentation-checks.jar','w') as z:
         for f in classes.rglob('*.class'):z.write(f,f.relative_to(classes).as_posix())
-        z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'relics-presentation-checks','version':'1','environment':'server','entrypoints':{'main':['de.relics.GameplayPresentationChecks']},'depends':{'relics':'*'}}))
+        z.writestr('fabric.mod.json',json.dumps({'schemaVersion':1,'id':'relics-presentation-checks','version':'1','environment':'server','entrypoints':{'main':['de.relics.GameplayPresentationChecks','de.relics.TreeAuraChecks']},'depends':{'relics':'*'}}))
     for f in [artifact,ROOT/'build/worldgen-dependencies/fabric-api-0.161.0+26.2.jar',ROOT/'build/worldgen-dependencies/lithostitched-1.8.0-fabric-26.2.jar']:shutil.copy2(f,run/'mods'/f.name)
     with socket.socket() as s:s.bind(('127.0.0.1',0));port=s.getsockname()[1]
     props={'server-ip':'127.0.0.1','server-port':port,'online-mode':'true','white-list':'true','enforce-whitelist':'true','level-seed':731204,'level-name':'world','view-distance':2,'simulation-distance':2,'pause-when-empty-seconds':0,'max-tick-time':60000}
@@ -33,6 +33,9 @@ def main():
         console=Console(process,run/f'console-{iteration}.log',echo=False)
         try:
             console.wait(r'Done \(',timeout=180)
+            aura=console.command('relicstreeauratest',r'TREE_AURA_PASS|TREE_AURA_FAIL',timeout=60)
+            assert 'TREE_AURA_PASS' in aura,aura
+            report['tree_aura_'+str(iteration)]=(run/'tree-aura-proof.txt').read_text()
             if iteration==0:
                 console.command('forceload add -32 -32 63 63',r'Marked|force.loaded',timeout=180)
                 response=console.command('relicspresentationtest',r'PRESENTATION_PASS|PRESENTATION_FAIL',timeout=180)

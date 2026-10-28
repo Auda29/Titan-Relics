@@ -3,6 +3,42 @@
 Rare, monumental discoveries for Minecraft: colossi, an obelisk, titan skulls,
 a world tree and a ruined tower.
 
+**Alpha 5.0 for Minecraft 26.2 / Fabric** adds natural relic gameplay, persistent
+exploration targets, salvage items, archaeology and a World Tree refuge.
+
+Download: [Alpha 5.0](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0).
+Requires Java 25, Fabric Loader 0.19.5+, Fabric API 0.161.0+26.2 and
+Lithostitched 1.8.0 for Fabric 26.2. Install dependencies separately.
+
+The Tree grants Regeneration II and Resistance II within 80 blocks and supports
+bounded extra natural animal attempts under normal habitat and population caps.
+Trial/Vault encounters eject personal rewards, the Vault consumes its key
+immediately, and the magnet works in either selected hand with wear per item.
+
+Use a **new world for the complete Alpha 5 selection**. Existing worlds retain
+their saved revision even for further chunks. Old structures are not moved or
+refilled. Tree effects update existing registered anchors. Use default distribution
+spacing; legacy frequent/rare spacing overrides are unsupported by the gameplay planner.
+
+[Release notes](docs/releases/ALPHA_5_0.md) ·
+[Release checks](docs/testing/ALPHA_5_RELEASE_20261028.md) ·
+[Project status](docs/project/ALPHA_5_STATUS_20261027.md).
+
+## Development history
+
+**October 28 playtest build:** Titan Skull 2 no longer includes the isolated brown
+side chip. World Tree firefly bushes follow nearby native ground and omit unsafe
+locations. Its aura now grants Regeneration II and Resistance II within 80 blocks. The shorter Small
+Colossus entrance, framed Tower chest and revised Monolith trim remain included.
+New worlds select V5; older worlds retain their saved structure revision.
+See [changes and 80-block aura](docs/project/TREE_EFFECTS_II_20261028.md) and
+[verification and player build](docs/testing/TREE_EFFECTS_II_20261028.md).
+
+The magnet counts wear per collected item, works in either selected hand and
+attracts items ten percent faster. Native Trial Spawner/Vault rewards drop into
+the world, successful Vault use consumes its key immediately, and Tower
+initialization respects Peaceful difficulty.
+
 **Current development status, October 27:** `0.1.0-alpha.5.0-dev` for Minecraft
 26.2 / Fabric integrates the approved interiors, natural gameplay initialization,
 shared distribution, one saved large Colossus and linked expedition maps.

@@ -1,0 +1,13 @@
+{
+  "baseline": "build/tower-chest-20261028/baseline.json",
+  "verified_files": 1339,
+  "changed_files": [],
+  "authorized_root_trim_changes": [
+    "src/main/resources/assets/relics/textures/trims/entity/humanoid/monolith.png",
+    "src/main/resources/assets/relics/textures/trims/entity/humanoid_leggings/monolith.png",
+    "src/test/java/de/relics/GameplayPresentationChecks.java",
+    "tools/generate_gameplay_art.py"
+  ],
+  "unclassified_external_changes": [],
+  "worker_modified_baseline_files": []
+}

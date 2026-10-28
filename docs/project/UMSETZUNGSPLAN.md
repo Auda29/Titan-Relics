@@ -109,9 +109,9 @@ with normal caps/conditions, **no animal spawners or timed replenishment**. Ordi
 hostiles remain natural, reduced through the selected lighting rather than a new
 despawn/barrier/spawn-blocking system. No Tree loot is selected; its effect is
 reward enough. It has a trunk-focused beacon-
-style benefit: approved starting values are **Regeneration I within about 24 blocks
+style benefit: approved starting values are **Regeneration II and Resistance II within 80 blocks
 of the trunk**, refreshed during the stay and lasting **about five minutes after
-leaving**. The selected aura volume is a **24-block-radius sphere around a fixed
+leaving**. The selected aura volume is a **80-block-radius sphere around a fixed
 builder-supplied anchor at the trunk base**, using three-dimensional distance.
 The aura **works through wood, walls and terrain**, without a line-of-sight or
 block-obstruction requirement; spatial inclusion depends only on distance.
@@ -126,7 +126,7 @@ shroomlights. Restrict lighting to the trunk/base and root area, with irregular
 growth at most 15 blocks up the trunk and no upper-branch/crown lights. Spread
 ground-level lighting broadly/naturally around the trunk and roots to reduce dark
 spawnable canopy-shaded areas. Exact spread/positions/quantities remain open, not
-automatically equal to the 24-block aura radius. The user selected **one small
+automatically equal to the 80-block aura radius. The user selected **one small
 amethyst sphere inside the trunk at its bottom/base**, replacing the optional
 scattered-cluster proposal. It is **decorative and normally mineable**, with ordinary
 amethyst blocks/optional crystals, **no budding amethyst or regrowth**, and no control

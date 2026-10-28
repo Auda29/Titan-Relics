@@ -1,0 +1,447 @@
+{
+  "source": "titan-skull-2-v2-embedded-side-v1.schem",
+  "size": [
+    99,
+    136,
+    99
+  ],
+  "data_version": 3105,
+  "source_offset": [
+    0,
+    0,
+    0
+  ],
+  "air_policy": "omit",
+  "blocks": 32422,
+  "tiles": [
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_0_0_0.nbt",
+      "origin": [
+        0,
+        0,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_0_0_32.nbt",
+      "origin": [
+        0,
+        0,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_0_0_64.nbt",
+      "origin": [
+        0,
+        0,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_0_32_0.nbt",
+      "origin": [
+        0,
+        32,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_0_32_32.nbt",
+      "origin": [
+        0,
+        32,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_0_32_64.nbt",
+      "origin": [
+        0,
+        32,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_0_64_0.nbt",
+      "origin": [
+        0,
+        64,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_0_64_32.nbt",
+      "origin": [
+        0,
+        64,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_0_64_64.nbt",
+      "origin": [
+        0,
+        64,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_32_0_0.nbt",
+      "origin": [
+        32,
+        0,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_32_0_32.nbt",
+      "origin": [
+        32,
+        0,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_32_0_64.nbt",
+      "origin": [
+        32,
+        0,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_32_32_0.nbt",
+      "origin": [
+        32,
+        32,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_32_32_32.nbt",
+      "origin": [
+        32,
+        32,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_32_32_64.nbt",
+      "origin": [
+        32,
+        32,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_32_64_0.nbt",
+      "origin": [
+        32,
+        64,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_32_64_32.nbt",
+      "origin": [
+        32,
+        64,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_32_64_64.nbt",
+      "origin": [
+        32,
+        64,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_32_96_64.nbt",
+      "origin": [
+        32,
+        96,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_0_0.nbt",
+      "origin": [
+        64,
+        0,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_0_32.nbt",
+      "origin": [
+        64,
+        0,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_0_64.nbt",
+      "origin": [
+        64,
+        0,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_32_0.nbt",
+      "origin": [
+        64,
+        32,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_32_32.nbt",
+      "origin": [
+        64,
+        32,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_32_64.nbt",
+      "origin": [
+        64,
+        32,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_64_0.nbt",
+      "origin": [
+        64,
+        64,
+        0
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_64_32.nbt",
+      "origin": [
+        64,
+        64,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_64_64.nbt",
+      "origin": [
+        64,
+        64,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_96_32.nbt",
+      "origin": [
+        64,
+        96,
+        32
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_96_64.nbt",
+      "origin": [
+        64,
+        96,
+        64
+      ],
+      "size": [
+        32,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_64_128_64.nbt",
+      "origin": [
+        64,
+        128,
+        64
+      ],
+      "size": [
+        32,
+        8,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_96_64_64.nbt",
+      "origin": [
+        96,
+        64,
+        64
+      ],
+      "size": [
+        3,
+        32,
+        32
+      ]
+    },
+    {
+      "path": "titan-skull-2-v2-embedded-side-v1_tiles/tile_96_96_64.nbt",
+      "origin": [
+        96,
+        96,
+        64
+      ],
+      "size": [
+        3,
+        32,
+        32
+      ]
+    }
+  ]
+}

@@ -50,7 +50,7 @@ public final class DistributionJournal {
         } catch (Exception error) { throw new IllegalStateException("Preserve and inspect planning journal: "+file,error); }
     }
     private void validate() {
-        if (state==null || state.interiors==null || !Set.of("legacy","interiors-20261027-v1").contains(state.interiors)
+        if (state==null || state.interiors==null || !Set.of("legacy","interiors-20261027-v1","interiors-20261028-v2","interiors-20261028-v3","interiors-20261028-v4","interiors-20261028-v5").contains(state.interiors)
                 || !Set.of(DistributionPlanner.POLICY,DistributionPlanner.LEGACY_POLICY).contains(state.policy) || state.fingerprint==null
                 || !state.fingerprint.matches("[a-f0-9]{64}") || state.enabled==null || state.cursor<0
                 || state.lower<30000 || state.upper<=state.lower || state.minX>=state.maxX || state.minZ>=state.maxZ

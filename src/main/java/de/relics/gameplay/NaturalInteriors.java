@@ -32,7 +32,8 @@ import java.util.*;
 
 /** Native chunk placement and server-thread, once-per-chunk gameplay initialization. */
 public final class NaturalInteriors {
-    public static final String REVISION="interiors-20261027-v1", LEGACY="legacy";
+    public static final String REVISION="interiors-20261028-v5", SHORT_ENTRY="interiors-20261028-v4", SMALL_LANDMARKS="interiors-20261028-v3", LANDMARKS="interiors-20261028-v2", PREVIOUS="interiors-20261027-v1", LEGACY="legacy";
+    public static boolean supports(String revision){return REVISION.equals(revision) || SHORT_ENTRY.equals(revision) || SMALL_LANDMARKS.equals(revision) || LANDMARKS.equals(revision) || PREVIOUS.equals(revision);}
     private static final Gson JSON=new Gson();
     private static final Map<ServerLevel,Set<ChunkPos>> PENDING=new HashMap<>();
     public record Certificate(String revision,String asset,String site,int x,int y,int z,int rotation) { }
@@ -44,22 +45,39 @@ public final class NaturalInteriors {
             Identifier.fromNamespaceAndPath("relics","natural_interiors"),b->b.initializer(ChunkData::new)
                     .persistent(Codec.STRING.xmap(s->JSON.fromJson(s,ChunkData.class),JSON::toJson)));
     private static final class Catalog {
-        static final JsonObject MANIFEST=loadManifest();
-        static final Map<String,JsonObject> ASSETS=new HashMap<>();
-        static { for(var entry:MANIFEST.getAsJsonArray("structures")) {
-            var asset=entry.getAsJsonObject();if(asset.has("gameplay"))ASSETS.put(asset.get("id").getAsString(),asset);
+        static final Map<String,JsonObject> MANIFESTS=Map.of(REVISION,loadManifest(REVISION),SHORT_ENTRY,loadManifest(SHORT_ENTRY),SMALL_LANDMARKS,loadManifest(SMALL_LANDMARKS),LANDMARKS,loadManifest(LANDMARKS),PREVIOUS,loadManifest(PREVIOUS));
+        static final Map<String,Map<String,JsonObject>> ASSETS=new HashMap<>();
+        static { for(var revision:MANIFESTS.entrySet()) {
+            var assets=new HashMap<String,JsonObject>();
+            for(var entry:revision.getValue().getAsJsonArray("structures")) {
+                var asset=entry.getAsJsonObject();if(asset.has("gameplay"))assets.put(asset.get("id").getAsString(),asset);
+            }
+            ASSETS.put(revision.getKey(),assets);
         } }
     }
-    private static JsonObject loadManifest() {
-        try(var in=NaturalInteriors.class.getResourceAsStream("/relics.gameplay.integration.json")) {
+    private static JsonObject loadManifest(String revision) {
+        String path=switch(revision){
+            case PREVIOUS->"/relics.gameplay.integration.json";
+            case LANDMARKS->"/relics.gameplay.landmarks.integration.json";
+            case SMALL_LANDMARKS->"/relics.gameplay.small_landmarks.integration.json";
+            case SHORT_ENTRY->"/relics.gameplay.short_entry_tower.integration.json";
+            case REVISION->"/relics.gameplay.tree_skull.integration.json";
+            default->throw new IllegalStateException("Unknown interior revision");
+        };
+        try(var in=NaturalInteriors.class.getResourceAsStream(path)) {
             if(in==null)throw new IllegalStateException("Missing approved gameplay contracts");
             var data=JsonParser.parseString(new String(in.readAllBytes(),StandardCharsets.UTF_8)).getAsJsonObject();
-            if(!data.get("revision").getAsString().equals(REVISION))throw new IllegalStateException("Unknown interior revision");
+            if(!data.get("revision").getAsString().equals(revision))throw new IllegalStateException("Unknown interior revision");
             return data;
         }catch(Exception error){throw new IllegalStateException("Cannot read approved gameplay contracts",error);}
     }
-    public static JsonObject manifest(){return Catalog.MANIFEST;}
-    public static boolean hasAsset(String asset){return Catalog.ASSETS.containsKey(asset);}
+    public static JsonObject manifest(){return manifest(REVISION);}
+    public static JsonObject manifest(String revision){
+        if(!supports(revision))throw new IllegalStateException("Unknown interior revision");
+        return Catalog.MANIFESTS.get(revision);
+    }
+    public static boolean hasAsset(String asset){return hasAsset(REVISION,asset);}
+    public static boolean hasAsset(String revision,String asset){return supports(revision) && Catalog.ASSETS.get(revision).containsKey(asset);}
     public static void initialize(){
         ServerChunkEvents.CHUNK_LOAD.register((level,chunk,generated)->{
             if(((AttachmentTarget)chunk).getAttached(DATA)!=null)PENDING.computeIfAbsent(level,key->new LinkedHashSet<>()).add(chunk.getPos());
@@ -88,13 +106,17 @@ public final class NaturalInteriors {
         return false;
     }
     public static String certificate(long seed,DistributionPlanner.Site site) {
-        return JSON.toJson(new Certificate(REVISION,site.asset(),"natural:"+seed+":"+site.asset()+":"+
+        return certificate(seed,site,REVISION);
+    }
+    public static String certificate(long seed,DistributionPlanner.Site site,String revision) {
+        if(!supports(revision))throw new IllegalStateException("Unknown interior revision");
+        return JSON.toJson(new Certificate(revision,site.asset(),"natural:"+seed+":"+site.asset()+":"+
                 site.candidate().cell().x()+":"+site.candidate().cell().z(),site.originX(),site.originY(),site.originZ(),site.candidate().rotation()));
     }
     private static JsonObject contract(Certificate c) {
-        if(!REVISION.equals(c.revision()) || c.rotation()<0 || c.rotation()>3 || !hasAsset(c.asset()) || !c.site().startsWith("natural:"))
+        if(!supports(c.revision()) || c.rotation()<0 || c.rotation()>3 || !hasAsset(c.revision(),c.asset()) || !c.site().startsWith("natural:"))
             throw new IllegalStateException("Invalid frozen natural piece provenance");
-        return Catalog.ASSETS.get(c.asset()).getAsJsonObject("gameplay");
+        return Catalog.ASSETS.get(c.revision()).get(c.asset()).getAsJsonObject("gameplay");
     }
     public static BlockPos transform(Certificate cert,int x,int y,int z) {
         return StructureTemplate.transform(new BlockPos(x,y,z),Mirror.NONE,Rotation.values()[cert.rotation()],BlockPos.ZERO)
@@ -113,8 +135,9 @@ public final class NaturalInteriors {
             PoolElementStructurePiece piece,String provenance) {
         Certificate cert=JSON.fromJson(provenance,Certificate.class);var contract=contract(cert);
         var runtime=DistributionRuntime.get(level.getLevel());
-        if(runtime==null || !runtime.interiorRevision().equals(REVISION))throw new IllegalStateException("Natural interiors in a legacy world");
-        if(!(piece.getElement() instanceof SinglePoolElement element) || !element.getTemplateLocation().toString().equals("relics:"+cert.asset()+"_gameplay_worldgen")
+        if(runtime==null || !runtime.interiorRevision().equals(cert.revision()))throw new IllegalStateException("Natural interiors in a different world revision");
+        String template=Catalog.ASSETS.get(cert.revision()).get(cert.asset()).getAsJsonObject("worldgen_template").get("path").getAsString();
+        if(!(piece.getElement() instanceof SinglePoolElement element) || !element.getTemplateLocation().toString().equals("relics:"+template.substring(0,template.length()-4))
                 || !piece.getPosition().equals(new BlockPos(cert.x(),cert.y(),cert.z())) || piece.getRotation().ordinal()!=cert.rotation())
             throw new IllegalStateException("Natural piece and frozen provenance disagree");
         var otherBoxes=manager.startsForStructure(chunk,s->!manager.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.STRUCTURE)
@@ -187,7 +210,9 @@ public final class NaturalInteriors {
                     RelicGameplay.configureNaturalBlock(level,p,role);
                 } else if(role.equals("tower_enderman_spawn")) {
                     UUID uuid=UUID.nameUUIDFromBytes(action.getBytes(StandardCharsets.UTF_8));
-                    if(level.getEntity(uuid)==null) {
+                    // Native creation rejects hostile mobs on Peaceful. Complete
+                    // this one-time action without forcing or later refilling it.
+                    if(level.getEntity(uuid)==null && EntityTypes.ENDERMAN.canSpawn(level)) {
                         var mob=EntityTypes.ENDERMAN.create(level,EntitySpawnReason.STRUCTURE);
                         if(mob==null)throw new IllegalStateException("Cannot create natural Enderman");
                         mob.setUUID(uuid);mob.snapTo(p.getX()+.5,p.getY(),p.getZ()+.5,0,0);
