@@ -1,0 +1,99 @@
+name: Release all targets
+
+on:
+  push:
+    tags: ['v[0-9]*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Version tag for a build-only dry run, for example v0.1.0-alpha.5.0.3'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}-${{ inputs.tag }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    env:
+      RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag || github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate tag and derive shared release version
+        id: version
+        run: python tools/release_ci.py prepare --tag "$RELEASE_TAG" --github-output "$GITHUB_OUTPUT"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.5.1'
+      - name: Install resource test dependency
+        run: python -m pip install Pillow==12.0.0
+      - name: Prepare verified compilation dependencies
+        run: python tools/setup_worldgen_build.py --accept-downloads
+      - name: Build Fabric 26.2 and shared frozen resources
+        env:
+          RELICS_RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: python tools/build.py --java-home "$JAVA_HOME"
+      # Keep these builds sequential: NeoForge 1.21.1 uses the generated Fabric sources.
+      - name: Build Fabric 1.21.1
+        env:
+          RELICS_RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: python tools/build_alpha5_port.py --loader fabric --minecraft 1.21.1 --java-home "$JAVA_HOME" --gradle gradle
+      - name: Build NeoForge 1.21.1
+        env:
+          RELICS_RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: python tools/build_alpha5_port.py --loader neoforge --minecraft 1.21.1 --java-home "$JAVA_HOME" --gradle gradle
+      - name: Build NeoForge 26.2
+        env:
+          RELICS_RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: python tools/build_alpha5_port.py --loader neoforge --minecraft 26.2 --java-home "$JAVA_HOME" --gradle gradle
+      - name: Test resources, packaging and release safety
+        run: python -m unittest discover -s tests -v
+      - name: Test worldgen, gameplay and frozen planning
+        run: |
+          python tools/test_worldgen_java.py
+          python tools/test_gameplay.py --java-home "$JAVA_HOME"
+          python tools/test_distribution.py --java-home "$JAVA_HOME"
+      - name: Test native recipe packets, gameplay and server restart
+        env:
+          RELICS_RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          python tools/build_fabric26_checks.py --java-home "$JAVA_HOME" --artifact "dist/relics-${RELICS_RELEASE_VERSION}+mc26.2.jar"
+          python tools/test_alpha5_port_server.py --loader fabric --minecraft 26.2 --accept-eula --java "$JAVA_HOME/bin/java" --artifact "dist/relics-${RELICS_RELEASE_VERSION}+mc26.2.jar" --test-mod build/fabric26-checks/relics-alpha5-port-checks+mc26.2.jar --suite
+      - name: Assemble all four verified player JARs and checksums
+        env:
+          RELICS_RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          python tools/release_ci.py bundle
+          cat dist/release/SHA256SUMS.txt >> "$GITHUB_STEP_SUMMARY"
+      - name: Publish only after all checks, then verify downloaded release assets
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python tools/release_ci.py publish --tag "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY"
+      - name: Keep optional dry-run downloads
+        if: github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: relics-${{ steps.version.outputs.version }}-all-targets
+          retention-days: 3
+          path: |
+            dist/release/*.jar
+            dist/release/SHA256SUMS.txt

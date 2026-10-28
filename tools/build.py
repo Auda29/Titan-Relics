@@ -12,6 +12,7 @@ import zipfile
 from relic_catalog import ASSETS, worldgen_resources
 from terrain_foundations import POLICY, RUNTIME_POLICY, natural_ground, natural_size
 from compile_worldgen import compile_worldgen, checked_classes
+from release_version import release_version
 
 ROOT = Path(__file__).resolve().parents[1]
 RESOURCES = ROOT / "src/main/resources"
@@ -58,6 +59,7 @@ def check_resources(resources: Path = RESOURCES) -> dict:
     if resources == RESOURCES or (resources / 'relics.gameplay.integration.json').exists():
         from integrate_gameplay_interiors import integrate,MANIFESTS
         for revision in MANIFESTS:integrate(resources,verify=True,revision=revision)
+    metadata['version'] = release_version(metadata['version'])
     return metadata
 
 
@@ -91,7 +93,10 @@ def write_archive(destination: Path, resources: Path = RESOURCES, classes: Path 
             content = path.read_bytes()
             if path.suffix == ".json" or path.name == "pack.mcmeta":
                 # Canonical UTF-8/LF independent of checkout line endings and editor formatting.
-                content = (json.dumps(json.loads(content.decode("utf-8-sig")),
+                data = json.loads(content.decode("utf-8-sig"))
+                if relative == 'fabric.mod.json':
+                    data['version'] = release_version(data['version'])
+                content = (json.dumps(data,
                                       ensure_ascii=False, sort_keys=True, indent=2) + "\n").encode("utf-8")
             archive.writestr(info, content, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
         if classes is not None:

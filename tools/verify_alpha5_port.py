@@ -3,9 +3,10 @@ from __future__ import annotations
 import argparse,gzip,hashlib,json,tomllib
 from pathlib import Path
 import zipfile
+from release_version import release_version
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='0.1.0-alpha.5.0.3'
+VERSION=release_version()
 
 
 def verify(path: Path,loader: str,minecraft: str) -> dict:

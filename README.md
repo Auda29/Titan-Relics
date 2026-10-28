@@ -9,6 +9,8 @@ exploration targets, salvage items, archaeology and a World Tree refuge.
 A local **Alpha 5.0.3 reload fix** is prepared for all four targets. See the
 [world reload report and existing-save recovery](docs/testing/ALPHA_5_0_3_WORLD_RELOAD_20261028.md).
 The published downloads below remain Alpha 5.0.2.
+A shared release tag now builds and publishes all four targets through
+[GitHub Actions](docs/releases/RELEASE_CI.md).
 
 Download: [Alpha 5.0.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.2%2Bmc26.2).
 Requires Java 25, Fabric Loader 0.19.5+, Fabric API 0.161.0+26.2 and

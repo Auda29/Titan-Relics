@@ -9,9 +9,10 @@ import shutil
 import gzip
 import struct
 from prepare_mc1211 import port_java
+from release_version import release_version
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.1.0-alpha.5.0.3'
+VERSION = release_version()
 
 
 def legacy_java(name: str, text: str) -> str:

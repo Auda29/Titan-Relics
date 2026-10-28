@@ -25,7 +25,7 @@ def main():
     report=prepare(args.loader,args.minecraft)
     project=ROOT/f'compat/alpha5-{args.loader}-{args.minecraft}'
     env=os.environ.copy();env['JAVA_HOME']=str(args.java_home.resolve())
-    command=[find_gradle(args.gradle),'--no-daemon',*args.tasks]
+    command=[find_gradle(args.gradle),'--no-daemon',*args.tasks,'-PrelicVersion='+VERSION]
     if args.rerun_tasks:command.append('--rerun-tasks')
     print(f"Prepared {args.loader} {args.minecraft}: {len(report['sources'])} Java sources",flush=True)
     if args.log:
