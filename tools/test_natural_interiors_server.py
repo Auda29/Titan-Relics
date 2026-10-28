@@ -8,7 +8,7 @@ from compile_worldgen import ROOT,compile_libraries
 from smoke_server import Console,read_nbt
 from verify_world import AnvilWorld,verify_piece,transform,protected_cell,AIR_NAMES
 
-def blocks_proof(world,artifact,sites):
+def blocks_proof(world,artifact,sites,plant='minecraft:firefly_bush'):
     result=[];anvil=AnvilWorld(world)
     with zipfile.ZipFile(artifact) as archive:
         for site in sites:
@@ -49,12 +49,12 @@ def blocks_proof(world,artifact,sites):
                 skip=set()
                 for p,name in states.items():
                     below=(p[0],p[1]-1,p[2])
-                    if name!='minecraft:firefly_bush' or states.get(below)!='minecraft:rooted_dirt':continue
+                    if name!=plant or states.get(below)!='minecraft:rooted_dirt':continue
                     skip.update((p,below));original=transform(p,child['rotation'],[child['PosX'],child['PosY'],child['PosZ']])
                     actual=[]
                     for y in range(original[1]-6,original[1]+7):
                         pos=(original[0],y,original[2]);base=(pos[0],y-1,pos[2])
-                        if anvil.block(*pos)['Name']!='minecraft:firefly_bush' or anvil.block(*base)['Name']!='minecraft:rooted_dirt':continue
+                        if anvil.block(*pos)['Name']!=plant or anvil.block(*base)['Name']!='minecraft:rooted_dirt':continue
                         assert protected_cell(anvil.chunk(pos[0]//16,pos[2]//16),pos)
                         assert protected_cell(anvil.chunk(base[0]//16,base[2]//16),base)
                         bed=anvil.block(base[0],base[1]-1,base[2])['Name']

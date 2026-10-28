@@ -23,6 +23,16 @@ jobs:
         run: python tools/setup_worldgen_build.py --accept-downloads
       - name: Generate structures and build mod
         run: python tools/build.py
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '9.5.1'
+      - name: Build and verify Fabric 1.21.1 Alpha 5
+        run: python tools/build_alpha5_port.py --loader fabric --minecraft 1.21.1 --java-home "$JAVA_HOME" --gradle gradle
+      - name: Check reproducible Fabric 1.21.1 package
+        run: |
+          cp dist/SHA256SUMS-fabric-mc1.21.1.txt /tmp/relics-fabric1211-first.sha256
+          python tools/build_alpha5_port.py --loader fabric --minecraft 1.21.1 --java-home "$JAVA_HOME" --gradle gradle --rerun-tasks
+          cmp /tmp/relics-fabric1211-first.sha256 dist/SHA256SUMS-fabric-mc1.21.1.txt
       - name: Test generators and resources
         run: python -m unittest discover -s tests -v
       - name: Test placement processor and reservations
@@ -41,8 +51,11 @@ jobs:
       - name: Record package checksum
         run: cat dist/SHA256SUMS.txt >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
+        # Release assets are uploaded and checked independently. Account archive
+        # quota must not hide the result of build/test/reproducibility checks.
+        continue-on-error: true
         with:
-          name: relics-alpha5-fabric-26.2
+          name: relics-alpha5-fabric
           path: |
             dist/*.jar
             dist/SHA256SUMS.txt
