@@ -61,7 +61,7 @@ def main():
             def command(cmd,pattern,timeout=180):return console.command(cmd,pattern,timeout)
             try:
                 console.wait(r'Done \(',timeout=240)
-                command('gamerule randomTickSpeed 0',r'Gamerule|Unknown|Incorrect')
+                command('gamerule '+('randomTickSpeed' if a.minecraft=='1.21.1' else 'minecraft:random_tick_speed')+' 0',r'Gamerule|Unknown|Incorrect')
                 if iteration==0:
                     console.wait(r'Relic destination ',timeout=300)
                     status=command('relicsdistribution status',r'"snapshot"')
@@ -97,7 +97,7 @@ def main():
                 command('save-all flush',r'Saved the game');command('stop',r'Stopping the server');process.wait(timeout=120);console.thread.join(timeout=5)
                 errors=[line for line in console.lines if '/ERROR]' in line or 'Couldn\'t parse' in line]
                 assert process.returncode==0 and not errors,errors[:5]
-                if iteration==0:record['blocks']=blocks_proof(root/'world',artifact,sites,plant='minecraft:fern')
+                if iteration==0:record['blocks']=blocks_proof(root/'world',artifact,sites,plant='minecraft:fern' if a.minecraft=='1.21.1' else 'minecraft:firefly_bush')
                 record['iterations'].append({'iteration':iteration,'exit_code':process.returncode,'verification':reply})
             finally:
                 if process.poll() is None:

@@ -42,6 +42,13 @@ jobs:
           cp dist/SHA256SUMS-neoforge-mc1.21.1.txt /tmp/relics-neo1211-first.sha256
           python tools/build_alpha5_port.py --loader neoforge --minecraft 1.21.1 --java-home "$JAVA_HOME" --gradle gradle --rerun-tasks
           cmp /tmp/relics-neo1211-first.sha256 dist/SHA256SUMS-neoforge-mc1.21.1.txt
+      - name: Build and verify NeoForge 26.2 Alpha 5
+        run: python tools/build_alpha5_port.py --loader neoforge --minecraft 26.2 --java-home "$JAVA_HOME" --gradle gradle
+      - name: Check reproducible NeoForge 26.2 package
+        run: |
+          cp dist/SHA256SUMS-neoforge-mc26.2.txt /tmp/relics-neo26-first.sha256
+          python tools/build_alpha5_port.py --loader neoforge --minecraft 26.2 --java-home "$JAVA_HOME" --gradle gradle --rerun-tasks
+          cmp /tmp/relics-neo26-first.sha256 dist/SHA256SUMS-neoforge-mc26.2.txt
       - name: Test placement processor and reservations
         run: python tools/test_worldgen_java.py
       - name: Test gameplay items, recipes, ledger and static mixin targets (no server)
@@ -65,4 +72,4 @@ jobs:
           name: relics-alpha5-builds
           path: |
             dist/*.jar
-            dist/SHA256SUMS.txt
+            dist/SHA256SUMS*.txt

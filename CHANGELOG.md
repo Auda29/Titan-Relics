@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.5.0.1 ? Fabric 1.21.1 and native NeoForge ports (2026-10-28)
+
+- Release Alpha 5 gameplay for Fabric 1.21.1, NeoForge 1.21.1 and NeoForge 26.2.
+- Preserve all frozen interior revisions, shared map targets, physical personal
+  rewards, immediate key payment, per-item held-magnet wear and 80-block Tree aura.
+- Adapt 1.21.1 block/model/trim resources and recipe-book data; remove unavailable
+  copper trim palette references. Retain native 26.2 assets in the NeoForge port.
+- Use native NeoForge registration, persistent attachments and events, including
+  cancellation-aware animal extras and client notification for protected breaks.
+- Verify final packages with isolated functional/restart and natural-world tests,
+  actual client asset checks, reproducible builds and separate staged Git exports.
+- Retain the original Fabric 26.2 Alpha 5.0 artifact. New port server tests use
+  simulated players; real-client acceptance remains specific to the original build.
+
 ## 0.1.0-alpha.5.0 — natural gameplay and approved interiors (2026-10-28)
 
 - Add bounded extra natural animal attempts near saved Tree anchors for pigs,

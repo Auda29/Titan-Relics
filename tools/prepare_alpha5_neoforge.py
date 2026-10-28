@@ -1,6 +1,6 @@
 """Generate native Alpha 5 NeoForge profiles with no Fabric API dependency."""
 from __future__ import annotations
-import hashlib,json,re,shutil
+import hashlib,json,re,shutil,zipfile
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -43,11 +43,15 @@ def native_java(name: str,text: str,minecraft: str,test=False):
         text=text.replace('self.items, furnace.getMaxStackSize())','self.items, furnace.getMaxStackSize(), furnace)')
     if name=='TreeAnimals.java':
         text=text.replace('mob.finalizeSpawn(level,','net.neoforged.neoforge.event.EventHooks.finalizeMobSpawn(mob,level,')
+    if name=='RelicGameplay.java' and minecraft=='26.2':
+        text=text.replace('data.getCompoundOrEmpty(AttachmentTarget.NBT_ATTACHMENT_KEY).getListOrEmpty("relics:delivery_receipts")',
+            'data.getCompoundOrEmpty(AttachmentTarget.NBT_ATTACHMENT_KEY).getCompoundOrEmpty("relics:delivery_receipts").getListOrEmpty("value")')
     if test:
         text=text.replace(' implements ModInitializer','').replace('@Override public void onInitialize()', 'public void onInitialize()')
         text=text.replace('package de.relics;', 'package de.relics.validation;\nimport de.relics.*;')
         text=text.replace('de.relics.testmixin','de.relics.validation.mixin').replace('de.relics.TreeAnimalChecks','de.relics.validation.TreeAnimalChecks')
         text=re.sub(r'(\w+)\.getServer\(\)\.getPlayerList\(\)\.getPlayers\(\)',r'((de.relics.validation.mixin.LegacyPlayerListAccess)(Object)\1.getServer().getPlayerList()).relics$listPlayers()',text)
+        text=re.sub(r'(\w+)\.getServer\(\)\.getPlayerList\(\)\.getPlayersByUUID\(\)',r'((de.relics.validation.mixin.LegacyPlayerListAccess)(Object)\1.getServer().getPlayerList()).relics$players()',text)
         text=text.replace('super(PacketFlow.SERVERBOUND);','super(PacketFlow.SERVERBOUND);((de.relics.validation.mixin.ConnectionChannelAccess)(Object)this).relics$channel(new io.netty.channel.embedded.EmbeddedChannel());')
         if name=='LegacyPlayerListAccess.java':
             text=text.replace('\n}', '\n    @Accessor("players") java.util.List<ServerPlayer> relics$listPlayers();\n}')
@@ -63,6 +67,31 @@ def native_java(name: str,text: str,minecraft: str,test=False):
                 }finally{NativeSpawnChecks.cancel=false;}
                 String proof="native_finalize_cancellation=true\\nnatural_hook=true''')
     if 'net.fabricmc.' in text:raise ValueError('Fabric reference in native '+name)
+    return text
+
+
+def modern_platform(name,text):
+    text=text.replace('ResourceLocation','Identifier')
+    if name=='RelicWorldgen.java':
+        text=re.sub(r'    public static final .*? TERRAIN_SUPPORT=.*?;\n','',text)
+        text=text.replace('()->TERRAIN_SUPPORT','()->TerrainSupportProcessor.CODEC')
+    if name=='NeoAttachments.java':
+        text=text.replace('if(id.getPath().equals("placed_cells"))codec=codec.fieldOf("sections").codec();','')
+        text=text.replace('builder.serialize(codec);','builder.serialize(codec.fieldOf(id.getPath().equals("placed_cells")?"sections":"value"));')
+    if name=='NeoEvents.java':
+        text=text.replace('BlockEvent.BreakEvent','net.neoforged.neoforge.event.level.block.BreakBlockEvent')
+        text=text.replace('level.getBlockEntity(event.getPos()))){event.setCanceled(true);break;}', 'level.getBlockEntity(event.getPos()))){event.setCanceled(true);event.setNotifyClient(true);break;}')
+        text=text.replace('player.getServer()','player.level().getServer()')
+        text=text.replace('result instanceof InteractionResultHolder<?> holder && holder.getResult()!=InteractionResult.PASS','result instanceof InteractionResult holder && holder!=InteractionResult.PASS')
+        text=text.replace('event.setCancellationResult(holder.getResult())','event.setCancellationResult(holder)')
+    return text
+
+
+def modern_checks(text):
+    text=text.replace('registryOrThrow(', 'lookupOrThrow(').replace('.location()', '.identifier()').replace('level.getRecipeManager()', 'level.recipeAccess()')
+    text=text.replace('.byKey(id)', '.byKey(ResourceKey.create(Registries.RECIPE,id))')
+    text=text.replace('recipe.getIngredients().size()', '((net.minecraft.world.item.crafting.display.ShapedCraftingRecipeDisplay)recipe.display().getFirst()).ingredients().size()')
+    text=text.replace('.assemble(ingredients,level.registryAccess())','.assemble(ingredients)').replace('.assemble(smithingInput,level.registryAccess())','.assemble(smithingInput)')
     return text
 
 
@@ -118,36 +147,53 @@ side="BOTH"
 
 
 def prepare(minecraft):
-    if minecraft!='1.21.1':raise ValueError('Finish the requested 1.21.1 native target first')
-    from prepare_alpha5_port import prepare as fabric_prepare
-    fabric_prepare('fabric','1.21.1')
-    source=ROOT/'compat/alpha5-fabric-1.21.1/build/generated'
+    if minecraft not in TARGETS:raise ValueError('Unknown native target')
+    legacy=minecraft=='1.21.1'
+    if legacy:
+        from prepare_alpha5_port import prepare as fabric_prepare
+        fabric_prepare('fabric','1.21.1')
+        source=ROOT/'compat/alpha5-fabric-1.21.1/build/generated'
+    else:source=ROOT/'src/main'
     project=ROOT/f'compat/alpha5-neoforge-{minecraft}';output=project/'build/generated'
     if output.exists():
         assert output.resolve().is_relative_to((project/'build').resolve());shutil.rmtree(output)
-    shutil.copytree(source/'resources',output/'resources')
+    if legacy:shutil.copytree(source/'resources',output/'resources')
+    else:
+        from build import write_archive
+        bundle=project/'build/source-resources.jar';write_archive(bundle)
+        with zipfile.ZipFile(bundle) as archive:archive.extractall(output/'resources')
     resources=output/'resources';(resources/'fabric.mod.json').unlink()
     path=resources/'META-INF/neoforge.mods.toml';path.parent.mkdir(parents=True,exist_ok=True);path.write_text(metadata(minecraft),encoding='utf-8',newline='\n')
     for path in resources.glob('relics.*integration.json'):
-        manifest=json.loads(path.read_bytes());manifest['loader']='neoforge';manifest['protection_storage']='neoforge:attachments/relics:placed_cells/sections'
+        manifest=json.loads(path.read_bytes());manifest['compatibility_target']=minecraft;manifest['loader']='neoforge';manifest['protection_storage']='neoforge:attachments/relics:placed_cells/sections'
         path.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
+    if not legacy:
+        mixins=json.loads((resources/'relics.mixins.json').read_bytes());mixins['compatibilityLevel']='JAVA_25'
+        (resources/'relics.mixins.json').write_text(json.dumps(mixins,indent=2)+'\n',encoding='utf-8')
     pack=json.loads((resources/'pack.mcmeta').read_bytes());pack['pack']['description']='Relic Mod Alpha 5.0 for NeoForge '+minecraft
     (resources/'pack.mcmeta').write_text(json.dumps(pack,indent=2)+'\n',encoding='utf-8')
     sources=[]
     for path in sorted((source/'java').rglob('*.java')):
         relative=path.relative_to(source/'java');override=COMMON/relative
-        text=override.read_text(encoding='utf-8') if override.exists() else native_java(path.name,path.read_text(encoding='utf-8'),minecraft)
+        text=(modern_platform(path.name,override.read_text(encoding='utf-8')) if not legacy else override.read_text(encoding='utf-8')) if override.exists() else native_java(path.name,path.read_text(encoding='utf-8'),minecraft)
         destination=output/'java'/relative;destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(text,encoding='utf-8',newline='\n')
     for path in sorted(COMMON.rglob('*.java')):
         destination=output/'java'/path.relative_to(COMMON)
         if destination.exists():continue
-        destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(path,destination)
+        destination.parent.mkdir(parents=True,exist_ok=True)
+        text=path.read_text(encoding='utf-8');destination.write_text(text if legacy else modern_platform(path.name,text),encoding='utf-8',newline='\n')
     for path in sorted((output/'java').rglob('*.java')):
         sources.append({'path':path.relative_to(output/'java').as_posix(),'sha256':hashlib.sha256(path.read_bytes()).hexdigest()})
-    for path in sorted((source/'test').rglob('*.java')):
-        relative=path.relative_to(source/'test')
+    test_source=source/'test' if legacy else ROOT/'src/test/java'
+    selected={'GameplayPresentationChecks.java','TreeAuraChecks.java','TreeAnimalChecks.java','TreeAnimalProbeMixin.java','NaturalInteriorChecks.java','DistributionRuntimeChecks.java'}
+    test_paths=list(test_source.rglob('*.java')) if legacy else [p for p in test_source.rglob('*.java') if p.name in selected]
+    if not legacy:test_paths+=list((ROOT/'compat/alpha5-fabric-1.21.1/src/test/adapters').rglob('*.java'))
+    for path in sorted(test_paths):
+        relative=path.relative_to(test_source) if path.is_relative_to(test_source) else path.relative_to(ROOT/'compat/alpha5-fabric-1.21.1/src/test/adapters')
         if relative.parts[:3]==('de','relics','testmixin'):relative=Path('de/relics/validation/mixin')/path.name
-        text=native_java(path.name,path.read_text(encoding='utf-8'),minecraft,test=True)
+        text=path.read_text(encoding='utf-8')
+        if not legacy and path.name=='PortChecks.java':text=modern_checks(text)
+        text=native_java(path.name,text,minecraft,test=True)
         if 'package de.relics.validation;' in text:relative=Path('de/relics/validation')/path.name
         destination=output/'test'/relative;destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(text,encoding='utf-8',newline='\n')
     bootstrap=output/'test/de/relics/validation/PortTestMod.java'
@@ -167,7 +213,7 @@ public final class PortTestMod {
         destination.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(adapter,destination)
     test_resources=output/'test-resources';(test_resources/'META-INF').mkdir(parents=True)
     (test_resources/'META-INF/neoforge.mods.toml').write_text(metadata(minecraft,'checks'),encoding='utf-8',newline='\n')
-    (test_resources/'animal-probe.mixins.json').write_text(json.dumps({'required':True,'package':'de.relics.validation.mixin','compatibilityLevel':'JAVA_21','mixins':['TreeAnimalProbeMixin','LegacyPlayerListAccess','ConnectionChannelAccess'],'injectors':{'defaultRequire':1}}),encoding='utf-8')
+    (test_resources/'animal-probe.mixins.json').write_text(json.dumps({'required':True,'package':'de.relics.validation.mixin','compatibilityLevel':'JAVA_'+str(TARGETS[minecraft]['java']),'mixins':['TreeAnimalProbeMixin','LegacyPlayerListAccess','ConnectionChannelAccess'],'injectors':{'defaultRequire':1}}),encoding='utf-8')
     report={'loader':'neoforge','minecraft':minecraft,'version':'0.1.0-alpha.5.0.1','sources':sources,'neoforge':TARGETS[minecraft]['neo']}
     (project/'build/adapter-manifest.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     return report

@@ -81,7 +81,7 @@ def main():
                 results=[]
                 commands=list(args.command)
                 if args.suite:
-                    console.command('gamerule doMobSpawning true',r'Gamerule|Incorrect|Unknown',timeout=30)
+                    console.command('gamerule '+('doMobSpawning' if args.minecraft=='1.21.1' else 'minecraft:spawn_mobs')+' true',r'Gamerule|Incorrect|Unknown',timeout=30)
                     console.command('forceload add -32 -32 63 63',r'Marked|force.loaded|already|No chunks',timeout=120)
                     commands+=['relicsporttest','relicstreeauratest','relicspresentationtest'+(' reload' if iteration else '')]
                 for command in commands:
@@ -89,8 +89,8 @@ def main():
                     assert '_FAIL' not in reply and '_PASS' in reply,reply
                     results.append(reply)
                 if args.suite and iteration==0:
-                    console.command('gamerule doMobSpawning false',r'Gamerule|Incorrect|Unknown',timeout=30)
-                    console.command('time set day',r'Set .*time',timeout=30)
+                    console.command('gamerule '+('doMobSpawning' if args.minecraft=='1.21.1' else 'minecraft:spawn_mobs')+' false',r'Gamerule|Incorrect|Unknown',timeout=30)
+                    console.command('time set day',r'Set .*time|time marker',timeout=30)
                     console.command('forceload add 4080 4080 4159 4127',r'Marked|force.loaded|already|No chunks',timeout=120)
                     for x in (4096,4112):
                         for z in (4096,4112):

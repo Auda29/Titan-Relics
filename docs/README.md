@@ -5,6 +5,9 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
+- [Alpha 5.0.1 Fabric/NeoForge 1.21.1 release verification](testing/ALPHA_5_0_1_1_21_1_20261028.md)
+- [Alpha 5.0.1 NeoForge 26.2 release verification](testing/ALPHA_5_0_1_NEOFORGE_26_2_20261028.md)
+
 - [October 28: Regeneration II and Resistance II in the 80-block Tree aura](project/TREE_EFFECTS_II_20261028.md)
 
 - [October 28: accepted Skull/Tree state and 80-block aura](project/TREE_AURA_80_20261028.md)
