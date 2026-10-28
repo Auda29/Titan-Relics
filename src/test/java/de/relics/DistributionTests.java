@@ -15,6 +15,21 @@ public final class DistributionTests {
         return new DistributionPlanner(seed,EnumSet.allOf(Family.class),validate,()->unique,()->unique==null,0,0,128);
     }
     public static void main(String[] args)throws Exception {
+        var jsonA=com.google.gson.JsonParser.parseString("{\"generator\":{\"seed\":42,\"spawns\":{\"monster\":[],\"creature\":[]}},\"biomes\":[1,2],\"enabled\":true,\"empty\":null}");
+        var jsonB=com.google.gson.JsonParser.parseString("{\"empty\":null,\"enabled\":true,\"biomes\":[1,2],\"generator\":{\"spawns\":{\"creature\":[],\"monster\":[]},\"seed\":42}}");
+        String canonical=PlanningFingerprint.hash(jsonA);
+        check(canonical.equals(PlanningFingerprint.hash(jsonB)),"recursive JSON object order is irrelevant");
+        check(!DistributionJournal.hash(jsonA.toString()).equals(DistributionJournal.hash(jsonB.toString())),"regression reproduces old hash mismatch");
+        check(!canonical.equals(PlanningFingerprint.hash(com.google.gson.JsonParser.parseString(jsonA.toString().replace("[1,2]","[2,1]")))),"array order remains significant");
+        check(!canonical.equals(PlanningFingerprint.hash(com.google.gson.JsonParser.parseString(jsonA.toString().replace("42","43")))),"changed generator value rejected");
+        check(!canonical.equals(PlanningFingerprint.hash(com.google.gson.JsonParser.parseString(jsonA.toString().replace("monster","changed")))),"changed registry key rejected");
+        String raw=DistributionJournal.hash(jsonA.toString()),other="b".repeat(64);
+        check(PlanningFingerprint.legacyMatches(raw,raw,canonical,""),"exact legacy hash accepted");
+        check(!PlanningFingerprint.legacyMatches(other,raw,canonical,""),"unproven legacy change rejected by default");
+        check(PlanningFingerprint.legacyMatches(other,raw,canonical,other+":"+canonical),"explicit exact transition accepted");
+        check(!PlanningFingerprint.legacyMatches(other,raw,canonical,raw+":"+canonical),"approval cannot apply to another save hash");
+        check(!PlanningFingerprint.legacyMatches(other,raw,canonical,other+":"+raw),"approval cannot apply to changed current data");
+        check(!PlanningFingerprint.legacyMatches(other,raw,canonical,"true"),"no blanket guard bypass");
         for(boolean inside:new boolean[]{false,true}) {
             Map<Family,Integer> counts=new EnumMap<>(Family.class);
             for(int i=0;i<10000;i++)counts.merge(ticket(i,inside),1,Integer::sum);
@@ -74,12 +89,35 @@ public final class DistributionTests {
         check(DistributionJournal.interiorRevision(file).equals("legacy"),"old snapshot keeps visual templates");
         journal.state.interiors="interiors-20261027-v1";journal.flush();
         check(DistributionJournal.interiorRevision(file).equals("interiors-20261027-v1"),"approved interiors survive restart");
+        String legacyJournal=Files.readString(file);
+        Path blockedFile=file.resolveSibling("blocked-migration.json");Files.writeString(blockedFile,legacyJournal);
+        Files.writeString(blockedFile.resolveSibling(blockedFile.getFileName()+".pre-canonical-"+"a".repeat(64)+".bak"),"different backup");
+        var blockedJournal=new DistributionJournal(blockedFile,null);
+        boolean backupCollision=false;try{blockedJournal.migrateFingerprint(canonical);}catch(IllegalStateException expected){backupCollision=true;}
+        check(backupCollision && Files.readString(blockedFile).equals(legacyJournal)
+                && blockedJournal.state.fingerprintFormat==0 && blockedJournal.state.fingerprint.equals("a".repeat(64)),"conflicting backup cannot replace or migrate the old plan");
+        journal.migrateFingerprint(canonical);
+        check(journal.state.fingerprintFormat==1 && journal.state.fingerprint.equals(canonical),"canonical fingerprint migration persisted");
+        var migrated=new DistributionJournal(file,null);
+        check(migrated.state.fingerprintFormat==1 && migrated.state.cursor==7 && migrated.state.seed==731204
+                && migrated.state.interiors.equals("interiors-20261027-v1") && migrated.state.frozen,"migration preserves planning state across reopen");
+        check(Files.readString(file.resolveSibling(file.getFileName()+".pre-canonical-"+"a".repeat(64)+".bak")).equals(legacyJournal),"exact old journal backup retained");
+        boolean duplicate=false;try{journal.migrateFingerprint(raw);}catch(IllegalStateException expected){duplicate=true;}
+        check(duplicate,"canonical snapshot cannot be remigrated");
         String valid=Files.readString(file);
         var envelope=com.google.gson.JsonParser.parseString(valid).getAsJsonObject();
         var payload=com.google.gson.JsonParser.parseString(envelope.get("payload").getAsString()).getAsJsonObject();
         payload.remove("interiors");envelope.addProperty("payload",payload.toString());
         envelope.addProperty("sha256",DistributionJournal.hash(payload.toString()));Files.writeString(file,envelope.toString());
         check(new DistributionJournal(file,null).state.interiors.equals("legacy"),"pre-interior journal defaults to legacy");
+        payload.remove("fingerprintFormat");envelope.addProperty("payload",payload.toString());
+        envelope.addProperty("sha256",DistributionJournal.hash(payload.toString()));Files.writeString(file,envelope.toString());
+        check(new DistributionJournal(file,null).state.fingerprintFormat==0,"old saves without format field are read as legacy");
+        payload.addProperty("fingerprintFormat",2);envelope.addProperty("payload",payload.toString());
+        envelope.addProperty("sha256",DistributionJournal.hash(payload.toString()));Files.writeString(file,envelope.toString());
+        boolean future=false;try{new DistributionJournal(file,null);}catch(IllegalStateException expected){future=true;}
+        check(future,"future fingerprint formats are preserved and rejected");
+        payload.addProperty("fingerprintFormat",1);
         payload.addProperty("interiors","unknown-future-revision");envelope.addProperty("payload",payload.toString());
         envelope.addProperty("sha256",DistributionJournal.hash(payload.toString()));Files.writeString(file,envelope.toString());
         boolean unknown=false;try{new DistributionJournal(file,null);}catch(IllegalStateException expected){unknown=true;}

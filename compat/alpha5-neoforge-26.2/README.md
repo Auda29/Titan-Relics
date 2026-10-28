@@ -1,7 +1,7 @@
-# Alpha 5.0.2 for Minecraft 26.2 / NeoForge
+# Alpha 5.0.3 for Minecraft 26.2 / NeoForge
 
 Native NeoForge port of the approved Alpha 5 gameplay and interior selection.
-Player JAR: `relics-0.1.0-alpha.5.0.2+mc26.2-neoforge.jar`.
+Player JAR: `relics-0.1.0-alpha.5.0.3+mc26.2-neoforge.jar`.
 
 Requires Minecraft 26.2, Java 25+, NeoForge 26.2.0.88+ and Lithostitched 1.8.0
 for NeoForge 26.2. Install dependencies separately. Use one Relic JAR for the
@@ -40,8 +40,8 @@ On Windows it replaces only the loader logger's two extended throwable
 renderers with ordinary full stack traces; levels, appenders and errors remain.
 
 ```shell
-python tools/test_alpha5_port_server.py --loader neoforge --minecraft 26.2 --accept-eula --java /path/to/java25 --artifact dist/relics-0.1.0-alpha.5.0.2+mc26.2-neoforge.jar --test-mod compat/alpha5-neoforge-26.2/build/validation/relics-alpha5-port-checks+mc26.2-neoforge.jar --suite
-python tools/test_alpha5_natural.py --loader neoforge --minecraft 26.2 --accept-eula --java /path/to/java25 --artifact dist/relics-0.1.0-alpha.5.0.2+mc26.2-neoforge.jar --test-mod compat/alpha5-neoforge-26.2/build/validation/relics-alpha5-port-checks+mc26.2-neoforge.jar
+python tools/test_alpha5_port_server.py --loader neoforge --minecraft 26.2 --accept-eula --java /path/to/java25 --artifact dist/relics-0.1.0-alpha.5.0.3+mc26.2-neoforge.jar --test-mod compat/alpha5-neoforge-26.2/build/validation/relics-alpha5-port-checks+mc26.2-neoforge.jar --suite
+python tools/test_alpha5_natural.py --loader neoforge --minecraft 26.2 --accept-eula --java /path/to/java25 --artifact dist/relics-0.1.0-alpha.5.0.3+mc26.2-neoforge.jar --test-mod compat/alpha5-neoforge-26.2/build/validation/relics-alpha5-port-checks+mc26.2-neoforge.jar
 ```
 
 Use a fresh native world for the full Alpha 5 selection. Cross-loader save
@@ -49,7 +49,7 @@ conversion is not provided. Builds/tests do not change launcher profiles or
 player saves. Server checks use simulated players and do not constitute a new
 graphical two-client, shader/LOD or arbitrary modpack acceptance.
 
-Alpha 5.0.2 fixes maintenance recipe network serialization. Updating the same
+Alpha 5.0.3 fixes maintenance recipe network serialization. Updating the same
 game/loader from Alpha 5.0.1 retains existing worlds and items. Tests now encode
 and decode real recipe synchronization packets; see the
 [recipe-codec report](../../docs/testing/ALPHA_5_0_2_RECIPE_CODEC_20261028.md).

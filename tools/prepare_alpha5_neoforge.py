@@ -134,7 +134,7 @@ loaderVersion="[1,)"
 license="All-Rights-Reserved"
 [[mods]]
 modId="relics"
-version="0.1.0-alpha.5.0.2"
+version="0.1.0-alpha.5.0.3"
 displayName="Relic Mod"
 authors="Auda29"
 description="Alpha 5 relic structures, exploration and finite personal rewards."
@@ -171,7 +171,7 @@ config="animal-probe.mixins.json"
 [[dependencies.relics_port_checks]]
 modId="relics"
 type="required"
-versionRange="[0.1.0-alpha.5.0.2]"
+versionRange="[0.1.0-alpha.5.0.3]"
 ordering="AFTER"
 side="BOTH"
 '''
@@ -246,6 +246,6 @@ public final class PortTestMod {
     test_resources=output/'test-resources';(test_resources/'META-INF').mkdir(parents=True)
     (test_resources/'META-INF/neoforge.mods.toml').write_text(metadata(minecraft,'checks'),encoding='utf-8',newline='\n')
     (test_resources/'animal-probe.mixins.json').write_text(json.dumps({'required':True,'package':'de.relics.validation.mixin','compatibilityLevel':'JAVA_'+str(TARGETS[minecraft]['java']),'mixins':['TreeAnimalProbeMixin','LegacyPlayerListAccess','ConnectionChannelAccess'],'injectors':{'defaultRequire':1}}),encoding='utf-8')
-    report={'loader':'neoforge','minecraft':minecraft,'version':'0.1.0-alpha.5.0.2','sources':sources,'neoforge':TARGETS[minecraft]['neo']}
+    report={'loader':'neoforge','minecraft':minecraft,'version':'0.1.0-alpha.5.0.3','sources':sources,'neoforge':TARGETS[minecraft]['neo']}
     (project/'build/adapter-manifest.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     return report

@@ -2,7 +2,7 @@ plugins {
     id 'java-library'
     id 'net.neoforged.moddev' version '2.0.148'
 }
-version = '0.1.0-alpha.5.0.2'
+version = '0.1.0-alpha.5.0.3'
 group = 'de.relics'
 base { archivesName = 'relics' }
 repositories { maven { url = 'https://api.modrinth.com/maven' } }

@@ -1,0 +1,262 @@
+{
+  "date": "2026-10-28",
+  "version": "0.1.0-alpha.5.0.3",
+  "status": "local artifacts, not published",
+  "original_profiles_written": false,
+  "captures": [
+    {
+      "case": "existing-copy-v2",
+      "raw_sha256": "d7c238ab775fb56d52bc4d63a6ed0aef0c55a888502507664bcc0af4d54c8ef9",
+      "parsed_signature_equals_reference": true
+    },
+    {
+      "case": "fresh-same-seed-v2",
+      "raw_sha256": "d7c238ab775fb56d52bc4d63a6ed0aef0c55a888502507664bcc0af4d54c8ef9",
+      "parsed_signature_equals_reference": true
+    },
+    {
+      "case": "client-existing",
+      "raw_sha256": "ef1e9ad02fcbf5ebc0c554c19b006e0d4797f3ae00c769b5a26f694b97f9eeac",
+      "parsed_signature_equals_reference": true
+    },
+    {
+      "case": "client-fresh",
+      "raw_sha256": "0b01496b4c728aa149525914f95d2321489553d07e275fa509a69b847b47cc8a",
+      "parsed_signature_equals_reference": true
+    },
+    {
+      "case": "client-original-v3",
+      "raw_sha256": "037cfba2209841dbd27cb215cd15feefdf6046b3f78d00ea2ddb635f6ad1bc2a",
+      "parsed_signature_equals_reference": true
+    },
+    {
+      "case": "client-fix-recovery",
+      "raw_sha256": "09fdcf6bb8b7a5799384e7222dfb5d28ba04c2fe575e4215ec5e4ec76d3c518d",
+      "parsed_signature_equals_reference": true
+    },
+    {
+      "case": "client-fix-reopen",
+      "raw_sha256": "09fdcf6bb8b7a5799384e7222dfb5d28ba04c2fe575e4215ec5e4ec76d3c518d",
+      "parsed_signature_equals_reference": true
+    }
+  ],
+  "legacy_original_signature_unknown": true,
+  "current_canonical_hash": "65ea46667546c63df4145e5a606838b4fdacafbe6fed2efb47ab0515cff83830",
+  "original_hash": "3d2a76168db958d997dcb6fccaca4c0b2633fbdd2afbc58a716eaec2023271c8",
+  "strict_legacy_mismatch_reproduced_in_copy": true,
+  "exact_migration_approval_required": true,
+  "migration": {
+    "backup_sha256": "7d8d7aa0a5f51c4039cb77266a13cb0d76e7e9e2fc57a5255f39d3a6f49985c8",
+    "original_journal_sha256": "7d8d7aa0a5f51c4039cb77266a13cb0d76e7e9e2fc57a5255f39d3a6f49985c8",
+    "changed_payload_fields": [
+      "fingerprint",
+      "fingerprintFormat"
+    ],
+    "all_other_payload_fields_equal": true,
+    "reopen_payload_equal": true,
+    "gameplay_ledger_byte_identical_after_migration_and_reopen": true,
+    "original_live_journal_still_equals_initial": true
+  },
+  "client_migration": {
+    "case": "client-fix-recovery",
+    "exit_code": 0,
+    "signature_captured": true,
+    "candidate_sha256": "75d522b1201d7776e4bdea02803c80d1c6d03f7be127c21e536484c6c2401032",
+    "final_artifact_different_entries": [
+      "fabric.mod.json"
+    ]
+  },
+  "client_reopen_without_approval": {
+    "case": "client-fix-reopen",
+    "exit_code": 0,
+    "signature_captured": true
+  },
+  "java_assertions": {
+    "distribution": 198942,
+    "worldgen_dependency": 1008,
+    "location_search": 755716
+  },
+  "full_model_asset_suite": "Stopped after the scoped suites passed; no full-suite pass claimed.",
+  "artifacts": [
+    {
+      "file": "dist/relics-0.1.0-alpha.5.0.3+mc1.21.1-neoforge.jar",
+      "sha256": "4430d44774016381043eb6e6b878f05096f42b12b67d7e344e9c43c8639eeeec",
+      "bytes": 11698118,
+      "no_diagnostic_classes": true
+    },
+    {
+      "file": "dist/relics-0.1.0-alpha.5.0.3+mc1.21.1.jar",
+      "sha256": "2921966b6113cca819ff099cb395282bb5921c7dd3a8d96460c3d6a0d9a17194",
+      "bytes": 11673975,
+      "no_diagnostic_classes": true
+    },
+    {
+      "file": "dist/relics-0.1.0-alpha.5.0.3+mc26.2-neoforge.jar",
+      "sha256": "1f5f806f1934b070615d25ef9aa2ad325a5d2e197496446e9add7d9f0070bd6d",
+      "bytes": 11695817,
+      "no_diagnostic_classes": true
+    },
+    {
+      "file": "dist/relics-0.1.0-alpha.5.0.3+mc26.2.jar",
+      "sha256": "248ca5b263150030bcafd95e69284d26a6b5a635d5f954d336ba2d2b0f6512f0",
+      "bytes": 11644741,
+      "no_diagnostic_classes": true
+    }
+  ],
+  "native_server_suites": [
+    {
+      "run": "build/alpha5-ports-20261028/fabric-1.21.1-171211-560972/evidence.json",
+      "loader": "fabric",
+      "minecraft": "1.21.1",
+      "artifact": "relics-0.1.0-alpha.5.0.3+mc1.21.1.jar",
+      "artifact_sha256": "2921966b6113cca819ff099cb395282bb5921c7dd3a8d96460c3d6a0d9a17194",
+      "passed": true,
+      "iterations": [
+        {
+          "restart": false,
+          "commands": [
+            "[17:12:30] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 26 checks; restart=false",
+            "[17:12:30] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "[17:12:40] [Server thread/INFO]: [STDOUT]: PRESENTATION_PASS trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN] vault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING] event_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017] collected=3; uncollected=1 core_uuid=14a06921-42b6-4feb-9164-2efbf84b2f55",
+            "[17:12:43] [Server thread/INFO]: [STDOUT]: TREE_ANIMALS_PASS natural_hook=true extra_spawns=1 ordinary_spawns=11 observed_callbacks=11 global_cap_blocked=true local_cap_blocked=true no_standalone_spawn=true shared_population_accounting=true"
+          ],
+          "exit_code": 0
+        },
+        {
+          "restart": true,
+          "commands": [
+            "[17:13:00] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 29 checks; restart=true",
+            "[17:13:00] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "[17:13:04] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "proofs": {
+        "magnet-proof.txt": "offhand_max_speed=0.385\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n",
+        "port-core-proof.txt": "checks=29\nrestart=true\ncore_operations=2\nrecipe_book=shaped\n",
+        "presentation-proof.txt": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=14a06921-42b6-4feb-9164-2efbf84b2f55\n",
+        "recipe-network-proof.txt": "checks=104\nindependent_recipe_instances=true\nrecipe_and_holder_roundtrip=true\nfull_update_packet_roundtrip=true\nwrong_variant_rejected=true\ndecoded_crafting_preserves_components=true\n",
+        "tree-animal-proof.txt": "natural_hook=true\nextra_spawns=1\nordinary_spawns=11\nobserved_callbacks=11\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n",
+        "tree-aura-proof.txt": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n"
+      }
+    },
+    {
+      "run": "build/alpha5-ports-20261028/neoforge-26.2-171250-108125/evidence.json",
+      "loader": "neoforge",
+      "minecraft": "26.2",
+      "artifact": "relics-0.1.0-alpha.5.0.3+mc26.2-neoforge.jar",
+      "artifact_sha256": "1f5f806f1934b070615d25ef9aa2ad325a5d2e197496446e9add7d9f0070bd6d",
+      "passed": true,
+      "iterations": [
+        {
+          "restart": false,
+          "commands": [
+            "PORT_PASS core and recipes: 26 checks; restart=false",
+            "TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "PRESENTATION_PASS trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN] vault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING] event_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017] collected=3; uncollected=1 core_uuid=1acb6c0f-0a2c-4c65-ac06-1dc64e1ebbd0",
+            "TREE_ANIMALS_PASS native_finalize_cancellation=true natural_hook=true extra_spawns=4 ordinary_spawns=8 observed_callbacks=9 global_cap_blocked=true local_cap_blocked=true no_standalone_spawn=true shared_population_accounting=true"
+          ],
+          "exit_code": 0
+        },
+        {
+          "restart": true,
+          "commands": [
+            "PORT_PASS core and recipes: 29 checks; restart=true",
+            "TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "proofs": {
+        "magnet-proof.txt": "offhand_max_speed=0.38500000000000006\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.3850000000000001\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n",
+        "port-core-proof.txt": "checks=29\nrestart=true\ncore_operations=2\nrecipe_book=shaped\n",
+        "presentation-proof.txt": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=1acb6c0f-0a2c-4c65-ac06-1dc64e1ebbd0\n",
+        "recipe-network-proof.txt": "checks=98\nindependent_recipe_instances=true\nrecipe_and_holder_roundtrip=true\nfull_update_packet_roundtrip=true\nrecipe_book_packet_roundtrip=true\nwrong_variant_rejected=true\ndecoded_crafting_preserves_components=true\n",
+        "tree-animal-proof.txt": "native_finalize_cancellation=true\nnatural_hook=true\nextra_spawns=4\nordinary_spawns=8\nobserved_callbacks=9\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n",
+        "tree-aura-proof.txt": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n"
+      }
+    },
+    {
+      "run": "build/alpha5-ports-20261028/neoforge-1.21.1-171250-106472/evidence.json",
+      "loader": "neoforge",
+      "minecraft": "1.21.1",
+      "artifact": "relics-0.1.0-alpha.5.0.3+mc1.21.1-neoforge.jar",
+      "artifact_sha256": "4430d44774016381043eb6e6b878f05096f42b12b67d7e344e9c43c8639eeeec",
+      "passed": true,
+      "iterations": [
+        {
+          "restart": false,
+          "commands": [
+            "PORT_PASS core and recipes: 26 checks; restart=false",
+            "TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "PRESENTATION_PASS trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN] vault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING] event_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017] collected=3; uncollected=1 core_uuid=b6a0fa7a-6ba0-4e21-8dcf-b5459244cd82",
+            "TREE_ANIMALS_PASS native_finalize_cancellation=true natural_hook=true extra_spawns=1 ordinary_spawns=11 observed_callbacks=12 global_cap_blocked=true local_cap_blocked=true no_standalone_spawn=true shared_population_accounting=true"
+          ],
+          "exit_code": 0
+        },
+        {
+          "restart": true,
+          "commands": [
+            "PORT_PASS core and recipes: 29 checks; restart=true",
+            "TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "proofs": {
+        "magnet-proof.txt": "offhand_max_speed=0.385\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n",
+        "port-core-proof.txt": "checks=29\nrestart=true\ncore_operations=2\nrecipe_book=shaped\n",
+        "presentation-proof.txt": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=b6a0fa7a-6ba0-4e21-8dcf-b5459244cd82\n",
+        "recipe-network-proof.txt": "checks=104\nindependent_recipe_instances=true\nrecipe_and_holder_roundtrip=true\nfull_update_packet_roundtrip=true\nwrong_variant_rejected=true\ndecoded_crafting_preserves_components=true\n",
+        "tree-animal-proof.txt": "native_finalize_cancellation=true\nnatural_hook=true\nextra_spawns=1\nordinary_spawns=11\nobserved_callbacks=12\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n",
+        "tree-aura-proof.txt": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n"
+      }
+    },
+    {
+      "run": "build/alpha5-ports-20261028/fabric-26.2-171348-141729/evidence.json",
+      "loader": "fabric",
+      "minecraft": "26.2",
+      "artifact": "relics-0.1.0-alpha.5.0.3+mc26.2.jar",
+      "artifact_sha256": "248ca5b263150030bcafd95e69284d26a6b5a635d5f954d336ba2d2b0f6512f0",
+      "passed": true,
+      "iterations": [
+        {
+          "restart": false,
+          "commands": [
+            "[17:14:04] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 26 checks; restart=false",
+            "[17:14:04] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "[17:14:14] [Server thread/INFO]: [STDOUT]: PRESENTATION_PASS trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN] vault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING] event_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017] collected=3; uncollected=1 core_uuid=4ef6efd8-c67b-4535-8d72-8beeade8a14b",
+            "[17:14:16] [Server thread/INFO]: [STDOUT]: TREE_ANIMALS_PASS natural_hook=true extra_spawns=3 ordinary_spawns=9 observed_callbacks=9 global_cap_blocked=true local_cap_blocked=true no_standalone_spawn=true shared_population_accounting=true"
+          ],
+          "exit_code": 0
+        },
+        {
+          "restart": true,
+          "commands": [
+            "[17:14:32] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 29 checks; restart=true",
+            "[17:14:32] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "[17:14:35] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "proofs": {
+        "magnet-proof.txt": "offhand_max_speed=0.38500000000000006\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n",
+        "port-core-proof.txt": "checks=29\nrestart=true\ncore_operations=2\nrecipe_book=shaped\n",
+        "presentation-proof.txt": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=4ef6efd8-c67b-4535-8d72-8beeade8a14b\n",
+        "recipe-network-proof.txt": "checks=98\nindependent_recipe_instances=true\nrecipe_and_holder_roundtrip=true\nfull_update_packet_roundtrip=true\nrecipe_book_packet_roundtrip=true\nwrong_variant_rejected=true\ndecoded_crafting_preserves_components=true\n",
+        "tree-animal-proof.txt": "natural_hook=true\nextra_spawns=3\nordinary_spawns=9\nobserved_callbacks=9\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n",
+        "tree-aura-proof.txt": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n"
+      }
+    }
+  ],
+  "focused_python_tests": {
+    "alpha5_storage_and_compression": 3,
+    "mc1211_compatibility": 8,
+    "port_assets": 1,
+    "passed": true
+  }
+}

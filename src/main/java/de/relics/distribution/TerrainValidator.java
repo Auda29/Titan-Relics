@@ -40,6 +40,7 @@ public final class TerrainValidator implements Validator {
     private final Map<Object,Family> placements=new IdentityHashMap<>();
     public final Set<Family> enabled=EnumSet.noneOf(Family.class);
     public final String fingerprint;
+    public final String legacyFingerprint;
     private final String interiors;
 
     public TerrainValidator(ServerLevel level, int minX,int minZ,int maxX,int maxZ) {
@@ -158,7 +159,8 @@ public final class TerrainValidator implements Validator {
             profiles.put(name,new Profile(name,family,ground,box.getXSpan(),box.getYSpan(),box.getZSpan(),holder,element,condition));
             structureIds.put(holder.value(),name);
         }
-        fingerprint=DistributionJournal.hash(signature.toString());
+        legacyFingerprint=DistributionJournal.hash(signature.toString());
+        fingerprint=PlanningFingerprint.hash(signature);
     }
     private static int spacing(Family f) {return switch(f){case COLOSSUS,TOWER->80;case OBELISK,SKULL_2->64;case SKULL,SMALL->48;case TREE->96;default->throw new IllegalArgumentException();};}
     private static int salt(Family f) {return switch(f){case OBELISK->206091301;case COLOSSUS->206091302;case SKULL->206091303;case SMALL->206091304;case TREE->206091305;case TOWER->206091306;case SKULL_2->206091307;default->throw new IllegalArgumentException();};}

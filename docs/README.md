@@ -5,6 +5,8 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
+- [Alpha 5.0.3: stable world fingerprints and checked legacy recovery](testing/ALPHA_5_0_3_WORLD_RELOAD_20261028.md)
+
 - [Fabric 26.2 Alpha 5.0.2: primary recipe codec fix and native packet suite](testing/ALPHA_5_0_2_FABRIC_26_2_20261028.md)
 
 - [Alpha 5.0.2: maintenance recipe network codec fix and native packet tests](testing/ALPHA_5_0_2_RECIPE_CODEC_20261028.md)

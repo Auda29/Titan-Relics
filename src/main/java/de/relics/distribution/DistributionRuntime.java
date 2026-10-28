@@ -57,17 +57,30 @@ public final class DistributionRuntime implements AutoCloseable {
         initial.minX=(int)Math.ceil(Math.max(-absolute,border.getMinX())); initial.maxX=(int)Math.floor(Math.min(absolute,border.getMaxX()));
         initial.minZ=(int)Math.ceil(Math.max(-absolute,border.getMinZ())); initial.maxZ=(int)Math.floor(Math.min(absolute,border.getMaxZ()));
         validator=new TerrainValidator(level,initial.minX,initial.minZ,initial.maxX,initial.maxZ,initial.interiors);
-        initial.fingerprint=validator.fingerprint;initial.enabled=Set.copyOf(validator.enabled);
+        initial.fingerprint=validator.fingerprint;initial.fingerprintFormat=PlanningFingerprint.FORMAT;initial.enabled=Set.copyOf(validator.enabled);
         BlockPos approximate=level.getChunkSource().randomState().sampler().findSpawnPosition();
         initial.bootstrapX=Math.floorDiv(approximate.getX(),16)*16+8;initial.bootstrapZ=Math.floorDiv(approximate.getZ(),16)*16+8;
         journal=new DistributionJournal(file,initial);
         var s=journal.state;
-        if(s.seed!=initial.seed || !s.fingerprint.equals(initial.fingerprint) || !s.enabled.equals(initial.enabled)
+        boolean legacy=s.fingerprintFormat==0;
+        boolean fingerprintMatches=legacy
+                ? PlanningFingerprint.legacyMatches(s.fingerprint,validator.legacyFingerprint,validator.fingerprint,
+                        System.getProperty(PlanningFingerprint.RECOVERY_PROPERTY,""))
+                : s.fingerprint.equals(validator.fingerprint);
+        if(s.seed!=initial.seed || !fingerprintMatches || !s.enabled.equals(initial.enabled)
                 || s.minX!=initial.minX || s.maxX!=initial.maxX || s.minZ!=initial.minZ || s.maxZ!=initial.maxZ)
-            throw new IllegalStateException("Relic planning settings/generator/assets/border differ from the frozen save. Use the original setup or a fresh world.");
+            throw new IllegalStateException("Relic planning settings/generator/assets/border differ from the frozen save. "
+                    +"Preserve the save and verify the original setup. Saved fingerprint="+s.fingerprint
+                    +", current fingerprint="+validator.fingerprint+", format="+s.fingerprintFormat);
         if(!fresh && !s.frozen)throw new IllegalStateException("Interrupted initial spawn has no frozen relic snapshot; preserve the save for recovery.");
         if(s.unique!=null && !s.unique.equals(validator.validate(s.unique.candidate(),Family.COLOSSUS)))
             throw new IllegalStateException("Saved unique destination no longer matches the exact terrain/transform contract");
+        if(legacy) {
+            boolean recovery=!s.fingerprint.equals(validator.legacyFingerprint);
+            journal.migrateFingerprint(validator.fingerprint);
+            LOG.info("Migrated {} legacy planning fingerprint to canonical JSON format; original journal backed up",
+                    recovery?"explicitly approved":"exactly matching");
+        }
         unique=s.unique;unavailable=s.unavailable;
         planner=new DistributionPlanner(s.policy,s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
         actor=Executors.newSingleThreadScheduledExecutor(r->{Thread t=new Thread(r,"Relic planning "+s.seed);t.setDaemon(true);return t;});

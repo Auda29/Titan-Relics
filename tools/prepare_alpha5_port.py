@@ -11,7 +11,7 @@ import struct
 from prepare_mc1211 import port_java
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.1.0-alpha.5.0.2'
+VERSION = '0.1.0-alpha.5.0.3'
 
 
 def legacy_java(name: str, text: str) -> str:
@@ -275,7 +275,8 @@ def prepare(loader='fabric', minecraft='1.21.1'):
         'entrypoints':{'main':['de.relics.GameplayPresentationChecks','de.relics.TreeAuraChecks','de.relics.TreeAnimalChecks','de.relics.PortChecks','de.relics.NaturalInteriorChecks','de.relics.DistributionRuntimeChecks']},
         'mixins':['animal-probe.mixins.json'],'depends':{'relics':'*'}}),encoding='utf-8')
     (test_resources/'animal-probe.mixins.json').write_text(json.dumps({'required':True,'package':'de.relics.testmixin','compatibilityLevel':'JAVA_21',
-        'mixins':['TreeAnimalProbeMixin','LegacyPlayerListAccess'],'injectors':{'defaultRequire':1}}),encoding='utf-8')
+        'mixins':['TreeAnimalProbeMixin','LegacyPlayerListAccess','PlanningFingerprintProbe'],
+        'client':['HiddenFingerprintWindow','FingerprintClientStop'],'injectors':{'defaultRequire':1}}),encoding='utf-8')
     report={'loader':loader,'minecraft':minecraft,'version':VERSION,'sources':sources,'template_substitutions':substitutions}
     (project/'build/adapter-manifest.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
     return report

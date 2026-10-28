@@ -17,6 +17,7 @@ public final class DistributionJournal {
         public String interiors = "legacy";
         public long seed;
         public String fingerprint;
+        public int fingerprintFormat;
         public int spawnX, spawnZ, bootstrapX, bootstrapZ;
         public boolean frozen, unavailable;
         public String unavailableReason;
@@ -52,11 +53,34 @@ public final class DistributionJournal {
     private void validate() {
         if (state==null || state.interiors==null || !Set.of("legacy","interiors-20261027-v1","interiors-20261028-v2","interiors-20261028-v3","interiors-20261028-v4","interiors-20261028-v5").contains(state.interiors)
                 || !Set.of(DistributionPlanner.POLICY,DistributionPlanner.LEGACY_POLICY).contains(state.policy) || state.fingerprint==null
-                || !state.fingerprint.matches("[a-f0-9]{64}") || state.enabled==null || state.cursor<0
+                || !state.fingerprint.matches("[a-f0-9]{64}") || state.fingerprintFormat<0
+                || state.fingerprintFormat>PlanningFingerprint.FORMAT || state.enabled==null || state.cursor<0
                 || state.lower<30000 || state.upper<=state.lower || state.minX>=state.maxX || state.minZ>=state.maxZ
                 || state.unique!=null && (!state.frozen || state.unavailable || !state.unique.candidate().unique()
                     || DistributionPlanner.distance(state.unique.candidate(),state.spawnX,state.spawnZ)<30000))
             throw new IllegalStateException("Invalid planning snapshot");
+    }
+    /** Preserve the complete old plan before replacing its hash representation. Never reset destinations. */
+    public void migrateFingerprint(String fingerprint) {
+        if(state.fingerprintFormat!=0)throw new IllegalStateException("Only legacy fingerprints can migrate");
+        if(fingerprint==null || !fingerprint.matches("[a-f0-9]{64}"))throw new IllegalArgumentException("Invalid new fingerprint");
+        String old=state.fingerprint;
+        Path backup=file.resolveSibling(file.getFileName()+".pre-canonical-"+old+".bak");
+        try {
+            byte[] original=Files.readAllBytes(file);
+            if(Files.exists(backup)) {
+                if(!java.util.Arrays.equals(original,Files.readAllBytes(backup)))
+                    throw new IllegalStateException("Existing migration backup differs; preserve both journals");
+            } else {
+                try(FileChannel channel=FileChannel.open(backup,StandardOpenOption.CREATE_NEW,StandardOpenOption.WRITE)) {
+                    ByteBuffer buffer=ByteBuffer.wrap(original);
+                    while(buffer.hasRemaining())channel.write(buffer);
+                    channel.force(true);
+                }
+            }
+            state.fingerprint=fingerprint;state.fingerprintFormat=PlanningFingerprint.FORMAT;
+            try {flush();}catch(RuntimeException error){state.fingerprint=old;state.fingerprintFormat=0;throw error;}
+        }catch(Exception error){throw new IllegalStateException("Legacy planning fingerprint migration failed; preserve the save",error);}
     }
     public void flush() {
         validate();

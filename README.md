@@ -6,6 +6,10 @@ a world tree and a ruined tower.
 **Alpha 5.0.2 for Minecraft 26.2 / Fabric** adds natural relic gameplay, persistent
 exploration targets, salvage items, archaeology and a World Tree refuge.
 
+A local **Alpha 5.0.3 reload fix** is prepared for all four targets. See the
+[world reload report and existing-save recovery](docs/testing/ALPHA_5_0_3_WORLD_RELOAD_20261028.md).
+The published downloads below remain Alpha 5.0.2.
+
 Download: [Alpha 5.0.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.2%2Bmc26.2).
 Requires Java 25, Fabric Loader 0.19.5+, Fabric API 0.161.0+26.2 and
 Lithostitched 1.8.0 for Fabric 26.2. Install dependencies separately.

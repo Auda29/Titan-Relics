@@ -1,8 +1,8 @@
-# Alpha 5.0.2 for Minecraft 1.21.1 / Fabric
+# Alpha 5.0.3 for Minecraft 1.21.1 / Fabric
 
 This separate profile ports the released Alpha 5 gameplay and all saved interior
 revisions to Minecraft 1.21.1. The Alpha 4.9 profile and Fabric 26.2 release remain
-separate. Player artifact: `relics-0.1.0-alpha.5.0.2+mc1.21.1.jar`.
+separate. Player artifact: `relics-0.1.0-alpha.5.0.3+mc1.21.1.jar`.
 
 Requires Minecraft 1.21.1, Java 21+, Fabric Loader 0.19.5+, Fabric API
 0.116.17+1.21.1 and Lithostitched 1.8.0 for Fabric 1.21/1.21.1. Dependencies are
@@ -47,8 +47,8 @@ never part of the player artifact. Native tests use isolated copies and Java 21:
 
 ```shell
 python tools/build_alpha5_port.py --java-home /path/to/jdk25 --tasks build remapPortTestJar
-python tools/test_alpha5_port_server.py --accept-eula --java /path/to/java21 --artifact dist/relics-0.1.0-alpha.5.0.2+mc1.21.1.jar --test-mod compat/alpha5-fabric-1.21.1/build/libs/relics-alpha5-port-checks+mc1.21.1.jar --suite
-python tools/test_alpha5_natural.py --accept-eula --java /path/to/java21 --artifact dist/relics-0.1.0-alpha.5.0.2+mc1.21.1.jar --test-mod compat/alpha5-fabric-1.21.1/build/libs/relics-alpha5-port-checks+mc1.21.1.jar
+python tools/test_alpha5_port_server.py --accept-eula --java /path/to/java21 --artifact dist/relics-0.1.0-alpha.5.0.3+mc1.21.1.jar --test-mod compat/alpha5-fabric-1.21.1/build/libs/relics-alpha5-port-checks+mc1.21.1.jar --suite
+python tools/test_alpha5_natural.py --accept-eula --java /path/to/java21 --artifact dist/relics-0.1.0-alpha.5.0.3+mc1.21.1.jar --test-mod compat/alpha5-fabric-1.21.1/build/libs/relics-alpha5-port-checks+mc1.21.1.jar
 ```
 
 The server harness uses the previously prepared local loader/dependency cache;
@@ -56,7 +56,7 @@ it opens no launcher saves and accepts the EULA only with the explicit option.
 Server evidence uses simulated players. The earlier real-client acceptance on
 26.2 is not reported as a new client acceptance for 1.21.1.
 
-Alpha 5.0.2 fixes maintenance recipe network serialization. Updating the same
+Alpha 5.0.3 fixes maintenance recipe network serialization. Updating the same
 game/loader from Alpha 5.0.1 retains existing worlds and items. Tests now encode
 and decode real recipe synchronization packets; see the
 [recipe-codec report](../../docs/testing/ALPHA_5_0_2_RECIPE_CODEC_20261028.md).
