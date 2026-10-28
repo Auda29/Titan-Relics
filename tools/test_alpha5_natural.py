@@ -28,21 +28,32 @@ def main():
     # Later worlds and the independent verifier always read these immutable copies.
     assert hashlib.sha256(artifact.read_bytes()).hexdigest()==hashlib.sha256(source.read_bytes()).hexdigest()
     assert hashlib.sha256(testmod.read_bytes()).hexdigest()==hashlib.sha256(source_test.read_bytes()).hexdigest()
-    cp=prepare_classpath(Path('E:/Roaming/ModrinthApp'),Path.home()/f'.gradle/caches/fabric-loom/{a.minecraft}/minecraft-server.jar',base/f'runtime-fabric-{a.minecraft}',a.minecraft)
+    if a.loader=='fabric':
+        cp=prepare_classpath(Path('E:/Roaming/ModrinthApp'),Path.home()/f'.gradle/caches/fabric-loom/{a.minecraft}/minecraft-server.jar',base/f'runtime-fabric-{a.minecraft}',a.minecraft)
     baseline=json.loads((ROOT/'docs/testing/distribution-fix-20261027.json').read_bytes())
     cases=[(731204,'obelisk'),(-48291736,'small_colossus'),(20260913,'world_tree'),(4661570585687253657,'ruined_tower'),(731204,'titan_skull_2')]
     if a.case!='all':cases=[c for c in cases if c[1]==a.case]
     report={'loader':a.loader,'minecraft':a.minecraft,'artifact_sha256':hashlib.sha256(artifact.read_bytes()).hexdigest(),'runs':[],'failures':[]}
     print('NATURAL_PORT',run,flush=True)
     def check(seed,asset):
-        root=run/str(seed);(root/'mods').mkdir(parents=True)
-        for file in (artifact,testmod,*[(ROOT/'build/compat-mc1.21.1/dependencies'/name) for name in ('fabric-api-0.116.17+1.21.1.jar','lithostitched-1.8.0-fabric-21.1.jar')]):shutil.copy2(file,root/'mods'/file.name)
+        root=run/(str(seed)+'-'+asset);(root/'mods').mkdir(parents=True)
+        dependencies=([ROOT/'build/compat-mc1.21.1/dependencies'/name for name in ('fabric-api-0.116.17+1.21.1.jar','lithostitched-1.8.0-fabric-21.1.jar')]
+                if a.loader=='fabric' else [ROOT/('build/neoforge/dependencies/lithostitched-1.8.0-neoforge-'+('21.1' if a.minecraft=='1.21.1' else '26.2')+'.jar')])
+        for file in (artifact,testmod,*dependencies):shutil.copy2(file,root/'mods'/file.name)
         with socket.socket() as sock:sock.bind(('127.0.0.1',0));port=sock.getsockname()[1]
         props={'server-ip':'127.0.0.1','server-port':port,'online-mode':'true','white-list':'true','enforce-whitelist':'true','level-name':'world','level-seed':seed,'generate-structures':'true','view-distance':2,'simulation-distance':2,'max-tick-time':60000,'difficulty':'normal'}
         (root/'server.properties').write_text(''.join(f'{k}={v}\n' for k,v in props.items()),encoding='utf-8');(root/'eula.txt').write_text('eula=true\n',encoding='utf-8')
-        argv=['-Xms256M','-Xmx3G','-XX:ActiveProcessorCount=4','-Djava.awt.headless=true','-Drelics.interior.testConfig='+str(root/'sites.json'),'-cp',os.pathsep.join(map(str,cp)),'net.fabricmc.loader.impl.launch.knot.KnotServer','nogui']
+        if a.loader=='fabric':launch=['-cp',os.pathsep.join(map(str,cp)),'net.fabricmc.loader.impl.launch.knot.KnotServer','nogui']
+        else:
+            from alpha5_neoforge_runtime import installed_arguments,logging_arguments
+            native_root=ROOT/f'build/neoforge/runtime-{a.minecraft}'
+            native,native_evidence=installed_arguments(native_root,a.minecraft)
+            logger,logging_evidence=logging_arguments(native_root,a.minecraft,root)
+            launch=[*logger,*native,'nogui']
+            (root/'native-launch.json').write_text(json.dumps({**native_evidence,**logging_evidence},indent=2),encoding='utf-8')
+        argv=['-Xms256M','-Xmx3G','-XX:ActiveProcessorCount=4','-Djava.awt.headless=true','-Drelics.interior.testConfig='+str(root/'sites.json'),*launch]
         argfile=root/'args.txt';argfile.write_text('\n'.join('"'+v.replace('\\','/')+'"' for v in argv),encoding='utf-8')
-        record={'seed':seed,'asset':asset,'sites':[],'iterations':[]};sites=[]
+        record={'seed':seed,'asset':asset,'world_directory':root.relative_to(ROOT).as_posix(),'sites':[],'iterations':[]};sites=[]
         candidates=[s for row in baseline['seed_results'] if row['seed']==seed for s in row['sites'] if s['asset']==asset]
         for iteration in range(3):
             process=subprocess.Popen([str(a.java.resolve()),'@'+str(argfile)],cwd=root,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',bufsize=1,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))

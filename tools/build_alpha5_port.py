@@ -7,7 +7,7 @@ from pathlib import Path
 import subprocess
 import shutil
 from build_mc1211 import find_gradle
-from prepare_alpha5_port import ROOT, prepare
+from prepare_alpha5_port import ROOT, VERSION, prepare
 
 
 def main():
@@ -20,6 +20,7 @@ def main():
     parser.add_argument('--log',type=Path)
     parser.add_argument('--rerun-tasks',action='store_true')
     parser.add_argument('--output',type=Path,default=ROOT/'dist')
+    parser.add_argument('--client',type=Path,help='Matching Minecraft client asset JAR, otherwise use the prepared cache')
     args=parser.parse_args()
     report=prepare(args.loader,args.minecraft)
     project=ROOT/f'compat/alpha5-{args.loader}-{args.minecraft}'
@@ -37,8 +38,15 @@ def main():
     if 'build' in args.tasks:
         from verify_alpha5_port import verify
         suffix='-neoforge' if args.loader=='neoforge' else ''
-        artifact=project/f'build/libs/relics-0.1.0-alpha.5.0+mc{args.minecraft}{suffix}.jar'
+        artifact=project/f'build/libs/relics-{VERSION}+mc{args.minecraft}{suffix}.jar'
         record=verify(artifact,args.loader,args.minecraft)
+        from verify_port_assets import verify as verify_assets
+        candidates=[args.client] if args.client else [Path.home()/f'.gradle/caches/fabric-loom/{args.minecraft}/minecraft-client.jar',
+            Path.home()/f'.gradle/caches/fabric-loom/{args.minecraft}/minecraft-merged.jar',
+            Path.home()/f'.gradle/caches/neoformruntime/artifacts/minecraft_{args.minecraft}_client.jar']
+        client=next((p for p in candidates if p and p.is_file()),None)
+        if client is None:raise ValueError('Provide --client with the matching Minecraft client assets')
+        record['assets']=verify_assets(artifact,client)
         args.output.mkdir(parents=True,exist_ok=True)
         destination=args.output/artifact.name
         if not destination.exists() or destination.read_bytes()!=artifact.read_bytes():

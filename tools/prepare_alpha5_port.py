@@ -11,7 +11,7 @@ import struct
 from prepare_mc1211 import port_java
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.1.0-alpha.5.0'
+VERSION = '0.1.0-alpha.5.0.1'
 
 
 def legacy_java(name: str, text: str) -> str:
@@ -140,6 +140,13 @@ def legacy_java(name: str, text: str) -> str:
     return text
 
 
+def legacy_gzip(raw: bytes) -> bytes:
+    compressed=gzip.compress(raw,mtime=0)
+    # Python 3.11/3.12 delegate this header byte to the host zlib. Keep the
+    # first validated 1.21.1 release's byte (10) on every build host.
+    return compressed[:9]+bytes([10])+compressed[10:]
+
+
 def legacy_resources(resources: Path):
     """Replace the single unavailable vegetation block, keeping every cell and NBT field."""
     changes={}
@@ -149,7 +156,7 @@ def legacy_resources(resources: Path):
         needle=struct.pack('>H',len(old))+old
         if needle not in raw: continue
         raw=raw.replace(needle,struct.pack('>H',len(new))+new)
-        path.write_bytes(gzip.compress(raw,mtime=0))
+        path.write_bytes(legacy_gzip(raw))
         changes[path.name]={'source_sha256':hashlib.sha256(content).hexdigest(),'target_sha256':hashlib.sha256(path.read_bytes()).hexdigest()}
     for path in sorted(resources.glob('relics.*integration.json')):
         data=json.loads(path.read_text(encoding='utf-8').replace('"minecraft:waxed_copper_chest"','"minecraft:chest"'))
@@ -184,6 +191,7 @@ def legacy_resources(resources: Path):
     for source in data['sources']:
         source['textures']=['relics:trims/models/armor/monolith','relics:trims/models/armor/monolith_leggings']
         source['permutations'].pop('resin',None)
+        source['permutations'].pop('copper_darker',None)
     atlas.write_text(json.dumps(data,indent=2)+'\n',encoding='utf-8')
     destination=resources/'assets/relics/textures/trims/models/armor';destination.mkdir(parents=True,exist_ok=True)
     for source,target in (('humanoid/monolith','monolith'),('humanoid_leggings/monolith','monolith_leggings')):
@@ -206,6 +214,9 @@ def legacy_test(name: str,text: str) -> str:
 
 
 def prepare(loader='fabric', minecraft='1.21.1'):
+    if loader=='neoforge':
+        from prepare_alpha5_neoforge import prepare as native_prepare
+        return native_prepare(minecraft)
     if loader != 'fabric' or minecraft != '1.21.1':
         raise ValueError('This adapter currently supports the first requested target only')
     project = ROOT / 'compat/alpha5-fabric-1.21.1'

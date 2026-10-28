@@ -156,10 +156,27 @@ def states_match(expected, actual, rotation):
     return all(actual.get("Properties", {}).get(key) == value for key, value in props.items())
 
 
-def protected_cell(chunk, pos):
+def protection_sections(chunk):
+    """Native loader storage; never treat a missing or malformed wrapper as Fabric."""
+    fabric = chunk.get('fabric:attachments', {}).get('relics:placed_cells')
+    neo = chunk.get('neoforge:attachments', {}).get('relics:placed_cells')
+    if fabric is not None and neo is not None:
+        raise ValueError('Ambiguous dual-loader relic protection data')
+    if neo is not None:
+        if not isinstance(neo, dict) or not isinstance(neo.get('sections'), dict):
+            raise ValueError('Invalid NeoForge protection sections wrapper')
+        return neo['sections']
+    return fabric if fabric is not None else {}
+
+
+def protected_cell(chunk, pos, loader=None):
     """Read the exact saved attachment bits, including negative section coordinates."""
     x, y, z = pos
-    mask = chunk.get("fabric:attachments", {}).get("relics:placed_cells", {}).get(str(y // 16))
+    if loader is not None and loader not in ('fabric', 'neoforge'):
+        raise ValueError('Unknown protection storage loader')
+    if loader and 'relics:placed_cells' not in chunk.get(loader + ':attachments', {}):
+        return False
+    mask = protection_sections(chunk).get(str(y // 16))
     if mask is None:
         return False
     if len(mask) != 64:
@@ -224,6 +241,7 @@ def verify_world(world_path: Path, artifact: Path, expected_structures=None) -> 
               if name.startswith("relics:") and start.get("id") != "INVALID"]
     with zipfile.ZipFile(artifact) as archive:
         selection = json.loads(archive.read('relics.integration.json'))
+        storage_loader = selection.get('loader', 'fabric')
         contracts = {a['id']: a for a in selection['structures']}
         if expected_structures is None:
             expected_structures = {"relics:" + path.rsplit("/", 1)[-1].removesuffix(".json")
@@ -301,11 +319,13 @@ def verify_world(world_path: Path, artifact: Path, expected_structures=None) -> 
                                 p = transform(block['pos'], child['rotation'], result['origin'])
                                 chunk = world.chunk(p[0] // 16, p[2] // 16)
                                 checked_masks += 1
-                                if chunk is None or not protected_cell(chunk, p):
+                                if chunk is None or not protected_cell(chunk, p, loader=storage_loader):
                                     absent.append(list(p))
                             result['feature_protection'] = {'checked_cells': checked_masks,
                                 'unprotected_cells': len(absent), 'examples': absent[:20],
                                 'passed': checked_masks > 0 and not absent}
+                            if storage_loader == 'neoforge':
+                                result['feature_protection']['storage'] = 'neoforge:attachments/relics:placed_cells/sections'
                             result['passed'] = result['passed'] and result['feature_protection']['passed']
                     result["start_chunk"] = cp
                     instances.append(result)

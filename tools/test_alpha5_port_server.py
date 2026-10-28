@@ -54,7 +54,15 @@ def main():
             shutil.copy2(deps/name,run/'mods'/name)
         cp=prepare_classpath(Path('E:/Roaming/ModrinthApp'),Path.home()/f'.gradle/caches/fabric-loom/{args.minecraft}/minecraft-server.jar',base/f'runtime-fabric-{args.minecraft}',args.minecraft)
         launch=['-cp',os.pathsep.join(map(str,cp)),'net.fabricmc.loader.impl.launch.knot.KnotServer','nogui']
-    else:raise ValueError('Native launcher is added after completing the Fabric target')
+    else:
+        from alpha5_neoforge_runtime import installed_arguments,logging_arguments
+        native_root=ROOT/f'build/neoforge/runtime-{args.minecraft}'
+        native,evidence=installed_arguments(native_root,args.minecraft)
+        logger,logging_evidence=logging_arguments(native_root,args.minecraft,run)
+        dependency=ROOT/('build/neoforge/dependencies/lithostitched-1.8.0-neoforge-'+('21.1' if args.minecraft=='1.21.1' else '26.2')+'.jar')
+        shutil.copy2(dependency,run/'mods'/dependency.name)
+        launch=[*logger,*native,'nogui']
+        (run/'native-launch.json').write_text(json.dumps({**evidence,**logging_evidence},indent=2),encoding='utf-8')
     with socket.socket() as sock:sock.bind(('127.0.0.1',0));port=sock.getsockname()[1]
     properties={'server-ip':'127.0.0.1','server-port':port,'online-mode':'true','white-list':'true','enforce-whitelist':'true',
                 'level-seed':731204,'level-name':'world','view-distance':2,'simulation-distance':2,'max-tick-time':60000,'spawn-protection':0}

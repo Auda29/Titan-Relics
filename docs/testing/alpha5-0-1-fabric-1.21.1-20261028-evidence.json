@@ -1,0 +1,785 @@
+{
+  "package": {
+    "file": "relics-0.1.0-alpha.5.0.1+mc1.21.1.jar",
+    "sha256": "d81745ca9c6bb211de2c2a7692265d79b29bed0a4155653059bb7fe8b617a33b",
+    "loader": "fabric",
+    "minecraft": "1.21.1",
+    "version": "0.1.0-alpha.5.0.1",
+    "java_class_major": 65,
+    "templates": 40,
+    "frozen_manifests": 6,
+    "runtime_classes": 94,
+    "block_substitutions": {
+      "minecraft:firefly_bush": "minecraft:fern",
+      "minecraft:waxed_copper_chest": "minecraft:chest"
+    },
+    "passed": true,
+    "assets": {
+      "asset_references_checked": 37,
+      "client": "minecraft-client.jar",
+      "passed": true
+    }
+  },
+  "functional": {
+    "loader": "fabric",
+    "minecraft": "1.21.1",
+    "artifact": "relics-0.1.0-alpha.5.0.1+mc1.21.1.jar",
+    "artifact_sha256": "d81745ca9c6bb211de2c2a7692265d79b29bed0a4155653059bb7fe8b617a33b",
+    "passed": true,
+    "iterations": [
+      {
+        "restart": false,
+        "commands": [
+          "[14:25:20] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 26 checks; restart=false",
+          "[14:25:20] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+          "[14:25:32] [Server thread/INFO]: [STDOUT]: PRESENTATION_PASS trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN] vault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING] event_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017] collected=3; uncollected=1 core_uuid=9c5ae470-d46b-4c63-b013-4e4dbfc9b125",
+          "[14:25:36] [Server thread/INFO]: [STDOUT]: TREE_ANIMALS_PASS natural_hook=true extra_spawns=1 ordinary_spawns=11 observed_callbacks=11 global_cap_blocked=true local_cap_blocked=true no_standalone_spawn=true shared_population_accounting=true"
+        ],
+        "exit_code": 0
+      },
+      {
+        "restart": true,
+        "commands": [
+          "[14:25:52] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 29 checks; restart=true",
+          "[14:25:52] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+          "[14:25:56] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "proofs": {
+      "magnet-proof.txt": "offhand_max_speed=0.38500000000000006\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.385\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n",
+      "port-core-proof.txt": "checks=29\nrestart=true\ncore_operations=2\nrecipe_book=shaped\n",
+      "presentation-proof.txt": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=9c5ae470-d46b-4c63-b013-4e4dbfc9b125\n",
+      "tree-animal-proof.txt": "natural_hook=true\nextra_spawns=1\nordinary_spawns=11\nobserved_callbacks=11\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n",
+      "tree-aura-proof.txt": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n"
+    }
+  },
+  "functional_evidence": "build/alpha5-ports-20261028/fabric-1.21.1-142454-993839/evidence.json",
+  "natural": {
+    "loader": "fabric",
+    "minecraft": "1.21.1",
+    "artifact_sha256": "d81745ca9c6bb211de2c2a7692265d79b29bed0a4155653059bb7fe8b617a33b",
+    "runs": [
+      {
+        "seed": -48291736,
+        "asset": "small_colossus",
+        "world_directory": "build/alpha5-ports-20261028/natural-fabric-1.21.1-142455-012970-68fb6cb1/-48291736-small_colossus",
+        "sites": [
+          {
+            "candidate": {
+              "cell": {
+                "x": 11,
+                "z": 5
+              },
+              "x": 56584,
+              "z": 27832,
+              "ticket": 6337,
+              "priority": 7148134744104744328,
+              "rotation": 1,
+              "unique": false
+            },
+            "asset": "small_colossus",
+            "x2": 113168,
+            "z2": 55664,
+            "surface": 63,
+            "originX": 56648,
+            "originY": 50,
+            "originZ": 27769,
+            "minX": 56520,
+            "minZ": 27769,
+            "maxX": 56648,
+            "maxZ": 27895
+          }
+        ],
+        "iterations": [
+          {
+            "iteration": 0,
+            "exit_code": 0,
+            "verification": "[14:25:28] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+          },
+          {
+            "iteration": 1,
+            "exit_code": 0,
+            "verification": "[14:25:52] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+          },
+          {
+            "iteration": 2,
+            "exit_code": 0,
+            "verification": "[14:26:10] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+          }
+        ],
+        "blocks": [
+          {
+            "structure": "relics:small_colossus",
+            "template": "relics:small_colossus_gameplay_v11_worldgen",
+            "origin": [
+              56648,
+              50,
+              27769
+            ],
+            "rotation": "CLOCKWISE_90",
+            "bounding_box": [
+              56520,
+              50,
+              27769,
+              56648,
+              129,
+              27895
+            ],
+            "expected_bounding_box": [
+              56520,
+              50,
+              27769,
+              56648,
+              129,
+              27895
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 188414,
+            "matched_blocks": 188414,
+            "checked_air": 0,
+            "nature_cells_skipped": 29877,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 45,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 26388,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          }
+        ],
+        "passed": true
+      },
+      {
+        "seed": 731204,
+        "asset": "obelisk",
+        "world_directory": "build/alpha5-ports-20261028/natural-fabric-1.21.1-142455-012970-68fb6cb1/731204-obelisk",
+        "sites": [
+          {
+            "candidate": {
+              "cell": {
+                "x": 19,
+                "z": 9
+              },
+              "x": 96136,
+              "z": 48504,
+              "ticket": 6381,
+              "priority": 2284565568339078783,
+              "rotation": 3,
+              "unique": true
+            },
+            "asset": "colossus",
+            "x2": 192272,
+            "z2": 97008,
+            "surface": 73,
+            "originX": 96011,
+            "originY": -4,
+            "originZ": 48602,
+            "minX": 96011,
+            "minZ": 48406,
+            "maxX": 96261,
+            "maxZ": 48602
+          },
+          {
+            "candidate": {
+              "cell": {
+                "x": -11,
+                "z": -6
+              },
+              "x": -53176,
+              "z": -28920,
+              "ticket": 625,
+              "priority": 2496308181309163861,
+              "rotation": 0,
+              "unique": false
+            },
+            "asset": "obelisk",
+            "x2": -106352,
+            "z2": -57839,
+            "surface": 67,
+            "originX": -53213,
+            "originY": 57,
+            "originZ": -28957,
+            "minX": -53213,
+            "minZ": -28957,
+            "maxX": -53139,
+            "maxZ": -28882
+          },
+          {
+            "candidate": {
+              "cell": {
+                "x": -11,
+                "z": 6
+              },
+              "x": -53160,
+              "z": 31272,
+              "ticket": 1695,
+              "priority": 2605195123915950883,
+              "rotation": 2,
+              "unique": false
+            },
+            "asset": "obelisk",
+            "x2": -106320,
+            "z2": 62545,
+            "surface": 68,
+            "originX": -53123,
+            "originY": 58,
+            "originZ": 31310,
+            "minX": -53197,
+            "minZ": 31235,
+            "maxX": -53123,
+            "maxZ": 31310
+          }
+        ],
+        "iterations": [
+          {
+            "iteration": 0,
+            "exit_code": 0,
+            "verification": "[14:25:45] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+          },
+          {
+            "iteration": 1,
+            "exit_code": 0,
+            "verification": "[14:26:33] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+          },
+          {
+            "iteration": 2,
+            "exit_code": 0,
+            "verification": "[14:27:02] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+          }
+        ],
+        "blocks": [
+          {
+            "structure": "relics:colossus",
+            "template": "relics:colossus_gameplay_v7_worldgen",
+            "origin": [
+              96011,
+              -4,
+              48602
+            ],
+            "rotation": "COUNTERCLOCKWISE_90",
+            "bounding_box": [
+              96011,
+              -4,
+              48406,
+              96261,
+              204,
+              48602
+            ],
+            "expected_bounding_box": [
+              96011,
+              -4,
+              48406,
+              96261,
+              204,
+              48602
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 263974,
+            "matched_blocks": 263974,
+            "checked_air": 0,
+            "nature_cells_skipped": 7466,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 111,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 16055,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          },
+          {
+            "structure": "relics:obelisk",
+            "template": "relics:obelisk_gameplay_worldgen",
+            "origin": [
+              -53213,
+              57,
+              -28957
+            ],
+            "rotation": "NONE",
+            "bounding_box": [
+              -53213,
+              57,
+              -28957,
+              -53139,
+              243,
+              -28882
+            ],
+            "expected_bounding_box": [
+              -53213,
+              57,
+              -28957,
+              -53139,
+              243,
+              -28882
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 117575,
+            "matched_blocks": 117575,
+            "checked_air": 0,
+            "nature_cells_skipped": 0,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 23,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 0,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          },
+          {
+            "structure": "relics:obelisk",
+            "template": "relics:obelisk_gameplay_worldgen",
+            "origin": [
+              -53123,
+              58,
+              31310
+            ],
+            "rotation": "CLOCKWISE_180",
+            "bounding_box": [
+              -53197,
+              58,
+              31235,
+              -53123,
+              244,
+              31310
+            ],
+            "expected_bounding_box": [
+              -53197,
+              58,
+              31235,
+              -53123,
+              244,
+              31310
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 117575,
+            "matched_blocks": 117575,
+            "checked_air": 0,
+            "nature_cells_skipped": 0,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 23,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 0,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          }
+        ],
+        "passed": true
+      },
+      {
+        "seed": 20260913,
+        "asset": "world_tree",
+        "world_directory": "build/alpha5-ports-20261028/natural-fabric-1.21.1-142455-012970-68fb6cb1/20260913-world_tree",
+        "sites": [
+          {
+            "candidate": {
+              "cell": {
+                "x": -4,
+                "z": 4
+              },
+              "x": -19336,
+              "z": 20456,
+              "ticket": 6513,
+              "priority": -978740296379991234,
+              "rotation": 3,
+              "unique": false
+            },
+            "asset": "world_tree",
+            "x2": -38672,
+            "z2": 40912,
+            "surface": 68,
+            "originX": -19436,
+            "originY": 44,
+            "originZ": 20557,
+            "minX": -19436,
+            "minZ": 20355,
+            "maxX": -19236,
+            "maxZ": 20557
+          }
+        ],
+        "iterations": [
+          {
+            "iteration": 0,
+            "exit_code": 0,
+            "verification": "[14:26:55] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+          },
+          {
+            "iteration": 1,
+            "exit_code": 0,
+            "verification": "[14:27:25] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+          },
+          {
+            "iteration": 2,
+            "exit_code": 0,
+            "verification": "[14:27:50] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+          }
+        ],
+        "blocks": [
+          {
+            "structure": "relics:world_tree",
+            "template": "relics:world_tree_gameplay_worldgen",
+            "origin": [
+              -19436,
+              44,
+              20557
+            ],
+            "rotation": "COUNTERCLOCKWISE_90",
+            "bounding_box": [
+              -19436,
+              44,
+              20355,
+              -19236,
+              271,
+              20557
+            ],
+            "expected_bounding_box": [
+              -19436,
+              44,
+              20355,
+              -19236,
+              271,
+              20557
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 288894,
+            "matched_blocks": 288894,
+            "checked_air": 0,
+            "nature_cells_skipped": 0,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 116,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 0,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0,
+            "grounded_plants": [
+              {
+                "source": [
+                  -19311,
+                  68,
+                  20474
+                ],
+                "placed": [
+                  -19311,
+                  65,
+                  20474
+                ],
+                "within_vertical_limit": true
+              },
+              {
+                "source": [
+                  -19361,
+                  68,
+                  20448
+                ],
+                "placed": [
+                  -19361,
+                  64,
+                  20448
+                ],
+                "within_vertical_limit": true
+              },
+              {
+                "source": [
+                  -19338,
+                  68,
+                  20424
+                ],
+                "placed": [
+                  -19338,
+                  65,
+                  20424
+                ],
+                "within_vertical_limit": true
+              }
+            ]
+          }
+        ],
+        "passed": true
+      },
+      {
+        "seed": 4661570585687253657,
+        "asset": "ruined_tower",
+        "world_directory": "build/alpha5-ports-20261028/natural-fabric-1.21.1-142455-012970-68fb6cb1/4661570585687253657-ruined_tower",
+        "sites": [
+          {
+            "candidate": {
+              "cell": {
+                "x": -1,
+                "z": 5
+              },
+              "x": -2248,
+              "z": 28408,
+              "ticket": 6079,
+              "priority": 5119561929695289679,
+              "rotation": 0,
+              "unique": false
+            },
+            "asset": "ruined_tower",
+            "x2": -4496,
+            "z2": 56816,
+            "surface": 67,
+            "originX": -2311,
+            "originY": 55,
+            "originZ": 28354,
+            "minX": -2311,
+            "minZ": 28354,
+            "maxX": -2185,
+            "maxZ": 28462
+          },
+          {
+            "candidate": {
+              "cell": {
+                "x": 1,
+                "z": 9
+              },
+              "x": 7752,
+              "z": 47736,
+              "ticket": 6179,
+              "priority": 3661408945104435007,
+              "rotation": 3,
+              "unique": false
+            },
+            "asset": "ruined_tower",
+            "x2": 15504,
+            "z2": 95472,
+            "surface": 66,
+            "originX": 7698,
+            "originY": 54,
+            "originZ": 47799,
+            "minX": 7698,
+            "minZ": 47673,
+            "maxX": 7806,
+            "maxZ": 47799
+          }
+        ],
+        "iterations": [
+          {
+            "iteration": 0,
+            "exit_code": 0,
+            "verification": "[14:27:37] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+          },
+          {
+            "iteration": 1,
+            "exit_code": 0,
+            "verification": "[14:28:18] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+          },
+          {
+            "iteration": 2,
+            "exit_code": 0,
+            "verification": "[14:28:42] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+          }
+        ],
+        "blocks": [
+          {
+            "structure": "relics:ruined_tower",
+            "template": "relics:ruined_tower_gameplay_v10_worldgen",
+            "origin": [
+              -2311,
+              55,
+              28354
+            ],
+            "rotation": "NONE",
+            "bounding_box": [
+              -2311,
+              55,
+              28354,
+              -2185,
+              286,
+              28462
+            ],
+            "expected_bounding_box": [
+              -2311,
+              55,
+              28354,
+              -2185,
+              286,
+              28462
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 266110,
+            "matched_blocks": 266110,
+            "checked_air": 0,
+            "nature_cells_skipped": 38072,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 42,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 14722,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          },
+          {
+            "structure": "relics:ruined_tower",
+            "template": "relics:ruined_tower_gameplay_v10_worldgen",
+            "origin": [
+              7698,
+              54,
+              47799
+            ],
+            "rotation": "COUNTERCLOCKWISE_90",
+            "bounding_box": [
+              7698,
+              54,
+              47673,
+              7806,
+              285,
+              47799
+            ],
+            "expected_bounding_box": [
+              7698,
+              54,
+              47673,
+              7806,
+              285,
+              47799
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 266110,
+            "matched_blocks": 266110,
+            "checked_air": 0,
+            "nature_cells_skipped": 38072,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 42,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 14722,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0
+          }
+        ],
+        "passed": true
+      },
+      {
+        "seed": 731204,
+        "asset": "titan_skull_2",
+        "world_directory": "build/alpha5-ports-20261028/natural-fabric-1.21.1-142455-012970-68fb6cb1/731204-titan_skull_2",
+        "sites": [
+          {
+            "candidate": {
+              "cell": {
+                "x": -4,
+                "z": -9
+              },
+              "x": -18568,
+              "z": -43944,
+              "ticket": 4796,
+              "priority": -7828706360305242401,
+              "rotation": 0,
+              "unique": false
+            },
+            "asset": "titan_skull_2",
+            "x2": -37136,
+            "z2": -87888,
+            "surface": 66,
+            "originX": -18625,
+            "originY": 38,
+            "originZ": -44001,
+            "minX": -18625,
+            "minZ": -44001,
+            "maxX": -18511,
+            "maxZ": -43887
+          }
+        ],
+        "iterations": [
+          {
+            "iteration": 0,
+            "exit_code": 0,
+            "verification": "[14:28:33] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+          },
+          {
+            "iteration": 1,
+            "exit_code": 0,
+            "verification": "[14:28:58] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS initial"
+          },
+          {
+            "iteration": 2,
+            "exit_code": 0,
+            "verification": "[14:29:18] [Server thread/INFO]: [STDOUT]: INTERIORS_PASS restart-no-refill"
+          }
+        ],
+        "blocks": [
+          {
+            "structure": "relics:titan_skull_2",
+            "template": "relics:titan_skull_2_side_v1_worldgen",
+            "origin": [
+              -18625,
+              38,
+              -44001
+            ],
+            "rotation": "NONE",
+            "bounding_box": [
+              -18625,
+              38,
+              -44001,
+              -18511,
+              173,
+              -43887
+            ],
+            "expected_bounding_box": [
+              -18625,
+              38,
+              -44001,
+              -18511,
+              173,
+              -43887
+            ],
+            "bounding_box_matches": true,
+            "checked_blocks": 25149,
+            "matched_blocks": 25149,
+            "checked_air": 0,
+            "nature_cells_skipped": 0,
+            "normalized_persistent_leaf_distance": 0,
+            "mismatch_count": 0,
+            "mismatch_kinds": {},
+            "mismatch_examples": [],
+            "chunks_spanned": 37,
+            "missing_chunks": [],
+            "incomplete_chunks": [],
+            "passed": true,
+            "clearance_cells": 0,
+            "blocked_clearances": 0,
+            "unprotected_clearances": 0,
+            "removed_chip_cells_checked": 111
+          }
+        ],
+        "passed": true
+      }
+    ],
+    "failures": []
+  },
+  "natural_evidence": "build/alpha5-ports-20261028/natural-fabric-1.21.1-142455-012970-68fb6cb1/evidence.json",
+  "correct_loader_mask_chunks": 450,
+  "separate_git_export_jar_identical": true,
+  "native_palette_color_check": "Both monolith masks use only opaque colors from the actual 1.21.1 trim palette",
+  "graphics_and_real_client_acceptance": false
+}

@@ -1,0 +1,44 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+version = '0.1.0-alpha.5.0.1'
+group = 'de.relics'
+base { archivesName = 'relics' }
+repositories { maven { url = 'https://api.modrinth.com/maven' } }
+dependencies { implementation 'maven.modrinth:lithostitched:1.8.0-neoforge-21.1' }
+sourceSets.main {
+    java.srcDirs = ['build/generated/java']
+    resources.srcDirs = ['build/generated/resources']
+}
+sourceSets.test {
+    java.srcDirs = ['build/generated/test']
+    resources.srcDirs = ['build/generated/test-resources']
+}
+java.toolchain.languageVersion = JavaLanguageVersion.of(25)
+neoForge {
+    enable { version = '21.1.256'; disableRecompilation = true }
+    addModdingDependenciesTo sourceSets.test
+}
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+    options.encoding = 'UTF-8'
+    options.debug = false
+    options.compilerArgs += ['-Xmaxerrs', '300']
+}
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+jar { archiveFileName = "relics-${project.version}+mc1.21.1-neoforge.jar" }
+tasks.register('portTestJar', Jar) {
+    dependsOn testClasses
+    from sourceSets.test.output
+    archiveFileName = 'relics-alpha5-port-checks+mc1.21.1-neoforge.jar'
+    destinationDirectory = layout.buildDirectory.dir('validation')
+}
+tasks.register('relicClasspath') {
+    doLast { file('build/runtime-classpath.txt').text = sourceSets.main.runtimeClasspath.asPath }
+}
+test { failOnNoDiscoveredTests = false }
+check { dependsOn portTestJar }

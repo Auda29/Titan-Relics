@@ -1,28 +1,40 @@
 """Check player artifacts against all frozen Alpha 5 template and target contracts."""
 from __future__ import annotations
-import argparse,gzip,hashlib,json
+import argparse,gzip,hashlib,json,tomllib
 from pathlib import Path
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
-VERSION='0.1.0-alpha.5.0'
+VERSION='0.1.0-alpha.5.0.1'
 
 
 def verify(path: Path,loader: str,minecraft: str) -> dict:
     with zipfile.ZipFile(path) as archive:
         names=archive.namelist()
         if len(names)!=len(set(names)):raise ValueError('Duplicate archive entries')
-        if loader!='fabric':raise ValueError('Native archive gate is added with the next target')
-        metadata=json.loads(archive.read('fabric.mod.json'))
-        if metadata['id']!='relics' or metadata['version']!=VERSION or metadata['depends']['minecraft']!=minecraft:
-            raise ValueError('Wrong version/loader/game target')
         java=21 if minecraft=='1.21.1' else 25
-        if metadata['depends']['java']!='>='+str(java):raise ValueError('Wrong minimum Java version')
+        if loader=='fabric':
+            metadata=json.loads(archive.read('fabric.mod.json'))
+            if metadata['id']!='relics' or metadata['version']!=VERSION or metadata['depends']['minecraft']!=minecraft:
+                raise ValueError('Wrong version/loader/game target')
+            if metadata['depends']['java']!='>='+str(java):raise ValueError('Wrong minimum Java version')
+        elif loader=='neoforge':
+            if 'fabric.mod.json' in names:raise ValueError('Fabric metadata in native archive')
+            metadata=tomllib.loads(archive.read('META-INF/neoforge.mods.toml').decode())
+            from prepare_alpha5_neoforge import TARGETS
+            target=TARGETS[minecraft]
+            if len(metadata['mods'])!=1 or metadata['mods'][0]['modId']!='relics' or metadata['mods'][0]['version']!=VERSION:raise ValueError('Wrong native mod metadata')
+            dependencies={d['modId']:d for d in metadata['dependencies']['relics']}
+            if set(dependencies)!={'minecraft','neoforge','lithostitched'}:raise ValueError('Wrong native dependencies')
+            for mod,version in (('minecraft',f'[{minecraft}]'),('neoforge',f"[{target['neo']},)"),('lithostitched','[1.8.0]')):
+                if dependencies[mod]['versionRange']!=version or dependencies[mod]['type']!='required':raise ValueError('Wrong native target pin')
+        else:raise ValueError('Unknown loader')
         templates=set();manifests=[]
         for name in names:
             if not(name.startswith('relics.') and name.endswith('integration.json')):continue
             manifest=json.loads(archive.read(name));manifests.append(name)
             if manifest.get('compatibility_target')!=minecraft:raise ValueError('Missing compatibility contract: '+name)
+            if loader=='neoforge' and manifest.get('loader')!='neoforge':raise ValueError('Wrong manifest loader')
             for entry in manifest['structures']:
                 for field in ('single_template','worldgen_template'):
                     template='data/relics/structure/'+entry[field]['path'];templates.add(template)
@@ -36,6 +48,7 @@ def verify(path: Path,loader: str,minecraft: str) -> dict:
             if not name.startswith('de/relics/') or any(s in name for s in ('Checks','Tests','testmixin','validation/')):
                 raise ValueError('Unexpected/test-only class in player artifact: '+name)
             if data[:4]!=bytes.fromhex('cafebabe') or int.from_bytes(data[6:8],'big')!=java+44:raise ValueError('Wrong Java class target: '+name)
+            if loader=='neoforge' and b'net/fabricmc/' in data:raise ValueError('Fabric API in native class: '+name)
         if any(n.endswith('.jar') for n in names):raise ValueError('Bundled dependency JAR')
         mixins=json.loads(archive.read('relics.mixins.json'))
         if not mixins['required'] or mixins['compatibilityLevel']!='JAVA_'+str(java):raise ValueError('Wrong mixin target')

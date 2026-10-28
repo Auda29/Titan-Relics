@@ -1,5 +1,5 @@
 plugins { id 'fabric-loom' version '1.17.21' }
-version = '0.1.0-alpha.5.0'
+version = '0.1.0-alpha.5.0.1'
 group = 'de.relics'
 base { archivesName = 'relics' }
 repositories { maven { url = 'https://api.modrinth.com/maven' } }
