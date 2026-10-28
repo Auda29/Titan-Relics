@@ -784,5 +784,19 @@
   "same_toolchain_rerun_jar_identical": true,
   "separate_git_export_jar_identical": true,
   "export_tree": "a96263486a050cf053003901c90ed18cb55ce53f",
-  "graphics_and_real_client_acceptance": false
+  "graphics_and_real_client_acceptance": false,
+  "source_export_regressions": {
+    "full_suite_test_count": 161,
+    "initial_export_failed_methods": 4,
+    "initial_export_reason": "Packed JSON formatting replaced tracked source bytes; final report was not yet in the runtime-only export",
+    "source_restoration_commit": "31279160fce810b006c67bc6345006a0736d611b",
+    "tracked_resource_blobs_verified": 100,
+    "all_failed_methods_rechecked": true,
+    "final_recheck": {
+      "tests": 7,
+      "exit_code": 0,
+      "log": "build/alpha5-ports-20261028/neo26-source-python-recheck-verified.log"
+    },
+    "complete_coverage_passed_after_export_correction": true
+  }
 }
