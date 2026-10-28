@@ -55,8 +55,10 @@ jobs:
         run: python tools/test_gameplay.py
       - name: Test deterministic distribution and planning journal
         run: python tools/test_distribution.py
-      - name: Test native World Tree animal spawning and population caps
-        run: python tools/test_tree_animals_server.py --accept-eula --java-home "$JAVA_HOME" --artifact dist/relics-0.1.0-alpha.5.0+mc26.2.jar
+      - name: Test native Fabric 26.2 recipe packets, gameplay and restart
+        run: |
+          python tools/build_fabric26_checks.py --java-home "$JAVA_HOME" --artifact dist/relics-0.1.0-alpha.5.0.2+mc26.2.jar
+          python tools/test_alpha5_port_server.py --loader fabric --minecraft 26.2 --accept-eula --java "$JAVA_HOME/bin/java" --artifact dist/relics-0.1.0-alpha.5.0.2+mc26.2.jar --test-mod build/fabric26-checks/relics-alpha5-port-checks+mc26.2.jar --suite
       - name: Check reproducible package
         run: |
           cp dist/SHA256SUMS.txt /tmp/relics-first-build.sha256

@@ -49,10 +49,17 @@ def main():
     artifact=args.artifact.resolve();shutil.copy2(artifact,run/'mods'/artifact.name)
     if args.test_mod:shutil.copy2(args.test_mod,run/'mods'/args.test_mod.name)
     if args.loader=='fabric':
-        deps=ROOT/'build/compat-mc1.21.1/dependencies'
-        for name in ('fabric-api-0.116.17+1.21.1.jar','lithostitched-1.8.0-fabric-21.1.jar'):
-            shutil.copy2(deps/name,run/'mods'/name)
-        cp=prepare_classpath(Path('E:/Roaming/ModrinthApp'),Path.home()/f'.gradle/caches/fabric-loom/{args.minecraft}/minecraft-server.jar',base/f'runtime-fabric-{args.minecraft}',args.minecraft)
+        if args.minecraft=='26.2':
+            from compile_worldgen import compile_libraries
+            libraries=compile_libraries()
+            for name in ('fabric-api-0.161.0+26.2.jar','lithostitched-1.8.0-fabric-26.2.jar'):
+                shutil.copy2(ROOT/'build/worldgen-dependencies'/name,run/'mods'/name)
+            cp=[p for p in libraries if p.name=='fabric-loader-0.19.5.jar' or any(v in {'libraries','loader-libraries','versions'} for v in p.parts)]
+        else:
+            deps=ROOT/'build/compat-mc1.21.1/dependencies'
+            for name in ('fabric-api-0.116.17+1.21.1.jar','lithostitched-1.8.0-fabric-21.1.jar'):
+                shutil.copy2(deps/name,run/'mods'/name)
+            cp=prepare_classpath(Path('E:/Roaming/ModrinthApp'),Path.home()/f'.gradle/caches/fabric-loom/{args.minecraft}/minecraft-server.jar',base/f'runtime-fabric-{args.minecraft}',args.minecraft)
         launch=['-cp',os.pathsep.join(map(str,cp)),'net.fabricmc.loader.impl.launch.knot.KnotServer','nogui']
     else:
         from alpha5_neoforge_runtime import installed_arguments,logging_arguments
@@ -66,6 +73,7 @@ def main():
     with socket.socket() as sock:sock.bind(('127.0.0.1',0));port=sock.getsockname()[1]
     properties={'server-ip':'127.0.0.1','server-port':port,'online-mode':'true','white-list':'true','enforce-whitelist':'true',
                 'level-seed':731204,'level-name':'world','view-distance':2,'simulation-distance':2,'max-tick-time':60000,'spawn-protection':0}
+    if args.minecraft=='26.2':properties['pause-when-empty-seconds']=0
     (run/'server.properties').write_text(''.join(f'{k}={v}\n' for k,v in properties.items()),encoding='utf-8')
     (run/'eula.txt').write_text('eula=true\n',encoding='utf-8')
     argfile=run/'args.txt'

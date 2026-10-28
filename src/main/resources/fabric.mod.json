@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "relics",
-  "version": "0.1.0-alpha.5.0",
+  "version": "0.1.0-alpha.5.0.2",
   "name": "Relic Mod",
   "description": "Rare monumental relics with natural encounters, salvage items, archaeology, expedition maps and a World Tree refuge.",
   "authors": [

@@ -24,7 +24,7 @@ public final class MaintenanceRecipe extends CustomRecipe {
     public MaintenanceRecipe(boolean core) { this.core = core; }
     private static RecipeSerializer<MaintenanceRecipe> serializer(boolean core) {
         return new RecipeSerializer<>(MapCodec.unit(() -> new MaintenanceRecipe(core)),
-                StreamCodec.unit(new MaintenanceRecipe(core)));
+                StreamCodec.<net.minecraft.network.RegistryFriendlyByteBuf,Boolean>unit(core).map(MaintenanceRecipe::new,recipe->recipe.core));
     }
     public static void initialize() {
         Registry.register(BuiltInRegistries.RECIPE_SERIALIZER, RelicItems.id("machine_core_recharge"), CORE);

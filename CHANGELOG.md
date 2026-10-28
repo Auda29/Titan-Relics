@@ -2,12 +2,14 @@
 
 ## 0.1.0-alpha.5.0.2 ? recipe network codec fix (2026-10-28)
 
-- Fix the maintenance recipe codec for Fabric 1.21.1, NeoForge 1.21.1 and
-  NeoForge 26.2. Serialize the recipe variant without requiring object identity.
+- Fix the maintenance recipe codec for Fabric 26.2, Fabric 1.21.1, NeoForge
+  1.21.1 and NeoForge 26.2. Serialize the recipe variant without requiring object identity.
 - Reproduce the reported join-time recipe error with the published Fabric 5.0.1
   JAR; add actual recipe/holder and full synchronization packet round-trip checks.
 - Verify decoded crafting/component preservation and reject opposite variants.
   NeoForge 26.2 also round-trips the native recipe-book display packet.
+- Add the full native Fabric 26.2 packet/gameplay/restart suite to CI; retain
+  the exact already published 1.21.1 and NeoForge patch artifacts.
 - Retain all structure/resource bytes, charge rules and existing same-target saves.
   Profiles and full modpack compatibility remain outside this patch's runtime scope.
 

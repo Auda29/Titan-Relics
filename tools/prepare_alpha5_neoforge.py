@@ -29,10 +29,6 @@ def native_java(name: str,text: str,minecraft: str,test=False):
     text=text.replace('(level,chunk,generated)->','(level,chunk)->')
     if name in ('RelicItems.java','MaintenanceRecipe.java'):
         text=text.replace('Registry.register(', 'de.relics.platform.NeoRegistrations.register(')
-    if name=='MaintenanceRecipe.java' and minecraft=='26.2':
-        old='StreamCodec.unit(new MaintenanceRecipe(core))'
-        if text.count(old)!=1:raise ValueError('Review the modern maintenance codec before adapting it')
-        text=text.replace(old,'StreamCodec.<net.minecraft.network.RegistryFriendlyByteBuf,Boolean>unit(core).map(MaintenanceRecipe::new,recipe->recipe.core)')
     if name=='RelicItems.java':
         assignments=[]
         def defer_item(match):

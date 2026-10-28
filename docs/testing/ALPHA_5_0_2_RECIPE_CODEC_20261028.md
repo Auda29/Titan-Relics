@@ -3,6 +3,9 @@
 [Exact-artifact evidence](alpha5-0-2-recipe-codec-20261028-evidence.json) covers
 Fabric 1.21.1, NeoForge 1.21.1 and NeoForge 26.2.
 
+The subsequent primary [Fabric 26.2 patch](ALPHA_5_0_2_FABRIC_26_2_20261028.md)
+completes the release family while preserving these three published artifacts.
+
 ## Defect and correction
 
 The published Fabric 1.21.1 Alpha 5.0.1 JAR reproduces the reported exception

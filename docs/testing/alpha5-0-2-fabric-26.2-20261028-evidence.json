@@ -1,0 +1,68 @@
+{
+  "package": {
+    "file": "relics-0.1.0-alpha.5.0.2+mc26.2.jar",
+    "sha256": "c7165ec0ad298acc18337e17c2b1baa42d2b7d18b860ca989108d09631bf6af9",
+    "changed_entries": [
+      "fabric.mod.json",
+      "de/relics/gameplay/MaintenanceRecipe.class"
+    ],
+    "runtime_classes": 92,
+    "templates": 40,
+    "all_other_entries_identical": true
+  },
+  "functional": {
+    "loader": "fabric",
+    "minecraft": "26.2",
+    "artifact": "relics-0.1.0-alpha.5.0.2+mc26.2.jar",
+    "artifact_sha256": "c7165ec0ad298acc18337e17c2b1baa42d2b7d18b860ca989108d09631bf6af9",
+    "passed": true,
+    "iterations": [
+      {
+        "restart": false,
+        "commands": [
+          "[16:10:44] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 26 checks; restart=false",
+          "[16:10:45] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+          "[16:10:56] [Server thread/INFO]: [STDOUT]: PRESENTATION_PASS trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN] vault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING] event_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017] collected=3; uncollected=1 core_uuid=88d61472-6dfb-44b4-9cc9-4b72ed315f0a",
+          "[16:10:59] [Server thread/INFO]: [STDOUT]: TREE_ANIMALS_PASS natural_hook=true extra_spawns=3 ordinary_spawns=9 observed_callbacks=9 global_cap_blocked=true local_cap_blocked=true no_standalone_spawn=true shared_population_accounting=true"
+        ],
+        "exit_code": 0
+      },
+      {
+        "restart": true,
+        "commands": [
+          "[16:11:16] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 29 checks; restart=true",
+          "[16:11:16] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+          "[16:11:19] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "proofs": {
+      "magnet-proof.txt": "offhand_max_speed=0.38500000000000006\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n",
+      "port-core-proof.txt": "checks=29\nrestart=true\ncore_operations=2\nrecipe_book=shaped\n",
+      "presentation-proof.txt": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=88d61472-6dfb-44b4-9cc9-4b72ed315f0a\n",
+      "recipe-network-proof.txt": "checks=98\nindependent_recipe_instances=true\nrecipe_and_holder_roundtrip=true\nfull_update_packet_roundtrip=true\nrecipe_book_packet_roundtrip=true\nwrong_variant_rejected=true\ndecoded_crafting_preserves_components=true\n",
+      "tree-animal-proof.txt": "natural_hook=true\nextra_spawns=3\nordinary_spawns=9\nobserved_callbacks=9\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n",
+      "tree-aura-proof.txt": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n"
+    }
+  },
+  "functional_evidence": "build/alpha5-ports-20261028/fabric-26.2-161028-355059/evidence.json",
+  "old_release_negative_control": "build/alpha5-ports-20261028/fabric-26.2-160904-373123/evidence.json",
+  "unchanged_published_ports_after_rebuild": {
+    "relics-0.1.0-alpha.5.0.2+mc1.21.1.jar": "11a6746803c11505c556e974d1ec11845fecea51825a233ebbfee407204ca128",
+    "relics-0.1.0-alpha.5.0.2+mc1.21.1-neoforge.jar": "9baa61d814933185d86b065aa43e7879681c46193ebefc2d100c50c05f5592fe",
+    "relics-0.1.0-alpha.5.0.2+mc26.2-neoforge.jar": "bdf8f3ec0078876bc4990279f00b65af13116d842fe41cfec35bf5d7b0d7a387"
+  },
+  "headless_gameplay_assertions": 677,
+  "static_mixin_contracts": 63,
+  "profiles_untouched_by_release_work": true,
+  "fresh_graphical_client_or_modpack_acceptance": false,
+  "separate_git_export_jar_identical": true,
+  "separate_git_export_validation_mod_identical": true,
+  "export_tree": "6d846828f744b6dd6ba250a64a2015b41a61b089",
+  "focused_python_tests": {
+    "count": 19,
+    "passed": true,
+    "log": "build/fabric26-alpha502-20261028/python-checks.log"
+  }
+}
