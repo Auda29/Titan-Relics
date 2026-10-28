@@ -1,6 +1,7 @@
 # Alpha 5.0.3: world reload and modpack fingerprints
 
-Status: built locally for Fabric and NeoForge, Minecraft 1.21.1 and 26.2. Not published yet.
+Status: published for Fabric and NeoForge, Minecraft 1.21.1 and 26.2.
+[Release](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.3) and [download verification](alpha5-0-3-release-20261028-evidence.json).
 
 ## Failure and cause
 

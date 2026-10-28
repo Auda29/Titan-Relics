@@ -5,6 +5,8 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
+- [Alpha 5.0.3: published four-target release and downloaded-asset verification](testing/alpha5-0-3-release-20261028-evidence.json)
+
 - [Automatic tag releases for Fabric/NeoForge on Minecraft 26.2 and 1.21.1](releases/RELEASE_CI.md)
 
 - [Alpha 5.0.3: stable world fingerprints and checked legacy recovery](testing/ALPHA_5_0_3_WORLD_RELOAD_20261028.md)

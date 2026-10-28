@@ -1,0 +1,393 @@
+{
+  "tag": "v0.1.0-alpha.5.0.3",
+  "commit": "19556de5fab9d35e61db59a082734ac323d17027",
+  "url": "https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.3",
+  "published_at": "2026-10-28T17:38:14Z",
+  "prerelease": true,
+  "four_jars_and_manifest": true,
+  "downloaded_sha256_verified": true,
+  "artifacts": [
+    {
+      "file": "relics-0.1.0-alpha.5.0.3+mc26.2.jar",
+      "loader": "fabric",
+      "minecraft": "26.2",
+      "sha256": "248ca5b263150030bcafd95e69284d26a6b5a635d5f954d336ba2d2b0f6512f0",
+      "bytes": 11644741,
+      "contracts": {
+        "templates": 40,
+        "frozen_manifests": 6,
+        "passed": true
+      },
+      "assets": {
+        "asset_references_checked": 35,
+        "client": "minecraft-client.jar",
+        "passed": true
+      },
+      "matches_local_jar": true,
+      "text_line_ending_differences_from_local": [],
+      "different_binary_or_text_content_from_local": []
+    },
+    {
+      "file": "relics-0.1.0-alpha.5.0.3+mc1.21.1.jar",
+      "loader": "fabric",
+      "minecraft": "1.21.1",
+      "sha256": "86e2baed2e4b6a689b25aa2d6d32b97da664367f08ccf2b25e1c7881a9075e28",
+      "bytes": 11672207,
+      "contracts": {
+        "file": "relics-0.1.0-alpha.5.0.3+mc1.21.1.jar",
+        "sha256": "86e2baed2e4b6a689b25aa2d6d32b97da664367f08ccf2b25e1c7881a9075e28",
+        "loader": "fabric",
+        "minecraft": "1.21.1",
+        "version": "0.1.0-alpha.5.0.3",
+        "java_class_major": 65,
+        "templates": 40,
+        "frozen_manifests": 6,
+        "runtime_classes": 95,
+        "block_substitutions": {
+          "minecraft:firefly_bush": "minecraft:fern",
+          "minecraft:waxed_copper_chest": "minecraft:chest"
+        },
+        "passed": true
+      },
+      "assets": {
+        "asset_references_checked": 37,
+        "client": "minecraft-client.jar",
+        "passed": true
+      },
+      "matches_local_jar": false,
+      "text_line_ending_differences_from_local": [
+        "assets/minecraft/atlases/armor_trims.json",
+        "assets/relics/models/item/machine_core.json",
+        "assets/relics/models/item/salvage_magnet.json",
+        "data/relics/recipe/machine_core_recharge.json",
+        "data/relics/recipe/monolith_armor_trim.json",
+        "data/relics/recipe/monolith_template_copy.json",
+        "data/relics/recipe/salvage_magnet_repair.json",
+        "data/relics/trim_pattern/monolith.json",
+        "fabric.mod.json",
+        "pack.mcmeta",
+        "relics.gameplay.integration.json",
+        "relics.gameplay.landmarks.integration.json",
+        "relics.gameplay.short_entry_tower.integration.json",
+        "relics.gameplay.small_landmarks.integration.json",
+        "relics.gameplay.tree_skull.integration.json",
+        "relics.integration.json",
+        "relics.mixins.json"
+      ],
+      "different_binary_or_text_content_from_local": []
+    },
+    {
+      "file": "relics-0.1.0-alpha.5.0.3+mc1.21.1-neoforge.jar",
+      "loader": "neoforge",
+      "minecraft": "1.21.1",
+      "sha256": "8b58cb69c71255a8f8ec9e2d57488258939208495024b086220a3eb0576af23d",
+      "bytes": 11696357,
+      "contracts": {
+        "file": "relics-0.1.0-alpha.5.0.3+mc1.21.1-neoforge.jar",
+        "sha256": "8b58cb69c71255a8f8ec9e2d57488258939208495024b086220a3eb0576af23d",
+        "loader": "neoforge",
+        "minecraft": "1.21.1",
+        "version": "0.1.0-alpha.5.0.3",
+        "java_class_major": 65,
+        "templates": 40,
+        "frozen_manifests": 6,
+        "runtime_classes": 124,
+        "block_substitutions": {
+          "minecraft:firefly_bush": "minecraft:fern",
+          "minecraft:waxed_copper_chest": "minecraft:chest"
+        },
+        "passed": true
+      },
+      "assets": {
+        "asset_references_checked": 37,
+        "client": "minecraft-client.jar",
+        "passed": true
+      },
+      "matches_local_jar": false,
+      "text_line_ending_differences_from_local": [
+        "pack.mcmeta",
+        "relics.gameplay.integration.json",
+        "relics.gameplay.landmarks.integration.json",
+        "relics.gameplay.short_entry_tower.integration.json",
+        "relics.gameplay.small_landmarks.integration.json",
+        "relics.gameplay.tree_skull.integration.json",
+        "relics.integration.json",
+        "relics.mixins.json",
+        "assets/minecraft/atlases/armor_trims.json",
+        "assets/relics/models/item/machine_core.json",
+        "assets/relics/models/item/salvage_magnet.json",
+        "data/relics/recipe/machine_core_recharge.json",
+        "data/relics/recipe/monolith_armor_trim.json",
+        "data/relics/recipe/monolith_template_copy.json",
+        "data/relics/recipe/salvage_magnet_repair.json",
+        "data/relics/trim_pattern/monolith.json"
+      ],
+      "different_binary_or_text_content_from_local": []
+    },
+    {
+      "file": "relics-0.1.0-alpha.5.0.3+mc26.2-neoforge.jar",
+      "loader": "neoforge",
+      "minecraft": "26.2",
+      "sha256": "3fdcce46ff958eb617f51b81feae55e4abe0423707323d557940953adc03ded2",
+      "bytes": 11694056,
+      "contracts": {
+        "file": "relics-0.1.0-alpha.5.0.3+mc26.2-neoforge.jar",
+        "sha256": "3fdcce46ff958eb617f51b81feae55e4abe0423707323d557940953adc03ded2",
+        "loader": "neoforge",
+        "minecraft": "26.2",
+        "version": "0.1.0-alpha.5.0.3",
+        "java_class_major": 69,
+        "templates": 40,
+        "frozen_manifests": 6,
+        "runtime_classes": 122,
+        "block_substitutions": {},
+        "passed": true
+      },
+      "assets": {
+        "asset_references_checked": 35,
+        "client": "minecraft-client.jar",
+        "passed": true
+      },
+      "matches_local_jar": false,
+      "text_line_ending_differences_from_local": [
+        "pack.mcmeta",
+        "relics.gameplay.integration.json",
+        "relics.gameplay.landmarks.integration.json",
+        "relics.gameplay.short_entry_tower.integration.json",
+        "relics.gameplay.small_landmarks.integration.json",
+        "relics.gameplay.tree_skull.integration.json",
+        "relics.integration.json",
+        "relics.mixins.json"
+      ],
+      "different_binary_or_text_content_from_local": []
+    }
+  ],
+  "original_profiles_written": false,
+  "release_workflow": {
+    "conclusion": "success",
+    "databaseId": 40734596124,
+    "event": "push",
+    "headBranch": "v0.1.0-alpha.5.0.3",
+    "headSha": "19556de5fab9d35e61db59a082734ac323d17027",
+    "jobs": [
+      {
+        "completedAt": "2026-10-28T17:38:19Z",
+        "conclusion": "success",
+        "databaseId": 122979624237,
+        "name": "release",
+        "startedAt": "2026-10-28T17:19:30Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-28T17:19:37Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-28T17:19:31Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:19:53Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "startedAt": "2026-10-28T17:19:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:19:53Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@v5",
+            "number": 3,
+            "startedAt": "2026-10-28T17:19:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:19:53Z",
+            "conclusion": "success",
+            "name": "Validate tag and derive shared release version",
+            "number": 4,
+            "startedAt": "2026-10-28T17:19:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:19:54Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-java@v4",
+            "number": 5,
+            "startedAt": "2026-10-28T17:19:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:20:21Z",
+            "conclusion": "success",
+            "name": "Run gradle/actions/setup-gradle@v4",
+            "number": 6,
+            "startedAt": "2026-10-28T17:19:54Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:20:25Z",
+            "conclusion": "success",
+            "name": "Install resource test dependency",
+            "number": 7,
+            "startedAt": "2026-10-28T17:20:21Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:20:29Z",
+            "conclusion": "success",
+            "name": "Prepare verified compilation dependencies",
+            "number": 8,
+            "startedAt": "2026-10-28T17:20:25Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:25:09Z",
+            "conclusion": "success",
+            "name": "Build Fabric 26.2 and shared frozen resources",
+            "number": 9,
+            "startedAt": "2026-10-28T17:20:29Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:25:49Z",
+            "conclusion": "success",
+            "name": "Build Fabric 1.21.1",
+            "number": 10,
+            "startedAt": "2026-10-28T17:25:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:26:21Z",
+            "conclusion": "success",
+            "name": "Build NeoForge 1.21.1",
+            "number": 11,
+            "startedAt": "2026-10-28T17:25:49Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:26:42Z",
+            "conclusion": "success",
+            "name": "Build NeoForge 26.2",
+            "number": 12,
+            "startedAt": "2026-10-28T17:26:21Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:35:36Z",
+            "conclusion": "success",
+            "name": "Test resources, packaging and release safety",
+            "number": 13,
+            "startedAt": "2026-10-28T17:26:42Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:36:11Z",
+            "conclusion": "success",
+            "name": "Test worldgen, gameplay and frozen planning",
+            "number": 14,
+            "startedAt": "2026-10-28T17:35:36Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:38:06Z",
+            "conclusion": "success",
+            "name": "Test native recipe packets, gameplay and server restart",
+            "number": 15,
+            "startedAt": "2026-10-28T17:36:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:38:06Z",
+            "conclusion": "success",
+            "name": "Assemble all four verified player JARs and checksums",
+            "number": 16,
+            "startedAt": "2026-10-28T17:38:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:38:15Z",
+            "conclusion": "success",
+            "name": "Publish only after all checks, then verify downloaded release assets",
+            "number": 17,
+            "startedAt": "2026-10-28T17:38:06Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:38:15Z",
+            "conclusion": "skipped",
+            "name": "Keep optional dry-run downloads",
+            "number": 18,
+            "startedAt": "2026-10-28T17:38:15Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:38:16Z",
+            "conclusion": "success",
+            "name": "Post Run gradle/actions/setup-gradle@v4",
+            "number": 33,
+            "startedAt": "2026-10-28T17:38:15Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:38:16Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-java@v4",
+            "number": 34,
+            "startedAt": "2026-10-28T17:38:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:38:16Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 35,
+            "startedAt": "2026-10-28T17:38:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:38:17Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 36,
+            "startedAt": "2026-10-28T17:38:16Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-28T17:38:17Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 37,
+            "startedAt": "2026-10-28T17:38:17Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/Auda29/Relic-Mod/actions/runs/40734596124/job/122979624237"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/Auda29/Relic-Mod/actions/runs/40734596124"
+  },
+  "dry_run_url": "https://github.com/Auda29/Relic-Mod/actions/runs/40730722150",
+  "dry_run_test_summary": {
+    "python_unittest_summaries": [
+      "Ran 172 tests in 662.438s"
+    ],
+    "java_pass_lines": [
+      "2026-10-28T17:15:54.1752563Z PASS: 63 static 26.2 mixin target contracts (not mixin runtime)",
+      "2026-10-28T17:15:54.1769386Z PASS: 677 headless gameplay assertions (no Fabric/mixin/server runtime)",
+      "2026-10-28T17:16:02.2045724Z PASS: 1008 worldgen executor/dependency assertions",
+      "2026-10-28T17:16:02.7811554Z PASS: 755716 versioned location-search assertions",
+      "2026-10-28T17:16:03.5400435Z PASS: 198942 distribution assertions, 30 synthetic-terrain seeds; no claim of Minecraft terrain acceptance"
+    ]
+  },
+  "main_ci": {
+    "conclusion": "success",
+    "databaseId": 40730703172,
+    "headSha": "19556de5fab9d35e61db59a082734ac323d17027",
+    "status": "completed",
+    "url": "https://github.com/Auda29/Relic-Mod/actions/runs/40730703172"
+  },
+  "cross_host_comparison_policy": "Compare all ZIP entry contents exactly, except CRLF versus LF in recognized text resources; binary/code/template differences are rejected."
+}

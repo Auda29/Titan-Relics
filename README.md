@@ -3,16 +3,15 @@
 Rare, monumental discoveries for Minecraft: colossi, an obelisk, titan skulls,
 a world tree and a ruined tower.
 
-**Alpha 5.0.2 for Minecraft 26.2 / Fabric** adds natural relic gameplay, persistent
+**Alpha 5.0.3 for Minecraft 26.2 / Fabric** adds natural relic gameplay, persistent
 exploration targets, salvage items, archaeology and a World Tree refuge.
 
-A local **Alpha 5.0.3 reload fix** is prepared for all four targets. See the
-[world reload report and existing-save recovery](docs/testing/ALPHA_5_0_3_WORLD_RELOAD_20261028.md).
-The published downloads below remain Alpha 5.0.2.
+Alpha 5.0.3 fixes false frozen-worldgen mismatches when reopening worlds. See
+the [world reload report and existing-save recovery](docs/testing/ALPHA_5_0_3_WORLD_RELOAD_20261028.md).
 A shared release tag now builds and publishes all four targets through
 [GitHub Actions](docs/releases/RELEASE_CI.md).
 
-Download: [Alpha 5.0.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.2%2Bmc26.2).
+Download: [Alpha 5.0.3](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.3).
 Requires Java 25, Fabric Loader 0.19.5+, Fabric API 0.161.0+26.2 and
 Lithostitched 1.8.0 for Fabric 26.2. Install dependencies separately.
 
@@ -26,18 +25,18 @@ their saved revision even for further chunks. Old structures are not moved or
 refilled. Tree effects update existing registered anchors. Use default distribution
 spacing; legacy frequent/rare spacing overrides are unsupported by the gameplay planner.
 
-[Release notes](docs/releases/ALPHA_5_0_2_FABRIC_26_2.md) ·
-[Release checks](docs/testing/ALPHA_5_0_2_FABRIC_26_2_20261028.md) ·
+[Release notes](docs/releases/0.1.0-alpha.5.0.3.md) ·
+[Release checks](docs/testing/alpha5-0-3-release-20261028-evidence.json) ·
 [Project status](docs/project/ALPHA_5_STATUS_20261027.md).
 
 ## Alpha 5 downloads
 
 | Minecraft | Loader | Release | Java |
 |---|---|---|---|
-| 26.2 | Fabric | [Alpha 5.0.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.2%2Bmc26.2) | 25+ |
-| 1.21.1 | Fabric | [Alpha 5.0.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.2%2Bmc1.21.1) | 21+ |
-| 1.21.1 | NeoForge | [Alpha 5.0.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.2%2Bmc1.21.1-neoforge) | 21+ |
-| 26.2 | NeoForge | [Alpha 5.0.2](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.2%2Bmc26.2-neoforge) | 25+ |
+| 26.2 | Fabric | [Alpha 5.0.3](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.3) | 25+ |
+| 1.21.1 | Fabric | [Alpha 5.0.3](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.3) | 21+ |
+| 1.21.1 | NeoForge | [Alpha 5.0.3](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.3) | 21+ |
+| 26.2 | NeoForge | [Alpha 5.0.3](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.3) | 25+ |
 
 Use the matching game/loader JAR and install its listed dependencies separately.
 See the [Fabric 1.21.1](compat/alpha5-fabric-1.21.1/README.md),
