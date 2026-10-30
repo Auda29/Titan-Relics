@@ -1,5 +1,10 @@
 # Gameplay marker handoff — version 1
 
+> **Current status, October 30, 2026:** The released baseline supports Fabric and NeoForge on 26.2 and 1.21.1. See the
+> [Alpha 5.0.3 status and roadmap](../project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 Prepared: October 8, 2026. **Marker loader and gameplay injection remain planned.**
 Following the user's separate builder implementation request, five
 [versioned architectural exports and sidecars](../project/GAMEPLAY_INTERIORS_HANDOFF.md)

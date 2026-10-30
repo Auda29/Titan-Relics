@@ -1,5 +1,10 @@
 # Gameplay runtime — implementation starting contract
 
+> **Current status, October 30, 2026:** The released baseline supports Fabric and NeoForge on 26.2 and 1.21.1. See the
+> [Alpha 5.0.3 status and roadmap](../project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 Prepared: October 8, 2026. **Planning only, for Minecraft 26.2 / Fabric first.**
 No Java gameplay, resources, item artwork, marker loader or generation changes
 are implemented by this document. Existing 1.21.1 visual-alpha artifacts remain

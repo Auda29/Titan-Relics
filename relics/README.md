@@ -3,13 +3,19 @@
 Each relic has its own folder. Keep shared workflows in [docs/](../docs/README.md)
 and implementation code in `src/`, `tools/`, and `tests/`.
 
-| Relic | Current status |
+| Relic | Alpha 5.0.3 status |
 | --- | --- |
-| [Colossus](colossus/README.md) | Alpha 4.9 retains V4.1 materials B and Small Colossus V7 ground-v3; gameplay/uniqueness specified, not implemented |
-| [Obelisk](obelisk/README.md) | Alpha 4.9 retains V4.2; finite archaeology, Monolith trim and maps specified, not implemented |
-| [Titan Skull](titan-skull/README.md) | Existing interiors/access accepted; natural mob spawning unchanged, no authored encounters; exports unchanged |
-| [Ruined Tower](ruined-tower/README.md) | Alpha 4.9 retains V7 ground-v3 with 220 visible layers; broken ascent/five ordinary Endermen/finite Ender loot specified, not implemented |
-| [World Tree](world-tree/README.md) | Alpha 4.9 V4.3 strands and terrain integration visually accepted October 7; 1,883 tapered low-root cells along 50 paths and bounded cave contacts |
+| [Colossus](colossus/README.md) | Large V7 and Small V11; unique large site, native trial/Vault, core and magnet rewards implemented |
+| [Obelisk](obelisk/README.md) | V6; finite archaeology, Monolith trim and common-target expedition maps implemented |
+| [Titan Skull](titan-skull/README.md) | Both skull designs integrated; isolated Skull-2 side chip removed; natural mobs, no reward chests |
+| [Ruined Tower](ruined-tower/README.md) | V10 framed rear-wall chest, incomplete ascent, five one-time Endermen and finite Ender loot implemented |
+| [World Tree](world-tree/README.md) | V5; 80-block Regeneration II/Resistance II sphere, persistent anchor, grounded lighting and bounded natural animal attempts implemented |
+
+Current [status, evidence and roadmap](../docs/project/CURRENT_STATUS_AND_ROADMAP.md)
+cover Fabric and NeoForge on 26.2 and 1.21.1. Later ideas are separate from open
+validation/tuning. The dated design and gameplay notes below preserve their history.
+
+## Historical visual-alpha and planning notes
 
 Alpha 4.9 changes two natural profiles and the later Tree root additions; eight
 other raw/natural template pairs remain exact Alpha 4.8 matches.

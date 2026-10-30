@@ -1,5 +1,12 @@
 # Colossus
 
+> **Current status, October 30, 2026:** Large Colossus V7 and Small Colossus V11 are integrated; natural trials, personal core rewards, held magnets and unique-site planning are released. See the
+> [Alpha 5.0.3 status and roadmap](../../docs/project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
+## Historical planning record
+
 **Alpha 4.9 retains V4.1 with material study B and Small Colossus V7 ground-v3**;
 see [art integration history](../../docs/project/EMBEDDING_20261006.md) and
 [current runtime status](../../docs/testing/ALPHA_4_9_TEST_REPORT.md). Large-Colossus materials

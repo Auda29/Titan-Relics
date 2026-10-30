@@ -1,5 +1,10 @@
 # Colossus gameplay items: Machine Core and Salvage Magnet
 
+> **Current status, October 30, 2026:** Natural gameplay integration is released. Core/magnet recipes, both selected hands and per-item magnet wear are implemented. See the
+> [Alpha 5.0.3 status and roadmap](../../../docs/project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 ## Status and scope
 
 Recorded: October 1, 2026. Updated: October 8, 2026.

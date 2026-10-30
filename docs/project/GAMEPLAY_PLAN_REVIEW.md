@@ -1,5 +1,12 @@
 # Gameplay planning closure and documentation review
 
+> **Current status, October 30, 2026:** All seven gameplay directions are implemented and released on four game/loader targets. See the
+> [Alpha 5.0.3 status and roadmap](CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
+## Historical planning record
+
 Reviewed: October 8, 2026. **Outcome: all seven gameplay directions, builder handoff
 and technical starting contracts are documented consistently.** No further large
 user-question round is needed. This closes the planning/documentation gate only;

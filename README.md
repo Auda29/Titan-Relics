@@ -27,7 +27,7 @@ spacing; legacy frequent/rare spacing overrides are unsupported by the gameplay 
 
 [Release notes](docs/releases/0.1.0-alpha.5.0.3.md) ·
 [Release checks](docs/testing/alpha5-0-3-release-20261028-evidence.json) ·
-[Project status](docs/project/ALPHA_5_STATUS_20261027.md).
+[Current status and roadmap](docs/project/CURRENT_STATUS_AND_ROADMAP.md).
 
 ## Alpha 5 downloads
 
@@ -46,6 +46,10 @@ The 1.21.1 ports use native-version resource adaptations; all targets include
 Alpha 5 gameplay. The original Fabric 26.2 release remains available.
 
 ## Development history
+
+The dated sections below preserve earlier release/design decisions. Current
+implementation and remaining work are in the [status and roadmap](docs/project/CURRENT_STATUS_AND_ROADMAP.md);
+old pending statements do not supersede Alpha 5.0.3.
 
 **October 28 playtest build:** Titan Skull 2 no longer includes the isolated brown
 side chip. World Tree firefly bushes follow nearby native ground and omit unsafe
@@ -255,6 +259,12 @@ remain provisional; neither mod is required. Runtime coverage is recorded in the
 
 ## Installation
 
+For Alpha 5.0.3, choose the matching game/loader JAR in the
+[current downloads](#alpha-5-downloads) and follow its Alpha 5 profile instructions.
+The visual-alpha instructions below preserve the older installation history.
+
+### Historical visual-alpha installation
+
 For Minecraft **1.21.1**, use the separate **Alpha 4.9 Fabric port**, not the
 26.2 JAR. See [compatibility build/install instructions](compat/mc1.21.1/README.md)
 and [its validation/release record](docs/testing/ALPHA_4_9_MC_1_21_1_TEST_REPORT.md).
@@ -429,31 +439,40 @@ python tools/render_preview.py
 
 Images are written to `relics/<relic>/design/generated/alpha/`. Use `--output <directory>` to collect them in a custom directory instead. They are geometry previews, not Minecraft screenshots, and are not needed for the mod build. The Blender asset pages provide commands for textured NBT previews and reference comparison sheets.
 
-## Configure density and enabled relics
+## Generation settings and legacy density packs
 
-Generate a world-specific override datapack, for example more frequent discoveries without colossi:
+Alpha 5 gameplay freezes its distribution policy, seed, enabled families,
+generator/assets and border in a saved snapshot. The current policy uses shared
+opportunities and terrain validation, not independent per-family density presets.
+Incompatible changes are rejected rather than silently rerolling the world.
 
-```shell
-python tools/configure.py --density frequent --disable colossus
-```
+`tools/configure.py` still creates **legacy 26.2 visual-alpha** density datapacks
+(`rare`, `normal`, `frequent`, with per-family disabling). The changed spacing in
+`rare`/`frequent` is incompatible with gameplay distribution. These packs are
+not a live-settings or migration interface and are not a universal 1.21.1 pack.
+Enabled-family choices belong to initial world setup; changes to a frozen save
+need explicit supported migration or a fresh world. Existing relics are retained.
+The 5.0.3 fingerprint-format recovery does not approve arbitrary worldgen changes.
 
-Profiles are `rare`, `normal`, and `frequent`. Repeat `--disable` for `obelisk`,
-`colossus`, `titan_skull`, `small_colossus`, `world_tree`, `ruined_tower` or
-`titan_skull_2`. Disabling `titan_skull` disables all four crowned variants.
-Put the generated settings ZIP in the world's datapack directory above mod data,
-then restart; `/reload` alone is not assumed sufficient for worldgen changes.
+There is no in-game settings menu. Developer diagnostics include
+`/relicsdistribution status` and the distribution audit tools. See the
+[distribution contract](docs/technical/RELIC_DISTRIBUTION.md) and
+[current roadmap](docs/project/CURRENT_STATUS_AND_ROADMAP.md).
 
-Existing relics remain. While a type is disabled, `/locate` cannot find its existing sites either; re-enabling restores searches and future generation. Profiles control candidates, not guaranteed discoveries: biomes and terrain reject unsuitable sites. There is no settings menu or built-in rejection statistics.
+## Current alpha limits
 
-## Known alpha limits
-
-- Grid-based terrain checks can miss small pools and edges between sample points.
-- Selected templates omit air and preserve terrain in unspecified cells. Buried cavities are not automatically excavated; final interiors and routes are not implemented.
-- Precise collision checks against Dungeons & Taverns or other structures are not implemented.
-- Shapes are fixed. Seed-dependent generator variants are a development tool, not selected per discovery.
-- There is no new loot, movement mechanic, quest system, or custom sound.
-- All seven models have worldgen resources, but no authored encounters or special
-  loot. Large-Colossus uniqueness and the wider skull/bone-family budget remain open.
+- Terrain sampling can miss small pools/edges. Approved marker routes have
+  source-preserving clearance; arbitrary cavities are not universally excavated.
+- Precise geometry collision checks against Dungeons & Taverns or other foreign
+  structures are not implemented; relic-to-relic spacing is implemented.
+- Shapes are pinned, versioned exports; new per-discovery poses/material variants
+  require authored assets and validation.
+- Broad modpack/shader/LOD compatibility, paired performance measurements and
+  long-term Survival balance remain open. The Living World reopen test is confirmed.
+- Normal restart and reward tests do not prove atomic saves under arbitrary hard
+  process kills. Existing worlds retain their saved revisions and finite loot.
+- Additional relic concepts and atmosphere/storytelling features remain optional;
+  no new boss, controllable mech or dimension is selected.
 
 ## Documentation
 

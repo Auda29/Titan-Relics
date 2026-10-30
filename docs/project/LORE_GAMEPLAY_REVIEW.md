@@ -1,5 +1,12 @@
 # Lore and gameplay review — design follow-up
 
+> **Current status, October 30, 2026:** All seven gameplay directions are implemented and released on four game/loader targets. See the
+> [Alpha 5.0.3 status and roadmap](CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
+## Historical planning record
+
 Recorded: October 2, 2026. Updated: October 8, 2026. This records the user's review and the resulting open
 design tasks. Original review suggestions are not approvals in themselves;
 subsequent decisions are recorded explicitly below. Material B is selected and

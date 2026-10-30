@@ -1,5 +1,10 @@
 # Titan Skull gameplay: inhabited remains
 
+> **Current status, October 30, 2026:** The selected gameplay is released; current models, implemented values, evidence and remaining tuning are recorded centrally. See the
+> [Alpha 5.0.3 status and roadmap](../../../docs/project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 Recorded: October 1, 2026. Updated: October 8, 2026. These are approved gameplay
 directions; no authored encounter system is selected. Alpha 4.9 selects crowned Skull V4 in
 four palettes and Skull 2 V2 embedded-v1. This page applies to both skull designs;

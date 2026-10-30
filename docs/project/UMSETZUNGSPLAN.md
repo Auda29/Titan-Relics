@@ -1,5 +1,12 @@
 # Relic Mod: technical implementation plan
 
+> **Current status, October 30, 2026:** All seven gameplay directions are implemented and released on four game/loader targets. See the
+> [Alpha 5.0.3 status and roadmap](CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
+## Historical planning record
+
 The [October 27 Alpha 5.0 status](ALPHA_5_STATUS_20261027.md) records the current
 implementation, approved interiors, test evidence and remaining release checks.
 The October 8 planning gate below is historical and has been followed by the

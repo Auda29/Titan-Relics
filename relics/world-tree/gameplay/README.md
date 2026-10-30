@@ -1,5 +1,10 @@
 # World Tree gameplay planning
 
+> **Current status, October 30, 2026:** The selected gameplay is released; current models, implemented values, evidence and remaining tuning are recorded centrally. See the
+> [Alpha 5.0.3 status and roadmap](../../../docs/project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 Updated: October 8, 2026. V4.3 strands and Alpha 4.9 terrain integration are visually
 accepted. No loot or authored encounter system is decided by that acceptance.
 The gameplay round is complete; [runtime defaults](../../../docs/technical/GAMEPLAY_RUNTIME.md)

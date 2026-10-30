@@ -1,5 +1,12 @@
 # Titan Skull
 
+> **Current status, October 30, 2026:** Both skull designs are integrated; Skull 2 has its isolated side chip removed. Natural mobs and the no-reward-chest policy remain. See the
+> [Alpha 5.0.3 status and roadmap](../../docs/project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
+## Historical planning record
+
 **Skull 2's current Alpha 4.9 appearance and terrain integration were visually
 accepted by the user on October 7, 2026.** Three new Skull screenshots accompany
 the [acceptance record](../../docs/project/reviews/alpha4-9-user-acceptance-20261007.json).

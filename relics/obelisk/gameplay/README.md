@@ -1,5 +1,10 @@
 # Obelisk gameplay: archaeology and expedition maps
 
+> **Current status, October 30, 2026:** The selected gameplay is released; current models, implemented values, evidence and remaining tuning are recorded centrally. See the
+> [Alpha 5.0.3 status and roadmap](../../../docs/project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 Recorded: October 1, 2026. Updated: October 8, 2026. This is an approved gameplay direction, not an
 implemented system. Rates and finite loot baseline are selected; actual builder
 positions, original trim art and runtime validation remain deliverables. Technical

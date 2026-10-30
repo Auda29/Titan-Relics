@@ -1,5 +1,12 @@
 # Ruined Tower
 
+> **Current status, October 30, 2026:** Tower V10, its framed rear-wall chest, five one-time Endermen and finite Ender loot are integrated. See the
+> [Alpha 5.0.3 status and roadmap](../../docs/project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
+## Historical planning record
+
 **Lore approved October 8:** the unfinished base from which the ancient Titan-
 clearing campaign was organized. Never-completed construction accounts for its
 stronger dilapidation relative to the Colossi. Current mobs and players may reuse

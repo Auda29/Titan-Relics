@@ -1,5 +1,10 @@
 # Small Colossus — lore and gameplay planning
 
+> **Current status, October 30, 2026:** The selected gameplay is released; current models, implemented values, evidence and remaining tuning are recorded centrally. See the
+> [Alpha 5.0.3 status and roadmap](../../../docs/project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 Recorded: October 8, 2026. Current visual asset: V7 ground-v3 in Alpha 4.9.
 The [documentation gate is closed](../../../docs/project/GAMEPLAY_PLAN_REVIEW.md);
 gameplay/interior implementation still requires a separate request and actual

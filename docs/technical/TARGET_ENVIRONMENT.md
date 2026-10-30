@@ -1,5 +1,10 @@
 # Alpha target environment
 
+> **Current status, October 30, 2026:** The released baseline supports Fabric and NeoForge on 26.2 and 1.21.1. See the
+> [Alpha 5.0.3 status and roadmap](../project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 Inventory recorded: September 13, 2026. Documentation updated: October 8, 2026.
 This record supports the [implementation plan](../project/UMSETZUNGSPLAN.md). The initial
 inventory was read-only and describes the state before installation. Later

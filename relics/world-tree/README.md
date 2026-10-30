@@ -1,5 +1,12 @@
 # World Tree
 
+> **Current status, October 30, 2026:** World Tree V5, grounded plants, Regeneration II/Resistance II in an 80-block sphere and bounded natural animal attempts are integrated. See the
+> [Alpha 5.0.3 status and roadmap](../../docs/project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
+## Historical planning record
+
 **Lore approved October 8:** the Titans worshipped this tree and received strength
 and size from it. The Colossi's builders tried and failed to destroy it. Thousands
 of years later no living Titans remain; current inhabitants reuse the relics.

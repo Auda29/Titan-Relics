@@ -1,5 +1,10 @@
 # Ruined Tower gameplay planning
 
+> **Current status, October 30, 2026:** The selected gameplay is released; current models, implemented values, evidence and remaining tuning are recorded centrally. See the
+> [Alpha 5.0.3 status and roadmap](../../../docs/project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 Updated: October 8, 2026. The visual V7 ground-v3 asset is integrated in Alpha 4.9;
 the directions below are planning, not implemented traversal, loot or encounters.
 Technical choices are in the [runtime contract](../../../docs/technical/GAMEPLAY_RUNTIME.md)

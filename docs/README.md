@@ -5,6 +5,8 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
+- [Current Alpha 5.0.3 status, evidence and roadmap (October 30)](project/CURRENT_STATUS_AND_ROADMAP.md)
+
 - [Alpha 5.0.3: published four-target release and downloaded-asset verification](testing/alpha5-0-3-release-20261028-evidence.json)
 
 - [Automatic tag releases for Fabric/NeoForge on Minecraft 26.2 and 1.21.1](releases/RELEASE_CI.md)
@@ -26,7 +28,7 @@ This directory contains only cross-project documentation and test evidence.
 
 - [October 28: shorter Small Colossus entrance, Tower chest and revised armor trim](project/INTERIORS_V4_20261028.md)
 
-- [Alpha 5.0: current implementation, evidence and remaining release checks](project/ALPHA_5_STATUS_20261027.md)
+- [Historical Alpha 5.0 release status and acceptance](project/ALPHA_5_STATUS_20261027.md)
 - [Approved October 27 interior decisions](project/INTERIOR_DECISIONS_20261027.md)
 - [October 27 model revisions and export verification](project/GAMEPLAY_INTERIORS_FEEDBACK_20261027_IMPLEMENTATION.md)
 - [Gameplay interiors: builder exports, marker plans and integration handoff](project/GAMEPLAY_INTERIORS_HANDOFF.md)

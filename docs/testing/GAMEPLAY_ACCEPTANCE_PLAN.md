@@ -1,5 +1,10 @@
 # Gameplay acceptance plan — future evidence, not results
 
+> **Current status, October 30, 2026:** This is a scenario catalog, not an unrun checklist. CI/server and user evidence are mapped in the current roadmap. See the
+> [Alpha 5.0.3 status and roadmap](../project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 **Status update, October 27:** this is the original acceptance matrix. Several
 automated and isolated native-server gates have since run; their results and
 the remaining client/release checks are linked in the
@@ -30,7 +35,7 @@ request and builder deliverables; this plan adds no gameplay/test code.
 | Core processing | Count successful recipe operations, not output count/time; invalid input, full output, partial recipe, mode changes, removal, hopper transfer, device break, last charge and normal appliance speed |
 | Magnet | Zero wear on failed pulls, collision shapes/closed doors/glass, ownership/delay, partial pickup/merge, two-player contention, stale inventory/entity state and broken-item retention |
 | Grants/maps | Per-player Vault history beyond native list limits, participant queue, stable claim/delivery IDs, pending map copies and one origin compensation, no old-copy reactivation after compensation |
-| Tree | Exact 24-radius 3-D boundary through blocks, per-player refresh/expiry, stronger potion/hidden-effect/milk/death behavior, persistent anchor after removal and no aura from copied blocks |
+| Tree | Exact 80-radius 3-D boundary through blocks, per-player refresh/expiry, stronger potion/hidden-effect/milk/death behavior, persistent anchor after removal and no aura from copied blocks |
 | Entity initialization | Five one-time ordinary Endermen, pending UUID reconciliation, no regeneration after despawn/reload, no injected entities from raw template copies |
 
 Use deterministic fixtures before expensive whole-world tests. Tests of a spec

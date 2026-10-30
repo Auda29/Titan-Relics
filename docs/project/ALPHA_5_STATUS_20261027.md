@@ -1,5 +1,10 @@
 # Alpha 5.0: Stand zur Veröffentlichung am 28. Oktober 2026
 
+> **Current status, October 30, 2026:** This page is the dated Alpha 5.0 release record; the current patch is 5.0.3, including both loaders and the confirmed Living World reopen fix. See the
+> [Alpha 5.0.3 status and roadmap](CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
+> remain specifications; dated pending/unimplemented claims below are historical
+> where superseded by the released implementation and linked evidence.
+
 Version: **0.1.0-alpha.5.0**, Minecraft 26.2 / Fabric. Der bisherige Dateiname
 bleibt als stabiler Link bestehen. Der Release bündelt den am 27. und
 28. Oktober umgesetzten und vom Nutzer geprüften Gameplay-Stand.

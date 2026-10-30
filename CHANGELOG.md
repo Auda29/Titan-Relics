@@ -1,5 +1,22 @@
 # Changelog
 
+## Documentation update (2026-10-30)
+
+- Add a current status/evidence/roadmap index; separate delivered Alpha 5 systems,
+  open validation/tuning, later engineering and optional content concepts.
+- Record the user-confirmed Living World reopen test and ongoing exploration
+  playtest without claiming complete modpack or performance acceptance.
+- Correct README limits and mark superseded visual-alpha/planning status as history.
+
+## 0.1.0-alpha.5.0.3 (2026-10-28)
+
+- Release stable canonical planning fingerprints and checked legacy migration with
+  an original-journal backup for Fabric/NeoForge on 26.2 and 1.21.1.
+- Add shared-tag release CI; publish and independently verify four player JARs
+  plus checksums. Preserve frozen site identities, interiors and finite rewards.
+- See [release verification](docs/testing/alpha5-0-3-release-20261028-evidence.json)
+  and [world-reload report](docs/testing/ALPHA_5_0_3_WORLD_RELOAD_20261028.md).
+
 ## 0.1.0-alpha.5.0.2 ? recipe network codec fix (2026-10-28)
 
 - Fix the maintenance recipe codec for Fabric 26.2, Fabric 1.21.1, NeoForge
