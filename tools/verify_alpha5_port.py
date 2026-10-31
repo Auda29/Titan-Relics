@@ -58,9 +58,9 @@ def verify(path: Path,loader: str,minecraft: str) -> dict:
         client=json.loads(archive.read('relics.client.mixins.json'))
         if not client['required'] or client['compatibilityLevel']!='JAVA_'+str(java) or client.get('mixins'):
             raise ValueError('Client mixins must remain client-only with the matching Java target')
-        if client['package']!='de.relics.client.mixin' or client['client']!=['DistributionMenuMixin']:
+        if client['package']!='de.relics.client.mixin' or client['client']!=['CreateWorldSettingsMixin','WorldGenerationTabMixin']:
             raise ValueError('Wrong client mixin namespace or screen integration')
-        if 'de/relics/client/DistributionSettingsScreen.class' not in classes or 'de/relics/client/mixin/DistributionMenuMixin.class' not in classes:
+        if 'de/relics/client/DistributionSettingsScreen.class' not in classes or 'de/relics/client/mixin/WorldGenerationTabMixin.class' not in classes:
             raise ValueError('Missing distribution settings menu')
         if loader=='fabric' and {'config':'relics.client.mixins.json','environment':'client'} not in metadata['mixins']:
             raise ValueError('Fabric menu mixins are not client-scoped')

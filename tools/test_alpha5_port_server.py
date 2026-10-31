@@ -42,6 +42,7 @@ def main():
     parser.add_argument('--command',action='append',default=[])
     parser.add_argument('--suite',action='store_true',help='Core, recipes, two-player rewards, aura, animals and restart')
     parser.add_argument('--distribution-preset',choices=('expedition','balanced','discovery','tower-only'),help='Exercise frozen new-world settings in an isolated server')
+    parser.add_argument('--biome-mode',choices=('standard','landscapes','empty-colossus'),default='standard')
     parser.add_argument('--reload-preset',choices=('expedition','balanced','discovery','invalid'),help='Change installation defaults before reopening the same world')
     parser.add_argument('--historical-journal',action='store_true',help='Reopen an Expedition fixture as a pre-menu v2 world')
     args=parser.parse_args()
@@ -83,7 +84,9 @@ def main():
     def settings(preset):
         cell,distance,obelisks,region={'expedition':(5000,2000,15000,6000),'balanced':(3000,1200,9000,3600),
             'discovery':(2000,800,6000,2400),'tower-only':(2000,800,6000,2400)}[preset]
-        return dict(cellSize=cell,minDistance=distance,obeliskDistance=obelisks,regionRadius=region,
+        families={} if args.biome_mode=='standard' else {name:dict(mode='LANDSCAPES',selected=[]) for name in ('colossus','obelisk','titan_skull','titan_skull_2','ruined_tower','small_colossus','world_tree')}
+        if args.biome_mode=='empty-colossus':families={'colossus':dict(mode='CUSTOM',selected=[])}
+        return dict(cellSize=cell,minDistance=distance,obeliskDistance=obelisks,regionRadius=region,biomes={'families':families},
                     outside=[0,0,0,10000,0,0] if preset=='tower-only' else [3000,250,250,200,200,200],
                     inside=[0,0,0,10000,0,0] if preset=='tower-only' else [3000,1500,1500,200,200,200])
     def defaults(preset):
@@ -156,6 +159,7 @@ def main():
                     envelope=json.loads((run/'world/data/relics_distribution_v1.json').read_text())
                     assert hashlib.sha256(envelope['payload'].encode()).hexdigest()==envelope['sha256']
                     snapshot=json.loads(envelope['payload'])
+                    if args.biome_mode=='empty-colossus':assert snapshot['unavailable'] and snapshot.get('unique') is None,'Empty Colossus selection must resolve unavailable, never search forever'
                     historical=iteration and args.historical_journal
                     assert snapshot['policy']==('relics-distribution-v2-local64-r3072' if historical else 'relics-distribution-v3-settings')
                     assert snapshot.get('settings')==(None if historical else settings(args.distribution_preset))

@@ -43,8 +43,8 @@ public final class DistributionPlanner {
     private final Map<Cell,Optional<Site>> choices = bounded(2048);
     private final Map<Key, Optional<Site>> terrain = bounded(4096);
     private final Map<Cell, Optional<Site>> obelisks = bounded(2048);
-    public long opportunities, terrainChecks, terrainRejected, spacingRejected, acceptedQueries;
-    public long locationAttempts;
+    public volatile long opportunities, terrainChecks, terrainRejected, spacingRejected, acceptedQueries;
+    public volatile long locationAttempts;
 
     public DistributionPlanner(long seed, Set<Family> enabled, Validator validator, Supplier<Site> unique,
             Supplier<Boolean> unavailable, int bootstrapX, int bootstrapZ, int bootstrapUncertainty) {

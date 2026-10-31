@@ -52,12 +52,14 @@ public final class DistributionRuntime implements AutoCloseable {
         var border=level.getWorldBorder();
         DistributionJournal.State initial=new DistributionJournal.State();
         initial.interiors=fresh?de.relics.gameplay.NaturalInteriors.REVISION:DistributionJournal.interiorRevision(file);
-        if(fresh){initial.settings=DistributionConfig.load();initial.policy=DistributionSettings.POLICY;}
+        if(fresh){initial.settings=DistributionConfig.forNewWorld(level.getServer().getWorldPath(LevelResource.ROOT));initial.policy=DistributionSettings.POLICY;}
+        DistributionSettings selectedSettings=fresh?initial.settings:new DistributionJournal(file,null).state.settings;
+        BiomeRules rules=selectedSettings==null?BiomeRules.STANDARD:selectedSettings.biomes();
         initial.seed=level.getSeed();
         int absolute=Math.min(29999984,level.getServer().getAbsoluteMaxWorldSize());
         initial.minX=(int)Math.ceil(Math.max(-absolute,border.getMinX())); initial.maxX=(int)Math.floor(Math.min(absolute,border.getMaxX()));
         initial.minZ=(int)Math.ceil(Math.max(-absolute,border.getMinZ())); initial.maxZ=(int)Math.floor(Math.min(absolute,border.getMaxZ()));
-        validator=new TerrainValidator(level,initial.minX,initial.minZ,initial.maxX,initial.maxZ,initial.interiors);
+        validator=new TerrainValidator(level,initial.minX,initial.minZ,initial.maxX,initial.maxZ,initial.interiors,rules);
         initial.fingerprint=validator.fingerprint;initial.fingerprintFormat=PlanningFingerprint.FORMAT;initial.enabled=Set.copyOf(validator.enabled);
         BlockPos approximate=level.getChunkSource().randomState().sampler().findSpawnPosition();
         initial.bootstrapX=Math.floorDiv(approximate.getX(),16)*16+8;initial.bootstrapZ=Math.floorDiv(approximate.getZ(),16)*16+8;
@@ -96,7 +98,7 @@ public final class DistributionRuntime implements AutoCloseable {
             for(var runtime:LEVELS.values())if(runtime.level.getServer()==server) {
                 var s=runtime.journal.state;
                 try {
-                    var current=new TerrainValidator(runtime.level,s.minX,s.minZ,s.maxX,s.maxZ,s.interiors);
+                    var current=new TerrainValidator(runtime.level,s.minX,s.minZ,s.maxX,s.maxZ,s.interiors,s.settings==null?BiomeRules.STANDARD:s.settings.biomes());
                     if(!current.fingerprint.equals(s.fingerprint) || !current.enabled.equals(s.enabled))
                         throw new IllegalStateException("Datapack reload changed frozen relic settings. Restore the original setup and restart; policy migration requires a fresh world.");
                     LOG.info("Relic distribution settings unchanged after datapack reload");
@@ -157,6 +159,7 @@ public final class DistributionRuntime implements AutoCloseable {
         if(closed || failure!=null)return;
         var s=journal.state;
         if(!s.enabled.contains(Family.COLOSSUS)) {s.unavailable=true;s.unavailableReason="disabled before destination";commitResolution();return;}
+        if(!validator.hasPossibleBiome(Family.COLOSSUS)){s.unavailable=true;s.unavailableReason="no allowed Colossus biomes in the frozen generator";commitResolution();return;}
         long deadline=System.nanoTime()+2000000;
         for(int n=0;n<8;n++) {
             if(closed)return;
@@ -330,8 +333,10 @@ public final class DistributionRuntime implements AutoCloseable {
         report.put("opportunityQueries",planner.opportunities);report.put("terrainChecks",planner.terrainChecks);report.put("terrainRejected",planner.terrainRejected);
         report.put("spacingRejected",planner.spacingRejected);report.put("acceptedQueries",planner.acceptedQueries);report.put("materializedStartEvents",materialized);
         report.put("locationAttempts",planner.locationAttempts);
+        report.put("diagnostics",diagnostics());
         return new GsonBuilder().create().toJson(report);
     }
+    public Map<String,Long> diagnostics(){return Map.of("biome",validator.biomeRejectedProbes.sum(),"terrain",validator.terrainRejectedProbes.sum(),"bounds",validator.boundsRejectedProbes.sum(),"distance",planner.spacingRejected);}
     @Override public void close() {
         closed=true;
         var cancellation=new CancellationException("World stopping; pending planning will resume from its journal");

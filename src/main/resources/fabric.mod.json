@@ -16,6 +16,9 @@
   "entrypoints": {
     "main": [
       "de.relics.RelicWorldgen"
+    ],
+    "modmenu": [
+      "de.relics.client.RelicModMenu"
     ]
   },
   "mixins": [

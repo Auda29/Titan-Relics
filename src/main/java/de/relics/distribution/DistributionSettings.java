@@ -6,7 +6,10 @@ import static de.relics.distribution.DistributionPlanner.Family;
 
 /** Validated immutable new-world settings. Chances are basis points, never guaranteed sites. */
 public record DistributionSettings(int cellSize,int minDistance,int obeliskDistance,int regionRadius,
-                                   List<Integer> outside,List<Integer> inside) {
+                                   List<Integer> outside,List<Integer> inside,BiomeRules biomes) {
+    public DistributionSettings(int cellSize,int minDistance,int obeliskDistance,int regionRadius,List<Integer> outside,List<Integer> inside) {
+        this(cellSize,minDistance,obeliskDistance,regionRadius,outside,inside,BiomeRules.STANDARD);
+    }
     public static final String POLICY="relics-distribution-v3-settings";
     public static final List<Integer> OUTSIDE=List.of(3000,250,250,200,200,200);
     public static final List<Integer> INSIDE=List.of(3000,1500,1500,200,200,200);
@@ -14,6 +17,7 @@ public record DistributionSettings(int cellSize,int minDistance,int obeliskDista
     public static final DistributionSettings BALANCED=new DistributionSettings(3000,1200,9000,3600,OUTSIDE,INSIDE);
     public static final DistributionSettings DISCOVERY=new DistributionSettings(2000,800,6000,2400,OUTSIDE,INSIDE);
     public DistributionSettings {
+        biomes=biomes==null?BiomeRules.STANDARD:biomes;
         outside=List.copyOf(outside);inside=List.copyOf(inside);
         if(cellSize<1500 || cellSize>10000)throw new IllegalArgumentException("relics.settings.error.cell");
         if(minDistance<512 || minDistance>Math.min(4000,cellSize))throw new IllegalArgumentException("relics.settings.error.distance");

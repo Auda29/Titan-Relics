@@ -104,7 +104,7 @@ def compile_worldgen(java_home: Path | None = None) -> Path:
         if not client.is_file():
             raise FileNotFoundError("Prepare the client compile dependency with tools/setup_worldgen_build.py --accept-downloads")
         arguments = ["--release", "25", "-encoding", "UTF-8", "-g:none", "-proc:none",
-                     "-classpath", os.pathsep.join(map(str, [staging, client, *libraries])), "-d", str(staging)]
+                     "-classpath", os.pathsep.join(map(str, [staging, client, ROOT / "build/worldgen-dependencies/modmenu-api.jar", *libraries])), "-d", str(staging)]
         arguments += [str(p) for p in sorted(CLIENT_SOURCES.rglob("*.java"))]
         argfile.write_text("\n".join('"' + a.replace("\\", "/").replace('"', '\\"') + '"'
                                      for a in arguments), encoding="utf-8")

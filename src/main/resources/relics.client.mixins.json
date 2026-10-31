@@ -2,6 +2,6 @@
   "required": true,
   "package": "de.relics.client.mixin",
   "compatibilityLevel": "JAVA_25",
-  "client": ["DistributionMenuMixin"],
+  "client": ["CreateWorldSettingsMixin", "WorldGenerationTabMixin"],
   "injectors": {"defaultRequire": 1}
 }

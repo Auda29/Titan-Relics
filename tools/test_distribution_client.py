@@ -20,6 +20,7 @@ def main():
     parser.add_argument('--java',type=Path,required=True)
     parser.add_argument('--cache',type=Path,default=Path('E:/Roaming/ModrinthApp/meta'))
     parser.add_argument('--language',choices=('de_de','en_us'),default='de_de')
+    parser.add_argument('--with-modmenu',action='store_true')
     args=parser.parse_args();artifact=args.artifact.resolve();meta=args.cache.resolve()
     run=ROOT/'build/distribution-settings-20261030'/datetime.now().strftime('client-'+args.minecraft+'-%H%M%S-%f')
     (run/'mods').mkdir(parents=True);sources=run/'sources';sources.mkdir()
@@ -48,7 +49,7 @@ def main():
         glfw=next(lib for lib in metadata['libraries'] if lib['name'].startswith('org.lwjgl:lwjgl-glfw:') and len(lib['name'].split(':'))==3)
         glfw=meta/'libraries/org/lwjgl/lwjgl-glfw'/glfw['name'].split(':')[2]/('lwjgl-glfw-'+glfw['name'].split(':')[2]+'.jar')
         command=[str(find_javac(args.java_home)),'--release','25','-encoding','UTF-8','-proc:none','-classpath',
-                 os.pathsep.join(map(str,[artifact,client,glfw,*compile_libraries()])),'-d',str(sources),*map(str,sources.glob('*.java'))]
+                 os.pathsep.join(map(str,[artifact,client,glfw,ROOT/'build/worldgen-dependencies/modmenu-api.jar',*compile_libraries()])),'-d',str(sources),*map(str,sources.glob('*.java'))]
         subprocess.run(command,check=True)
         entries={p.relative_to(sources).as_posix():p.read_bytes() for p in sources.rglob('*.class')}
         deps=ROOT/'build/worldgen-dependencies'
@@ -61,7 +62,13 @@ def main():
     with zipfile.ZipFile(run/'mods/menu-checks.jar','w',zipfile.ZIP_DEFLATED) as out:
         for name,data in entries.items():out.writestr(name,data)
     for path in [artifact,*dependencies]:shutil.copy2(path,run/'mods'/path.name)
-    (run/'options.txt').write_text(f'lang:{args.language}\nguiScale:2\nonboardAccessibility:false\nstartedCleanly:true\n',encoding='utf-8')
+    if args.with_modmenu:
+        import urllib.request,hashlib
+        version='11.0.3' if args.minecraft=='1.21.1' else '20.0.3'
+        menu=json.load(urllib.request.urlopen('https://api.modrinth.com/v2/project/modmenu/version/'+version))
+        file=next(f for f in menu['files'] if f['primary']);data=urllib.request.urlopen(file['url']).read()
+        assert hashlib.sha512(data).hexdigest()==file['hashes']['sha512'];(run/'mods/modmenu.jar').write_bytes(data)
+    (run/'options.txt').write_text(f'lang:{args.language}\nguiScale:2\nonboardAccessibility:false\nstartedCleanly:true\nrenderDistance:2\nsimulationDistance:2\n',encoding='utf-8')
     version=args.minecraft+'-0.19.5';metadata=json.loads((meta/'versions'/version/(version+'.json')).read_text())
     cp=[]
     for lib in metadata['libraries']:
@@ -85,11 +92,12 @@ def main():
              '--username','RelicMenuProbe','--uuid','00000000000000000000000000000001','--accessToken','0','--userType','legacy',
              '--version',version,'--gameDir',str(run),'--assetsDir',str(meta/'assets'),'--assetIndex',metadata['assetIndex']['id'],
              '--width','854','--height','480']
+    if args.with_modmenu:command.insert(0,'-Drelics.menuChecks.modmenu=true')
     argfile=run/'client-args.txt';argfile.write_text('\n'.join('"'+v.replace('\\','/')+'"' for v in command),encoding='utf-8')
     print('MENU_CLIENT',run,flush=True)
     with (run/'client-console.log').open('wb') as log:
         process=subprocess.Popen([str(args.java.resolve()),'@'+str(argfile)],cwd=run,stdout=log,stderr=subprocess.STDOUT,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
-        try:code=process.wait(timeout=180)
+        try:code=process.wait(timeout=300)
         finally:
             if process.poll() is None:process.terminate();process.wait(timeout=20)
     proof=run/'menu-proof.txt'

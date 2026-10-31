@@ -16,6 +16,14 @@ VERSION = release_version()
 
 
 def legacy_client(text: str) -> str:
+    if 'class CreateWorldSettingsMixin' in text:
+        start=text.index('    // WORLD_WRITE_BEGIN');end=text.index('    // WORLD_WRITE_END')+len('    // WORLD_WRITE_END')
+        text=text[:start]+'''    @Inject(method="createNewWorldDirectory",at=@At("RETURN"))
+    private void relics$create(CallbackInfoReturnable<Optional<LevelStorageSource.LevelStorageAccess>> ci) {relics$write(ci.getReturnValue());}
+'''+text[end:]
+    text=text.replace('CreateWorldScreen.openFresh(minecraft,()->minecraft.gui.setScreen(parent))','CreateWorldScreen.openFresh(minecraft,parent)')
+    text=text.replace('CreateWorldScreen.openFresh(client,()->client.gui.setScreen(parent))','CreateWorldScreen.openFresh(client,parent)')
+    text=text.replace('biomes.listElements()', 'biomes.holders()')
     text=text.replace('GuiGraphicsExtractor','GuiGraphics').replace('extractRenderState','render').replace('extractBackground','renderBackground')
     text=text.replace('setScreenAndShow', 'setScreen').replace('.onPress(null)', '.onPress()')
     text=text.replace('.gui.setScreen(', '.setScreen(').replace('.gui.screen()', '.screen').replace('.getWindow().handle()', '.getWindow().getWindow()')

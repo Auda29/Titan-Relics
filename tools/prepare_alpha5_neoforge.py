@@ -211,6 +211,7 @@ def prepare(minecraft):
     java_paths=list((source/'java').rglob('*.java'))
     if not legacy:java_paths+=list((ROOT/'src/client/java').rglob('*.java'))
     for path in sorted(java_paths):
+        if path.name=='RelicModMenu.java':continue
         relative=path.relative_to(ROOT/'src/client/java' if path.is_relative_to(ROOT/'src/client/java') else source/'java');override=COMMON/relative
         text=(modern_platform(path.name,override.read_text(encoding='utf-8')) if not legacy else override.read_text(encoding='utf-8')) if override.exists() else native_java(path.name,path.read_text(encoding='utf-8'),minecraft)
         destination=output/'java'/relative;destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(text,encoding='utf-8',newline='\n')

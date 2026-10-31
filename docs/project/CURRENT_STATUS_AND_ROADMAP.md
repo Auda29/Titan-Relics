@@ -60,12 +60,14 @@ blocks are unavailable; the approved roles, loot and protected access remain.
 ## Feature branch: distribution settings
 
 The user approved presets and editable values after a 6,000-block exploration
-route without a relic find. The branch adds a title/options menu with Expedition,
-Balanced and Discoveries presets, block distances and per-family percentages.
+route without a relic find. The branch adds Expedition, Balanced and Discoveries
+presets, block distances, per-family percentages and biome selection directly
+inside the World tab of world creation. Mod-list configuration edits future-world
+defaults; loaded local worlds expose a read-only viewer with rejection diagnostics.
 It covers Fabric and NeoForge on both supported Minecraft versions. Settings
 are frozen per new world; existing worlds retain their plans. This is **not yet
 part of a published release**. See the [usage and limits](../technical/DISTRIBUTION_SETTINGS.md)
-and [validation report](../testing/DISTRIBUTION_SETTINGS_20261030.md).
+and [current validation report](../testing/DISTRIBUTION_WORLD_MENU_20261101.md).
 
 ## Open work on the existing game
 

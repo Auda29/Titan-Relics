@@ -5,16 +5,25 @@ Implemented on the feature branch for Fabric and NeoForge, Minecraft 1.21.1 and
 
 ## Menu and scope
 
-Open **Relic distribution / Relikt-Verteilung** at the upper left of the title
-screen or Options screen. Choose a preset, edit values if desired, then save.
-Cancel and Escape discard edits. Hover a field for its limits and meaning.
+In **Create World → World / Neue Welt → Welt**, open **Relic generation /
+Relikt-Generierung** below the existing generation switches. Choose a preset,
+edit distances, shares and biome rules, then apply. These choices belong to
+this creation screen and survive returning from the editor. Cancel and Escape
+discard the current editor draft. Hover a field for its meaning and limits.
 
-These are defaults for **new local worlds**. Every new gameplay world saves a
+The editor also opens through the configuration button in **Fabric Mod Menu**
+(optional, no hard dependency) or the **NeoForge mod list**. Outside a world,
+this edits personal defaults for future worlds. Loading the actual datapack
+biome registry can take a moment. There are no extra title/general-options
+buttons. While a local gameplay world is loaded, the mod-list entry shows its
+saved settings and diagnostics read-only. A remote server or legacy world with
+no available journal gets an explicit unavailable message, never assumed values.
+
+Every new gameplay world saves a
 validated copy in its checksummed planning journal. Existing worlds retain their
 own plan, even in unexplored chunks, and ignore subsequent changes to the
 installation defaults. This includes pre-menu v1/v2 worlds. No retroactive
-placement or world migration is performed. The options button while connected
-to a server still edits only future local-world defaults.
+placement or world migration is performed. In-world editing is disabled.
 
 Dedicated servers use their own `config/relics-distribution.json`; a client's
 menu cannot change a server. Set the file before creating the server world.
@@ -22,6 +31,45 @@ An absent file uses Expedition without writing a file automatically. Save keeps
 the previous file as `.bak` and replaces the config atomically. Invalid files
 are preserved and rejected; the menu offers an explicit save of replacement
 defaults, with the same backup behavior.
+
+Creation writes a validated, world-scoped `data/relics_creation_settings.json`
+inside the actual newly created save directory before its server starts. Fresh
+world initialization consumes that selection ahead of installation defaults;
+the normal frozen journal then becomes authoritative. Existing worlds ignore
+both files when loading their saved plan. No process-global world selection,
+temporary change to the installation config or server-bound settings packet is used.
+
+## Biomes and diagnostics
+
+Each of the seven relic families has an independent mode:
+
+- **Standard:** the existing exact biome tags, including approved mod mappings.
+- **Matching landscapes:** retain Standard and add biomes classified by common
+  `minecraft`, `c` and legacy `forge` landscape tags plus explicit known mappings.
+  Obelisks match desert/badlands; the large Colossus and Sword Skull open/dry
+  landscapes; the Crowned Skull also desert/rocky; Tree open/forest; Tower and
+  Small Colossus open/forest/dry. Common tags may overlap; an explicitly dry
+  desert may therefore match a dry-land family as well.
+- **Custom:** exactly the selected IDs. Switching to Custom initially copies
+  the currently permitted set; checkboxes then add/remove individual biomes.
+
+The searchable list comes from the actual loaded datapack registry. Search by
+biome ID, mod ID or installed mod display name; tooltips show the mod name,
+registry ID and mapped landscape groups. Unclassified entries remain visible
+and selectable manually. Missing IDs retained from a saved configuration are
+reported rather than silently removed. Loaded-biome counts are not land-area
+percentages or estimated find rates; the registry can include biomes absent
+from this generator. Biome selection never disables terrain, bounds or spacing
+checks. Skull palettes are selected deterministically with no extra ticket roll.
+If no biome in the generator's possible-biome set permits the large Colossus
+(for example an empty Custom list), the unique resolver commits an unavailable
+destination immediately instead of continuing an impossible search.
+
+The final settings page shows rejected biome probes, unsuitable-terrain probes,
+world-bounds rejections and spacing rejections since the current server load.
+These are diagnostic attempts (including unique-site resolution), not distinct
+sites or lifetime totals. New-world/default editors have no measurements yet.
+The same counters appear under `diagnostics` in `/relicsdistribution status`.
 
 ## Presets
 
@@ -91,16 +139,27 @@ distance combinations and totals above 100% fail validation.
     "obeliskDistance": 6000,
     "regionRadius": 2400,
     "outside": [3000, 250, 250, 200, 200, 200],
-    "inside": [3000, 1500, 1500, 200, 200, 200]
+    "inside": [3000, 1500, 1500, 200, 200, 200],
+    "biomes": {
+      "families": {
+        "obelisk": {"mode": "LANDSCAPES", "selected": []}
+      }
+    }
   }
 }
 ```
 
 Array order is Obelisk, Crowned Skull, Sword Skull, Tower, Small Colossus, Tree.
+`biomes` is optional for older format-1 files; absence means Standard. Family
+keys are `colossus`, `obelisk`, `titan_skull`, `titan_skull_2`, `ruined_tower`,
+`small_colossus`, `world_tree`. Modes are `STANDARD`, `LANDSCAPES`, `CUSTOM`;
+`selected` contains exact namespaced biome IDs for Custom. Old v3 journals
+without biome rules also retain Standard behavior.
 Do not edit the world journal to apply density changes. Its settings are frozen
 under `relics-distribution-v3-settings`; old policies retain their historical
 settings and fingerprint protection. Expedition preserves the released v2
 ticket layout and coordinates exactly. Generator, biome, asset and world-border
 changes remain subject to the existing fingerprint guard.
 
-Validation and reproduction: [settings test report](../testing/DISTRIBUTION_SETTINGS_20261030.md).
+Validation and reproduction: [initial settings report](../testing/DISTRIBUTION_SETTINGS_20261030.md)
+and [world-creation/biome revision](../testing/DISTRIBUTION_WORLD_MENU_20261101.md).

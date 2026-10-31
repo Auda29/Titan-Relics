@@ -1,5 +1,8 @@
 # Distribution settings verification
 
+The November 1 [world-creation and biome revision](DISTRIBUTION_WORLD_MENU_20261101.md)
+supersedes the original title/options menu described in this dated report.
+
 Implemented October 30, 2026; final checks November 1. Feature branch only;
 published Alpha 5.0.3 downloads and original Modrinth profiles were not changed.
 

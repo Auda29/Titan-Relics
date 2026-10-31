@@ -42,11 +42,17 @@ public final class TerrainValidator implements Validator {
     public final String fingerprint;
     public final String legacyFingerprint;
     private final String interiors;
+    private final BiomeRules biomeRules;
+    public final java.util.concurrent.atomic.LongAdder biomeRejectedProbes=new java.util.concurrent.atomic.LongAdder(),terrainRejectedProbes=new java.util.concurrent.atomic.LongAdder(),boundsRejectedProbes=new java.util.concurrent.atomic.LongAdder();
 
     public TerrainValidator(ServerLevel level, int minX,int minZ,int maxX,int maxZ) {
         this(level,minX,minZ,maxX,maxZ,de.relics.gameplay.NaturalInteriors.LEGACY);
     }
     public TerrainValidator(ServerLevel level,int minX,int minZ,int maxX,int maxZ,String interiors) {
+        this(level,minX,minZ,maxX,maxZ,interiors,BiomeRules.STANDARD);
+    }
+    public TerrainValidator(ServerLevel level,int minX,int minZ,int maxX,int maxZ,String interiors,BiomeRules biomeRules) {
+        this.biomeRules=Objects.requireNonNull(biomeRules);
         if(!de.relics.gameplay.NaturalInteriors.LEGACY.equals(interiors) && !de.relics.gameplay.NaturalInteriors.supports(interiors))
             throw new IllegalStateException("Unsupported frozen interior revision");
         this.interiors=interiors;
@@ -174,23 +180,30 @@ public final class TerrainValidator implements Validator {
         for(var profile:profiles.values())if(profile.family!=Family.COLOSSUS && requested.test(profile.holder))result.add(profile.family);
         return result;
     }
+    private Profile biomeProfile(Holder<net.minecraft.world.level.biome.Biome> biome,Family family) {
+        List<String> compatible=profiles.values().stream().filter(p->p.family==family && p.holder.value().biomes().contains(biome)).map(Profile::id).toList();
+        Set<String> tags=new HashSet<>();biome.tags().forEach(tag->tags.add(tag.location().toString()));
+        String selected=biomeRules.profile(family,biome.unwrapKey().orElseThrow().identifier().toString(),tags,compatible);
+        if(selected==null)return null;
+        Profile profile=profiles.get(selected);if(profile==null || profile.family!=family)throw new IllegalStateException("No pinned profile for biome selection: "+selected);
+        return profile;
+    }
+    public boolean hasPossibleBiome(Family family){return generator.getBiomeSource().possibleBiomes().stream().anyMatch(b->biomeProfile(b,family)!=null);}
     @Override public Site validate(Candidate c,Family family) {
         int surface=generator.getFirstFreeHeight(c.x(),c.z(),Heightmap.Types.WORLD_SURFACE_WG,height,random);
         var biome=generator.getBiomeSource().getNoiseBiome(QuartPos.fromBlock(c.x()),QuartPos.fromBlock(surface),QuartPos.fromBlock(c.z()),random.sampler());
         // Biome tags choose one crowned palette. No failed-palette or family reroll.
-        List<Profile> compatible=profiles.values().stream().filter(p->p.family==family && p.holder.value().biomes().contains(biome)).toList();
-        if(compatible.isEmpty())return null;
-        if(compatible.size()!=1)throw new IllegalStateException("Ambiguous relic palette biome tags: "+family);
-        Profile p=compatible.getFirst();Rotation rotation=Rotation.values()[c.rotation()];
+        Profile p=biomeProfile(biome,family);if(p==null){biomeRejectedProbes.increment();return null;}
+        Rotation rotation=Rotation.values()[c.rotation()];
         var zero=p.element.getBoundingBox(templates,BlockPos.ZERO,rotation);
         int ox=c.x()-Math.floorDiv(zero.minX()+zero.maxX(),2),oz=c.z()-Math.floorDiv(zero.minZ()+zero.maxZ(),2);
         BlockPos origin=new BlockPos(ox,surface-p.ground,oz);
         var box=p.element.getBoundingBox(templates,origin,rotation);
         if(box.minX()<minX || box.maxX()>maxX || box.minZ()<minZ || box.maxZ()>maxZ
-                || box.minY()<height.getMinY()+8 || box.maxY()>height.getMaxY()-8)return null;
+                || box.minY()<height.getMinY()+8 || box.maxY()>height.getMaxY()-8){boundsRejectedProbes.increment();return null;}
         var context=new Structure.GenerationContext(registries,generator,generator.getBiomeSource(),random,templates,
-                seed,new ChunkPos(c.chunkX(),c.chunkZ()),height,p.holder.value().biomes()::contains);
-        if(!p.condition.terrainCondition().test(context,new BlockPos(c.x(),surface,c.z())))return null;
+                seed,new ChunkPos(c.chunkX(),c.chunkZ()),height,b->biomeRules.rule(family).mode()==BiomeRules.Mode.STANDARD?p.holder.value().biomes().contains(b):b.equals(biome));
+        if(!p.condition.terrainCondition().test(context,new BlockPos(c.x(),surface,c.z()))){terrainRejectedProbes.increment();return null;}
         return new Site(c,p.id,box.minX()+box.maxX(),box.minZ()+box.maxZ(),surface,origin.getX(),origin.getY(),origin.getZ(),box.minX(),box.minZ(),box.maxX(),box.maxZ());
     }
     public StructureStart start(Site site) {
