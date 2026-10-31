@@ -56,6 +56,7 @@ This directory contains only cross-project documentation and test evidence.
 - [Gameplay runtime starting contract and implementation updates](technical/GAMEPLAY_RUNTIME.md)
 - [Builder gameplay sidecar/marker handoff v1](technical/GAMEPLAY_MARKERS.md)
 - [Shared distribution budget and deterministic unique-site resolver](technical/RELIC_DISTRIBUTION.md)
+- [New-world distribution settings: menu, presets and server configuration](technical/DISTRIBUTION_SETTINGS.md)
 - [Alpha 4.2 terrain contact, relic separation and Java build](technical/ALPHA_4_2_TERRAIN.md)
 - [Alpha 4 current relic integration and placement contracts](technical/ALPHA_4_INTEGRATION.md)
 - [Target environment](technical/TARGET_ENVIRONMENT.md)

@@ -14,9 +14,17 @@
   "license": "All-Rights-Reserved",
   "environment": "*",
   "entrypoints": {
-    "main": ["de.relics.RelicWorldgen"]
+    "main": [
+      "de.relics.RelicWorldgen"
+    ]
   },
-  "mixins": ["relics.mixins.json"],
+  "mixins": [
+    "relics.mixins.json",
+    {
+      "config": "relics.client.mixins.json",
+      "environment": "client"
+    }
+  ],
   "depends": {
     "fabricloader": ">=0.19.5",
     "minecraft": "~26.2",

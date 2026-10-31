@@ -454,7 +454,11 @@ Enabled-family choices belong to initial world setup; changes to a frozen save
 need explicit supported migration or a fresh world. Existing relics are retained.
 The 5.0.3 fingerprint-format recovery does not approve arbitrary worldgen changes.
 
-There is no in-game settings menu. Developer diagnostics include
+The feature branch adds a title/options **Relic distribution** menu with three
+presets, editable block distances and per-family percentages, for **new worlds**.
+Existing worlds retain their saved plan. Dedicated servers use their own config
+file. This menu is not in the published 5.0.3 JARs yet; see
+[settings and limits](docs/technical/DISTRIBUTION_SETTINGS.md). Developer diagnostics include
 `/relicsdistribution status` and the distribution audit tools. See the
 [distribution contract](docs/technical/RELIC_DISTRIBUTION.md) and
 [current roadmap](docs/project/CURRENT_STATUS_AND_ROADMAP.md).

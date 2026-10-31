@@ -60,7 +60,7 @@ jobs:
         run: |
           relic_artifact="dist/relics-$(python tools/release_version.py)+mc26.2.jar"
           python tools/build_fabric26_checks.py --java-home "$JAVA_HOME" --artifact "$relic_artifact"
-          python tools/test_alpha5_port_server.py --loader fabric --minecraft 26.2 --accept-eula --java "$JAVA_HOME/bin/java" --artifact "$relic_artifact" --test-mod build/fabric26-checks/relics-alpha5-port-checks+mc26.2.jar --suite
+          python tools/test_alpha5_port_server.py --loader fabric --minecraft 26.2 --accept-eula --java "$JAVA_HOME/bin/java" --artifact "$relic_artifact" --test-mod build/fabric26-checks/relics-alpha5-port-checks+mc26.2.jar --suite --distribution-preset discovery --reload-preset expedition
       - name: Check reproducible package
         run: |
           cp dist/SHA256SUMS.txt /tmp/relics-first-build.sha256

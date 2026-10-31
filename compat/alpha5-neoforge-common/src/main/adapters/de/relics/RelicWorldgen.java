@@ -14,6 +14,7 @@ import net.neoforged.neoforge.registries.RegisterEvent;
 public final class RelicWorldgen {
     public static final net.minecraft.world.level.levelgen.structure.templatesystem.StructureProcessorType<TerrainSupportProcessor> TERRAIN_SUPPORT=()->TerrainSupportProcessor.CODEC;
     public RelicWorldgen(IEventBus modBus) {
+        de.relics.distribution.DistributionConfig.directory(net.neoforged.fml.loading.FMLPaths.CONFIGDIR.get());
         NeoAttachments.initialize(modBus);NeoRegistrations.initialize(modBus);NeoEvents.initialize(modBus);
         RelicItems.initialize();RelicGameplay.initialize();NaturalInteriors.initialize();DistributionRuntime.initialize();RelicProtection.initialize();
         modBus.addListener(this::register);

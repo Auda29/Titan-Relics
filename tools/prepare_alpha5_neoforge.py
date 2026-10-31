@@ -142,6 +142,8 @@ authors="Auda29"
 description="Alpha 5 relic structures, exploration and finite personal rewards."
 [[mixins]]
 config="relics.mixins.json"
+[[mixins]]
+config="relics.client.mixins.json"
 [[dependencies.relics]]
 modId="minecraft"
 type="required"
@@ -206,8 +208,10 @@ def prepare(minecraft):
     pack=json.loads((resources/'pack.mcmeta').read_bytes());pack['pack']['description']='Relic Mod Alpha 5.0 for NeoForge '+minecraft
     (resources/'pack.mcmeta').write_text(json.dumps(pack,indent=2)+'\n',encoding='utf-8')
     sources=[]
-    for path in sorted((source/'java').rglob('*.java')):
-        relative=path.relative_to(source/'java');override=COMMON/relative
+    java_paths=list((source/'java').rglob('*.java'))
+    if not legacy:java_paths+=list((ROOT/'src/client/java').rglob('*.java'))
+    for path in sorted(java_paths):
+        relative=path.relative_to(ROOT/'src/client/java' if path.is_relative_to(ROOT/'src/client/java') else source/'java');override=COMMON/relative
         text=(modern_platform(path.name,override.read_text(encoding='utf-8')) if not legacy else override.read_text(encoding='utf-8')) if override.exists() else native_java(path.name,path.read_text(encoding='utf-8'),minecraft)
         destination=output/'java'/relative;destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(text,encoding='utf-8',newline='\n')
     for path in sorted(COMMON.rglob('*.java')):

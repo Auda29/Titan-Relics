@@ -13,6 +13,7 @@ public final class RelicWorldgen implements ModInitializer {
     @Override
     @SuppressWarnings("unchecked")
     public void onInitialize() {
+        de.relics.distribution.DistributionConfig.directory(net.fabricmc.loader.api.FabricLoader.getInstance().getConfigDir());
         de.relics.gameplay.RelicItems.initialize();
         de.relics.gameplay.RelicGameplay.initialize();
         de.relics.gameplay.NaturalInteriors.initialize();

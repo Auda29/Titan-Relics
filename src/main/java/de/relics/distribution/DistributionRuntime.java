@@ -52,6 +52,7 @@ public final class DistributionRuntime implements AutoCloseable {
         var border=level.getWorldBorder();
         DistributionJournal.State initial=new DistributionJournal.State();
         initial.interiors=fresh?de.relics.gameplay.NaturalInteriors.REVISION:DistributionJournal.interiorRevision(file);
+        if(fresh){initial.settings=DistributionConfig.load();initial.policy=DistributionSettings.POLICY;}
         initial.seed=level.getSeed();
         int absolute=Math.min(29999984,level.getServer().getAbsoluteMaxWorldSize());
         initial.minX=(int)Math.ceil(Math.max(-absolute,border.getMinX())); initial.maxX=(int)Math.floor(Math.min(absolute,border.getMaxX()));
@@ -82,7 +83,7 @@ public final class DistributionRuntime implements AutoCloseable {
                     recovery?"explicitly approved":"exactly matching");
         }
         unique=s.unique;unavailable=s.unavailable;
-        planner=new DistributionPlanner(s.policy,s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
+        planner=new DistributionPlanner(s.policy,s.settings==null?DistributionSettings.EXPEDITION:s.settings,s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
         actor=Executors.newSingleThreadScheduledExecutor(r->{Thread t=new Thread(r,"Relic planning "+s.seed);t.setDaemon(true);return t;});
         if(fresh)journal.flush();
         if(s.frozen)startResolver();
@@ -116,8 +117,8 @@ public final class DistributionRuntime implements AutoCloseable {
                 .then(Commands.literal("plan").then(Commands.argument("x",com.mojang.brigadier.arguments.IntegerArgumentType.integer(-29999984,29999984))
                     .then(Commands.argument("z",com.mojang.brigadier.arguments.IntegerArgumentType.integer(-29999984,29999984)).executes(context->{
                         var source=context.getSource();var runtime=get(source.getLevel());if(runtime==null)return 0;
-                        Cell cell=new Cell(Math.floorDiv(com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(context,"x"),CELL),
-                                Math.floorDiv(com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(context,"z"),CELL));
+                        Cell cell=new Cell(Math.floorDiv(com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(context,"x"),runtime.planner.cellSize()),
+                                Math.floorDiv(com.mojang.brigadier.arguments.IntegerArgumentType.getInteger(context,"z"),runtime.planner.cellSize()));
                         runtime.decision(cell).whenComplete((site,error)->source.getServer().execute(()->{
                             if(error!=null)source.sendFailure(Component.literal("Relic plan paused: "+error.getMessage()));
                             else source.sendSuccess(()->Component.literal("Relic plan "+cell+": "+new GsonBuilder().create().toJson(site)),false);
@@ -227,14 +228,16 @@ public final class DistributionRuntime implements AutoCloseable {
         var runtime=get(level);if(runtime==null)return original.get();
         if(runtime.failure!=null)return CompletableFuture.failedFuture(runtime.failure);
         ChunkPos pos=chunk.getPos();
-        Cell cell=new Cell(Math.floorDiv(pos.getMinBlockX(),CELL),Math.floorDiv(pos.getMinBlockZ(),CELL));
-        Candidate ordinary=candidate(level.getSeed(),cell,false),large=candidate(level.getSeed(),cell,true);
+        int size=runtime.planner.cellSize();
+        Cell cell=new Cell(Math.floorDiv(pos.getMinBlockX(),size),Math.floorDiv(pos.getMinBlockZ(),size));
+        Cell largeCell=new Cell(Math.floorDiv(pos.getMinBlockX(),CELL),Math.floorDiv(pos.getMinBlockZ(),CELL));
+        Candidate ordinary=runtime.planner.ordinaryCandidate(cell),large=candidate(level.getSeed(),largeCell,true);
         CompletableFuture<Site> result;
         boolean ordinaryChunk=runtime.journal.state.policy.equals(LEGACY_POLICY)
                 ?pos.x()==ordinary.chunkX() && pos.z()==ordinary.chunkZ():LocationSearch.mayContain(ordinary,pos.x(),pos.z());
         boolean possibleLarge=distance(large,runtime.journal.state.bootstrapX,runtime.journal.state.bootstrapZ)>=UNIQUE_MIN-182;
         if(pos.x()==large.chunkX() && pos.z()==large.chunkZ() && possibleLarge) {
-            result=runtime.ready.thenCompose(ignored->runtime.unique!=null && runtime.unique.candidate().cell().equals(cell)
+            result=runtime.ready.thenCompose(ignored->runtime.unique!=null && runtime.unique.candidate().cell().equals(largeCell)
                     ?CompletableFuture.completedFuture(runtime.unique):ordinaryChunk?runtime.ordinaryAt(cell,pos):CompletableFuture.completedFuture(null));
         } else if(ordinaryChunk)result=runtime.ordinaryAt(cell,pos);
         else result=CompletableFuture.completedFuture(null);
@@ -283,10 +286,10 @@ public final class DistributionRuntime implements AutoCloseable {
                 List<Candidate> cells=new ArrayList<>();
                 int radius=LOCATE_RADIUS;
                 int margin=journal.state.policy.equals(LEGACY_POLICY)?0:LocationSearch.RADIUS;
-                for(int x=Math.floorDiv(origin.getX()-radius-margin,CELL);x<=Math.floorDiv(origin.getX()+radius+margin,CELL);x++)
-                    for(int z=Math.floorDiv(origin.getZ()-radius-margin,CELL);z<=Math.floorDiv(origin.getZ()+radius+margin,CELL);z++) {
-                        Candidate c=candidate(level.getSeed(),new Cell(x,z),false);
-                        if(distance(c,origin.getX(),origin.getZ())<=radius+margin+2 && LocationSearch.mayMatch(c.ticket(),families))cells.add(c);
+                for(int x=Math.floorDiv(origin.getX()-radius-margin,planner.cellSize());x<=Math.floorDiv(origin.getX()+radius+margin,planner.cellSize());x++)
+                    for(int z=Math.floorDiv(origin.getZ()-radius-margin,planner.cellSize());z<=Math.floorDiv(origin.getZ()+radius+margin,planner.cellSize());z++) {
+                        Candidate c=planner.ordinaryCandidate(new Cell(x,z));
+                        if(distance(c,origin.getX(),origin.getZ())<=radius+margin+2 && planner.mayMatch(c.ticket(),families))cells.add(c);
                     }
                 cells.sort(Comparator.comparingDouble(c->distance(c,origin.getX(),origin.getZ())));
                 locateSlice(cells,0,initial,requested,origin,result);
