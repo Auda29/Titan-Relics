@@ -57,7 +57,7 @@ blocks are unavailable; the approved roles, loot and protected access remain.
   are not yet recorded. A read-only profile check found 5.0.3 installed and a
   valid format-1 planning journal in the original Living World save.
 
-## Feature branch: distribution settings
+## Alpha 5.0.4 release preparation: distribution settings
 
 The user approved presets and editable values after a 6,000-block exploration
 route without a relic find. The branch adds Expedition, Balanced and Discoveries
@@ -66,7 +66,9 @@ inside the World tab of world creation. Mod-list configuration edits future-worl
 defaults; loaded local worlds expose a read-only viewer with rejection diagnostics.
 It covers Fabric and NeoForge on both supported Minecraft versions. Settings
 are frozen per new world; existing worlds retain their plans. This is **not yet
-part of a published release**. See the [usage and limits](../technical/DISTRIBUTION_SETTINGS.md)
+part of a published release**; publication of Alpha 5.0.4 is authorized and awaits
+PR checks and the tag-triggered release workflow. See the [release notes](../releases/0.1.0-alpha.5.0.4.md),
+[usage and limits](../technical/DISTRIBUTION_SETTINGS.md)
 and [current validation report](../testing/DISTRIBUTION_WORLD_MENU_20261101.md).
 
 ## Open work on the existing game
