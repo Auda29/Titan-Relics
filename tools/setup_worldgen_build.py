@@ -39,6 +39,11 @@ def main():
     metadata_path = CACHE / "minecraft-version.json"
     checked_download(version["url"], metadata_path, "sha1", version["sha1"])
     metadata = json.loads(metadata_path.read_bytes())
+    client = metadata["downloads"]["client"]
+    checked_download(client["url"], CACHE / "minecraft-client.jar", "sha1", client["sha1"])
+    menu=json.loads(fetch("https://api.modrinth.com/v2/project/modmenu/version/20.0.3"))
+    menu_file=next(f for f in menu["files"] if f["primary"])
+    checked_download(menu_file["url"],CACHE / "modmenu-api.jar","sha512",menu_file["hashes"]["sha512"])
     server = metadata["downloads"]["server"]
     bundler = CACHE / "minecraft-server-bundler.jar"
     checked_download(server["url"], bundler, "sha1", server["sha1"])

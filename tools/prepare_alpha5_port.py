@@ -15,6 +15,24 @@ ROOT = Path(__file__).resolve().parents[1]
 VERSION = release_version()
 
 
+def legacy_client(text: str) -> str:
+    if 'class CreateWorldSettingsMixin' in text:
+        start=text.index('    // WORLD_WRITE_BEGIN');end=text.index('    // WORLD_WRITE_END')+len('    // WORLD_WRITE_END')
+        text=text[:start]+'''    @Inject(method="createNewWorldDirectory",at=@At("RETURN"))
+    private void relics$create(CallbackInfoReturnable<Optional<LevelStorageSource.LevelStorageAccess>> ci) {relics$write(ci.getReturnValue());}
+'''+text[end:]
+    text=text.replace('CreateWorldScreen.openFresh(minecraft,()->minecraft.gui.setScreen(parent))','CreateWorldScreen.openFresh(minecraft,parent)')
+    text=text.replace('CreateWorldScreen.openFresh(client,()->client.gui.setScreen(parent))','CreateWorldScreen.openFresh(client,parent)')
+    text=text.replace('biomes.listElements()', 'biomes.holders()')
+    text=text.replace('GuiGraphicsExtractor','GuiGraphics').replace('extractRenderState','render').replace('extractBackground','renderBackground')
+    text=text.replace('setScreenAndShow', 'setScreen').replace('.onPress(null)', '.onPress()')
+    text=text.replace('.gui.setScreen(', '.setScreen(').replace('.gui.screen()', '.screen').replace('.getWindow().handle()', '.getWindow().getWindow()')
+    text=text.replace('graphics.centeredText(', 'graphics.drawCenteredString(').replace('graphics.textWithWordWrap(', 'graphics.drawWordWrap(').replace('graphics.text(', 'graphics.drawString(')
+    text=text.replace('super.render(graphics,mouseX,mouseY,delta);', 'renderBackground(graphics,mouseX,mouseY,delta);\n        super.render(graphics,mouseX,mouseY,delta);')
+    text=text.replace(',client.options,false)', ',client.options)')
+    return text.replace('Screenshot.grab(client,true)', 'Screenshot.grab(client.gameDirectory,client.getMainRenderTarget(),message->{})')
+
+
 def legacy_java(name: str, text: str) -> str:
     initializers = [line for line in text.splitlines(True) if any(
         x in line for x in ('RelicItems.initialize();', 'RelicGameplay.initialize();', 'DistributionRuntime.initialize();'))]
@@ -248,13 +266,18 @@ def prepare(loader='fabric', minecraft='1.21.1'):
     mixins['compatibilityLevel'] = 'JAVA_21'
     mixins['mixins'].append('LegacyPoolTemplateAccess')
     (resources/'relics.mixins.json').write_text(json.dumps(mixins,indent=2)+'\n',encoding='utf-8')
+    client_mixins = json.loads((resources/'relics.client.mixins.json').read_bytes())
+    client_mixins['compatibilityLevel'] = 'JAVA_21'
+    (resources/'relics.client.mixins.json').write_text(json.dumps(client_mixins,indent=2)+'\n',encoding='utf-8')
     substitutions=legacy_resources(resources)
     sources=[]
-    for source in sorted((ROOT/'src/main/java').rglob('*.java')):
-        relative=source.relative_to(ROOT/'src/main/java')
+    for source in sorted([*(ROOT/'src/main/java').rglob('*.java'),*(ROOT/'src/client/java').rglob('*.java')]):
+        relative=source.relative_to(ROOT/'src/client/java' if source.is_relative_to(ROOT/'src/client/java') else ROOT/'src/main/java')
         destination=output/'java'/relative
         destination.parent.mkdir(parents=True,exist_ok=True)
         text=legacy_java(source.name,source.read_text(encoding='utf-8'))
+        if source.is_relative_to(ROOT/'src/client/java'):
+            text=legacy_client(text)
         override=project/'src/main/adapters'/relative
         if override.exists(): text=override.read_text(encoding='utf-8')
         destination.write_text(text,encoding='utf-8',newline='\n')

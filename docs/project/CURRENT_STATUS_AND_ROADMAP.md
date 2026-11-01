@@ -57,6 +57,20 @@ blocks are unavailable; the approved roles, loot and protected access remain.
   are not yet recorded. A read-only profile check found 5.0.3 installed and a
   valid format-1 planning journal in the original Living World save.
 
+## Alpha 5.0.4 release preparation: distribution settings
+
+The user approved presets and editable values after a 6,000-block exploration
+route without a relic find. The branch adds Expedition, Balanced and Discoveries
+presets, block distances, per-family percentages and biome selection directly
+inside the World tab of world creation. Mod-list configuration edits future-world
+defaults; loaded local worlds expose a read-only viewer with rejection diagnostics.
+It covers Fabric and NeoForge on both supported Minecraft versions. Settings
+are frozen per new world; existing worlds retain their plans. This is **not yet
+part of a published release**; publication of Alpha 5.0.4 is authorized and awaits
+PR checks and the tag-triggered release workflow. See the [release notes](../releases/0.1.0-alpha.5.0.4.md),
+[usage and limits](../technical/DISTRIBUTION_SETTINGS.md)
+and [current validation report](../testing/DISTRIBUTION_WORLD_MENU_20261101.md).
+
 ## Open work on the existing game
 
 These are remaining validation/tuning tasks, not unimplemented core mechanics.
@@ -92,8 +106,9 @@ playtest does not reopen accepted models or require a new feature-design round.
 - Controlled planning-epoch/configuration migration is outside the first gameplay
   implementation. The 5.0.3 hash-format migration does not enable arbitrary
   generator, density, biome or asset changes in a frozen world.
-- Legacy density datapacks and development diagnostics exist. There is no
-  in-game settings menu. A menu is not an approved next-release commitment.
+- Legacy density datapacks and development diagnostics exist. The new-world
+  settings menu is implemented on the feature branch above; migration of an
+  existing world's density remains outside its scope.
 - Retroactive structure insertion and automatic conversion of old placed copies
   are outside the current scope.
 

@@ -14,10 +14,13 @@ public final class LocationSearch {
         return outside!=Family.EMPTY && requested.contains(outside) || inside!=Family.EMPTY && requested.contains(inside);
     }
     public static List<Candidate> positions(long seed,Candidate anchor) {
+        return positions(seed,anchor,CELL);
+    }
+    public static List<Candidate> positions(long seed,Candidate anchor,int cellSize) {
         if(anchor.unique())return List.of(anchor);
         List<Candidate> result=new ArrayList<>();result.add(anchor);Set<Long> seen=new HashSet<>();seen.add(0L);
-        long left=(long)anchor.cell().x()*CELL+MARGIN,right=(long)(anchor.cell().x()+1)*CELL-MARGIN;
-        long near=(long)anchor.cell().z()*CELL+MARGIN,far=(long)(anchor.cell().z()+1)*CELL-MARGIN;
+        long left=(long)anchor.cell().x()*cellSize+MARGIN,right=(long)(anchor.cell().x()+1)*cellSize-MARGIN;
+        long near=(long)anchor.cell().z()*cellSize+MARGIN,far=(long)(anchor.cell().z()+1)*cellSize-MARGIN;
         int reach=RADIUS/16,side=reach*2+1;
         for(int ordinal=0;ordinal<8192 && result.size()<ATTEMPTS;ordinal++) {
             long rank=stream(seed,anchor.cell(),DOMAIN^mix(ordinal));

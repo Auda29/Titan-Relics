@@ -454,7 +454,12 @@ Enabled-family choices belong to initial world setup; changes to a frozen save
 need explicit supported migration or a fresh world. Existing relics are retained.
 The 5.0.3 fingerprint-format recovery does not approve arbitrary worldgen changes.
 
-There is no in-game settings menu. Developer diagnostics include
+The feature branch adds **Relic generation** directly in the **World** tab of
+world creation: presets, distances, family shares and biome rules for that world.
+Fabric Mod Menu (optional) and the NeoForge mod list edit future-world defaults;
+loaded local worlds show saved settings and rejection diagnostics read-only.
+Existing worlds retain their saved plan. This is not in published 5.0.3 JARs yet;
+see [settings and limits](docs/technical/DISTRIBUTION_SETTINGS.md). Developer diagnostics include
 `/relicsdistribution status` and the distribution audit tools. See the
 [distribution contract](docs/technical/RELIC_DISTRIBUTION.md) and
 [current roadmap](docs/project/CURRENT_STATUS_AND_ROADMAP.md).

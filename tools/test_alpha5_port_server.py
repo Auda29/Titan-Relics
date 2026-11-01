@@ -41,7 +41,12 @@ def main():
     parser.add_argument('--test-mod',type=Path)
     parser.add_argument('--command',action='append',default=[])
     parser.add_argument('--suite',action='store_true',help='Core, recipes, two-player rewards, aura, animals and restart')
+    parser.add_argument('--distribution-preset',choices=('expedition','balanced','discovery','tower-only'),help='Exercise frozen new-world settings in an isolated server')
+    parser.add_argument('--biome-mode',choices=('standard','landscapes','empty-colossus'),default='standard')
+    parser.add_argument('--reload-preset',choices=('expedition','balanced','discovery','invalid'),help='Change installation defaults before reopening the same world')
+    parser.add_argument('--historical-journal',action='store_true',help='Reopen an Expedition fixture as a pre-menu v2 world')
     args=parser.parse_args()
+    if args.historical_journal and args.distribution_preset!='expedition':parser.error('Historical journal fixture requires Expedition')
     if not args.accept_eula:parser.error('Accept the Minecraft EULA for this isolated server')
     base=ROOT/'build/alpha5-ports-20261028'
     run=base/datetime.now().strftime(f'{args.loader}-{args.minecraft}-%H%M%S-%f')
@@ -76,16 +81,43 @@ def main():
     if args.minecraft=='26.2':properties['pause-when-empty-seconds']=0
     (run/'server.properties').write_text(''.join(f'{k}={v}\n' for k,v in properties.items()),encoding='utf-8')
     (run/'eula.txt').write_text('eula=true\n',encoding='utf-8')
+    def settings(preset):
+        cell,distance,obelisks,region={'expedition':(5000,2000,15000,6000),'balanced':(3000,1200,9000,3600),
+            'discovery':(2000,800,6000,2400),'tower-only':(2000,800,6000,2400)}[preset]
+        families={} if args.biome_mode=='standard' else {name:dict(mode='LANDSCAPES',selected=[]) for name in ('colossus','obelisk','titan_skull','titan_skull_2','ruined_tower','small_colossus','world_tree')}
+        if args.biome_mode=='empty-colossus':families={'colossus':dict(mode='CUSTOM',selected=[])}
+        return dict(cellSize=cell,minDistance=distance,obeliskDistance=obelisks,regionRadius=region,biomes={'families':families},
+                    outside=[0,0,0,10000,0,0] if preset=='tower-only' else [3000,250,250,200,200,200],
+                    inside=[0,0,0,10000,0,0] if preset=='tower-only' else [3000,1500,1500,200,200,200])
+    def defaults(preset):
+        config=run/'config/relics-distribution.json';config.parent.mkdir(exist_ok=True)
+        config.write_text('invalid-for-new-worlds' if preset=='invalid' else json.dumps({'format':1,'settings':settings(preset)}),encoding='utf-8')
+    if args.distribution_preset:defaults(args.distribution_preset)
+    frozen=None
+    custom_site=None
     argfile=run/'args.txt'
     argfile.write_text('\n'.join('"'+v.replace('\\','/')+'"' for v in ['-Xms256M','-Xmx3G','-XX:ActiveProcessorCount=4','-Djava.awt.headless=true',*launch]),encoding='utf-8')
     report={'loader':args.loader,'minecraft':args.minecraft,'artifact':artifact.name,'artifact_sha256':hashlib.sha256(artifact.read_bytes()).hexdigest(),'passed':False,'iterations':[]}
     print('PORT_SERVER',run,flush=True)
     try:
         for iteration in range(2):
+            if iteration and args.reload_preset:defaults(args.reload_preset)
             process=subprocess.Popen([str(args.java.resolve()),'@'+str(argfile)],cwd=run,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',bufsize=1,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
             console=PortConsole(process,run/f'console-{iteration}.log',echo=False)
             try:
                 console.wait(r'Done \(',timeout=240)
+                if args.distribution_preset=='tower-only':
+                    if custom_site is None:
+                        for x,z in ((-4000,-4000),(-2000,0),(0,-2000),(0,0),(2000,0),(0,2000)):
+                            reply=console.command(f'relicsdistribution plan {x} {z}',r'Relic plan .*:',timeout=180)
+                            custom_site=json.loads(re.search(r'Relic plan .*?: (null|\{.*\})',reply).group(1))
+                            if custom_site is not None:break
+                        assert custom_site is not None and custom_site['asset']=='ruined_tower','Custom family ticket yielded no test site'
+                    candidate=custom_site['candidate'];x,z=candidate['x'],candidate['z']
+                    console.command(f'forceload add {x} {z}',r'Marked|force.loaded|already|No chunks',timeout=120)
+                    deadline=time.monotonic()+120
+                    while 'Test passed' not in console.command(f'execute if loaded {x} 70 {z}',r'Test passed|Test failed',timeout=30):
+                        assert time.monotonic()<deadline;time.sleep(.25)
                 results=[]
                 commands=list(args.command)
                 if args.suite:
@@ -117,6 +149,28 @@ def main():
                 errors=[line for line in console.lines if '/ERROR]' in line or 'Mixin apply' in line or 'Couldn\'t parse' in line]
                 assert process.returncode==0 and not errors,errors
                 report['iterations'].append({'restart':iteration>0,'commands':results,'exit_code':process.returncode})
+                if custom_site is not None:
+                    from verify_world import AnvilWorld
+                    candidate=custom_site['candidate'];chunk=AnvilWorld(run/'world').chunk(candidate['x']//16,candidate['z']//16)
+                    start=chunk['structures']['starts'].get('relics:ruined_tower')
+                    assert start and start.get('id')!='INVALID' and start.get('Children'),'Custom planned chunk has no natural structure start'
+                    report['iterations'][-1]['custom_natural_start']={'site':custom_site,'start_id':start['id'],'pieces':len(start['Children'])}
+                if args.distribution_preset:
+                    envelope=json.loads((run/'world/data/relics_distribution_v1.json').read_text())
+                    assert hashlib.sha256(envelope['payload'].encode()).hexdigest()==envelope['sha256']
+                    snapshot=json.loads(envelope['payload'])
+                    if args.biome_mode=='empty-colossus':assert snapshot['unavailable'] and snapshot.get('unique') is None,'Empty Colossus selection must resolve unavailable, never search forever'
+                    historical=iteration and args.historical_journal
+                    assert snapshot['policy']==('relics-distribution-v2-local64-r3072' if historical else 'relics-distribution-v3-settings')
+                    assert snapshot.get('settings')==(None if historical else settings(args.distribution_preset))
+                    invariant={key:snapshot.get(key) for key in ('policy','settings','unique','fingerprint','spawnX','spawnZ')}
+                    if iteration:assert invariant==frozen,'Reopen changed world settings or the unique destination'
+                    frozen=invariant;report['iterations'][-1]['frozen_distribution']=invariant
+                    if not iteration and args.historical_journal:
+                        snapshot['policy']='relics-distribution-v2-local64-r3072';snapshot.pop('settings')
+                        payload=json.dumps(snapshot,separators=(',',':'))
+                        (run/'world/data/relics_distribution_v1.json').write_text(json.dumps(dict(version=1,payload=payload,sha256=hashlib.sha256(payload.encode()).hexdigest())),encoding='utf-8')
+                        frozen={**invariant,'policy':snapshot['policy'],'settings':None}
             finally:
                 if process.poll() is None:
                     try:process.stdin.write('stop\n');process.stdin.flush();process.wait(timeout=30)

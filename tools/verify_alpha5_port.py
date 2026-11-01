@@ -55,6 +55,17 @@ def verify(path: Path,loader: str,minecraft: str) -> dict:
         if not mixins['required'] or mixins['compatibilityLevel']!='JAVA_'+str(java):raise ValueError('Wrong mixin target')
         for name in mixins['mixins']:
             if mixins['package'].replace('.','/')+'/'+name+'.class' not in classes:raise ValueError('Missing required mixin: '+name)
+        client=json.loads(archive.read('relics.client.mixins.json'))
+        if not client['required'] or client['compatibilityLevel']!='JAVA_'+str(java) or client.get('mixins'):
+            raise ValueError('Client mixins must remain client-only with the matching Java target')
+        if client['package']!='de.relics.client.mixin' or client['client']!=['CreateWorldSettingsMixin','WorldGenerationTabMixin']:
+            raise ValueError('Wrong client mixin namespace or screen integration')
+        if 'de/relics/client/DistributionSettingsScreen.class' not in classes or 'de/relics/client/mixin/WorldGenerationTabMixin.class' not in classes:
+            raise ValueError('Missing distribution settings menu')
+        if loader=='fabric' and {'config':'relics.client.mixins.json','environment':'client'} not in metadata['mixins']:
+            raise ValueError('Fabric menu mixins are not client-scoped')
+        if loader=='neoforge' and {'config':'relics.client.mixins.json'} not in metadata['mixins']:
+            raise ValueError('NeoForge menu mixins are not registered')
         substitutions=json.loads(archive.read('relics.gameplay.tree_skull.integration.json')).get('block_substitutions',{})
     return {'file':path.name,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'loader':loader,'minecraft':minecraft,
             'version':VERSION,'java_class_major':java+44,'templates':len(templates),'frozen_manifests':len(manifests),'runtime_classes':len(classes),'block_substitutions':substitutions,'passed':True}

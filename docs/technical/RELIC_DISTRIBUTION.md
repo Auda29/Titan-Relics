@@ -1,5 +1,11 @@
 # Shared relic distribution and unique-site resolver
 
+The [new-world distribution menu](DISTRIBUTION_SETTINGS.md) adds presets and
+custom distances/shares on the feature branch. The numerical rules below describe
+the released Expedition baseline. Existing v1/v2 worlds retain those rules;
+new v3 worlds freeze their validated settings independently. This feature has
+not been published in Alpha 5.0.3.
+
 > **Current status, October 30, 2026:** The released baseline supports Fabric and NeoForge on 26.2 and 1.21.1. See the
 > [Alpha 5.0.3 status and roadmap](../project/CURRENT_STATUS_AND_ROADMAP.md). Approved design requirements
 > remain specifications; dated pending/unimplemented claims below are historical

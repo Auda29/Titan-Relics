@@ -16,6 +16,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 JAVA_SOURCES = ROOT / "src/main/java"
+CLIENT_SOURCES = ROOT / "src/client/java"
 
 
 def find_javac(java_home: Path | None = None) -> Path:
@@ -34,8 +35,8 @@ def find_javac(java_home: Path | None = None) -> Path:
 
 def source_hash() -> str:
     digest = hashlib.sha256()
-    for path in sorted(JAVA_SOURCES.rglob("*.java")):
-        digest.update(path.relative_to(JAVA_SOURCES).as_posix().encode() + b"\0")
+    for path in sorted([*JAVA_SOURCES.rglob("*.java"), *CLIENT_SOURCES.rglob("*.java")]):
+        digest.update(path.relative_to(ROOT / "src").as_posix().encode() + b"\0")
         digest.update(path.read_text(encoding="utf-8").replace("\r\n", "\n").encode())
     return digest.hexdigest()
 
@@ -92,6 +93,19 @@ def compile_worldgen(java_home: Path | None = None) -> Path:
                      "-classpath", os.pathsep.join(map(str, libraries)), "-d", str(staging)]
         arguments += [str(p) for p in sorted(JAVA_SOURCES.rglob("*.java"))]
         argfile = staging / "javac-args.txt"
+        argfile.write_text("\n".join('"' + a.replace("\\", "/").replace('"', '\\"') + '"'
+                                     for a in arguments), encoding="utf-8")
+        subprocess.run([str(compiler), "@" + str(argfile)], check=True, cwd=ROOT)
+        # Client classes are compiled separately: never add the client JAR to a
+        # dedicated server's runtime classpath.
+        client = ROOT / "build/worldgen-dependencies/minecraft-client.jar"
+        if not client.is_file():
+            client = Path.home() / ".gradle/caches/fabric-loom/26.2/minecraft-client.jar"
+        if not client.is_file():
+            raise FileNotFoundError("Prepare the client compile dependency with tools/setup_worldgen_build.py --accept-downloads")
+        arguments = ["--release", "25", "-encoding", "UTF-8", "-g:none", "-proc:none",
+                     "-classpath", os.pathsep.join(map(str, [staging, client, ROOT / "build/worldgen-dependencies/modmenu-api.jar", *libraries])), "-d", str(staging)]
+        arguments += [str(p) for p in sorted(CLIENT_SOURCES.rglob("*.java"))]
         argfile.write_text("\n".join('"' + a.replace("\\", "/").replace('"', '\\"') + '"'
                                      for a in arguments), encoding="utf-8")
         subprocess.run([str(compiler), "@" + str(argfile)], check=True, cwd=ROOT)
