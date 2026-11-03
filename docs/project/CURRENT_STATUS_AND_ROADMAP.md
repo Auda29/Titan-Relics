@@ -84,6 +84,17 @@ Fabric 26.2 natural generation/map/locate/restart tests passed. See the
 [release notes](../releases/0.1.0-alpha.5.0.5.md) and
 [validation report](../testing/COLOSSUS_PRESET_DISTANCE_20261103.md).
 
+## Public beta roadmap
+
+The [approved public-beta roadmap](PUBLIC_BETA_ROADMAP.md), agreed November 3,
+2026, turns the remaining work into six acceptance gates: understandable handling
+of world-load incompatibilities, measured exploration balance, a complete Survival
+run, real-client acceptance on all four targets, compatibility/performance
+measurements, and publication/support preparation. Start with world-load handling
+and exploration balance. Existing test evidence and accepted models remain valid;
+new content is not a Beta-1 prerequisite. The document records open checklists,
+evidence requirements and decisions still needed before public approval.
+
 ## Open work on the existing game
 
 These are remaining validation/tuning tasks, not unimplemented core mechanics.
@@ -120,7 +131,7 @@ playtest does not reopen accepted models or require a new feature-design round.
   implementation. The 5.0.3 hash-format migration does not enable arbitrary
   generator, density, biome or asset changes in a frozen world.
 - Legacy density datapacks and development diagnostics exist. The new-world
-  settings menu is implemented on the feature branch above; migration of an
+  settings menu shipped in Alpha 5.0.4; migration of an
   existing world's density remains outside its scope.
 - Retroactive structure insertion and automatic conversion of old placed copies
   are outside the current scope.
@@ -151,7 +162,9 @@ new dimensions are not selected additions. Skull/Tree reward chests are not plan
 GitHub prereleases and their CI are delivered. A broader release destination and
 license policy remain decisions; metadata currently uses `All-Rights-Reserved`.
 
-Recommended order: finish the current exploration playtest, record concrete
-findings, fix reproducible issues, then prioritize balance/performance work.
-Select a content experiment afterwards if desired. The lore catalog identifies
-independent machine fragments as the most direct later design experiment.
+Follow the [public-beta roadmap](PUBLIC_BETA_ROADMAP.md): address world-load
+handling and discovery balance first, finish Survival/client acceptance, then
+complete compatibility/performance and publication preparation. A public Beta 1
+requires recorded acceptance of those gates. Content experiments remain separate
+later decisions; independent machine fragments are the most direct recorded
+design experiment.
