@@ -18,8 +18,8 @@ public final class DistributionSettingsScreen extends Screen {
     private final String scope;
     private final Map<String,Long> diagnostics;
     private BiomeRules biomes;
-    private final String[] geometry=new String[4],outside=new String[6],inside=new String[6];
-    private static final String[] FIELDS={"cell","distance","obelisks","region"};
+    private final String[] geometry=new String[5],outside=new String[6],inside=new String[6];
+    private static final String[] FIELDS={"cell","distance","obelisks","region","colossus"};
     private static final String[] TYPES={"obelisk","skull","skull2","tower","small","tree"};
     private int page;
     private Button save;
@@ -35,8 +35,8 @@ public final class DistributionSettingsScreen extends Screen {
     public void loadError(){error=text("load_error");}
     private static Component text(String key){return Component.translatable("relics.settings."+key);}
     private void select(DistributionSettings value) {
-        int[] dimensions={value.cellSize(),value.minDistance(),value.obeliskDistance(),value.regionRadius()};
-        for(int i=0;i<4;i++)geometry[i]=Integer.toString(dimensions[i]);
+        int[] dimensions={value.cellSize(),value.minDistance(),value.obeliskDistance(),value.regionRadius(),value.colossusMinDistance()};
+        for(int i=0;i<geometry.length;i++)geometry[i]=Integer.toString(dimensions[i]);
         for(int i=0;i<6;i++){outside[i]=percent(value.outside().get(i));inside[i]=percent(value.inside().get(i));}
         error=null;
     }
@@ -47,7 +47,7 @@ public final class DistributionSettingsScreen extends Screen {
             List<Integer> a=Arrays.stream(outside).map(DistributionSettingsScreen::share).toList();
             List<Integer> b=Arrays.stream(inside).map(DistributionSettingsScreen::share).toList();
             return new DistributionSettings(Integer.parseInt(geometry[0]),Integer.parseInt(geometry[1]),
-                    Integer.parseInt(geometry[2]),Integer.parseInt(geometry[3]),a,b,biomes);
+                    Integer.parseInt(geometry[2]),Integer.parseInt(geometry[3]),a,b,biomes,Integer.parseInt(geometry[4]));
         }catch(NumberFormatException|ArithmeticException failure){throw new IllegalArgumentException("relics.settings.error.number");}
     }
     private void validateDraft(){try{draft();invalid=null;}catch(IllegalArgumentException failure){invalid=failure.getMessage();}if(save!=null)save.active=invalid==null && saveAction!=null;}
@@ -56,6 +56,7 @@ public final class DistributionSettingsScreen extends Screen {
     }
     private int left(){return Math.max(8,(width-Math.min(560,width-16))/2);}
     private int span(){return Math.min(560,width-16);}
+    private int geometryStep(){return height<280?16:20;}
     @Override protected void init() {
         int x=left(),w=span(),third=(w-8)/3;
         if(page==0 && saveAction!=null){
@@ -63,11 +64,12 @@ public final class DistributionSettingsScreen extends Screen {
         button(text("preset.balanced"),x+third+4,36,third,()->{select(DistributionSettings.BALANCED);rebuildWidgets();});
         button(text("preset.discovery"),x+2*(third+4),36,third,()->{select(DistributionSettings.DISCOVERY);rebuildWidgets();});
         }
-        int count=page==0?4:page<5?3:0;
+        int count=page==0?geometry.length:page<5?3:0;
         int offset=page==0?0:((page-1)%2)*3;
         for(int i=0;i<count;i++) {
             final int row=i+offset;String[] values=page==0?geometry:page<=2?outside:inside;
-            int y=82+i*20;EditBox field=new EditBox(font,x+w-86,y,82,20,text(page==0?FIELDS[row]:"type."+TYPES[row]));
+            int step=page==0?geometryStep():20;
+            int y=82+i*step;EditBox field=new EditBox(font,x+w-86,y,82,step,text(page==0?FIELDS[row]:"type."+TYPES[row]));
             field.setMaxLength(8);field.setValue(values[row]);
             field.setResponder(value->{values[row]=value;if(page==1 && row==0)inside[0]=value;validateDraft();});
             field.setEditable(saveAction!=null && !(page==3 && row==0));
@@ -92,7 +94,10 @@ public final class DistributionSettingsScreen extends Screen {
         graphics.centeredText(font,title,width/2,8,0xffffffff);
         graphics.centeredText(font,text(scope),width/2,23,0xffcccccc);
         graphics.centeredText(font,text("page."+page),width/2,65,0xffffffff);
-        for(int i=0;i<(page==0?4:page<5?3:0);i++){int row=i+(page==0?0:((page-1)%2)*3);graphics.text(font,text(page==0?FIELDS[row]:"type."+TYPES[row]),x+3,88+i*20,0xffffffff);}
+        for(int i=0;i<(page==0?geometry.length:page<5?3:0);i++){
+            int row=i+(page==0?0:((page-1)%2)*3),step=page==0?geometryStep():20;
+            graphics.text(font,text(page==0?FIELDS[row]:"type."+TYPES[row]),x+3,82+(step-9)/2+i*step,0xffffffff);
+        }
         graphics.centeredText(font,text("page_count").copy().append(" "+(page+1)+" / 7"),width/2,height-48,0xffcccccc);
         if(page>0 && page<5) {
             try{int empty=10000-Arrays.stream(page<=2?outside:inside).mapToInt(DistributionSettingsScreen::share).sum();

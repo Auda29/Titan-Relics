@@ -64,7 +64,7 @@ public abstract class DistributionMenuChecks {
                 case 1 -> {
                     if(!(relics$screen instanceof DistributionSettingsScreen)){relics$phase--;return;}
                     relics$press("relics.settings.preset.balanced");relics$press("relics.settings.save");
-                    relics$check(DistributionConfig.load().cellSize()==3000,"Mod-list defaults saved");
+                    relics$check(DistributionConfig.load().cellSize()==3000 && DistributionConfig.load().colossusMinDistance()==15000,"Mod-list defaults save density and Colossus distance");
                     Screen parent=relics$screen;CreateWorldScreen.openFresh(client,()->client.gui.setScreen(parent));
                 }
                 case 2 -> {
@@ -76,7 +76,10 @@ public abstract class DistributionMenuChecks {
                 }
                 case 3 -> {if(relics$capture(client))relics$press("relics.settings.world_button");}
                 case 4 -> {
+                    if(!relics$capture(client))break;
                     relics$check(relics$fields().getFirst().getValue().equals("3000"),"New world inherits defaults");relics$press("relics.settings.preset.discovery");
+                    relics$check(relics$fields().size()==5 && relics$fields().get(4).getValue().equals("8000"),"Discoveries preset updates editable Colossus distance");
+                    relics$fields().get(4).setValue("9000");
                     relics$fields().getFirst().setValue("0");
                     relics$check(relics$screen.children().stream().filter(Button.class::isInstance).map(Button.class::cast).anyMatch(v->!v.active && v.getMessage().getString().equals(Component.translatable("relics.settings.apply").getString())),"Invalid input blocks Apply");
                     relics$fields().getFirst().setValue("2000");
@@ -99,7 +102,8 @@ public abstract class DistributionMenuChecks {
                     var server=client.getSingleplayerServer();if(server==null || client.level==null){relics$phase--;return;}
                     Path root=server.getWorldPath(LevelResource.ROOT),file=root.resolve("data/relics_distribution_v1.json");
                     if(!Files.exists(file)){relics$phase--;return;}var state=new DistributionJournal(file,null).state;if(!state.frozen){relics$phase--;return;}
-                    relics$check(state.settings.cellSize()==2000 && state.settings.biomes().rule(DistributionPlanner.Family.COLOSSUS).selected().contains("minecraft:desert"),"Actual world froze density and biomes");
+                    relics$check(state.settings.cellSize()==2000 && state.settings.colossusMinDistance()==9000
+                            && state.lower>=9000 && state.settings.biomes().rule(DistributionPlanner.Family.COLOSSUS).selected().contains("minecraft:desert"),"Actual world froze density, custom Colossus distance and biomes");
                     relics$check(DistributionConfig.read(root.resolve(DistributionConfig.WORLD_FILE)).equals(state.settings),"Creation handoff equals journal");
                     Files.writeString(Path.of("menu-world-path.txt"),root.toString());
                     client.gui.setScreen(DistributionMenus.defaults(new OptionsScreen(null,client.options,false)));

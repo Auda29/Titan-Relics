@@ -27,6 +27,7 @@ public final class DistributionJournal {
         public DistributionPlanner.Site unique;
         public int lower = 30000, upper = 60000, cursor;
         public long candidatesChecked, slices, maxEvaluationNanos;
+        public int colossusMinDistance(){return settings==null?DistributionPlanner.UNIQUE_MIN:settings.colossusMinDistance();}
     }
     private record Envelope(int version, String sha256, String payload) { }
     public static String interiorRevision(Path file) {
@@ -57,9 +58,9 @@ public final class DistributionJournal {
                 || state.policy.equals(DistributionSettings.POLICY) != (state.settings!=null)
                 || !state.fingerprint.matches("[a-f0-9]{64}") || state.fingerprintFormat<0
                 || state.fingerprintFormat>PlanningFingerprint.FORMAT || state.enabled==null || state.cursor<0
-                || state.lower<30000 || state.upper<=state.lower || state.minX>=state.maxX || state.minZ>=state.maxZ
+                || state.lower<state.colossusMinDistance() || state.upper<=state.lower || state.minX>=state.maxX || state.minZ>=state.maxZ
                 || state.unique!=null && (!state.frozen || state.unavailable || !state.unique.candidate().unique()
-                    || DistributionPlanner.distance(state.unique.candidate(),state.spawnX,state.spawnZ)<30000))
+                    || DistributionPlanner.distance(state.unique.candidate(),state.spawnX,state.spawnZ)<state.colossusMinDistance()))
             throw new IllegalStateException("Invalid planning snapshot");
     }
     /** Preserve the complete old plan before replacing its hash representation. Never reset destinations. */

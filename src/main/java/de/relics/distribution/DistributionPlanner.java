@@ -136,7 +136,7 @@ public final class DistributionPlanner {
         // captured uncertainty. A site strictly inside this disk cannot conflict
         // with ANY future large destination. Everything else stays pending.
         long dx = (long)site.x2 - 2L * bootstrapX, dz = (long)site.z2 - 2L * bootstrapZ;
-        long safe = 2L * (UNIQUE_MIN - settings.minDistance() - bootstrapUncertainty);
+        long safe = 2L * (settings.colossusMinDistance() - settings.minDistance() - bootstrapUncertainty);
         if (dx*dx + dz*dz < safe*safe) return true;
         throw new Pending();
     }

@@ -34,11 +34,20 @@ def main():
     parser.add_argument('--seed', type=int, default=731204)
     parser.add_argument('--interrupt', action='store_true', help='Stop during a pending search, then resume and reload')
     parser.add_argument('--max-world-size', type=int, default=29999984)
+    parser.add_argument('--preset', choices=('expedition', 'balanced', 'discovery'), default='expedition')
     args = parser.parse_args()
     if not args.accept_eula:
         parser.error('Read https://aka.ms/MinecraftEULA and pass --accept-eula for this isolated server')
     run = ROOT / 'build/distribution-runtime' / f'{args.seed}-{uuid.uuid4().hex[:8]}'
     (run / 'mods').mkdir(parents=True)
+    if args.preset != 'expedition':
+        cell, distance, obelisks, region, colossus = {'balanced': (3000, 1200, 9000, 3600, 15000),
+                                                   'discovery': (2000, 800, 6000, 2400, 8000)}[args.preset]
+        creation = run / 'world/data/relics_creation_settings.json'
+        creation.parent.mkdir(parents=True)
+        creation.write_text(json.dumps({'format': 1, 'settings': {'cellSize': cell, 'minDistance': distance,
+                            'obeliskDistance': obelisks, 'regionRadius': region, 'colossusMinDistance': colossus,
+                            'outside': [3000, 250, 250, 200, 200, 200], 'inside': [3000, 1500, 1500, 200, 200, 200]}}), encoding='utf-8')
     libraries = compile_libraries()
     cp = [p for p in libraries if p.name == 'fabric-loader-0.19.5.jar'
           or any(part in {'libraries', 'loader-libraries', 'versions'} for part in p.parts)]
@@ -76,7 +85,7 @@ def main():
                  'net.fabricmc.loader.impl.launch.knot.KnotServer', 'nogui']
     argfile = run / 'java-args.txt'
     argfile.write_text('\n'.join('"' + a.replace('\\', '/') + '"' for a in arguments))
-    evidence = {'seed': args.seed, 'artifact_sha256': hashlib.sha256(args.artifact.read_bytes()).hexdigest(),
+    evidence = {'seed': args.seed, 'preset': args.preset, 'artifact_sha256': hashlib.sha256(args.artifact.read_bytes()).hexdigest(),
                 'run': str(run.relative_to(ROOT)), 'passes': [], 'commands': []}
     print(f'Isolated distribution server: {run}', flush=True)
     first = None
@@ -123,9 +132,11 @@ def main():
                 print(f'PASS unavailable destination iteration {iteration}', flush=True)
                 continue
             assert current['frozen'] and current.get('unique') and not current['unavailable'], current
+            configured_minimum = {'expedition': 30000, 'balanced': 15000, 'discovery': 8000}[args.preset]
+            assert current['settings']['colossusMinDistance'] == configured_minimum, current
             unique = current['unique']
             assert ((unique['x2'] / 2 - current['spawnX']) ** 2
-                    + (unique['z2'] / 2 - current['spawnZ']) ** 2) >= 30000 ** 2
+                    + (unique['z2'] / 2 - current['spawnZ']) ** 2) >= current.get('settings', {}).get('colossusMinDistance', 30000) ** 2
             if first is None:
                 first = current
             else:

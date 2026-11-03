@@ -18,6 +18,9 @@ public final class DistributionSettingsTests {
     private static void rejected(Runnable operation,String message){boolean failed=false;try{operation.run();}catch(RuntimeException expected){failed=true;}check(failed,message);}
     public static void main(String[] args)throws Exception {
         Path root=Path.of(args[0]),file=root.resolve("config/settings.json");
+        check(DistributionSettings.EXPEDITION.colossusMinDistance()==30000
+                && DistributionSettings.BALANCED.colossusMinDistance()==15000
+                && DistributionSettings.DISCOVERY.colossusMinDistance()==8000,"presets include distinct Colossus distances");
         check(DistributionConfig.read(file).equals(DistributionSettings.EXPEDITION) && !Files.exists(file),"missing config has historical defaults without writing");
         DistributionConfig.write(file,DistributionSettings.DISCOVERY);
         var custom=BiomeRules.STANDARD.with(Family.OBELISK,new BiomeRules.Rule(BiomeRules.Mode.CUSTOM,Set.of("example:new_dunes")));
@@ -40,6 +43,18 @@ public final class DistributionSettingsTests {
         check(DistributionConfig.load().equals(DistributionSettings.BALANCED),"world draft never changes defaults");
         String valid=Files.readString(file);
         check(DistributionConfig.read(file).equals(DistributionSettings.DISCOVERY),"all fields roundtrip");
+        var legacyConfig=JsonParser.parseString(valid).getAsJsonObject();
+        legacyConfig.getAsJsonObject("settings").remove("colossusMinDistance");
+        Path legacyFile=root.resolve("legacy-settings.json");Files.writeString(legacyFile,legacyConfig.toString());
+        check(DistributionConfig.read(legacyFile).cellSize()==2000
+                && DistributionConfig.read(legacyFile).colossusMinDistance()==30000,"old configs retain historical Colossus distance, independent of density");
+        check(Files.readString(legacyFile).equals(legacyConfig.toString()),"reading old config never rewrites it");
+        for(String bad:List.of("0","3999","100001","8000.5","null")) {
+            var invalid=JsonParser.parseString(valid).getAsJsonObject();
+            invalid.getAsJsonObject("settings").add("colossusMinDistance",JsonParser.parseString(bad));
+            Path badFile=root.resolve("bad-colossus.json");Files.writeString(badFile,invalid.toString());
+            rejected(()->DistributionConfig.read(badFile),"invalid Colossus distance rejected: "+bad);
+        }
         DistributionConfig.write(file,DistributionSettings.BALANCED);
         check(Files.readString(file.resolveSibling("settings.json.bak")).equals(valid),"explicit save preserves old file");
         for(String bad:List.of(valid.replace("2000","2000.5"),valid.replace("\"format\": 1","\"format\": 1.5"),
@@ -52,6 +67,12 @@ public final class DistributionSettingsTests {
             check(DistributionSettings.EXPEDITION.ticket(ticket,region)==DistributionPlanner.ticket(ticket,region),"historical ticket layout unchanged");
         var towerOnly=new DistributionSettings(2000,800,6000,2400,List.of(0,0,0,10000,0,0),List.of(0,0,0,10000,0,0));
         var none=new DistributionSettings(2000,800,6000,2400,Collections.nCopies(6,0),Collections.nCopies(6,0));
+        var closer=new DistributionSettings(2000,800,6000,2400,towerOnly.outside(),towerOnly.inside(),BiomeRules.STANDARD,8000);
+        var pendingPlanner=new DistributionPlanner(DistributionSettings.POLICY,closer,731204,EnumSet.allOf(Family.class),
+                DistributionSettingsTests::site,()->null,()->false,0,0,128);
+        check(pendingPlanner.plan(new Cell(0,0))!=null,"spawn neighborhood remains safe before closer Colossus resolves");
+        boolean pending=false;try{pendingPlanner.plan(new Cell(4,0));}catch(Pending expected){pending=true;}
+        check(pending,"closer Colossus shrinks the safe unresolved planning disk");
         for(int ticket=0;ticket<10000;ticket++)check(towerOnly.mayMatch(ticket,Set.of(Family.TOWER))
                 && !towerOnly.mayMatch(ticket,Set.of(Family.SKULL)),"locate uses customized shares including formerly empty tickets");
         rejected(()->new DistributionSettings(2000,800,6000,2400,List.of(0,0,0,10001,0,0),List.of(0,0,0,10000,0,0)),"overfull shares rejected");
@@ -87,6 +108,21 @@ public final class DistributionSettingsTests {
         check(new DistributionJournal(world,null).state.settings.equals(towerOnly),"world keeps independent settings after defaults change");
         initial.settings=biomeSettings;new DistributionJournal(root.resolve("biome-world.json"),initial).flush();
         check(new DistributionJournal(root.resolve("biome-world.json"),null).state.settings.biomes().equals(custom),"saved biome rules survive restart");
+        Path closerWorld=root.resolve("closer-world.json");
+        var closerState=new DistributionJournal.State();closerState.settings=closer;closerState.policy=DistributionSettings.POLICY;
+        closerState.fingerprint="b".repeat(64);closerState.enabled=EnumSet.allOf(Family.class);closerState.minX=closerState.minZ=-100000;
+        closerState.maxX=closerState.maxZ=100000;closerState.frozen=true;closerState.lower=8000;closerState.upper=16000;
+        var closeCandidate=annulus(731204,0,0,8000,16000,-100000,-100000,100000,100000).getFirst();
+        closerState.unique=site(closeCandidate,Family.COLOSSUS);new DistributionJournal(closerWorld,closerState).flush();
+        var restoredClose=new DistributionJournal(closerWorld,null).state;
+        check(restoredClose.unique.equals(closerState.unique) && restoredClose.colossusMinDistance()==8000,"closer Colossus and ring survive restart");
+        var oldEnvelope=JsonParser.parseString(Files.readString(root.resolve("biome-world.json"))).getAsJsonObject();
+        var oldPayload=JsonParser.parseString(oldEnvelope.get("payload").getAsString()).getAsJsonObject();
+        oldPayload.getAsJsonObject("settings").remove("colossusMinDistance");
+        oldEnvelope.addProperty("payload",oldPayload.toString());oldEnvelope.addProperty("sha256",DistributionJournal.hash(oldPayload.toString()));
+        Path oldWorld=root.resolve("released-world.json");Files.writeString(oldWorld,oldEnvelope.toString());
+        check(new DistributionJournal(oldWorld,null).state.colossusMinDistance()==30000,"released worlds keep 30000 even when other fields match Discoveries");
+        check(Files.readString(oldWorld).equals(oldEnvelope.toString()),"old world read preserves original journal bytes");
         var envelope=JsonParser.parseString(Files.readString(world)).getAsJsonObject();
         var payload=JsonParser.parseString(envelope.get("payload").getAsString()).getAsJsonObject();payload.remove("settings");
         envelope.addProperty("payload",payload.toString());envelope.addProperty("sha256",DistributionJournal.hash(payload.toString()));Files.writeString(world,envelope.toString());

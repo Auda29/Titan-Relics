@@ -52,7 +52,10 @@ public final class DistributionRuntime implements AutoCloseable {
         var border=level.getWorldBorder();
         DistributionJournal.State initial=new DistributionJournal.State();
         initial.interiors=fresh?de.relics.gameplay.NaturalInteriors.REVISION:DistributionJournal.interiorRevision(file);
-        if(fresh){initial.settings=DistributionConfig.forNewWorld(level.getServer().getWorldPath(LevelResource.ROOT));initial.policy=DistributionSettings.POLICY;}
+        if(fresh){
+            initial.settings=DistributionConfig.forNewWorld(level.getServer().getWorldPath(LevelResource.ROOT));initial.policy=DistributionSettings.POLICY;
+            initial.lower=initial.settings.colossusMinDistance();initial.upper=Math.multiplyExact(initial.lower,2);
+        }
         DistributionSettings selectedSettings=fresh?initial.settings:new DistributionJournal(file,null).state.settings;
         BiomeRules rules=selectedSettings==null?BiomeRules.STANDARD:selectedSettings.biomes();
         initial.seed=level.getSeed();
@@ -168,7 +171,8 @@ public final class DistributionRuntime implements AutoCloseable {
                 double farthest=Math.max(Math.max(Math.hypot((double)s.minX-s.spawnX,(double)s.minZ-s.spawnZ),Math.hypot((double)s.maxX-s.spawnX,(double)s.maxZ-s.spawnZ)),
                         Math.max(Math.hypot((double)s.minX-s.spawnX,(double)s.maxZ-s.spawnZ),Math.hypot((double)s.maxX-s.spawnX,(double)s.minZ-s.spawnZ)));
                 if(s.upper>farthest+2){s.unavailable=true;s.unavailableReason="finite frozen world border exhausted";commitResolution();return;}
-                s.lower=s.upper;s.upper=Math.addExact(s.upper,20000);s.cursor=0;annulus=null;
+                int increment=s.settings==null || s.colossusMinDistance()==UNIQUE_MIN?20000:s.colossusMinDistance();
+                s.lower=s.upper;s.upper=Math.addExact(s.upper,increment);s.cursor=0;annulus=null;
                 break;
             }
             Candidate candidate=annulus.get(s.cursor);
@@ -176,7 +180,7 @@ public final class DistributionRuntime implements AutoCloseable {
             s.maxEvaluationNanos=Math.max(s.maxEvaluationNanos,System.nanoTime()-start);s.candidatesChecked++;
             if(site!=null) {
                 long dx=(long)site.x2()-2L*s.spawnX,dz=(long)site.z2()-2L*s.spawnZ;
-                if(dx*dx+dz*dz>=4L*UNIQUE_MIN*UNIQUE_MIN){s.unique=site;commitResolution();return;}
+                if(dx*dx+dz*dz>=4L*s.colossusMinDistance()*s.colossusMinDistance()){s.unique=site;commitResolution();return;}
             }
             s.cursor++;
             if(System.nanoTime()>=deadline)break;
@@ -238,7 +242,7 @@ public final class DistributionRuntime implements AutoCloseable {
         CompletableFuture<Site> result;
         boolean ordinaryChunk=runtime.journal.state.policy.equals(LEGACY_POLICY)
                 ?pos.x()==ordinary.chunkX() && pos.z()==ordinary.chunkZ():LocationSearch.mayContain(ordinary,pos.x(),pos.z());
-        boolean possibleLarge=distance(large,runtime.journal.state.bootstrapX,runtime.journal.state.bootstrapZ)>=UNIQUE_MIN-182;
+        boolean possibleLarge=distance(large,runtime.journal.state.bootstrapX,runtime.journal.state.bootstrapZ)>=runtime.journal.state.colossusMinDistance()-182;
         if(pos.x()==large.chunkX() && pos.z()==large.chunkZ() && possibleLarge) {
             result=runtime.ready.thenCompose(ignored->runtime.unique!=null && runtime.unique.candidate().cell().equals(largeCell)
                     ?CompletableFuture.completedFuture(runtime.unique):ordinaryChunk?runtime.ordinaryAt(cell,pos):CompletableFuture.completedFuture(null));

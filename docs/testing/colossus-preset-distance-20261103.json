@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-03",
+  "release_status": "unreleased local source builds; not installed in player profiles",
+  "preset_minimum_blocks": {
+    "expedition": 30000,
+    "balanced": 15000,
+    "discoveries": 8000
+  },
+  "settings_field": "colossusMinDistance",
+  "legacy_missing_field_default": 30000,
+  "unit_assertions": {
+    "worldgen_gate": 1008,
+    "location_search": 755716,
+    "distribution": 198942,
+    "distribution_settings": 168816
+  },
+  "artifacts": {
+    "relics-0.1.0-alpha.5.0.4+mc1.21.1-neoforge.jar": "f1b14d666a7bd79f5056be9b746d784383b472edd30a0047bc16ff4982fe740f",
+    "relics-0.1.0-alpha.5.0.4+mc1.21.1.jar": "9edead6625172f41698ea160f0f68fbb6046f71a90ec6feb53ffe4a579d92d7e",
+    "relics-0.1.0-alpha.5.0.4+mc26.2-neoforge.jar": "b4ecd25a86c8088dbed8fa68e8f9a32ad595f8084e92970b98aebc73bd2613bf",
+    "relics-0.1.0-alpha.5.0.4+mc26.2.jar": "8b2779f1ae1d7142c67e68335b6a2b2b8c519fd2b1d389f996621b1cfaaac230"
+  },
+  "native_runs": [
+    {
+      "preset": "discoveries",
+      "run": "build\\distribution-runtime\\731204-38efc33c",
+      "minimum": 8000,
+      "final_search_ring": [
+        104000,
+        112000
+      ],
+      "target": [
+        96136.0,
+        48504.0
+      ],
+      "distance": 108214.95704383937,
+      "passes": [
+        "iteration 0: global locate from two origins agrees with journal",
+        "unchanged datapack reload retains planning snapshot",
+        "iteration 0: repeatable plan agrees with saved natural geometry",
+        "iteration 0: exactly one saved natural Colossus start; exact transformed center",
+        "target and original spawn unchanged after restart and setworldspawn",
+        "iteration 1: global locate from two origins agrees with journal",
+        "iteration 1: repeatable plan agrees with saved natural geometry",
+        "iteration 1: exactly one saved natural Colossus start; exact transformed center"
+      ]
+    },
+    {
+      "preset": "balanced",
+      "run": "build\\distribution-runtime\\731204-938996bd",
+      "minimum": 15000,
+      "final_search_ring": [
+        105000,
+        120000
+      ],
+      "target": [
+        96136.0,
+        48504.0
+      ],
+      "distance": 108214.95704383937,
+      "passes": [
+        "iteration 0: global locate from two origins agrees with journal",
+        "unchanged datapack reload retains planning snapshot",
+        "iteration 0: repeatable plan agrees with saved natural geometry",
+        "iteration 0: exactly one saved natural Colossus start; exact transformed center",
+        "target and original spawn unchanged after restart and setworldspawn",
+        "iteration 1: global locate from two origins agrees with journal",
+        "iteration 1: repeatable plan agrees with saved natural geometry",
+        "iteration 1: exactly one saved natural Colossus start; exact transformed center"
+      ]
+    }
+  ],
+  "client": {
+    "minecraft": "1.21.1",
+    "language": "de_de",
+    "run": "build/distribution-settings-20261030/client-1.21.1-170010-229417",
+    "proof": "PASS world-generation tab; no title/options button; mod-list defaults; loaded biome registry; landscape/custom search; scoped Apply/Cancel; actual world creation; frozen density/biomes; read-only diagnostics\n",
+    "visual_review": "five fields legible at 854x480, GUI scale 2",
+    "world_handoff_custom_minimum": 9000
+  },
+  "released_user_journal_read": {
+    "world": "Living World Relics v5",
+    "minimum": 30000,
+    "target": [
+      -43560,
+      70,
+      26568
+    ],
+    "original_bytes_preserved": true
+  }
+}

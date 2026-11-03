@@ -1,7 +1,7 @@
 # Relic distribution settings
 
-Implemented on the feature branch for Fabric and NeoForge, Minecraft 1.21.1 and
-26.2. This feature is not part of the published Alpha 5.0.3 artifacts.
+Available since Alpha 5.0.4 for Fabric and NeoForge, Minecraft 1.21.1 and 26.2.
+Alpha 5.0.5 adds the preset-dependent, editable large Colossus minimum distance.
 
 ## Menu and scope
 
@@ -73,11 +73,11 @@ The same counters appear under `diagnostics` in `/relicsdistribution status`.
 
 ## Presets
 
-| Preset | Search spacing | Relic minimum distance | Obelisk minimum distance | Obelisk-region radius |
-|---|---:|---:|---:|---:|
-| Expedition | 5,000 | 2,000 | 15,000 | 6,000 |
-| Balanced / Ausgewogen | 3,000 | 1,200 | 9,000 | 3,600 |
-| Discoveries / Entdeckungen | 2,000 | 800 | 6,000 | 2,400 |
+| Preset | Search spacing | Relic minimum distance | Obelisk minimum distance | Obelisk-region radius | Colossus minimum from world spawn |
+|---|---:|---:|---:|---:|---:|
+| Expedition | 5,000 | 2,000 | 15,000 | 6,000 | 30,000 |
+| Balanced / Ausgewogen | 3,000 | 1,200 | 9,000 | 3,600 | 15,000 |
+| Discoveries / Entdeckungen | 2,000 | 800 | 6,000 | 2,400 | 8,000 |
 
 All distances are blocks. Search spacing controls the side length of the shared
 opportunity grid. Each cell has one family ticket and up to 64 nearby terrain
@@ -88,16 +88,29 @@ every relic. Dense settings also increase planning and locate-search work.
 
 Presets retain the existing family shares. The ordinary minimum distance applies
 to all accepted relic centers, including the reserved large-Colossus location.
-The unique Colossus still uses its independent historical grid and resolver:
-one valid destination per supported enabled world, at least 30,000 blocks from
-the initial shared spawn. Changing ordinary density never creates more large
-Colossi or moves their candidate stream. No valid destination still means no
-fabricated destination.
+The unique Colossus uses its independent historical grid and resolver, with one
+valid destination per supported enabled world. Its editable minimum distance
+from the initial shared spawn now follows the selected preset. The first search
+ring extends from that minimum to twice the minimum; priority and valid terrain
+choose the destination, so this is not a guarantee of finding the nearest site
+or a maximum travel distance. Further rings are searched when needed. Expedition
+retains its historical rings and candidate order. Changing ordinary density alone
+never creates more large Colossi or changes their candidate stream.
+
+The Colossus-distance revision starts with Alpha 5.0.5; it is not in Alpha 5.0.4.
+Previously saved configurations and worlds without `colossusMinDistance` retain
+the historical 30,000-block minimum, even if their other values match Balanced
+or Discoveries. Existing saved destinations and pending search cursors are kept.
+Selecting a preset again in a future-world editor adopts its new minimum;
+loading an old save does not. No valid destination still means no fabricated
+destination.
 
 ## Custom values
 
 - Search spacing: 1,500–10,000.
 - Relic minimum distance: 512–4,000, at most the search spacing.
+- Colossus minimum from world spawn: 4,000–100,000, at least twice the relic
+  minimum distance. This remains separate from distances between relic centers.
 - Obelisk-region radius: 500–12,000.
 - Obelisk minimum distance: at least the relic minimum, strictly greater than
   twice the region radius and at most four times the search spacing. The last
@@ -138,6 +151,7 @@ distance combinations and totals above 100% fail validation.
     "minDistance": 800,
     "obeliskDistance": 6000,
     "regionRadius": 2400,
+    "colossusMinDistance": 8000,
     "outside": [3000, 250, 250, 200, 200, 200],
     "inside": [3000, 1500, 1500, 200, 200, 200],
     "biomes": {
@@ -150,7 +164,9 @@ distance combinations and totals above 100% fail validation.
 ```
 
 Array order is Obelisk, Crowned Skull, Sword Skull, Tower, Small Colossus, Tree.
-`biomes` is optional for older format-1 files; absence means Standard. Family
+`colossusMinDistance` is optional for older format-1 files; absence means 30,000,
+not a value inferred from the other preset fields. `biomes` is optional for
+older format-1 files; absence means Standard. Family
 keys are `colossus`, `obelisk`, `titan_skull`, `titan_skull_2`, `ruined_tower`,
 `small_colossus`, `world_tree`. Modes are `STANDARD`, `LANDSCAPES`, `CUSTOM`;
 `selected` contains exact namespaced biome IDs for Custom. Old v3 journals

@@ -1,6 +1,6 @@
 # Current status and roadmap
 
-Updated: October 30, 2026. This is the current implementation and work-status
+Updated: November 3, 2026. This is the current implementation and work-status
 index. Dated concept studies, builder handoffs and test reports retain their
 historical scope. Their old "not implemented" or "pending integration" wording
 does not create new work when a later release has completed it. Approved design
@@ -8,8 +8,9 @@ rules remain specifications unless superseded by a later recorded decision.
 
 ## Released baseline
 
-[Alpha 5.0.3](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.3)
-is published for Fabric and NeoForge on Minecraft **26.2 and 1.21.1**. Java 25
+The release line is [Alpha 5.0.5](../releases/0.1.0-alpha.5.0.5.md)
+for Fabric and NeoForge on Minecraft **26.2 and 1.21.1**. The tag workflow builds,
+checks and publishes all four targets. Java 25
 is required for 26.2; Java 21 for 1.21.1. Use the matching loader dependencies
 listed in the [installation instructions](../../README.md).
 
@@ -57,19 +58,31 @@ blocks are unavailable; the approved roles, loot and protected access remain.
   are not yet recorded. A read-only profile check found 5.0.3 installed and a
   valid format-1 planning journal in the original Living World save.
 
-## Alpha 5.0.4 release preparation: distribution settings
+## Alpha 5.0.4: distribution settings
 
 The user approved presets and editable values after a 6,000-block exploration
-route without a relic find. The branch adds Expedition, Balanced and Discoveries
+route without a relic find. Alpha 5.0.4 added Expedition, Balanced and Discoveries
 presets, block distances, per-family percentages and biome selection directly
 inside the World tab of world creation. Mod-list configuration edits future-world
 defaults; loaded local worlds expose a read-only viewer with rejection diagnostics.
 It covers Fabric and NeoForge on both supported Minecraft versions. Settings
-are frozen per new world; existing worlds retain their plans. This is **not yet
-part of a published release**; publication of Alpha 5.0.4 is authorized and awaits
-PR checks and the tag-triggered release workflow. See the [release notes](../releases/0.1.0-alpha.5.0.4.md),
+are frozen per new world; existing worlds retain their plans. Alpha 5.0.4 was
+published on November 1, 2026. See the [release notes](../releases/0.1.0-alpha.5.0.4.md),
 [usage and limits](../technical/DISTRIBUTION_SETTINGS.md)
 and [current validation report](../testing/DISTRIBUTION_WORLD_MENU_20261101.md).
+
+## Alpha 5.0.5: Colossus distance follows the preset
+
+The new-world editor includes a separate Colossus minimum distance from the
+original world spawn: Expedition 30,000, Balanced 15,000, Discoveries 8,000 blocks.
+Custom values are supported. Existing worlds and older configurations without
+the field retain their previous 30,000-block rule and saved destination/search
+progress. Suitable terrain can still require a much more distant site.
+
+All four local builds, an actual Fabric 1.21.1 world-creation client, and isolated
+Fabric 26.2 natural generation/map/locate/restart tests passed. See the
+[release notes](../releases/0.1.0-alpha.5.0.5.md) and
+[validation report](../testing/COLOSSUS_PRESET_DISTANCE_20261103.md).
 
 ## Open work on the existing game
 

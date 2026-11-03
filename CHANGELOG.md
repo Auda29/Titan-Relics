@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.1.0-alpha.5.0.5 (2026-11-03)
+
+- Make the large Colossus minimum distance follow the new-world preset:
+  Expedition 30,000, Balanced 15,000 and Discoveries 8,000 blocks from world spawn.
+- Add an editable Colossus distance on the distance page. Apply it to search
+  rings, terrain acceptance, pending planning and the asynchronous chunk gate.
+- Preserve historical 30,000-block behavior for older settings without the new
+  field, including existing destinations and pending search cursors.
+- Verify all four player builds, actual 1.21.1 menu/world creation and isolated
+  26.2 natural generation, maps, locate and restart. Terrain can still require a
+  destination farther away than the chosen minimum.
+- See [release notes](docs/releases/0.1.0-alpha.5.0.5.md) and
+  [validation](docs/testing/COLOSSUS_PRESET_DISTANCE_20261103.md).
+
 ## Documentation update (2026-10-30)
 
 - Add a current status/evidence/roadmap index; separate delivered Alpha 5 systems,
