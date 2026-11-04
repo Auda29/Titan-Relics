@@ -44,6 +44,12 @@ token is needed. Release files are uploaded directly from the build job, so
 GitHub Actions artifact-storage quota does not block publication. Branch/PR
 validation stays in `build.yml`, which no longer runs a duplicate build on tags.
 
+Branch pushes and pull requests containing only Markdown files (`**/*.md`)
+skip the full mod build. A mixed change containing any other file still builds,
+including JSON manifests, structure assets, test/build scripts and workflow
+configuration. Manual builds remain available. Release-tag builds are independent
+of this filter and continue to build and validate all four targets.
+
 ## Build-only test
 
 Run **Actions → Release all targets → Run workflow** on the desired ref and
