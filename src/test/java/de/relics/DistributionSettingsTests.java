@@ -21,7 +21,10 @@ public final class DistributionSettingsTests {
         check(DistributionSettings.EXPEDITION.colossusMinDistance()==30000
                 && DistributionSettings.BALANCED.colossusMinDistance()==15000
                 && DistributionSettings.DISCOVERY.colossusMinDistance()==8000,"presets include distinct Colossus distances");
-        check(DistributionConfig.read(file).equals(DistributionSettings.EXPEDITION) && !Files.exists(file),"missing config has historical defaults without writing");
+        check(DistributionConfig.read(file).equals(DistributionSettings.DISCOVERY) && !Files.exists(file),"missing config selects the highest-frequency preset without writing");
+        DistributionConfig.directory(root.resolve("unconfigured"));
+        check(DistributionConfig.forNewWorld(root.resolve("untouched-world")).equals(DistributionSettings.DISCOVERY),"new worlds inherit Discoveries when no installation or world choice exists");
+        check(!Files.exists(DistributionConfig.file()) && !Files.exists(root.resolve("untouched-world")),"default lookup creates neither a config nor a world directory");
         DistributionConfig.write(file,DistributionSettings.DISCOVERY);
         var custom=BiomeRules.STANDARD.with(Family.OBELISK,new BiomeRules.Rule(BiomeRules.Mode.CUSTOM,Set.of("example:new_dunes")));
         check(custom.profile(Family.OBELISK,"example:new_dunes",Set.of(),List.of()).equals("obelisk"),"explicit unknown mod biome accepted");

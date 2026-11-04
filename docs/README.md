@@ -5,7 +5,14 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
-- [Current Alpha 5.0.3 status, evidence and roadmap (October 30)](project/CURRENT_STATUS_AND_ROADMAP.md)
+- [Current Alpha 5.0.5 baseline and beta progress (November 4)](project/CURRENT_STATUS_AND_ROADMAP.md)
+- [Public-beta roadmap: gates 1, 2, 4 and 5 complete; Survival and publication pending](project/PUBLIC_BETA_ROADMAP.md)
+- [Beta: early world-load checks and restoration evidence](testing/BETA_WORLD_LOAD_GUARD_20261104.md)
+- [Beta: actual clients, new worlds and multiplayer reconnects](testing/BETA_CLIENT_ACCEPTANCE_20261104.md)
+- [Beta: crafting, personal rewards, late participation and persistence](testing/BETA_CLIENT_GAMEPLAY_ACCEPTANCE_20261104.md)
+- [Beta: final four-target renderer and worn-armor acceptance](testing/BETA_RENDERER_ACCEPTANCE_20261104.md)
+- [Beta: compatibility/performance measurements and known DH limitation](testing/BETA_COMPATIBILITY_20261104.md)
+- [Mod compatibility and player support boundaries](technical/MOD_COMPATIBILITY.md)
 
 - [Alpha 5.0.3: published four-target release and downloaded-asset verification](testing/alpha5-0-3-release-20261028-evidence.json)
 

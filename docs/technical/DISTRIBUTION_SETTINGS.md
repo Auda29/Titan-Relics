@@ -27,7 +27,10 @@ placement or world migration is performed. In-world editing is disabled.
 
 Dedicated servers use their own `config/relics-distribution.json`; a client's
 menu cannot change a server. Set the file before creating the server world.
-An absent file uses Expedition without writing a file automatically. Save keeps
+An absent file uses Discoveries / Entdeckungen, the highest-frequency preset,
+without writing a file automatically. This factory default was selected on
+4 November 2026. Existing installation choices and saved world settings retain
+their values. Save keeps
 the previous file as `.bak` and replaces the config atomically. Invalid files
 are preserved and rejected; the menu offers an explicit save of replacement
 defaults, with the same backup behavior.

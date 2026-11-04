@@ -1,6 +1,6 @@
 # Current status and roadmap
 
-Updated: November 3, 2026. This is the current implementation and work-status
+Updated: November 4, 2026. This is the current implementation and work-status
 index. Dated concept studies, builder handoffs and test reports retain their
 historical scope. Their old "not implemented" or "pending integration" wording
 does not create new work when a later release has completed it. Approved design
@@ -86,14 +86,32 @@ Fabric 26.2 natural generation/map/locate/restart tests passed. See the
 
 ## Public beta roadmap
 
-The [approved public-beta roadmap](PUBLIC_BETA_ROADMAP.md), agreed November 3,
-2026, turns the remaining work into six acceptance gates: understandable handling
-of world-load incompatibilities, measured exploration balance, a complete Survival
-run, real-client acceptance on all four targets, compatibility/performance
-measurements, and publication/support preparation. Start with world-load handling
-and exploration balance. Existing test evidence and accepted models remain valid;
-new content is not a Beta-1 prerequisite. The document records open checklists,
-evidence requirements and decisions still needed before public approval.
+The [approved public-beta roadmap](PUBLIC_BETA_ROADMAP.md) now has four completed
+gates and two remaining gates. These results concern an unpublished local
+candidate based on 5.0.5, not newly published player JARs.
+
+| Gate | Current state and evidence |
+|---|---|
+| 1. Understandable world-load rejection | Complete. Early checks explain incompatible saved environments, preserve world data and return clients to the menu. Four-target rejection/restoration evidence and Living World cases are in the [guard report](../testing/BETA_WORLD_LOAD_GUARD_20261104.md). |
+| 2. Distribution controls | Complete under the user's revised scope. Existing presets, custom values and biome selection suffice. Discoveries is the factory default for new worlds without an existing choice; saved choices and plans remain unchanged. |
+| 3. Survival playthrough | Open. The user is testing the complete natural exploration, archaeology, map, encounter and reward chain and its everyday balance. |
+| 4. Actual client acceptance | Complete on Fabric/NeoForge for 1.21.1/26.2. Real multiplayer, crafting, personal rewards, late participation, restart persistence and 96 reviewed model/armor images are documented in the [gameplay](../testing/BETA_CLIENT_GAMEPLAY_ACCEPTANCE_20261104.md) and [final renderer](../testing/BETA_RENDERER_ACCEPTANCE_20261104.md) reports. |
+| 5. Compatibility and performance | Complete within documented support conditions. Sixteen server runs, eight modpack client runs and a separate DH LOD view are in the [compatibility report](../testing/BETA_COMPATIBILITY_20261104.md). |
+| 6. Publication and feedback | Open. Player guide, public metadata, license/modpack policy, issue template, project page and final four-asset release verification remain. |
+
+The compatibility tests cover paired generation routes, terrain and biome mods,
+foreign structures, shader/LOD variants and seasons in isolated copies of
+TerraVista and TerraVista Living World. Original profiles remained unchanged.
+Relic raises measured process memory substantially. DH 3.3.3 FEATURES omits the
+planned Relic start; INTERNAL_SERVER and rendering its prepared chunk data passed.
+No production fix for FEATURES or old LOD-cache repair was implemented.
+Voxy World Gen V2 was excluded from dedicated-server references because its
+client LWJGL dependency fails there even without Relic. Actual clients retained it.
+See the [player-facing support boundaries](../technical/MOD_COMPATIBILITY.md).
+
+Historical partial reports retain their original failures and limits. Later
+linked results close their specific pending cases. New content is not a Beta-1
+prerequisite, and completing these tests does not itself authorize publication.
 
 ## Open work on the existing game
 
@@ -106,10 +124,10 @@ These are remaining validation/tuning tasks, not unimplemented core mechanics.
 2. **Discovery effort:** record natural finds, terrain rejections, travel time
    with/without maps and the aggregate rarity hierarchy in actual modpacks.
    Retain the completed 30-seed audit as evidence rather than listing it as undone.
-3. **Pack compatibility and performance:** test full TerraVista/Living World
-   configurations, terrain mods, foreign structures, shaders/LOD and relevant
-   game/loader combinations. Compare fixed paired routes with/without Relic Mod;
-   measure generation latency, stalls, memory and search cost before setting budgets.
+3. **Beyond the completed compatibility sample:** long-term FPS/memory behavior,
+   other pack versions, original high-radius Voxy generation and repair of old DH
+   caches remain unverified. The bounded measurements above satisfy roadmap
+   point 5 within their documented support conditions.
 4. **Further runtime edge cases:** extend evidence for automation, late arrivals,
    map copies, abandoned trials and controlled hard interruptions across save
    boundaries. Many individual cases already have automated coverage; normal
@@ -162,9 +180,9 @@ new dimensions are not selected additions. Skull/Tree reward chests are not plan
 GitHub prereleases and their CI are delivered. A broader release destination and
 license policy remain decisions; metadata currently uses `All-Rights-Reserved`.
 
-Follow the [public-beta roadmap](PUBLIC_BETA_ROADMAP.md): address world-load
-handling and discovery balance first, finish Survival/client acceptance, then
-complete compatibility/performance and publication preparation. A public Beta 1
-requires recorded acceptance of those gates. Content experiments remain separate
+Follow the [public-beta roadmap](PUBLIC_BETA_ROADMAP.md): finish the user's
+Survival acceptance and publication preparation next. Gates 1, 2, 4 and 5 have
+the evidence linked above. A public Beta 1 still requires explicit approval
+and verification of the actual release artifacts. Content experiments remain separate
 later decisions; independent machine fragments are the most direct recorded
 design experiment.

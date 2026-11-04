@@ -68,7 +68,7 @@ config="load-checks.mixins.json"
     artifact=args.artifact.resolve();shutil.copy2(artifact,run/'mods'/artifact.name)
     dependency=ROOT/f'build/neoforge/dependencies/lithostitched-1.8.0-neoforge-{target["litho"]}.jar'
     shutil.copy2(dependency,run/'mods'/dependency.name)
-    (run/'options.txt').write_text('lang:de_de\nguiScale:2\nonboardAccessibility:false\nstartedCleanly:true\nrenderDistance:2\nsimulationDistance:2\n',encoding='utf-8')
+    (run/'options.txt').write_text('lang:de_de\nguiScale:2\nonboardAccessibility:false\nstartedCleanly:true\nrenderDistance:2\nsimulationDistance:2\nsoundCategory_master:0.0\n',encoding='utf-8')
     (run/'config').mkdir();(run/'config/fml.toml').write_text('earlyWindowControl = false\nversionCheck = false\n',encoding='utf-8')
     if mc=='1.21.1':
         version=mc+'-'+target['neo'];metadata=json.loads((meta/'versions'/version/(version+'.json')).read_text());libraries=meta/'libraries'

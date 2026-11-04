@@ -88,7 +88,7 @@ def main():
         menu=json.load(urllib.request.urlopen('https://api.modrinth.com/v2/project/modmenu/version/'+version))
         file=next(f for f in menu['files'] if f['primary']);data=urllib.request.urlopen(file['url']).read()
         assert hashlib.sha512(data).hexdigest()==file['hashes']['sha512'];(run/'mods/modmenu.jar').write_bytes(data)
-    (run/'options.txt').write_text(f'lang:{args.language}\nguiScale:2\nonboardAccessibility:false\nstartedCleanly:true\nrenderDistance:2\nsimulationDistance:2\n',encoding='utf-8')
+    (run/'options.txt').write_text(f'lang:{args.language}\nguiScale:2\nonboardAccessibility:false\nstartedCleanly:true\nrenderDistance:2\nsimulationDistance:2\nsoundCategory_master:0.0\n',encoding='utf-8')
     version=args.minecraft+'-0.19.5';metadata=json.loads((meta/'versions'/version/(version+'.json')).read_text())
     cp=[]
     for lib in metadata['libraries']:

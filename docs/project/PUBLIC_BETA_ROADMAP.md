@@ -57,10 +57,13 @@ besteht zusätzlich die Saison-/Referenzfälle und den vollständigen Clientabla
 [Umsetzungsbericht und Belege](../testing/BETA_WORLD_LOAD_GUARD_20261104.md).
 Es wurde dafür kein neuer Release erstellt.
 
-## 2. Verteilung nach tatsächlicher Spielerfahrung abstimmen
+## 2. Verteilung über Presets und eigene Einstellungen steuern
 
-Priorität P0. Zuerst festlegen, welche Erkundungserfahrung die drei Presets bieten
-sollen, dann anhand tatsächlicher Funde prüfen und bei Bedarf abstimmen.
+Am 4. November 2026 hat der Nutzer entschieden, dass die vorhandenen Presets
+und anpassbaren Werte diesen Punkt für die Beta abdecken. Zusätzliche feste
+Balanceziele und eine neue Messreihe sind damit keine Freigabebedingung mehr.
+Das Preset mit der höchsten Häufigkeit, „Entdeckungen“, wird zur Werksvorgabe
+für neue Welten ohne bereits gespeicherte Auswahl.
 
 Die Werte 30.000 / 15.000 / 8.000 sind Mindestentfernungen des großen Kolosses
 vom ursprünglichen Weltspawn. Sie garantieren weder ein nahes Ziel noch eine
@@ -68,27 +71,24 @@ maximale Reisestrecke. Im [5.0.5-Testseed 731204](../testing/COLOSSUS_PRESET_DIS
 lag ein gültiger Koloss trotz kleinerer Untergrenze über 100.000 Blöcke entfernt.
 Auch ein Suchabstand von 3.000 bedeutet nicht ein Relikt alle 3.000 Blöcke.
 
-- [ ] Für Expedition, Ausgewogen und Entdeckungen verständliche Ziele für erste
-  Funde, Reisedauer und Seltenheit vereinbaren. Erst danach Zahlen als Freigabegrenze setzen.
-- [ ] Die neuen Presets über mehrere feste Seeds mit Vanilla-Terrain und den
-  tatsächlich unterstützten Terrain-Modpacks prüfen. Den vorhandenen Audit ergänzen.
-- [ ] Suchversuche, Biom-/Gelände-/Abstandsablehnungen, tatsächliche natürliche
-  Funde und Reisestrecken getrennt erfassen. Leere oder unbesuchte Gebiete nicht
-  als fehlgeschlagene Generierung ausgeben.
-- [ ] Fundraten kleiner Relikte und die erreichbaren Karten-/Kolossziele prüfen.
-  Besonders Entdeckungen muss sich im Survival von Expedition unterscheiden.
-- [ ] Nach Änderungen Eindeutigkeit des Kolosses, Mindestabstände, gemeinsame
-  Kartenziele und Erhalt bestehender Welten erneut prüfen.
+- [x] Presets Expedition, Ausgewogen und Entdeckungen sowie verständliche
+  individuelle Werte und Biomwahl bereitstellen.
+- [x] Entdeckungen als Werksvorgabe verwenden. Bereits gespeicherte
+  Installationsvorgaben und Weltpläne behalten ihre Werte.
+- [x] Den Umfang nach ausdrücklicher Nutzerentscheidung als ausreichend für
+  die Beta festhalten. Das ist keine neue empirische Bestätigung von Fundraten.
 
-Freigabe: Die gewählten Ziele sind mit dokumentierten Seed-Ergebnissen und
-Survival-Beobachtungen belegt. Seltene Funde dürfen Teil des Designs sein;
-unerwartet lange ereignislose Strecken müssen erklärbar sein. Die konkreten
-Balancegrenzen sind noch zu entscheiden.
+Freigabe: Durch die Nutzerentscheidung zum angepassten Umfang abgeschlossen.
+Die [Verteilungseinstellungen](../technical/DISTRIBUTION_SETTINGS.md) beschreiben
+die Presets und ihre Grenzen. Weitere Beobachtungen können aus dem Survival-Test
+folgen; die bestehenden Seed-Befunde werden dadurch nicht umgedeutet.
 
 ## 3. Vollständigen Survival-Durchlauf abnehmen
 
 Priorität P1. Die vorhandenen Einzelprüfungen zu einer zusammenhängenden
 Spielerfahrung verbinden.
+
+Der Nutzer übernimmt diesen Survival-Durchlauf selbst. Die Abnahme steht noch aus.
 
 - [ ] Obelisk natürlich finden, Archäologie durchführen und eine Expeditionskarte erhalten.
 - [ ] Kartenlesbarkeit, Orientierung und tatsächliche Reise zum großen Koloss bewerten.
@@ -109,47 +109,94 @@ gefundene Blocker sind behoben und nachgeprüft.
 Priorität P1. Bestehende Client- und Mehrspielerbelege gezielt ergänzen, besonders
 für NeoForge. Nicht jeden bereits bestandenen Fall pauschal als ungetestet führen.
 
-| Ziel | Vorhandener 5.0.5-Beleg | Noch für den Beta-Kandidaten abzunehmen |
-|---|---|---|
-| Fabric 1.21.1 | Build/Assets, echtes Menü und tatsächliche Welterstellung mit gespeichertem Zahlenwert | Vollständiger Survival- und Client-Abgleich mit Speichern/Laden |
-| Fabric 26.2 | Build/Assets, native Generierung, Karten, Locate und Server-Neustart | Vollständiger Survival- und grafischer Client-Abgleich |
-| NeoForge 1.21.1 | Build und Assetprüfung | Grafischer Clienttest und vollständiger Survival-Abgleich |
-| NeoForge 26.2 | Build und Assetprüfung | Grafischer Clienttest und vollständiger Survival-Abgleich |
+Stand 4. November 2026: Die erste Astra-High-Prüfrunde ist als
+[Teilabnahme dokumentiert](../testing/BETA_CLIENT_ACCEPTANCE_20261104.md).
+Auf allen vier Zielen bestehen die Neuweltanlage mit Discovery-Vorgabe,
+ein vollständiger Clientprozess-Neustart und das Laden derselben Welt sowie
+zwei echte Spieler über Loopback mit erneutem Gastbeitritt aus einem neuen
+Prozess. Ein Turmausschnitt wurde jeweils im echten Renderer angesehen.
+Die anschließende [Gameplay-Prüfung](../testing/BETA_CLIENT_GAMEPLAY_ACCEPTANCE_20261104.md)
+belegt auf allen vier Zielen echtes Crafting und Schmieden mit Zutatenverbrauch,
+persönliche Schlüssel und physische Core-Drops, unmittelbaren Schlüsselverbrauch,
+späte Teilnahme, Wiederverbindung sowie Inventar-/Ledger-Erhalt nach Save/Reload
+und vollständigem Prozessneustart. Je Ziel wurden über 20 Minuten gemeinsame
+Aktionen ausgeführt. Die abschließende
+[Rendererabnahme](../testing/BETA_RENDERER_ACCEPTANCE_20261104.md) ergänzt
+96 tatsächlich angesehene Originalbilder, je 24 auf allen vier Zielen.
+Die Modelle, Innenraumpunkte, 1.21.1-Ersatzblöcke und getragene Rüstung sind
+damit geprüft. Beschädigte, leere und unvollständig geladene frühere Bilder
+bleiben ausdrücklich verworfen. Punkt 4 ist für den dokumentierten lokalen
+Kandidaten abgeschlossen; Survival und Modpack-/Leistungsmessungen bleiben
+Punkte 3 und 5.
 
-- [ ] Auf allen vier Zielen Darstellung, Bedienelemente, Rezepte, Belohnungen,
-  Speichern, erneutes Laden und vollständigen Spielneustart prüfen.
-- [ ] Versionsspezifische Block-/Modelladaptionen im Spiel ansehen, insbesondere
+| Ziel | Vorhandene Belege | Abnahme in Punkt 4 |
+|---|---|---|
+| Fabric 1.21.1 | Clientanlage/-neustart, zwei echte Spieler, Crafting, persönliche Belohnungen, Persistenz und 24 Rendereransichten | Abgeschlossen |
+| Fabric 26.2 | Clientanlage/-neustart, zwei echte Spieler, Crafting, persönliche Belohnungen, Persistenz und 24 Rendereransichten | Abgeschlossen |
+| NeoForge 1.21.1 | Clientanlage/-neustart, zwei echte Spieler, Crafting, persönliche Belohnungen, Persistenz und 24 Rendereransichten | Abgeschlossen |
+| NeoForge 26.2 | Clientanlage/-neustart, zwei echte Spieler, Crafting, persönliche Belohnungen, Persistenz und 24 Rendereransichten | Abgeschlossen |
+
+- [x] Auf allen vier Zielen eine neue Welt ohne gespeicherte Vorgaben anlegen,
+  die gespeicherte Discovery-Auswahl prüfen und die Welt nach vollständigem
+  Clientprozess-Neustart wieder laden.
+- [x] Zwei echte Spieler verbinden und den Gast nach vollständigem
+  Prozessneustart mit derselben Spieleridentität erneut verbinden.
+- [x] Tatsächliche Crafting-/Schmiedeergebnisse, Zutatenverbrauch und persönliche
+  Reliktbelohnungen einschließlich Inventar-/Ledger-Persistenz prüfen.
+- [x] Vollständige grafische Darstellung und Bedienungsansichten prüfen;
+  insbesondere die ungestörte Ansicht der getragenen verzierten Rüstung ergänzen.
+- [x] Versionsspezifische Block-/Modelladaptionen im Spiel ansehen, insbesondere
   die Ersatzblöcke auf 1.21.1.
-- [ ] Die bestätigten Zwei-Client-Tests um die relevanten neuen Beta-Fälle und
-  Zielversionen ergänzen: Teilnahme, persönliche Belohnungen, Wiederverbinden,
-  spätere Ankunft und längere Sitzungen.
-- [ ] Automatisierte simulierte Spieler, echte Clients und Nutzerabnahmen in den
+- [x] Die bestätigten Zwei-Client-Tests um Teilnahme am selben Reliktereignis,
+  persönliche Belohnungen, Wiederverbinden nach Belohnung, spätere Ankunft
+  nach Ereignisfortschritt und längere Sitzungen ergänzen.
+- [x] Automatisierte simulierte Spieler, echte Clients und Nutzerabnahmen in den
   Ergebnissen jeweils ausdrücklich unterscheiden.
 
 Freigabe: Für jedes angebotene Spiel-/Loader-Ziel gibt es einen zugeordneten
 Client-Prüfbeleg. Reproduzierbare Darstellungs- oder Mehrspielerblocker sind behoben.
+
+Die grafischen Belege stammen aus einer Operator-Ausstellung der Templates,
+nicht aus einer neuen natürlichen Survival-Generierung. Die im Gameplay-Bericht
+offengelegten historischen Dienst- und Gast-Disconnect-Logbefunde bleiben
+erhalten; die Rendererfortsetzung ist kein erneuter Disconnect-Test.
 
 ## 5. Kompatibilität und Leistung messen
 
 Priorität P1. Vergleichbare Messungen mit denselben Seeds, Einstellungen und
 Routen mit und ohne Relic durchführen.
 
-- [ ] Unterstützte Modkombinationen und Versionen festhalten, einschließlich
+Stand 4. November: Die Abnahme nach dem vorab festgelegten
+[Prüfplan mit Messbudgets](../testing/BETA_COMPATIBILITY_PLAN_20261104.md)
+ist unter den dokumentierten Supportbedingungen abgeschlossen. Der
+[Prüfbericht](../testing/BETA_COMPATIBILITY_20261104.md) enthält 16 Serverläufe,
+acht Modpack-Clientläufe und eine zusätzliche DH-Fernansicht. Originalprofile
+blieben unverändert; Testwelten und Messdaten liegen auf E:.
+
+- [x] Unterstützte Modkombinationen und Versionen festhalten, einschließlich
   TerraVista und TerraVista Living World als konkrete Prüfumgebungen.
-- [ ] Chunkgenerierungszeiten, Speicherbedarf, Serververzögerungen und Verhalten
+- [x] Chunkgenerierungszeiten, Speicherbedarf, Serververzögerungen und Verhalten
   beim Laden großer Relikte erfassen. Messverfahren und Budgets vor der Abnahme festlegen.
-- [ ] Terrain-/Biommods, fremde Strukturen und größere Vorabgenerierung prüfen.
-- [ ] Distant Horizons, Voxy, Shader und Jahreszeiten getrennt untersuchen,
+- [x] Terrain-/Biommods, fremde Strukturen und größere Vorabgenerierung prüfen.
+- [x] Distant Horizons, Voxy, Shader und Jahreszeiten getrennt untersuchen,
   damit Ursachen nicht ohne Beleg Relic zugeordnet werden.
-- [ ] Den beim Nutzer bestätigten Einfluss des Serene-Seasons-/DH-Adapters als
+- [x] Den beim Nutzer bestätigten Einfluss des Serene-Seasons-/DH-Adapters als
   bekannte Kompatibilitätsbeobachtung dokumentieren. Das ist keine pauschale
   Unverträglichkeit von Serene Seasons mit Relic.
-- [ ] Unterstützte Kombinationen, bekannte Probleme und nicht geprüfte Setups
+- [x] Unterstützte Kombinationen, bekannte Probleme und nicht geprüfte Setups
   für Spieler unterscheidbar veröffentlichen.
 
 Freigabe: Die unterstützten Setups laufen innerhalb der vereinbarten Budgets
 ohne reproduzierbare Hänger oder Generierungsfehler. Grenzen und bekannte
 Fremdmod-Probleme sind nachvollziehbar beschrieben.
+
+Die [Spielerhinweise](../technical/MOD_COMPATIBILITY.md) unterscheiden geprüfte
+Versionen und Einschränkungen. DH 3.3.3 FEATURES lässt Reliktstarts in der
+Fernberechnung aus; INTERNAL_SERVER und die anschließende LOD-Darstellung
+bestanden. Dafür wurde kein Produktionsfix eingebaut. Voxy World Gen V2 bleibt
+in den Dedicated-Server-Referenzen ausgeschlossen, da es auch ohne Relic
+clientseitiges LWJGL benötigt. Der erhöhte Speicherbedarf ist dokumentiert;
+Langzeit-/FPS-Garantien und alte LOD-Cache-Reparaturen sind nicht abgenommen.
 
 ## 6. Veröffentlichung und Rückmeldungen vorbereiten
 

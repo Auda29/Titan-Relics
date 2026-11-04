@@ -18,7 +18,7 @@ public final class DistributionConfig {
     public static final String WORLD_FILE="data/relics_creation_settings.json";
     public static DistributionSettings forNewWorld(Path root){Path path=root.resolve(WORLD_FILE);return Files.exists(path)?read(path):load();}
     public static DistributionSettings read(Path path) {
-        if(!Files.exists(path))return DistributionSettings.EXPEDITION;
+        if(!Files.exists(path))return DistributionSettings.DISCOVERY;
         try {
             JsonObject root=JsonParser.parseString(Files.readString(path)).getAsJsonObject();
             if(!root.keySet().equals(Set.of("format","settings")) || integer(root.get("format"))!=1)
