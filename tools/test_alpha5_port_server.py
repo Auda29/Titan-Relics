@@ -86,7 +86,8 @@ def main():
             'discovery':(2000,800,6000,2400),'tower-only':(2000,800,6000,2400)}[preset]
         families={} if args.biome_mode=='standard' else {name:dict(mode='LANDSCAPES',selected=[]) for name in ('colossus','obelisk','titan_skull','titan_skull_2','ruined_tower','small_colossus','world_tree')}
         if args.biome_mode=='empty-colossus':families={'colossus':dict(mode='CUSTOM',selected=[])}
-        return dict(cellSize=cell,minDistance=distance,obeliskDistance=obelisks,regionRadius=region,biomes={'families':families},
+        colossus={'expedition':30000,'balanced':15000,'discovery':8000,'tower-only':8000}[preset]
+        return dict(cellSize=cell,minDistance=distance,obeliskDistance=obelisks,regionRadius=region,colossusMinDistance=colossus,biomes={'families':families},
                     outside=[0,0,0,10000,0,0] if preset=='tower-only' else [3000,250,250,200,200,200],
                     inside=[0,0,0,10000,0,0] if preset=='tower-only' else [3000,1500,1500,200,200,200])
     def defaults(preset):
@@ -162,7 +163,8 @@ def main():
                     if args.biome_mode=='empty-colossus':assert snapshot['unavailable'] and snapshot.get('unique') is None,'Empty Colossus selection must resolve unavailable, never search forever'
                     historical=iteration and args.historical_journal
                     assert snapshot['policy']==('relics-distribution-v2-local64-r3072' if historical else 'relics-distribution-v3-settings')
-                    assert snapshot.get('settings')==(None if historical else settings(args.distribution_preset))
+                    expected_settings=None if historical else settings(args.distribution_preset)
+                    assert snapshot.get('settings')==expected_settings,('Saved settings differ',snapshot.get('settings'),expected_settings)
                     invariant={key:snapshot.get(key) for key in ('policy','settings','unique','fingerprint','spawnX','spawnZ')}
                     if iteration:assert invariant==frozen,'Reopen changed world settings or the unique destination'
                     frozen=invariant;report['iterations'][-1]['frozen_distribution']=invariant
