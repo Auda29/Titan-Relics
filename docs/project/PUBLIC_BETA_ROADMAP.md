@@ -32,21 +32,30 @@ gespeicherte Umgebung gegenüber dem eingefrorenen Verteilungsplan. Die
 Kompatibilitätsprüfung beendete den Weltstart mit einer Exception. Vor der Beta
 muss dieser erwartbare Konflikt verständlich behandelt werden.
 
-- [ ] Den Konflikt in einer isolierten Kopie reproduzieren und bestimmen,
-  welche Änderungen für den Reliktplan tatsächlich relevant sind.
-- [ ] Einen erklärten Ladeabbruch mit Rückkehr zum Menü ermöglichen, statt
+- [x] Den Konflikt in einer isolierten Kopie reproduzieren und eingrenzen:
+  In der geprüften Kombination ändern sich ausschließlich Mitglieder dreier
+  Serene-Seasons-Biom-Tags. [Untersuchung vom 4. November](../testing/BETA_WORLD_LOAD_INVESTIGATION_20261104.md).
+  Der abgesicherte Übergang ist im [Fix-Bericht](../testing/BETA_WORLD_LOAD_GUARD_20261104.md) dokumentiert.
+- [x] Einen erklärten Ladeabbruch mit Rückkehr zum Menü ermöglichen, statt
   Minecraft wegen einer erwarteten Inkompatibilität abstürzen zu lassen.
-- [ ] Ursache, betroffene Welt und mögliche Wiederherstellung des ursprünglichen
+- [x] Ursache, betroffene Welt und mögliche Wiederherstellung des ursprünglichen
   Setups verständlich anzeigen. Unbekannte Ursachen ausdrücklich als solche benennen.
-- [ ] Belegen, dass weder der Verteilungsplan gelöscht noch Standorte neu
+- [x] Belegen, dass weder der Verteilungsplan gelöscht noch Standorte neu
   ausgewürfelt, Belohnungen erneuert oder Weltdateien still repariert werden.
-- [ ] Nach Wiederherstellung des unterstützten Setups dieselbe Welt erneut laden
+- [x] Nach Wiederherstellung des unterstützten Setups dieselbe Welt erneut laden
   und gespeicherte Ziele, Fortschritt und Karten abgleichen.
 
 Freigabe: In einem unterstützten Setup sind keine reproduzierbaren
 Weltladeabstürze bekannt. Erkannte inkompatible Änderungen führen zu einer
 verständlichen Meldung und lassen die gespeicherten Daten erhalten. Eine
 pauschale Abschaltung der Integritätsprüfung ist keine Lösung.
+
+Stand 4. November: Punkt 1 ist umgesetzt und abgenommen. Die endgültigen vier
+Artefakte bestehen 24 gezielte Server-Ablehnungen samt Dateierhaltung und
+Wiederherstellung sowie die echten Client-Ladewege. Die Living-World-Kopie
+besteht zusätzlich die Saison-/Referenzfälle und den vollständigen Clientablauf.
+[Umsetzungsbericht und Belege](../testing/BETA_WORLD_LOAD_GUARD_20261104.md).
+Es wurde dafür kein neuer Release erstellt.
 
 ## 2. Verteilung nach tatsächlicher Spielerfahrung abstimmen
 

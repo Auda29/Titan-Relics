@@ -69,10 +69,7 @@ public final class DistributionRuntime implements AutoCloseable {
         journal=new DistributionJournal(file,initial);
         var s=journal.state;
         boolean legacy=s.fingerprintFormat==0;
-        boolean fingerprintMatches=legacy
-                ? PlanningFingerprint.legacyMatches(s.fingerprint,validator.legacyFingerprint,validator.fingerprint,
-                        System.getProperty(PlanningFingerprint.RECOVERY_PROPERTY,""))
-                : s.fingerprint.equals(validator.fingerprint);
+        boolean fingerprintMatches=PlanningProvenance.compare(file.getParent().getParent(),s,validator.signature)!=PlanningProvenance.Match.DIFFERENT;
         if(s.seed!=initial.seed || !fingerprintMatches || !s.enabled.equals(initial.enabled)
                 || s.minX!=initial.minX || s.maxX!=initial.maxX || s.minZ!=initial.minZ || s.maxZ!=initial.maxZ)
             throw new IllegalStateException("Relic planning settings/generator/assets/border differ from the frozen save. "
@@ -91,6 +88,7 @@ public final class DistributionRuntime implements AutoCloseable {
         planner=new DistributionPlanner(s.policy,s.settings==null?DistributionSettings.EXPEDITION:s.settings,s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
         actor=Executors.newSingleThreadScheduledExecutor(r->{Thread t=new Thread(r,"Relic planning "+s.seed);t.setDaemon(true);return t;});
         if(fresh)journal.flush();
+        PlanningProvenance.remember(file.getParent().getParent(),s,validator.signature);
         if(s.frozen)startResolver();
         LOG.info("Attached {} relic planning snapshot {}",fresh?"new":"saved",s.fingerprint);
     }
@@ -102,7 +100,7 @@ public final class DistributionRuntime implements AutoCloseable {
                 var s=runtime.journal.state;
                 try {
                     var current=new TerrainValidator(runtime.level,s.minX,s.minZ,s.maxX,s.maxZ,s.interiors,s.settings==null?BiomeRules.STANDARD:s.settings.biomes());
-                    if(!current.fingerprint.equals(s.fingerprint) || !current.enabled.equals(s.enabled))
+                    if(PlanningProvenance.compare(server.getWorldPath(LevelResource.ROOT),s,current.signature)==PlanningProvenance.Match.DIFFERENT || !current.enabled.equals(s.enabled))
                         throw new IllegalStateException("Datapack reload changed frozen relic settings. Restore the original setup and restart; policy migration requires a fresh world.");
                     LOG.info("Relic distribution settings unchanged after datapack reload");
                 }catch(Throwable error){runtime.fail(error);}

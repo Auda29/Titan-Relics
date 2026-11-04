@@ -100,5 +100,15 @@
   "relics.settings.group.dry": "Trockenes Grasland",
   "relics.settings.group.open": "Offene Ebenen",
   "relics.settings.group.forest": "Wald",
-  "relics.settings.group.rocky": "Felsiges Gelände"
+  "relics.settings.group.rocky": "Felsiges Gelände",
+  "relics.load.title": "Relikt-Welt kann nicht sicher geladen werden",
+  "relics.load.world": "Betroffene Welt: %s",
+  "relics.load.reason.environment": "Die geladenen Generator-, Biom-, Datapack- oder Reliktdaten passen nicht zum gespeicherten Verteilungsplan. Welche Änderung verantwortlich ist, lässt sich aus der alten Prüfsumme allein nicht feststellen.",
+  "relics.load.reason.seed": "Der Weltseed passt nicht zum gespeicherten Reliktplan.",
+  "relics.load.reason.border": "Die Weltgrenze passt nicht zum gespeicherten Reliktplan.",
+  "relics.load.reason.structures": "Die Strukturgenerierung wurde nach dem Erstellen des Reliktplans deaktiviert.",
+  "relics.load.reason.generator": "Der aktuelle Weltgenerator wird für diesen gespeicherten Reliktplan nicht unterstützt.",
+  "relics.load.reason.unfinished": "Die erstmalige Erstellung des Reliktplans wurde unterbrochen. Für diese Welt fehlt ein vollständiger gespeicherter Plan.",
+  "relics.load.reason.unknown": "Die Kompatibilität konnte nicht geprüft werden. Die genaue Ursache ist unbekannt; Einzelheiten stehen im Spielprotokoll.",
+  "relics.load.recovery": "Der Weltstart wurde vor dem Speichern abgebrochen. Stelle die ursprünglichen Mods, Datapacks und Generatoreinstellungen wieder her und versuche es erneut. Bei einem unvollständigen oder beschädigten Plan verwende eine vollständige Sicherung. Lösche den Reliktplan nicht."
 }

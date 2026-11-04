@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-04",
+  "status": "historical investigation of released Alpha 5.0.5 before the fix",
+  "minecraft": "1.21.1",
+  "loader": "fabric",
+  "artifact_sha256": "8d02791f73361942907e13cc77c8bb3c89c231d17ff1c3703a5565b90e3d5acb",
+  "isolated_runs": [
+    {
+      "case": "original",
+      "startup_succeeded": true,
+      "compatibility_abort": false,
+      "exit_code": 0,
+      "journal_unchanged": true,
+      "saved_target_unchanged": true,
+      "changed_existing_files": [
+        "level.dat",
+        "level.dat_old",
+        "data/raids.dat",
+        "DIM-1/data/raids.dat",
+        "DIM1/data/raids_end.dat",
+        "region/r.-1.-1.mca",
+        "region/r.-1.0.mca",
+        "region/r.0.-1.mca",
+        "region/r.0.0.mca"
+      ],
+      "new_file_count": 0
+    },
+    {
+      "case": "without-seasons",
+      "startup_succeeded": false,
+      "compatibility_abort": true,
+      "exit_code": 0,
+      "journal_unchanged": true,
+      "saved_target_unchanged": true,
+      "changed_existing_files": [
+        "level.dat",
+        "level.dat_old"
+      ],
+      "new_file_count": 0
+    },
+    {
+      "case": "restored",
+      "startup_succeeded": true,
+      "compatibility_abort": false,
+      "exit_code": 0,
+      "journal_unchanged": true,
+      "saved_target_unchanged": true,
+      "changed_existing_files": [
+        "level.dat",
+        "level.dat_old",
+        "data/raids.dat",
+        "DIM-1/data/raids.dat",
+        "DIM1/data/raids_end.dat",
+        "region/r.-1.-1.mca",
+        "region/r.-1.0.mca",
+        "region/r.0.-1.mca",
+        "region/r.0.0.mca"
+      ],
+      "new_file_count": 0
+    }
+  ],
+  "changed_signature_sections": [
+    "biomeTags"
+  ],
+  "removed_biome_tags": [],
+  "added_biome_tags": [],
+  "restored_signature_identical": true,
+  "saved_fingerprint": "65ea46667546c63df4145e5a606838b4fdacafbe6fed2efb47ab0515cff83830",
+  "changed_fingerprint": "c43874594b3e6dcff2d135120b26cf894a0962a78efca574811e76792214ded5",
+  "reproduction_directory": "build/beta-load-guard/reproduction",
+  "limits": [
+    "Dedicated-server reproduction; no new graphical error screen implemented or tested.",
+    "No proof of complete save preservation on failure: level.dat and level.dat_old changed.",
+    "No native reproductions on the other three target combinations in this investigation."
+  ],
+  "changed_biome_tag_membership": {
+    "sereneseasons:blacklisted_biomes": {
+      "before_count": 26,
+      "after_count": 10,
+      "removed_members": [
+        "minecraft:beach",
+        "minecraft:cold_ocean",
+        "minecraft:deep_cold_ocean",
+        "minecraft:deep_dark",
+        "minecraft:deep_frozen_ocean",
+        "minecraft:deep_lukewarm_ocean",
+        "minecraft:deep_ocean",
+        "minecraft:dripstone_caves",
+        "minecraft:frozen_ocean",
+        "minecraft:lukewarm_ocean",
+        "minecraft:lush_caves",
+        "minecraft:ocean",
+        "minecraft:river",
+        "minecraft:stony_shore",
+        "minecraft:the_void",
+        "minecraft:warm_ocean"
+      ],
+      "added_members": []
+    },
+    "sereneseasons:tropical_biomes": {
+      "before_count": 28,
+      "after_count": 15,
+      "removed_members": [
+        "minecraft:badlands",
+        "minecraft:bamboo_jungle",
+        "minecraft:desert",
+        "minecraft:eroded_badlands",
+        "minecraft:jungle",
+        "minecraft:mangrove_swamp",
+        "minecraft:mushroom_fields",
+        "minecraft:savanna",
+        "minecraft:savanna_plateau",
+        "minecraft:sparse_jungle",
+        "minecraft:warm_ocean",
+        "minecraft:windswept_savanna",
+        "minecraft:wooded_badlands"
+      ],
+      "added_members": []
+    },
+    "sereneseasons:lesser_color_change_biomes": {
+      "before_count": 11,
+      "after_count": 10,
+      "removed_members": [
+        "minecraft:swamp"
+      ],
+      "added_members": []
+    }
+  },
+  "implementation_report": "BETA_WORLD_LOAD_GUARD_20261104.md"
+}

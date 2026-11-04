@@ -37,6 +37,13 @@ def legacy_java(name: str, text: str) -> str:
     initializers = [line for line in text.splitlines(True) if any(
         x in line for x in ('RelicItems.initialize();', 'RelicGameplay.initialize();', 'DistributionRuntime.initialize();'))]
     text = port_java(name, text)
+    if name == 'WorldLoadCheck.java':
+        start=text.index('            // STEM_INPUTS_BEGIN');end=text.index('            // STEM_INPUTS_END')+len('            // STEM_INPUTS_END')
+        text=text[:start]+'''            var options=stem.worldData().worldGenOptions();
+            var generator=stem.registries().compositeAccess().registryOrThrow(net.minecraft.core.registries.Registries.LEVEL_STEM).get(LevelStem.OVERWORLD).generator();'''+text[end:]
+        start=text.index('            // BORDER_INPUTS_BEGIN');end=text.index('            // BORDER_INPUTS_END')+len('            // BORDER_INPUTS_END')
+        text=text[:start]+'''            var border=new net.minecraft.world.level.border.WorldBorder();
+            border.applySettings(stem.worldData().overworldData().getWorldBorder());'''+text[end:]
     if name == 'RelicWorldgen.java':
         text = text.replace('    public void onInitialize() {', '    public void onInitialize() {\n' + ''.join(initializers))
     text = text.replace('.identifier()', '.location()')
@@ -111,7 +118,7 @@ def legacy_java(name: str, text: str) -> str:
         text=text.replace('(level,chunk,generated)->', '(level,chunk)->')
         text=text.replace('BuiltInRegistries.BLOCK.getValue(id)', 'BuiltInRegistries.BLOCK.get(id)')
         text=text.replace('element.getTemplateLocation()', '((de.relics.mixin.LegacyPoolTemplateAccess)(Object)element).relics$template().left().orElseThrow()')
-    if name == 'TerrainValidator.java':
+    if name in ('TerrainValidator.java','PlanningSignature.java'):
         text=text.replace('t.key().location()', 't.getFirst().location()').replace('tag.stream()', 'tag.getSecond().stream()').replace('tag.key().location()', 'tag.getFirst().location()')
         text=text.replace('structures.getOrThrow(ResourceKey.create(Registries.STRUCTURE,id(name)))', 'structures.getHolderOrThrow(ResourceKey.create(Registries.STRUCTURE,id(name)))')
     if name == 'TreeAnimals.java': text=text.replace('choice.get().type()', 'choice.get().type').replace('data.type()', 'data.type')

@@ -11,6 +11,16 @@ TARGETS={'1.21.1':{'neo':'21.1.256','java':21,'litho':'21.1'},'26.2':{'neo':'26.
 
 
 def native_java(name: str,text: str,minecraft: str,test=False):
+    if name=='EarlyBiomePreparation.java':
+        return '''package de.relics.distribution;
+import net.minecraft.core.RegistryAccess;
+/** NeoForge applies its own biome modifiers; Fabric's lifecycle adapter is not used. */
+public final class EarlyBiomePreparation {
+    private EarlyBiomePreparation() { }
+    public static void prepare(RegistryAccess registries) { }
+    public static void discard(RegistryAccess registries) { }
+}
+'''
     events={'CommandRegistrationCallback','ServerLifecycleEvents','ServerTickEvents','ServerEntityEvents','ServerChunkEvents',
             'ServerLivingEntityEvents','ServerPlayConnectionEvents','UseItemCallback','UseBlockCallback','PlayerBlockBreakEvents','ItemGroupEvents','CreativeModeTabEvents'}
     lines=[]
@@ -202,16 +212,17 @@ def prepare(minecraft):
     for path in resources.glob('relics.*integration.json'):
         manifest=json.loads(path.read_bytes());manifest['compatibility_target']=minecraft;manifest['loader']='neoforge';manifest['protection_storage']='neoforge:attachments/relics:placed_cells/sections'
         path.write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
-    if not legacy:
-        mixins=json.loads((resources/'relics.mixins.json').read_bytes());mixins['compatibilityLevel']='JAVA_25'
-        (resources/'relics.mixins.json').write_text(json.dumps(mixins,indent=2)+'\n',encoding='utf-8')
+    mixins=json.loads((resources/'relics.mixins.json').read_bytes())
+    mixins['mixins'].remove('EarlyBiomePreparationMixin')
+    if not legacy:mixins['compatibilityLevel']='JAVA_25'
+    (resources/'relics.mixins.json').write_text(json.dumps(mixins,indent=2)+'\n',encoding='utf-8')
     pack=json.loads((resources/'pack.mcmeta').read_bytes());pack['pack']['description']='Relic Mod Alpha 5.0 for NeoForge '+minecraft
     (resources/'pack.mcmeta').write_text(json.dumps(pack,indent=2)+'\n',encoding='utf-8')
     sources=[]
     java_paths=list((source/'java').rglob('*.java'))
     if not legacy:java_paths+=list((ROOT/'src/client/java').rglob('*.java'))
     for path in sorted(java_paths):
-        if path.name=='RelicModMenu.java':continue
+        if path.name in ('RelicModMenu.java','EarlyBiomePreparationMixin.java'):continue
         relative=path.relative_to(ROOT/'src/client/java' if path.is_relative_to(ROOT/'src/client/java') else source/'java');override=COMMON/relative
         text=(modern_platform(path.name,override.read_text(encoding='utf-8')) if not legacy else override.read_text(encoding='utf-8')) if override.exists() else native_java(path.name,path.read_text(encoding='utf-8'),minecraft)
         destination=output/'java'/relative;destination.parent.mkdir(parents=True,exist_ok=True);destination.write_text(text,encoding='utf-8',newline='\n')

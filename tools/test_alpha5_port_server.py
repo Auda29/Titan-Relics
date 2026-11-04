@@ -45,6 +45,7 @@ def main():
     parser.add_argument('--biome-mode',choices=('standard','landscapes','empty-colossus'),default='standard')
     parser.add_argument('--reload-preset',choices=('expedition','balanced','discovery','invalid'),help='Change installation defaults before reopening the same world')
     parser.add_argument('--historical-journal',action='store_true',help='Reopen an Expedition fixture as a pre-menu v2 world')
+    parser.add_argument('--world-load-checks',action='store_true',help='Reject isolated invalid planning fixtures before any world file changes')
     args=parser.parse_args()
     if args.historical_journal and args.distribution_preset!='expedition':parser.error('Historical journal fixture requires Expedition')
     if not args.accept_eula:parser.error('Accept the Minecraft EULA for this isolated server')
@@ -177,6 +178,50 @@ def main():
                 if process.poll() is None:
                     try:process.stdin.write('stop\n');process.stdin.flush();process.wait(timeout=30)
                     except Exception:process.terminate();process.wait(timeout=15)
+        if args.world_load_checks:
+            import copy
+            world=run/'world';journal=world/'data/relics_distribution_v1.json';original=journal.read_bytes()
+            original_envelope=json.loads(original);original_state=json.loads(original_envelope['payload'])
+            def hashes():
+                return {p.relative_to(world).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
+                        for p in world.rglob('*') if p.is_file() and p.name!='session.lock'}
+            report['world_load_checks']=[]
+            try:
+                for name,reason in [('fingerprint','unknown'),('seed','seed'),('border','border'),('enabled','structures'),('unfinished','unfinished'),('checksum','unknown')]:
+                    state=copy.deepcopy(original_state)
+                    if name=='fingerprint':state['fingerprint']='0'*64
+                    elif name=='seed':state['seed']+=1
+                    elif name=='border':state['minX']+=1
+                    elif name=='enabled':state['enabled']=state['enabled'][1:]
+                    elif name=='unfinished':state['frozen']=False;state['unique']=None
+                    payload=json.dumps(state,separators=(',',':'))
+                    envelope=dict(version=1,payload=payload,sha256='0'*64 if name=='checksum' else hashlib.sha256(payload.encode()).hexdigest())
+                    journal.write_text(json.dumps(envelope),encoding='utf-8');before=hashes()
+                    process=subprocess.Popen([str(args.java.resolve()),'@'+str(argfile)],cwd=run,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',bufsize=1,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+                    console=Console(process,run/f'reject-{name}.log',echo=False)
+                    try:
+                        deadline=time.monotonic()+180
+                        while process.poll() is None:
+                            assert not any('Done (' in line for line in console.lines),'Rejected fixture started the server'
+                            if time.monotonic()>deadline:raise TimeoutError('Rejected load did not return: '+name)
+                            time.sleep(.1)
+                        console.thread.join(timeout=5);text=''.join(console.lines)
+                        assert 'Relic world load rejected before saving' in text and 'Reason='+reason in text,text[-3000:]
+                        after=hashes();assert before==after,('Rejected load changed world files',name,[p for p in set(before)|set(after) if before.get(p)!=after.get(p)])
+                        report['world_load_checks'].append(dict(case=name,reason=reason,world_file_count=len(before),all_world_files_unchanged=True,exit_code=process.returncode))
+                    finally:
+                        if process.poll() is None:process.terminate();process.wait(timeout=15)
+                    journal.write_bytes(original)
+            finally:journal.write_bytes(original)
+            process=subprocess.Popen([str(args.java.resolve()),'@'+str(argfile)],cwd=run,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',bufsize=1,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+            console=PortConsole(process,run/'restored-world.log',echo=False)
+            try:
+                console.wait(r'Done \(',timeout=180);console.command('stop',r'Stopping the server',timeout=60)
+                process.wait(timeout=120);console.thread.join(timeout=5)
+                assert process.returncode==0 and journal.read_bytes()==original,'Restored world changed the frozen plan'
+                report['world_load_restored']=dict(started=True,journal_byte_identical=True,exit_code=process.returncode)
+            finally:
+                if process.poll() is None:process.terminate();process.wait(timeout=15)
         report['passed']=True
         report['proofs']={p.name:p.read_text(encoding='utf-8') for p in run.glob('*proof.txt')}
     finally:(run/'evidence.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')

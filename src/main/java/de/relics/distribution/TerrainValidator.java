@@ -41,6 +41,7 @@ public final class TerrainValidator implements Validator {
     public final Set<Family> enabled=EnumSet.noneOf(Family.class);
     public final String fingerprint;
     public final String legacyFingerprint;
+    public final JsonObject signature;
     private final String interiors;
     private final BiomeRules biomeRules;
     public final java.util.concurrent.atomic.LongAdder biomeRejectedProbes=new java.util.concurrent.atomic.LongAdder(),terrainRejectedProbes=new java.util.concurrent.atomic.LongAdder(),boundsRejectedProbes=new java.util.concurrent.atomic.LongAdder();
@@ -64,30 +65,12 @@ public final class TerrainValidator implements Validator {
         // Unknown custom generator implementations must supply their own proof.
         if (generator.getClass()!=net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.class)
             throw new IllegalStateException("Gameplay distribution currently requires the noise-based Overworld generator");
-        JsonObject manifest;
-        try(InputStream stream=TerrainValidator.class.getResourceAsStream("/relics.integration.json")) {
-            if(stream==null) throw new IllegalStateException("Missing integration contracts");
-            manifest=JsonParser.parseString(new String(stream.readAllBytes(),java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();
-        } catch(Exception error) { throw new IllegalStateException(error); }
+        JsonObject manifest=PlanningSignature.manifest();
         var structures=registries.lookupOrThrow(Registries.STRUCTURE);
         var sets=registries.lookupOrThrow(Registries.STRUCTURE_SET);
         var pools=registries.lookupOrThrow(Registries.TEMPLATE_POOL);
-        JsonObject signature=new JsonObject();signature.add("templates",manifest);
+        signature=PlanningSignature.capture(registries,generator,level.getServer().getResourceManager(),interiors);
         var ops=RegistryOps.create(JsonOps.INSTANCE,registries);
-        signature.add("generator",ChunkGenerator.CODEC.encodeStart(ops,generator).getOrThrow());
-        JsonArray environment=new JsonArray();
-        for(var entry:registries.lookupOrThrow(Registries.BIOME).entrySet().stream().sorted(Comparator.comparing(e->e.getKey().identifier().toString())).toList()) {
-            JsonObject biome=new JsonObject(); biome.addProperty("id",entry.getKey().identifier().toString());
-            biome.add("value",net.minecraft.world.level.biome.Biome.DIRECT_CODEC.encodeStart(ops,entry.getValue()).getOrThrow());
-            environment.add(biome);
-        }
-        signature.add("biomes",environment);
-        JsonObject biomeTags=new JsonObject();
-        registries.lookupOrThrow(Registries.BIOME).getTags().sorted(Comparator.comparing(t->t.key().location().toString())).forEach(tag->{
-            JsonArray values=new JsonArray();tag.stream().map(h->h.unwrapKey().orElseThrow().identifier().toString()).sorted().forEach(values::add);
-            biomeTags.add(tag.key().location().toString(),values);
-        });
-        signature.add("biomeTags",biomeTags);
         for(Family family:Family.values()) {
             if(family==Family.EMPTY)continue;
             var set=sets.getOptional(id(family.id)).orElseThrow();
@@ -97,7 +80,6 @@ public final class TerrainValidator implements Validator {
                     || placement.has("frequency") && placement.get("frequency").getAsFloat()!=1f || placement.has("exclusion_zone"))
                 throw new IllegalStateException("Legacy density overrides are incompatible with gameplay distribution: "+family.id);
             placements.put(set.placement(),family);
-            signature.add("set/"+family.id,StructureSet.DIRECT_CODEC.encodeStart(ops,set).getOrThrow());
             if(!set.structures().isEmpty()) {
                 Set<String> expected=new TreeSet<>(),actual=new TreeSet<>();
                 for(JsonElement entry:manifest.getAsJsonArray("structures")) {
@@ -118,7 +100,6 @@ public final class TerrainValidator implements Validator {
             if(!(holder.value() instanceof DelegatingStructure structure)
                     || !(structure.config().spawnCondition().orElseThrow() instanceof SeparatedPlacementCondition condition))
                 throw new IllegalStateException("Unsupported relic structure/terrain override: "+name);
-            signature.add("structure/"+name,Structure.DIRECT_CODEC.encodeStart(ops,structure).getOrThrow());
             var pool=pools.getOptional(id(name)).orElseThrow();
             if(pool.size()!=1)throw new IllegalStateException("Relic pool must contain exactly one pinned template: "+name);
             StructurePoolElement element=pool.getRandomTemplate(RandomSource.create(0));
@@ -139,12 +120,10 @@ public final class TerrainValidator implements Validator {
                     throw new IllegalStateException("Natural template differs from the selected export: "+name);
             }catch(Exception error){throw new IllegalStateException("Cannot verify natural template: "+name,error);}
             var processors=registries.lookupOrThrow(Registries.PROCESSOR_LIST).getOptional(id(name+"_terrain")).orElseThrow();
-            signature.add("processors/"+name,StructureProcessorType.DIRECT_CODEC.encodeStart(ops,processors).getOrThrow());
             // Preload the template on the server thread, before the serialized planner uses it.
             var box=element.getBoundingBox(templates,BlockPos.ZERO,Rotation.NONE);
             if(box.getXSpan()!=size.get(0).getAsInt() || box.getYSpan()!=size.get(1).getAsInt() || box.getZSpan()!=size.get(2).getAsInt())
                 throw new IllegalStateException("Pinned template geometry differs: "+name);
-            signature.add("pool/"+name,net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool.DIRECT_CODEC.encodeStart(ops,pool).getOrThrow());
             if(de.relics.gameplay.NaturalInteriors.hasAsset(interiors,name)) {
                 JsonObject selected=null;
                 for(var item:de.relics.gameplay.NaturalInteriors.manifest(interiors).getAsJsonArray("structures"))
@@ -160,7 +139,6 @@ public final class TerrainValidator implements Validator {
                 element=StructurePoolElement.CODEC.parse(ops,json).getOrThrow();
                 var chosen=element.getBoundingBox(templates,BlockPos.ZERO,Rotation.NONE);
                 if(chosen.getXSpan()!=box.getXSpan() || chosen.getYSpan()!=box.getYSpan() || chosen.getZSpan()!=box.getZSpan())throw new IllegalStateException("Approved interior transform changed");
-                signature.add("interior/"+name,selected);
             }
             profiles.put(name,new Profile(name,family,ground,box.getXSpan(),box.getYSpan(),box.getZSpan(),holder,element,condition));
             structureIds.put(holder.value(),name);

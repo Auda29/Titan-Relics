@@ -100,5 +100,15 @@
   "relics.settings.group.dry": "Dry grassland",
   "relics.settings.group.open": "Open plains",
   "relics.settings.group.forest": "Forest",
-  "relics.settings.group.rocky": "Rocky terrain"
+  "relics.settings.group.rocky": "Rocky terrain",
+  "relics.load.title": "Relic world cannot be loaded safely",
+  "relics.load.world": "Affected world: %s",
+  "relics.load.reason.environment": "The loaded generator, biome, datapack or relic data do not match the saved distribution plan. The old checksum alone cannot identify which change caused this.",
+  "relics.load.reason.seed": "The world seed does not match the saved relic plan.",
+  "relics.load.reason.border": "The world border does not match the saved relic plan.",
+  "relics.load.reason.structures": "Structure generation was disabled after the relic plan was created.",
+  "relics.load.reason.generator": "The current world generator is not supported for this saved relic plan.",
+  "relics.load.reason.unfinished": "Initial relic planning was interrupted. This world has no complete saved plan.",
+  "relics.load.reason.unknown": "Compatibility could not be verified. The exact cause is unknown; see the game log for details.",
+  "relics.load.recovery": "World loading was stopped before saving. Restore the original mods, datapacks and generator settings, then try again. For an incomplete or damaged plan, restore a complete backup. Do not delete the relic plan."
 }

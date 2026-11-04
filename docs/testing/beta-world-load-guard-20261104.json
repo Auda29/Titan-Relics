@@ -1,0 +1,783 @@
+{
+  "date": "2026-11-04",
+  "status": "passed",
+  "published": false,
+  "world_file_hash_exclusion": "Only transient session.lock",
+  "new_pure_assertions": 22,
+  "synthetic_terrain_seeds": 30,
+  "targets": [
+    {
+      "archive": {
+        "file": "relics-0.1.0-alpha.5.0.5+mc1.21.1.jar",
+        "sha256": "3a83c56c261f93e864b3926adccb7e5e8d9ad05095caa524afee230a34c5dcb3",
+        "loader": "fabric",
+        "minecraft": "1.21.1",
+        "version": "0.1.0-alpha.5.0.5",
+        "java_class_major": 65,
+        "templates": 40,
+        "frozen_manifests": 6,
+        "runtime_classes": 126,
+        "block_substitutions": {
+          "minecraft:firefly_bush": "minecraft:fern",
+          "minecraft:waxed_copper_chest": "minecraft:chest"
+        },
+        "passed": true,
+        "assets": {
+          "asset_references_checked": 37,
+          "client": "minecraft-client.jar",
+          "passed": true
+        }
+      },
+      "server_fixture": "build/alpha5-ports-20261028/fabric-1.21.1-102007-087472",
+      "server": {
+        "loader": "fabric",
+        "minecraft": "1.21.1",
+        "artifact": "relics-0.1.0-alpha.5.0.5+mc1.21.1.jar",
+        "artifact_sha256": "3a83c56c261f93e864b3926adccb7e5e8d9ad05095caa524afee230a34c5dcb3",
+        "passed": true,
+        "iterations": [
+          {
+            "restart": false,
+            "commands": [],
+            "exit_code": 0,
+            "frozen_distribution": {
+              "policy": "relics-distribution-v3-settings",
+              "settings": {
+                "cellSize": 2000,
+                "minDistance": 800,
+                "obeliskDistance": 6000,
+                "regionRadius": 2400,
+                "outside": [
+                  3000,
+                  250,
+                  250,
+                  200,
+                  200,
+                  200
+                ],
+                "inside": [
+                  3000,
+                  1500,
+                  1500,
+                  200,
+                  200,
+                  200
+                ],
+                "biomes": {
+                  "families": {
+                    "colossus": {
+                      "mode": "CUSTOM",
+                      "selected": []
+                    }
+                  }
+                },
+                "colossusMinDistance": 8000
+              },
+              "unique": null,
+              "fingerprint": "da835c92fcf5e296d2d0fe8ec3835be06e492db30ee82fef3a298ae8e9affeb0",
+              "spawnX": 496,
+              "spawnZ": -96
+            }
+          },
+          {
+            "restart": true,
+            "commands": [],
+            "exit_code": 0,
+            "frozen_distribution": {
+              "policy": "relics-distribution-v3-settings",
+              "settings": {
+                "cellSize": 2000,
+                "minDistance": 800,
+                "obeliskDistance": 6000,
+                "regionRadius": 2400,
+                "outside": [
+                  3000,
+                  250,
+                  250,
+                  200,
+                  200,
+                  200
+                ],
+                "inside": [
+                  3000,
+                  1500,
+                  1500,
+                  200,
+                  200,
+                  200
+                ],
+                "biomes": {
+                  "families": {
+                    "colossus": {
+                      "mode": "CUSTOM",
+                      "selected": []
+                    }
+                  }
+                },
+                "colossusMinDistance": 8000
+              },
+              "unique": null,
+              "fingerprint": "da835c92fcf5e296d2d0fe8ec3835be06e492db30ee82fef3a298ae8e9affeb0",
+              "spawnX": 496,
+              "spawnZ": -96
+            }
+          }
+        ],
+        "world_load_checks": [
+          {
+            "case": "fingerprint",
+            "reason": "unknown",
+            "world_file_count": 16,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "seed",
+            "reason": "seed",
+            "world_file_count": 16,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "border",
+            "reason": "border",
+            "world_file_count": 16,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "enabled",
+            "reason": "structures",
+            "world_file_count": 16,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "unfinished",
+            "reason": "unfinished",
+            "world_file_count": 16,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "checksum",
+            "reason": "unknown",
+            "world_file_count": 16,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          }
+        ],
+        "world_load_restored": {
+          "started": true,
+          "journal_byte_identical": true,
+          "exit_code": 0
+        },
+        "proofs": {}
+      },
+      "client_fixture": "build/distribution-settings-20261030/client-1.21.1-102313-429431",
+      "client_tool_exit_code": 0,
+      "client_proof": "PASS two real rejected client loads; localized error; all world files unchanged except transient session.lock; lock reacquired; menu callbacks; successful preflight cancelled without writes; global seed restored; restored same world; journal byte-identical\n"
+    },
+    {
+      "archive": {
+        "file": "relics-0.1.0-alpha.5.0.5+mc26.2.jar",
+        "loader": "fabric",
+        "minecraft": "26.2",
+        "sha256": "c25136dcca52f7bf63d40dfb2d8911570a102b144cc0877b09bd7a128851baf5",
+        "runtime_classes": 124,
+        "frozen_manifests": 6,
+        "templates": 40,
+        "passed": true,
+        "assets": {
+          "asset_references_checked": 35,
+          "client": "minecraft-client.jar",
+          "passed": true
+        }
+      },
+      "server_fixture": "build/alpha5-ports-20261028/fabric-26.2-102007-090517",
+      "server": {
+        "loader": "fabric",
+        "minecraft": "26.2",
+        "artifact": "relics-0.1.0-alpha.5.0.5+mc26.2.jar",
+        "artifact_sha256": "c25136dcca52f7bf63d40dfb2d8911570a102b144cc0877b09bd7a128851baf5",
+        "passed": true,
+        "iterations": [
+          {
+            "restart": false,
+            "commands": [],
+            "exit_code": 0,
+            "frozen_distribution": {
+              "policy": "relics-distribution-v3-settings",
+              "settings": {
+                "cellSize": 2000,
+                "minDistance": 800,
+                "obeliskDistance": 6000,
+                "regionRadius": 2400,
+                "outside": [
+                  3000,
+                  250,
+                  250,
+                  200,
+                  200,
+                  200
+                ],
+                "inside": [
+                  3000,
+                  1500,
+                  1500,
+                  200,
+                  200,
+                  200
+                ],
+                "biomes": {
+                  "families": {
+                    "colossus": {
+                      "mode": "CUSTOM",
+                      "selected": []
+                    }
+                  }
+                },
+                "colossusMinDistance": 8000
+              },
+              "unique": null,
+              "fingerprint": "603387c1e78137d5133d29bb0c4baa24e2abe6142180dcd2269d4027e147d5ab",
+              "spawnX": -656,
+              "spawnZ": 112
+            }
+          },
+          {
+            "restart": true,
+            "commands": [],
+            "exit_code": 0,
+            "frozen_distribution": {
+              "policy": "relics-distribution-v3-settings",
+              "settings": {
+                "cellSize": 2000,
+                "minDistance": 800,
+                "obeliskDistance": 6000,
+                "regionRadius": 2400,
+                "outside": [
+                  3000,
+                  250,
+                  250,
+                  200,
+                  200,
+                  200
+                ],
+                "inside": [
+                  3000,
+                  1500,
+                  1500,
+                  200,
+                  200,
+                  200
+                ],
+                "biomes": {
+                  "families": {
+                    "colossus": {
+                      "mode": "CUSTOM",
+                      "selected": []
+                    }
+                  }
+                },
+                "colossusMinDistance": 8000
+              },
+              "unique": null,
+              "fingerprint": "603387c1e78137d5133d29bb0c4baa24e2abe6142180dcd2269d4027e147d5ab",
+              "spawnX": -656,
+              "spawnZ": 112
+            }
+          }
+        ],
+        "world_load_checks": [
+          {
+            "case": "fingerprint",
+            "reason": "unknown",
+            "world_file_count": 33,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "seed",
+            "reason": "seed",
+            "world_file_count": 33,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "border",
+            "reason": "border",
+            "world_file_count": 33,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "enabled",
+            "reason": "structures",
+            "world_file_count": 33,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "unfinished",
+            "reason": "unfinished",
+            "world_file_count": 33,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "checksum",
+            "reason": "unknown",
+            "world_file_count": 33,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          }
+        ],
+        "world_load_restored": {
+          "started": true,
+          "journal_byte_identical": true,
+          "exit_code": 0
+        },
+        "proofs": {}
+      },
+      "client_fixture": "build/distribution-settings-20261030/client-26.2-102313-435952",
+      "client_tool_exit_code": 0,
+      "client_proof": "PASS two real rejected client loads; localized error; all world files unchanged except transient session.lock; lock reacquired; menu callbacks; successful preflight cancelled without writes; global seed restored; restored same world; journal byte-identical\n"
+    },
+    {
+      "archive": {
+        "file": "relics-0.1.0-alpha.5.0.5+mc1.21.1-neoforge.jar",
+        "sha256": "e62c66ee9856014d38c3dce4f9b34592239540ea669b0e93d405127c437cbfa3",
+        "loader": "neoforge",
+        "minecraft": "1.21.1",
+        "version": "0.1.0-alpha.5.0.5",
+        "java_class_major": 65,
+        "templates": 40,
+        "frozen_manifests": 6,
+        "runtime_classes": 154,
+        "block_substitutions": {
+          "minecraft:firefly_bush": "minecraft:fern",
+          "minecraft:waxed_copper_chest": "minecraft:chest"
+        },
+        "passed": true,
+        "assets": {
+          "asset_references_checked": 37,
+          "client": "minecraft-client.jar",
+          "passed": true
+        }
+      },
+      "server_fixture": "build/alpha5-ports-20261028/neoforge-1.21.1-102007-091748",
+      "server": {
+        "loader": "neoforge",
+        "minecraft": "1.21.1",
+        "artifact": "relics-0.1.0-alpha.5.0.5+mc1.21.1-neoforge.jar",
+        "artifact_sha256": "e62c66ee9856014d38c3dce4f9b34592239540ea669b0e93d405127c437cbfa3",
+        "passed": true,
+        "iterations": [
+          {
+            "restart": false,
+            "commands": [],
+            "exit_code": 0,
+            "frozen_distribution": {
+              "policy": "relics-distribution-v3-settings",
+              "settings": {
+                "cellSize": 2000,
+                "minDistance": 800,
+                "obeliskDistance": 6000,
+                "regionRadius": 2400,
+                "outside": [
+                  3000,
+                  250,
+                  250,
+                  200,
+                  200,
+                  200
+                ],
+                "inside": [
+                  3000,
+                  1500,
+                  1500,
+                  200,
+                  200,
+                  200
+                ],
+                "biomes": {
+                  "families": {
+                    "colossus": {
+                      "mode": "CUSTOM",
+                      "selected": []
+                    }
+                  }
+                },
+                "colossusMinDistance": 8000
+              },
+              "unique": null,
+              "fingerprint": "dbe848d78c1d7ade1c9efc2504fa782006ecba25955a9e5ba4d15abc4514f8da",
+              "spawnX": 496,
+              "spawnZ": -96
+            }
+          },
+          {
+            "restart": true,
+            "commands": [],
+            "exit_code": 0,
+            "frozen_distribution": {
+              "policy": "relics-distribution-v3-settings",
+              "settings": {
+                "cellSize": 2000,
+                "minDistance": 800,
+                "obeliskDistance": 6000,
+                "regionRadius": 2400,
+                "outside": [
+                  3000,
+                  250,
+                  250,
+                  200,
+                  200,
+                  200
+                ],
+                "inside": [
+                  3000,
+                  1500,
+                  1500,
+                  200,
+                  200,
+                  200
+                ],
+                "biomes": {
+                  "families": {
+                    "colossus": {
+                      "mode": "CUSTOM",
+                      "selected": []
+                    }
+                  }
+                },
+                "colossusMinDistance": 8000
+              },
+              "unique": null,
+              "fingerprint": "dbe848d78c1d7ade1c9efc2504fa782006ecba25955a9e5ba4d15abc4514f8da",
+              "spawnX": 496,
+              "spawnZ": -96
+            }
+          }
+        ],
+        "world_load_checks": [
+          {
+            "case": "fingerprint",
+            "reason": "unknown",
+            "world_file_count": 20,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "seed",
+            "reason": "seed",
+            "world_file_count": 20,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "border",
+            "reason": "border",
+            "world_file_count": 20,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "enabled",
+            "reason": "structures",
+            "world_file_count": 20,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "unfinished",
+            "reason": "unfinished",
+            "world_file_count": 20,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          },
+          {
+            "case": "checksum",
+            "reason": "unknown",
+            "world_file_count": 20,
+            "all_world_files_unchanged": true,
+            "exit_code": 0
+          }
+        ],
+        "world_load_restored": {
+          "started": true,
+          "journal_byte_identical": true,
+          "exit_code": 0
+        },
+        "proofs": {}
+      },
+      "client_fixture": "build/beta-load-guard/neo-client-1.21.1-102313-436950",
+      "client_tool_exit_code": 0,
+      "client_proof": "PASS two real rejected client loads; localized error; all world files unchanged except transient session.lock; lock reacquired; menu callbacks; successful preflight cancelled without writes; global seed restored; restored same world; journal byte-identical\n"
+    },
+    {
+      "archive": {
+        "file": "relics-0.1.0-alpha.5.0.5+mc26.2-neoforge.jar",
+        "sha256": "1c9a8376c57d362e06462a1eba1ad25a3fbb45e3d6c479635aecdf8abf3b4e21",
+        "loader": "neoforge",
+        "minecraft": "26.2",
+        "version": "0.1.0-alpha.5.0.5",
+        "java_class_major": 69,
+        "templates": 40,
+        "frozen_manifests": 6,
+        "runtime_classes": 152,
+        "block_substitutions": {},
+        "passed": true,
+        "assets": {
+          "asset_references_checked": 35,
+          "client": "minecraft-client.jar",
+          "passed": true
+        }
+      },
+      "server_fixture": "build/alpha5-ports-20261028/neoforge-26.2-102007-100548",
+      "server": {
+        "loader": "neoforge",
+        "minecraft": "26.2",
+        "artifact": "relics-0.1.0-alpha.5.0.5+mc26.2-neoforge.jar",
+        "artifact_sha256": "1c9a8376c57d362e06462a1eba1ad25a3fbb45e3d6c479635aecdf8abf3b4e21",
+        "passed": true,
+        "iterations": [
+          {
+            "restart": false,
+            "commands": [],
+            "exit_code": 0,
+            "frozen_distribution": {
+              "policy": "relics-distribution-v3-settings",
+              "settings": {
+                "cellSize": 2000,
+                "minDistance": 800,
+                "obeliskDistance": 6000,
+                "regionRadius": 2400,
+                "outside": [
+                  3000,
+                  250,
+                  250,
+                  200,
+                  200,
+                  200
+                ],
+                "inside": [
+                  3000,
+                  1500,
+                  1500,
+                  200,
+                  200,
+                  200
+                ],
+                "biomes": {
+                  "families": {
+                    "colossus": {
+                      "mode": "CUSTOM",
+                      "selected": []
+                    }
+                  }
+                },
+                "colossusMinDistance": 8000
+              },
+              "unique": null,
+              "fingerprint": "2b70de8f3af4f8437899346df5ee5fce225a8a23b484c58cdf29774674b98719",
+              "spawnX": -656,
+              "spawnZ": 112
+            }
+          },
+          {
+            "restart": true,
+            "commands": [],
+            "exit_code": 0,
+            "frozen_distribution": {
+              "policy": "relics-distribution-v3-settings",
+              "settings": {
+                "cellSize": 2000,
+                "minDistance": 800,
+                "obeliskDistance": 6000,
+                "regionRadius": 2400,
+                "outside": [
+                  3000,
+                  250,
+                  250,
+                  200,
+                  200,
+                  200
+                ],
+                "inside": [
+                  3000,
+                  1500,
+                  1500,
+                  200,
+                  200,
+                  200
+                ],
+                "biomes": {
+                  "families": {
+                    "colossus": {
+                      "mode": "CUSTOM",
+                      "selected": []
+                    }
+                  }
+                },
+                "colossusMinDistance": 8000
+              },
+              "unique": null,
+              "fingerprint": "2b70de8f3af4f8437899346df5ee5fce225a8a23b484c58cdf29774674b98719",
+              "spawnX": -656,
+              "spawnZ": 112
+            }
+          }
+        ],
+        "world_load_checks": [
+          {
+            "case": "fingerprint",
+            "reason": "unknown",
+            "world_file_count": 37,
+            "all_world_files_unchanged": true,
+            "exit_code": 1
+          },
+          {
+            "case": "seed",
+            "reason": "seed",
+            "world_file_count": 37,
+            "all_world_files_unchanged": true,
+            "exit_code": 1
+          },
+          {
+            "case": "border",
+            "reason": "border",
+            "world_file_count": 37,
+            "all_world_files_unchanged": true,
+            "exit_code": 1
+          },
+          {
+            "case": "enabled",
+            "reason": "structures",
+            "world_file_count": 37,
+            "all_world_files_unchanged": true,
+            "exit_code": 1
+          },
+          {
+            "case": "unfinished",
+            "reason": "unfinished",
+            "world_file_count": 37,
+            "all_world_files_unchanged": true,
+            "exit_code": 1
+          },
+          {
+            "case": "checksum",
+            "reason": "unknown",
+            "world_file_count": 37,
+            "all_world_files_unchanged": true,
+            "exit_code": 1
+          }
+        ],
+        "world_load_restored": {
+          "started": true,
+          "journal_byte_identical": true,
+          "exit_code": 0
+        },
+        "proofs": {}
+      },
+      "client_fixture": "build/beta-load-guard/neo-client-26.2-102313-506537",
+      "client_tool_exit_code": 0,
+      "client_proof": "PASS two real rejected client loads; localized error; all world files unchanged except transient session.lock; lock reacquired; menu callbacks; successful preflight cancelled without writes; global seed restored; restored same world; journal byte-identical\n"
+    }
+  ],
+  "modpack_server": {
+    "artifact_sha256": "3a83c56c261f93e864b3926adccb7e5e8d9ad05095caa524afee230a34c5dcb3",
+    "protected_files": 7,
+    "passed": true,
+    "cases": [
+      {
+        "case": "without-evidence",
+        "started": false,
+        "rejected": true,
+        "exit_code": 0,
+        "world_file_count": 733,
+        "all_world_files_unchanged": true,
+        "journal_byte_identical": true,
+        "maps_progress_and_targets_unchanged": true,
+        "changed": []
+      },
+      {
+        "case": "original",
+        "started": true,
+        "rejected": false,
+        "exit_code": 0,
+        "world_file_count": 733,
+        "all_world_files_unchanged": false,
+        "journal_byte_identical": true,
+        "maps_progress_and_targets_unchanged": true,
+        "changed": [
+          "DIM-1/data/raids.dat",
+          "DIM1/data/raids_end.dat",
+          "data/raids.dat",
+          "data/relics_planning_environment_v1.json",
+          "entities/r.-1.-1.mca",
+          "level.dat",
+          "level.dat_old",
+          "region/r.-1.-1.mca",
+          "region/r.-1.0.mca",
+          "region/r.0.-1.mca",
+          "region/r.0.0.mca"
+        ]
+      },
+      {
+        "case": "without-seasons",
+        "started": true,
+        "rejected": false,
+        "exit_code": 0,
+        "world_file_count": 734,
+        "all_world_files_unchanged": false,
+        "journal_byte_identical": true,
+        "maps_progress_and_targets_unchanged": true,
+        "changed": [
+          "DIM-1/data/raids.dat",
+          "DIM1/data/raids_end.dat",
+          "data/raids.dat",
+          "entities/r.-1.-1.mca",
+          "level.dat",
+          "level.dat_old",
+          "region/r.-1.-1.mca",
+          "region/r.-1.0.mca",
+          "region/r.0.-1.mca",
+          "region/r.0.0.mca"
+        ]
+      },
+      {
+        "case": "restored",
+        "started": true,
+        "rejected": false,
+        "exit_code": 0,
+        "world_file_count": 734,
+        "all_world_files_unchanged": false,
+        "journal_byte_identical": true,
+        "maps_progress_and_targets_unchanged": true,
+        "changed": [
+          "DIM-1/data/raids.dat",
+          "DIM1/data/raids_end.dat",
+          "data/raids.dat",
+          "entities/r.-1.-1.mca",
+          "level.dat",
+          "level.dat_old",
+          "region/r.-1.-1.mca",
+          "region/r.-1.0.mca",
+          "region/r.0.-1.mca",
+          "region/r.0.0.mca"
+        ]
+      }
+    ]
+  },
+  "modpack_client": {
+    "fixture": "build/distribution-settings-20261030/client-1.21.1-102547-282559",
+    "tool_exit_code": 0,
+    "artifact_sha256": "3a83c56c261f93e864b3926adccb7e5e8d9ad05095caa524afee230a34c5dcb3",
+    "proof": "PASS two real rejected client loads; localized error; all world files unchanged except transient session.lock; lock reacquired; menu callbacks; successful preflight cancelled without writes; global seed restored; restored same world; journal byte-identical\n"
+  },
+  "released_signature_contents_identical": true,
+  "preserved_unrelated_tracked_files": 7,
+  "ui_screenshot_sha256": "45a4dd2c79c1f017b752fef6c85d9af6c5e811b6bbb22627129b04b6f065283b"
+}
