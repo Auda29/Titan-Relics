@@ -25,6 +25,7 @@ Die öffentliche Repository-Freigabe veröffentlicht noch keinen Beta-Release.
 - [CurseForge-Projektseite und Einstellungen](CURSEFORGE_DRAFT.md).
 - [Release-Notizen als Vorlage](BETA_RELEASE_TEMPLATE.md).
 - [Namensvorschläge und Kollisionsprüfung](../project/NAMING.md).
+- [Öffentliche Credits mit den ursprünglichen Inspirationsquellen](../../CREDITS.md).
 - [Prüfung des gesamten Vorbereitungspakets](../testing/PUBLIC_BETA_PREPARATION_20261105.md).
 
 Die öffentlichen Texte sind Englisch, entsprechend dem bisherigen README und
@@ -112,6 +113,10 @@ Entscheidungen:
 - Namenskollisionen und Verfügbarkeit des vorgeschlagenen Slugs `titan-relics`
   auf beiden Plattformen prüfen. Der Name und Untertitel sind gewählt.
 - Lizenz für Code und Assets; Metadaten aktuell `All-Rights-Reserved`.
+- Bei der Rechte-/Herkunftsprüfung die dokumentierten visuellen Vorlagen von
+  The Archive In Between und Josh White berücksichtigen. Die Credits nennen
+  diese Quellen; eine Erlaubnis oder Freigabe der Urheber ist damit nicht belegt.
+  Eine eigene Lizenz darf keine Rechte an deren Werken versprechen.
 - Ausdrückliche Regeln für Modpack-Nutzung, Weiterverteilung und gegebenenfalls
   externe Launcher. Modrinth behandelt Modpack-Berechtigungen nach den
   [veröffentlichten Berechtigungsregeln](https://support.modrinth.com/en/articles/8797527-obtaining-modpack-permissions).

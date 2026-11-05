@@ -5,6 +5,8 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
+- [Inspirations and credits: The Archive In Between and Josh White](../CREDITS.md)
+
 - [Player installation, dependencies, existing worlds and bug reporting](players/INSTALLATION.md)
 - [Short player guide: presets, archaeology, maps, Core and Magnet](players/PLAYER_GUIDE.md)
 - [Beta publication package: Modrinth/CurseForge drafts and outstanding decisions](releases/PUBLIC_BETA_PREPARATION.md)

@@ -64,6 +64,14 @@ Include exact versions, reproduction steps and the complete relevant log.
 The [reporting guide](docs/players/INSTALLATION.md#reporting-a-problem) explains
 which files to attach and what private information to remove.
 
+## Inspirations and credits
+
+Titan Relics draws visual inspiration from
+[The Archive In Between](https://www.instagram.com/thearchiveinbetween/),
+especially its overgrown colossi, titan remains and monumental trees.
+The Obelisk and Ruined Tower also draw on references by Josh White.
+See [credits and original reference links](CREDITS.md).
+
 ## Development and publication
 
 - [Documentation index](docs/README.md), [current status](docs/project/CURRENT_STATUS_AND_ROADMAP.md)

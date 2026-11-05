@@ -78,6 +78,14 @@ and [compatibility notes](https://github.com/Auda29/Titan-Relics/blob/main/docs/
 Submit bugs through the [issue tracker](https://github.com/Auda29/Titan-Relics/issues/new/choose)
 with exact versions, logs and steps to reproduce.
 
+### Inspirations and credits
+
+Titan Relics draws visual inspiration from
+[The Archive In Between](https://www.instagram.com/thearchiveinbetween/),
+especially its overgrown colossi, titan remains and monumental trees.
+The Obelisk and Ruined Tower also draw on references by Josh White.
+See the [credits and original reference links](https://github.com/Auda29/Titan-Relics/blob/main/CREDITS.md).
+
 ## File settings at release
 
 Upload each of the four JARs in the
