@@ -6,6 +6,7 @@ from release_version import release_version
 
 ROOT=Path(__file__).resolve().parents[1]
 VERSION=release_version()
+LICENSE=json.loads((ROOT/'src/main/resources/fabric.mod.json').read_text(encoding='utf-8'))['license']
 COMMON=ROOT/'compat/alpha5-neoforge-common/src/main/adapters'
 TARGETS={'1.21.1':{'neo':'21.1.256','java':21,'litho':'21.1'},'26.2':{'neo':'26.2.0.88','java':25,'litho':'26.2'}}
 
@@ -143,7 +144,7 @@ def metadata(minecraft,mod='relics'):
     if mod=='relics':
         return f'''modLoader="javafml"
 loaderVersion="[1,)"
-license="All-Rights-Reserved"
+license="{LICENSE}"
 [[mods]]
 modId="relics"
 version="{VERSION}"
@@ -175,7 +176,7 @@ side="BOTH"
 '''
     return f'''modLoader="javafml"
 loaderVersion="[1,)"
-license="All-Rights-Reserved"
+license="{LICENSE}"
 [[mods]]
 modId="relics_port_checks"
 version="1"

@@ -210,8 +210,12 @@ Priorität P1, Voraussetzung für die öffentliche Freigabe.
 - [x] Eine Fehlermelde-Vorlage mit Mod-/Spiel-/Loader-Version, Seed und
   Koordinaten soweit relevant, Modliste, Reproduktionsschritten und passenden
   Log-/Crashberichten anlegen.
-- [ ] Veröffentlichungsplattform und Lizenz-/Modpack-Freigabe ausdrücklich
-  festlegen. Die Metadaten verwenden derzeit `All-Rights-Reserved`.
+- [x] Projektlizenz MIT ausdrücklich festlegen und in Lizenzdatei/Metadaten
+  übernehmen. Modpack-Nutzung, Änderungen und Weiterverteilung sind unter MIT
+  mit Erhalt des Copyright-/Lizenzhinweises erlaubt. Fremde Referenzwerke
+  werden nicht mitlizenziert.
+- [ ] Die tatsächliche Veröffentlichung auf Modrinth/CurseForge freigeben und
+  die jeweiligen Plattform-Verteilungseinstellungen prüfen.
 - [ ] Eine öffentliche Projektseite mit geeigneten Screenshots, Beschreibung,
   richtigen Spiel-/Loader-Zuordnungen und Abhängigkeiten vorbereiten.
 - [ ] Für den tatsächlichen Beta-Release erneut alle vier veröffentlichten JARs,
@@ -220,8 +224,8 @@ Priorität P1, Voraussetzung für die öffentliche Freigabe.
 Bei einer Veröffentlichung auf Modrinth sind dessen
 [Versions- und Abhängigkeitsangaben](https://docs.modrinth.com/api/operations/createversion/)
 sowie die [Regeln zur Modpack-Nutzung](https://support.modrinth.com/en/articles/8797527-obtaining-modpack-permissions)
-zu berücksichtigen. Die Wahl einer Lizenz oder Plattform ist noch keine
-durch diese Roadmap getroffene Entscheidung.
+zu berücksichtigen. MIT ist inzwischen durch den Nutzer gewählt; diese
+Lizenzentscheidung ist noch keine Freigabe zur Plattformveröffentlichung.
 
 Stand 5. November: Das [lokale Veröffentlichungspaket](../releases/PUBLIC_BETA_PREPARATION.md)
 enthält [Spielanleitung](../players/PLAYER_GUIDE.md),
@@ -234,8 +238,9 @@ Vier-Dateien-Matrix und einer Release-Vorlage. Die
 von `titan-relics` auf beiden Plattformen sind noch zu prüfen.
 README/Index unterscheiden Alpha 5.0.5 vom unveröffentlichten Kandidaten;
 die endgültige Beta-Version und ihre Downloadlinks bleiben offen. Die
-Projektseiten liegen als prüfbare Entwürfe vor; finale Bilder/Icon, Lizenz,
-Modpack-Regeln und Plattformprüfung fehlen noch. Der Nutzer hat das Repository
+Projektseiten liegen als prüfbare Entwürfe vor. MIT und die daraus folgende
+Modpack-Erlaubnis sind festgelegt; finale Bilder/Icon und Plattformprüfung
+fehlen noch. Der Nutzer hat das Repository
 in [Auda29/Titan-Relics](https://github.com/Auda29/Titan-Relics) umbenannt und
 öffentlich freigegeben. Anonyme Abfragen bestätigen die öffentliche Anleitung,
 aktivierte Issues und den vorhandenen Alpha-Release. Die Einrichtung öffentlicher

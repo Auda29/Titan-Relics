@@ -97,7 +97,7 @@ candidate based on 5.0.5, not newly published player JARs.
 | 3. Survival playthrough | Open. The user is testing the complete natural exploration, archaeology, map, encounter and reward chain and its everyday balance. |
 | 4. Actual client acceptance | Complete on Fabric/NeoForge for 1.21.1/26.2. Real multiplayer, crafting, personal rewards, late participation, restart persistence and 96 reviewed model/armor images are documented in the [gameplay](../testing/BETA_CLIENT_GAMEPLAY_ACCEPTANCE_20261104.md) and [final renderer](../testing/BETA_RENDERER_ACCEPTANCE_20261104.md) reports. |
 | 5. Compatibility and performance | Complete within documented support conditions. Sixteen server runs, eight modpack client runs and a separate DH LOD view are in the [compatibility report](../testing/BETA_COMPATIBILITY_20261104.md). |
-| 6. Publication and feedback | Prepared locally: player guide, installation/support, README, issue form, Modrinth/CurseForge page and file-metadata drafts, release template and name proposals. The user selected Titan Relics with the tagline Colossal ruins of a forgotten age. Name/slug availability, license/modpack policy, platform eligibility, final art, release approval and published-asset verification remain open. See the [publication package](../releases/PUBLIC_BETA_PREPARATION.md). |
+| 6. Publication and feedback | Prepared locally: player guide, installation/support, README, issue form, Modrinth/CurseForge page and file-metadata drafts, release template and name proposals. The user selected Titan Relics with the tagline Colossal ruins of a forgotten age. MIT is selected and permits modpack use under its notice conditions. Name/slug availability, platform eligibility, final art, release approval and published-asset verification remain open. See the [publication package](../releases/PUBLIC_BETA_PREPARATION.md). |
 
 The user renamed the repository to [Auda29/Titan-Relics](https://github.com/Auda29/Titan-Relics)
 and made it public. Anonymous checks confirm public repository metadata, the
@@ -186,8 +186,12 @@ new dimensions are not selected additions. Skull/Tree reward chests are not plan
 
 ## Publication decisions and next order
 
-GitHub prereleases and their CI are delivered. A broader release destination and
-license policy remain decisions; metadata currently uses `All-Rights-Reserved`.
+GitHub prereleases and their CI are delivered. The user selected the MIT License
+for the project, including modpack use and redistribution under its notice
+conditions. The license is recorded in `LICENSE` and current Fabric/NeoForge
+metadata; new builds include the license and credits. Third-party reference works
+retain their own rights. Existing Alpha release files are not replaced. Final
+platform publication and approval remain pending.
 
 Follow the [public-beta roadmap](PUBLIC_BETA_ROADMAP.md): finish the user's
 Survival acceptance and publication preparation next. Gates 1, 2, 4 and 5 have

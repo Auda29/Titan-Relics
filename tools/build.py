@@ -81,6 +81,8 @@ def write_archive(destination: Path, resources: Path = RESOURCES, classes: Path 
             if not path.is_file():
                 continue
             relative = path.relative_to(resources).as_posix()
+            if relative in ('LICENSE', 'CREDITS.md'):
+                continue  # Always use the current canonical project notices below.
             # Tile exports are editable source/debug assets; natural generation uses whole templates.
             if relative.startswith("data/relics/structure/") and "/tile_" in relative:
                 continue
@@ -98,6 +100,14 @@ def write_archive(destination: Path, resources: Path = RESOURCES, classes: Path 
                     data['version'] = release_version(data['version'])
                 content = (json.dumps(data,
                                       ensure_ascii=False, sort_keys=True, indent=2) + "\n").encode("utf-8")
+            archive.writestr(info, content, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
+        # The ports extract this archive as their resource input, so all four
+        # player targets retain the same license and attribution notices.
+        for name in ('LICENSE', 'CREDITS.md'):
+            info = zipfile.ZipInfo(name, date_time=(2026, 1, 1, 0, 0, 0))
+            info.create_system = 3
+            info.external_attr = 0o100644 << 16
+            content = (ROOT / name).read_text(encoding='utf-8').replace('\r\n', '\n').encode('utf-8')
             archive.writestr(info, content, compress_type=zipfile.ZIP_DEFLATED, compresslevel=9)
         if classes is not None:
             for path in checked_classes(classes):

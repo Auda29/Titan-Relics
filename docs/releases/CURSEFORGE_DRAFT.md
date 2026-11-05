@@ -1,7 +1,7 @@
 # CurseForge publication draft
 
 Prepared 5 November 2026. Local review copy only; no external project exists as
-part of this preparation. The selected name is Titan Relics. Slug availability, license and public beta
+part of this preparation. The selected name is Titan Relics and the license is MIT. Slug availability and public beta
 approval remain pending. The [shared preparation checklist](PUBLIC_BETA_PREPARATION.md) applies.
 The repository is now public at https://github.com/Auda29/Titan-Relics.
 The source, player documentation and issue tracker use that public destination.
@@ -17,12 +17,12 @@ The source, player documentation and issue tracker use that public destination.
 | Summary | Explore colossal ruins, uncover archaeology and follow expedition maps to recover ancient machinery. |
 | Main category | World Gen; confirm current portal options |
 | Additional categories | Structures; Adventure and RPG, if available and appropriate |
-| License | Decision pending; current metadata is All-Rights-Reserved |
+| License | MIT; retain the copyright and license notice |
 | Source | https://github.com/Auda29/Titan-Relics |
 | Issues | External tracker: https://github.com/Auda29/Titan-Relics/issues |
 | Wiki | https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md |
 | Logo | Original 400 × 400 PNG to meet moderation guidance; final artwork pending |
-| Distribution / modpack permissions | Author decision pending; review separately from license |
+| Distribution / modpack permissions | Permitted under MIT; platform distribution settings still need review |
 
 ## Description draft
 
@@ -78,6 +78,14 @@ and [compatibility notes](https://github.com/Auda29/Titan-Relics/blob/main/docs/
 Submit bugs through the [issue tracker](https://github.com/Auda29/Titan-Relics/issues/new/choose)
 with exact versions, logs and steps to reproduce.
 
+### License and modpacks
+
+Titan Relics is licensed under the [MIT License](https://github.com/Auda29/Titan-Relics/blob/main/LICENSE).
+Modpacks, modifications and redistribution, including commercial use, are allowed
+under MIT with the copyright and license notice retained. No individual modpack
+permission request is needed. Third-party works and visual references retain
+their own rights; this license does not grant rights to the referenced artworks.
+
 ### Inspirations and credits
 
 Titan Relics draws visual inspiration from
@@ -107,7 +115,7 @@ moderation. It also documents launcher visibility limits for beta-only projects.
 Keep the truthful Beta classification and confirm current visibility behavior
 before announcing launcher installation. Moderation acceptance is not guaranteed.
 
-Before submission, check name availability and resolve the license/modpack choices, replace the draft
+Before submission, check name availability and platform distribution settings, replace the draft
 status paragraph with the approved state and verify public documentation links.
 Review the current [submission tips](https://support.curseforge.com/support/solutions/articles/9000199552-project-submission-guide-and-tips)
 and [moderation policies](https://support.curseforge.com/support/solutions/articles/9000197279-moderation-policies).

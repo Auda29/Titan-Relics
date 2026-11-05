@@ -19,6 +19,8 @@ Salvage Magnet. Choose a generation preset before creating a new world.
 - Discoveries as the factory preset when a new world has no previously saved
   installation choice. Existing choices and world plans remain unchanged.
 - Player installation/usage guides and a structured bug report form.
+- MIT project license, with license and credits included in new builds.
+  Third-party reference works retain their own rights.
 - Add any further changes actually included in SOURCE_SHA before release.
 
 ## Install
@@ -50,7 +52,8 @@ with exact versions, logs and reproduction steps.
 
 ## Release record to complete
 
-- Selected name Titan Relics, checked platform availability, approved version, license and modpack policy.
+- Selected name Titan Relics and MIT license; modpack use is permitted under MIT.
+  Confirm platform availability, approved version and distribution settings.
 - Exact SOURCE_SHA and four final JAR filenames/SHA-256 values.
 - Applicable four-target client, gameplay, renderer and compatibility evidence.
 - Survival acceptance and public release approval.

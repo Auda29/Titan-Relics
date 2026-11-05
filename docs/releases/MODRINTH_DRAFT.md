@@ -20,7 +20,7 @@ The source, player documentation and issue tracker use that public destination.
 | Source | https://github.com/Auda29/Titan-Relics |
 | Issues | https://github.com/Auda29/Titan-Relics/issues |
 | Wiki | https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md |
-| License | Decision pending; current metadata is All-Rights-Reserved |
+| License | MIT; retain the copyright and license notice |
 | Icon/gallery | Pending artwork, provenance review and image selection |
 | AI content disclosure | Required for these AI-assisted page drafts; production eligibility still needs separate assessment |
 
@@ -73,6 +73,14 @@ See the [tested combinations and limits](https://github.com/Auda29/Titan-Relics/
 Report bugs with exact versions, reproduction steps and logs through the
 [issue tracker](https://github.com/Auda29/Titan-Relics/issues/new/choose).
 
+### License and modpacks
+
+Titan Relics is licensed under the [MIT License](https://github.com/Auda29/Titan-Relics/blob/main/LICENSE).
+Modpacks, modifications and redistribution, including commercial use, are allowed
+under MIT with the copyright and license notice retained. No individual modpack
+permission request is needed. Third-party works and visual references retain
+their own rights; this license does not grant rights to the referenced artworks.
+
 ### Inspirations and credits
 
 Titan Relics draws visual inspiration from
@@ -97,6 +105,6 @@ IDs at upload time against the pinned matrix; none are guessed here. Do not use
 "additional files" for the other loader or game target.
 
 Before pasting the description, replace its draft/release-status paragraph with
-the approved release state, add the chosen license/modpack statement, confirm all
+the approved release state, retain the MIT license/modpack statement, confirm all
 links resolve publicly and complete provenance/platform review. Read the current
 [Modrinth content rules](https://modrinth.com/legal/rules) again at submission.

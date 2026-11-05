@@ -107,18 +107,22 @@ der Modrinth-Regeln wird nicht behauptet. Hier wurden keine neuen Bilder generie
 
 ## Entscheidungen zur Freigabe
 
-Diese Punkte sind absichtlich offen und keine durch dieses Paket getroffenen
-Entscheidungen:
+Festgelegte Entscheidungen und noch offene Freigabepunkte:
 
 - Namenskollisionen und Verfügbarkeit des vorgeschlagenen Slugs `titan-relics`
   auf beiden Plattformen prüfen. Der Name und Untertitel sind gewählt.
-- Lizenz für Code und Assets; Metadaten aktuell `All-Rights-Reserved`.
+- Der Nutzer hat MIT als Projektlizenz festgelegt. Die [Lizenzdatei](../../LICENSE)
+  und Produktionsmetadaten sind angepasst. Eigene Projektbeiträge werden im
+  Umfang der vorhandenen Rechte unter MIT angeboten; fremde Referenzwerke
+  werden nicht mitlizenziert. Bereits veröffentlichte JARs bleiben unverändert.
 - Bei der Rechte-/Herkunftsprüfung die dokumentierten visuellen Vorlagen von
   The Archive In Between und Josh White berücksichtigen. Die Credits nennen
   diese Quellen; eine Erlaubnis oder Freigabe der Urheber ist damit nicht belegt.
   Eine eigene Lizenz darf keine Rechte an deren Werken versprechen.
-- Ausdrückliche Regeln für Modpack-Nutzung, Weiterverteilung und gegebenenfalls
-  externe Launcher. Modrinth behandelt Modpack-Berechtigungen nach den
+- Modpack-Nutzung, Änderungen und Weiterverteilung sind unter MIT erlaubt,
+  einschließlich kommerzieller Nutzung, mit Erhalt des Copyright-/Lizenzhinweises.
+  Eine Einzelanfrage ist nicht nötig. Plattform-Verteilungseinstellungen sind vor
+  dem Upload passend zu setzen. Modrinth behandelt Modpack-Berechtigungen nach den
   [veröffentlichten Berechtigungsregeln](https://support.modrinth.com/en/articles/8797527-obtaining-modpack-permissions).
 - Plattformzulässigkeit/Herkunft, finales Icon und natürliche Titelbilder.
 - Ergebnis des vollständigen Survival-Tests, letzte Fixes, Versionsnummer und

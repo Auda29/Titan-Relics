@@ -30,6 +30,9 @@ They do not claim endorsement or permission from the referenced creators.
 
 The [design reference catalog](docs/project/Minecraft-Relikte-Modplan.md) and
 [lore/design notes](docs/project/LORE-BIBLE.md#9-references-and-design-interpretations)
-record the references and their use in more detail. License and permission
-decisions for publication remain tracked in the
+record the references and their use in more detail. Titan Relics project code,
+documentation and original project assets are offered under the [MIT License](LICENSE)
+to the extent the author holds the rights. This does not relicense the referenced
+creators' works or establish their permission. Reference-related permission and
+provenance review remains tracked in the
 [publication checklist](docs/releases/PUBLIC_BETA_PREPARATION.md).

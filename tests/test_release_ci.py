@@ -71,6 +71,7 @@ class ReleaseTests(unittest.TestCase):
         with patch.object(prepare_alpha5_neoforge, 'VERSION', newer):
             for game in ('26.2', '1.21.1'):
                 self.assertEqual(tomllib.loads(prepare_alpha5_neoforge.metadata(game))['mods'][0]['version'], newer)
+                self.assertEqual(tomllib.loads(prepare_alpha5_neoforge.metadata(game))['license'], 'MIT')
                 checks = tomllib.loads(prepare_alpha5_neoforge.metadata(game, 'checks'))
                 self.assertEqual(checks['dependencies']['relics_port_checks'][0]['versionRange'], '[' + newer + ']')
         with patch.dict(os.environ, {'RELICS_RELEASE_VERSION': ''}), self.assertRaises(ValueError):

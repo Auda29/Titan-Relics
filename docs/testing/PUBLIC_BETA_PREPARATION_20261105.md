@@ -61,3 +61,24 @@ mit HTTP 200 erreichbar. Die Issue-Erstellung leitet anonyme Besucher erwartbar
 zur GitHub-Anmeldung weiter. Die früheren HTTP-404-/Privatbefunde oben sind damit
 überholt, bleiben als Prüfgeschichte erhalten. Aktive Links, Metadatenkontakte
 und das lokale Git-Remote verwenden die neue URL. Keine neue Beta veröffentlicht.
+
+## Nachtrag zur MIT-Lizenzentscheidung
+
+Der Nutzer hat MIT als Projektlizenz festgelegt. Die kanonische `LICENSE` nennt
+Auda29 als Copyright-Inhaber. README, Credits, Plattformentwürfe und Roadmap
+halten die Entscheidung und Modpack-Nutzung unter MIT fest; Rechte an fremden
+Referenzwerken werden nicht mitlizenziert. Fabric-Metadaten und der
+NeoForge-Metadatengenerator verwenden MIT. Der gemeinsame Ressourcenarchivierer
+nimmt `LICENSE` und `CREDITS.md` reproduzierbar aus den Projektquellen auf;
+die drei Ports verwenden dieses Archiv als Ressourceneingang.
+
+Alle elf Release-Grenztests und vier gezielt ausgewählte Archivtests bestehen.
+Der zusätzliche Test zur kanonischen Lizenz-/Credits-Aufnahme prüft auch, dass
+veraltete Kopien im Ressourcenordner nicht gewinnen oder doppelte ZIP-Einträge
+erzeugen. Beide NeoForge-Ziele und Fabric-Metadaten wurden auf MIT geprüft.
+Der breitere Packaging-Testlauf fand außerdem eine fehlende generierte
+`src/main/resources/data/relics/structure/colossus.nbt`; der vollständige
+Ressourcengraph ist in diesem Checkout daher nicht abgenommen. Es wurde kein
+vollständiger Mod-Build durchgeführt. Die zunächst veraltete erwartete
+Archiv-Dateiliste wurde um die zwei jetzt mitgelieferten Hinweise ergänzt;
+dieser Test besteht anschließend. Keine vorhandenen Release-Dateien ersetzt.

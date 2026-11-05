@@ -82,6 +82,17 @@ See [credits and original reference links](CREDITS.md).
   the internal mod ID remains `relics`.
 - [Relic design index](relics/README.md) and [archived README/development history](docs/project/README_HISTORY_20261105.md).
 
-The metadata currently declares `All-Rights-Reserved`. A public license and an
-explicit modpack policy are still decisions for the author; this preparation
-does not grant redistribution permissions or change the license.
+## License and modpacks
+
+Titan Relics is licensed under the [MIT License](LICENSE). This covers the
+project code, documentation and original project assets to the extent the
+author holds the rights. Third-party works and visual references retain their
+own rights; see [credits](CREDITS.md).
+
+You may use, modify and redistribute the MIT-licensed project, including in
+modpacks and commercially, while retaining its copyright and license notice.
+No individual modpack permission request is needed. The original creators
+listed in the credits are not granting rights through this project license.
+
+This license decision applies to the current source and future builds. Existing
+Alpha downloads have not been replaced or had their embedded notices rewritten.

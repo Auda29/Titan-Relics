@@ -81,6 +81,20 @@ class ConfigurationTests(unittest.TestCase):
 
 
 class PackagingTests(unittest.TestCase):
+    def test_archive_retains_canonical_license_and_credits_instead_of_stale_copies(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            resources = root / 'resources'
+            resources.mkdir()
+            for name in ('LICENSE', 'CREDITS.md'):
+                (resources / name).write_text('stale notice', encoding='utf-8')
+            build.write_archive(root / 'player.jar', resources)
+            with zipfile.ZipFile(root / 'player.jar') as archive:
+                for name in ('LICENSE', 'CREDITS.md'):
+                    self.assertEqual(archive.namelist().count(name), 1)
+                    self.assertEqual(archive.read(name).decode('utf-8'),
+                                     (ROOT / name).read_text(encoding='utf-8'))
+
     def test_archive_is_identical_despite_changed_source_timestamp(self):
         with tempfile.TemporaryDirectory() as td:
             root = Path(td)
@@ -131,7 +145,7 @@ class PackagingTests(unittest.TestCase):
                 path.write_bytes(b"fixture")
             build.write_archive(root / "test.jar", resources)
             with zipfile.ZipFile(root / "test.jar") as archive:
-                self.assertEqual(set(archive.namelist()), {"data/relics/structure/colossus.nbt",
+                self.assertEqual(set(archive.namelist()), {"LICENSE", "CREDITS.md", "data/relics/structure/colossus.nbt",
                                                          "data/relics/structure/colossus_worldgen.nbt"})
 
 

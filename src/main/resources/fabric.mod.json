@@ -11,7 +11,7 @@
     "sources": "https://github.com/Auda29/Titan-Relics",
     "issues": "https://github.com/Auda29/Titan-Relics/issues"
   },
-  "license": "All-Rights-Reserved",
+  "license": "MIT",
   "environment": "*",
   "entrypoints": {
     "main": [
