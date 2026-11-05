@@ -1,8 +1,11 @@
 # CurseForge publication draft
 
-Prepared 5 November 2026. Local review copy only; no external project exists as
-part of this preparation. The selected name is Titan Relics and the license is MIT. Slug availability and public beta
-approval remain pending. The [shared preparation checklist](PUBLIC_BETA_PREPARATION.md) applies.
+Prepared 5 November 2026. Intended configuration for review. The user supplied
+https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview. An anonymous
+check returned a 404 page; project settings, ownership and moderation status could
+not be independently verified. The fields and description below are not a verified
+copy of the platform. The selected name is Titan Relics and the license is MIT.
+Public beta approval remains pending. The [shared preparation checklist](PUBLIC_BETA_PREPARATION.md) applies.
 The repository is now public at https://github.com/Auda29/Titan-Relics.
 The source, player documentation and issue tracker use that public destination.
 
@@ -13,7 +16,8 @@ The source, player documentation and issue tracker use that public destination.
 | Game / class | Minecraft Java Edition / Mods |
 | Name | Titan Relics |
 | Tagline | Colossal ruins of a forgotten age |
-| Slug / project ID | `titan-relics` proposed; availability unchecked, no project created |
+| Slug / preview URL | `titan-relics`; https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview, supplied by the user, anonymous check returned 404 |
+| Project ID | Not verified |
 | Summary | Explore colossal ruins, uncover archaeology and follow expedition maps to recover ancient machinery. |
 | Main category | World Gen; confirm current portal options |
 | Additional categories | Structures; Adventure and RPG, if available and appropriate |

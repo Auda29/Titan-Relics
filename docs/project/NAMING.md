@@ -4,9 +4,13 @@
 
 Der Nutzer hat diesen Namen und Untertitel am 5. November 2026 gewählt.
 README und Veröffentlichungsentwürfe verwenden die gewählte Bezeichnung.
-Vorgeschlagener Plattform-Slug: `titan-relics`. Seine Verfügbarkeit und
-Namenskollisionen für Titan Relics sind noch nicht geprüft; die früheren
-Suchbefunde unten betreffen andere Vorschläge. Keine Plattformseite ist reserviert.
+Der Nutzer hat diese beiden Projektadressen mit dem Slug `titan-relics` gemeldet:
+[Modrinth](https://modrinth.com/project/titan-relics) und
+[CurseForge-Vorschau](https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview).
+Die anonyme Prüfung zeigt noch "Project not found" beziehungsweise 404.
+Projektinhaber, Moderationsstatus und öffentliche Freigabe sind damit nicht
+unabhängig bestätigt. Das ist keine allgemeine Prüfung auf Namenskollisionen;
+die früheren Suchbefunde unten betreffen andere Vorschläge.
 
 Technischer Mod-ID-/Save-Namensraum bleibt `relics`. Der Nutzer hat das Repository in
 [Auda29/Titan-Relics](https://github.com/Auda29/Titan-Relics) umbenannt und

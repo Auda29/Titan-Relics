@@ -82,3 +82,14 @@ Ressourcengraph ist in diesem Checkout daher nicht abgenommen. Es wurde kein
 vollständiger Mod-Build durchgeführt. Die zunächst veraltete erwartete
 Archiv-Dateiliste wurde um die zwei jetzt mitgelieferten Hinweise ergänzt;
 dieser Test besteht anschließend. Keine vorhandenen Release-Dateien ersetzt.
+
+## Nachtrag zu den Plattformlinks
+
+Der Nutzer hat https://modrinth.com/project/titan-relics und
+https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview mitgeteilt.
+Beide URLs wurden mit Firecrawl anonym und ohne Cache gelesen. Modrinth zeigt
+"Project not found", die CurseForge-Vorschau eine 404-Seite. Die gelieferten
+Seiten bestätigen daher weder Eigentümer noch Beschreibung, Lizenz,
+Moderationsstatus oder veröffentlichte Dateien. Die Links sind im Projektstand
+als vom Nutzer gemeldete Adressen erfasst. Die Autorensitzung des Nutzers ist
+nicht verbunden; es wurden keine Plattformfelder geändert oder Dateien hochgeladen.

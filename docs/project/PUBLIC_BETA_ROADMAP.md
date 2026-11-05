@@ -234,8 +234,13 @@ enthält [Spielanleitung](../players/PLAYER_GUIDE.md),
 README und Index sowie getrennte Modrinth-/CurseForge-Entwürfe mit gemeinsamer
 Vier-Dateien-Matrix und einer Release-Vorlage. Die
 [Namensentscheidung](NAMING.md) ist getroffen: **Titan Relics**,
-*Colossal ruins of a forgotten age*. Namenskollisionen und die Verfügbarkeit
-von `titan-relics` auf beiden Plattformen sind noch zu prüfen.
+*Colossal ruins of a forgotten age*. Der Nutzer hat anschließend
+[Modrinth](https://modrinth.com/project/titan-relics) und die
+[CurseForge-Vorschau](https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview)
+mit dem Slug `titan-relics` gemeldet. Anonyme Abrufe zeigen noch "Project not
+found" beziehungsweise 404. Projektstatus und gespeicherte Felder sind noch
+im Autorendashboard abzugleichen; eine Namenskollisionsprüfung ist damit
+nicht ersetzt.
 README/Index unterscheiden Alpha 5.0.5 vom unveröffentlichten Kandidaten;
 die endgültige Beta-Version und ihre Downloadlinks bleiben offen. Die
 Projektseiten liegen als prüfbare Entwürfe vor. MIT und die daraus folgende

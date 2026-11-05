@@ -16,6 +16,17 @@ Die frühere private Sichtbarkeit und HTTP-404-Beobachtung im ursprünglichen
 [Prüfbericht](../testing/PUBLIC_BETA_PREPARATION_20261105.md) sind historisch.
 Die öffentliche Repository-Freigabe veröffentlicht noch keinen Beta-Release.
 
+## Gemeldete Plattformprojekte
+
+Der Nutzer hat [Modrinth](https://modrinth.com/project/titan-relics) und die
+[CurseForge-Vorschau](https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview)
+als Projektadressen mitgeteilt. Beim anonymen Abruf meldet Modrinth "Project not
+found", CurseForge zeigt eine 404-Seite. Ohne die angemeldete Autorensitzung
+sind tatsächliche Anlage, Eigentümer, gespeicherte Felder und Moderationsstatus
+nicht unabhängig geprüft. Keine Ablehnung oder Löschung wird daraus abgeleitet.
+Die vorhandenen Seitenentwürfe bleiben der Sollstand zum Abgleich im Dashboard.
+Die Links sind noch keine verifizierten öffentlichen Beta-Downloadziele.
+
 ## Vorbereitete Unterlagen
 
 - [README](../../README.md), [Installation und Support](../players/INSTALLATION.md),
@@ -109,8 +120,10 @@ der Modrinth-Regeln wird nicht behauptet. Hier wurden keine neuen Bilder generie
 
 Festgelegte Entscheidungen und noch offene Freigabepunkte:
 
-- Namenskollisionen und Verfügbarkeit des vorgeschlagenen Slugs `titan-relics`
-  auf beiden Plattformen prüfen. Der Name und Untertitel sind gewählt.
+- Der Name und Untertitel sind gewählt. Der Nutzer hat für beide Plattformen
+  Projektlinks mit `titan-relics` gemeldet. Projektinhaber, gespeicherte Angaben
+  und öffentliche Erreichbarkeit nach Freigabe noch bestätigen; die Linkmeldung
+  ersetzt keine allgemeine Namenskollisionsprüfung.
 - Der Nutzer hat MIT als Projektlizenz festgelegt. Die [Lizenzdatei](../../LICENSE)
   und Produktionsmetadaten sind angepasst. Eigene Projektbeiträge werden im
   Umfang der vorhandenen Rechte unter MIT angeboten; fremde Referenzwerke
@@ -139,7 +152,8 @@ Festgelegte Entscheidungen und noch offene Freigabepunkte:
 3. Die [bestehende Release-CI](RELEASE_CI.md) kann mit manuellem Dispatch
    bauen/testen, ohne zu veröffentlichen. Ein Tag-Push löst dagegen die
    GitHub-Veröffentlichung aus und gehört erst hinter die ausdrückliche Freigabe.
-4. Die Projektseiten anhand der Entwürfe anlegen, nach Plattformprüfung je vier
+4. Die gemeldeten Projekte im Autorendashboard bestätigen und anhand der
+   Entwürfe vervollständigen; nach Plattformprüfung je vier
    korrekte Dateien mit Release-Typ **Beta** vorbereiten. Aktuelle Spielversionstags
    und passende Abhängigkeitsdateien in jedem Portal prüfen. Falls ein Ziel fehlt,
    nicht ersatzweise eine andere Spielversion markieren.
@@ -152,5 +166,6 @@ Festgelegte Entscheidungen und noch offene Freigabepunkte:
    Erst dann Beta-Downloadlinks in README und Index einsetzen.
 
 Das Paket richtet keine Upload-Automation ein, benötigt keine Zugangsdaten und
-legt keine externen Projekte an. Die endgültige Downloadprüfung kann erst an
+hat selbst keine externen Projekte angelegt; die Projektlinks stammen vom Nutzer.
+Die endgültige Downloadprüfung kann erst an
 den tatsächlich veröffentlichten Dateien stattfinden und bleibt Roadmap-Punkt 6.

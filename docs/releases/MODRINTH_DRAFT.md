@@ -1,7 +1,10 @@
 # Modrinth publication draft
 
 Prepared 5 November 2026. Local review copy only. Selected title: Titan Relics.
-No project or release has been created. See the
+The user supplied the project URL https://modrinth.com/project/titan-relics.
+An anonymous check returned "Project not found"; project settings, ownership and
+moderation status could not be independently verified. The fields and description
+below remain the intended configuration, not a verified copy of the platform. See the
 [publication checklist and platform eligibility issue](PUBLIC_BETA_PREPARATION.md).
 The repository is now public at https://github.com/Auda29/Titan-Relics.
 The source, player documentation and issue tracker use that public destination.
@@ -12,7 +15,7 @@ The source, player documentation and issue tracker use that public destination.
 |---|---|
 | Title | Titan Relics |
 | Tagline | Colossal ruins of a forgotten age |
-| Slug | `titan-relics`, proposed, availability not checked or reserved |
+| Slug / project URL | `titan-relics`; https://modrinth.com/project/titan-relics, supplied by the user, not yet anonymously visible |
 | Project type | Mod |
 | Summary | Explore colossal ruins, uncover archaeology and follow expedition maps to recover ancient machinery. |
 | Categories | Adventure, World Generation; confirm available portal labels |
