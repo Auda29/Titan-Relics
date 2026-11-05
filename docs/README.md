@@ -5,8 +5,13 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Project
 
-- [Current Alpha 5.0.5 baseline and beta progress (November 4)](project/CURRENT_STATUS_AND_ROADMAP.md)
-- [Public-beta roadmap: gates 1, 2, 4 and 5 complete; Survival and publication pending](project/PUBLIC_BETA_ROADMAP.md)
+- [Player installation, dependencies, existing worlds and bug reporting](players/INSTALLATION.md)
+- [Short player guide: presets, archaeology, maps, Core and Magnet](players/PLAYER_GUIDE.md)
+- [Beta publication package: Modrinth/CurseForge drafts and outstanding decisions](releases/PUBLIC_BETA_PREPARATION.md)
+- [Titan Relics name decision and earlier collision checks](project/NAMING.md)
+
+- [Current Alpha 5.0.5 baseline and beta preparation (November 5)](project/CURRENT_STATUS_AND_ROADMAP.md)
+- [Public-beta roadmap: gates 1, 2, 4 and 5 complete; Survival and final publication pending](project/PUBLIC_BETA_ROADMAP.md)
 - [Beta: early world-load checks and restoration evidence](testing/BETA_WORLD_LOAD_GUARD_20261104.md)
 - [Beta: actual clients, new worlds and multiplayer reconnects](testing/BETA_CLIENT_ACCEPTANCE_20261104.md)
 - [Beta: crafting, personal rewards, late participation and persistence](testing/BETA_CLIENT_GAMEPLAY_ACCEPTANCE_20261104.md)

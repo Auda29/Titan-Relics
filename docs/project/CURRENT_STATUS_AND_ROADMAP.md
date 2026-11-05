@@ -1,6 +1,6 @@
 # Current status and roadmap
 
-Updated: November 4, 2026. This is the current implementation and work-status
+Updated: November 5, 2026. This is the current implementation and work-status
 index. Dated concept studies, builder handoffs and test reports retain their
 historical scope. Their old "not implemented" or "pending integration" wording
 does not create new work when a later release has completed it. Approved design
@@ -97,7 +97,14 @@ candidate based on 5.0.5, not newly published player JARs.
 | 3. Survival playthrough | Open. The user is testing the complete natural exploration, archaeology, map, encounter and reward chain and its everyday balance. |
 | 4. Actual client acceptance | Complete on Fabric/NeoForge for 1.21.1/26.2. Real multiplayer, crafting, personal rewards, late participation, restart persistence and 96 reviewed model/armor images are documented in the [gameplay](../testing/BETA_CLIENT_GAMEPLAY_ACCEPTANCE_20261104.md) and [final renderer](../testing/BETA_RENDERER_ACCEPTANCE_20261104.md) reports. |
 | 5. Compatibility and performance | Complete within documented support conditions. Sixteen server runs, eight modpack client runs and a separate DH LOD view are in the [compatibility report](../testing/BETA_COMPATIBILITY_20261104.md). |
-| 6. Publication and feedback | Open. Player guide, public metadata, license/modpack policy, issue template, project page and final four-asset release verification remain. |
+| 6. Publication and feedback | Prepared locally: player guide, installation/support, README, issue form, Modrinth/CurseForge page and file-metadata drafts, release template and name proposals. The user selected Titan Relics with the tagline Colossal ruins of a forgotten age. Name/slug availability, license/modpack policy, public support/docs destinations, platform eligibility, final art, release approval and published-asset verification remain open. See the [publication package](../releases/PUBLIC_BETA_PREPARATION.md). |
+
+The November 5 read-only GitHub check confirms the repository is private and
+Alpha 5.0.5 has all four release JARs plus checksums. Its GitHub downloads and
+support links currently require repository access. Publication preparation does
+not change visibility, license, internal IDs or published artifacts. Modrinth's
+current AI-content rules require a separate provenance/eligibility assessment;
+the package records this condition without claiming acceptance by either platform.
 
 The compatibility tests cover paired generation routes, terrain and biome mods,
 foreign structures, shader/LOD variants and seasons in isolated copies of

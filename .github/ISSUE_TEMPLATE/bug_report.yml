@@ -1,0 +1,89 @@
+name: Bug report
+description: Report a reproducible Titan Relics problem with versions and logs.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Search existing issues first. Use exact versions, including the full Relic JAR filename.
+        The public beta is not released yet; identify local candidates by source revision/hash if available.
+        Review logs for tokens, private server addresses, chat and local paths before attaching them.
+        Never attach account files. Keep the relevant error and stack trace.
+  - type: input
+    id: relic_version
+    attributes:
+      label: Titan Relics version / full JAR filename
+      placeholder: relics-0.1.0-alpha.5.0.5+mc1.21.1.jar
+    validations:
+      required: true
+  - type: dropdown
+    id: minecraft
+    attributes:
+      label: Minecraft version
+      options:
+        - 1.21.1
+        - "26.2"
+        - Other (specify exact version below)
+    validations:
+      required: true
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Loader
+      options:
+        - Fabric
+        - NeoForge
+        - Other (specify below)
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Exact environment versions
+      description: Loader version, Java version, OS, Fabric API if used, Lithostitched, and full mod list or modpack version. Specify any Other selections above.
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Where does it happen?
+      options:
+        - Singleplayer
+        - LAN host or guest
+        - Dedicated server
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Number the steps. Include repeatability, restart behavior, and any smaller setup actually tested.
+      placeholder: |
+        1. Create/open a world with ...
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected and actual behavior
+      description: Include the exact error message and screenshots if useful.
+    validations:
+      required: true
+  - type: textarea
+    id: world
+    attributes:
+      label: World, generation and map details
+      description: If relevant, include seed, dimension, coordinates, preset/custom settings and biome rules; new or existing world and original Relic version; recent mod/datapack changes; normal generation or DH/Voxy mode. Say not applicable otherwise.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs and crash reports
+      description: Attach logs/latest.log immediately after the failure and the matching crash-reports/crash-*.txt if present. For multiplayer include affected client and server logs. If unavailable, explain why.
+    validations:
+      required: true
+  - type: textarea
+    id: performance
+    attributes:
+      label: Performance details
+      description: For lag/memory problems, include heap allocation, view/simulation distances, LOD generation radius/tasks, hardware and the action/measurement interval. Otherwise leave blank.

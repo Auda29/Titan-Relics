@@ -203,11 +203,11 @@ Langzeit-/FPS-Garantien und alte LOD-Cache-Reparaturen sind nicht abgenommen.
 Priorität P1, Voraussetzung für die öffentliche Freigabe.
 
 - [ ] README, Dokumentationsindex und Downloadlinks auf den Beta-Kandidaten abstimmen.
-- [ ] Eine kurze Spielanleitung für Reliktfunde, Archäologie, Karten, Kern,
+- [x] Eine kurze Spielanleitung für Reliktfunde, Archäologie, Karten, Kern,
   Magnet und Presets bereitstellen, ohne die gesamte Erkundung vorwegzunehmen.
-- [ ] Bekannte Einschränkungen, Bestandswelt-Verhalten, unterstützte Setups und
+- [x] Bekannte Einschränkungen, Bestandswelt-Verhalten, unterstützte Setups und
   Abhängigkeiten klar aufführen.
-- [ ] Eine Fehlermelde-Vorlage mit Mod-/Spiel-/Loader-Version, Seed und
+- [x] Eine Fehlermelde-Vorlage mit Mod-/Spiel-/Loader-Version, Seed und
   Koordinaten soweit relevant, Modliste, Reproduktionsschritten und passenden
   Log-/Crashberichten anlegen.
 - [ ] Veröffentlichungsplattform und Lizenz-/Modpack-Freigabe ausdrücklich
@@ -222,6 +222,26 @@ Bei einer Veröffentlichung auf Modrinth sind dessen
 sowie die [Regeln zur Modpack-Nutzung](https://support.modrinth.com/en/articles/8797527-obtaining-modpack-permissions)
 zu berücksichtigen. Die Wahl einer Lizenz oder Plattform ist noch keine
 durch diese Roadmap getroffene Entscheidung.
+
+Stand 5. November: Das [lokale Veröffentlichungspaket](../releases/PUBLIC_BETA_PREPARATION.md)
+enthält [Spielanleitung](../players/PLAYER_GUIDE.md),
+[Installation/Support](../players/INSTALLATION.md),
+[Fehlerformular](../../.github/ISSUE_TEMPLATE/bug_report.yml), überarbeitetes
+README und Index sowie getrennte Modrinth-/CurseForge-Entwürfe mit gemeinsamer
+Vier-Dateien-Matrix und einer Release-Vorlage. Die
+[Namensentscheidung](NAMING.md) ist getroffen: **Titan Relics**,
+*Colossal ruins of a forgotten age*. Namenskollisionen und die Verfügbarkeit
+von `titan-relics` auf beiden Plattformen sind noch zu prüfen.
+README/Index unterscheiden Alpha 5.0.5 vom unveröffentlichten Kandidaten;
+die endgültige Beta-Version und ihre Downloadlinks bleiben offen. Die
+Projektseiten liegen als prüfbare Entwürfe vor; finale Bilder/Icon, Lizenz,
+Modpack-Regeln und Plattformprüfung fehlen noch. Das private GitHub-Repository
+bietet derzeit keine anonym erreichbare Dokumentation oder Fehlermeldestelle.
+Die aktuellen Modrinth-KI-Regeln sind als offene Herkunfts-/Zulässigkeitsprüfung
+dokumentiert. Keine Veröffentlichung oder Sichtbarkeitsänderung wurde vorgenommen.
+Punkt 6 bleibt bis zur finalen Freigabe und Downloadprüfung offen.
+Der [Prüfbericht des Vorbereitungspakets](../testing/PUBLIC_BETA_PREPARATION_20261105.md)
+belegt den abgeschlossenen lokalen Dokumentationsumfang und seine Grenzen.
 
 Freigabe: Ein neuer Spieler kann das richtige Paket installieren, die
 grundlegenden Systeme verstehen, Einschränkungen erkennen und einen
