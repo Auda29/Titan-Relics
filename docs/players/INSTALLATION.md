@@ -6,11 +6,11 @@ behavior is marked explicitly below. Public beta downloads are not available yet
 ## Pick the right files
 
 Download one player JAR from the
-[Alpha 5.0.5 release](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.5).
+[Alpha 5.0.5 release](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.5).
 Match both the Minecraft version and loader; Fabric and NeoForge JARs are separate.
 Use the release's `SHA256SUMS.txt` if you need to verify a download.
-The repository is currently private. Its release and issue links require access;
-public alternatives will be announced with the beta, not guessed here.
+The [repository](https://github.com/Auda29/Titan-Relics), Alpha releases and
+issue tracker are public. Submitting an issue requires a GitHub account.
 
 These are the repository's pinned/tested dependency versions, not a claim that
 every newer version works. Dependencies are not bundled.
@@ -76,7 +76,7 @@ the saved plan or force fresh sites as a troubleshooting shortcut.
 
 ## Reporting a problem
 
-Use the [bug report form](https://github.com/Auda29/Relic-Mod/issues/new?template=bug_report.yml).
+Use the [bug report form](https://github.com/Auda29/Titan-Relics/issues/new?template=bug_report.yml).
 Supply the complete Relic filename/version, Minecraft version, loader/version,
 Java version, operating system and relevant mod versions. Explain what you did,
 what you expected, what happened and whether it repeats after a restart.

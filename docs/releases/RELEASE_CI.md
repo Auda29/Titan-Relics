@@ -10,7 +10,7 @@ git push origin v0.1.0-alpha.5.0.3
 The [Release all targets workflow](../../.github/workflows/release.yml) builds
 Fabric and NeoForge for **Minecraft 26.2 and 1.21.1**, then attaches all four
 player JARs and one `SHA256SUMS.txt` to a single GitHub release. The first verified
-automated release is [Alpha 5.0.3](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.3).
+automated release is [Alpha 5.0.3](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.3).
 
 The tag supplies the artifact version through `RELICS_RELEASE_VERSION`. Filenames,
 Fabric metadata, NeoForge metadata, test-mod dependencies and Gradle archive

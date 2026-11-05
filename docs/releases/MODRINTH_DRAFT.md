@@ -3,8 +3,8 @@
 Prepared 5 November 2026. Local review copy only. Selected title: Titan Relics.
 No project or release has been created. See the
 [publication checklist and platform eligibility issue](PUBLIC_BETA_PREPARATION.md).
-The GitHub repository is private. All GitHub URLs below are editorial targets
-requiring public replacements or an explicit visibility decision before use.
+The repository is now public at https://github.com/Auda29/Titan-Relics.
+The source, player documentation and issue tracker use that public destination.
 
 ## Proposed project fields
 
@@ -17,9 +17,9 @@ requiring public replacements or an explicit visibility decision before use.
 | Summary | Explore colossal ruins, uncover archaeology and follow expedition maps to recover ancient machinery. |
 | Categories | Adventure, World Generation; confirm available portal labels |
 | Environment | Required on client and server |
-| Source | https://github.com/Auda29/Relic-Mod |
-| Issues | https://github.com/Auda29/Relic-Mod/issues |
-| Wiki | https://github.com/Auda29/Relic-Mod/blob/main/docs/players/PLAYER_GUIDE.md, check public availability after merging |
+| Source | https://github.com/Auda29/Titan-Relics |
+| Issues | https://github.com/Auda29/Titan-Relics/issues |
+| Wiki | https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md |
 | License | Decision pending; current metadata is All-Rights-Reserved |
 | Icon/gallery | Pending artwork, provenance review and image selection |
 | AI content disclosure | Required for these AI-assisted page drafts; production eligibility still needs separate assessment |
@@ -54,8 +54,8 @@ NeoForge on Minecraft 1.21.1 and 26.2. Java 21 is required for 1.21.1, Java 25 f
 Lithostitched 1.8.0 build. Install the mod and dependencies on both server and
 player clients. Start a new world with structures enabled for the full selection.
 
-Read the [installation guide](https://github.com/Auda29/Relic-Mod/blob/main/docs/players/INSTALLATION.md)
-and [short player guide](https://github.com/Auda29/Relic-Mod/blob/main/docs/players/PLAYER_GUIDE.md).
+Read the [installation guide](https://github.com/Auda29/Titan-Relics/blob/main/docs/players/INSTALLATION.md)
+and [short player guide](https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md).
 
 ### Before you download
 
@@ -68,10 +68,10 @@ chests in place of unavailable 26.2 blocks.
 DH 3.3.3 FEATURES can omit relics during distant generation. INTERNAL_SERVER is
 the tested path for new distant generation. Old incomplete LOD-cache repair,
 all-modpack compatibility and long-term FPS/memory guarantees are not offered.
-See the [tested combinations and limits](https://github.com/Auda29/Relic-Mod/blob/main/docs/technical/MOD_COMPATIBILITY.md).
+See the [tested combinations and limits](https://github.com/Auda29/Titan-Relics/blob/main/docs/technical/MOD_COMPATIBILITY.md).
 
 Report bugs with exact versions, reproduction steps and logs through the
-[issue tracker](https://github.com/Auda29/Relic-Mod/issues/new/choose).
+[issue tracker](https://github.com/Auda29/Titan-Relics/issues/new/choose).
 
 ## Version settings at release
 

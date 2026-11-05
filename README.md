@@ -10,11 +10,11 @@ The landscape leaves much of its history for you to interpret.
 ## Downloads and release status
 
 The published baseline is **Alpha 5.0.5**, available for all four targets from
-the [GitHub release](https://github.com/Auda29/Relic-Mod/releases/tag/v0.1.0-alpha.5.0.5).
+the [GitHub release](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.5).
 Choose exactly one matching JAR. Dependencies are installed separately.
-The repository is currently private, so these GitHub downloads, documentation
-and issue links require repository access. Public download and support destinations
-must be established before announcing the beta.
+The repository is public at [Auda29/Titan-Relics](https://github.com/Auda29/Titan-Relics).
+The Alpha downloads, player documentation and issue tracker are publicly accessible.
+Submitting an issue requires a GitHub account.
 
 | Minecraft | Loader | Alpha 5.0.5 filename | Java |
 |---|---|---|---|
@@ -59,7 +59,7 @@ during distant generation; `INTERNAL_SERVER` is the tested alternative for new
 distant generation. The candidate's compatibility results are bounded tests,
 not FPS, memory or all-modpack guarantees.
 
-Report problems through the [issue tracker](https://github.com/Auda29/Relic-Mod/issues/new/choose).
+Report problems through the [issue tracker](https://github.com/Auda29/Titan-Relics/issues/new/choose).
 Include exact versions, reproduction steps and the complete relevant log.
 The [reporting guide](docs/players/INSTALLATION.md#reporting-a-problem) explains
 which files to attach and what private information to remove.

@@ -6,15 +6,15 @@ Alpha 5.0.5; der geprüfte Beta-Kandidat ist noch unveröffentlicht. Der Nutzer
 hat **Titan Relics** mit dem Untertitel *Colossal ruins of a forgotten age*
 gewählt. Die Beta-Versionsnummer ist noch nicht beschlossen.
 
-Die authentifizierte GitHub-Abfrage am 5. November bestätigt Alpha 5.0.5 als
-Nicht-Draft-Prerelease mit vier passenden JARs und `SHA256SUMS.txt`. Sie bestätigt
-auch `private: true` für das Repository. Eine anonyme Release-Abfrage liefert
-HTTP 404. Bestehende GitHub-Links sind daher nur für Berechtigte nutzbar, keine
-öffentlichen Download-, Dokumentations- oder Supportziele. Vor dem Start ist zu
-entscheiden, ob das Repository öffentlich werden soll oder Dokumentation und
-Fehlermeldungen an getrennte öffentliche Ziele gehen. Dieses Paket ändert keine
-Sichtbarkeit. Die Seitenentwürfe verwenden die bisherigen Links nur zur späteren
-Ersetzung beziehungsweise Prüfung.
+Der Nutzer hat das Repository in **Auda29/Titan-Relics** umbenannt und öffentlich
+freigegeben. Die anschließende anonyme GitHub-Abfrage bestätigt `private: false`
+und den weiterhin vorhandenen Alpha-5.0.5-Prerelease mit vier passenden JARs
+und `SHA256SUMS.txt`. Spieleranleitung und Issue-Tracker sind öffentlich
+zugänglich; zum Einreichen einer Fehlermeldung ist ein GitHub-Konto nötig.
+Die aktiven Links und das lokale Git-Remote verwenden die neue Repository-URL.
+Die frühere private Sichtbarkeit und HTTP-404-Beobachtung im ursprünglichen
+[Prüfbericht](../testing/PUBLIC_BETA_PREPARATION_20261105.md) sind historisch.
+Die öffentliche Repository-Freigabe veröffentlicht noch keinen Beta-Release.
 
 ## Vorbereitete Unterlagen
 

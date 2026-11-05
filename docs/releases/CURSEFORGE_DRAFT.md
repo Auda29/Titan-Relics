@@ -3,8 +3,8 @@
 Prepared 5 November 2026. Local review copy only; no external project exists as
 part of this preparation. The selected name is Titan Relics. Slug availability, license and public beta
 approval remain pending. The [shared preparation checklist](PUBLIC_BETA_PREPARATION.md) applies.
-The GitHub repository is private. GitHub links below must be replaced with
-public destinations or made publicly reachable by an explicit author decision.
+The repository is now public at https://github.com/Auda29/Titan-Relics.
+The source, player documentation and issue tracker use that public destination.
 
 ## Proposed project fields
 
@@ -18,9 +18,9 @@ public destinations or made publicly reachable by an explicit author decision.
 | Main category | World Gen; confirm current portal options |
 | Additional categories | Structures; Adventure and RPG, if available and appropriate |
 | License | Decision pending; current metadata is All-Rights-Reserved |
-| Source | https://github.com/Auda29/Relic-Mod |
-| Issues | External tracker: https://github.com/Auda29/Relic-Mod/issues |
-| Wiki | https://github.com/Auda29/Relic-Mod/blob/main/docs/players/PLAYER_GUIDE.md, verify after merging |
+| Source | https://github.com/Auda29/Titan-Relics |
+| Issues | External tracker: https://github.com/Auda29/Titan-Relics/issues |
+| Wiki | https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md |
 | Logo | Original 400 × 400 PNG to meet moderation guidance; final artwork pending |
 | Distribution / modpack permissions | Author decision pending; review separately from license |
 
@@ -72,10 +72,10 @@ for new distant generation. Large Voxy pregeneration settings, old LOD-cache
 repairs and long-term FPS/memory behavior remain unverified. Compatibility
 evidence applies to the documented setups and versions.
 
-Read the [installation instructions](https://github.com/Auda29/Relic-Mod/blob/main/docs/players/INSTALLATION.md),
-[player guide](https://github.com/Auda29/Relic-Mod/blob/main/docs/players/PLAYER_GUIDE.md)
-and [compatibility notes](https://github.com/Auda29/Relic-Mod/blob/main/docs/technical/MOD_COMPATIBILITY.md).
-Submit bugs through the [issue tracker](https://github.com/Auda29/Relic-Mod/issues/new/choose)
+Read the [installation instructions](https://github.com/Auda29/Titan-Relics/blob/main/docs/players/INSTALLATION.md),
+[player guide](https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md)
+and [compatibility notes](https://github.com/Auda29/Titan-Relics/blob/main/docs/technical/MOD_COMPATIBILITY.md).
+Submit bugs through the [issue tracker](https://github.com/Auda29/Titan-Relics/issues/new/choose)
 with exact versions, logs and steps to reproduce.
 
 ## File settings at release

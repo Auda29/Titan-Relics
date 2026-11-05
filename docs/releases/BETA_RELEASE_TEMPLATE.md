@@ -45,7 +45,7 @@ Survival acceptance: PENDING. Replace with the actual user result and any
 remaining known issues before public approval. Do not claim final reward balance,
 all-modpack support or long-term performance from the bounded candidate tests.
 
-Use the [bug report form](https://github.com/Auda29/Relic-Mod/issues/new?template=bug_report.yml)
+Use the [bug report form](https://github.com/Auda29/Titan-Relics/issues/new?template=bug_report.yml)
 with exact versions, logs and reproduction steps.
 
 ## Release record to complete

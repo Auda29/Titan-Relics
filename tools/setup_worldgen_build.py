@@ -13,7 +13,7 @@ FABRIC_API_SHA256 = "e5b858ceb13290c274e31cb888ff5a1a40cb91067e7ffab0b5b775aec51
 
 
 def fetch(url):
-    request = Request(url, headers={"User-Agent": "Relic-Mod-build/0.1.0 (https://github.com/Auda29/Relic-Mod)"})
+    request = Request(url, headers={"User-Agent": "Relic-Mod-build/0.1.0 (https://github.com/Auda29/Titan-Relics)"})
     with urlopen(request, timeout=120) as response:
         return response.read()
 

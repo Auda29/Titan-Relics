@@ -235,10 +235,14 @@ von `titan-relics` auf beiden Plattformen sind noch zu prüfen.
 README/Index unterscheiden Alpha 5.0.5 vom unveröffentlichten Kandidaten;
 die endgültige Beta-Version und ihre Downloadlinks bleiben offen. Die
 Projektseiten liegen als prüfbare Entwürfe vor; finale Bilder/Icon, Lizenz,
-Modpack-Regeln und Plattformprüfung fehlen noch. Das private GitHub-Repository
-bietet derzeit keine anonym erreichbare Dokumentation oder Fehlermeldestelle.
+Modpack-Regeln und Plattformprüfung fehlen noch. Der Nutzer hat das Repository
+in [Auda29/Titan-Relics](https://github.com/Auda29/Titan-Relics) umbenannt und
+öffentlich freigegeben. Anonyme Abfragen bestätigen die öffentliche Anleitung,
+aktivierte Issues und den vorhandenen Alpha-Release. Die Einrichtung öffentlicher
+Dokumentations- und Supportziele ist damit erledigt; Fehlermeldungen benötigen
+ein GitHub-Konto.
 Die aktuellen Modrinth-KI-Regeln sind als offene Herkunfts-/Zulässigkeitsprüfung
-dokumentiert. Keine Veröffentlichung oder Sichtbarkeitsänderung wurde vorgenommen.
+dokumentiert. Durch die Repository-Freigabe wurde noch keine Beta veröffentlicht.
 Punkt 6 bleibt bis zur finalen Freigabe und Downloadprüfung offen.
 Der [Prüfbericht des Vorbereitungspakets](../testing/PUBLIC_BETA_PREPARATION_20261105.md)
 belegt den abgeschlossenen lokalen Dokumentationsumfang und seine Grenzen.

@@ -50,3 +50,14 @@ Support-/Dokumentationsziele, geklärte Plattformzulässigkeit, finales Icon und
 natürliche Titelaufnahmen sowie die Prüfung der final veröffentlichten Dateien.
 Die Roadmap führt diese Punkte weiter offen. Keine Commits, Pushes, Tags,
 externen Projektanlagen, Uploads, Kontakte oder Sichtbarkeitsänderungen.
+
+## Nachtrag nach Repository-Freigabe
+
+Der Nutzer hat das Repository anschließend in Auda29/Titan-Relics umbenannt und
+öffentlich freigegeben. Anonyme Abfragen an die neue GitHub-API-URL bestätigen
+`private: false`, aktivierte Issues sowie den Nicht-Draft-Alpha-5.0.5-Release mit
+allen vier JAR-Dateinamen und Prüfsummenmanifest. Die Spieleranleitung ist anonym
+mit HTTP 200 erreichbar. Die Issue-Erstellung leitet anonyme Besucher erwartbar
+zur GitHub-Anmeldung weiter. Die früheren HTTP-404-/Privatbefunde oben sind damit
+überholt, bleiben als Prüfgeschichte erhalten. Aktive Links, Metadatenkontakte
+und das lokale Git-Remote verwenden die neue URL. Keine neue Beta veröffentlicht.
