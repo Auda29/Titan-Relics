@@ -22,7 +22,7 @@ in API headers. Do not print them, embed them in URLs, commit them, or include
 them in command-line arguments. GitHub Actions secrets cannot be read back for
 local API use. Rotate the local file and GitHub secret together when replacing a token.
 
-## Read-only verification
+## Initial read-only verification
 
 - Modrinth `GET /v2/project/titan-relics` succeeded with authentication and returned
   ID `F6QDr5Vr`, title `Titan Relics`, status `draft`, and license
@@ -35,12 +35,18 @@ local API use. Rotate the local file and GitHub secret together when replacing a
 - No project description, license field, icon, gallery, version or file was
   changed on either platform during credential setup.
 
-## Automation remains to be implemented
+## Subsequent configuration and automation
 
-The existing release workflow currently publishes only to GitHub. Storing these
-credentials does not add Modrinth/CurseForge uploads or trigger a release.
-Future tooling can use the identifiers above. Keep project-page edits separate
-from release uploads, and preserve the build-only manual-dispatch behavior.
-The Survival acceptance, final artifacts, platform eligibility review and explicit
-public beta approval in the [publication checklist](../releases/PUBLIC_BETA_PREPARATION.md)
+After the initial credential checks, the user authorized the remaining setup.
+`configure_modrinth.py --apply --icon` configured the draft with MIT, prepared
+text, categories, links and the attributed Obelisk start icon. The values were
+read back; status remains `draft` with zero versions. The earlier unknown-license
+observation above is historical. No project was submitted for review.
+
+The existing release workflow still publishes only to GitHub. A separate
+`publish-platforms.yml` workflow now plans platform uploads by default and
+requires an explicit publish selection for an exact approved GitHub release.
+It has not uploaded any files. See [platform publication](PLATFORM_PUBLICATION.md)
+for the checks, persistent receipts and rerun behavior. The Survival acceptance,
+final artifacts, platform eligibility review and explicit public beta approval
 remain required before release.

@@ -38,7 +38,14 @@ public final class GameplayMixinTargets {
             ClassNode mixin = read(config.get("package").getAsString().replace('.','/')+"/"+name);
             AnnotationNode marker = annotations(mixin.visibleAnnotations,mixin.invisibleAnnotations).stream()
                     .filter(a -> a.desc.equals("Lorg/spongepowered/asm/mixin/Mixin;")).findFirst().orElseThrow();
-            ClassNode target = read(((List<Type>)value(marker,"value")).getFirst().getInternalName());
+            var classTargets = (List<Type>)value(marker,"value");
+            var namedTargets = (List<String>)value(marker,"targets");
+            int targetCount = (classTargets == null ? 0 : classTargets.size())
+                    + (namedTargets == null ? 0 : namedTargets.size());
+            if (targetCount != 1) throw new AssertionError(name+": expected exactly one explicit mixin target");
+            ClassNode target = read(classTargets != null && !classTargets.isEmpty()
+                    ? classTargets.getFirst().getInternalName()
+                    : namedTargets.getFirst().replace('.','/'));
             for (FieldNode field : mixin.fields) for (var annotation : annotations(field.visibleAnnotations,field.invisibleAnnotations)) {
                 if (!annotation.desc.equals("Lorg/spongepowered/asm/mixin/Shadow;")) continue;
                 if (target.fields.stream().noneMatch(f -> f.name.equals(field.name) && f.desc.equals(field.desc)))

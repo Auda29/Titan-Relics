@@ -16,8 +16,9 @@ Technischer Mod-ID-/Save-Namensraum bleibt `relics`. Der Nutzer hat das Reposito
 [Auda29/Titan-Relics](https://github.com/Auda29/Titan-Relics) umbenannt und
 öffentlich freigegeben; aktive Links und Git-Remote sind angepasst. Vorhandene
 JAR-Dateinamen und veröffentlichte Alpha-Artefakte bleiben erhalten. Die
-Anzeigenamen in den Produktionsmetadaten tragen derzeit noch Relic Mod; die
-Anpassung an Titan Relics gehört in den nächsten freigegebenen Release-Build.
+Anzeigenamen in den aktuellen Fabric-/NeoForge-Produktionsmetadaten lauten
+jetzt Titan Relics. Die Source-Kandidatenversion ist `0.1.0-beta.1`; es gibt
+noch keinen entsprechenden Tag oder öffentlichen Release.
 
 ## Frühere Vorschläge
 

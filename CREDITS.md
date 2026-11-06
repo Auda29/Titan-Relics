@@ -7,6 +7,14 @@ shape the mod's sense of scale, atmosphere and several structure designs.
 
 The Obelisk and Ruined Tower also draw on visual references by **Josh White**.
 
+## Project icon
+
+The initial project icon is [Obelisk by Delapouite](https://game-icons.net/1x1/delapouite/obelisk.html),
+licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+The PNG is a raster export of the unchanged SVG. Source and export details are
+in [branding assets](assets/branding/README.md). These third-party icon files
+retain their CC BY license rather than the project's MIT license.
+
 ## Visual references
 
 - [Archaean Colossi, The Archive In Between](https://www.instagram.com/reel/DaoBxUEiBNa/),

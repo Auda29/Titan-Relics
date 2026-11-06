@@ -261,6 +261,18 @@ Freigabe: Ein neuer Spieler kann das richtige Paket installieren, die
 grundlegenden Systeme verstehen, Einschränkungen erkennen und einen
 nachvollziehbaren Fehlerbericht abgeben.
 
+Nachtrag 6. November: Die restliche technische Einrichtung ist in Arbeit.
+Modrinth wurde als Entwurf mit MIT, Text, Links, Kategorien und Start-Icon
+konfiguriert, ohne Version oder Moderationseinreichung. Der Anzeigename in den
+Mod-Metadaten lautet Titan Relics; `0.1.0-beta.1` ist als unveröffentlichter
+Kandidat vorbereitet. Generierte Strukturressourcen sind aus den erhaltenen
+Quellen wiederhergestellt. Uploadwerkzeug und separater manueller Workflow
+sind implementiert und planen ohne Veröffentlichungsfreigabe ausschließlich.
+Die [technische Dokumentation](../technical/PLATFORM_PUBLICATION.md) beschreibt
+Sicherheitsprüfungen und Uploadbelege. Der Survival-Test, die tatsächliche
+Release-Freigabe, Plattformzulässigkeit und der CurseForge-Dashboard-Abgleich
+bleiben offen.
+
 ## Reihenfolge und Freigabe der Beta 1
 
 1. Weltladefehler und Erkundungsbalance zuerst bearbeiten.

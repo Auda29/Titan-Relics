@@ -97,12 +97,16 @@ candidate based on 5.0.5, not newly published player JARs.
 | 3. Survival playthrough | Open. The user is testing the complete natural exploration, archaeology, map, encounter and reward chain and its everyday balance. |
 | 4. Actual client acceptance | Complete on Fabric/NeoForge for 1.21.1/26.2. Real multiplayer, crafting, personal rewards, late participation, restart persistence and 96 reviewed model/armor images are documented in the [gameplay](../testing/BETA_CLIENT_GAMEPLAY_ACCEPTANCE_20261104.md) and [final renderer](../testing/BETA_RENDERER_ACCEPTANCE_20261104.md) reports. |
 | 5. Compatibility and performance | Complete within documented support conditions. Sixteen server runs, eight modpack client runs and a separate DH LOD view are in the [compatibility report](../testing/BETA_COMPATIBILITY_20261104.md). |
-| 6. Publication and feedback | Prepared locally: player guide, installation/support, README, issue form, Modrinth/CurseForge page and file-metadata drafts, release template and name proposals. The user selected Titan Relics with the tagline Colossal ruins of a forgotten age. MIT is selected and permits modpack use under its notice conditions. The user supplied Modrinth and CurseForge preview links using titan-relics, and authenticated Modrinth access now confirms draft project F6QDr5Vr. Both tokens and project IDs are configured locally and in GitHub Actions; the upload workflow is not yet implemented. Platform settings/eligibility, final art, release approval and published-asset verification remain open. See the [publication package](../releases/PUBLIC_BETA_PREPARATION.md). |
+| 6. Publication and feedback | Prepared locally: player guide, installation/support, README, issue form, Modrinth/CurseForge page and file-metadata drafts, release template and name proposals. The user selected Titan Relics with the tagline Colossal ruins of a forgotten age. MIT is selected and permits modpack use under its notice conditions. The user supplied Modrinth and CurseForge preview links using titan-relics, and authenticated Modrinth access now confirms draft project F6QDr5Vr. Both tokens and project IDs are configured locally and in GitHub Actions; the upload workflow is implemented with plan-only defaults. Platform settings/eligibility, final art, release approval and published-asset verification remain open. See the [publication package](../releases/PUBLIC_BETA_PREPARATION.md). |
 
 On November 6, read-only API checks confirmed Modrinth access and CurseForge
-API authentication. The Modrinth project license is still `LicenseRef-Unknown`
-and needs alignment with MIT. No platform fields or files were changed during
-setup. See [platform access and configured secret names](../technical/PLATFORM_ACCESS.md).
+API authentication. The initial unknown-license
+state has since been corrected. Authorized draft setup configured MIT, text,
+categories, links and an attributed start icon, all verified by API readback.
+The project remains a draft with no versions. A separate manually gated upload
+workflow is implemented; no platform files were uploaded. The unreleased source
+candidate is `0.1.0-beta.1`, with Titan Relics display names. See
+[platform publication](../technical/PLATFORM_PUBLICATION.md).
 
 The user renamed the repository to [Auda29/Titan-Relics](https://github.com/Auda29/Titan-Relics)
 and made it public. Anonymous checks confirm public repository metadata, the

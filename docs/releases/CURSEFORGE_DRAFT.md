@@ -29,7 +29,7 @@ The source, player documentation and issue tracker use that public destination.
 | Source | https://github.com/Auda29/Titan-Relics |
 | Issues | External tracker: https://github.com/Auda29/Titan-Relics/issues |
 | Wiki | https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md |
-| Logo | Original 400 × 400 PNG to meet moderation guidance; final artwork pending |
+| Logo | Prepared 400 × 400 Obelisk start icon in `assets/branding/titan-relics-icon.png`, CC BY 3.0 with attribution |
 | Distribution / modpack permissions | Permitted under MIT; platform distribution settings still need review |
 
 ## Description draft
@@ -47,6 +47,11 @@ nearby dropped items while held. Each landmark offers part of a history that the
 landscape never fully explains.
 
 ### World settings
+
+![Ruined Tower exterior in a model-inspection world](https://raw.githubusercontent.com/Auda29/Titan-Relics/main/docs/testing/images/beta-renderer-20261104/fabric-26.2/18-ruined-tower-whole-model-front-operator-marker-replacements.png)
+
+Ruined Tower placed for model inspection. This is a test scene, not a naturally
+discovered site; natural terrain varies.
 
 Select Expedition, Balanced or Discoveries before creating a world. You can also
 edit distances, family shares and biome rules. Worlds retain their saved settings,
@@ -69,7 +74,7 @@ builds use ferns and ordinary chests instead of unavailable 26.2 blocks.
 
 ### Status and support
 
-This is a beta-page draft, not an available beta download. The full natural
+The public beta is being prepared; no beta files have been released. The full natural
 Survival playthrough is awaiting acceptance. Shared archaeology and ordinary
 containers are finite; updates and later visitors do not refill them. Back up
 worlds before changing mods or datapacks. Frozen plans are not automatically
@@ -100,6 +105,8 @@ Titan Relics draws visual inspiration from
 [The Archive In Between](https://www.instagram.com/thearchiveinbetween/),
 especially its overgrown colossi, titan remains and monumental trees.
 The Obelisk and Ruined Tower also draw on references by Josh White.
+Project icon: [Obelisk by Delapouite](https://game-icons.net/1x1/delapouite/obelisk.html),
+[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), rasterized from the original SVG.
 See the [credits and original reference links](https://github.com/Auda29/Titan-Relics/blob/main/CREDITS.md).
 
 ## File settings at release

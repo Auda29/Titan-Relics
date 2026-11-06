@@ -127,14 +127,14 @@ def publish(tag, repo, directory):
         else:
             generated = json.loads(gh('api', f'repos/{repo}/releases/generate-notes',
                                       '--method', 'POST', '--field', 'tag_name=' + tag))
-            notes = (f'Relic Mod {version}\n\nFabric and NeoForge for Minecraft 26.2 and 1.21.1. '
+            notes = (f'Titan Relics {version}\n\nFabric and NeoForge for Minecraft 26.2 and 1.21.1. '
                      'Install one matching JAR and its dependencies. SHA-256 checksums are included.\n\n'
                      + generated['body'])
         with tempfile.TemporaryDirectory(prefix='relics-release-notes-') as directory_name:
             note_file = Path(directory_name) / 'notes.md'
             note_file.write_text(notes, encoding='utf-8')
             args = ['release', 'create', tag, '--repo', repo, '--verify-tag', '--draft',
-                    '--title', 'Relic Mod ' + version, '--notes-file', str(note_file)]
+                    '--title', 'Titan Relics ' + version, '--notes-file', str(note_file)]
             if prerelease:
                 args.append('--prerelease')
             gh(*args)

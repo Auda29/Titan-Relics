@@ -148,7 +148,7 @@ license="{LICENSE}"
 [[mods]]
 modId="relics"
 version="{VERSION}"
-displayName="Relic Mod"
+displayName="Titan Relics"
 authors="Auda29"
 description="Alpha 5 relic structures, exploration and finite personal rewards."
 [[mixins]]

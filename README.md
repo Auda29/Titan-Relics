@@ -29,7 +29,8 @@ saved choices. Four-target client and bounded compatibility checks are recorded
 in the [current status](docs/project/CURRENT_STATUS_AND_ROADMAP.md). These results
 do not mean the published Alpha JARs contain those changes. The full Survival
 playthrough and public beta approval remain pending. There are no beta download
-links or public Modrinth/CurseForge listings announced here yet.
+links announced here yet. The prepared source candidate is `0.1.0-beta.1`;
+this is not a published release. Platform projects exist as drafts/previews.
 
 ## Start playing
 
@@ -77,6 +78,7 @@ See [credits and original reference links](CREDITS.md).
 - [Documentation index](docs/README.md), [current status](docs/project/CURRENT_STATUS_AND_ROADMAP.md)
   and [beta roadmap](docs/project/PUBLIC_BETA_ROADMAP.md).
 - [Release workflow and local checks](docs/releases/RELEASE_CI.md).
+- [Platform upload planning and explicit release controls](docs/technical/PLATFORM_PUBLICATION.md).
 - [Publication preparation, Modrinth and CurseForge drafts](docs/releases/PUBLIC_BETA_PREPARATION.md).
 - [Name decision and earlier proposals](docs/project/NAMING.md). The selected name is Titan Relics;
   the internal mod ID remains `relics`.

@@ -2,9 +2,11 @@
 
 Prepared 5 November 2026. Local review copy only. Selected title: Titan Relics.
 Update 6 November: authenticated API access confirms project ID `F6QDr5Vr`,
-title `Titan Relics` and status `draft`. The current platform license is
-`LicenseRef-Unknown`; setting it to the intended MIT license remains pending.
-The credential check did not change the project. Access details are in
+title `Titan Relics` and status `draft`. The project has now been configured
+through the API: MIT, description, source/wiki/issues links, adventure/worldgen
+categories, game-mechanics as an additional category and the attributed start icon.
+All written fields were read back. Status remains draft with zero versions;
+no review submission or version upload occurred. Access details are in
 [platform API access](../technical/PLATFORM_ACCESS.md).
 The user supplied the project URL https://modrinth.com/project/titan-relics.
 The earlier anonymous check returned "Project not found"; the later authenticated
@@ -20,7 +22,7 @@ The source, player documentation and issue tracker use that public destination.
 |---|---|
 | Title | Titan Relics |
 | Tagline | Colossal ruins of a forgotten age |
-| Slug / project URL | `titan-relics`; https://modrinth.com/project/titan-relics, supplied by the user, not yet anonymously visible |
+| Slug / project URL | `titan-relics`; https://modrinth.com/project/titan-relics; authenticated draft ID `F6QDr5Vr` |
 | Project type | Mod |
 | Summary | Explore colossal ruins, uncover archaeology and follow expedition maps to recover ancient machinery. |
 | Categories | Adventure, World Generation; confirm available portal labels |
@@ -29,7 +31,7 @@ The source, player documentation and issue tracker use that public destination.
 | Issues | https://github.com/Auda29/Titan-Relics/issues |
 | Wiki | https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md |
 | License | MIT; retain the copyright and license notice |
-| Icon/gallery | Pending artwork, provenance review and image selection |
+| Icon/gallery | Attributed CC BY Obelisk start icon configured; release gallery/provenance review still pending |
 | AI content disclosure | Required for these AI-assisted page drafts; production eligibility still needs separate assessment |
 
 ## Description draft
@@ -95,6 +97,8 @@ Titan Relics draws visual inspiration from
 [The Archive In Between](https://www.instagram.com/thearchiveinbetween/),
 especially its overgrown colossi, titan remains and monumental trees.
 The Obelisk and Ruined Tower also draw on references by Josh White.
+Project icon: [Obelisk by Delapouite](https://game-icons.net/1x1/delapouite/obelisk.html),
+[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), rasterized from the original SVG.
 See the [credits and original reference links](https://github.com/Auda29/Titan-Relics/blob/main/CREDITS.md).
 
 ## Version settings at release

@@ -27,15 +27,19 @@ nicht unabhängig geprüft. Keine Ablehnung oder Löschung wird daraus abgeleite
 Die vorhandenen Seitenentwürfe bleiben der Sollstand zum Abgleich im Dashboard.
 Die Links sind noch keine verifizierten öffentlichen Beta-Downloadziele.
 
-Nachtrag 6. November: Beide Tokens sind außerhalb des Repositorys und als
-GitHub-Secrets hinterlegt, die Projekt-IDs als GitHub-Variablen. Die authentifizierte
-Modrinth-Abfrage bestätigt `F6QDr5Vr`, Titel Titan Relics und Status `draft`.
-Die Plattformlizenz ist noch `LicenseRef-Unknown`, also noch auf MIT abzugleichen.
-CurseForge bestätigt die Token-Authentifizierung über den Versionskatalog;
-projektspezifische Uploadrechte für die vom Nutzer genannte ID `1785231` sind
-noch nicht getestet. Die reine Zugriffsprüfung hat keine Plattformfelder geändert
-und nichts hochgeladen. Der Upload-Workflow ist noch nicht implementiert.
-[Zugangsdokumentation](../technical/PLATFORM_ACCESS.md).
+Nachtrag 6. November: Beide Tokens und Projekt-IDs sind eingerichtet. Nach
+Nutzerauftrag ist Modrinth nun mit Beschreibung, MIT, Credits, Kategorien, Links
+und dem zugeschriebenen CC-BY-Obelisk-Icon konfiguriert. Der API-Rückvergleich
+bestätigt die Werte und weiterhin `draft` mit null Versionen. Die frühere
+unbekannte Lizenz ist korrigiert. CurseForge hat einen vorbereiteten Seitenentwurf
+und ein nutzbares Icon; die dokumentierte Autoren-API kann die Projektseite nicht
+allgemein bearbeiten. Der Dashboard-Abgleich bleibt dort nötig.
+
+Die Source-Kandidatenversion `0.1.0-beta.1`, Anzeigenamen und Release-Notizen sind
+vorbereitet. Das neue [Uploadwerkzeug und der manuelle Workflow](../technical/PLATFORM_PUBLICATION.md)
+planen standardmäßig nur und benötigen für Uploads eine explizite Freigabe des
+genauen Tags. Offene Survival-Marker in den Notizen verhindern den Upload.
+Es wurde kein Beta-Tag angelegt und nichts hochgeladen oder zur Prüfung eingereicht.
 
 ## Vorbereitete Unterlagen
 
@@ -175,7 +179,9 @@ Festgelegte Entscheidungen und noch offene Freigabepunkte:
    Spiel-/Loaderzuordnung, Abhängigkeiten und Downloadverfügbarkeit protokollieren.
    Erst dann Beta-Downloadlinks in README und Index einsetzen.
 
-Das Paket richtet keine Upload-Automation ein, benötigt keine Zugangsdaten und
-hat selbst keine externen Projekte angelegt; die Projektlinks stammen vom Nutzer.
+Die Upload-Automation ist implementiert, aber nicht zur Veröffentlichung ausgeführt.
+Die Projekte wurden vom Nutzer angelegt; Modrinth wurde anschließend per API
+konfiguriert. Zugangsdaten bleiben außerhalb des Repositorys beziehungsweise in
+GitHub Secrets.
 Die endgültige Downloadprüfung kann erst an
 den tatsächlich veröffentlichten Dateien stattfinden und bleibt Roadmap-Punkt 6.
