@@ -38,36 +38,106 @@ Available provenance:
   Credits do not establish their permission or endorsement. No reference artwork
   is being newly downloaded or directly packaged for this beta.
 
-The current evidence does not establish eligibility under the restriction on
-predominantly AI-derived content. A definitive favorable interpretation requires
-Modrinth's assessment. No claim of approval will be made and no public submission
-will be sent while that condition remains unresolved. The existing project stays
-a draft. A development-disclosure paragraph alone is not the platform's formal
-content-disclosure setting and is not sufficient to resolve eligibility.
+The current evidence does not establish eligibility for public search/listing
+under the restriction on predominantly AI-derived content. The official
+[AI guidance](https://support.modrinth.com/en/articles/16551575-disclosure-and-usage-of-ai)
+also explains that some such projects may be hosted unlisted. This is a platform
+assessment, not an approval that this repository can grant itself.
 
-### Prepared question for Modrinth
+The author explicitly requested a moderation submission. The intended path is
+therefore to disclose code, assets and text formally, provide the provenance
+context in the disclosure note, upload the four beta files to the existing draft
+and request moderation. This asks the platform for its decision and does not
+assert that the project has already passed eligibility review. No direct change
+to approved/public status is made by the uploader.
 
-Not sent. External contact requires the author's instruction.
+The [official disclosure route](https://github.com/modrinth/code/blob/main/apps/labrinth/src/routes/v3/disclosures.rs)
+and [schema](https://github.com/modrinth/code/blob/main/apps/labrinth/src/models/v3/disclosures.rs)
+provide `GET/PATCH /v3/project/{id}/disclosures`. The planned declaration is
+`ai_content` with `code`, `assets` and `text`, explaining substantial Codex
+contributions, maintainer design/review/testing, source screenshots and visual
+references. This is distinct from claiming an LLM is required at game runtime.
+Existing moderator locks and unrelated disclosures must be preserved.
 
-> Titan Relics, draft project F6QDr5Vr, uses Codex-assisted Java code,
-> programmatic structure-generator scripts and documentation. Its structures are
-> generated and voxel-converted locally; their selected inputs are hash-pinned.
-> Page images are the author's Minecraft shader captures, with an icon cropped
-> from one capture. Those captures depict the generated structures. The visual
-> inspirations are credited and the development assistance is disclosed. We
-> cannot substantiate a mostly human-authored content share from commit metadata.
-> Under sections 6.1 and 6.2, is this project eligible for publication, and do the
-> captures count as images derived from generative AI output? Repository and
-> source records: https://github.com/Auda29/Titan-Relics.
+The earlier prepared question is handled in the authorized moderation context;
+no separate email, support ticket or other external message has been sent.
 
 ## CurseForge page access
 
 The documented author API supports file uploads and file metadata, not general
-project-page editing. The shared preview browser currently cannot start because
-of the host's AppArmor restriction. A separate browser is checked for a usable
-author session. Description, MIT, source/issues/wiki links, Colossus icon and
+project-page editing. The shared preview browser could not start because
+of the host's AppArmor restriction. The separate browser remained on CurseForge's
+security verification page and could not reach the author dashboard. Description, MIT, source/issues/wiki links, Colossus icon and
 captioned shader images are prepared in the repository for the dashboard.
 
 The author has approved uploading the beta files. Upload responses and moderation
 state must be recorded independently of whether the project page can be edited.
 No moderation approval or public download is assumed from an accepted upload.
+
+## Verified GitHub release
+
+- Source revision: `9f6f2afe98b91f7aaaecd29f058350eda796cdf1`.
+- Tag: `v1.0.0-beta.1`.
+- [Release CI](https://github.com/Auda29/Titan-Relics/actions/runs/42209876403): success.
+- [Published prerelease](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.1): four JARs and SHA256SUMS.txt.
+- All four release downloads were independently revalidated against the manifest,
+  target metadata, class versions, MIT and the current canonical credits.
+- CI passed 187 Python tests, 764 worldgen assertions, 65 static mixin target
+  contracts, 677 headless gameplay assertions, the distribution/planning tests
+  and native Fabric 26.2 gameplay/recipe-packet/server-restart checks.
+- The native server evidence binds to the Fabric 26.2 SHA-256 below. No completed
+  natural Survival playthrough or new graphical client acceptance is claimed.
+
+| Artifact | SHA-256 |
+| --- | --- |
+| `relics-1.0.0-beta.1+mc26.2.jar` | `7929d739661865eefb5c6655984109c60143c53988cee79ee59de9d8436e2946` |
+| `relics-1.0.0-beta.1+mc1.21.1.jar` | `4f50ab03024d10f2bdf6ae3d69b6ed450bb03f4f945c94c9069016f8b4f0e167` |
+| `relics-1.0.0-beta.1+mc1.21.1-neoforge.jar` | `6b4bf215957be9bf588b73233b6933b31aa0f1038843ad63d4305349dfecf01e` |
+| `relics-1.0.0-beta.1+mc26.2-neoforge.jar` | `d6597e10afe58fa020c479f6df7e492e67f6a0f1ad7ef5a15ca66f900428dd68` |
+
+## CurseForge uploads
+
+The author API accepted all four uploads to project `1785231`. Each returned ID
+was saved in `platform-upload-state.json` on the GitHub release. The first public
+download verification was pending; acceptance of an upload does not establish
+moderation approval or a verified public download.
+
+| Artifact | File ID |
+| --- | --- |
+| `relics-1.0.0-beta.1+mc26.2.jar` | `9472906` |
+| `relics-1.0.0-beta.1+mc1.21.1.jar` | `9472912` |
+| `relics-1.0.0-beta.1+mc1.21.1-neoforge.jar` | `9472918` |
+| `relics-1.0.0-beta.1+mc26.2-neoforge.jar` | `9472923` |
+
+## Modrinth submission
+
+All four uploads have verified SHA-256 hashes matching the GitHub beta bundle.
+The formal `ai_content` disclosure contains `code`, `assets` and `text`, with an
+explanation of the substantial Codex contribution and the image/asset provenance.
+It was read back through the v3 API. Existing unrelated disclosures were not removed.
+
+On 6 November 2026 at 11:48:13 UTC, the project update requesting `processing`
+was accepted. A readback confirmed `processing`, `requested_status: approved`,
+four versions and no approval timestamp or moderator message. No direct request
+to set `approved` was made. Public eligibility and the moderation decision remain
+pending; upload/download verification is not moderation approval.
+
+| Artifact | Modrinth version ID |
+| --- | --- |
+| `relics-1.0.0-beta.1+mc26.2.jar` | `q3mOZDVk` |
+| `relics-1.0.0-beta.1+mc1.21.1.jar` | `pO4LS3zQ` |
+| `relics-1.0.0-beta.1+mc1.21.1-neoforge.jar` | `2vAzauJb` |
+| `relics-1.0.0-beta.1+mc26.2-neoforge.jar` | `B3gFvc5t` |
+
+## Remaining external state
+
+A second check of the existing CurseForge file IDs still could not verify public
+downloads. No files were uploaded again. Dashboard description/license/links and
+image alignment remain unverified; the author API cannot perform those page edits.
+The updated image/description handoff is available locally under
+`build/platform-preparation/titan-relics-platform-images-20261106.zip`.
+
+A one-time follow-up is scheduled in this conversation for **6 November 2026,
+12:21 UTC**, to read moderation state and recheck known downloads without
+reuploading or changing publication/AI settings. If still pending, it will report
+the state without creating further recurring work.

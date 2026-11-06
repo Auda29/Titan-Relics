@@ -8,7 +8,16 @@ rules remain specifications unless superseded by a later recorded decision.
 
 ## Released baseline
 
-The release line is [Alpha 5.0.5](../releases/0.1.0-alpha.5.0.5.md)
+[GitHub Beta 1](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.1)
+is published from `9f6f2afe98b91f7aaaecd29f058350eda796cdf1`. All four targets
+passed release CI and downloaded-file verification. Four Modrinth versions were
+uploaded, hash-verified and submitted for moderation with formal AI disclosures.
+Four CurseForge uploads were accepted; public download verification and the
+author-dashboard page alignment are recorded separately. The full natural
+Survival test will use this beta, as explicitly authorized by the author.
+See the [publication record](../releases/BETA_1_0_0_PUBLICATION.md).
+
+The current public testing release is [1.0.0-beta.1](../releases/1.0.0-beta.1.md)
 for Fabric and NeoForge on Minecraft **26.2 and 1.21.1**. The tag workflow builds,
 checks and publishes all four targets. Java 25
 is required for 26.2; Java 21 for 1.21.1. Use the matching loader dependencies
@@ -107,7 +116,8 @@ The user's three V3 shader captures are the interim gallery, with the river view
 featured and also used as the title image in both platform drafts and the README.
 The project remains a draft with no versions. A separate manually gated upload
 workflow is implemented; no platform files were uploaded. The unreleased source
-candidate is `0.1.0-beta.1`, with Titan Relics display names. See
+preparation candidate was `0.1.0-beta.1`, with Titan Relics display names.
+The later authorized `1.0.0-beta.1` publication is recorded at the top of this page. See
 [platform publication](../technical/PLATFORM_PUBLICATION.md).
 
 All four local `0.1.0-beta.1` candidate JARs now build and pass target/asset checks.

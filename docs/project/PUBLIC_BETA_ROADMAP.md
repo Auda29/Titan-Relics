@@ -3,7 +3,10 @@
 Vereinbart am 3. November 2026. Ausgangspunkt ist die veröffentlichte
 [Alpha 5.0.5](../releases/0.1.0-alpha.5.0.5.md). Diese Roadmap beschreibt die
 noch offenen Arbeiten und Freigabekriterien für die erste öffentliche Beta.
-Eine Beta-Version oder ein Veröffentlichungstermin ist damit noch nicht festgelegt.
+Nachtrag 6. November: Der Nutzer hat die Veröffentlichung von `1.0.0-beta.1`
+freigegeben. Der vollständige Survival-Test findet mit dieser öffentlichen Beta
+statt. Er bleibt als Test offen und ist keine Voraussetzung mehr für diese
+erste Beta-Veröffentlichung. Siehe [Veröffentlichungsstand](../releases/BETA_1_0_0_PUBLICATION.md).
 
 ## Vorhandene Grundlage
 

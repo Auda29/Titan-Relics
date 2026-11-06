@@ -1,19 +1,24 @@
 # Modrinth publication draft
 
-Prepared 5 November 2026. Local review copy only. Selected title: Titan Relics.
+Prepared 5 November 2026. Updated 6 November after the Beta 1 submission.
+Selected title: Titan Relics.
 Update 6 November: authenticated API access confirms project ID `F6QDr5Vr`,
-title `Titan Relics` and status `draft`. The project has now been configured
+title `Titan Relics`. The project has been configured
 through the API: MIT, description, source/wiki/issues links, adventure/worldgen
 categories, game-mechanics as an additional category and the Colossus screenshot icon.
 At the user's request, the three original V3 shader captures are the interim
 gallery, with the river view featured and also used as the description's title image.
-All written fields were read back. Status remains draft with zero versions;
-no review submission or version upload occurred. Access details are in
+All four `1.0.0-beta.1` versions were uploaded and their downloads hash-verified.
+Formal AI disclosures for code, assets and text were set and read back. The
+project was submitted for moderation at 11:48 UTC and returned `processing`,
+with no approval yet. See the [publication record](BETA_1_0_0_PUBLICATION.md).
+Access details are in
 [platform API access](../technical/PLATFORM_ACCESS.md).
 The user supplied the project URL https://modrinth.com/project/titan-relics.
 The earlier anonymous check returned "Project not found"; the later authenticated
 check above supersedes that visibility limit for the fields actually read. The fields and description
-below remain the intended configuration, not a verified copy of the platform. See the
+below document the prepared configuration; the publication record distinguishes
+verified uploads, moderation state and eligibility. See the
 [publication checklist and platform eligibility issue](PUBLIC_BETA_PREPARATION.md).
 The repository is now public at https://github.com/Auda29/Titan-Relics.
 The source, player documentation and issue tracker use that public destination.

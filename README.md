@@ -13,28 +13,26 @@ The landscape leaves much of its history for you to interpret.
 
 ## Downloads and release status
 
-The published baseline is **Alpha 5.0.5**, available for all four targets from
-the [GitHub release](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.5).
+The first public testing release is **1.0.0-beta.1**, available for all four targets
+from the [GitHub beta release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.1).
 Choose exactly one matching JAR. Dependencies are installed separately.
-The repository is public at [Auda29/Titan-Relics](https://github.com/Auda29/Titan-Relics).
-The Alpha downloads, player documentation and issue tracker are publicly accessible.
-Submitting an issue requires a GitHub account.
+Use `SHA256SUMS.txt` from that release to verify the downloaded files.
 
-| Minecraft | Loader | Alpha 5.0.5 filename | Java |
+| Minecraft | Loader | Beta filename | Java |
 |---|---|---|---|
-| 1.21.1 | Fabric | `relics-0.1.0-alpha.5.0.5+mc1.21.1.jar` | 21+ |
-| 26.2 | Fabric | `relics-0.1.0-alpha.5.0.5+mc26.2.jar` | 25+ |
-| 1.21.1 | NeoForge | `relics-0.1.0-alpha.5.0.5+mc1.21.1-neoforge.jar` | 21+ |
-| 26.2 | NeoForge | `relics-0.1.0-alpha.5.0.5+mc26.2-neoforge.jar` | 25+ |
+| 1.21.1 | Fabric | `relics-1.0.0-beta.1+mc1.21.1.jar` | 21+ |
+| 26.2 | Fabric | `relics-1.0.0-beta.1+mc26.2.jar` | 25+ |
+| 1.21.1 | NeoForge | `relics-1.0.0-beta.1+mc1.21.1-neoforge.jar` | 21+ |
+| 26.2 | NeoForge | `relics-1.0.0-beta.1+mc26.2-neoforge.jar` | 25+ |
 
-An **unpublished beta candidate** adds an explained rejection of incompatible
-world setups and makes Discoveries the factory preset for new worlds without
-saved choices. Four-target client and bounded compatibility checks are recorded
-in the [current status](docs/project/CURRENT_STATUS_AND_ROADMAP.md). These results
-do not mean the published Alpha JARs contain those changes. The full Survival
-playthrough and public beta approval remain pending. There are no beta download
-links announced here yet. The prepared source candidate is `0.1.0-beta.1`;
-this is not a published release. Platform projects exist as drafts/previews.
+This beta adds an explained rejection of incompatible saved-world setups and
+makes Discoveries the factory preset for new installations without a saved choice.
+The full natural Survival playthrough will use this beta. Balance, discovery pacing
+and long-session behavior remain under review. See the
+[release notes](docs/releases/1.0.0-beta.1.md) for known limits and the
+[publication record](docs/releases/BETA_1_0_0_PUBLICATION.md) for each platform's status.
+The earlier [Alpha 5.0.5](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.5)
+remains available as a historical release.
 
 ## Start playing
 

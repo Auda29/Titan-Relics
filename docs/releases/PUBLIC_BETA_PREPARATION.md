@@ -1,10 +1,12 @@
 # Vorbereitung der öffentlichen Beta
 
-Stand 5. November 2026. Dieses Paket ist ein lokaler Entwurf zur Durchsicht,
-keine Veröffentlichung oder Plattformfreigabe. Veröffentlichte Grundlage ist
-Alpha 5.0.5; der geprüfte Beta-Kandidat ist noch unveröffentlicht. Der Nutzer
+Ursprüngliches Vorbereitungspaket vom 5. November 2026, ergänzt am 6. November.
+Der Nutzer hat inzwischen die öffentliche `1.0.0-beta.1` freigegeben und den
+vollständigen Survival-Test in die öffentliche Beta-Phase verlegt. Der aktuelle
+[Veröffentlichungsstand](BETA_1_0_0_PUBLICATION.md) ersetzt frühere Freigabesperren
+und Versionsplatzhalter dieses Dokuments. Der Nutzer
 hat **Titan Relics** mit dem Untertitel *Colossal ruins of a forgotten age*
-gewählt. Die Beta-Versionsnummer ist noch nicht beschlossen.
+gewählt. Die erste öffentliche Beta verwendet `1.0.0-beta.1`.
 
 Der Nutzer hat das Repository in **Auda29/Titan-Relics** umbenannt und öffentlich
 freigegeben. Die anschließende anonyme GitHub-Abfrage bestätigt `private: false`

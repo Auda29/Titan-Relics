@@ -2,12 +2,15 @@
 
 Prepared 5 November 2026. Intended configuration for review. The user supplied
 project ID `1785231` on 6 November. The upload token is configured locally and
-in GitHub Actions; a read-only game-version API call succeeded. Project-specific
-upload permissions and moderation status have not been tested. See
+in GitHub Actions. The author API has now accepted all four `1.0.0-beta.1`
+uploads to this project and returned file IDs. Public downloads and moderation
+approval are not established by upload acceptance. The dashboard page remains
+unverified because browser access is blocked. See the
+[publication record](BETA_1_0_0_PUBLICATION.md) and
 [platform API access](../technical/PLATFORM_ACCESS.md). The user also supplied
 https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview. An anonymous
 check returned a 404 page; project settings, ownership and moderation status could
-not be independently verified. The fields and description below are not a verified
+not be independently verified. The project-page fields and description below are not a verified
 copy of the platform. The selected name is Titan Relics and the license is MIT.
 Public beta approval remains pending. The [shared preparation checklist](PUBLIC_BETA_PREPARATION.md) applies.
 The repository is now public at https://github.com/Auda29/Titan-Relics.
@@ -21,7 +24,7 @@ The source, player documentation and issue tracker use that public destination.
 | Name | Titan Relics |
 | Tagline | Colossal ruins of a forgotten age |
 | Slug / preview URL | `titan-relics`; https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview, supplied by the user, anonymous check returned 404 |
-| Project ID | `1785231`, supplied by the user; project-specific access not independently tested |
+| Project ID | `1785231`, supplied by the user; four file uploads accepted; dashboard settings unverified |
 | Summary | Explore colossal ruins, uncover archaeology and follow expedition maps to recover ancient machinery. |
 | Main category | World Gen; confirm current portal options |
 | Additional categories | Structures; Adventure and RPG, if available and appropriate |
@@ -101,6 +104,10 @@ permission request is needed. Third-party works and visual references retain
 their own rights; this license does not grant rights to the referenced artworks.
 
 ### Inspirations and credits
+
+Development used generative AI assistance for code, asset-generator scripts and
+documentation. The page images are original in-game shader captures; the icon
+is a crop of one capture. Their older V3 model date is identified in the captions.
 
 Titan Relics draws visual inspiration from
 [The Archive In Between](https://www.instagram.com/thearchiveinbetween/),

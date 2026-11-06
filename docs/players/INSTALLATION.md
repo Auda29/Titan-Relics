@@ -1,15 +1,15 @@
 # Installation and support
 
-Prepared 5 November 2026. The published baseline is Alpha 5.0.5. Candidate-only
-behavior is marked explicitly below. Public beta downloads are not available yet.
+Updated 6 November 2026 for the public testing release 1.0.0-beta.1. The full
+natural Survival playthrough will use this beta; balance feedback is welcome.
 
 ## Pick the right files
 
 Download one player JAR from the
-[Alpha 5.0.5 release](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.5).
+[1.0.0-beta.1 release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.1).
 Match both the Minecraft version and loader; Fabric and NeoForge JARs are separate.
 Use the release's `SHA256SUMS.txt` if you need to verify a download.
-The [repository](https://github.com/Auda29/Titan-Relics), Alpha releases and
+The [repository](https://github.com/Auda29/Titan-Relics), beta release and
 issue tracker are public. Submitting an issue requires a GitHub account.
 
 These are the repository's pinned/tested dependency versions, not a claim that
@@ -52,7 +52,7 @@ New defaults do not rewrite them. Old relics and finite shared containers or
 archaeology are not moved, refilled or regenerated for later players.
 
 Changing biome mods, datapacks or mod lists can change the environment recorded
-by a frozen relic plan. In the unpublished candidate, recognized incompatible
+by a frozen relic plan. In 1.0.0-beta.1, recognized incompatible
 setups produce an explained refusal to load and return the client to the menu.
 This guard is not an automatic migration and is not promised for Alpha 5.0.5.
 Restore the original supported setup when a world is rejected. Do not delete
@@ -60,7 +60,7 @@ the saved plan or force fresh sites as a troubleshooting shortcut.
 
 ## Known limits
 
-- The unpublished candidate's [compatibility notes](../technical/MOD_COMPATIBILITY.md)
+- The beta's [compatibility notes](../technical/MOD_COMPATIBILITY.md)
   list exact tested modpacks and versions. They do not certify every dependency
   update, seed, shader, pack configuration or NeoForge variant of a Fabric pack.
 - DH 3.3.3 `FEATURES` can omit relic starts in distant generation.

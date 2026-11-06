@@ -41,7 +41,7 @@ After the initial credential checks, the user authorized the remaining setup.
 `configure_modrinth.py --apply --icon` configured the draft with MIT, prepared
 text, categories, links and the Colossus screenshot icon. The interim gallery
 uses the three original V3 shader captures, with the river view featured. The values were
-read back; status remains `draft` with zero versions. The earlier unknown-license
+read back; at that point status was `draft` with zero versions. The earlier unknown-license
 observation above is historical. No project was submitted for review.
 
 The existing release workflow still publishes only to GitHub. A separate
@@ -51,3 +51,12 @@ It has not uploaded any files. See [platform publication](PLATFORM_PUBLICATION.m
 for the checks, persistent receipts and rerun behavior. The Survival acceptance,
 final artifacts, platform eligibility review and explicit public beta approval
 remain required before release.
+
+## Beta 1 publication update
+
+The author subsequently approved the public `1.0.0-beta.1` before the full
+Survival playthrough. GitHub is published, all four Modrinth uploads have verified
+download hashes and the project is submitted for review with formal AI
+disclosures. The CurseForge API accepted four uploads to project `1785231`.
+Current moderation/download evidence and the remaining dashboard limitation are
+in the [publication record](../releases/BETA_1_0_0_PUBLICATION.md).
