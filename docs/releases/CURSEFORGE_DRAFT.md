@@ -74,8 +74,9 @@ builds use ferns and ordinary chests instead of unavailable 26.2 blocks.
 
 ### Status and support
 
-The public beta is being prepared; no beta files have been released. The full natural
-Survival playthrough is awaiting acceptance. Shared archaeology and ordinary
+Beta 1.0.0 is the first public testing release. The author has approved release
+before the full natural Survival playthrough, which will use this beta. Survival
+balance and discovery pacing remain under review. Shared archaeology and ordinary
 containers are finite; updates and later visitors do not refill them. Back up
 worlds before changing mods or datapacks. Frozen plans are not automatically
 migrated to a different modpack setup.

@@ -66,6 +66,16 @@ the tested exact version explicit. Modrinth dependencies are pinned by version I
 
 ## Upload only after approval
 
+For Beta 1.0.0, the author has explicitly approved publication before the natural
+Survival playthrough. The [publication record](../releases/BETA_1_0_0_PUBLICATION.md)
+supersedes the former pre-release Survival gate for this beta. The release notes
+state the outstanding test honestly. The old unreleased candidate notes retain
+their pending marker and must not be used for this release.
+
+Use `--platform curseforge` or `--platform modrinth` to act on just one platform
+when the other's access or eligibility is unresolved. The default remains both.
+Receipts are kept in the same release journal and retain duplicate protection.
+
 After the Survival result, final release approval and platform eligibility checks,
 publish the verified GitHub release through the existing tag workflow. Then run
 the platform workflow for that exact tag with `publish` enabled. The upload job

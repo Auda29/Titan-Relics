@@ -15,7 +15,7 @@ import publish_platforms as publish
 from configure_modrinth import project_fields, apply, PROJECT
 from platform_api import Client
 
-VERSION = '0.1.0-beta.1'
+VERSION = '1.0.0-beta.1'
 
 
 class API:
@@ -149,6 +149,23 @@ versionRange="[{game}]"
         with patch.object(publish, 'verify_upload'), self.assertRaises(RuntimeError):
             publish.execute(plan, self.root, self.clients, journal)
         self.assertEqual(self.clients['curseforge'].uploads, [])
+
+    def test_curseforge_only_does_not_read_or_upload_modrinth_versions(self):
+        plan, journal = self.plan(), Journal()
+        with patch.object(self.clients['modrinth'], 'request', side_effect=AssertionError('Unselected platform')), \
+                patch.object(publish, 'verify_upload'):
+            publish.execute(plan, self.root, self.clients, journal, ['curseforge'])
+            publish.execute(plan, self.root, self.clients, journal, ['curseforge'])
+        self.assertEqual(self.clients['modrinth'].uploads, [])
+        self.assertEqual(len(self.clients['curseforge'].uploads), 4)
+        self.assertTrue(all(key.startswith('curseforge:') for key in journal.state['uploads']))
+
+    def test_invalid_or_duplicate_platform_selection_fails_before_mutation(self):
+        plan = self.plan()
+        for platforms in ([], ['other'], ['curseforge', 'curseforge']):
+            with self.subTest(platforms=platforms), self.assertRaises(ValueError):
+                publish.execute(plan, self.root, self.clients, Journal(), platforms)
+        self.assertFalse(any(client.uploads for client in self.clients.values()))
 
     def test_pending_moderation_keeps_receipts_without_duplicate_uploads(self):
         plan, journal = self.plan(), Journal()

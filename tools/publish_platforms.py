@@ -189,12 +189,15 @@ def verify_upload(platform, result, item):
         raise ValueError('Downloaded platform file differs from the approved bundle')
 
 
-def execute(plan, directory, clients, journal):
-    versions = clients['modrinth'].request('/project/' + PROJECTS['modrinth'] + '/version')
+def execute(plan, directory, clients, journal, platforms=tuple(PROJECTS)):
+    if not platforms or len(set(platforms)) != len(platforms) or not set(platforms) <= PROJECTS.keys():
+        raise ValueError('Select known platforms exactly once')
+    versions = (clients['modrinth'].request('/project/' + PROJECTS['modrinth'] + '/version')
+                if 'modrinth' in platforms else [])
     # Detect all conflicting Modrinth versions before uploading any target.
     existing = {item['filename']: matching_version(versions, item) for item in plan}
     pending = []
-    for platform in ('modrinth', 'curseforge'):
+    for platform in platforms:
         for item in plan:
             key = platform + ':' + item['filename']
             entry = journal.state['uploads'].get(key)
@@ -230,6 +233,8 @@ def main():
     parser.add_argument('--repo', default='Auda29/Titan-Relics', choices=['Auda29/Titan-Relics'])
     parser.add_argument('--execute', action='store_true')
     parser.add_argument('--approved-tag', help='Must exactly match --tag for uploads')
+    parser.add_argument('--platform', nargs='+', choices=tuple(PROJECTS), default=list(PROJECTS),
+                        help='Upload only these platforms; defaults to both')
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     version = tag_version(args.tag)
@@ -247,12 +252,13 @@ def main():
         raise ValueError('Release notes still contain unresolved acceptance/placeholders')
     clients = {p: Client(p) for p in PROJECTS}
     plan = make_plan(args.directory, version, notes, clients)
-    output = {'tag': args.tag, 'mode': 'execute' if args.execute else 'plan', 'files': plan}
+    output = {'tag': args.tag, 'mode': 'execute' if args.execute else 'plan',
+              'platforms': args.platform, 'files': plan}
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(output, indent=2) + '\n')
     if args.execute:
-        output['pending_download_verification'] = execute(plan, args.directory, clients, ReleaseJournal(args.repo, args.tag, plan))
+        output['pending_download_verification'] = execute(plan, args.directory, clients, ReleaseJournal(args.repo, args.tag, plan), args.platform)
     print(json.dumps(output, indent=2))
     return 2 if output.get('pending_download_verification') else 0
 

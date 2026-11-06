@@ -75,8 +75,10 @@ and [short player guide](https://github.com/Auda29/Titan-Relics/blob/main/docs/p
 
 ### Before you download
 
-This is a beta-page draft; a public beta has not been released. The full natural
-Survival playthrough is still awaiting acceptance. Existing worlds keep their
+Beta 1.0.0 is the first public testing release. The author has approved release
+before the full natural Survival playthrough, which will use this beta. Survival
+balance and discovery pacing remain under review. Modrinth publication is still
+subject to platform eligibility and moderation. Existing worlds keep their
 saved plans, including for new chunks; updates do not refill old shared loot.
 Back up saves before changing a modpack. The 1.21.1 builds use ferns and ordinary
 chests in place of unavailable 26.2 blocks.
