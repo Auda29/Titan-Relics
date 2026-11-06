@@ -102,7 +102,9 @@ candidate based on 5.0.5, not newly published player JARs.
 On November 6, read-only API checks confirmed Modrinth access and CurseForge
 API authentication. The initial unknown-license
 state has since been corrected. Authorized draft setup configured MIT, text,
-categories, links and an attributed start icon, all verified by API readback.
+categories, links and the Colossus screenshot icon, all verified by API readback.
+The user's three V3 shader captures are the interim gallery, with the river view
+featured and also used as the title image in both platform drafts and the README.
 The project remains a draft with no versions. A separate manually gated upload
 workflow is implemented; no platform files were uploaded. The unreleased source
 candidate is `0.1.0-beta.1`, with Titan Relics display names. See

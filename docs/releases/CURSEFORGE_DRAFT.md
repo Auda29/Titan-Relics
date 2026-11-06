@@ -29,12 +29,17 @@ The source, player documentation and issue tracker use that public destination.
 | Source | https://github.com/Auda29/Titan-Relics |
 | Issues | External tracker: https://github.com/Auda29/Titan-Relics/issues |
 | Wiki | https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md |
-| Logo | Prepared 400 × 400 Obelisk start icon in `assets/branding/titan-relics-icon.png`, CC BY 3.0 with attribution |
+| Logo | Prepared 400 × 400 Colossus screenshot icon in `assets/branding/titan-relics-icon.png`; interim V3 model |
+| Title image / screenshots | Original V3 shader captures, river view first; [files and captions](../../assets/branding/README.md); dashboard upload still required |
 | Distribution / modpack permissions | Permitted under MIT; platform distribution settings still need review |
 
 ## Description draft
 
 *Colossal ruins of a forgotten age*
+
+![Large Colossus across a river, captured in Minecraft with shaders](https://raw.githubusercontent.com/Auda29/Titan-Relics/main/relics/colossus/demo/colossus-v3-shaders-river.png)
+
+*In-game shader capture, 1 October 2026. Earlier Colossus V3 model; interim preview.*
 
 Discover the remains of an age of giants. Titan Relics adds monumental structures
 to Minecraft's Overworld: abandoned colossi, weathered obelisks, titan skulls,
@@ -47,11 +52,6 @@ nearby dropped items while held. Each landmark offers part of a history that the
 landscape never fully explains.
 
 ### World settings
-
-![Ruined Tower exterior in a model-inspection world](https://raw.githubusercontent.com/Auda29/Titan-Relics/main/docs/testing/images/beta-renderer-20261104/fabric-26.2/18-ruined-tower-whole-model-front-operator-marker-replacements.png)
-
-Ruined Tower placed for model inspection. This is a test scene, not a naturally
-discovered site; natural terrain varies.
 
 Select Expedition, Balanced or Discoveries before creating a world. You can also
 edit distances, family shares and biome rules. Worlds retain their saved settings,
@@ -105,8 +105,8 @@ Titan Relics draws visual inspiration from
 [The Archive In Between](https://www.instagram.com/thearchiveinbetween/),
 especially its overgrown colossi, titan remains and monumental trees.
 The Obelisk and Ruined Tower also draw on references by Josh White.
-Project icon: [Obelisk by Delapouite](https://game-icons.net/1x1/delapouite/obelisk.html),
-[CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), rasterized from the original SVG.
+The icon and interim images use the author's in-game shader captures of the large
+Colossus, showing the earlier V3 model. Minecraft and shader assets retain their own rights.
 See the [credits and original reference links](https://github.com/Auda29/Titan-Relics/blob/main/CREDITS.md).
 
 ## File settings at release

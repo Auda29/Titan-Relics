@@ -41,3 +41,8 @@ See [Colossus](../README.md), the [V4 review notes](../docs/COLOSSUS_V4.md),
 and the [Alpha 3 test report](../../../docs/testing/ALPHA_3_TEST_REPORT.md).
 These demo captures supplement the earlier non-shader review; they do not
 replace its terrain-contact and material-readability findings.
+
+On 6 November 2026, the author selected these captures as interim project-page
+images. The river view is the title image and source of the cropped Colossus
+icon. See [branding assets](../../../assets/branding/README.md) for the crop and
+captions. This reuse does not change the captures' V3 model date.

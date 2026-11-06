@@ -2,6 +2,10 @@
 
 *Colossal ruins of a forgotten age*
 
+![Large Colossus across a river, captured in Minecraft with shaders](relics/colossus/demo/colossus-v3-shaders-river.png)
+
+*In-game shader capture, 1 October 2026. Earlier Colossus V3 model; interim preview.*
+
 Explore monumental remains in Minecraft's Overworld: abandoned colossi,
 weathered obelisks, titan skulls, a World Tree and a ruined tower. Investigate
 archaeological sites, follow expedition maps and recover useful machinery.

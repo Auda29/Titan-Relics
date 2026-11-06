@@ -39,7 +39,8 @@ local API use. Rotate the local file and GitHub secret together when replacing a
 
 After the initial credential checks, the user authorized the remaining setup.
 `configure_modrinth.py --apply --icon` configured the draft with MIT, prepared
-text, categories, links and the attributed Obelisk start icon. The values were
+text, categories, links and the Colossus screenshot icon. The interim gallery
+uses the three original V3 shader captures, with the river view featured. The values were
 read back; status remains `draft` with zero versions. The earlier unknown-license
 observation above is historical. No project was submitted for review.
 

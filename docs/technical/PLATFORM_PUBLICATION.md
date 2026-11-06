@@ -11,8 +11,14 @@ links to draft `F6QDr5Vr`, then reads them back. The helper refuses an approved,
 processing or otherwise non-draft project. It does not send status changes,
 submit the project for review or create a version. The original project JSON is
 retained under ignored `build/platform-preparation/` before the first edit.
-`--apply --icon` additionally uploads the attributed Obelisk icon from
+`--apply --icon` additionally uploads the Colossus screenshot icon from
 [branding assets](../../assets/branding/README.md).
+
+The draft gallery uses the three original shader captures listed in the branding
+notes, with the river view featured. They show the earlier V3 model and carry
+that caption. The description's opening image uses the same river capture.
+The gallery was configured through the documented
+[gallery-image API](https://docs.modrinth.com/api/operations/addgalleryimage/).
 
 Modrinth now derives its supported environments from versions. The upload
 metadata explicitly specifies `client_and_server` on every target. The project

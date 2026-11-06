@@ -29,7 +29,9 @@ Die Links sind noch keine verifizierten öffentlichen Beta-Downloadziele.
 
 Nachtrag 6. November: Beide Tokens und Projekt-IDs sind eingerichtet. Nach
 Nutzerauftrag ist Modrinth nun mit Beschreibung, MIT, Credits, Kategorien, Links
-und dem zugeschriebenen CC-BY-Obelisk-Icon konfiguriert. Der API-Rückvergleich
+und dem Koloss-Icon aus der eigenen Shader-Aufnahme konfiguriert. Die drei
+V3-Shaderbilder dienen auf Nutzerwunsch als vorläufige Galerie, die Flussansicht
+als Titelbild. Der API-Rückvergleich
 bestätigt die Werte und weiterhin `draft` mit null Versionen. Die frühere
 unbekannte Lizenz ist korrigiert. CurseForge hat einen vorbereiteten Seitenentwurf
 und ein nutzbares Icon; die dokumentierte Autoren-API kann die Projektseite nicht
@@ -92,15 +94,24 @@ Keines ist als natürlich entdeckte Survival-Szene freigegeben.
 | [Weltenbaum](../testing/images/beta-renderer-20261104/fabric-26.2/14-world-tree-whole-model-front-operator-marker-replacements.png) | World Tree and exposed roots in a renderer test scene. | Technischer Anhang; freigelegter Boden eignet sich nicht als Werbeaufnahme |
 | [Turmruine](../testing/images/beta-renderer-20261104/fabric-26.2/18-ruined-tower-whole-model-front-operator-marker-replacements.png) | Ruined Tower exterior, placed for model inspection. | Beste der vier Außenansichten für eine gekennzeichnete Vorschau |
 
+Auf Nutzerwunsch werden vorerst die drei vorhandenen Shader-Aufnahmen vom
+1. Oktober 2026 verwendet. Die Flussansicht ist das Titelbild und die Grundlage
+des zugeschnittenen Koloss-Icons. Das README und beide Plattformbeschreibungen
+enthalten die Flussansicht mit dem Hinweis auf den älteren Modellstand.
+Modrinth hat außerdem alle drei Originale in der Galerie, mit der Flussansicht
+als ausgewähltem Bild. Für CurseForge sind dieselben Dateien und Bildunterschriften
+zum Dashboard-Upload vorbereitet. Quellen und Zuschnitt stehen in den
+[Branding-Unterlagen](../../assets/branding/README.md).
+
 Vor der endgültigen Projektseite Titelaufnahme und wenige Außenansichten in
 natürlich generierten Standorten des finalen Kandidaten aufnehmen. Keine
 Innenraum-/Belohnungsübersicht als Titelbild verwenden. Das alte
 [V3-Shaderalbum](../../relics/colossus/demo/README.md) ist historische Kunst und
 kein Beleg der heutigen Modelle. Bilddateien nicht heimlich als neu ausgeben.
 
-Ein finales Icon für Titan Relics ist noch zu gestalten.
-Vorschlag: eine selbst gezeichnete, auch klein erkennbare Silhouette eines
-gebrochenen Monuments. Keine fremden Logos oder neuen KI-Bildgenerierungen.
+Ein 400 × 400 großes Koloss-Icon aus der Flussaufnahme ist vorbereitet und
+ersetzt das frühere Obelisk-Symbol. Der Nutzer liefert später weitere Bilder;
+dann auch das vorläufige Icon auf den aktuellen Modellstand bringen.
 Die reproduzierbare Blender-/Voxel-Pipeline ist in
 [BLENDER_WORKFLOW.md](../technical/BLENDER_WORKFLOW.md) dokumentiert. Das allein
 beweist weder menschliche Urheberschaft aller Quellen noch Plattformzulässigkeit.

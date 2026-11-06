@@ -58,6 +58,6 @@ def apply(client, icon=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--apply', action='store_true', help='Apply to the known draft only; never submits for review')
-    parser.add_argument('--icon', action='store_true', help='Also apply the attributed CC BY Obelisk icon')
+    parser.add_argument('--icon', action='store_true', help='Also apply the prepared Colossus screenshot icon')
     args = parser.parse_args()
     print(json.dumps(apply(Client('modrinth'), args.icon) if args.apply else project_fields(), indent=2))

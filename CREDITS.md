@@ -9,11 +9,17 @@ The Obelisk and Ruined Tower also draw on visual references by **Josh White**.
 
 ## Project icon
 
-The initial project icon is [Obelisk by Delapouite](https://game-icons.net/1x1/delapouite/obelisk.html),
+The current project icon is a crop of the author's in-game shader screenshot of
+the large Colossus. The interim title and gallery images are the author's original
+captures from 1 October 2026, showing the earlier Colossus V3 model.
+See [branding assets](assets/branding/README.md) for the source, crop and captions.
+Minecraft and shader assets retain their own rights.
+
+The former temporary icon source, still retained as an SVG, is
+[Obelisk by Delapouite](https://game-icons.net/1x1/delapouite/obelisk.html),
 licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
-The PNG is a raster export of the unchanged SVG. Source and export details are
-in [branding assets](assets/branding/README.md). These third-party icon files
-retain their CC BY license rather than the project's MIT license.
+That third-party SVG retains its CC BY license rather than the project's MIT
+license. It is no longer the current project icon.
 
 ## Visual references
 
