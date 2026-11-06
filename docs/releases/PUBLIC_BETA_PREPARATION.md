@@ -27,6 +27,16 @@ nicht unabhängig geprüft. Keine Ablehnung oder Löschung wird daraus abgeleite
 Die vorhandenen Seitenentwürfe bleiben der Sollstand zum Abgleich im Dashboard.
 Die Links sind noch keine verifizierten öffentlichen Beta-Downloadziele.
 
+Nachtrag 6. November: Beide Tokens sind außerhalb des Repositorys und als
+GitHub-Secrets hinterlegt, die Projekt-IDs als GitHub-Variablen. Die authentifizierte
+Modrinth-Abfrage bestätigt `F6QDr5Vr`, Titel Titan Relics und Status `draft`.
+Die Plattformlizenz ist noch `LicenseRef-Unknown`, also noch auf MIT abzugleichen.
+CurseForge bestätigt die Token-Authentifizierung über den Versionskatalog;
+projektspezifische Uploadrechte für die vom Nutzer genannte ID `1785231` sind
+noch nicht getestet. Die reine Zugriffsprüfung hat keine Plattformfelder geändert
+und nichts hochgeladen. Der Upload-Workflow ist noch nicht implementiert.
+[Zugangsdokumentation](../technical/PLATFORM_ACCESS.md).
+
 ## Vorbereitete Unterlagen
 
 - [README](../../README.md), [Installation und Support](../players/INSTALLATION.md),

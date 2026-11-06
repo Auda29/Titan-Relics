@@ -1,9 +1,14 @@
 # Modrinth publication draft
 
 Prepared 5 November 2026. Local review copy only. Selected title: Titan Relics.
+Update 6 November: authenticated API access confirms project ID `F6QDr5Vr`,
+title `Titan Relics` and status `draft`. The current platform license is
+`LicenseRef-Unknown`; setting it to the intended MIT license remains pending.
+The credential check did not change the project. Access details are in
+[platform API access](../technical/PLATFORM_ACCESS.md).
 The user supplied the project URL https://modrinth.com/project/titan-relics.
-An anonymous check returned "Project not found"; project settings, ownership and
-moderation status could not be independently verified. The fields and description
+The earlier anonymous check returned "Project not found"; the later authenticated
+check above supersedes that visibility limit for the fields actually read. The fields and description
 below remain the intended configuration, not a verified copy of the platform. See the
 [publication checklist and platform eligibility issue](PUBLIC_BETA_PREPARATION.md).
 The repository is now public at https://github.com/Auda29/Titan-Relics.

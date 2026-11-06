@@ -67,6 +67,8 @@ This directory contains only cross-project documentation and test evidence.
 
 ## Technical
 
+- [Modrinth/CurseForge API access, project IDs and CI secret names](technical/PLATFORM_ACCESS.md)
+
 - [Gameplay runtime starting contract and implementation updates](technical/GAMEPLAY_RUNTIME.md)
 - [Builder gameplay sidecar/marker handoff v1](technical/GAMEPLAY_MARKERS.md)
 - [Shared distribution budget and deterministic unique-site resolver](technical/RELIC_DISTRIBUTION.md)

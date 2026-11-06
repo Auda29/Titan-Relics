@@ -1,6 +1,10 @@
 # CurseForge publication draft
 
 Prepared 5 November 2026. Intended configuration for review. The user supplied
+project ID `1785231` on 6 November. The upload token is configured locally and
+in GitHub Actions; a read-only game-version API call succeeded. Project-specific
+upload permissions and moderation status have not been tested. See
+[platform API access](../technical/PLATFORM_ACCESS.md). The user also supplied
 https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview. An anonymous
 check returned a 404 page; project settings, ownership and moderation status could
 not be independently verified. The fields and description below are not a verified
@@ -17,7 +21,7 @@ The source, player documentation and issue tracker use that public destination.
 | Name | Titan Relics |
 | Tagline | Colossal ruins of a forgotten age |
 | Slug / preview URL | `titan-relics`; https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview, supplied by the user, anonymous check returned 404 |
-| Project ID | Not verified |
+| Project ID | `1785231`, supplied by the user; project-specific access not independently tested |
 | Summary | Explore colossal ruins, uncover archaeology and follow expedition maps to recover ancient machinery. |
 | Main category | World Gen; confirm current portal options |
 | Additional categories | Structures; Adventure and RPG, if available and appropriate |
