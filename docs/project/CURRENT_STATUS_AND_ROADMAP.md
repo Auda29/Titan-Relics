@@ -108,6 +108,14 @@ workflow is implemented; no platform files were uploaded. The unreleased source
 candidate is `0.1.0-beta.1`, with Titan Relics display names. See
 [platform publication](../technical/PLATFORM_PUBLICATION.md).
 
+All four local `0.1.0-beta.1` candidate JARs now build and pass target/asset checks.
+The full 185-test Python suite, Java checks and an isolated native Fabric 26.2
+server/restart suite passed. A real four-artifact upload plan resolved both
+platform catalogs without uploading. The additional workflow file is prepared
+and linted locally, but GitHub rejected its push because the current OAuth
+credential lacks the `workflow` scope. Existing code/docs are pushed separately.
+See [technical preparation evidence](../testing/BETA_TECHNICAL_PREPARATION_20261106.md).
+
 The user renamed the repository to [Auda29/Titan-Relics](https://github.com/Auda29/Titan-Relics)
 and made it public. Anonymous checks confirm public repository metadata, the
 Alpha 5.0.5 release with four JARs and checksums, and the player guide. The issue

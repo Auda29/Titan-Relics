@@ -261,7 +261,10 @@ Freigabe: Ein neuer Spieler kann das richtige Paket installieren, die
 grundlegenden Systeme verstehen, Einschränkungen erkennen und einen
 nachvollziehbaren Fehlerbericht abgeben.
 
-Nachtrag 6. November: Die restliche technische Einrichtung ist in Arbeit.
+Nachtrag 6. November: Die lokale technische Vorbereitung ist umgesetzt und
+[geprüft](../testing/BETA_TECHNICAL_PREPARATION_20261106.md). Alle vier Kandidaten
+sind gebaut; der Upload-Workflow wartet noch auf die zusätzliche GitHub-
+Berechtigung für Workflow-Dateien.
 Modrinth wurde als Entwurf mit MIT, Text, Links, Kategorien und Start-Icon
 konfiguriert, ohne Version oder Moderationseinreichung. Der Anzeigename in den
 Mod-Metadaten lautet Titan Relics; `0.1.0-beta.1` ist als unveröffentlichter

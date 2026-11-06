@@ -69,6 +69,7 @@ This directory contains only cross-project documentation and test evidence.
 
 - [Modrinth/CurseForge API access, project IDs and CI secret names](technical/PLATFORM_ACCESS.md)
 - [Draft project editing and guarded platform uploads](technical/PLATFORM_PUBLICATION.md)
+- [Four-target beta candidate builds and platform setup evidence, November 6](testing/BETA_TECHNICAL_PREPARATION_20261106.md)
 
 - [Gameplay runtime starting contract and implementation updates](technical/GAMEPLAY_RUNTIME.md)
 - [Builder gameplay sidecar/marker handoff v1](technical/GAMEPLAY_MARKERS.md)

@@ -1,0 +1,80 @@
+{
+  "date": "2026-11-06",
+  "source_commit": "b606c1d936edbd18a7d6de85711858f77f3a6781",
+  "candidate": "0.1.0-beta.1",
+  "released": false,
+  "artifacts": [
+    {
+      "filename": "relics-0.1.0-beta.1+mc1.21.1-neoforge.jar",
+      "sha256": "8a91a46fe3e972442c1cd5fa01ea028667be0c4a4e637e8e93dc7fc5eb42b351",
+      "bytes": 11761865,
+      "templates": 40,
+      "license_matches_source": true,
+      "credits_match_source": true
+    },
+    {
+      "filename": "relics-0.1.0-beta.1+mc1.21.1.jar",
+      "sha256": "d65ca87f69aeb5eacba5851e5e4589a49f6ebe61206a72ea4973c64c64374cf9",
+      "bytes": 11738098,
+      "templates": 40,
+      "license_matches_source": true,
+      "credits_match_source": true
+    },
+    {
+      "filename": "relics-0.1.0-beta.1+mc26.2-neoforge.jar",
+      "sha256": "c072acd3eb8d36881d1c4df0ba3b743621ac8ae58f419ec2aac9a3763b8ea4ac",
+      "bytes": 11760356,
+      "templates": 40,
+      "license_matches_source": true,
+      "credits_match_source": true
+    },
+    {
+      "filename": "relics-0.1.0-beta.1+mc26.2.jar",
+      "sha256": "6683e69c6222f4bb8203eb29becb806175cc95a81ca221f92e0fa076dcbfed03",
+      "bytes": 11711506,
+      "templates": 40,
+      "license_matches_source": true,
+      "credits_match_source": true
+    }
+  ],
+  "checks": {
+    "python_tests": 185,
+    "python_result": "passed",
+    "platform_safety_tests": 12,
+    "static_mixin_contracts": 65,
+    "headless_gameplay_assertions": 677,
+    "worldgen_java_assertions": 764,
+    "distribution_settings_assertions": 168818,
+    "native_fabric26_server_passed": true,
+    "native_fabric26_artifact_sha256": "6683e69c6222f4bb8203eb29becb806175cc95a81ca221f92e0fa076dcbfed03",
+    "native_server_boots": 2,
+    "four_target_builds_and_asset_checks": "passed",
+    "actual_platform_upload_plan_targets": 4,
+    "actual_platform_uploads": 0,
+    "workflow_actionlint": "passed"
+  },
+  "modrinth_draft": {
+    "id": "F6QDr5Vr",
+    "status": "draft",
+    "license": "MIT",
+    "categories": [
+      "adventure",
+      "worldgen"
+    ],
+    "versions": 0,
+    "icon_present": true,
+    "body_verified": true
+  },
+  "pending": [
+    "user Survival acceptance",
+    "explicit public release approval",
+    "platform eligibility/moderation",
+    "GitHub workflow push permission",
+    "CurseForge author-dashboard page alignment"
+  ],
+  "notes": [
+    "All platform publishing tests use mocked writes; the actual plan uses only GET requests.",
+    "The existing main-branch CI run is independent and was still running when this report was prepared.",
+    "No new graphical client acceptance is claimed. Earlier client evidence retains its documented artifact scope."
+  ]
+}
