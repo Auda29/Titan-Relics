@@ -54,6 +54,17 @@ furnaces, blast furnaces and smokers, or use a repairable Salvage Magnet to gath
 nearby dropped items while held. Each landmark offers part of a history that the
 landscape never fully explains.
 
+### In-game screenshots
+
+![Approaching the large Colossus through the savanna, captured in Minecraft with shaders](https://raw.githubusercontent.com/Auda29/Titan-Relics/main/relics/colossus/demo/colossus-v3-shaders-savanna.png)
+
+*In-game shader capture, 1 October 2026. Earlier Colossus V3 model; interim preview.*
+
+![Large Colossus in the coastal savanna, captured in Minecraft with shaders](https://raw.githubusercontent.com/Auda29/Titan-Relics/main/relics/colossus/demo/colossus-v3-shaders-landscape.png)
+
+*In-game shader capture, 1 October 2026. Earlier Colossus V3 model; interim preview.
+Other visible structures are not identified as Titan Relics assets.*
+
 ### World settings
 
 Select Expedition, Balanced or Discoveries before creating a world. You can also
