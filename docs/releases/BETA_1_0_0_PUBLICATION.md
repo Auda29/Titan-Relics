@@ -132,8 +132,8 @@ pending; upload/download verification is not moderation approval.
 ## Remaining external state
 
 A second check of the existing CurseForge file IDs still could not verify public
-downloads. No files were uploaded again. Dashboard description/license/links and
-image alignment remain unverified; the author API cannot perform those page edits.
+downloads. No files were uploaded again. The dashboard alignment initially
+remained unverified because the author API cannot perform those page edits.
 The updated image/description handoff is available locally under
 `build/platform-preparation/titan-relics-platform-images-20261106.zip`.
 
@@ -141,3 +141,16 @@ A one-time follow-up is scheduled in this conversation for **6 November 2026,
 12:21 UTC**, to read moderation state and recheck known downloads without
 reuploading or changing publication/AI settings. If still pending, it will report
 the state without creating further recurring work.
+
+## Author confirmation of CurseForge page completion
+
+On 6 November 2026, the author confirmed in this conversation that all instructed
+CurseForge dashboard steps were completed, including the description, images,
+logo, MIT and project links. The screenshot upload initially failed at the 2 MB
+limit; smaller PNG copies were provided before the confirmation.
+
+The page-alignment task is therefore complete on the author's confirmation.
+It has not been independently inspected through an authenticated browser.
+This confirmation does not establish moderation approval or public download
+availability. The planned follow-up should check those external states and must
+not present the page alignment as a remaining manual task for the author.

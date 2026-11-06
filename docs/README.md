@@ -12,7 +12,9 @@ This directory contains only cross-project documentation and test evidence.
 - [Beta publication package: Modrinth/CurseForge drafts and outstanding decisions](releases/PUBLIC_BETA_PREPARATION.md)
 - [Titan Relics name decision and earlier collision checks](project/NAMING.md)
 
-- [Current Alpha 5.0.5 baseline and beta preparation (November 5)](project/CURRENT_STATUS_AND_ROADMAP.md)
+- [Public Beta 1.0.0: release notes and installation targets](releases/1.0.0-beta.1.md)
+- [Beta 1 publication: verified downloads, platform submissions and moderation](releases/BETA_1_0_0_PUBLICATION.md)
+- [Current Beta 1.0.0 baseline and remaining work](project/CURRENT_STATUS_AND_ROADMAP.md)
 - [Public-beta roadmap: gates 1, 2, 4 and 5 complete; Survival and final publication pending](project/PUBLIC_BETA_ROADMAP.md)
 - [Beta: early world-load checks and restoration evidence](testing/BETA_WORLD_LOAD_GUARD_20261104.md)
 - [Beta: actual clients, new worlds and multiplayer reconnects](testing/BETA_CLIENT_ACCEPTANCE_20261104.md)

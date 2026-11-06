@@ -12,8 +12,9 @@ rules remain specifications unless superseded by a later recorded decision.
 is published from `9f6f2afe98b91f7aaaecd29f058350eda796cdf1`. All four targets
 passed release CI and downloaded-file verification. Four Modrinth versions were
 uploaded, hash-verified and submitted for moderation with formal AI disclosures.
-Four CurseForge uploads were accepted; public download verification and the
-author-dashboard page alignment are recorded separately. The full natural
+Four CurseForge uploads were accepted. The author has confirmed completion of
+the dashboard page; moderation and public download verification remain separate.
+The full natural
 Survival test will use this beta, as explicitly authorized by the author.
 See the [publication record](../releases/BETA_1_0_0_PUBLICATION.md).
 

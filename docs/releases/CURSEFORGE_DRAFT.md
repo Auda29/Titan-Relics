@@ -4,8 +4,9 @@ Prepared 5 November 2026. Intended configuration for review. The user supplied
 project ID `1785231` on 6 November. The upload token is configured locally and
 in GitHub Actions. The author API has now accepted all four `1.0.0-beta.1`
 uploads to this project and returned file IDs. Public downloads and moderation
-approval are not established by upload acceptance. The dashboard page remains
-unverified because browser access is blocked. See the
+approval are not established by upload acceptance. The author has now confirmed
+completion of the dashboard description, images, logo, MIT and project links.
+This is user-confirmed rather than independently browser-verified. See the
 [publication record](BETA_1_0_0_PUBLICATION.md) and
 [platform API access](../technical/PLATFORM_ACCESS.md). The user also supplied
 https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview. An anonymous
@@ -33,7 +34,7 @@ The source, player documentation and issue tracker use that public destination.
 | Issues | External tracker: https://github.com/Auda29/Titan-Relics/issues |
 | Wiki | https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md |
 | Logo | Prepared 400 × 400 Colossus screenshot icon in `assets/branding/titan-relics-icon.png`; interim V3 model |
-| Title image / screenshots | V3 shader captures, river view first; use the 1280 × 702 upload PNG copies under 2 MB each; [files and captions](../../assets/branding/README.md); dashboard upload still required |
+| Title image / screenshots | V3 shader captures, river view first; 1280 × 702 upload PNG copies under 2 MB each; [files and captions](../../assets/branding/README.md); dashboard completion confirmed by the author |
 | Distribution / modpack permissions | Permitted under MIT; platform distribution settings still need review |
 
 ## Description draft

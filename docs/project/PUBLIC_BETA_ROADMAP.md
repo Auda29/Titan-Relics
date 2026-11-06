@@ -205,7 +205,7 @@ Langzeit-/FPS-Garantien und alte LOD-Cache-Reparaturen sind nicht abgenommen.
 
 Priorität P1, Voraussetzung für die öffentliche Freigabe.
 
-- [ ] README, Dokumentationsindex und Downloadlinks auf den Beta-Kandidaten abstimmen.
+- [x] README, Dokumentationsindex und Downloadlinks auf die veröffentlichte Beta abstimmen.
 - [x] Eine kurze Spielanleitung für Reliktfunde, Archäologie, Karten, Kern,
   Magnet und Presets bereitstellen, ohne die gesamte Erkundung vorwegzunehmen.
 - [x] Bekannte Einschränkungen, Bestandswelt-Verhalten, unterstützte Setups und
@@ -219,10 +219,19 @@ Priorität P1, Voraussetzung für die öffentliche Freigabe.
   werden nicht mitlizenziert.
 - [ ] Die tatsächliche Veröffentlichung auf Modrinth/CurseForge freigeben und
   die jeweiligen Plattform-Verteilungseinstellungen prüfen.
-- [ ] Eine öffentliche Projektseite mit geeigneten Screenshots, Beschreibung,
+- [x] Eine öffentliche Projektseite mit geeigneten Screenshots, Beschreibung,
   richtigen Spiel-/Loader-Zuordnungen und Abhängigkeiten vorbereiten.
 - [ ] Für den tatsächlichen Beta-Release erneut alle vier veröffentlichten JARs,
   Metadaten, Prüfsummen und Downloadverfügbarkeit verifizieren.
+
+Nachtrag 6. November: GitHub-Beta `1.0.0-beta.1` ist veröffentlicht und alle vier
+Downloads sind geprüft. Modrinth enthält vier verifizierte Versionen und wurde
+mit formaler KI-Kennzeichnung zur Moderation eingereicht. CurseForge hat vier
+Uploads angenommen; der Nutzer bestätigt Beschreibung, Bilder, Logo, MIT und
+Projektlinks als im Dashboard übernommen. Plattformfreigaben und öffentliche
+CurseForge-Downloads bleiben getrennt zu prüfen. Der
+[Veröffentlichungsbericht](../releases/BETA_1_0_0_PUBLICATION.md) hält diese
+Belege und die geplante Nachprüfung fest.
 
 Bei einer Veröffentlichung auf Modrinth sind dessen
 [Versions- und Abhängigkeitsangaben](https://docs.modrinth.com/api/operations/createversion/)
