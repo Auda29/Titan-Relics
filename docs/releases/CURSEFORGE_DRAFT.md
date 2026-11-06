@@ -33,7 +33,7 @@ The source, player documentation and issue tracker use that public destination.
 | Issues | External tracker: https://github.com/Auda29/Titan-Relics/issues |
 | Wiki | https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md |
 | Logo | Prepared 400 × 400 Colossus screenshot icon in `assets/branding/titan-relics-icon.png`; interim V3 model |
-| Title image / screenshots | Original V3 shader captures, river view first; [files and captions](../../assets/branding/README.md); dashboard upload still required |
+| Title image / screenshots | V3 shader captures, river view first; use the 1280 × 702 upload PNG copies under 2 MB each; [files and captions](../../assets/branding/README.md); dashboard upload still required |
 | Distribution / modpack permissions | Permitted under MIT; platform distribution settings still need review |
 
 ## Description draft

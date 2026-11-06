@@ -26,10 +26,28 @@ rights. The shader pack and settings were not recorded.
 
 ## Interim title image and gallery
 
-Use the original PNGs below without editing their contents. The **river view**
+Use the original PNGs below for Modrinth. The **river view**
 is the featured image and the opening image in both platform descriptions and
 the repository README. The other two are supporting gallery images. The
 [capture notes](../../relics/colossus/demo/README.md) document their provenance.
+
+CurseForge's media uploader rejects images of 2 MB or larger, as confirmed by
+the author's upload dialog. Use the smaller PNG copies in
+`build/platform-preparation/curseforge-bilder-unter-2mb.zip` for that gallery.
+They are 1280 × 702 RGB PNGs, 964,056–1,150,800 bytes each. The full dashboard
+package has also been updated to contain these copies under the original
+filenames. Repository originals and existing Modrinth images are unchanged.
+
+Reproduce each copy with FFmpeg, replacing `river` with `savanna` or `landscape`
+for the other views:
+
+```sh
+ffmpeg -hide_banner -loglevel error -y \
+  -i relics/colossus/demo/colossus-v3-shaders-river.png \
+  -vf 'scale=1280:-2:flags=lanczos,format=rgb24' \
+  -compression_level 9 -pred mixed -frames:v 1 \
+  build/platform-preparation/curseforge-upload/colossus-v3-shaders-river-curseforge.png
+```
 
 | Image | Use | English caption |
 | --- | --- | --- |
