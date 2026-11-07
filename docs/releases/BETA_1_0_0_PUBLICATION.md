@@ -154,3 +154,29 @@ It has not been independently inspected through an authenticated browser.
 This confirmation does not establish moderation approval or public download
 availability. The planned follow-up should check those external states and must
 not present the page alignment as a remaining manual task for the author.
+
+## Read-only follow-up, 7 November 2026
+
+The interrupted one-time follow-up was completed on 7 November. The check began
+at `2026-11-07T09:31:20.814472+00:00`. The release receipt was downloaded again and its tag,
+project IDs and four SHA-256 values matched the local published beta bundle.
+All existing upload IDs above were retained.
+
+- Modrinth remains `processing`, with no approval timestamp and no moderator
+  message. All four known version files were downloaded successfully and matched
+  the approved SHA-256 values. This does not establish project approval.
+- A read-only v3 disclosure check confirmed `ai_content` still includes `code`,
+  `assets` and `text`. No disclosure or project setting was changed.
+- All four known CurseForge file URLs returned HTTP 403. Percent-encoding the
+  filename's plus sign produced the same result. No public file hash could be
+  verified. These responses do not establish a moderation rejection or its cause.
+- The public CurseForge project page was inaccessible through the web retrieval
+  tool. The author's confirmation of completed dashboard work remains valid;
+  the page alignment is not reopened as a manual task.
+
+No files were uploaded, no publication status or visibility was changed, no tags
+or releases were created, and the remote upload receipt was not modified. The
+check evidence is retained locally at
+`build/platform-preparation/moderation-check-20261107/result.json`.
+No further automation was created. GitHub remains the verified public beta
+download destination while these external states are unresolved.
