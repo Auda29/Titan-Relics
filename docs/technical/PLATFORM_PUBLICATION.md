@@ -1,112 +1,99 @@
 # Platform setup and release uploads
 
-The [access setup](PLATFORM_ACCESS.md) records credential locations and project IDs.
-Never put token values in source files, command arguments, screenshots or logs.
+## Automatic release-tag path
 
-## Edit the Modrinth draft
+Every new canonical `v<VERSION>` release tag runs
+[release.yml](../../.github/workflows/release.yml). It builds and tests all four
+Fabric/NeoForge targets, publishes the verified GitHub release, then calls
+[publish-platforms.yml](../../.github/workflows/publish-platforms.yml) with that
+exact tag and publication enabled. A failed build/test/GitHub-release job prevents
+platform uploads. Branch pushes and pull requests do not publish versions.
+A manual run of **Release all targets** remains build-only.
 
-`python3 tools/configure_modrinth.py` prints the intended fields without changes.
-`--apply` writes the prepared description, MIT license, categories and project
-links to draft `F6QDr5Vr`, then reads them back. The helper refuses an approved,
-processing or otherwise non-draft project. It does not send status changes,
-submit the project for review or create a version. The original project JSON is
-retained under ignored `build/platform-preparation/` before the first edit.
-`--apply --icon` additionally uploads the Colossus screenshot icon from
-[branding assets](../../assets/branding/README.md).
+The platform workflow downloads the four player JARs, SHA256SUMS.txt and release
+notes from the published GitHub release. It does not build another bundle. It
+validates target metadata, class versions, MIT and checksums, resolves pinned
+Modrinth dependencies and checks CurseForge's game/loader/Java tags before writes.
 
-The draft gallery uses the three original shader captures listed in the branding
-notes, with the river view featured. They show the earlier V3 model and carry
-that caption. The description's opening image uses the same river capture.
-The gallery was configured through the documented
-[gallery-image API](https://docs.modrinth.com/api/operations/addgalleryimage/).
+The user's November 8 instruction authorizes this release-tag publication path.
+CI passes the tag as both `--approved-tag` and `PLATFORM_PUBLICATION_APPROVED`.
+The helper still refuses noncanonical tags, conflicting project IDs, incomplete
+bundles, checksum mismatches, unsupported release channels and unresolved release
+note markers. Beta 1's Survival test was explicitly deferred to the public beta;
+its notes state that honestly. The old unreleased preparation notes with
+`SURVIVAL_ACCEPTANCE: pending` remain unsuitable for publishing.
 
-Modrinth now derives its supported environments from versions. The upload
-metadata explicitly specifies `client_and_server` on every target. The project
-description explains the matching client/server installation before versions exist.
+## Separate platform jobs and credentials
 
-The documented [CurseForge author API](https://support.curseforge.com/support/solutions/articles/9000197321-curseforge-upload-api)
-supports file uploads and file metadata updates, not general project-page editing.
-Its description, MIT selection, source/issue links and project icon must therefore
-be applied in the author dashboard using the [prepared page](../releases/CURSEFORGE_DRAFT.md).
-The project ID and token are already configured; no extra credentials are needed
-for the documented version-upload API.
+Modrinth and CurseForge have separate upload jobs, with `fail-fast: false`.
+One platform's upload failure does not cancel the other's job. `max-parallel: 1`
+serializes their writes to the shared release journal. The reusable workflow's
+per-tag concurrency group also serializes automatic and manual platform runs.
+Do not run a local uploader against the same tag while CI is uploading it.
 
-## Plan platform uploads
+Repository secrets `MODRINTH_TOKEN` and `CURSEFORGE_TOKEN` and variables
+`MODRINTH_PROJECT_ID=F6QDr5Vr`, `CURSEFORGE_PROJECT_ID=1785231` are already configured.
+The caller passes only those two platform secrets. GitHub's built-in token has
+`contents: write` in upload jobs to save receipts on the existing release;
+no personal GitHub token is stored in CI. Editing workflow files requires an
+appropriately authorized GitHub account/app, separately from these CI credentials.
+See [credential access](PLATFORM_ACCESS.md); never print credential values.
 
-The workflow file is prepared locally. The current GitHub OAuth credential lacks
-the `workflow` scope and GitHub rejected a push containing the new workflow.
-Normal code/docs can be pushed, but activating this workflow still requires that
-additional GitHub permission. No platform upload has been triggered.
+## Receipts, moderation and retries
 
-The new **Plan or publish platform versions** workflow runs only on manual
-dispatch. It takes the tag of an already existing GitHub release. Its `publish`
-input defaults to false. The plan job downloads only the four player JARs and
-`SHA256SUMS.txt`, reads the release notes and validates the full set. There are no
-platform POST/PATCH calls in this mode. The existing build/release workflow's
-manual dispatch remains build-only.
+`platform-upload-state.json` on the GitHub release binds the tag, both project
+IDs and all four hashes. An upload intent is saved before each POST and the
+returned platform ID immediately afterward. Existing player JARs are not replaced.
+An exact existing Modrinth version is reused after checking hashes and metadata.
+An ambiguous previous POST without a confirmed ID stops for investigation.
 
-Local equivalent with an existing complete bundle:
+Public downloads must match the approved SHA-256. CurseForge changes `+` in
+uploaded filenames to `-`; its verifier uses the published spelling confirmed
+against all four public Beta 1 file IDs. This does not change the JAR bytes or
+GitHub filenames. Modrinth download URLs come from version metadata.
+
+The CLI returns 2 when accepted uploads are awaiting public download verification.
+CI records this as a warning, with IDs and pending state in the run summary,
+rather than claiming that moderation passed. The JSON result also records the
+IDs, phases and pending files. Real API failures and checksum/metadata mismatches
+fail the job. Neither workflow changes project visibility, submits the project
+again or removes content disclosures.
+
+Use **Re-run failed jobs** for actual failed uploads. A successful or pending
+upload receipt prevents duplicate uploads on a retry. To recheck pending
+availability without rebuilding, use the manual workflow below; it reuses IDs.
+Moderation and first-project approval remain external platform decisions.
+
+## Manual plan or recovery
+
+Open **Actions → Plan or publish platform versions → Run workflow**. Select the
+workflow ref containing the current uploader and enter an existing GitHub release
+tag. Leave `publish` false for a read-only plan. Set it true only to upload or
+resume/check that release. The same per-tag lock and receipt protection apply.
+The publisher code comes from the selected workflow ref; player files and notes
+always come from the requested published release. This allows current verification
+fixes to check an older release without moving its tag or replacing its JARs.
+
+Local read-only equivalent:
 
 ```shell
-python3 tools/publish_platforms.py --tag v0.1.0-beta.1 --directory dist/release --notes docs/releases/0.1.0-beta.1.md --output build/platform-preparation/upload-plan.json
+python3 tools/publish_platforms.py --tag v1.0.0-beta.1 --directory dist/public-beta-1.0.0 --notes docs/releases/1.0.0-beta.1.md --output build/platform-preparation/upload-plan.json
 ```
 
-The beta tag in this example has not been created or released. Before any
-upload, the helper checks all four filenames, target metadata, class versions,
-MIT license, credits and SHA-256 manifest. It resolves the pinned Fabric API and
-Lithostitched versions for Modrinth and confirms the game/loader/Java tags exist
-on CurseForge. Each file gets exactly its own game version and loader; Fabric API
-is required only for Fabric. Version channels follow the approved alpha/beta/
-release version, and development suffixes are rejected.
+For an authorized local upload, also pass `--execute --approved-tag <TAG>` and set
+`PLATFORM_PUBLICATION_APPROVED` to that tag. `--platform curseforge` or
+`--platform modrinth` selects one service; both are selected by default.
 
-CurseForge's documented relation format names a required project, not a specific
-dependency file. Its launcher selection therefore cannot be pinned to the exact
-Lithostitched version through this relation field; the installation guide keeps
-the tested exact version explicit. Modrinth dependencies are pinned by version ID.
+## Project-page editing
 
-## Upload only after approval
+The Modrinth draft helper prepares license, text, categories, links and the
+Colossus screenshot icon; it refuses non-draft projects and never submits review.
+The published project's code/assets/text AI disclosures must remain intact.
+CurseForge's documented author API edits files, not general project pages.
+The author confirmed its description, images, logo, MIT and links in the dashboard.
+[Beta 1's publication record](../releases/BETA_1_0_0_PUBLICATION.md) retains the
+historical setup, exact file IDs, moderation checks and verified download hashes.
 
-For Beta 1.0.0, the author has explicitly approved publication before the natural
-Survival playthrough. The [publication record](../releases/BETA_1_0_0_PUBLICATION.md)
-supersedes the former pre-release Survival gate for this beta. The release notes
-state the outstanding test honestly. The old unreleased candidate notes retain
-their pending marker and must not be used for this release.
-
-Use `--platform curseforge` or `--platform modrinth` to act on just one platform
-when the other's access or eligibility is unresolved. The default remains both.
-Receipts are kept in the same release journal and retain duplicate protection.
-
-After the Survival result, final release approval and platform eligibility checks,
-publish the verified GitHub release through the existing tag workflow. Then run
-the platform workflow for that exact tag with `publish` enabled. The upload job
-starts only after the plan succeeds. The helper also requires both the exact
-`--approved-tag` and `PLATFORM_PUBLICATION_APPROVED` value to match the tag.
-Unresolved Survival/source/download markers in release notes prevent execution.
-The current beta notes deliberately retain `SURVIVAL_ACCEPTANCE: pending`.
-
-No upload job runs on a branch push, pull request or ordinary build-only dispatch.
-Setting up secrets or editing the draft does not authorize a public beta release.
-Uploading a first version does not itself guarantee project moderation approval.
-
-## Receipts, reruns and verification
-
-`platform-upload-state.json` is maintained as an extra asset on the existing
-GitHub release. It binds the tag, both project IDs and the four file hashes.
-The upload intent is saved **before** each POST; the returned platform ID is
-saved immediately afterward. Only that receipt asset is overwritten. Existing
-player JARs are never replaced. GitHub concurrency serializes runs for a tag.
-
-An exact Modrinth version already present with matching hashes, target metadata
-and dependencies is reused. A conflicting version stops the run before uploads.
-CurseForge uses the saved file ID to retry download verification rather than
-uploading again. If a previous POST has an unknown outcome and no receipt ID,
-the helper stops for investigation; do not blindly delete the intent and retry.
-
-Both platforms' downloaded bytes must match the approved SHA-256. Moderation
-can delay availability. In that case the ID stays recorded, the run reports
-pending verification and a rerun checks again without creating another upload.
-It is not reported as a verified public release until downloads actually match.
-
-API references: [Modrinth project editing](https://docs.modrinth.com/api/operations/modifyproject/),
+API references: [GitHub reusable workflows](https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows),
 [Modrinth versions](https://docs.modrinth.com/api/operations/createversion/),
-[CurseForge uploads and file metadata](https://support.curseforge.com/support/solutions/articles/9000197321-curseforge-upload-api).
+[CurseForge uploads](https://support.curseforge.com/support/solutions/articles/9000197321-curseforge-upload-api).

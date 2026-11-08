@@ -13,7 +13,7 @@ from pathlib import Path
 import re
 import tempfile
 import tomllib
-from urllib.parse import urlencode
+from urllib.parse import quote, urlencode
 import zipfile
 
 from platform_api import Client, download
@@ -183,7 +183,10 @@ def verify_upload(platform, result, item):
         file_id = result['id']
         if not isinstance(file_id, int) or file_id <= 0:
             raise ValueError('Unexpected CurseForge upload ID')
-        url = f'https://edge.forgecdn.net/files/{file_id // 1000}/{file_id % 1000}/{item["filename"]}'
+        # CurseForge normalizes '+' to '-' in the uploaded file's public name.
+        # Confirmed against all four published Beta 1 file IDs and hashes.
+        filename = quote(item['filename'].replace('+', '-'), safe='')
+        url = f'https://edge.forgecdn.net/files/{file_id // 1000}/{file_id % 1000}/{filename}'
     data = download(url)
     if hashlib.sha256(data).hexdigest() != item['sha256']:
         raise ValueError('Downloaded platform file differs from the approved bundle')
@@ -258,7 +261,13 @@ def main():
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_text(json.dumps(output, indent=2) + '\n')
     if args.execute:
-        output['pending_download_verification'] = execute(plan, args.directory, clients, ReleaseJournal(args.repo, args.tag, plan), args.platform)
+        journal = ReleaseJournal(args.repo, args.tag, plan)
+        output['pending_download_verification'] = execute(plan, args.directory, clients, journal, args.platform)
+        output['uploads'] = {key: {'phase': entry['phase'], 'id': entry['result']['id']}
+                             for key, entry in journal.state['uploads'].items()
+                             if key.split(':', 1)[0] in args.platform}
+        if args.output:
+            args.output.write_text(json.dumps(output, indent=2) + '\n')
     print(json.dumps(output, indent=2))
     return 2 if output.get('pending_download_verification') else 0
 

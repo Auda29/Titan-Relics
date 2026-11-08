@@ -1,6 +1,7 @@
 """Publication safety with synthetic JARs and mocked APIs; never uploads files."""
 import copy
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -188,6 +189,45 @@ versionRange="[{game}]"
         item = self.plan()[0]
         with patch.object(publish, 'download', return_value=b'wrong'), self.assertRaises(ValueError):
             publish.verify_upload('curseforge', {'id': 12345}, item)
+
+    def test_curseforge_verification_uses_observed_published_filenames(self):
+        published = {
+            'relics-1.0.0-beta.1+mc26.2.jar': (9472906, 'https://edge.forgecdn.net/files/9472/906/relics-1.0.0-beta.1-mc26.2.jar'),
+            'relics-1.0.0-beta.1+mc1.21.1.jar': (9472912, 'https://edge.forgecdn.net/files/9472/912/relics-1.0.0-beta.1-mc1.21.1.jar'),
+            'relics-1.0.0-beta.1+mc1.21.1-neoforge.jar': (9472918, 'https://edge.forgecdn.net/files/9472/918/relics-1.0.0-beta.1-mc1.21.1-neoforge.jar'),
+            'relics-1.0.0-beta.1+mc26.2-neoforge.jar': (9472923, 'https://edge.forgecdn.net/files/9472/923/relics-1.0.0-beta.1-mc26.2-neoforge.jar'),
+        }
+        for item in self.plan():
+            file_id, url = published[item['filename']]
+            with self.subTest(file_id=file_id), patch.object(publish, 'download',
+                    return_value=(self.root / item['filename']).read_bytes()) as get:
+                publish.verify_upload('curseforge', {'id': file_id}, item)
+                get.assert_called_once_with(url)
+
+    def test_cli_writes_pending_ids_to_result_and_retry_does_not_upload_again(self):
+        journal = Journal()
+        with tempfile.TemporaryDirectory() as td:
+            notes, output = Path(td) / 'notes.md', Path(td) / 'result.json'
+            notes.write_text('Public beta; the Survival playthrough follows publication.')
+            tag = 'v' + VERSION
+            argv = ['publish', '--tag', tag, '--approved-tag', tag, '--execute',
+                    '--platform', 'curseforge', '--directory', str(self.root),
+                    '--notes', str(notes), '--output', str(output)]
+            with patch.object(sys, 'argv', argv), patch('sys.stdout', new=io.StringIO()), \
+                    patch.dict(os.environ, {'PLATFORM_PUBLICATION_APPROVED': tag}), \
+                    patch.object(publish, 'Client', side_effect=lambda platform: self.clients[platform]), \
+                    patch.object(publish, 'ReleaseJournal', return_value=journal), \
+                    patch.object(publish, 'verify_upload', side_effect=RuntimeError('Not public yet')):
+                self.assertEqual(publish.main(), 2)
+                first = json.loads(output.read_text())
+                self.assertEqual(len(first['pending_download_verification']), 4)
+                self.assertEqual(len(first['uploads']), 4)
+                self.assertTrue(all(entry['phase'] == 'uploaded' and entry['id'] > 0
+                                    for entry in first['uploads'].values()))
+                self.assertEqual(publish.main(), 2)
+                self.assertEqual(json.loads(output.read_text())['uploads'], first['uploads'])
+            self.assertEqual(self.clients['modrinth'].uploads, [])
+            self.assertEqual(len(self.clients['curseforge'].uploads), 4)
 
     def test_execute_needs_exact_approval_before_network_or_files(self):
         with patch.object(sys, 'argv', ['publish', '--tag', 'v' + VERSION, '--directory', 'missing',

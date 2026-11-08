@@ -1,0 +1,116 @@
+name: Plan or publish platform versions
+
+on:
+  workflow_call:
+    inputs:
+      tag:
+        description: Existing verified GitHub release tag
+        type: string
+        required: true
+      publish:
+        description: Upload the tag's verified files
+        type: boolean
+        default: false
+    secrets:
+      MODRINTH_TOKEN:
+        required: true
+      CURSEFORGE_TOKEN:
+        required: true
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing verified GitHub release tag
+        type: string
+        required: true
+      publish:
+        description: Upload this approved release to Modrinth and CurseForge
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: platform-publication-${{ inputs.tag }}
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download the existing release without creating or publishing anything
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          python tools/release_ci.py prepare --tag "$TAG"
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern '*.jar' --pattern 'SHA256SUMS.txt' --dir dist/platform-release
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json body --jq .body > dist/platform-notes.md
+      - name: Validate all four artifacts, resolve exact dependencies and print upload plan
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+          MODRINTH_PROJECT_ID: ${{ vars.MODRINTH_PROJECT_ID }}
+          CURSEFORGE_PROJECT_ID: ${{ vars.CURSEFORGE_PROJECT_ID }}
+          TAG: ${{ inputs.tag }}
+        run: python tools/publish_platforms.py --tag "$TAG" --directory dist/platform-release --notes dist/platform-notes.md --output dist/platform-plan.json
+
+  upload:
+    name: Upload ${{ matrix.platform }}
+    needs: plan
+    if: inputs.publish == true
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 1 # Both platforms share a release receipt; never write it concurrently.
+      matrix:
+        platform: [modrinth, curseforge]
+    permissions:
+      contents: write # Only to persist upload receipts on this release.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download exactly the already published GitHub release files
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          python tools/release_ci.py prepare --tag "$TAG"
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern '*.jar' --pattern 'SHA256SUMS.txt' --dir dist/platform-release
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json body --jq .body > dist/platform-notes.md
+      - name: Upload the approved tag with persistent receipts and download verification
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+          MODRINTH_PROJECT_ID: ${{ vars.MODRINTH_PROJECT_ID }}
+          CURSEFORGE_PROJECT_ID: ${{ vars.CURSEFORGE_PROJECT_ID }}
+          PLATFORM_PUBLICATION_APPROVED: ${{ inputs.tag }}
+          TAG: ${{ inputs.tag }}
+          PLATFORM: ${{ matrix.platform }}
+        run: |
+          upload_status=0
+          python tools/publish_platforms.py --tag "$TAG" --approved-tag "$TAG" --execute --platform "$PLATFORM" --directory dist/platform-release --notes dist/platform-notes.md --output dist/platform-result.json || upload_status=$?
+          if [[ "$upload_status" -ne 0 && "$upload_status" -ne 2 ]]; then
+            exit "$upload_status"
+          fi
+          if [[ "$upload_status" -eq 2 ]]; then
+            echo "::warning::Uploads accepted; public downloads are awaiting verification. Existing file IDs are saved for retries."
+          fi
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          result = json.loads(Path('dist/platform-result.json').read_text())
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('### ' + os.environ['PLATFORM'] + '\n\n')
+              summary.write('| File | Platform ID | Download check |\n| --- | --- | --- |\n')
+              for key, entry in result['uploads'].items():
+                  state = 'SHA-256 verified' if entry['phase'] == 'verified' else 'Pending public download verification'
+                  summary.write('| ' + key.split(':', 1)[1] + ' | ' + str(entry['id']) + ' | ' + state + ' |\n')
+          PY

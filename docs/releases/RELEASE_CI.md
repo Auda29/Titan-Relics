@@ -50,6 +50,22 @@ including JSON manifests, structure assets, test/build scripts and workflow
 configuration. Manual builds remain available. Release-tag builds are independent
 of this filter and continue to build and validate all four targets.
 
+## Automatic platform uploads
+
+After the GitHub release succeeds on a tag push, the workflow calls the reusable
+`publish-platforms.yml` for the same tag. It downloads exactly the published four
+JARs and checksum manifest, resolves dependencies and uploads to Modrinth and
+CurseForge. Separate, sequential platform jobs keep shared receipts consistent
+and let the other platform continue if one fails. Pending public downloads are
+reported with IDs and a warning; moderation is not treated as completed.
+
+The repository already contains the platform tokens and project-ID variables.
+Manual dispatch of this build workflow still does not publish. The platform
+workflow has a separate manual plan/recovery entry point, read-only by default.
+See [platform publication](../technical/PLATFORM_PUBLICATION.md) for required
+credentials, receipt-based retries and the distinction between uploads and
+public project approval. No existing release tag needs to be moved.
+
 ## Build-only test
 
 Run **Actions → Release all targets → Run workflow** on the desired ref and
