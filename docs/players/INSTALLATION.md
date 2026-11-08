@@ -1,12 +1,12 @@
 # Installation and support
 
-Updated 6 November 2026 for the public testing release 1.0.0-beta.1. The full
+Updated 8 November 2026 for the public testing release 1.0.0-beta.2. The full
 natural Survival playthrough will use this beta; balance feedback is welcome.
 
 ## Pick the right files
 
 Download one player JAR from the
-[1.0.0-beta.1 release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.1).
+[1.0.0-beta.2 release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.2).
 Match both the Minecraft version and loader; Fabric and NeoForge JARs are separate.
 Use the release's `SHA256SUMS.txt` if you need to verify a download.
 The [repository](https://github.com/Auda29/Titan-Relics), beta release and
@@ -21,6 +21,10 @@ every newer version works. Dependencies are not bundled.
 | 26.2 | Fabric Loader 0.19.5 | 25+ | Fabric API 0.161.0+26.2; Lithostitched 1.8.0 Fabric 26.2 |
 | 1.21.1 | NeoForge 21.1.256 | 21+ | Lithostitched 1.8.0 NeoForge 1.21/1.21.1 |
 | 26.2 | NeoForge 26.2.0.88 | 25+ | Lithostitched 1.8.0 NeoForge 26.2 |
+| 1.21.11 | Fabric Loader 0.19.5 | 21+ | Fabric API 0.141.6+1.21.11; Lithostitched 1.7.2 Fabric 21.11 |
+| 1.21.11 | NeoForge 21.11.48 | 21+ | Lithostitched 1.7.2 NeoForge 21.11 |
+| 26.3 | Fabric Loader 0.19.5 | 25+ | Fabric API 0.165.2+26.3; Lithostitched 2.0.6 Fabric 26.3 |
+| 26.3 | NeoForge 26.3.0.101 | 25+ | Lithostitched 2.0.6 NeoForge 26.3 |
 
 Dependency projects: [Fabric API](https://modrinth.com/mod/fabric-api),
 [Lithostitched](https://modrinth.com/mod/lithostitched). Select their matching
@@ -52,7 +56,7 @@ New defaults do not rewrite them. Old relics and finite shared containers or
 archaeology are not moved, refilled or regenerated for later players.
 
 Changing biome mods, datapacks or mod lists can change the environment recorded
-by a frozen relic plan. In 1.0.0-beta.1, recognized incompatible
+by a frozen relic plan. In 1.0.0-beta.2, recognized incompatible
 setups produce an explained refusal to load and return the client to the menu.
 This guard is not an automatic migration and is not promised for Alpha 5.0.5.
 Restore the original supported setup when a world is rejected. Do not delete

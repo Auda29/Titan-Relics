@@ -121,13 +121,26 @@ def verify_remote(tag, repo, files):
                 raise ValueError('Remote release asset differs; refusing to overwrite: ' + file.name)
 
 
+def github_policy(version):
+    """Explicit per-release Latest choice; channel naming on mod platforms is unchanged."""
+    path=ROOT/'docs/releases'/f'{version}.publication.json'
+    latest=False
+    if path.exists():
+        policy=json.loads(path.read_text())
+        if set(policy)!={'github_latest'} or type(policy['github_latest']) is not bool:
+            raise ValueError('Invalid GitHub publication policy')
+        latest=policy['github_latest']
+    return {'latest':latest,'prerelease':'-' in version and not latest}
+
+
 def publish(tag, repo, directory):
     version = tag_version(tag)
     if (os.environ.get('GITHUB_EVENT_NAME') != 'push'
             or os.environ.get('GITHUB_REF') != 'refs/tags/' + tag):
         raise ValueError('Publishing is allowed only for the matching tag-push event; manual dispatch is a dry run')
     files = bundle(directory, directory, version)
-    prerelease = '-' in version
+    policy=github_policy(version)
+    prerelease=policy['prerelease']
     info = release_info(tag, repo)
     if info is None:
         curated = ROOT / 'docs/releases' / (version + '.md')
@@ -163,8 +176,7 @@ def publish(tag, repo, directory):
     verify_remote(tag, repo, files)
     args = ['release', 'edit', tag, '--repo', repo, '--verify-tag', '--draft=false',
             '--prerelease=' + str(prerelease).lower()]
-    if prerelease:
-        args.append('--latest=false')
+    args.append('--latest='+str(policy['latest']).lower())
     gh(*args)
     published = release_info(tag, repo)
     if published is None or published['isDraft']:

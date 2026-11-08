@@ -13,29 +13,33 @@ The landscape leaves much of its history for you to interpret.
 
 ## Downloads and release status
 
-The first public testing release is **1.0.0-beta.1**, available for all four targets
-from the [GitHub beta release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.1).
-Choose exactly one matching JAR. Dependencies are installed separately.
-Use `SHA256SUMS.txt` from that release to verify the downloaded files.
+The current release candidate is **1.0.0-beta.2**, built for all eight targets by
+the [GitHub release workflow](https://github.com/Auda29/Titan-Relics/actions/workflows/release.yml).
+The [Beta 2 release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.2)
+receives downloads after validation. Choose one matching JAR and install its
+dependencies separately. Verify downloads against that release's `SHA256SUMS.txt`.
 
-The beta is also publicly available on
-[CurseForge](https://www.curseforge.com/minecraft/mc-mods/titan-relics). All four
-CurseForge downloads match the GitHub JARs byte-for-byte. CurseForge filenames
-use `-mc` where the GitHub filenames below use `+mc`. Modrinth project moderation
-was still pending at the latest check.
+The same tag uploads to [Modrinth](https://modrinth.com/project/titan-relics)
+and [CurseForge](https://www.curseforge.com/minecraft/mc-mods/titan-relics).
+Their moderation and public-download status are separate from GitHub publication.
+CurseForge spells `+mc` as `-mc` in download filenames.
 
 | Minecraft | Loader | Beta filename | Java |
 |---|---|---|---|
-| 1.21.1 | Fabric | `relics-1.0.0-beta.1+mc1.21.1.jar` | 21+ |
-| 26.2 | Fabric | `relics-1.0.0-beta.1+mc26.2.jar` | 25+ |
-| 1.21.1 | NeoForge | `relics-1.0.0-beta.1+mc1.21.1-neoforge.jar` | 21+ |
-| 26.2 | NeoForge | `relics-1.0.0-beta.1+mc26.2-neoforge.jar` | 25+ |
+| 1.21.1 | Fabric | `relics-1.0.0-beta.2+mc1.21.1.jar` | 21+ |
+| 1.21.1 | NeoForge | `relics-1.0.0-beta.2+mc1.21.1-neoforge.jar` | 21+ |
+| 1.21.11 | Fabric | `relics-1.0.0-beta.2+mc1.21.11.jar` | 21+ |
+| 1.21.11 | NeoForge | `relics-1.0.0-beta.2+mc1.21.11-neoforge.jar` | 21+ |
+| 26.2 | Fabric | `relics-1.0.0-beta.2+mc26.2.jar` | 25+ |
+| 26.2 | NeoForge | `relics-1.0.0-beta.2+mc26.2-neoforge.jar` | 25+ |
+| 26.3 | Fabric | `relics-1.0.0-beta.2+mc26.3.jar` | 25+ |
+| 26.3 | NeoForge | `relics-1.0.0-beta.2+mc26.3-neoforge.jar` | 25+ |
 
 This beta adds an explained rejection of incompatible saved-world setups and
 makes Discoveries the factory preset for new installations without a saved choice.
 The full natural Survival playthrough will use this beta. Balance, discovery pacing
 and long-session behavior remain under review. See the
-[release notes](docs/releases/1.0.0-beta.1.md) for known limits and the
+[release notes](docs/releases/1.0.0-beta.2.md) for known limits and the
 [publication record](docs/releases/BETA_1_0_0_PUBLICATION.md) for each platform's status.
 The earlier [Alpha 5.0.5](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.5)
 remains available as a historical release.
@@ -58,11 +62,9 @@ Existing structures and finite shared loot are not moved or replenished.
 
 ## Compatibility and feedback
 
-Fabric and NeoForge on **1.21.1 and 26.2** are the four published Beta 1 targets.
-Additional **1.21.11 and 26.3** profiles for both loaders are prepared and tested for a
-subsequent release. See the [port validation report](docs/releases/JAVA_1_21_11_26_3_PORTS.md).
-These additional builds are not included in the existing Beta 1 downloads. The
-1.21.1 builds use ferns and ordinary chests in place of unavailable 26.2 blocks.
+Fabric and NeoForge support **1.21.1, 1.21.11, 26.2 and 26.3**.
+The [port validation report](docs/releases/JAVA_1_21_11_26_3_PORTS.md) records the
+additional targets' checks. The 1.21.1 builds use ferns and ordinary chests in place of unavailable 26.2 blocks.
 Other game versions and cross-loader save conversion are not offered.
 
 Read the [known limits and tested mod combinations](docs/technical/MOD_COMPATIBILITY.md)
