@@ -3,8 +3,10 @@
 Prepared 5 November 2026. Intended configuration for review. The user supplied
 project ID `1785231` on 6 November. The upload token is configured locally and
 in GitHub Actions. The author API has now accepted all four `1.0.0-beta.1`
-uploads to this project and returned file IDs. Public downloads and moderation
-approval are not established by upload acceptance. The author has now confirmed
+uploads to this project and returned file IDs. On 8 November, the public project
+page was retrieved and all four downloads returned HTTP 200 with SHA-256 values
+matching the GitHub beta. CurseForge filenames use `-mc` rather than `+mc`.
+The author has confirmed
 completion of the dashboard description, images, logo, MIT and project links.
 This is user-confirmed rather than independently browser-verified. See the
 [publication record](BETA_1_0_0_PUBLICATION.md) and
@@ -13,7 +15,7 @@ https://www.curseforge.com/minecraft/mc-mods/titan-relics/preview. An anonymous
 check returned a 404 page; project settings, ownership and moderation status could
 not be independently verified. The project-page fields and description below are not a verified
 copy of the platform. The selected name is Titan Relics and the license is MIT.
-Public beta approval remains pending. The [shared preparation checklist](PUBLIC_BETA_PREPARATION.md) applies.
+The CurseForge beta is publicly available. The [shared preparation checklist](PUBLIC_BETA_PREPARATION.md) applies.
 The repository is now public at https://github.com/Auda29/Titan-Relics.
 The source, player documentation and issue tracker use that public destination.
 

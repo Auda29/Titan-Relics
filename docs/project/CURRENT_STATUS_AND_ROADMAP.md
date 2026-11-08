@@ -1,6 +1,6 @@
 # Current status and roadmap
 
-Updated: November 6, 2026. This is the current implementation and work-status
+Updated: November 8, 2026. This is the current implementation and work-status
 index. Dated concept studies, builder handoffs and test reports retain their
 historical scope. Their old "not implemented" or "pending integration" wording
 does not create new work when a later release has completed it. Approved design
@@ -12,8 +12,10 @@ rules remain specifications unless superseded by a later recorded decision.
 is published from `9f6f2afe98b91f7aaaecd29f058350eda796cdf1`. All four targets
 passed release CI and downloaded-file verification. Four Modrinth versions were
 uploaded, hash-verified and submitted for moderation with formal AI disclosures.
-Four CurseForge uploads were accepted. The author has confirmed completion of
-the dashboard page; moderation and public download verification remain separate.
+The CurseForge page is publicly accessible with MIT, description, three gallery
+images and all four beta files. All four CurseForge downloads were independently
+SHA-256 verified on November 8. Its published filenames use `-mc` instead of
+GitHub's `+mc`. Modrinth project moderation remains pending.
 The full natural
 Survival test will use this beta, as explicitly authorized by the author.
 See the [publication record](../releases/BETA_1_0_0_PUBLICATION.md).

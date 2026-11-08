@@ -180,3 +180,42 @@ check evidence is retained locally at
 `build/platform-preparation/moderation-check-20261107/result.json`.
 No further automation was created. GitHub remains the verified public beta
 download destination while these external states are unresolved.
+
+## Public CurseForge release verified, 8 November 2026
+
+The public [CurseForge project](https://www.curseforge.com/minecraft/mc-mods/titan-relics)
+is accessible and lists project ID `1785231`, MIT, Fabric/NeoForge, both supported
+game versions, the description and all three shader gallery images. All four
+known Beta 1 files are listed publicly. This independently confirms the visible
+page content following the author's dashboard work.
+
+The previous download checks assumed CurseForge preserved the uploaded plus
+sign in filenames. The public
+[file page for ID 9472923](https://www.curseforge.com/minecraft/mc-mods/titan-relics/files/9472923)
+instead identifies `relics-1.0.0-beta.1-mc26.2-neoforge.jar`. CurseForge replaced
+`+` with `-`. The earlier HTTP 403 checks used the wrong filename and did not
+establish a moderation delay or rejection. Those unverified-download conclusions
+are superseded by the successful checks below.
+
+At `2026-11-08T07:28:19.633892+00:00`, all four existing CurseForge IDs returned
+HTTP 200 using the platform filenames, with bytes and SHA-256 values matching
+the approved GitHub release bundle. No new IDs or uploads were created.
+
+| File ID | CurseForge filename | SHA-256 |
+| --- | --- | --- |
+| `9472906` | `relics-1.0.0-beta.1-mc26.2.jar` | `7929d739661865eefb5c6655984109c60143c53988cee79ee59de9d8436e2946` |
+| `9472912` | `relics-1.0.0-beta.1-mc1.21.1.jar` | `4f50ab03024d10f2bdf6ae3d69b6ed450bb03f4f945c94c9069016f8b4f0e167` |
+| `9472918` | `relics-1.0.0-beta.1-mc1.21.1-neoforge.jar` | `6b4bf215957be9bf588b73233b6933b31aa0f1038843ad63d4305349dfecf01e` |
+| `9472923` | `relics-1.0.0-beta.1-mc26.2-neoforge.jar` | `d6597e10afe58fa020c479f6df7e492e67f6a0f1ad7ef5a15ca66f900428dd68` |
+
+Evidence is retained locally in
+`build/platform-preparation/moderation-check-20261108/curseforge-canonical-downloads.json`.
+The shared uploader's existing URL-construction assumption was not changed during
+this read-only check. Future verification must use the platform's actual published
+filename for each known file ID rather than assume the uploaded name is preserved.
+The remote upload receipt and release assets were not modified.
+
+Modrinth's authenticated project read still returned `processing`, with no approval
+timestamp and no moderator message. Public Modrinth project approval remains
+unconfirmed. No publication setting, disclosure, tag or release was changed, and
+no further automation was created.

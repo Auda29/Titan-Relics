@@ -18,6 +18,12 @@ from the [GitHub beta release](https://github.com/Auda29/Titan-Relics/releases/t
 Choose exactly one matching JAR. Dependencies are installed separately.
 Use `SHA256SUMS.txt` from that release to verify the downloaded files.
 
+The beta is also publicly available on
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/titan-relics). All four
+CurseForge downloads match the GitHub JARs byte-for-byte. CurseForge filenames
+use `-mc` where the GitHub filenames below use `+mc`. Modrinth project moderation
+was still pending at the latest check.
+
 | Minecraft | Loader | Beta filename | Java |
 |---|---|---|---|
 | 1.21.1 | Fabric | `relics-1.0.0-beta.1+mc1.21.1.jar` | 21+ |
