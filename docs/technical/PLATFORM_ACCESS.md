@@ -44,13 +44,22 @@ uses the three original V3 shader captures, with the river view featured. The va
 read back; at that point status was `draft` with zero versions. The earlier unknown-license
 observation above is historical. No project was submitted for review.
 
-The existing release workflow still publishes only to GitHub. A separate
-`publish-platforms.yml` workflow now plans platform uploads by default and
-requires an explicit publish selection for an exact approved GitHub release.
-It has not uploaded any files. See [platform publication](PLATFORM_PUBLICATION.md)
-for the checks, persistent receipts and rerun behavior. The Survival acceptance,
-final artifacts, platform eligibility review and explicit public beta approval
-remain required before release.
+On November 8, the author requested automatic platform uploads for each new
+release tag. `release.yml` now calls `publish-platforms.yml` after the tested
+GitHub release succeeds. The reusable workflow uploads the same four JARs in
+separate serialized platform jobs. Manual platform runs still default to a
+read-only plan. Existing secrets and variables were retained; no additional
+personal token was stored in CI. The connected GitHub app activated both workflow
+files, resolving the earlier OAuth workflow-edit permission limitation.
+See [platform publication](PLATFORM_PUBLICATION.md) for receipts and retries.
+
+Activation commit: `a740cf13fa877b7ef5f1b858c91b73b24b23ef71`. The
+[read-only CI plan](https://github.com/Auda29/Titan-Relics/actions/runs/42462817545)
+passed against all four existing Beta 1 files, with upload jobs skipped. Local
+checks passed 27 publication/release tests and actionlint; the fixed verifier
+also confirmed all four real CurseForge file hashes. No new release tag or
+player-file upload was used to test the integration. The automatic tag path
+will first execute for a new tag containing this workflow revision.
 
 ## Beta 1 publication update
 
@@ -58,5 +67,6 @@ The author subsequently approved the public `1.0.0-beta.1` before the full
 Survival playthrough. GitHub is published, all four Modrinth uploads have verified
 download hashes and the project is submitted for review with formal AI
 disclosures. The CurseForge API accepted four uploads to project `1785231`.
-Current moderation/download evidence and the remaining dashboard limitation are
+The author completed the dashboard page, and public CurseForge downloads were
+subsequently verified. Current moderation/download evidence is
 in the [publication record](../releases/BETA_1_0_0_PUBLICATION.md).

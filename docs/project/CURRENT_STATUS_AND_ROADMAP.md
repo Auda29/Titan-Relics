@@ -109,7 +109,7 @@ candidate based on 5.0.5, not newly published player JARs.
 | 3. Survival playthrough | Open. The user is testing the complete natural exploration, archaeology, map, encounter and reward chain and its everyday balance. |
 | 4. Actual client acceptance | Complete on Fabric/NeoForge for 1.21.1/26.2. Real multiplayer, crafting, personal rewards, late participation, restart persistence and 96 reviewed model/armor images are documented in the [gameplay](../testing/BETA_CLIENT_GAMEPLAY_ACCEPTANCE_20261104.md) and [final renderer](../testing/BETA_RENDERER_ACCEPTANCE_20261104.md) reports. |
 | 5. Compatibility and performance | Complete within documented support conditions. Sixteen server runs, eight modpack client runs and a separate DH LOD view are in the [compatibility report](../testing/BETA_COMPATIBILITY_20261104.md). |
-| 6. Publication and feedback | Prepared locally: player guide, installation/support, README, issue form, Modrinth/CurseForge page and file-metadata drafts, release template and name proposals. The user selected Titan Relics with the tagline Colossal ruins of a forgotten age. MIT is selected and permits modpack use under its notice conditions. The user supplied Modrinth and CurseForge preview links using titan-relics, and authenticated Modrinth access now confirms draft project F6QDr5Vr. Both tokens and project IDs are configured locally and in GitHub Actions; the upload workflow is implemented with plan-only defaults. Platform settings/eligibility, final art, release approval and published-asset verification remain open. See the [publication package](../releases/PUBLIC_BETA_PREPARATION.md). |
+| 6. Publication and feedback | GitHub Beta 1 is published; all four CurseForge downloads are public and hash-verified. The author completed the CurseForge page. Modrinth has four verified files and formal AI disclosures, with project moderation still pending at the last check. Release tags now invoke automatic platform uploads after the tested GitHub release, with persistent receipt protection and an independently tested manual plan/recovery workflow. See [platform publication](../technical/PLATFORM_PUBLICATION.md) and the [Beta 1 record](../releases/BETA_1_0_0_PUBLICATION.md). |
 
 On November 6, read-only API checks confirmed Modrinth access and CurseForge
 API authentication. The initial unknown-license
@@ -117,8 +117,8 @@ state has since been corrected. Authorized draft setup configured MIT, text,
 categories, links and the Colossus screenshot icon, all verified by API readback.
 The user's three V3 shader captures are the interim gallery, with the river view
 featured and also used as the title image in both platform drafts and the README.
-The project remains a draft with no versions. A separate manually gated upload
-workflow is implemented; no platform files were uploaded. The unreleased source
+At that initial preparation stage the project was a draft with no versions,
+and the separate manual uploader had not uploaded any platform files. The unreleased source
 preparation candidate was `0.1.0-beta.1`, with Titan Relics display names.
 The later authorized `1.0.0-beta.1` publication is recorded at the top of this page. See
 [platform publication](../technical/PLATFORM_PUBLICATION.md).
@@ -126,9 +126,11 @@ The later authorized `1.0.0-beta.1` publication is recorded at the top of this p
 All four local `0.1.0-beta.1` candidate JARs now build and pass target/asset checks.
 The full 185-test Python suite, Java checks and an isolated native Fabric 26.2
 server/restart suite passed. A real four-artifact upload plan resolved both
-platform catalogs without uploading. The additional workflow file is prepared
-and linted locally, but GitHub rejected its push because the current OAuth
-credential lacks the `workflow` scope. Existing code/docs are pushed separately.
+platform catalogs without uploading. The additional workflow was initially prepared
+and linted locally, but its OAuth push lacked the `workflow` scope. The connected
+GitHub app activated it on November 8, together with the automatic release-tag
+call. The [CI plan](https://github.com/Auda29/Titan-Relics/actions/runs/42462817545)
+passed without uploading files.
 See [technical preparation evidence](../testing/BETA_TECHNICAL_PREPARATION_20261106.md).
 
 The user renamed the repository to [Auda29/Titan-Relics](https://github.com/Auda29/Titan-Relics)
