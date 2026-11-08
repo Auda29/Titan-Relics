@@ -14,7 +14,8 @@ def sha256(path):
 def installed_arguments(server: Path, minecraft: str) -> tuple[list[str], dict]:
     server = server.resolve()
     version = TARGETS[minecraft]['neo']
-    argfile = server / f'libraries/net/neoforged/neoforge/{version}/win_args.txt'
+    argfile = server / f'libraries/net/neoforged/neoforge/{version}/unix_args.txt'
+    if not argfile.exists():argfile=argfile.with_name('win_args.txt')
     raw = argfile.read_text(encoding='utf-8')
     args = shlex.split(raw, posix=True)
     if '--fml.mcVersion' not in args or args[args.index('--fml.mcVersion') + 1] != minecraft:
@@ -25,7 +26,7 @@ def installed_arguments(server: Path, minecraft: str) -> tuple[list[str], dict]:
     libs = (server / 'libraries').as_posix()
     args = [arg.replace('libraries/', libs + '/').replace('-DlibraryDirectory=libraries',
             '-DlibraryDirectory=' + libs) for arg in args]
-    files = sorted({match.group() for match in re.finditer(r'libraries/[^\s;]+\.jar', raw)})
+    files = sorted({match.group() for match in re.finditer(r'libraries/[^\s;:]+\.jar', raw)})
     # The loader discovers patched game/NeoForge artifacts via its installation
     # metadata rather than putting all of them directly on the JVM classpath.
     for root in ('net/neoforged/neoforge/' + version, 'net/neoforged/minecraft-server-patched/' + version):
@@ -44,9 +45,11 @@ def logging_arguments(server: Path, minecraft: str, run: Path) -> tuple[list[str
     Netty native classes while formatting ordinary DEBUG probe failures on
     Windows. Plain full traces avoid this logger crash without filtering errors.
     """
-    if minecraft != '26.2':
+    if minecraft not in ('26.2','1.21.11','26.3'):
         return [], {}
-    loader = server / 'libraries/net/neoforged/fancymodloader/loader/11.0.16/loader-11.0.16.jar'
+    loaders=sorted((server/'libraries/net/neoforged/fancymodloader/loader').glob('*/*.jar'))
+    if len(loaders)!=1:raise ValueError('Expected one installed FML logger template')
+    loader=loaders[0]
     with zipfile.ZipFile(loader) as archive:
         raw = archive.read('net/neoforged/fml/startup/log4j2.xml')
     if raw.count(b'%xEx') != 2:

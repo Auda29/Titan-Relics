@@ -50,7 +50,7 @@ jobs:
           python tools/release_ci.py prepare --tag "$TAG"
           gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern '*.jar' --pattern 'SHA256SUMS.txt' --dir dist/platform-release
           gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json body --jq .body > dist/platform-notes.md
-      - name: Validate all four artifacts, resolve exact dependencies and print upload plan
+      - name: Validate the complete release target set, resolve exact dependencies and print upload plan
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}

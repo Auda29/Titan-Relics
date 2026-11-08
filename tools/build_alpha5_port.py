@@ -13,7 +13,7 @@ from prepare_alpha5_port import ROOT, VERSION, prepare
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--loader',default='fabric',choices=('fabric','neoforge'))
-    parser.add_argument('--minecraft',default='1.21.1',choices=('1.21.1','26.2'))
+    parser.add_argument('--minecraft',default='1.21.1',choices=('1.21.1','1.21.11','26.2','26.3'))
     parser.add_argument('--java-home',type=Path,required=True)
     parser.add_argument('--gradle')
     parser.add_argument('--tasks',nargs='+',default=['build'])
@@ -45,6 +45,9 @@ def main():
             Path.home()/f'.gradle/caches/fabric-loom/{args.minecraft}/minecraft-merged.jar',
             Path.home()/f'.gradle/caches/neoformruntime/artifacts/minecraft_{args.minecraft}_client.jar']
         client=next((p for p in candidates if p and p.is_file()),None)
+        if client is None and args.minecraft in ('1.21.11','26.3'):
+            from additional_port_runtime import client_assets
+            client=client_assets(args.minecraft)
         if client is None:raise ValueError('Provide --client with the matching Minecraft client assets')
         record['assets']=verify_assets(artifact,client)
         args.output.mkdir(parents=True,exist_ok=True)

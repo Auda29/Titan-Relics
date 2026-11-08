@@ -1,4 +1,4 @@
-"""Validate the four release artifacts and publish verified files without overwriting releases."""
+"""Validate the release artifacts and publish verified files without overwriting releases."""
 from __future__ import annotations
 
 import argparse
@@ -16,6 +16,14 @@ from release_version import ROOT, release_version, tag_version
 
 TARGETS = (('fabric', '26.2'), ('fabric', '1.21.1'), ('neoforge', '1.21.1'), ('neoforge', '26.2'))
 
+ADDITIONAL_TARGETS=tuple((loader,game) for game in ('1.21.11','26.3') for loader in ('fabric','neoforge'))
+
+
+def release_targets(version):
+    # Released Alpha builds and Beta 1 have immutable four-file receipts.
+    core=tuple(map(int,version.split('-',1)[0].split('.')))
+    return TARGETS if core < (1,0,0) or version=='1.0.0-beta.1' else TARGETS+ADDITIONAL_TARGETS
+
 
 def artifact_name(version, loader, minecraft):
     return f"relics-{version}+mc{minecraft}{'-neoforge' if loader == 'neoforge' else ''}.jar"
@@ -32,7 +40,7 @@ def check_artifact(path, version, loader, minecraft):
             raise ValueError(f'Duplicate ZIP entries in {path.name}')
         if loader == 'fabric':
             metadata = json.loads(archive.read('fabric.mod.json'))
-            expected_game = '~26.2' if minecraft == '26.2' else '1.21.1'
+            expected_game = '~26.2' if minecraft == '26.2' else minecraft
             if (metadata['id'], metadata['version'], metadata['depends']['minecraft']) != ('relics', version, expected_game):
                 raise ValueError(f'Wrong Fabric version/target: {path.name}')
             if 'META-INF/neoforge.mods.toml' in names:
@@ -47,7 +55,7 @@ def check_artifact(path, version, loader, minecraft):
             if 'fabric.mod.json' in names:
                 raise ValueError('Mixed loader metadata')
         classes = [name for name in names if name.endswith('.class')]
-        major = 65 if minecraft == '1.21.1' else 69
+        major = 65 if minecraft.startswith('1.') else 69
         if not classes:
             raise ValueError('Missing runtime classes')
         for name in classes:
@@ -60,12 +68,13 @@ def check_artifact(path, version, loader, minecraft):
 
 
 def bundle(source, destination, version):
-    names = [artifact_name(version, *target) for target in TARGETS]
+    targets=release_targets(version)
+    names = [artifact_name(version, *target) for target in targets]
     allowed = set(names) | {'SHA256SUMS.txt'}
     if destination.exists() and any(p.name not in allowed for p in destination.iterdir()):
         raise ValueError('Release directory contains files from another build/version')
     # Validate every input before copying or publishing any of them.
-    for (loader, minecraft), name in zip(TARGETS, names):
+    for (loader, minecraft), name in zip(targets, names):
         check_artifact(source / name, version, loader, minecraft)
     destination.mkdir(parents=True, exist_ok=True)
     for name in names:
@@ -127,7 +136,7 @@ def publish(tag, repo, directory):
         else:
             generated = json.loads(gh('api', f'repos/{repo}/releases/generate-notes',
                                       '--method', 'POST', '--field', 'tag_name=' + tag))
-            notes = (f'Titan Relics {version}\n\nFabric and NeoForge for Minecraft 26.2 and 1.21.1. '
+            notes = (f'Titan Relics {version}\n\nFabric and NeoForge for Minecraft '+', '.join(dict.fromkeys(game for _,game in release_targets(version)))+'. '
                      'Install one matching JAR and its dependencies. SHA-256 checksums are included.\n\n'
                      + generated['body'])
         with tempfile.TemporaryDirectory(prefix='relics-release-notes-') as directory_name:

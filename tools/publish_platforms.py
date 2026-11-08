@@ -17,7 +17,7 @@ from urllib.parse import quote, urlencode
 import zipfile
 
 from platform_api import Client, download
-from release_ci import TARGETS, artifact_name, check_artifact, gh, release_info, sha256
+from release_ci import TARGETS, release_targets, artifact_name, check_artifact, gh, release_info, sha256
 from release_version import tag_version
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,15 +27,16 @@ PROJECTS = {'modrinth': 'F6QDr5Vr', 'curseforge': '1785231'}
 
 def validate_bundle(directory, version):
     """Validate the complete set and checksums before any network mutation."""
-    files = [directory / artifact_name(version, *target) for target in TARGETS]
+    targets=release_targets(version)
+    files = [directory / artifact_name(version, *target) for target in targets]
     names = {file.name for file in files}
     if {p.name for p in directory.iterdir()} != names | {'SHA256SUMS.txt'}:
-        raise ValueError('Expected exactly four player JARs and SHA256SUMS.txt')
+        raise ValueError('Expected the complete release target set and SHA256SUMS.txt')
     rows = (directory / 'SHA256SUMS.txt').read_text().splitlines()
     expected = {sha256(file) + '  ' + file.name for file in files}
-    if len(rows) != 4 or set(rows) != expected:
+    if len(rows) != len(targets) or set(rows) != expected:
         raise ValueError('Release checksums do not match the complete bundle')
-    for file, (loader, game) in zip(files, TARGETS):
+    for file, (loader, game) in zip(files, release_targets(version)):
         check_artifact(file, version, loader, game)
         with zipfile.ZipFile(file) as archive:
             if archive.read('LICENSE') != (ROOT / 'LICENSE').read_bytes():
@@ -66,6 +67,12 @@ def channel(version):
 
 
 def dependency_specs(loader, game):
+    if game in ('1.21.11','26.3'):
+        from prepare_additional_ports import TARGETS as additional
+        target=additional[game]
+        result=[('lithostitched',target['dependencies'][loader+':lithostitched']['version'])]
+        if loader=='fabric':result.append(('fabric-api',target['fabric_api']))
+        return result
     result = [('lithostitched', f'1.8.0-{loader}-' + ('21.1' if game == '1.21.1' else game))]
     if loader == 'fabric':
         result.append(('fabric-api', '0.116.17+1.21.1' if game == '1.21.1' else '0.161.0+26.2'))
@@ -93,7 +100,7 @@ def target_metadata(version, loader, game, notes, dependencies):
     cf = {'displayName': name, 'changelog': notes, 'changelogType': 'markdown',
           'releaseType': channel(version), 'isMarkedForManualRelease': False,
           'gameVersionNames': [game, 'Fabric' if loader == 'fabric' else 'NeoForge',
-                               'Java 21' if game == '1.21.1' else 'Java 25', 'Client', 'Server'],
+                               'Java 21' if game.startswith('1.') else 'Java 25', 'Client', 'Server'],
           'relations': {'projects': [{'slug': slug, 'type': 'requiredDependency'}
                                     for slug, _ in dependency_specs(loader, game)]}}
     return {'modrinth': mr, 'curseforge': cf}
@@ -104,7 +111,7 @@ def make_plan(directory, version, notes, clients):
     games = {x['version'] for x in clients['modrinth'].request('/tag/game_version')}
     cf_names = {x['name'] for x in clients['curseforge'].request('/game/versions')}
     plan = []
-    for file, (loader, game) in zip(files, TARGETS):
+    for file, (loader, game) in zip(files, release_targets(version)):
         if game not in games:
             raise ValueError('Game version absent from Modrinth catalog: ' + game)
         deps = [pinned_dependency(clients['modrinth'], slug, number, loader, game)

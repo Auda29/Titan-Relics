@@ -58,7 +58,10 @@ Existing structures and finite shared loot are not moved or replenished.
 
 ## Compatibility and feedback
 
-Fabric and NeoForge on **1.21.1 and 26.2** are the four release targets. The
+Fabric and NeoForge on **1.21.1 and 26.2** are the four published Beta 1 targets.
+Additional **1.21.11 and 26.3** profiles for both loaders are prepared and tested for a
+subsequent release. See the [port validation report](docs/releases/JAVA_1_21_11_26_3_PORTS.md).
+These additional builds are not included in the existing Beta 1 downloads. The
 1.21.1 builds use ferns and ordinary chests in place of unavailable 26.2 blocks.
 Other game versions and cross-loader save conversion are not offered.
 

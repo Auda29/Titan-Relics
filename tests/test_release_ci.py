@@ -32,7 +32,7 @@ modId="minecraft"
 versionRange="[{game}]"
 ''')
         archive.writestr(class_name, bytes.fromhex('cafebabe0000')
-                         + (major or (65 if game == '1.21.1' else 69)).to_bytes(2, 'big'))
+                         + (major or (65 if game.startswith('1.') else 69)).to_bytes(2, 'big'))
 
 
 class ReleaseTests(unittest.TestCase):
@@ -45,6 +45,24 @@ class ReleaseTests(unittest.TestCase):
         self.destination = self.source / 'release'
         for loader, game in release_ci.TARGETS:
             fixture_jar(self.source / release_ci.artifact_name(VERSION, loader, game), loader, game)
+
+    def test_expanded_release_requires_eight_targets_and_preserves_beta_one(self):
+        version='1.0.1-beta.1'
+        targets=release_ci.release_targets(version)
+        self.assertEqual(len(targets),8)
+        self.assertEqual(len(release_ci.release_targets('1.0.0-beta.1')),4)
+        self.assertEqual(len(release_ci.release_targets('1.0.0-beta.2')),8)
+        self.assertEqual(len(release_ci.release_targets('1.0.0')),8)
+        for loader,game in targets:
+            fixture_jar(self.source/release_ci.artifact_name(version,loader,game),loader,game,version=version)
+        absent=self.source/release_ci.artifact_name(version,'neoforge','26.3')
+        raw=absent.read_bytes();absent.unlink()
+        with self.assertRaises(FileNotFoundError):release_ci.bundle(self.source,self.destination,version)
+        self.assertFalse(self.destination.exists())
+        absent.write_bytes(raw)
+        files=release_ci.bundle(self.source,self.destination,version)
+        self.assertEqual(len(files),9)
+        self.assertEqual(len((self.destination/'SHA256SUMS.txt').read_text().splitlines()),8)
 
     def test_tag_validation_accepts_shared_and_historical_tags_and_rejects_injection(self):
         for tag in (TAG, 'v1.2.3', TAG + '+mc26.2', TAG + '+mc1.21.1-neoforge'):

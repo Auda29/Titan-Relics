@@ -20,7 +20,7 @@ concurrency:
 jobs:
   release:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 180
     permissions:
       contents: write
     env:
@@ -38,10 +38,14 @@ jobs:
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
+          java-version: '21'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
           java-version: '25'
       - uses: gradle/actions/setup-gradle@v4
         with:
-          gradle-version: '9.5.1'
+          gradle-version: '9.6.0'
       - name: Install resource test dependency
         run: python -m pip install Pillow==12.0.0
       - name: Prepare verified compilation dependencies
@@ -63,6 +67,10 @@ jobs:
         env:
           RELICS_RELEASE_VERSION: ${{ steps.version.outputs.version }}
         run: python tools/build_alpha5_port.py --loader neoforge --minecraft 26.2 --java-home "$JAVA_HOME" --gradle gradle
+      - name: Build and test Minecraft 1.21.11 and 26.3 for both loaders
+        env:
+          RELICS_RELEASE_VERSION: ${{ steps.version.outputs.version }}
+        run: python tools/check_additional_ports.py --java-home "$JAVA_HOME" --java21-home "$JAVA_HOME_21_X64" --gradle gradle
       - name: Test resources, packaging and release safety
         run: python -m unittest discover -s tests -v
       - name: Test worldgen, gameplay and frozen planning
@@ -76,7 +84,7 @@ jobs:
         run: |
           python tools/build_fabric26_checks.py --java-home "$JAVA_HOME" --artifact "dist/relics-${RELICS_RELEASE_VERSION}+mc26.2.jar"
           python tools/test_alpha5_port_server.py --loader fabric --minecraft 26.2 --accept-eula --java "$JAVA_HOME/bin/java" --artifact "dist/relics-${RELICS_RELEASE_VERSION}+mc26.2.jar" --test-mod build/fabric26-checks/relics-alpha5-port-checks+mc26.2.jar --suite
-      - name: Assemble all four verified player JARs and checksums
+      - name: Assemble all eight verified player JARs and checksums
         env:
           RELICS_RELEASE_VERSION: ${{ steps.version.outputs.version }}
         run: |

@@ -16,6 +16,15 @@ from smoke_server import Console,prepare_classpath
 ROOT=Path(__file__).resolve().parents[1]
 
 
+def external_key_fetch_error(line):
+    """Retain this unrelated network failure without disabling online authentication."""
+    return '[Yggdrasil Key Fetcher/ERROR]' in line and 'Failed to request yggdrasil public key' in line
+
+
+def game_error(line):
+    return '/ERROR]' in line and not external_key_fetch_error(line)
+
+
 class PortConsole(Console):
     """Fail immediately on loader/worldgen errors instead of waiting for a chunk timeout."""
     def wait(self,pattern,start=0,timeout=120):
@@ -23,7 +32,7 @@ class PortConsole(Console):
         with self.condition:
             while True:
                 for line in self.lines[start:]:
-                    if '/ERROR]' in line:raise RuntimeError(line+'; see '+str(self.log_path))
+                    if game_error(line):raise RuntimeError(line+'; see '+str(self.log_path))
                     if expression.search(line):return line
                 if self.process.poll() is not None:raise RuntimeError('Server exited; see '+str(self.log_path))
                 remaining=deadline-time.monotonic()
@@ -34,7 +43,7 @@ class PortConsole(Console):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--loader',default='fabric',choices=('fabric','neoforge'))
-    parser.add_argument('--minecraft',default='1.21.1',choices=('1.21.1','26.2'))
+    parser.add_argument('--minecraft',default='1.21.1',choices=('1.21.1','1.21.11','26.2','26.3'))
     parser.add_argument('--java',type=Path,required=True)
     parser.add_argument('--artifact',type=Path,required=True)
     parser.add_argument('--accept-eula',action='store_true')
@@ -55,7 +64,12 @@ def main():
     artifact=args.artifact.resolve();shutil.copy2(artifact,run/'mods'/artifact.name)
     if args.test_mod:shutil.copy2(args.test_mod,run/'mods'/args.test_mod.name)
     if args.loader=='fabric':
-        if args.minecraft=='26.2':
+        if args.minecraft in ('1.21.11','26.3'):
+            from additional_port_runtime import fabric_classpath,dependency
+            cp=fabric_classpath(args.minecraft)
+            for key in ('fabric:fabric-api','fabric:lithostitched'):
+                dep=dependency(args.minecraft,key);shutil.copy2(dep,run/'mods'/dep.name)
+        elif args.minecraft=='26.2':
             from compile_worldgen import compile_libraries
             libraries=compile_libraries()
             for name in ('fabric-api-0.161.0+26.2.jar','lithostitched-1.8.0-fabric-26.2.jar'):
@@ -73,13 +87,16 @@ def main():
         native,evidence=installed_arguments(native_root,args.minecraft)
         logger,logging_evidence=logging_arguments(native_root,args.minecraft,run)
         dependency=ROOT/('build/neoforge/dependencies/lithostitched-1.8.0-neoforge-'+('21.1' if args.minecraft=='1.21.1' else '26.2')+'.jar')
+        if args.minecraft in ('1.21.11','26.3'):
+            from additional_port_runtime import dependency as pinned_dependency
+            dependency=pinned_dependency(args.minecraft,'neoforge:lithostitched')
         shutil.copy2(dependency,run/'mods'/dependency.name)
         launch=[*logger,*native,'nogui']
         (run/'native-launch.json').write_text(json.dumps({**evidence,**logging_evidence},indent=2),encoding='utf-8')
     with socket.socket() as sock:sock.bind(('127.0.0.1',0));port=sock.getsockname()[1]
     properties={'server-ip':'127.0.0.1','server-port':port,'online-mode':'true','white-list':'true','enforce-whitelist':'true',
                 'level-seed':731204,'level-name':'world','view-distance':2,'simulation-distance':2,'max-tick-time':60000,'spawn-protection':0}
-    if args.minecraft=='26.2':properties['pause-when-empty-seconds']=0
+    if args.minecraft!='1.21.1':properties['pause-when-empty-seconds']=0
     (run/'server.properties').write_text(''.join(f'{k}={v}\n' for k,v in properties.items()),encoding='utf-8')
     (run/'eula.txt').write_text('eula=true\n',encoding='utf-8')
     def settings(preset):
@@ -107,7 +124,7 @@ def main():
             process=subprocess.Popen([str(args.java.resolve()),'@'+str(argfile)],cwd=run,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',bufsize=1,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
             console=PortConsole(process,run/f'console-{iteration}.log',echo=False)
             try:
-                console.wait(r'Done \(',timeout=240)
+                console.wait(r'Done \(',timeout=600 if args.minecraft in ('1.21.11','26.3') else 240)
                 if args.distribution_preset=='tower-only':
                     if custom_site is None:
                         for x,z in ((-4000,-4000),(-2000,0),(0,-2000),(0,0),(2000,0),(0,2000)):
@@ -123,7 +140,7 @@ def main():
                 results=[]
                 commands=list(args.command)
                 if args.suite:
-                    console.command('gamerule '+('doMobSpawning' if args.minecraft=='1.21.1' else 'minecraft:spawn_mobs')+' true',r'Gamerule|Incorrect|Unknown',timeout=30)
+                    console.command('gamerule '+('doMobSpawning' if args.minecraft=='1.21.1' else 'minecraft:spawn_mobs')+' true',r'Gamerule|Game rule|Incorrect|Unknown',timeout=30)
                     console.command('forceload add -32 -32 63 63',r'Marked|force.loaded|already|No chunks',timeout=120)
                     commands+=['relicsporttest','relicstreeauratest','relicspresentationtest'+(' reload' if iteration else '')]
                 for command in commands:
@@ -131,7 +148,7 @@ def main():
                     assert '_FAIL' not in reply and '_PASS' in reply,reply
                     results.append(reply)
                 if args.suite and iteration==0:
-                    console.command('gamerule '+('doMobSpawning' if args.minecraft=='1.21.1' else 'minecraft:spawn_mobs')+' false',r'Gamerule|Incorrect|Unknown',timeout=30)
+                    console.command('gamerule '+('doMobSpawning' if args.minecraft=='1.21.1' else 'minecraft:spawn_mobs')+' false',r'Gamerule|Game rule|Incorrect|Unknown',timeout=30)
                     console.command('time set day',r'Set .*time|time marker',timeout=30)
                     console.command('forceload add 4080 4080 4159 4127',r'Marked|force.loaded|already|No chunks',timeout=120)
                     for x in (4096,4112):
@@ -141,16 +158,29 @@ def main():
                                 assert time.monotonic()<deadline;time.sleep(.25)
                     for command,pattern in [('fill 4096 159 4096 4127 159 4127 minecraft:grass_block',r'Successfully|No blocks'),
                             ('fill 4096 160 4096 4127 163 4127 minecraft:air',r'Successfully|No blocks'),
-                            ('fillbiome 4096 144 4096 4127 176 4127 minecraft:plains',r'Successfully|biome')]:console.command(command,pattern,timeout=60)
+                            ('fillbiome 4096 144 4096 4127 176 4127 minecraft:plains',r'Successfully|[Bb]iome')]:console.command(command,pattern,timeout=60)
                     reply=console.command('relicstreeanimalstest',r'TREE_ANIMALS_PASS|TREE_ANIMALS_FAIL',timeout=240)
                     assert 'TREE_ANIMALS_PASS' in reply,reply
                     results.append(reply)
+                if args.distribution_preset and iteration==0:
+                    # The destination is selected asynchronously. Freeze a resolved
+                    # baseline before testing that a restart preserves that choice.
+                    deadline=time.monotonic()+600
+                    while True:
+                        path=run/'world/data/relics_distribution_v1.json'
+                        if path.exists():
+                            state=json.loads(json.loads(path.read_text())['payload'])
+                            if state.get('unique') is not None or state.get('unavailable'):break
+                        if process.poll() is not None:raise RuntimeError('Server exited before planning completed')
+                        if time.monotonic()>deadline:raise TimeoutError('Initial relic destination did not resolve')
+                        time.sleep(.25)
                 console.command('save-all flush',r'Saved the game',timeout=120)
                 console.command('stop',r'Stopping the server',timeout=60)
-                process.wait(timeout=120);console.thread.join(timeout=5)
-                errors=[line for line in console.lines if '/ERROR]' in line or 'Mixin apply' in line or 'Couldn\'t parse' in line]
+                process.wait(timeout=300 if args.minecraft in ('1.21.11','26.3') else 120);console.thread.join(timeout=5)
+                errors=[line for line in console.lines if game_error(line) or 'Mixin apply' in line or 'Couldn\'t parse' in line]
                 assert process.returncode==0 and not errors,errors
-                report['iterations'].append({'restart':iteration>0,'commands':results,'exit_code':process.returncode})
+                report['iterations'].append({'restart':iteration>0,'commands':results,'exit_code':process.returncode,
+                    'external_service_errors':[line for line in console.lines if external_key_fetch_error(line)]})
                 if custom_site is not None:
                     from verify_world import AnvilWorld
                     candidate=custom_site['candidate'];chunk=AnvilWorld(run/'world').chunk(candidate['x']//16,candidate['z']//16)
@@ -176,8 +206,16 @@ def main():
                         frozen={**invariant,'policy':snapshot['policy'],'settings':None}
             finally:
                 if process.poll() is None:
+                    diagnostic=args.java.resolve().with_name('jcmd')
+                    if diagnostic.exists():
+                        with (run/f'threads-{iteration}.log').open('w') as output:
+                            try:subprocess.run([str(diagnostic),str(process.pid),'Thread.print'],stdout=output,stderr=subprocess.STDOUT,timeout=15)
+                            except subprocess.TimeoutExpired:pass
                     try:process.stdin.write('stop\n');process.stdin.flush();process.wait(timeout=30)
-                    except Exception:process.terminate();process.wait(timeout=15)
+                    except Exception:
+                        process.terminate()
+                        try:process.wait(timeout=15)
+                        except subprocess.TimeoutExpired:process.kill();process.wait(timeout=15)
         if args.world_load_checks:
             import copy
             world=run/'world';journal=world/'data/relics_distribution_v1.json';original=journal.read_bytes()
@@ -186,8 +224,10 @@ def main():
                 return {p.relative_to(world).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()
                         for p in world.rglob('*') if p.is_file() and p.name!='session.lock'}
             report['world_load_checks']=[]
+            border_file=world/('data/world_border.dat' if args.minecraft=='1.21.11' else 'dimensions/minecraft/overworld/data/minecraft/world_border.dat')
+            border_original=border_file.read_bytes() if args.minecraft in ('1.21.11','26.3') else None
             try:
-                for name,reason in [('fingerprint','unknown'),('seed','seed'),('border','border'),('enabled','structures'),('unfinished','unfinished'),('checksum','unknown')]:
+                for name,reason in [('fingerprint','unknown'),('seed','seed'),('border','border'),('enabled','structures'),('unfinished','unfinished'),('checksum','unknown')]+([('saved-border','border')] if border_original is not None else []):
                     state=copy.deepcopy(original_state)
                     if name=='fingerprint':state['fingerprint']='0'*64
                     elif name=='seed':state['seed']+=1
@@ -196,11 +236,18 @@ def main():
                     elif name=='unfinished':state['frozen']=False;state['unique']=None
                     payload=json.dumps(state,separators=(',',':'))
                     envelope=dict(version=1,payload=payload,sha256='0'*64 if name=='checksum' else hashlib.sha256(payload.encode()).hexdigest())
+                    if name=='saved-border':
+                        import gzip,struct
+                        raw=gzip.decompress(border_original);key=b'\x06\x00\x08center_x'
+                        if raw.count(key)!=1:raise ValueError('Unexpected saved border codec')
+                        offset=raw.index(key)+len(key)
+                        raw=raw[:offset]+struct.pack('>d',1024.0)+raw[offset+8:]
+                        border_file.write_bytes(gzip.compress(raw,mtime=0))
                     journal.write_text(json.dumps(envelope),encoding='utf-8');before=hashes()
                     process=subprocess.Popen([str(args.java.resolve()),'@'+str(argfile)],cwd=run,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',bufsize=1,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
                     console=Console(process,run/f'reject-{name}.log',echo=False)
                     try:
-                        deadline=time.monotonic()+180
+                        deadline=time.monotonic()+(300 if args.minecraft in ('1.21.11','26.3') else 180)
                         while process.poll() is None:
                             assert not any('Done (' in line for line in console.lines),'Rejected fixture started the server'
                             if time.monotonic()>deadline:raise TimeoutError('Rejected load did not return: '+name)
@@ -212,12 +259,15 @@ def main():
                     finally:
                         if process.poll() is None:process.terminate();process.wait(timeout=15)
                     journal.write_bytes(original)
-            finally:journal.write_bytes(original)
+                    if border_original is not None:border_file.write_bytes(border_original)
+            finally:
+                journal.write_bytes(original)
+                if border_original is not None:border_file.write_bytes(border_original)
             process=subprocess.Popen([str(args.java.resolve()),'@'+str(argfile)],cwd=run,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,encoding='utf-8',errors='replace',bufsize=1,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
             console=PortConsole(process,run/'restored-world.log',echo=False)
             try:
-                console.wait(r'Done \(',timeout=180);console.command('stop',r'Stopping the server',timeout=60)
-                process.wait(timeout=120);console.thread.join(timeout=5)
+                console.wait(r'Done \(',timeout=600 if args.minecraft in ('1.21.11','26.3') else 180);console.command('stop',r'Stopping the server',timeout=60)
+                process.wait(timeout=300 if args.minecraft in ('1.21.11','26.3') else 120);console.thread.join(timeout=5)
                 assert process.returncode==0 and journal.read_bytes()==original,'Restored world changed the frozen plan'
                 report['world_load_restored']=dict(started=True,journal_byte_identical=True,exit_code=process.returncode)
             finally:

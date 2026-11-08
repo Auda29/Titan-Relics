@@ -22,6 +22,11 @@ def verify(artifact: Path,client: Path) -> dict:
                 if 'parent' in data:require(data['parent'],'models')
                 for value in data.get('textures',{}).values():require(value,'textures')
                 for override in data.get('overrides',[]):require(override['model'],'models')
+            if name.endswith('.png.mcmeta'):
+                palette=json.loads(mod.read(name)).get('palette',{}).get('base_palette')
+                if palette:
+                    namespace,path=palette.split(':',1) if ':' in palette else ('minecraft',palette)
+                    require(namespace+':palettes/'+path,'textures')
             if '/atlases/' in name and name.endswith('.json'):
                 for source in json.loads(mod.read(name))['sources']:
                     if source['type']!='minecraft:paletted_permutations':continue

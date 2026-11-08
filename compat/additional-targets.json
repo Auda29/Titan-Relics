@@ -1,0 +1,134 @@
+{
+  "1.21.11": {
+    "java": 21,
+    "neoforge": "21.11.48",
+    "fabric_loader": "0.19.5",
+    "fabric_api": "0.141.6+1.21.11",
+    "modmenu": "17.0.1",
+    "lithostitched": "1.7.2",
+    "mojang_metadata_url": "https://piston-meta.mojang.com/v1/packages/35f8a9bc4874e2c95e51b3ad21e043a33776f7c2/1.21.11.json",
+    "mojang_metadata_sha1": "35f8a9bc4874e2c95e51b3ad21e043a33776f7c2",
+    "downloads": {
+      "client": {
+        "sha1": "ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd",
+        "size": 31152600,
+        "url": "https://piston-data.mojang.com/v1/objects/ba2df812c2d12e0219c489c4cd9a5e1f0760f5bd/client.jar"
+      },
+      "client_mappings": {
+        "sha1": "031a68bebf55d824f66d6573d8c752f0e1bf232a",
+        "size": 11779287,
+        "url": "https://piston-data.mojang.com/v1/objects/031a68bebf55d824f66d6573d8c752f0e1bf232a/client.txt"
+      },
+      "server": {
+        "sha1": "64bb6d763bed0a9f1d632ec347938594144943ed",
+        "size": 56327581,
+        "url": "https://piston-data.mojang.com/v1/objects/64bb6d763bed0a9f1d632ec347938594144943ed/server.jar"
+      },
+      "server_mappings": {
+        "sha1": "5621e9253f05fd57872bbe7f8ddf5f9a7d525955",
+        "size": 8678606,
+        "url": "https://piston-data.mojang.com/v1/objects/5621e9253f05fd57872bbe7f8ddf5f9a7d525955/server.txt"
+      }
+    },
+    "world_version": 4671,
+    "data_pack": [
+      94,
+      1
+    ],
+    "resource_pack": [
+      75,
+      0
+    ],
+    "dependencies": {
+      "neoforge:lithostitched": {
+        "version": "1.7.2-neoforge-21.11",
+        "version_id": "GXKf1eIb",
+        "filename": "lithostitched-1.7.2-neoforge-21.11.jar",
+        "url": "https://cdn.modrinth.com/data/XaDC71GB/versions/GXKf1eIb/lithostitched-1.7.2-neoforge-21.11.jar",
+        "sha512": "d47c37dacb3bd410196b05a26274f6558735f4e382d3f1ad8663ccf3ea892121f1e35b2f7c30872c524173c04e0555367715e5472fe13592622952d990f53e95"
+      },
+      "fabric:lithostitched": {
+        "version": "1.7.2-fabric-21.11",
+        "version_id": "pLbQKCOo",
+        "filename": "lithostitched-1.7.2-fabric-21.11.jar",
+        "url": "https://cdn.modrinth.com/data/XaDC71GB/versions/pLbQKCOo/lithostitched-1.7.2-fabric-21.11.jar",
+        "sha512": "77e432cf8932f5a9e6caee5ed4e18d80e0782e5eb9852a0e14c3e2337f5f84ecc579277ac8b7cdbbeaf03ac2fd2b17b68e951a05355c7973df4fd9176774679f"
+      },
+      "fabric:fabric-api": {
+        "version": "0.141.6+1.21.11",
+        "version_id": "6qAuTtLR",
+        "filename": "fabric-api-0.141.6+1.21.11.jar",
+        "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/6qAuTtLR/fabric-api-0.141.6%2B1.21.11.jar",
+        "sha512": "852d3682c4f353fd0ca86546af8578513e8bcf628377fa9d49c556bc59c5024c69ab56c92fc6dfba11fed19e4316a3f5636e7e07fd3d96f7043b531aef59b637"
+      },
+      "fabric:modmenu": {
+        "version": "17.0.1",
+        "version_id": "cLkYaVuL",
+        "filename": "modmenu-17.0.1.jar",
+        "url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/cLkYaVuL/modmenu-17.0.1.jar",
+        "sha512": "cb68cc39c8da66d05a1d2054a0e7b62144881e0cdb5fd681bc4f337b1313fafac394246f4e0aa0c4b6343db9e9750250a00c1bb72689b762da685ce1ccfee51f"
+      }
+    }
+  },
+  "26.3": {
+    "java": 25,
+    "neoforge": "26.3.0.101",
+    "fabric_loader": "0.19.5",
+    "fabric_api": "0.165.2+26.3",
+    "modmenu": "21.0.0",
+    "lithostitched": "2.0.6",
+    "mojang_metadata_url": "https://piston-meta.mojang.com/v1/packages/80608ff6753705b6a82e2cb86a5937d4d233abd4/26.3.json",
+    "mojang_metadata_sha1": "80608ff6753705b6a82e2cb86a5937d4d233abd4",
+    "downloads": {
+      "client": {
+        "sha1": "e877b6a07acd633fb3bb475002175cec036e7b87",
+        "size": 41483720,
+        "url": "https://piston-data.mojang.com/v1/objects/e877b6a07acd633fb3bb475002175cec036e7b87/client.jar"
+      },
+      "server": {
+        "sha1": "33680f5f2ac32864d6d7cf5e56a705fdb3e05f4c",
+        "size": 62294556,
+        "url": "https://piston-data.mojang.com/v1/objects/33680f5f2ac32864d6d7cf5e56a705fdb3e05f4c/server.jar"
+      }
+    },
+    "world_version": 5023,
+    "data_pack": [
+      121,
+      0
+    ],
+    "resource_pack": [
+      97,
+      1
+    ],
+    "dependencies": {
+      "neoforge:lithostitched": {
+        "version": "2.0.6-neoforge-26.3",
+        "version_id": "sQznZoKs",
+        "filename": "lithostitched-2.0.6-neoforge-26.3.jar",
+        "url": "https://cdn.modrinth.com/data/XaDC71GB/versions/sQznZoKs/lithostitched-2.0.6-neoforge-26.3.jar",
+        "sha512": "0d085656fae32b09c2ef338f351eff3819349e7ad8ff895d34e9f763619fee7ca2bcb99d5443dc077db014088873dbdb661edeee45d8b0034ef39e86a877972c"
+      },
+      "fabric:lithostitched": {
+        "version": "2.0.6-fabric-26.3",
+        "version_id": "pZgI6b2t",
+        "filename": "lithostitched-2.0.6-fabric-26.3.jar",
+        "url": "https://cdn.modrinth.com/data/XaDC71GB/versions/pZgI6b2t/lithostitched-2.0.6-fabric-26.3.jar",
+        "sha512": "d7ffe9bb3ea653ae70317f8621c546e3331369c0dd3cd6cadb374cc71283ca1fae1e7de7d2d16eb5724e96f7159c8b043e15a618f32dad88c8e70a7d8d1db4ee"
+      },
+      "fabric:fabric-api": {
+        "version": "0.165.2+26.3",
+        "version_id": "nJlcvFfj",
+        "filename": "fabric-api-0.165.2+26.3.jar",
+        "url": "https://cdn.modrinth.com/data/P7dR8mSH/versions/nJlcvFfj/fabric-api-0.165.2%2B26.3.jar",
+        "sha512": "21ce87863ed73c4c871e072f13c5a7b00bd148a098c5064a5f381479d1ddd7c54b0f40ef7d17ce2ae5712deb647c5fcaf12cb72fb663fe8d958188e870b33de0"
+      },
+      "fabric:modmenu": {
+        "version": "21.0.0",
+        "version_id": "kyy7dbrZ",
+        "filename": "modmenu-21.0.0.jar",
+        "url": "https://cdn.modrinth.com/data/mOgUt4GM/versions/kyy7dbrZ/modmenu-21.0.0.jar",
+        "sha512": "588c0c557963f4778572ee81bfafc190b332c26d5926c5fe7e3e1614dcf8e14f58e3bc80a97694521dd05907e9753a7c8575048ea769e4dbf40a3db74a4e2606"
+      }
+    }
+  }
+}

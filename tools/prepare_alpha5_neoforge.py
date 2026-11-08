@@ -10,6 +10,9 @@ LICENSE=json.loads((ROOT/'src/main/resources/fabric.mod.json').read_text(encodin
 COMMON=ROOT/'compat/alpha5-neoforge-common/src/main/adapters'
 TARGETS={'1.21.1':{'neo':'21.1.256','java':21,'litho':'21.1'},'26.2':{'neo':'26.2.0.88','java':25,'litho':'26.2'}}
 
+for _mc,_target in json.loads((ROOT/'compat/additional-targets.json').read_text()).items():
+    TARGETS[_mc]={'neo':_target['neoforge'],'java':_target['java'],'litho_version':_target['lithostitched']}
+
 
 def native_java(name: str,text: str,minecraft: str,test=False):
     if name=='EarlyBiomePreparation.java':
@@ -56,7 +59,7 @@ public final class EarlyBiomePreparation {
         text=text.replace('self.items, furnace.getMaxStackSize())','self.items, furnace.getMaxStackSize(), furnace)')
     if name=='TreeAnimals.java':
         text=text.replace('mob.finalizeSpawn(level,','net.neoforged.neoforge.event.EventHooks.finalizeMobSpawn(mob,level,')
-    if name=='RelicGameplay.java' and minecraft=='26.2':
+    if name=='RelicGameplay.java' and minecraft in ('26.2','1.21.11','26.3'):
         text=text.replace('data.getCompoundOrEmpty(AttachmentTarget.NBT_ATTACHMENT_KEY).getListOrEmpty("relics:delivery_receipts")',
             'data.getCompoundOrEmpty(AttachmentTarget.NBT_ATTACHMENT_KEY).getCompoundOrEmpty("relics:delivery_receipts").getListOrEmpty("value")')
     if test:
@@ -170,7 +173,7 @@ side="BOTH"
 [[dependencies.relics]]
 modId="lithostitched"
 type="required"
-versionRange="[1.8.0]"
+versionRange="[{target.get('litho_version','1.8.0')}]"
 ordering="AFTER"
 side="BOTH"
 '''
@@ -193,6 +196,9 @@ side="BOTH"
 
 
 def prepare(minecraft):
+    if minecraft in ('1.21.11','26.3'):
+        from prepare_additional_ports import prepare as additional_prepare
+        return additional_prepare('neoforge',minecraft)
     if minecraft not in TARGETS:raise ValueError('Unknown native target')
     legacy=minecraft=='1.21.1'
     if legacy:

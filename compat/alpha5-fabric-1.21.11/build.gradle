@@ -1,0 +1,49 @@
+plugins { id 'fabric-loom' version '1.17.21' }
+version = providers.gradleProperty('relicVersion').orElse(new groovy.json.JsonSlurper().parse(file('../../src/main/resources/fabric.mod.json')).version as String).get()
+group = 'de.relics'
+base { archivesName = 'relics' }
+repositories { maven { url = 'https://api.modrinth.com/maven' } }
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.11'
+    mappings loom.officialMojangMappings()
+    modImplementation 'net.fabricmc:fabric-loader:0.19.5'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.141.6+1.21.11'
+    modImplementation 'maven.modrinth:lithostitched:1.7.2-fabric-21.11'
+    modCompileOnly 'maven.modrinth:modmenu:17.0.1'
+}
+sourceSets.main {
+    java.srcDirs = ['build/generated/java']
+    resources.srcDirs = ['build/generated/resources']
+}
+sourceSets.test.java.srcDirs = ['build/generated/test']
+sourceSets.test.resources.srcDirs = ['build/generated/test-resources']
+java { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 }
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+    options.encoding = 'UTF-8'
+    options.debug = false
+    options.compilerArgs += ['-Xmaxerrs', '400']
+}
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+remapJar { archiveFileName = "relics-${project.version}+mc1.21.11.jar" }
+tasks.register('relicClasspath') {
+    doLast { file('build/runtime-classpath.txt').text = sourceSets.main.runtimeClasspath.asPath }
+}
+test { failOnNoDiscoveredTests = false }
+tasks.register('portTestJar', Jar) {
+    dependsOn testClasses
+    from sourceSets.test.output
+    archiveClassifier = 'port-tests-dev'
+}
+tasks.register('remapPortTestJar', net.fabricmc.loom.task.RemapJarTask) {
+    dependsOn portTestJar
+    inputFile = portTestJar.archiveFile
+    archiveFileName = 'relics-alpha5-port-checks+mc1.21.11.jar'
+    addNestedDependencies = false
+    classpath.from(sourceSets.test.compileClasspath)
+}
+
+check { dependsOn remapPortTestJar }

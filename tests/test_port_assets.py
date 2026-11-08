@@ -8,6 +8,16 @@ from verify_port_assets import verify
 
 
 class PortAssetsTests(unittest.TestCase):
+    def test_new_palette_metadata_rejects_missing_base_palette(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);mod=root/'mod.jar';game=root/'game.jar'
+            with zipfile.ZipFile(mod,'w') as z:
+                z.writestr('assets/relics/textures/trims/entity/humanoid/monolith.png.mcmeta',json.dumps({'palette':{'base_palette':'minecraft:trim_base'}}))
+            with zipfile.ZipFile(game,'w'):pass
+            with self.assertRaisesRegex(ValueError,'palettes/trim_base'):verify(mod,game)
+            with zipfile.ZipFile(game,'a') as z:z.writestr('assets/minecraft/textures/palettes/trim_base.png',b'palette')
+            self.assertTrue(verify(mod,game)['passed'])
+
     def test_unavailable_material_palette_rejects_the_package(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);mod=root/'mod.jar';game=root/'client.jar'

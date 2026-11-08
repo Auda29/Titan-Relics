@@ -99,6 +99,20 @@ versionRange="[{game}]"
     def plan(self):
         return publish.make_plan(self.root, VERSION, 'Approved release notes.', self.clients)
 
+    def test_additional_targets_keep_exact_dependencies_and_java_tags(self):
+        expected={
+            ('fabric','1.21.11'):('1.7.2-fabric-21.11','0.141.6+1.21.11','Java 21'),
+            ('neoforge','1.21.11'):('1.7.2-neoforge-21.11',None,'Java 21'),
+            ('fabric','26.3'):('2.0.6-fabric-26.3','0.165.2+26.3','Java 25'),
+            ('neoforge','26.3'):('2.0.6-neoforge-26.3',None,'Java 25')}
+        for (loader,game),(litho,fabric,java) in expected.items():
+            with self.subTest(loader=loader,game=game):
+                deps=dict(publish.dependency_specs(loader,game))
+                self.assertEqual(deps,{'lithostitched':litho,**({'fabric-api':fabric} if fabric else {})})
+                metadata=publish.target_metadata('1.0.1-beta.1',loader,game,'notes',[])
+                self.assertEqual(metadata['modrinth']['game_versions'],[game])
+                self.assertIn(java,metadata['curseforge']['gameVersionNames'])
+
     def test_plan_is_read_only_and_tags_all_four_targets_with_pinned_dependencies(self):
         plan = self.plan()
         self.assertEqual(len(plan), 4)

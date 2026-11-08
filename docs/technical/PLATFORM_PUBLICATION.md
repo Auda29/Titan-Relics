@@ -3,14 +3,14 @@
 ## Automatic release-tag path
 
 Every new canonical `v<VERSION>` release tag runs
-[release.yml](../../.github/workflows/release.yml). It builds and tests all four
-Fabric/NeoForge targets, publishes the verified GitHub release, then calls
+[release.yml](../../.github/workflows/release.yml). It builds and tests all eight
+Fabric/NeoForge targets for Java 1.21.1, 1.21.11, 26.2 and 26.3, publishes the verified GitHub release, then calls
 [publish-platforms.yml](../../.github/workflows/publish-platforms.yml) with that
 exact tag and publication enabled. A failed build/test/GitHub-release job prevents
 platform uploads. Branch pushes and pull requests do not publish versions.
 A manual run of **Release all targets** remains build-only.
 
-The platform workflow downloads the four player JARs, SHA256SUMS.txt and release
+The platform workflow downloads the complete player-JAR set, SHA256SUMS.txt and release
 notes from the published GitHub release. It does not build another bundle. It
 validates target metadata, class versions, MIT and checksums, resolves pinned
 Modrinth dependencies and checks CurseForge's game/loader/Java tags before writes.
@@ -42,7 +42,8 @@ See [credential access](PLATFORM_ACCESS.md); never print credential values.
 ## Receipts, moderation and retries
 
 `platform-upload-state.json` on the GitHub release binds the tag, both project
-IDs and all four hashes. An upload intent is saved before each POST and the
+IDs and every artifact hash. Historical Alpha releases and `1.0.0-beta.1`
+keep their four-file contracts; subsequent 1.x releases require all eight files. An upload intent is saved before each POST and the
 returned platform ID immediately afterward. Existing player JARs are not replaced.
 An exact existing Modrinth version is reused after checking hashes and metadata.
 An ambiguous previous POST without a confirmed ID stops for investigation.

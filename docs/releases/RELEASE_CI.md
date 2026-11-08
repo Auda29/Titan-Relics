@@ -3,14 +3,14 @@
 Push a shared version tag after the intended changes are on `main`:
 
 ```shell
-git tag -a v0.1.0-alpha.5.0.3 -m "Relic Mod Alpha 5.0.3"
-git push origin v0.1.0-alpha.5.0.3
+git tag -a v1.0.1-beta.1 -m "Titan Relics 1.0.1-beta.1"
+git push origin v1.0.1-beta.1
 ```
 
 The [Release all targets workflow](../../.github/workflows/release.yml) builds
-Fabric and NeoForge for **Minecraft 26.2 and 1.21.1**, then attaches all four
+Fabric and NeoForge for **Minecraft 1.21.1, 1.21.11, 26.2 and 26.3**, then attaches all eight
 player JARs and one `SHA256SUMS.txt` to a single GitHub release. The first verified
-automated release is [Alpha 5.0.3](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.3).
+automated release was [Alpha 5.0.3](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.3).
 
 The tag supplies the artifact version through `RELICS_RELEASE_VERSION`. Filenames,
 Fabric metadata, NeoForge metadata, test-mod dependencies and Gradle archive
@@ -26,10 +26,13 @@ generated commit notes and adds the supported loader/game targets.
 
 ## Checks before publication
 
-The workflow generates and verifies frozen resources, builds all four targets,
+The workflow generates and verifies frozen resources, builds all eight targets,
 runs Python resource/packaging/release tests and Java worldgen/gameplay/planning
 checks, then runs the native Fabric 26.2 packet/gameplay/restart suite. The
-1.21.1 JARs target Java 21; the 26.2 JARs target Java 25. Builds run sequentially
+1.21.1 and 1.21.11 JARs target Java 21; 26.2 and 26.3 target Java 25.
+The additional profiles are built twice for identical checksums and run gameplay,
+restart, seven world-load rejection cases, recovery and natural-structure checks
+through `tools/check_additional_ports.py`. Gradle 9.6.0 is required. Builds run sequentially
 because NeoForge 1.21.1 reuses generated Fabric 1.21.1 sources.
 
 The release bundle rejects incomplete sets, wrong versions/loaders/game targets,
@@ -48,12 +51,12 @@ Branch pushes and pull requests containing only Markdown files (`**/*.md`)
 skip the full mod build. A mixed change containing any other file still builds,
 including JSON manifests, structure assets, test/build scripts and workflow
 configuration. Manual builds remain available. Release-tag builds are independent
-of this filter and continue to build and validate all four targets.
+of this filter and continue to build and validate all eight targets.
 
 ## Automatic platform uploads
 
 After the GitHub release succeeds on a tag push, the workflow calls the reusable
-`publish-platforms.yml` for the same tag. It downloads exactly the published four
+`publish-platforms.yml` for the same tag. It downloads exactly the published player
 JARs and checksum manifest, resolves dependencies and uploads to Modrinth and
 CurseForge. Separate, sequential platform jobs keep shared receipts consistent
 and let the other platform continue if one fails. Pending public downloads are
@@ -65,6 +68,10 @@ workflow has a separate manual plan/recovery entry point, read-only by default.
 See [platform publication](../technical/PLATFORM_PUBLICATION.md) for required
 credentials, receipt-based retries and the distinction between uploads and
 public project approval. No existing release tag needs to be moved.
+
+Historical Alpha releases and `1.0.0-beta.1` retain their four-file contracts.
+Subsequent 1.x versions, including `1.0.0-beta.2`, require all eight targets.
+The uploader can still verify the old releases and receipts without adding files.
 
 ## Build-only test
 

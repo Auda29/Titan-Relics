@@ -240,6 +240,9 @@ def legacy_test(name: str,text: str) -> str:
 
 
 def prepare(loader='fabric', minecraft='1.21.1'):
+    if minecraft in ('1.21.11', '26.3'):
+        from prepare_additional_ports import prepare as additional_prepare
+        return additional_prepare(loader, minecraft)
     if loader=='neoforge':
         from prepare_alpha5_neoforge import prepare as native_prepare
         return native_prepare(minecraft)

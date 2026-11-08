@@ -1,0 +1,728 @@
+{
+  "date": "2026-11-08",
+  "published": false,
+  "experimental_artifact_version": "1.0.0-beta.1",
+  "note": "Local port validation only. Existing published Beta 1 files and receipts are unchanged. Release tags supply the final artifact version.",
+  "python_tests": {
+    "full_suite": 191,
+    "supplemental_console_gate": 2
+  },
+  "targets": [
+    {
+      "loader": "fabric",
+      "minecraft": "1.21.11",
+      "java": 21,
+      "artifact": "relics-1.0.0-beta.1+mc1.21.11.jar",
+      "sha256": "e3b45f29a6b5dc10e807fec8060a2017e299724bda2cfc9fb75f5ba092e2d818",
+      "reproducible": true,
+      "suite_iterations": [
+        {
+          "restart": false,
+          "commands": [
+            "[14:52:51] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 26 checks; restart=false",
+            "[14:52:51] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "[14:53:03] [Server thread/INFO]: [STDOUT]: PRESENTATION_PASS trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN] vault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING] event_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017] collected=3; uncollected=1 core_uuid=0a17f5c1-ca39-4703-aa15-e27efd3066eb",
+            "[14:53:11] [Server thread/INFO]: [STDOUT]: TREE_ANIMALS_PASS natural_hook=true extra_spawns=4 ordinary_spawns=6 observed_callbacks=6 global_cap_blocked=true local_cap_blocked=true no_standalone_spawn=true shared_population_accounting=true"
+          ],
+          "exit_code": 0,
+          "frozen_distribution": {
+            "policy": "relics-distribution-v3-settings",
+            "settings": {
+              "cellSize": 2000,
+              "minDistance": 800,
+              "obeliskDistance": 6000,
+              "regionRadius": 2400,
+              "outside": [
+                3000,
+                250,
+                250,
+                200,
+                200,
+                200
+              ],
+              "inside": [
+                3000,
+                1500,
+                1500,
+                200,
+                200,
+                200
+              ],
+              "biomes": {
+                "families": {}
+              },
+              "colossusMinDistance": 8000
+            },
+            "fingerprint": "93f4a56cacf7212780f4ff3f84d99bea20848b353b26bc94eac9dbf3749cc8d6",
+            "spawnX": -656,
+            "spawnZ": 112,
+            "unique_sha256": "48db8f411b9873554a1d059db2ab15e300b2e538b672b95e29b46f36ffd83673"
+          }
+        },
+        {
+          "restart": true,
+          "commands": [
+            "[14:53:39] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 29 checks; restart=true",
+            "[14:53:39] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "[14:53:42] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive"
+          ],
+          "exit_code": 0,
+          "frozen_distribution": {
+            "policy": "relics-distribution-v3-settings",
+            "settings": {
+              "cellSize": 2000,
+              "minDistance": 800,
+              "obeliskDistance": 6000,
+              "regionRadius": 2400,
+              "outside": [
+                3000,
+                250,
+                250,
+                200,
+                200,
+                200
+              ],
+              "inside": [
+                3000,
+                1500,
+                1500,
+                200,
+                200,
+                200
+              ],
+              "biomes": {
+                "families": {}
+              },
+              "colossusMinDistance": 8000
+            },
+            "fingerprint": "93f4a56cacf7212780f4ff3f84d99bea20848b353b26bc94eac9dbf3749cc8d6",
+            "spawnX": -656,
+            "spawnZ": 112,
+            "unique_sha256": "48db8f411b9873554a1d059db2ab15e300b2e538b672b95e29b46f36ffd83673"
+          }
+        }
+      ],
+      "world_load_checks": [
+        {
+          "case": "fingerprint",
+          "reason": "unknown",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "seed",
+          "reason": "seed",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "border",
+          "reason": "border",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "enabled",
+          "reason": "structures",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "unfinished",
+          "reason": "unfinished",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "checksum",
+          "reason": "unknown",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "saved-border",
+          "reason": "border",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        }
+      ],
+      "restored_world": {
+        "started": true,
+        "journal_byte_identical": true,
+        "exit_code": 0
+      },
+      "gameplay_proofs": {
+        "presentation-proof.txt": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=0a17f5c1-ca39-4703-aa15-e27efd3066eb\n",
+        "port-core-proof.txt": "checks=29\nrestart=true\ncore_operations=2\nrecipe_book=shaped\n",
+        "magnet-proof.txt": "offhand_max_speed=0.38500000000000006\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n",
+        "tree-aura-proof.txt": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n",
+        "recipe-network-proof.txt": "checks=98\nindependent_recipe_instances=true\nrecipe_and_holder_roundtrip=true\nfull_update_packet_roundtrip=true\nrecipe_book_packet_roundtrip=true\nwrong_variant_rejected=true\ndecoded_crafting_preserves_components=true\n",
+        "tree-animal-proof.txt": "natural_hook=true\nextra_spawns=4\nordinary_spawns=6\nobserved_callbacks=6\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n"
+      },
+      "natural_starts": [
+        {
+          "restart": false,
+          "start_id": "relics:ruined_tower",
+          "pieces": 1
+        },
+        {
+          "restart": true,
+          "start_id": "relics:ruined_tower",
+          "pieces": 1
+        }
+      ],
+      "client_menu_smoke": {
+        "passed": true,
+        "proof": "title=true\ndefaults_render=true\nworld_tab=true\nworld_settings_render=true\nbiome_settings_render=true\n",
+        "display": "Xvfb",
+        "identity": "isolated dummy offline identity",
+        "audio_tested": false
+      }
+    },
+    {
+      "loader": "neoforge",
+      "minecraft": "1.21.11",
+      "java": 21,
+      "artifact": "relics-1.0.0-beta.1+mc1.21.11-neoforge.jar",
+      "sha256": "d89bd3261f35687d265a8a4bcd0d628104b190b0cb918dc22d82c111798f7787",
+      "reproducible": true,
+      "suite_iterations": [
+        {
+          "restart": false,
+          "commands": [
+            "PORT_PASS core and recipes: 26 checks; restart=false",
+            "TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "PRESENTATION_PASS trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN] vault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING] event_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017] collected=3; uncollected=1 core_uuid=49b582bd-9061-4bce-b62a-3e978e366a43",
+            "TREE_ANIMALS_PASS native_finalize_cancellation=true natural_hook=true extra_spawns=4 ordinary_spawns=8 observed_callbacks=10 global_cap_blocked=true local_cap_blocked=true no_standalone_spawn=true shared_population_accounting=true"
+          ],
+          "exit_code": 0,
+          "frozen_distribution": {
+            "policy": "relics-distribution-v3-settings",
+            "settings": {
+              "cellSize": 2000,
+              "minDistance": 800,
+              "obeliskDistance": 6000,
+              "regionRadius": 2400,
+              "outside": [
+                3000,
+                250,
+                250,
+                200,
+                200,
+                200
+              ],
+              "inside": [
+                3000,
+                1500,
+                1500,
+                200,
+                200,
+                200
+              ],
+              "biomes": {
+                "families": {}
+              },
+              "colossusMinDistance": 8000
+            },
+            "fingerprint": "eb63d228d06ebf2c1d30575c56d5d6b2a8f61b55ca8792085389b7adb4eaa2ec",
+            "spawnX": -656,
+            "spawnZ": 112,
+            "unique_sha256": "48db8f411b9873554a1d059db2ab15e300b2e538b672b95e29b46f36ffd83673"
+          }
+        },
+        {
+          "restart": true,
+          "commands": [
+            "PORT_PASS core and recipes: 29 checks; restart=true",
+            "TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive"
+          ],
+          "exit_code": 0,
+          "frozen_distribution": {
+            "policy": "relics-distribution-v3-settings",
+            "settings": {
+              "cellSize": 2000,
+              "minDistance": 800,
+              "obeliskDistance": 6000,
+              "regionRadius": 2400,
+              "outside": [
+                3000,
+                250,
+                250,
+                200,
+                200,
+                200
+              ],
+              "inside": [
+                3000,
+                1500,
+                1500,
+                200,
+                200,
+                200
+              ],
+              "biomes": {
+                "families": {}
+              },
+              "colossusMinDistance": 8000
+            },
+            "fingerprint": "eb63d228d06ebf2c1d30575c56d5d6b2a8f61b55ca8792085389b7adb4eaa2ec",
+            "spawnX": -656,
+            "spawnZ": 112,
+            "unique_sha256": "48db8f411b9873554a1d059db2ab15e300b2e538b672b95e29b46f36ffd83673"
+          }
+        }
+      ],
+      "world_load_checks": [
+        {
+          "case": "fingerprint",
+          "reason": "unknown",
+          "world_file_count": 58,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "seed",
+          "reason": "seed",
+          "world_file_count": 58,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "border",
+          "reason": "border",
+          "world_file_count": 58,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "enabled",
+          "reason": "structures",
+          "world_file_count": 58,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "unfinished",
+          "reason": "unfinished",
+          "world_file_count": 58,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "checksum",
+          "reason": "unknown",
+          "world_file_count": 58,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "saved-border",
+          "reason": "border",
+          "world_file_count": 58,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        }
+      ],
+      "restored_world": {
+        "started": true,
+        "journal_byte_identical": true,
+        "exit_code": 0
+      },
+      "gameplay_proofs": {
+        "presentation-proof.txt": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=49b582bd-9061-4bce-b62a-3e978e366a43\n",
+        "port-core-proof.txt": "checks=29\nrestart=true\ncore_operations=2\nrecipe_book=shaped\n",
+        "magnet-proof.txt": "offhand_max_speed=0.38500000000000006\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n",
+        "tree-aura-proof.txt": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n",
+        "recipe-network-proof.txt": "checks=98\nindependent_recipe_instances=true\nrecipe_and_holder_roundtrip=true\nfull_update_packet_roundtrip=true\nrecipe_book_packet_roundtrip=true\nwrong_variant_rejected=true\ndecoded_crafting_preserves_components=true\n",
+        "tree-animal-proof.txt": "native_finalize_cancellation=true\nnatural_hook=true\nextra_spawns=4\nordinary_spawns=8\nobserved_callbacks=10\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n"
+      },
+      "natural_starts": [
+        {
+          "restart": false,
+          "start_id": "relics:ruined_tower",
+          "pieces": 1
+        },
+        {
+          "restart": true,
+          "start_id": "relics:ruined_tower",
+          "pieces": 1
+        }
+      ],
+      "client_menu_smoke": {
+        "passed": true,
+        "proof": "title=true\ndefaults_render=true\nworld_tab=true\nworld_settings_render=true\nbiome_settings_render=true\n",
+        "display": "Xvfb",
+        "identity": "isolated dummy offline identity",
+        "audio_tested": false
+      }
+    },
+    {
+      "loader": "fabric",
+      "minecraft": "26.3",
+      "java": 25,
+      "artifact": "relics-1.0.0-beta.1+mc26.3.jar",
+      "sha256": "5773a31aebfa62af34e73240bc3c28e5dfcf13be95af36acabc56274feb16369",
+      "reproducible": true,
+      "suite_iterations": [
+        {
+          "restart": false,
+          "commands": [
+            "[15:05:32] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 26 checks; restart=false",
+            "[15:05:33] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "[15:05:44] [Server thread/INFO]: [STDOUT]: PRESENTATION_PASS trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN] vault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING] event_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017] collected=3; uncollected=1 core_uuid=89624f55-7f36-4f84-8cf1-60b804ddec5f",
+            "[15:05:47] [Server thread/INFO]: [STDOUT]: TREE_ANIMALS_PASS natural_hook=true extra_spawns=2 ordinary_spawns=9 observed_callbacks=9 global_cap_blocked=true local_cap_blocked=true no_standalone_spawn=true shared_population_accounting=true"
+          ],
+          "exit_code": 0,
+          "external_service_errors": [],
+          "frozen_distribution": {
+            "policy": "relics-distribution-v3-settings",
+            "settings": {
+              "cellSize": 2000,
+              "minDistance": 800,
+              "obeliskDistance": 6000,
+              "regionRadius": 2400,
+              "outside": [
+                3000,
+                250,
+                250,
+                200,
+                200,
+                200
+              ],
+              "inside": [
+                3000,
+                1500,
+                1500,
+                200,
+                200,
+                200
+              ],
+              "biomes": {
+                "families": {}
+              },
+              "colossusMinDistance": 8000
+            },
+            "fingerprint": "6754733193d0699a97bd7f8cc8574c9cab3eaffef5caec01c80c7b04c6ddac9a",
+            "spawnX": -656,
+            "spawnZ": 112,
+            "unique_sha256": "48db8f411b9873554a1d059db2ab15e300b2e538b672b95e29b46f36ffd83673"
+          }
+        },
+        {
+          "restart": true,
+          "commands": [
+            "[15:06:22] [Server thread/INFO]: [STDOUT]: PORT_PASS core and recipes: 29 checks; restart=true",
+            "[15:06:22] [Server thread/INFO]: [STDOUT]: TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "[15:06:25] [Server thread/INFO]: [STDOUT]: PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive"
+          ],
+          "exit_code": 0,
+          "external_service_errors": [],
+          "frozen_distribution": {
+            "policy": "relics-distribution-v3-settings",
+            "settings": {
+              "cellSize": 2000,
+              "minDistance": 800,
+              "obeliskDistance": 6000,
+              "regionRadius": 2400,
+              "outside": [
+                3000,
+                250,
+                250,
+                200,
+                200,
+                200
+              ],
+              "inside": [
+                3000,
+                1500,
+                1500,
+                200,
+                200,
+                200
+              ],
+              "biomes": {
+                "families": {}
+              },
+              "colossusMinDistance": 8000
+            },
+            "fingerprint": "6754733193d0699a97bd7f8cc8574c9cab3eaffef5caec01c80c7b04c6ddac9a",
+            "spawnX": -656,
+            "spawnZ": 112,
+            "unique_sha256": "48db8f411b9873554a1d059db2ab15e300b2e538b672b95e29b46f36ffd83673"
+          }
+        }
+      ],
+      "world_load_checks": [
+        {
+          "case": "fingerprint",
+          "reason": "unknown",
+          "world_file_count": 50,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "seed",
+          "reason": "seed",
+          "world_file_count": 50,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "border",
+          "reason": "border",
+          "world_file_count": 50,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "enabled",
+          "reason": "structures",
+          "world_file_count": 50,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "unfinished",
+          "reason": "unfinished",
+          "world_file_count": 50,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "checksum",
+          "reason": "unknown",
+          "world_file_count": 50,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        },
+        {
+          "case": "saved-border",
+          "reason": "border",
+          "world_file_count": 50,
+          "all_world_files_unchanged": true,
+          "exit_code": 0
+        }
+      ],
+      "restored_world": {
+        "started": true,
+        "journal_byte_identical": true,
+        "exit_code": 0
+      },
+      "gameplay_proofs": {
+        "presentation-proof.txt": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=89624f55-7f36-4f84-8cf1-60b804ddec5f\n",
+        "port-core-proof.txt": "checks=29\nrestart=true\ncore_operations=2\nrecipe_book=shaped\n",
+        "magnet-proof.txt": "offhand_max_speed=0.38500000000000006\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n",
+        "tree-aura-proof.txt": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n",
+        "recipe-network-proof.txt": "checks=98\nindependent_recipe_instances=true\nrecipe_and_holder_roundtrip=true\nfull_update_packet_roundtrip=true\nrecipe_book_packet_roundtrip=true\nwrong_variant_rejected=true\ndecoded_crafting_preserves_components=true\n",
+        "tree-animal-proof.txt": "natural_hook=true\nextra_spawns=2\nordinary_spawns=9\nobserved_callbacks=9\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n"
+      },
+      "natural_starts": [
+        {
+          "restart": false,
+          "start_id": "relics:ruined_tower",
+          "pieces": 1
+        },
+        {
+          "restart": true,
+          "start_id": "relics:ruined_tower",
+          "pieces": 1
+        }
+      ],
+      "client_menu_smoke": {
+        "passed": true,
+        "proof": "title=true\ndefaults_render=true\nworld_tab=true\nworld_settings_render=true\nbiome_settings_render=true\n",
+        "display": "Xvfb",
+        "identity": "isolated dummy offline identity",
+        "audio_tested": false
+      }
+    },
+    {
+      "loader": "neoforge",
+      "minecraft": "26.3",
+      "java": 25,
+      "artifact": "relics-1.0.0-beta.1+mc26.3-neoforge.jar",
+      "sha256": "1cdb7c98c1fa60504b5009db6fd3b71906fc4daeca3ac4e783fc2fc71612c11c",
+      "reproducible": true,
+      "suite_iterations": [
+        {
+          "restart": false,
+          "commands": [
+            "PORT_PASS core and recipes: 26 checks; restart=false",
+            "TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "PRESENTATION_PASS trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN] vault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING] event_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017] collected=3; uncollected=1 core_uuid=3dcd08fd-5f4a-487e-b0d7-0e4cb93b0064",
+            "TREE_ANIMALS_PASS native_finalize_cancellation=true natural_hook=true extra_spawns=2 ordinary_spawns=9 observed_callbacks=10 global_cap_blocked=true local_cap_blocked=true no_standalone_spawn=true shared_population_accounting=true"
+          ],
+          "exit_code": 0,
+          "external_service_errors": [],
+          "frozen_distribution": {
+            "policy": "relics-distribution-v3-settings",
+            "settings": {
+              "cellSize": 2000,
+              "minDistance": 800,
+              "obeliskDistance": 6000,
+              "regionRadius": 2400,
+              "outside": [
+                3000,
+                250,
+                250,
+                200,
+                200,
+                200
+              ],
+              "inside": [
+                3000,
+                1500,
+                1500,
+                200,
+                200,
+                200
+              ],
+              "biomes": {
+                "families": {}
+              },
+              "colossusMinDistance": 8000
+            },
+            "fingerprint": "04b337aabf0874af12925dd8e62ca62ba98741bf9998d6b23a80c7102726e34e",
+            "spawnX": -656,
+            "spawnZ": 112,
+            "unique_sha256": "48db8f411b9873554a1d059db2ab15e300b2e538b672b95e29b46f36ffd83673"
+          }
+        },
+        {
+          "restart": true,
+          "commands": [
+            "PORT_PASS core and recipes: 29 checks; restart=true",
+            "TREE_AURA_PASS radius=80.0 positions_and_modes=51 spatial_three_cell_lookup=true spherical_boundary=true regeneration_level=2 resistance_level=2 duration_ticks=6000 normal_effect_merge=true leaving_range_retains_both=true",
+            "PRESENTATION_RELOAD_PASS original drop and payments saved; both hands collect; inventory-only inactive"
+          ],
+          "exit_code": 0,
+          "external_service_errors": [],
+          "frozen_distribution": {
+            "policy": "relics-distribution-v3-settings",
+            "settings": {
+              "cellSize": 2000,
+              "minDistance": 800,
+              "obeliskDistance": 6000,
+              "regionRadius": 2400,
+              "outside": [
+                3000,
+                250,
+                250,
+                200,
+                200,
+                200
+              ],
+              "inside": [
+                3000,
+                1500,
+                1500,
+                200,
+                200,
+                200
+              ],
+              "biomes": {
+                "families": {}
+              },
+              "colossusMinDistance": 8000
+            },
+            "fingerprint": "04b337aabf0874af12925dd8e62ca62ba98741bf9998d6b23a80c7102726e34e",
+            "spawnX": -656,
+            "spawnZ": 112,
+            "unique_sha256": "48db8f411b9873554a1d059db2ab15e300b2e538b672b95e29b46f36ffd83673"
+          }
+        }
+      ],
+      "world_load_checks": [
+        {
+          "case": "fingerprint",
+          "reason": "unknown",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "seed",
+          "reason": "seed",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "border",
+          "reason": "border",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "enabled",
+          "reason": "structures",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "unfinished",
+          "reason": "unfinished",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "checksum",
+          "reason": "unknown",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        },
+        {
+          "case": "saved-border",
+          "reason": "border",
+          "world_file_count": 54,
+          "all_world_files_unchanged": true,
+          "exit_code": 1
+        }
+      ],
+      "restored_world": {
+        "started": true,
+        "journal_byte_identical": true,
+        "exit_code": 0
+      },
+      "gameplay_proofs": {
+        "presentation-proof.txt": "trial_states=[INACTIVE, ACTIVE, WAITING_FOR_REWARD_EJECTION, EJECTING_REWARD, COOLDOWN]\nvault_states=[INACTIVE, ACTIVE, UNLOCKING, EJECTING]\nevent_packets=[3011, 3012, 3013, 3014, 3015, 3016, 3017]\ncollected=3; uncollected=1\ncore_uuid=3dcd08fd-5f4a-487e-b0d7-0e4cb93b0064\n",
+        "port-core-proof.txt": "checks=29\nrestart=true\ncore_operations=2\nrecipe_book=shaped\n",
+        "magnet-proof.txt": "offhand_max_speed=0.3850000000000001\noffhand_items=3\noffhand_remaining=997\nmain_hand_max_speed=0.38500000000000006\nmain_hand_items=64\nmain_hand_remaining=936\npartial_and_last_budget_items=true\nfailed_pickup_no_wear=true\nordinary_pickup_after_depletion=true\ninventory_only_inactive=true\n",
+        "tree-aura-proof.txt": "radius=80.0\npositions_and_modes=51\nspatial_three_cell_lookup=true\nspherical_boundary=true\nregeneration_level=2\nresistance_level=2\nduration_ticks=6000\nnormal_effect_merge=true\nleaving_range_retains_both=true\n",
+        "recipe-network-proof.txt": "checks=98\nindependent_recipe_instances=true\nrecipe_and_holder_roundtrip=true\nfull_update_packet_roundtrip=true\nrecipe_book_packet_roundtrip=true\nwrong_variant_rejected=true\ndecoded_crafting_preserves_components=true\n",
+        "tree-animal-proof.txt": "native_finalize_cancellation=true\nnatural_hook=true\nextra_spawns=2\nordinary_spawns=9\nobserved_callbacks=10\nglobal_cap_blocked=true\nlocal_cap_blocked=true\nno_standalone_spawn=true\nshared_population_accounting=true\n"
+      },
+      "natural_starts": [
+        {
+          "restart": false,
+          "start_id": "relics:ruined_tower",
+          "pieces": 1
+        },
+        {
+          "restart": true,
+          "start_id": "relics:ruined_tower",
+          "pieces": 1
+        }
+      ],
+      "client_menu_smoke": {
+        "passed": true,
+        "proof": "title=true\ndefaults_render=true\nworld_tab=true\nworld_settings_render=true\nbiome_settings_render=true\n",
+        "display": "Xvfb",
+        "identity": "isolated dummy offline identity",
+        "audio_tested": false
+      }
+    }
+  ]
+}
