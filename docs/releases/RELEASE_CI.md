@@ -20,7 +20,11 @@ Historical `v<VERSION>+mc26.2`, `+mc1.21.1` and their `-neoforge` forms are also
 accepted, but new releases should use one shared `v<VERSION>` tag.
 
 Tags with a prerelease suffix, including `-alpha` and `-beta`, create GitHub
-prereleases. Plain versions such as `v0.1.0` create stable releases. Add curated
+prereleases. Plain versions such as `v0.1.0` create stable releases. A per-release
+`docs/releases/<VERSION>.publication.json` can explicitly set `github_latest`.
+GitHub Latest requires the normal release flag, so Beta 2 uses that flag while
+its name, notes and mod-platform channel remain Beta. Other beta tags retain
+the prerelease default; stable tags retain the Latest default. Add curated
 notes at `docs/releases/<VERSION>.md`; otherwise the workflow uses GitHub's
 generated commit notes and adds the supported loader/game targets.
 

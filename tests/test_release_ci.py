@@ -67,6 +67,7 @@ class ReleaseTests(unittest.TestCase):
     def test_explicit_latest_beta_policy_keeps_other_prereleases_unchanged(self):
         self.assertEqual(release_ci.github_policy('1.0.0-beta.2'),{'latest':True,'prerelease':False})
         self.assertEqual(release_ci.github_policy('1.0.0-beta.1'),{'latest':False,'prerelease':True})
+        self.assertEqual(release_ci.github_policy('1.2.3'),{'latest':True,'prerelease':False})
 
     def test_tag_validation_accepts_shared_and_historical_tags_and_rejects_injection(self):
         for tag in (TAG, 'v1.2.3', TAG + '+mc26.2', TAG + '+mc1.21.1-neoforge'):

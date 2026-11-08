@@ -124,7 +124,7 @@ def verify_remote(tag, repo, files):
 def github_policy(version):
     """Explicit per-release Latest choice; channel naming on mod platforms is unchanged."""
     path=ROOT/'docs/releases'/f'{version}.publication.json'
-    latest=False
+    latest='-' not in version
     if path.exists():
         policy=json.loads(path.read_text())
         if set(policy)!={'github_latest'} or type(policy['github_latest']) is not bool:
@@ -200,7 +200,7 @@ def main():
     args = parser.parse_args()
     if args.command == 'prepare':
         version = tag_version(args.tag)
-        values = f'version={version}\nprerelease={str("-" in version).lower()}\n'
+        values = f'version={version}\nprerelease={str(github_policy(version)["prerelease"]).lower()}\n'
         if args.github_output:
             with args.github_output.open('a', encoding='utf-8') as output:
                 output.write(values)
