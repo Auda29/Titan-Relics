@@ -53,7 +53,7 @@ public final class DistributionRuntime implements AutoCloseable {
         DistributionJournal.State initial=new DistributionJournal.State();
         initial.interiors=fresh?de.relics.gameplay.NaturalInteriors.REVISION:DistributionJournal.interiorRevision(file);
         if(fresh){
-            initial.settings=DistributionConfig.forNewWorld(level.getServer().getWorldPath(LevelResource.ROOT));initial.policy=DistributionSettings.POLICY;
+            initial.settings=DistributionConfig.forNewWorld(level.getServer().getWorldPath(LevelResource.ROOT));initial.policy=initial.settings.policy();
             initial.lower=initial.settings.colossusMinDistance();initial.upper=Math.multiplyExact(initial.lower,2);
         }
         DistributionSettings selectedSettings=fresh?initial.settings:new DistributionJournal(file,null).state.settings;

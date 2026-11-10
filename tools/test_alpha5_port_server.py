@@ -193,7 +193,7 @@ def main():
                     snapshot=json.loads(envelope['payload'])
                     if args.biome_mode=='empty-colossus':assert snapshot['unavailable'] and snapshot.get('unique') is None,'Empty Colossus selection must resolve unavailable, never search forever'
                     historical=iteration and args.historical_journal
-                    assert snapshot['policy']==('relics-distribution-v2-local64-r3072' if historical else 'relics-distribution-v3-settings')
+                    assert snapshot['policy']==('relics-distribution-v2-local64-r3072' if historical else 'relics-distribution-v4-discoveries')
                     expected_settings=None if historical else settings(args.distribution_preset)
                     assert snapshot.get('settings')==expected_settings,('Saved settings differ',snapshot.get('settings'),expected_settings)
                     invariant={key:snapshot.get(key) for key in ('policy','settings','unique','fingerprint','spawnX','spawnZ')}

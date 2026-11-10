@@ -12,7 +12,7 @@ public final class DistributionSettingsTests {
     private static void check(boolean value,String message){assertions++;if(!value)throw new AssertionError(message);}
     private static Site site(Candidate c,Family f){return new Site(c,f.id,2*c.x(),2*c.z(),70,c.x(),0,c.z(),c.x()-40,c.z()-40,c.x()+40,c.z()+40);}
     private static DistributionPlanner planner(DistributionSettings settings,long seed) {
-        return new DistributionPlanner(DistributionSettings.POLICY,settings,seed,EnumSet.allOf(Family.class),
+        return new DistributionPlanner(settings.policy(),settings,seed,EnumSet.allOf(Family.class),
                 DistributionSettingsTests::site,()->null,()->true,0,0,128);
     }
     private static void rejected(Runnable operation,String message){boolean failed=false;try{operation.run();}catch(RuntimeException expected){failed=true;}check(failed,message);}
@@ -71,7 +71,7 @@ public final class DistributionSettingsTests {
         var towerOnly=new DistributionSettings(2000,800,6000,2400,List.of(0,0,0,10000,0,0),List.of(0,0,0,10000,0,0));
         var none=new DistributionSettings(2000,800,6000,2400,Collections.nCopies(6,0),Collections.nCopies(6,0));
         var closer=new DistributionSettings(2000,800,6000,2400,towerOnly.outside(),towerOnly.inside(),BiomeRules.STANDARD,8000);
-        var pendingPlanner=new DistributionPlanner(DistributionSettings.POLICY,closer,731204,EnumSet.allOf(Family.class),
+        var pendingPlanner=new DistributionPlanner(closer.policy(),closer,731204,EnumSet.allOf(Family.class),
                 DistributionSettingsTests::site,()->null,()->false,0,0,128);
         check(pendingPlanner.plan(new Cell(0,0))!=null,"spawn neighborhood remains safe before closer Colossus resolves");
         boolean pending=false;try{pendingPlanner.plan(new Cell(4,0));}catch(Pending expected){pending=true;}
@@ -129,15 +129,21 @@ public final class DistributionSettingsTests {
         var slope=JsonParser.parseString("{\"type\":\"lithostitched:height_filter\",\"heightmap\":\"WORLD_SURFACE_WG\",\"range_type\":\"heightmap_relative\",\"permitted_range\":{\"min_inclusive\":-4,\"max_inclusive\":4}}").getAsJsonObject();
         check(GenerationRules.terrain(slope,Family.SKULL_2,BiomeRules.Mode.LANDSCAPES,1).equals(slope),"old Sword Skull slope preserved");
         check(GenerationRules.terrain(slope,Family.SKULL_2,BiomeRules.Mode.LANDSCAPES,2).getAsJsonObject("permitted_range").get("max_inclusive").getAsInt()==8,"new Sword Skull permits modest rolling terrain");
+        var encodedSlope=slope.deepCopy();JsonArray encodedRange=new JsonArray();encodedRange.add(-4);encodedRange.add(4);encodedSlope.add("permitted_range",encodedRange);
+        var actualCodec=GenerationRules.terrain(encodedSlope,Family.SKULL_2,BiomeRules.Mode.LANDSCAPES,2);
+        check(actualCodec.getAsJsonArray("permitted_range").get(1).getAsInt()==8,"native 1.21.1 codec array form is widened without object casts");
+        check(encodedSlope.getAsJsonArray("permitted_range").get(0).getAsInt()==-4,"native encoded source remains immutable");
+        check(DistributionSettings.DISCOVERY.policy().equals("relics-distribution-v4-discoveries") && DistributionSettings.LEGACY_EXPEDITION.policy().equals("relics-distribution-v3-settings"),"new journals use a policy rejected by released binaries");
+        rejected(()->new DistributionPlanner(DistributionSettings.LEGACY_POLICY,DistributionSettings.DISCOVERY,1,Set.of(),(c,f)->null,()->null,()->true,0,0,0),"new rules cannot masquerade as a released plan");
         // New global defaults must not alter the checksummed per-world snapshot.
-        Path world=root.resolve("world.json");var initial=new DistributionJournal.State();initial.settings=towerOnly;initial.policy=DistributionSettings.POLICY;
+        Path world=root.resolve("world.json");var initial=new DistributionJournal.State();initial.settings=towerOnly;initial.policy=towerOnly.policy();
         initial.fingerprint="a".repeat(64);initial.enabled=EnumSet.allOf(Family.class);initial.minX=initial.minZ=-100000;initial.maxX=initial.maxZ=100000;initial.frozen=true;
         new DistributionJournal(world,initial).flush();DistributionConfig.write(file,DistributionSettings.EXPEDITION);
         check(new DistributionJournal(world,null).state.settings.equals(towerOnly),"world keeps independent settings after defaults change");
         initial.settings=biomeSettings;new DistributionJournal(root.resolve("biome-world.json"),initial).flush();
         check(new DistributionJournal(root.resolve("biome-world.json"),null).state.settings.biomes().equals(custom),"saved biome rules survive restart");
         Path closerWorld=root.resolve("closer-world.json");
-        var closerState=new DistributionJournal.State();closerState.settings=closer;closerState.policy=DistributionSettings.POLICY;
+        var closerState=new DistributionJournal.State();closerState.settings=closer;closerState.policy=closer.policy();
         closerState.fingerprint="b".repeat(64);closerState.enabled=EnumSet.allOf(Family.class);closerState.minX=closerState.minZ=-100000;
         closerState.maxX=closerState.maxZ=100000;closerState.frozen=true;closerState.lower=8000;closerState.upper=16000;
         var closeCandidate=annulus(731204,0,0,8000,16000,-100000,-100000,100000,100000).getFirst();
@@ -153,6 +159,13 @@ public final class DistributionSettingsTests {
         check(new DistributionJournal(oldWorld,null).state.colossusMinDistance()==30000,"released worlds keep 30000 even when other fields match Discoveries");
         check(new DistributionJournal(oldWorld,null).state.settings.generationRevision()==1,"missing revision retains the released algorithm");
         check(Files.readString(oldWorld).equals(oldEnvelope.toString()),"old world read preserves original journal bytes");
+        var future=new DistributionJournal.State();future.settings=DistributionSettings.DISCOVERY;future.policy=DistributionSettings.POLICY;
+        future.fingerprint="c".repeat(64);future.enabled=EnumSet.allOf(Family.class);future.minX=future.minZ=-100000;future.maxX=future.maxZ=100000;future.frozen=true;
+        Path futureFile=root.resolve("new-revision.json");new DistributionJournal(futureFile,future).flush();
+        check(new DistributionJournal(futureFile,null).state.settings.generationRevision()==2,"new policy and revision survive a save/reload");
+        var mismatch=JsonParser.parseString(Files.readString(futureFile)).getAsJsonObject();var mismatchedPayload=JsonParser.parseString(mismatch.get("payload").getAsString()).getAsJsonObject();
+        mismatchedPayload.addProperty("policy",DistributionSettings.LEGACY_POLICY);mismatch.addProperty("payload",mismatchedPayload.toString());mismatch.addProperty("sha256",DistributionJournal.hash(mismatchedPayload.toString()));
+        Files.writeString(futureFile,mismatch.toString());rejected(()->new DistributionJournal(futureFile,null),"mismatched policy and revision are rejected without migration");
         var envelope=JsonParser.parseString(Files.readString(world)).getAsJsonObject();
         var payload=JsonParser.parseString(envelope.get("payload").getAsString()).getAsJsonObject();payload.remove("settings");
         envelope.addProperty("payload",payload.toString());envelope.addProperty("sha256",DistributionJournal.hash(payload.toString()));Files.writeString(world,envelope.toString());

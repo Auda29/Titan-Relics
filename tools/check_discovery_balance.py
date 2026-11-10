@@ -108,8 +108,10 @@ def main():
             if preserve:
                 known = fixture/'locate-results.json'
                 expected = [q for q in json.loads(known.read_text())['queries'] if q['origin']=='spawn' and q['type'] in ('obelisk','titan_skull')] if known.exists() else []
+                snapshot = json.loads(json.loads(protected['relics_distribution_v1.json'])['payload'])
+                origin_x, origin_z = snapshot['spawnX'], snapshot['spawnZ']
                 for point in expected:
-                    line = console.command('execute positioned -336 80 80 run locate structure #relics:'+point['type'], r'The nearest .* is at|Relikt-Suche angehalten', timeout=360)
+                    line = console.command(f'execute positioned {origin_x} 80 {origin_z} run locate structure #relics:'+point['type'], r'The nearest .* is at|Relikt-Suche angehalten', timeout=360)
                     match = re.search(r'is at \[(-?\d+), ~, (-?\d+)\]', line)
                     assert match and tuple(map(int, match.groups())) == (point['x'], point['z']), line
                 record['known_locates_reproduced'] = len(expected)

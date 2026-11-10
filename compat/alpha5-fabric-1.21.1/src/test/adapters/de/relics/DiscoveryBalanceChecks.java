@@ -70,7 +70,7 @@ public final class DiscoveryBalanceChecks implements ModInitializer {
             progress(name+" resolving Colossus");
             Site colossus=unique(level,validator,settings,x,z);
             if(name.equals("discoveries") && !colossus.equals(frozen.unique))throw new AssertionError("Diagnostic and production Colossus differ");
-            var planner=new DistributionPlanner(DistributionSettings.POLICY,settings,level.getSeed(),frozen.enabled,validator,()->colossus,()->false,frozen.bootstrapX,frozen.bootstrapZ,128);
+            var planner=new DistributionPlanner(settings.policy(),settings,level.getSeed(),frozen.enabled,validator,()->colossus,()->false,frozen.bootstrapX,frozen.bootstrapZ,128);
             List<Site> sites=new ArrayList<>(),slopeSites=new ArrayList<>(),expandedSites=new ArrayList<>();Map<String,Integer> counts=new TreeMap<>();int visited=0;
             int firstX=Math.floorDiv(x-half,settings.cellSize()),lastX=Math.floorDiv(x+half-1,settings.cellSize());
             int firstZ=Math.floorDiv(z-half,settings.cellSize()),lastZ=Math.floorDiv(z+half-1,settings.cellSize());

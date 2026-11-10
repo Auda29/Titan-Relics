@@ -189,7 +189,7 @@ keys are `colossus`, `obelisk`, `titan_skull`, `titan_skull_2`, `ruined_tower`,
 `selected` contains exact namespaced biome IDs for Custom. Old v3 journals
 without biome rules also retain Standard behavior.
 Do not edit the world journal to apply density changes. Its settings are frozen
-under `relics-distribution-v3-settings`; old policies retain their historical
+under `relics-distribution-v4-discoveries`; old policies retain their historical
 settings and fingerprint protection. Revision 1 preserves the released v2
 ticket layout and coordinates exactly. Generator, biome, asset and world-border
 changes remain subject to the existing fingerprint guard.
@@ -200,7 +200,9 @@ and [world-creation/biome revision](../testing/DISTRIBUTION_WORLD_MENU_20261101.
 ## Generation revisions and existing worlds
 
 `generationRevision` is stored inside settings. Missing values mean revision 1.
-Unknown revisions are rejected. Revision 1 retains the released ticket layout,
+Revision 2 uses the new `relics-distribution-v4-discoveries` journal policy, so
+released binaries reject these worlds instead of silently applying older rules.
+Unknown revisions and mismatched policy/revision pairs are rejected. Revision 1 retains the released ticket layout,
 biome footprint checks, Sword Skull slope and Colossus candidate order, including
 unfinished search cursors. Existing checksummed plans, destinations, maps and
 rewards are not migrated by this change. All pinned structure assets stay intact.

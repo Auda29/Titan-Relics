@@ -8,7 +8,8 @@ ursprünglichen serverfähigen Mods reproduzierte den Obelisken und fand die
 nächsten anderen Relikttypen erst in 13.307 bis 29.744 Blöcken Entfernung
 vom Spawn. Das sind Einzelfunde dieses Setups, keine allgemeine Seed-Statistik.
 
-Neue Presets verwenden Generierungsrevision 2:
+Neue Presets verwenden Generierungsrevision 2 und die Plan-Kennung
+`relics-distribution-v4-discoveries`:
 
 - Je Schädeltyp 15 % außerhalb und 25 % innerhalb von Obeliskgebieten.
 - Passende Landschaften für alle Familien, einschließlich klassifizierter
@@ -27,7 +28,8 @@ behauptet.
 Fehlende `generationRevision` bedeutet Revision 1. Diese behält ausdrücklich
 ihre alte Würfelanordnung einschließlich Leerbereichen, Biom-/Geländeprüfungen
 und Koloss-Suchreihenfolge. Die gepinnten Strukturressourcen werden nicht
-geändert. Neue Vorgaben werden nicht auf gespeicherte Weltpläne übertragen.
+geändert. Ältere Modversionen lehnen die neue v4-Kennung ab. Unpassende
+Kombinationen aus Plan-Kennung und Generierungsrevision werden zurückgewiesen. Neue Vorgaben werden nicht auf gespeicherte Weltpläne übertragen.
 
 ## Prüfung
 

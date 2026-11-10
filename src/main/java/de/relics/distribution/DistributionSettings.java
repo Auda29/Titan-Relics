@@ -16,7 +16,10 @@ public record DistributionSettings(int cellSize,int minDistance,int obeliskDista
     public DistributionSettings(int cellSize,int minDistance,int obeliskDistance,int regionRadius,List<Integer> outside,List<Integer> inside,BiomeRules biomes) {
         this(cellSize,minDistance,obeliskDistance,regionRadius,outside,inside,biomes,DistributionPlanner.UNIQUE_MIN);
     }
-    public static final String POLICY="relics-distribution-v3-settings";
+    public static final String LEGACY_POLICY="relics-distribution-v3-settings";
+    public static final String POLICY="relics-distribution-v4-discoveries";
+    public static boolean settingsPolicy(String policy){return LEGACY_POLICY.equals(policy) || POLICY.equals(policy);}
+    public String policy(){return generationRevision==1?LEGACY_POLICY:POLICY;}
     public static final List<Integer> OUTSIDE=List.of(3000,250,250,200,200,200);
     public static final List<Integer> INSIDE=List.of(3000,1500,1500,200,200,200);
     public static final DistributionSettings LEGACY_EXPEDITION=new DistributionSettings(5000,2000,15000,6000,OUTSIDE,INSIDE);
