@@ -1,7 +1,7 @@
 # Your first relic expedition
 
-This guide describes the current development branch. The revision-2 generation
-settings below are for upcoming builds; released Beta 1 and Beta 2 worlds keep
+This guide describes Beta 3. Its revision-2 generation settings apply when a new
+preset is selected for a new world. Existing Beta 1 and Beta 2 worlds keep
 their saved rules. Start with the [installation guide](INSTALLATION.md) for
 files and dependencies.
 

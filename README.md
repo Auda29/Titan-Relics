@@ -13,9 +13,9 @@ The landscape leaves much of its history for you to interpret.
 
 ## Downloads and release status
 
-The current release candidate is **1.0.0-beta.2**, built for all eight targets by
+The current release candidate is **1.0.0-beta.3**, built for all eight targets by
 the [GitHub release workflow](https://github.com/Auda29/Titan-Relics/actions/workflows/release.yml).
-The [Beta 2 release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.2)
+The [Beta 3 release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.3)
 receives downloads after validation. Choose one matching JAR and install its
 dependencies separately. Verify downloads against that release's `SHA256SUMS.txt`.
 
@@ -26,21 +26,23 @@ CurseForge spells `+mc` as `-mc` in download filenames.
 
 | Minecraft | Loader | Beta filename | Java |
 |---|---|---|---|
-| 1.21.1 | Fabric | `relics-1.0.0-beta.2+mc1.21.1.jar` | 21+ |
-| 1.21.1 | NeoForge | `relics-1.0.0-beta.2+mc1.21.1-neoforge.jar` | 21+ |
-| 1.21.11 | Fabric | `relics-1.0.0-beta.2+mc1.21.11.jar` | 21+ |
-| 1.21.11 | NeoForge | `relics-1.0.0-beta.2+mc1.21.11-neoforge.jar` | 21+ |
-| 26.2 | Fabric | `relics-1.0.0-beta.2+mc26.2.jar` | 25+ |
-| 26.2 | NeoForge | `relics-1.0.0-beta.2+mc26.2-neoforge.jar` | 25+ |
-| 26.3 | Fabric | `relics-1.0.0-beta.2+mc26.3.jar` | 25+ |
-| 26.3 | NeoForge | `relics-1.0.0-beta.2+mc26.3-neoforge.jar` | 25+ |
+| 1.21.1 | Fabric | `relics-1.0.0-beta.3+mc1.21.1.jar` | 21+ |
+| 1.21.1 | NeoForge | `relics-1.0.0-beta.3+mc1.21.1-neoforge.jar` | 21+ |
+| 1.21.11 | Fabric | `relics-1.0.0-beta.3+mc1.21.11.jar` | 21+ |
+| 1.21.11 | NeoForge | `relics-1.0.0-beta.3+mc1.21.11-neoforge.jar` | 21+ |
+| 26.2 | Fabric | `relics-1.0.0-beta.3+mc26.2.jar` | 25+ |
+| 26.2 | NeoForge | `relics-1.0.0-beta.3+mc26.2-neoforge.jar` | 25+ |
+| 26.3 | Fabric | `relics-1.0.0-beta.3+mc26.3.jar` | 25+ |
+| 26.3 | NeoForge | `relics-1.0.0-beta.3+mc26.3-neoforge.jar` | 25+ |
 
-This beta adds an explained rejection of incompatible saved-world setups and
-makes Discoveries the factory preset for new installations without a saved choice.
-The full natural Survival playthrough will use this beta. Balance, discovery pacing
-and long-session behavior remain under review. See the
-[release notes](docs/releases/1.0.0-beta.2.md) for known limits and the
-[publication record](docs/releases/BETA_1_0_0_PUBLICATION.md) for each platform's status.
+Beta 3 redesigns the generation menu around simple play styles and an optional
+advanced view. New presets favor skulls and search for a closer Colossus. Existing
+worlds keep their saved rules; use a new world and explicitly select a preset to
+test the new distribution. This testing release includes unresolved Sword Skull
+ground-contact findings and has not completed visual menu or Survival acceptance.
+See the [release notes](docs/releases/1.0.0-beta.3.md) for exact limits and test steps.
+The [Beta 1 publication record](docs/releases/BETA_1_0_0_PUBLICATION.md) is historical;
+new platform availability is recorded on each release's upload receipt.
 The earlier [Alpha 5.0.5](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.5)
 remains available as a historical release.
 
