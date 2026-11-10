@@ -1,8 +1,5 @@
-# Website title image
+# Website image mapping
 
-`colossus-v3-front.png` is a byte-for-byte copy of
-`relics/colossus/demo/colossus-v3-shaders-river.png`.
-It is the author's frontal Minecraft shader capture from 1 October 2026,
-showing the earlier Colossus V3 rather than the current beta model.
-The website uses CSS positioning and zoom; the source pixels are unchanged.
-See the original capture notes in `relics/colossus/demo/README.md`.
+The website uses the current Beta 3 Colossus front view as its title image.
+See `../images/beta3/README.md` for the author-corrected subject labels.
+Historical image filenames are retained; some do not match their subjects.
