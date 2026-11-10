@@ -240,9 +240,14 @@ public final class DistributionRuntime implements AutoCloseable {
         CompletableFuture<Site> result;
         boolean ordinaryChunk=runtime.journal.state.policy.equals(LEGACY_POLICY)
                 ?pos.x()==ordinary.chunkX() && pos.z()==ordinary.chunkZ():LocationSearch.mayContain(ordinary,pos.x(),pos.z());
-        boolean possibleLarge=distance(large,runtime.journal.state.bootstrapX,runtime.journal.state.bootstrapZ)>=runtime.journal.state.colossusMinDistance()-182;
-        if(pos.x()==large.chunkX() && pos.z()==large.chunkZ() && possibleLarge) {
-            result=runtime.ready.thenCompose(ignored->runtime.unique!=null && runtime.unique.candidate().cell().equals(largeCell)
+        int revision=runtime.journal.state.settings==null?1:runtime.journal.state.settings.generationRevision();
+        // New local probes may start away from the nominal anchor. Test the actual
+        // chunk distance so spawn's bounded initial search never waits on itself.
+        boolean possibleLarge=(revision==1?distance(large,runtime.journal.state.bootstrapX,runtime.journal.state.bootstrapZ)
+                :Math.hypot((double)pos.getMinBlockX()+8-runtime.journal.state.bootstrapX,(double)pos.getMinBlockZ()+8-runtime.journal.state.bootstrapZ))>=runtime.journal.state.colossusMinDistance()-182;
+        if(ColossusSearch.mayContain(large,pos.x(),pos.z(),revision) && possibleLarge) {
+            result=runtime.ready.thenCompose(ignored->runtime.unique!=null
+                    && runtime.unique.candidate().chunkX()==pos.x() && runtime.unique.candidate().chunkZ()==pos.z()
                     ?CompletableFuture.completedFuture(runtime.unique):ordinaryChunk?runtime.ordinaryAt(cell,pos):CompletableFuture.completedFuture(null));
         } else if(ordinaryChunk)result=runtime.ordinaryAt(cell,pos);
         else result=CompletableFuture.completedFuture(null);

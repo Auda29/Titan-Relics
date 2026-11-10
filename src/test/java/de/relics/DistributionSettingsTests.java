@@ -110,6 +110,10 @@ public final class DistributionSettingsTests {
         check(nearby.size()>oldSearch.size(),"new search tests multiple local positions rather than abandoning a cell");
         check(nearby.equals(ColossusSearch.annulus(731204,-336,80,4000,8000,-100000,-100000,100000,100000,2)),"new search resumes the same candidate cursor after restart");
         check(new HashSet<>(nearby).size()==nearby.size(),"unique local probes never repeat");
+        Candidate moved=nearby.stream().filter(c->{var nominal=candidate(731204,c.cell(),true);return c.x()!=nominal.x() || c.z()!=nominal.z();}).findFirst().orElseThrow();
+        Candidate nominal=candidate(731204,moved.cell(),true);
+        check(ColossusSearch.mayContain(nominal,moved.chunkX(),moved.chunkZ(),2),"actual offset Colossus chunk enters the production start gate");
+        check(!ColossusSearch.mayContain(nominal,moved.chunkX(),moved.chunkZ(),1),"historical gate remains restricted to the nominal chunk");
         double last=0;
         for(Candidate c:nearby){double d=distance(c,-336,80);check(c.unique() && d>=4000 && d<8000 && d>=last,"new probes are unique, inside the ring and nearest first");last=d;}
         for(boolean regional:new boolean[]{false,true}) {

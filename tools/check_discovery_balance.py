@@ -43,6 +43,7 @@ def main():
     ap.add_argument('--accept-eula', action='store_true')
     ap.add_argument('--preserve-fixture', action='store_true')
     ap.add_argument('--verify-placement', action='store_true')
+    ap.add_argument('--released-artifact', type=Path, help='Additionally prove that an older binary rejects the new world policy')
     args = ap.parse_args()
     fixture, output, artifact = args.fixture.resolve(), args.output.resolve(), args.artifact.resolve()
     if not args.accept_eula:
@@ -136,13 +137,14 @@ def main():
                     time.sleep(2)
                 record['cases'] = {name: {k: v for k, v in result.items() if k not in ('sites', 'colossus', 'settings', 'slope_only_sites', 'expanded_crown_sites')} for name, result in audit['cases'].items()}
                 if args.verify_placement and seed == args.seed[0]:
-                    selected = []
+                    selected = [audit['cases']['discoveries']['colossus']]
                     for family in ('titan_skull', 'titan_skull_2'):
                         choices = [s for s in audit['cases']['discoveries']['sites'] if s['asset']==family or family=='titan_skull' and s['asset'].startswith('titan_skull_') and s['asset']!='titan_skull_2']
                         if not choices:
                             raise AssertionError('No accepted natural '+family+' in verification window')
                         preferred = audit['cases']['discoveries']['slope_only_sites' if family=='titan_skull_2' else 'expanded_crown_sites']
                         site = preferred[0] if preferred else choices[0]; selected.append(site)
+                    for site in selected:
                         x1,z1,x2,z2 = site['minX'],site['minZ'],site['maxX'],site['maxZ']
                         console.command(f'forceload add {x1} {z1} {x2} {z2}', r'Marked|force.loaded|already|No chunks', timeout=60)
                         for x,z in ((x1,z1),(x2,z1),(x1,z2),(x2,z2)):
@@ -151,8 +153,7 @@ def main():
                                 if time.monotonic()>loaded_deadline:
                                     raise TimeoutError('Natural target chunk did not finish')
                                 time.sleep(1)
-                    console.command('save-all flush', r'Saved the game', timeout=90)
-                    for site in selected:
+                        console.command('save-all flush', r'Saved the game', timeout=90)
                         console.command(f'forceload remove {site["minX"]} {site["minZ"]} {site["maxX"]} {site["maxZ"]}', r'Unmarked|not marked|No chunks', timeout=60)
                     record['naturally_generated_assets'] = [s['asset'] for s in selected]
             console.command('stop')
@@ -168,6 +169,18 @@ def main():
                 if not verification['passed']:
                     raise AssertionError('Natural block/contact verification failed; see '+str(run/'natural-block-verification.json'))
                 record['natural_block_verification_passed'] = True
+            if args.released_artifact and not preserve and seed == args.seed[0]:
+                classes = output/'released-guard-classes'
+                classes.mkdir(exist_ok=True)
+                gson = next((fixture/'runtime/libraries/com/google/code/gson/gson').glob('*/*.jar'))
+                cp = os.pathsep.join([str(args.released_artifact.resolve()), str(gson)])
+                subprocess.run([str(args.java.resolve().with_name('javac')), '--release', '21',
+                    '-classpath', cp, '-d', str(classes), str(ROOT/'src/test/java/de/relics/ReleasedWorldGuardTests.java')], check=True)
+                subprocess.run([str(args.java.resolve()), '-Xmx128M', '-XX:ActiveProcessorCount=1',
+                    '-classpath', os.pathsep.join([str(classes), cp]), 'de.relics.ReleasedWorldGuardTests',
+                    str(run/'world/data/relics_distribution_v1.json')], check=True)
+                record['released_binary_rejects_v4_without_writes'] = True
+                record['released_binary_sha256'] = digest(args.released_artifact)
             record['passed'] = True
         except BaseException as error:
             record['error'] = str(error)

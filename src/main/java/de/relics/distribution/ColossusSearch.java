@@ -6,6 +6,9 @@ import static de.relics.distribution.DistributionPlanner.*;
 /** Revision 2 tests nearby positions in each intersecting cell, nearest first. */
 public final class ColossusSearch {
     private ColossusSearch() { }
+    public static boolean mayContain(Candidate nominal,int chunkX,int chunkZ,int revision) {
+        return revision==1?nominal.chunkX()==chunkX && nominal.chunkZ()==chunkZ:LocationSearch.mayContain(nominal,chunkX,chunkZ);
+    }
     public static List<Candidate> annulus(long seed,int spawnX,int spawnZ,int lower,int upper,
                                           int minX,int minZ,int maxX,int maxZ,int revision) {
         if(revision==1)return DistributionPlanner.annulus(seed,spawnX,spawnZ,lower,upper,minX,minZ,maxX,maxZ);
