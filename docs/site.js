@@ -1,6 +1,7 @@
 const versionSelect = document.querySelector('#minecraft-version');
 const loaderSelect = document.querySelector('#mod-loader');
 const release = '1.0.0-beta.3';
+const english = document.documentElement.lang === 'en';
 const targets = {
   '1.21.1': { java: '21+', fabricApi: '0.116.17+1.21.1', lithostitched: '1.8.0', neoForge: '21.1.256' },
   '1.21.11': { java: '21+', fabricApi: '0.141.6+1.21.11', lithostitched: '1.7.2', neoForge: '21.11.48' },
@@ -14,7 +15,10 @@ function updateDownload() {
   const target = targets[game];
   const file = `relics-${release}+mc${game}${loader === 'neoforge' ? '-neoforge' : ''}.jar`;
   document.querySelector('#jar-download').href = `https://github.com/Auda29/Titan-Relics/releases/download/v${release}/${encodeURIComponent(file)}`;
-  document.querySelector('#jar-download').setAttribute('aria-label', `Titan Relics ${release} für Minecraft ${game} mit ${loader === 'fabric' ? 'Fabric' : 'NeoForge'} herunterladen`);
+  const loaderName = loader === 'fabric' ? 'Fabric' : 'NeoForge';
+  document.querySelector('#jar-download').setAttribute('aria-label', english
+    ? `Download Titan Relics ${release} for Minecraft ${game} with ${loaderName}`
+    : `Titan Relics ${release} für Minecraft ${game} mit ${loaderName} herunterladen`);
   document.querySelector('#file-name').textContent = file;
   document.querySelector('#java-requirement').textContent = `Java ${target.java} · ${loader === 'fabric' ? 'Fabric Loader 0.19.5+' : `NeoForge ${target.neoForge}`}`;
   const dependencies = document.querySelector('#dependencies');
@@ -27,10 +31,12 @@ function updateDownload() {
   };
   if (loader === 'fabric') {
     addDependency(`Fabric API ${target.fabricApi}`, 'https://modrinth.com/mod/fabric-api');
-    dependencies.append(' und ');
+    dependencies.append(english ? ' and ' : ' und ');
   }
   addDependency(`Lithostitched ${target.lithostitched}`, 'https://modrinth.com/mod/lithostitched');
-  dependencies.append(`, jeweils für ${game} / ${loader === 'fabric' ? 'Fabric' : 'NeoForge'}.`);
+  dependencies.append(english
+    ? `, each for ${game} / ${loaderName}.`
+    : `, jeweils für ${game} / ${loaderName}.`);
 }
 versionSelect.addEventListener('change', updateDownload);
 loaderSelect.addEventListener('change', updateDownload);
@@ -48,7 +54,7 @@ function showImage(index) {
   document.querySelector('#lightbox-image').src = link.href;
   document.querySelector('#lightbox-image').alt = image.alt;
   document.querySelector('#lightbox-title').textContent = link.dataset.title;
-  document.querySelector('#lightbox-count').textContent = `${activeIndex + 1} / ${galleryLinks.length} · Beta 3 mit Shadern`;
+  document.querySelector('#lightbox-count').textContent = `${activeIndex + 1} / ${galleryLinks.length} · ${english ? 'Beta 3 with shaders' : 'Beta 3 mit Shadern'}`;
 }
 
 galleryLinks.forEach((link, index) => {

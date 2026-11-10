@@ -1,6 +1,6 @@
 # Titan Relics
 
-[Project website](https://auda29.github.io/Titan-Relics/) · [Downloads](https://github.com/Auda29/Titan-Relics/releases/latest)
+[Website (DE)](https://auda29.github.io/Titan-Relics/) · [Website (EN)](https://auda29.github.io/Titan-Relics/en.html) · [Downloads](https://github.com/Auda29/Titan-Relics/releases/latest)
 
 *Colossal ruins of a forgotten age*
 
