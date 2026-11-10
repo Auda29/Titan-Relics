@@ -62,6 +62,12 @@ Karten und Belohnungsdaten werden nicht migriert.
   Testquellen wurden erfolgreich kompiliert. Der lokale Fabric-1.21.1-Build
   einschließlich der Asset-Prüfung ist erfolgreich.
 - Die vollständige Python-Prüfung mit 195 Tests ist erfolgreich.
+- NeoForge 1.21.1 und 26.2 bestehen lokal jeweils den vollständigen Build mit
+  Test-JAR und Asset-Prüfung. Der optionale Fabric-Helfer für den Spawn-Radius
+  bleibt auf Fabric beschränkt und wird nicht in NeoForge-Testquellen übernommen.
+  Die strikte Prüfung unbekannter Fabric-Ereignisse im NeoForge-Adapter bleibt
+  erhalten. Laufzeitquellen und native Suchmessungen ändern sich durch diese
+  Trennung nicht.
 
 Der geprüfte, unveröffentlichte Fabric-1.21.1-Kandidat trägt noch die vorhandene
 Versionsmetadatenangabe `1.0.0-beta.3`, ist aber **kein Ersatz** für das
