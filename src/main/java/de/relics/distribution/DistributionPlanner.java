@@ -56,7 +56,7 @@ public final class DistributionPlanner {
     }
     public DistributionPlanner(String policy,DistributionSettings settings,long seed,Set<Family> enabled,Validator validator,
             Supplier<Site> unique,Supplier<Boolean> unavailable,int bootstrapX,int bootstrapZ,int bootstrapUncertainty) {
-        if(!Set.of(POLICY,LEGACY_POLICY,DistributionSettings.LEGACY_POLICY,DistributionSettings.POLICY).contains(policy))throw new IllegalArgumentException("Unsupported distribution policy: "+policy);
+        if(!Set.of(POLICY,LEGACY_POLICY,DistributionSettings.LEGACY_POLICY,DistributionSettings.DISCOVERIES_POLICY,DistributionSettings.POLICY).contains(policy))throw new IllegalArgumentException("Unsupported distribution policy: "+policy);
         this.settings=Objects.requireNonNull(settings);
         if(DistributionSettings.settingsPolicy(policy) && !policy.equals(settings.policy()))
             throw new IllegalArgumentException("Generation revision does not match planning policy");

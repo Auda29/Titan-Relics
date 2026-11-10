@@ -105,7 +105,7 @@ def main():
         families={} if args.biome_mode=='standard' or args.historical_journal else {name:dict(mode='LANDSCAPES',selected=[]) for name in ('colossus','obelisk','titan_skull','titan_skull_2','ruined_tower','small_colossus','world_tree')}
         if args.biome_mode=='empty-colossus':families={'colossus':dict(mode='CUSTOM',selected=[])}
         colossus=({'expedition':30000,'balanced':15000,'discovery':8000,'tower-only':8000} if args.historical_journal else {'expedition':15000,'balanced':8000,'discovery':4000,'tower-only':4000})[preset]
-        return dict(cellSize=cell,minDistance=distance,obeliskDistance=obelisks,regionRadius=region,colossusMinDistance=colossus,generationRevision=1 if args.historical_journal else 2,biomes={'families':families},
+        return dict(cellSize=cell,minDistance=distance,obeliskDistance=obelisks,regionRadius=region,colossusMinDistance=colossus,generationRevision=1 if args.historical_journal else 3,biomes={'families':families},
                     outside=[0,0,0,10000,0,0] if preset=='tower-only' else ([3000,250,250,200,200,200] if args.historical_journal else [3000,1500,1500,200,200,200]),
                     inside=[0,0,0,10000,0,0] if preset=='tower-only' else ([3000,1500,1500,200,200,200] if args.historical_journal else [3000,2500,2500,200,200,200]))
     def defaults(preset):
@@ -193,7 +193,7 @@ def main():
                     snapshot=json.loads(envelope['payload'])
                     if args.biome_mode=='empty-colossus':assert snapshot['unavailable'] and snapshot.get('unique') is None,'Empty Colossus selection must resolve unavailable, never search forever'
                     historical=iteration and args.historical_journal
-                    assert snapshot['policy']==('relics-distribution-v2-local64-r3072' if historical else 'relics-distribution-v3-settings' if args.historical_journal else 'relics-distribution-v4-discoveries')
+                    assert snapshot['policy']==('relics-distribution-v2-local64-r3072' if historical else 'relics-distribution-v3-settings' if args.historical_journal else 'relics-distribution-v5-colossus-search')
                     expected_settings=None if historical else settings(args.distribution_preset)
                     assert snapshot.get('settings')==expected_settings,('Saved settings differ',snapshot.get('settings'),expected_settings)
                     invariant={key:snapshot.get(key) for key in ('policy','settings','unique','fingerprint','spawnX','spawnZ')}

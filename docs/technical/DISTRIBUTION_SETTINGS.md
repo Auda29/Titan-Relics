@@ -99,13 +99,38 @@ Obelisks. Other family shares remain unchanged. Smaller grids provide more
 opportunities per area, while each preset still enforces its minimum separation.
 The ordinary minimum distance includes the reserved large-Colossus location.
 
-Revision 2 checks up to 64 deterministic positions per intersecting 5,000-block
+Revision 2, shipped in Beta 3, checks up to 64 deterministic positions per intersecting 5,000-block
 Colossus cell, orders positions by distance, and tests them in expanding rings.
 The first ring is 4,000–8,000 blocks for Discoveries, 8,000–16,000 for Balanced,
 and 15,000–30,000 for Expedition. These are search aims, not hard maximum travel
 distances. The search expands if no valid site exists. There is still one
 unique Colossus per supported enabled world, and no unsuitable terrain is forced
 to accept a model.
+
+New presets now select revision 3. Its Colossus search uses separate 1,000 × 1,000
+block search cells and 1,000-block radial bands, starting at the chosen minimum.
+It checks 16 spread-out, seed-jittered chunk centers per cell in the current band.
+Cells with a compatible center biome and a valid model envelope receive up to
+48 additional probes before the search advances to the next band. The combined
+passes cover one position in each 125 × 125 block tile. Positions in each pass
+are ordered by distance. Refinement may return to a closer position in the same
+band; this is a bounded sample, not an exhaustive nearest-site proof.
+
+For Discoveries, the bands from 4,000 through 8,000 blocks are therefore searched
+before any more distant band. This is a preferred area, not a guaranteed maximum.
+No height, water, biome or model-fit requirements are relaxed. The ordinary
+relic grid, ticket shares and spacing algorithm are unchanged. A different
+Colossus destination can still change which nearby repeatable sites pass its
+reserved clearance.
+
+Revision 3 journals include `colossusSearch`: the coarse/refinement pass,
+refinement-cell set, checked-position totals, completed bands and first-failure
+counts for `BIOME_CENTER`, `BIOME_FOOTPRINT`, `BOUNDS`, `TERRAIN` and `DISTANCE`.
+The state is committed with the cursor and is exposed by
+`/relicsdistribution status`; the final totals also appear in the server log.
+`TERRAIN` groups the existing native slope, height, dry-land and river/ocean
+conditions. The counters do not claim a separate reason for every condition
+that a rejected position might fail.
 
 The Colossus-distance revision starts with Alpha 5.0.5; it is not in Alpha 5.0.4.
 Previously saved configurations and worlds without `colossusMinDistance` retain
@@ -162,7 +187,7 @@ distance combinations and totals above 100% fail validation.
     "obeliskDistance": 6000,
     "regionRadius": 2400,
     "colossusMinDistance": 4000,
-    "generationRevision": 2,
+    "generationRevision": 3,
     "outside": [3000, 1500, 1500, 200, 200, 200],
     "inside": [3000, 2500, 2500, 200, 200, 200],
     "biomes": {
@@ -189,7 +214,7 @@ keys are `colossus`, `obelisk`, `titan_skull`, `titan_skull_2`, `ruined_tower`,
 `selected` contains exact namespaced biome IDs for Custom. Old v3 journals
 without biome rules also retain Standard behavior.
 Do not edit the world journal to apply density changes. Its settings are frozen
-under `relics-distribution-v4-discoveries`; old policies retain their historical
+under `relics-distribution-v5-colossus-search`; old policies retain their historical
 settings and fingerprint protection. Revision 1 preserves the released v2
 ticket layout and coordinates exactly. Generator, biome, asset and world-border
 changes remain subject to the existing fingerprint guard.
@@ -200,27 +225,34 @@ and [world-creation/biome revision](../testing/DISTRIBUTION_WORLD_MENU_20261101.
 ## Generation revisions and existing worlds
 
 `generationRevision` is stored inside settings. Missing values mean revision 1.
-Revision 2 uses the new `relics-distribution-v4-discoveries` journal policy, so
+Revision 2 uses the `relics-distribution-v4-discoveries` journal policy, so
 released binaries reject these worlds instead of silently applying older rules.
 Unknown revisions and mismatched policy/revision pairs are rejected. Revision 1 retains the released ticket layout,
 biome footprint checks, Sword Skull slope and Colossus candidate order, including
 unfinished search cursors. Existing checksummed plans, destinations, maps and
 rewards are not migrated by this change. All pinned structure assets stay intact.
 
-Revision 2 uses the new presets and effective terrain rules. Matching landscapes
+Revision 2 introduced the skull-focused presets and effective terrain rules. Matching landscapes
 and Custom biome selections apply across the sampled footprint, with one coherent
 skull palette. Legacy fixed palette tags no longer veto these explicit selections.
 Standard mode retains its fixed palette tags. Ocean, river, dry-ground, vertical
 bounds and spacing checks remain. Only the Sword Skull's relative height
 tolerance changes from ±4 to ±8 blocks; crowned skull slope limits are unchanged.
 
+Revision 3 uses `relics-distribution-v5-colossus-search` and changes only the
+Colossus search strategy. Its terrain predicates are identical to revision 2.
+Revision 2 destinations and unfinished search cursors retain their previous
+candidate order and start gates. Older binaries reject the revision 3 policy.
+
 The settings screen preserves an existing revision when editing individual values;
-selecting a new preset opts future worlds into revision 2. Existing worlds remain
+selecting a new preset opts future worlds into revision 3. Existing worlds remain
 read-only in that screen. There is no retrogen or automatic world migration.
 
 See the [balance verification report](../testing/SKULL_DISTRIBUTION_BALANCE_20261110.md)
 for measured native-generator results and their limits. Ticket shares alone are
 not treated as evidence of actual discovery density.
+The [Colossus search report](../testing/COLOSSUS_SEARCH_20261110.md) records the
+separate revision-3 search checks and compatibility evidence.
 
 ## Simple and advanced menu views
 

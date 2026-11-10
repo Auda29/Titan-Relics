@@ -9,7 +9,7 @@ public final class GenerationRules {
     public static JsonObject terrain(JsonObject original,Family family,BiomeRules.Mode mode,int revision) {
         JsonObject result=original.deepCopy();
         if(revision==1)return result;
-        if(revision!=2)throw new IllegalArgumentException("Unknown terrain revision");
+        if(revision!=2 && revision!=3)throw new IllegalArgumentException("Unknown terrain revision");
         adjust(result,family,mode);
         return result;
     }

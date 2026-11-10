@@ -182,18 +182,21 @@ public final class TerrainValidator implements Validator {
         return profile;
     }
     public boolean hasPossibleBiome(Family family){return generator.getBiomeSource().possibleBiomes().stream().anyMatch(b->biomeProfile(b,family)!=null);}
-    @Override public Site validate(Candidate c,Family family) {
+    public record Validation(Site site,ColossusSearch.Rejection rejection) { }
+    @Override public Site validate(Candidate c,Family family) {return inspect(c,family).site();}
+    /** First failing check, with the same predicates and query order as ordinary validation. */
+    public Validation inspect(Candidate c,Family family) {
         int surface=generator.getFirstFreeHeight(c.x(),c.z(),Heightmap.Types.WORLD_SURFACE_WG,height,random);
         var biome=generator.getBiomeSource().getNoiseBiome(QuartPos.fromBlock(c.x()),QuartPos.fromBlock(surface),QuartPos.fromBlock(c.z()),random.sampler());
         // Biome tags choose one crowned palette. No failed-palette or family reroll.
-        Profile p=biomeProfile(biome,family);if(p==null){biomeRejectedProbes.increment();return null;}
+        Profile p=biomeProfile(biome,family);if(p==null){biomeRejectedProbes.increment();return new Validation(null,ColossusSearch.Rejection.BIOME_CENTER);}
         Rotation rotation=Rotation.values()[c.rotation()];
         var zero=p.element.getBoundingBox(templates,BlockPos.ZERO,rotation);
         int ox=c.x()-Math.floorDiv(zero.minX()+zero.maxX(),2),oz=c.z()-Math.floorDiv(zero.minZ()+zero.maxZ(),2);
         BlockPos origin=new BlockPos(ox,surface-p.ground,oz);
         var box=p.element.getBoundingBox(templates,origin,rotation);
         if(box.minX()<minX || box.maxX()>maxX || box.minZ()<minZ || box.maxZ()>maxZ
-                || box.minY()<height.getMinY()+8 || box.maxY()>height.getMaxY()-8){boundsRejectedProbes.increment();return null;}
+                || box.minY()<height.getMinY()+8 || box.maxY()>height.getMaxY()-8){boundsRejectedProbes.increment();return new Validation(null,ColossusSearch.Rejection.BOUNDS);}
         var context=new Structure.GenerationContext(registries,generator,generator.getBiomeSource(),random,templates,
                 seed,new ChunkPos(c.chunkX(),c.chunkZ()),height,b->biomeRules.rule(family).mode()==BiomeRules.Mode.STANDARD?p.holder.value().biomes().contains(b):b.equals(biome));
         Terrain terrain=terrainRules.get(p.id);
@@ -201,10 +204,10 @@ public final class TerrainValidator implements Validator {
             for(int z=c.z()-terrain.radius;z<=c.z()+terrain.radius;z+=terrain.step) {
                 var sample=generator.getBiomeSource().getNoiseBiome(QuartPos.fromBlock(x),QuartPos.fromBlock(surface),QuartPos.fromBlock(z),random.sampler());
                 Profile selected=biomeProfile(sample,family);
-                if(selected==null || !selected.id.equals(p.id)){biomeRejectedProbes.increment();return null;}
+                if(selected==null || !selected.id.equals(p.id)){biomeRejectedProbes.increment();return new Validation(null,ColossusSearch.Rejection.BIOME_FOOTPRINT);}
             }
-        if(!terrain.condition.test(context,new BlockPos(c.x(),surface,c.z()))){terrainRejectedProbes.increment();return null;}
-        return new Site(c,p.id,box.minX()+box.maxX(),box.minZ()+box.maxZ(),surface,origin.getX(),origin.getY(),origin.getZ(),box.minX(),box.minZ(),box.maxX(),box.maxZ());
+        if(!terrain.condition.test(context,new BlockPos(c.x(),surface,c.z()))){terrainRejectedProbes.increment();return new Validation(null,ColossusSearch.Rejection.TERRAIN);}
+        return new Validation(new Site(c,p.id,box.minX()+box.maxX(),box.minZ()+box.maxZ(),surface,origin.getX(),origin.getY(),origin.getZ(),box.minX(),box.minZ(),box.maxX(),box.maxZ()),null);
     }
     public StructureStart start(Site site) {
         Profile p=profiles.get(site.asset());var origin=new BlockPos(site.originX(),site.originY(),site.originZ());

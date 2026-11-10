@@ -122,7 +122,7 @@ public final class DistributionSettingsTests {
             check(counts.get(Family.SKULL)==(regional?2500:1500) && counts.get(Family.SKULL_2)==(regional?2500:1500),"new skull weights are exact before terrain rejection");
             check(counts.get(Family.TOWER)==200 && counts.get(Family.TREE)==200 && counts.get(Family.SMALL)==200,"non-skull family shares preserved");
         }
-        check(DistributionSettings.DISCOVERY.generationRevision()==2 && DistributionSettings.LEGACY_EXPEDITION.generationRevision()==1,"new and released generation contracts remain distinct");
+        check(DistributionSettings.DISCOVERY.generationRevision()==3 && DistributionSettings.LEGACY_EXPEDITION.generationRevision()==1,"new and released generation contracts remain distinct");
         for(Family f:Family.values())if(f!=Family.EMPTY)check(DistributionSettings.DISCOVERY.biomes().rule(f).mode()==BiomeRules.Mode.LANDSCAPES,"presets include matching landscapes for every family");
         var predicate=JsonParser.parseString("{\"type\":\"lithostitched:all_of\",\"conditions\":[{\"type\":\"lithostitched:in_biome\",\"biomes\":\"#relics:has_structure/titan_skull\"},{\"type\":\"relics:dry_land\"},{\"type\":\"lithostitched:not\",\"condition\":{\"type\":\"lithostitched:in_biome\",\"biomes\":\"#minecraft:is_ocean\"}}]}").getAsJsonObject();
         check(GenerationRules.terrain(predicate,Family.SKULL,BiomeRules.Mode.LANDSCAPES,1).equals(predicate),"old landscape worlds keep their original footprint predicates");
@@ -137,7 +137,9 @@ public final class DistributionSettingsTests {
         var actualCodec=GenerationRules.terrain(encodedSlope,Family.SKULL_2,BiomeRules.Mode.LANDSCAPES,2);
         check(actualCodec.getAsJsonArray("permitted_range").get(1).getAsInt()==8,"native 1.21.1 codec array form is widened without object casts");
         check(encodedSlope.getAsJsonArray("permitted_range").get(0).getAsInt()==-4,"native encoded source remains immutable");
-        check(DistributionSettings.DISCOVERY.policy().equals("relics-distribution-v4-discoveries") && DistributionSettings.LEGACY_EXPEDITION.policy().equals("relics-distribution-v3-settings"),"new journals use a policy rejected by released binaries");
+        check(GenerationRules.terrain(encodedSlope,Family.SKULL_2,BiomeRules.Mode.LANDSCAPES,3).equals(actualCodec),"fine Colossus search does not change terrain predicates");
+        rejected(()->new DistributionSettings(2000,800,6000,2400,DistributionSettings.SKULL_OUTSIDE,DistributionSettings.SKULL_INSIDE,BiomeRules.LANDSCAPES,4000,4),"unknown future revision is rejected");
+        check(DistributionSettings.DISCOVERY.policy().equals("relics-distribution-v5-colossus-search") && DistributionSettings.LEGACY_EXPEDITION.policy().equals("relics-distribution-v3-settings"),"new journals use a policy rejected by released binaries");
         rejected(()->new DistributionPlanner(DistributionSettings.LEGACY_POLICY,DistributionSettings.DISCOVERY,1,Set.of(),(c,f)->null,()->null,()->true,0,0,0),"new rules cannot masquerade as a released plan");
         // New global defaults must not alter the checksummed per-world snapshot.
         Path world=root.resolve("world.json");var initial=new DistributionJournal.State();initial.settings=towerOnly;initial.policy=towerOnly.policy();
@@ -164,9 +166,10 @@ public final class DistributionSettingsTests {
         check(new DistributionJournal(oldWorld,null).state.settings.generationRevision()==1,"missing revision retains the released algorithm");
         check(Files.readString(oldWorld).equals(oldEnvelope.toString()),"old world read preserves original journal bytes");
         var future=new DistributionJournal.State();future.settings=DistributionSettings.DISCOVERY;future.policy=DistributionSettings.POLICY;
+        future.colossusSearch=new ColossusSearch.Progress();
         future.fingerprint="c".repeat(64);future.enabled=EnumSet.allOf(Family.class);future.minX=future.minZ=-100000;future.maxX=future.maxZ=100000;future.frozen=true;
         Path futureFile=root.resolve("new-revision.json");new DistributionJournal(futureFile,future).flush();
-        check(new DistributionJournal(futureFile,null).state.settings.generationRevision()==2,"new policy and revision survive a save/reload");
+        check(new DistributionJournal(futureFile,null).state.settings.generationRevision()==3,"new policy and revision survive a save/reload");
         var mismatch=JsonParser.parseString(Files.readString(futureFile)).getAsJsonObject();var mismatchedPayload=JsonParser.parseString(mismatch.get("payload").getAsString()).getAsJsonObject();
         mismatchedPayload.addProperty("policy",DistributionSettings.LEGACY_POLICY);mismatch.addProperty("payload",mismatchedPayload.toString());mismatch.addProperty("sha256",DistributionJournal.hash(mismatchedPayload.toString()));
         Files.writeString(futureFile,mismatch.toString());rejected(()->new DistributionJournal(futureFile,null),"mismatched policy and revision are rejected without migration");

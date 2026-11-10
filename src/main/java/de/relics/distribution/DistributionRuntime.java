@@ -54,7 +54,9 @@ public final class DistributionRuntime implements AutoCloseable {
         initial.interiors=fresh?de.relics.gameplay.NaturalInteriors.REVISION:DistributionJournal.interiorRevision(file);
         if(fresh){
             initial.settings=DistributionConfig.forNewWorld(level.getServer().getWorldPath(LevelResource.ROOT));initial.policy=initial.settings.policy();
-            initial.lower=initial.settings.colossusMinDistance();initial.upper=Math.multiplyExact(initial.lower,2);
+            initial.lower=initial.settings.colossusMinDistance();
+            initial.upper=initial.settings.generationRevision()==3?Math.addExact(initial.lower,ColossusSearch.BAND):Math.multiplyExact(initial.lower,2);
+            if(initial.settings.generationRevision()==3)initial.colossusSearch=new ColossusSearch.Progress();
         }
         DistributionSettings selectedSettings=fresh?initial.settings:new DistributionJournal(file,null).state.settings;
         BiomeRules rules=selectedSettings==null?BiomeRules.STANDARD:selectedSettings.biomes();
@@ -161,25 +163,30 @@ public final class DistributionRuntime implements AutoCloseable {
         var s=journal.state;
         if(!s.enabled.contains(Family.COLOSSUS)) {s.unavailable=true;s.unavailableReason="disabled before destination";commitResolution();return;}
         if(!validator.hasPossibleBiome(Family.COLOSSUS)){s.unavailable=true;s.unavailableReason="no allowed Colossus biomes in the frozen generator";commitResolution();return;}
+        boolean fine=s.settings!=null && s.settings.generationRevision()==3;
         long deadline=System.nanoTime()+2000000;
         for(int n=0;n<8;n++) {
             if(closed)return;
-            if(annulus==null)annulus=ColossusSearch.annulus(s.seed,s.spawnX,s.spawnZ,s.lower,s.upper,s.minX,s.minZ,s.maxX,s.maxZ,s.settings==null?1:s.settings.generationRevision());
+            if(annulus==null)annulus=fine
+                    ?ColossusSearch.fineAnnulus(s.seed,s.spawnX,s.spawnZ,s.lower,s.upper,s.minX,s.minZ,s.maxX,s.maxZ,s.colossusSearch)
+                    :ColossusSearch.annulus(s.seed,s.spawnX,s.spawnZ,s.lower,s.upper,s.minX,s.minZ,s.maxX,s.maxZ,s.settings==null?1:s.settings.generationRevision());
             if(s.cursor>=annulus.size()) {
+                if(fine && s.colossusSearch.refine()){s.cursor=0;annulus=null;break;}
                 double farthest=Math.max(Math.max(Math.hypot((double)s.minX-s.spawnX,(double)s.minZ-s.spawnZ),Math.hypot((double)s.maxX-s.spawnX,(double)s.maxZ-s.spawnZ)),
                         Math.max(Math.hypot((double)s.minX-s.spawnX,(double)s.maxZ-s.spawnZ),Math.hypot((double)s.maxX-s.spawnX,(double)s.minZ-s.spawnZ)));
                 if(s.upper>farthest+2){s.unavailable=true;s.unavailableReason="finite frozen world border exhausted";commitResolution();return;}
-                int increment=s.settings==null || s.colossusMinDistance()==UNIQUE_MIN?20000:s.colossusMinDistance();
+                int increment=fine?ColossusSearch.BAND:s.settings==null || s.colossusMinDistance()==UNIQUE_MIN?20000:s.colossusMinDistance();
                 s.lower=s.upper;s.upper=Math.addExact(s.upper,increment);s.cursor=0;annulus=null;
+                if(fine)s.colossusSearch.nextBand();
                 break;
             }
             Candidate candidate=annulus.get(s.cursor);
-            long start=System.nanoTime();Site site=validator.validate(candidate,Family.COLOSSUS);
+            long start=System.nanoTime();var inspection=validator.inspect(candidate,Family.COLOSSUS);Site site=inspection.site();
             s.maxEvaluationNanos=Math.max(s.maxEvaluationNanos,System.nanoTime()-start);s.candidatesChecked++;
-            if(site!=null) {
-                long dx=(long)site.x2()-2L*s.spawnX,dz=(long)site.z2()-2L*s.spawnZ;
-                if(dx*dx+dz*dz>=4L*s.colossusMinDistance()*s.colossusMinDistance()){s.unique=site;commitResolution();return;}
-            }
+            long dx=site==null?0:(long)site.x2()-2L*s.spawnX,dz=site==null?0:(long)site.z2()-2L*s.spawnZ;
+            boolean accepted=site!=null && dx*dx+dz*dz>=4L*s.colossusMinDistance()*s.colossusMinDistance();
+            if(fine)s.colossusSearch.checked(candidate,accepted?null:site==null?inspection.rejection():ColossusSearch.Rejection.DISTANCE);
+            if(accepted){s.unique=site;commitResolution();return;}
             s.cursor++;
             if(System.nanoTime()>=deadline)break;
         }
@@ -189,6 +196,7 @@ public final class DistributionRuntime implements AutoCloseable {
         journal.flush();unique=journal.state.unique;unavailable=journal.state.unavailable;
         ready.complete(null);
         LOG.info("Relic destination {} after {} candidates; slowest terrain evaluation {} ms",unique==null?journal.state.unavailableReason:unique,journal.state.candidatesChecked,journal.state.maxEvaluationNanos/1000000.0);
+        if(journal.state.colossusSearch!=null)LOG.info("Colossus search diagnostics {}",new GsonBuilder().create().toJson(journal.state.colossusSearch));
     }
     private void guard(Runnable operation){try{operation.run();}catch(Throwable error){fail(error);}}
     private void fail(Throwable error) {

@@ -50,7 +50,7 @@ def main():
                 ('colossus', 'obelisk', 'titan_skull', 'titan_skull_2', 'ruined_tower', 'small_colossus', 'world_tree')}
     creation.write_text(json.dumps({'format': 1, 'settings': {'cellSize': cell, 'minDistance': distance,
                         'obeliskDistance': obelisks, 'regionRadius': region, 'colossusMinDistance': colossus,
-                        'generationRevision': 2, 'biomes': {'families': families},
+                        'generationRevision': 3, 'biomes': {'families': families},
                         'outside': [3000, 1500, 1500, 200, 200, 200], 'inside': [3000, 2500, 2500, 200, 200, 200]}}), encoding='utf-8')
     libraries = compile_libraries()
     cp = [p for p in libraries if p.name == 'fabric-loader-0.19.5.jar'
