@@ -2,21 +2,35 @@
 
 *Colossal ruins of a forgotten age*
 
-![Large Colossus across a river, captured in Minecraft with shaders](relics/colossus/demo/colossus-v3-shaders-river.png)
+![The great Colossus in the Beta 3 playtest](docs/images/beta3/titan-relics-beta3-colossus.png)
 
-*In-game shader capture, 1 October 2026. Earlier Colossus V3 model; interim preview.*
+*Titan Relics Beta 3 in Minecraft Java 1.21.1, captured on 10 November 2026 with shaders.*
 
 Explore monumental remains in Minecraft's Overworld: abandoned colossi,
 weathered obelisks, titan skulls, a World Tree and a ruined tower. Investigate
 archaeological sites, follow expedition maps and recover useful machinery.
 The landscape leaves much of its history for you to interpret.
 
+## In-game screenshots
+
+Captured in TerraVista Living World with shaders. Terrain, surrounding vegetation
+and lighting also come from the modpack and shaders. All images retain the
+original aspect ratio; the HUD overlay has been cropped out.
+
+| Sword Skull | World Tree |
+| --- | --- |
+| ![Sword Skull in the grassland](docs/images/beta3/titan-relics-beta3-sword-skull.png) | ![World Tree and its overgrown refuge](docs/images/beta3/titan-relics-beta3-world-tree.png) |
+| Titan skull at sunset | Small Colossus |
+| ![Weathered titan skull at sunset](docs/images/beta3/titan-relics-beta3-titan-skull.png) | ![Overgrown small Colossus](docs/images/beta3/titan-relics-beta3-small-colossus.png) |
+| Coastal Obelisk | Ruined Tower |
+| ![Obelisk across the coastal water](docs/images/beta3/titan-relics-beta3-obelisk.png) | ![Ruined Tower among autumn trees](docs/images/beta3/titan-relics-beta3-ruined-tower.png) |
+
 ## Downloads and release status
 
-The current release candidate is **1.0.0-beta.3**, built for all eight targets by
+The current beta is **1.0.0-beta.3**, built for all eight targets by
 the [GitHub release workflow](https://github.com/Auda29/Titan-Relics/actions/workflows/release.yml).
 The [Beta 3 release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.3)
-receives downloads after validation. Choose one matching JAR and install its
+provides eight verified downloads. Choose one matching JAR and install its
 dependencies separately. Verify downloads against that release's `SHA256SUMS.txt`.
 
 The same tag uploads to [Modrinth](https://modrinth.com/project/titan-relics)
@@ -40,7 +54,7 @@ advanced view. New presets favor skulls and search for a closer Colossus. Existi
 worlds keep their saved rules; use a new world and explicitly select a preset to
 test the new distribution. This testing release includes unresolved Sword Skull
 ground-contact findings and has not completed visual menu or Survival acceptance.
-See the [release notes](docs/releases/1.0.0-beta.3.md) for exact limits and test steps.
+See the [release notes](https://github.com/Auda29/Titan-Relics/blob/v1.0.0-beta.3/docs/releases/1.0.0-beta.3.md) for exact limits and test steps.
 The [Beta 1 publication record](docs/releases/BETA_1_0_0_PUBLICATION.md) is historical;
 new platform availability is recorded on each release's upload receipt.
 The earlier [Alpha 5.0.5](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.5)
@@ -54,7 +68,7 @@ remains available as a historical release.
 2. Back up existing saves. Create a new Overworld with structure generation
    enabled for the complete current relic selection.
 3. Open **Create World → World → Relic generation** to choose a preset before
-   creating the world. The [short player guide](docs/players/PLAYER_GUIDE.md)
+   creating the world. The [short player guide](https://github.com/Auda29/Titan-Relics/blob/v1.0.0-beta.3/docs/players/PLAYER_GUIDE.md)
    explains the settings and basic systems without giving away every discovery.
 
 Relics can be far apart. Minimum distances and search spacing do not guarantee
