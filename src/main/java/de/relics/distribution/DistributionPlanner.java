@@ -52,13 +52,13 @@ public final class DistributionPlanner {
     }
     public DistributionPlanner(String policy,long seed, Set<Family> enabled, Validator validator, Supplier<Site> unique,
             Supplier<Boolean> unavailable, int bootstrapX, int bootstrapZ, int bootstrapUncertainty) {
-        this(policy,DistributionSettings.EXPEDITION,seed,enabled,validator,unique,unavailable,bootstrapX,bootstrapZ,bootstrapUncertainty);
+        this(policy,DistributionSettings.LEGACY_EXPEDITION,seed,enabled,validator,unique,unavailable,bootstrapX,bootstrapZ,bootstrapUncertainty);
     }
     public DistributionPlanner(String policy,DistributionSettings settings,long seed,Set<Family> enabled,Validator validator,
             Supplier<Site> unique,Supplier<Boolean> unavailable,int bootstrapX,int bootstrapZ,int bootstrapUncertainty) {
         if(!Set.of(POLICY,LEGACY_POLICY,DistributionSettings.POLICY).contains(policy))throw new IllegalArgumentException("Unsupported distribution policy: "+policy);
         this.settings=Objects.requireNonNull(settings);
-        if(!policy.equals(DistributionSettings.POLICY) && !settings.equals(DistributionSettings.EXPEDITION))
+        if(!policy.equals(DistributionSettings.POLICY) && !settings.equals(DistributionSettings.LEGACY_EXPEDITION))
             throw new IllegalArgumentException("Historical policies require historical settings");
         this.policy=policy;
         this.seed = seed; this.enabled = Set.copyOf(enabled); this.validator = validator;

@@ -78,9 +78,14 @@ The same counters appear under `diagnostics` in `/relicsdistribution status`.
 
 | Preset | Search spacing | Relic minimum distance | Obelisk minimum distance | Obelisk-region radius | Colossus minimum from world spawn |
 |---|---:|---:|---:|---:|---:|
-| Expedition | 5,000 | 2,000 | 15,000 | 6,000 | 30,000 |
-| Balanced / Ausgewogen | 3,000 | 1,200 | 9,000 | 3,600 | 15,000 |
-| Discoveries / Entdeckungen | 2,000 | 800 | 6,000 | 2,400 | 8,000 |
+| Expedition | 5,000 | 2,000 | 15,000 | 6,000 | 15,000 |
+| Balanced / Ausgewogen | 3,000 | 1,200 | 9,000 | 3,600 | 8,000 |
+| Discoveries / Entdeckungen | 2,000 | 800 | 6,000 | 2,400 | 4,000 |
+
+These are the revision-2 presets for newly created worlds. Existing installation
+files keep their saved values until a preset is explicitly selected and saved.
+Presets also select Matching landscapes for all families. Applying a preset
+replaces its geometry, shares and biome modes together.
 
 All distances are blocks. Search spacing controls the side length of the shared
 opportunity grid. Each cell has one family ticket and up to 64 nearby terrain
@@ -89,16 +94,18 @@ area; biome, terrain and spacing checks still reject unsuitable sites. These
 values are neither a guaranteed walking distance nor independent rolls for
 every relic. Dense settings also increase planning and locate-search work.
 
-Presets retain the existing family shares. The ordinary minimum distance applies
-to all accepted relic centers, including the reserved large-Colossus location.
-The unique Colossus uses its independent historical grid and resolver, with one
-valid destination per supported enabled world. Its editable minimum distance
-from the initial shared spawn now follows the selected preset. The first search
-ring extends from that minimum to twice the minimum; priority and valid terrain
-choose the destination, so this is not a guarantee of finding the nearest site
-or a maximum travel distance. Further rings are searched when needed. Expedition
-retains its historical rings and candidate order. Changing ordinary density alone
-never creates more large Colossi or changes their candidate stream.
+Both skull families receive 15% each outside Obelisk regions and 25% each near
+Obelisks. Other family shares remain unchanged. Smaller grids provide more
+opportunities per area, while each preset still enforces its minimum separation.
+The ordinary minimum distance includes the reserved large-Colossus location.
+
+Revision 2 checks up to 64 deterministic positions per intersecting 5,000-block
+Colossus cell, orders positions by distance, and tests them in expanding rings.
+The first ring is 4,000–8,000 blocks for Discoveries, 8,000–16,000 for Balanced,
+and 15,000–30,000 for Expedition. These are search aims, not hard maximum travel
+distances. The search expands if no valid site exists. There is still one
+unique Colossus per supported enabled world, and no unsuitable terrain is forced
+to accept a model.
 
 The Colossus-distance revision starts with Alpha 5.0.5; it is not in Alpha 5.0.4.
 Previously saved configurations and worlds without `colossusMinDistance` retain
@@ -130,12 +137,12 @@ its own region. The menu accepts a comma or dot decimal separator.
 | Family | Outside regions | Near Obelisks |
 |---|---:|---:|
 | Obelisk | 30% | 30% |
-| Crowned Skull | 2.5% | 15% |
-| Sword Skull | 2.5% | 15% |
+| Crowned Skull | 15% | 25% |
+| Sword Skull | 15% | 25% |
 | Ruined Tower | 2% | 2% |
 | Small Colossus | 2% | 2% |
 | World Tree | 2% | 2% |
-| Empty | 59% | 34% |
+| Empty | 34% | 14% |
 
 These are opportunity shares before rejection, not final realized frequencies.
 
@@ -154,12 +161,19 @@ distance combinations and totals above 100% fail validation.
     "minDistance": 800,
     "obeliskDistance": 6000,
     "regionRadius": 2400,
-    "colossusMinDistance": 8000,
-    "outside": [3000, 250, 250, 200, 200, 200],
-    "inside": [3000, 1500, 1500, 200, 200, 200],
+    "colossusMinDistance": 4000,
+    "generationRevision": 2,
+    "outside": [3000, 1500, 1500, 200, 200, 200],
+    "inside": [3000, 2500, 2500, 200, 200, 200],
     "biomes": {
       "families": {
-        "obelisk": {"mode": "LANDSCAPES", "selected": []}
+        "colossus": {"mode": "LANDSCAPES", "selected": []},
+        "obelisk": {"mode": "LANDSCAPES", "selected": []},
+        "titan_skull": {"mode": "LANDSCAPES", "selected": []},
+        "titan_skull_2": {"mode": "LANDSCAPES", "selected": []},
+        "ruined_tower": {"mode": "LANDSCAPES", "selected": []},
+        "small_colossus": {"mode": "LANDSCAPES", "selected": []},
+        "world_tree": {"mode": "LANDSCAPES", "selected": []}
       }
     }
   }
@@ -176,9 +190,32 @@ keys are `colossus`, `obelisk`, `titan_skull`, `titan_skull_2`, `ruined_tower`,
 without biome rules also retain Standard behavior.
 Do not edit the world journal to apply density changes. Its settings are frozen
 under `relics-distribution-v3-settings`; old policies retain their historical
-settings and fingerprint protection. Expedition preserves the released v2
+settings and fingerprint protection. Revision 1 preserves the released v2
 ticket layout and coordinates exactly. Generator, biome, asset and world-border
 changes remain subject to the existing fingerprint guard.
 
 Validation and reproduction: [initial settings report](../testing/DISTRIBUTION_SETTINGS_20261030.md)
 and [world-creation/biome revision](../testing/DISTRIBUTION_WORLD_MENU_20261101.md).
+
+## Generation revisions and existing worlds
+
+`generationRevision` is stored inside settings. Missing values mean revision 1.
+Unknown revisions are rejected. Revision 1 retains the released ticket layout,
+biome footprint checks, Sword Skull slope and Colossus candidate order, including
+unfinished search cursors. Existing checksummed plans, destinations, maps and
+rewards are not migrated by this change. All pinned structure assets stay intact.
+
+Revision 2 uses the new presets and effective terrain rules. Matching landscapes
+and Custom biome selections apply across the sampled footprint, with one coherent
+skull palette. Legacy fixed palette tags no longer veto these explicit selections.
+Standard mode retains its fixed palette tags. Ocean, river, dry-ground, vertical
+bounds and spacing checks remain. Only the Sword Skull's relative height
+tolerance changes from ±4 to ±8 blocks; crowned skull slope limits are unchanged.
+
+The settings screen preserves an existing revision when editing individual values;
+selecting a new preset opts future worlds into revision 2. Existing worlds remain
+read-only in that screen. There is no retrogen or automatic world migration.
+
+See the [balance verification report](../testing/SKULL_DISTRIBUTION_BALANCE_20261110.md)
+for measured native-generator results and their limits. Ticket shares alone are
+not treated as evidence of actual discovery density.

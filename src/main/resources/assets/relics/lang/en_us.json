@@ -28,7 +28,7 @@
   "relics.settings.preset.discovery": "Discoveries",
   "relics.settings.unique": "Large Colossus: one per world. Distance is measured from world spawn; terrain can extend the search.",
   "relics.settings.colossus": "Minimum Colossus distance",
-  "relics.settings.colossus.help": "4,000-100,000 blocks from world spawn, at least twice the relic distance. Expedition: 30,000, Balanced: 15,000, Discoveries: 8,000. Suitable terrain can be farther away.",
+  "relics.settings.colossus.help": "Minimum from the initial world spawn. Nearby positions are tried first; unsuitable terrain can require longer travel.",
   "relics.settings.error.colossus": "Colossus distance: 4,000-100,000 blocks and at least twice the relic distance.",
   "relics.settings.cell": "Search spacing (blocks)",
   "relics.settings.cell.help": "1500?10000 blocks. Smaller values create more search opportunities, not guaranteed sites.",
@@ -110,5 +110,6 @@
   "relics.load.reason.generator": "The current world generator is not supported for this saved relic plan.",
   "relics.load.reason.unfinished": "Initial relic planning was interrupted. This world has no complete saved plan.",
   "relics.load.reason.unknown": "Compatibility could not be verified. The exact cause is unknown; see the game log for details.",
-  "relics.load.recovery": "World loading was stopped before saving. Restore the original mods, datapacks and generator settings, then try again. For an incomplete or damaged plan, restore a complete backup. Do not delete the relic plan."
+  "relics.load.recovery": "World loading was stopped before saving. Restore the original mods, datapacks and generator settings, then try again. For an incomplete or damaged plan, restore a complete backup. Do not delete the relic plan.",
+  "relics.settings.error.revision": "Unsupported generation revision. Restore the supported settings."
 }

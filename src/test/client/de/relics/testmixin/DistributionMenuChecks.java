@@ -64,7 +64,7 @@ public abstract class DistributionMenuChecks {
                 case 1 -> {
                     if(!(relics$screen instanceof DistributionSettingsScreen)){relics$phase--;return;}
                     relics$press("relics.settings.preset.balanced");relics$press("relics.settings.save");
-                    relics$check(DistributionConfig.load().cellSize()==3000 && DistributionConfig.load().colossusMinDistance()==15000,"Mod-list defaults save density and Colossus distance");
+                    relics$check(DistributionConfig.load().cellSize()==3000 && DistributionConfig.load().colossusMinDistance()==8000,"Mod-list defaults save density and Colossus distance");
                     Screen parent=relics$screen;CreateWorldScreen.openFresh(client,()->client.gui.setScreen(parent));
                 }
                 case 2 -> {
@@ -78,7 +78,7 @@ public abstract class DistributionMenuChecks {
                 case 4 -> {
                     if(!relics$capture(client))break;
                     relics$check(relics$fields().getFirst().getValue().equals("3000"),"New world inherits defaults");relics$press("relics.settings.preset.discovery");
-                    relics$check(relics$fields().size()==5 && relics$fields().get(4).getValue().equals("8000"),"Discoveries preset updates editable Colossus distance");
+                    relics$check(relics$fields().size()==5 && relics$fields().get(4).getValue().equals("4000"),"Discoveries preset updates editable Colossus distance");
                     relics$fields().get(4).setValue("9000");
                     relics$fields().getFirst().setValue("0");
                     relics$check(relics$screen.children().stream().filter(Button.class::isInstance).map(Button.class::cast).anyMatch(v->!v.active && v.getMessage().getString().equals(Component.translatable("relics.settings.apply").getString())),"Invalid input blocks Apply");
@@ -93,7 +93,7 @@ public abstract class DistributionMenuChecks {
                 case 6 -> {
                     relics$press("relics.settings.apply");var draft=((WorldDistributionDraft)relics$creation).relics$draft();
                     relics$check(draft.cellSize()==2000 && draft.biomes().rule(DistributionPlanner.Family.COLOSSUS).selected().contains("minecraft:desert"),"World draft contains density and biome edits");
-                    relics$check(DistributionConfig.load().cellSize()==3000 && DistributionConfig.load().biomes().equals(BiomeRules.STANDARD),"World edits never change defaults");
+                    relics$check(DistributionConfig.load().cellSize()==3000 && DistributionConfig.load().biomes().equals(BiomeRules.LANDSCAPES),"World edits never change defaults");
                     relics$press("relics.settings.world_button");relics$press("relics.settings.preset.expedition");relics$screen.onClose();
                     relics$check(((WorldDistributionDraft)relics$creation).relics$draft().cellSize()==2000,"Cancel preserves draft");
                     relics$screen=client.gui.screen();relics$press("selectWorld.create");

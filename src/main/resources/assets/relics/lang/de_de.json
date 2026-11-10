@@ -28,7 +28,7 @@
   "relics.settings.preset.discovery": "Entdeckungen",
   "relics.settings.unique": "Großer Koloss: einmal pro Welt. Entfernung gilt ab Weltspawn; Gelände kann die Suche verlängern.",
   "relics.settings.colossus": "Koloss-Mindestentfernung",
-  "relics.settings.colossus.help": "4.000–100.000 Blöcke vom Weltspawn, mindestens doppelter Reliktabstand. Expedition: 30.000, Ausgewogen: 15.000, Entdeckungen: 8.000. Gültiges Gelände kann weiter entfernt liegen.",
+  "relics.settings.colossus.help": "Mindestentfernung vom ursprünglichen Weltspawn. Nahe Positionen werden zuerst geprüft; ungeeignetes Gelände kann längere Reisen erfordern.",
   "relics.settings.error.colossus": "Kolossentfernung: 4.000–100.000 Blöcke und mindestens doppelter Reliktabstand.",
   "relics.settings.cell": "Suchabstand (Blöcke)",
   "relics.settings.cell.help": "1500–10000 Blöcke. Kleinere Werte erlauben mehr Suchversuche, garantieren aber keine Funde.",
@@ -110,5 +110,6 @@
   "relics.load.reason.generator": "Der aktuelle Weltgenerator wird für diesen gespeicherten Reliktplan nicht unterstützt.",
   "relics.load.reason.unfinished": "Die erstmalige Erstellung des Reliktplans wurde unterbrochen. Für diese Welt fehlt ein vollständiger gespeicherter Plan.",
   "relics.load.reason.unknown": "Die Kompatibilität konnte nicht geprüft werden. Die genaue Ursache ist unbekannt; Einzelheiten stehen im Spielprotokoll.",
-  "relics.load.recovery": "Der Weltstart wurde vor dem Speichern abgebrochen. Stelle die ursprünglichen Mods, Datapacks und Generatoreinstellungen wieder her und versuche es erneut. Bei einem unvollständigen oder beschädigten Plan verwende eine vollständige Sicherung. Lösche den Reliktplan nicht."
+  "relics.load.recovery": "Der Weltstart wurde vor dem Speichern abgebrochen. Stelle die ursprünglichen Mods, Datapacks und Generatoreinstellungen wieder her und versuche es erneut. Bei einem unvollständigen oder beschädigten Plan verwende eine vollständige Sicherung. Lösche den Reliktplan nicht.",
+  "relics.settings.error.revision": "Nicht unterstützte Generierungsrevision. Unterstützte Einstellungen wiederherstellen."
 }

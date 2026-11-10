@@ -62,7 +62,7 @@ public final class DistributionRuntime implements AutoCloseable {
         int absolute=Math.min(29999984,level.getServer().getAbsoluteMaxWorldSize());
         initial.minX=(int)Math.ceil(Math.max(-absolute,border.getMinX())); initial.maxX=(int)Math.floor(Math.min(absolute,border.getMaxX()));
         initial.minZ=(int)Math.ceil(Math.max(-absolute,border.getMinZ())); initial.maxZ=(int)Math.floor(Math.min(absolute,border.getMaxZ()));
-        validator=new TerrainValidator(level,initial.minX,initial.minZ,initial.maxX,initial.maxZ,initial.interiors,rules);
+        validator=new TerrainValidator(level,initial.minX,initial.minZ,initial.maxX,initial.maxZ,initial.interiors,rules,selectedSettings==null?1:selectedSettings.generationRevision());
         initial.fingerprint=validator.fingerprint;initial.fingerprintFormat=PlanningFingerprint.FORMAT;initial.enabled=Set.copyOf(validator.enabled);
         BlockPos approximate=level.getChunkSource().randomState().sampler().findSpawnPosition();
         initial.bootstrapX=Math.floorDiv(approximate.getX(),16)*16+8;initial.bootstrapZ=Math.floorDiv(approximate.getZ(),16)*16+8;
@@ -85,7 +85,7 @@ public final class DistributionRuntime implements AutoCloseable {
                     recovery?"explicitly approved":"exactly matching");
         }
         unique=s.unique;unavailable=s.unavailable;
-        planner=new DistributionPlanner(s.policy,s.settings==null?DistributionSettings.EXPEDITION:s.settings,s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
+        planner=new DistributionPlanner(s.policy,s.settings==null?DistributionSettings.LEGACY_EXPEDITION:s.settings,s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
         actor=Executors.newSingleThreadScheduledExecutor(r->{Thread t=new Thread(r,"Relic planning "+s.seed);t.setDaemon(true);return t;});
         if(fresh)journal.flush();
         PlanningProvenance.remember(file.getParent().getParent(),s,validator.signature);
@@ -99,7 +99,7 @@ public final class DistributionRuntime implements AutoCloseable {
             for(var runtime:LEVELS.values())if(runtime.level.getServer()==server) {
                 var s=runtime.journal.state;
                 try {
-                    var current=new TerrainValidator(runtime.level,s.minX,s.minZ,s.maxX,s.maxZ,s.interiors,s.settings==null?BiomeRules.STANDARD:s.settings.biomes());
+                    var current=new TerrainValidator(runtime.level,s.minX,s.minZ,s.maxX,s.maxZ,s.interiors,s.settings==null?BiomeRules.STANDARD:s.settings.biomes(),s.settings==null?1:s.settings.generationRevision());
                     if(PlanningProvenance.compare(server.getWorldPath(LevelResource.ROOT),s,current.signature)==PlanningProvenance.Match.DIFFERENT || !current.enabled.equals(s.enabled))
                         throw new IllegalStateException("Datapack reload changed frozen relic settings. Restore the original setup and restart; policy migration requires a fresh world.");
                     LOG.info("Relic distribution settings unchanged after datapack reload");
@@ -164,7 +164,7 @@ public final class DistributionRuntime implements AutoCloseable {
         long deadline=System.nanoTime()+2000000;
         for(int n=0;n<8;n++) {
             if(closed)return;
-            if(annulus==null)annulus=DistributionPlanner.annulus(s.seed,s.spawnX,s.spawnZ,s.lower,s.upper,s.minX,s.minZ,s.maxX,s.maxZ);
+            if(annulus==null)annulus=ColossusSearch.annulus(s.seed,s.spawnX,s.spawnZ,s.lower,s.upper,s.minX,s.minZ,s.maxX,s.maxZ,s.settings==null?1:s.settings.generationRevision());
             if(s.cursor>=annulus.size()) {
                 double farthest=Math.max(Math.max(Math.hypot((double)s.minX-s.spawnX,(double)s.minZ-s.spawnZ),Math.hypot((double)s.maxX-s.spawnX,(double)s.maxZ-s.spawnZ)),
                         Math.max(Math.hypot((double)s.minX-s.spawnX,(double)s.maxZ-s.spawnZ),Math.hypot((double)s.maxX-s.spawnX,(double)s.minZ-s.spawnZ)));

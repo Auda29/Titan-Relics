@@ -51,7 +51,7 @@ def main():
     parser.add_argument('--command',action='append',default=[])
     parser.add_argument('--suite',action='store_true',help='Core, recipes, two-player rewards, aura, animals and restart')
     parser.add_argument('--distribution-preset',choices=('expedition','balanced','discovery','tower-only'),help='Exercise frozen new-world settings in an isolated server')
-    parser.add_argument('--biome-mode',choices=('standard','landscapes','empty-colossus'),default='standard')
+    parser.add_argument('--biome-mode',choices=('standard','landscapes','empty-colossus'),default='landscapes')
     parser.add_argument('--reload-preset',choices=('expedition','balanced','discovery','invalid'),help='Change installation defaults before reopening the same world')
     parser.add_argument('--historical-journal',action='store_true',help='Reopen an Expedition fixture as a pre-menu v2 world')
     parser.add_argument('--world-load-checks',action='store_true',help='Reject isolated invalid planning fixtures before any world file changes')
@@ -102,12 +102,12 @@ def main():
     def settings(preset):
         cell,distance,obelisks,region={'expedition':(5000,2000,15000,6000),'balanced':(3000,1200,9000,3600),
             'discovery':(2000,800,6000,2400),'tower-only':(2000,800,6000,2400)}[preset]
-        families={} if args.biome_mode=='standard' else {name:dict(mode='LANDSCAPES',selected=[]) for name in ('colossus','obelisk','titan_skull','titan_skull_2','ruined_tower','small_colossus','world_tree')}
+        families={} if args.biome_mode=='standard' or args.historical_journal else {name:dict(mode='LANDSCAPES',selected=[]) for name in ('colossus','obelisk','titan_skull','titan_skull_2','ruined_tower','small_colossus','world_tree')}
         if args.biome_mode=='empty-colossus':families={'colossus':dict(mode='CUSTOM',selected=[])}
-        colossus={'expedition':30000,'balanced':15000,'discovery':8000,'tower-only':8000}[preset]
-        return dict(cellSize=cell,minDistance=distance,obeliskDistance=obelisks,regionRadius=region,colossusMinDistance=colossus,biomes={'families':families},
-                    outside=[0,0,0,10000,0,0] if preset=='tower-only' else [3000,250,250,200,200,200],
-                    inside=[0,0,0,10000,0,0] if preset=='tower-only' else [3000,1500,1500,200,200,200])
+        colossus=({'expedition':30000,'balanced':15000,'discovery':8000,'tower-only':8000} if args.historical_journal else {'expedition':15000,'balanced':8000,'discovery':4000,'tower-only':4000})[preset]
+        return dict(cellSize=cell,minDistance=distance,obeliskDistance=obelisks,regionRadius=region,colossusMinDistance=colossus,generationRevision=1 if args.historical_journal else 2,biomes={'families':families},
+                    outside=[0,0,0,10000,0,0] if preset=='tower-only' else ([3000,250,250,200,200,200] if args.historical_journal else [3000,1500,1500,200,200,200]),
+                    inside=[0,0,0,10000,0,0] if preset=='tower-only' else ([3000,1500,1500,200,200,200] if args.historical_journal else [3000,2500,2500,200,200,200]))
     def defaults(preset):
         config=run/'config/relics-distribution.json';config.parent.mkdir(exist_ok=True)
         config.write_text('invalid-for-new-worlds' if preset=='invalid' else json.dumps({'format':1,'settings':settings(preset)}),encoding='utf-8')

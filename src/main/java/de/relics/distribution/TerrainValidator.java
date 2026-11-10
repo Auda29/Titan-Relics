@@ -4,6 +4,7 @@ import com.google.gson.*;
 import com.mojang.serialization.JsonOps;
 import de.relics.SeparatedPlacementCondition;
 import dev.worldgen.lithostitched.worldgen.structure.DelegatingStructure;
+import dev.worldgen.lithostitched.api.worldgen.placementcondition.PlacementCondition;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.*;
@@ -28,6 +29,8 @@ public final class TerrainValidator implements Validator {
     private record Profile(String id, Family family, int ground, int sx, int sy, int sz,
                            Holder.Reference<Structure> holder, StructurePoolElement element,
                            SeparatedPlacementCondition condition) { }
+    private record Terrain(PlacementCondition condition,int radius,int step,boolean biomeFootprint) { }
+    private final Map<String,Terrain> terrainRules=new LinkedHashMap<>();
     private final RegistryAccess registries;
     private final ChunkGenerator generator;
     private final RandomState random;
@@ -53,6 +56,9 @@ public final class TerrainValidator implements Validator {
         this(level,minX,minZ,maxX,maxZ,interiors,BiomeRules.STANDARD);
     }
     public TerrainValidator(ServerLevel level,int minX,int minZ,int maxX,int maxZ,String interiors,BiomeRules biomeRules) {
+        this(level,minX,minZ,maxX,maxZ,interiors,biomeRules,1);
+    }
+    public TerrainValidator(ServerLevel level,int minX,int minZ,int maxX,int maxZ,String interiors,BiomeRules biomeRules,int generationRevision) {
         this.biomeRules=Objects.requireNonNull(biomeRules);
         if(!de.relics.gameplay.NaturalInteriors.LEGACY.equals(interiors) && !de.relics.gameplay.NaturalInteriors.supports(interiors))
             throw new IllegalStateException("Unsupported frozen interior revision");
@@ -141,6 +147,15 @@ public final class TerrainValidator implements Validator {
                 if(chosen.getXSpan()!=box.getXSpan() || chosen.getYSpan()!=box.getYSpan() || chosen.getZSpan()!=box.getZSpan())throw new IllegalStateException("Approved interior transform changed");
             }
             profiles.put(name,new Profile(name,family,ground,box.getXSpan(),box.getYSpan(),box.getZSpan(),holder,element,condition));
+            if(generationRevision==1)terrainRules.put(name,new Terrain(condition.terrainCondition(),0,1,false));
+            else {
+                JsonObject encoded=signature.getAsJsonObject("structure/"+name).getAsJsonObject("spawn_condition").getAsJsonObject("terrain_condition");
+                JsonObject effective=GenerationRules.terrain(encoded,family,biomeRules.rule(family).mode(),generationRevision);
+                JsonObject grid=effective.getAsJsonObject("condition");
+                if(!grid.get("type").getAsString().equals("relics:all_grid"))throw new IllegalStateException("Unknown terrain grid");
+                terrainRules.put(name,new Terrain(PlacementCondition.BASE_CODEC.parse(ops,effective).getOrThrow(),
+                        grid.get("radius").getAsInt(),grid.get("distance_between_points").getAsInt(),biomeRules.rule(family).mode()!=BiomeRules.Mode.STANDARD));
+            }
             structureIds.put(holder.value(),name);
         }
         legacyFingerprint=DistributionJournal.hash(signature.toString());
@@ -181,7 +196,14 @@ public final class TerrainValidator implements Validator {
                 || box.minY()<height.getMinY()+8 || box.maxY()>height.getMaxY()-8){boundsRejectedProbes.increment();return null;}
         var context=new Structure.GenerationContext(registries,generator,generator.getBiomeSource(),random,templates,
                 seed,new ChunkPos(c.chunkX(),c.chunkZ()),height,b->biomeRules.rule(family).mode()==BiomeRules.Mode.STANDARD?p.holder.value().biomes().contains(b):b.equals(biome));
-        if(!p.condition.terrainCondition().test(context,new BlockPos(c.x(),surface,c.z()))){terrainRejectedProbes.increment();return null;}
+        Terrain terrain=terrainRules.get(p.id);
+        if(terrain.biomeFootprint)for(int x=c.x()-terrain.radius;x<=c.x()+terrain.radius;x+=terrain.step)
+            for(int z=c.z()-terrain.radius;z<=c.z()+terrain.radius;z+=terrain.step) {
+                var sample=generator.getBiomeSource().getNoiseBiome(QuartPos.fromBlock(x),QuartPos.fromBlock(surface),QuartPos.fromBlock(z),random.sampler());
+                Profile selected=biomeProfile(sample,family);
+                if(selected==null || !selected.id.equals(p.id)){biomeRejectedProbes.increment();return null;}
+            }
+        if(!terrain.condition.test(context,new BlockPos(c.x(),surface,c.z()))){terrainRejectedProbes.increment();return null;}
         return new Site(c,p.id,box.minX()+box.maxX(),box.minZ()+box.maxZ(),surface,origin.getX(),origin.getY(),origin.getZ(),box.minX(),box.minZ(),box.maxX(),box.maxZ());
     }
     public StructureStart start(Site site) {

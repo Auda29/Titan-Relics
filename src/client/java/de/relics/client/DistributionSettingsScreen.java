@@ -18,6 +18,7 @@ public final class DistributionSettingsScreen extends Screen {
     private final String scope;
     private final Map<String,Long> diagnostics;
     private BiomeRules biomes;
+    private int generationRevision;
     private final String[] geometry=new String[5],outside=new String[6],inside=new String[6];
     private static final String[] FIELDS={"cell","distance","obelisks","region","colossus"};
     private static final String[] TYPES={"obelisk","skull","skull2","tower","small","tree"};
@@ -35,6 +36,7 @@ public final class DistributionSettingsScreen extends Screen {
     public void loadError(){error=text("load_error");}
     private static Component text(String key){return Component.translatable("relics.settings."+key);}
     private void select(DistributionSettings value) {
+        biomes=value.biomes();generationRevision=value.generationRevision();
         int[] dimensions={value.cellSize(),value.minDistance(),value.obeliskDistance(),value.regionRadius(),value.colossusMinDistance()};
         for(int i=0;i<geometry.length;i++)geometry[i]=Integer.toString(dimensions[i]);
         for(int i=0;i<6;i++){outside[i]=percent(value.outside().get(i));inside[i]=percent(value.inside().get(i));}
@@ -47,7 +49,7 @@ public final class DistributionSettingsScreen extends Screen {
             List<Integer> a=Arrays.stream(outside).map(DistributionSettingsScreen::share).toList();
             List<Integer> b=Arrays.stream(inside).map(DistributionSettingsScreen::share).toList();
             return new DistributionSettings(Integer.parseInt(geometry[0]),Integer.parseInt(geometry[1]),
-                    Integer.parseInt(geometry[2]),Integer.parseInt(geometry[3]),a,b,biomes,Integer.parseInt(geometry[4]));
+                    Integer.parseInt(geometry[2]),Integer.parseInt(geometry[3]),a,b,biomes,Integer.parseInt(geometry[4]),generationRevision);
         }catch(NumberFormatException|ArithmeticException failure){throw new IllegalArgumentException("relics.settings.error.number");}
     }
     private void validateDraft(){try{draft();invalid=null;}catch(IllegalArgumentException failure){invalid=failure.getMessage();}if(save!=null)save.active=invalid==null && saveAction!=null;}
