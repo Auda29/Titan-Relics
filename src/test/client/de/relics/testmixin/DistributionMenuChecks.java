@@ -77,9 +77,17 @@ public abstract class DistributionMenuChecks {
                 case 3 -> {if(relics$capture(client))relics$press("relics.settings.world_button");}
                 case 4 -> {
                     if(!relics$capture(client))break;
-                    relics$check(relics$fields().getFirst().getValue().equals("3000"),"New world inherits defaults");relics$press("relics.settings.preset.discovery");
+                    relics$check(relics$fields().isEmpty(),"Simple view has no technical input fields");
+                    relics$press("relics.settings.advanced");
+                    relics$check(relics$fields().getFirst().getValue().equals("3000"),"New world inherits defaults");
+                    relics$press("relics.settings.simple");relics$press("relics.settings.preset.discovery");
+                    relics$press("relics.settings.advanced");
                     relics$check(relics$fields().size()==5 && relics$fields().get(4).getValue().equals("4000"),"Discoveries preset updates editable Colossus distance");
                     relics$fields().get(4).setValue("9000");
+                    relics$press("relics.settings.simple");
+                    relics$check(relics$screen.getNarrationMessage().getString().contains(Component.translatable("relics.settings.preset.custom").getString()),"Simple view identifies custom values");
+                    relics$press("relics.settings.advanced");
+                    relics$check(relics$fields().get(4).getValue().equals("9000"),"Switching views preserves unsaved custom edits");
                     relics$fields().getFirst().setValue("0");
                     relics$check(relics$screen.children().stream().filter(Button.class::isInstance).map(Button.class::cast).anyMatch(v->!v.active && v.getMessage().getString().equals(Component.translatable("relics.settings.apply").getString())),"Invalid input blocks Apply");
                     relics$fields().getFirst().setValue("2000");
@@ -111,7 +119,8 @@ public abstract class DistributionMenuChecks {
                 case 8 -> {
                     relics$check(relics$screen instanceof DistributionSettingsScreen,"Saved-world viewer");
                     relics$check(relics$screen.children().stream().filter(Button.class::isInstance).map(Button.class::cast).noneMatch(v->v.getMessage().getString().equals(Component.translatable("relics.settings.preset.discovery").getString())),"Saved-world presets read only");
-                    for(int i=0;i<6;i++)relics$press("relics.settings.next");
+                    relics$check(relics$fields().isEmpty(),"Saved world opens with a simple summary");
+                    relics$press("relics.settings.advanced");relics$press("relics.settings.tab.diagnostics");
                 }
                 case 9 -> {if(relics$capture(client)){
                     Files.writeString(Path.of("menu-proof.txt"),"PASS world-generation tab; no title/options button; mod-list defaults; loaded biome registry; landscape/custom search; scoped Apply/Cancel; actual world creation; frozen density/biomes; read-only diagnostics\n");client.stop();

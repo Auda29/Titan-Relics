@@ -7,7 +7,13 @@ files and dependencies.
 
 ## Before creating the world
 
-Open **Create World → World → Relic generation**. Expedition leaves more space
+Open **Create World → World → Relic generation**. Start with one of the three
+play styles. The simple view shows short descriptions and an illustrative
+distribution diagram. This is not a seed preview or a promise of fixed find
+locations. **Advanced settings** contains distances, family shares, biomes and
+diagnostics; **Back to simple settings** keeps unsaved edits.
+
+Expedition leaves more space
 between opportunities; Balanced and Discoveries offer progressively more.
 Discoveries is the factory default when no saved choice exists. Existing installation defaults and world plans keep their values.
 

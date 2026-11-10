@@ -221,3 +221,17 @@ read-only in that screen. There is no retrogen or automatic world migration.
 See the [balance verification report](../testing/SKULL_DISTRIBUTION_BALANCE_20261110.md)
 for measured native-generator results and their limits. Ticket shares alone are
 not treated as evidence of actual discovery density.
+
+## Simple and advanced menu views
+
+The screen opens with three play-style choices and a schematic opportunity
+diagram. It does not query the generator, read a world seed or locate structures.
+Exact preset matching determines the selection; previously saved custom or legacy
+settings are labelled Custom settings and are not silently replaced.
+
+Advanced settings exposes named sections for distances, relic shares, biomes and
+diagnostics. Both views edit the same cancellable draft. View changes and window
+resizing do not save settings. Selecting a preset explicitly replaces the draft
+with that preset. Existing worlds open in view-only mode and have no preset or
+save actions. The screen supports German and English and narrates the current
+style or advanced section.
