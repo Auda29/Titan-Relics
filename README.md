@@ -1,5 +1,7 @@
 # Titan Relics
 
+[Project website](https://auda29.github.io/Titan-Relics/) · [Downloads](https://github.com/Auda29/Titan-Relics/releases/latest)
+
 *Colossal ruins of a forgotten age*
 
 ![The great Colossus in the Beta 3 playtest](docs/images/beta3/titan-relics-beta3-colossus.png)
