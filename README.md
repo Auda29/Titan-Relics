@@ -1,8 +1,10 @@
 # Titan Relics
 
+[Website (DE)](https://auda29.github.io/Titan-Relics/) · [Website (EN)](https://auda29.github.io/Titan-Relics/en.html) · [Downloads](https://github.com/Auda29/Titan-Relics/releases/latest)
+
 *Colossal ruins of a forgotten age*
 
-![The great Colossus in the Beta 3 playtest](docs/images/beta3/titan-relics-beta3-colossus.png)
+![The great Colossus from the front in the Beta 3 playtest](docs/images/beta3/titan-relics-beta3-small-colossus.png)
 
 *Titan Relics Beta 3 in Minecraft Java 1.21.1, captured on 10 November 2026 with shaders.*
 
@@ -17,11 +19,11 @@ Captured in TerraVista Living World with shaders. Terrain, surrounding vegetatio
 and lighting also come from the modpack and shaders. All images retain the
 original aspect ratio; the HUD overlay has been cropped out.
 
-| Sword Skull | World Tree |
+| Titan Skull | World Tree |
 | --- | --- |
-| ![Sword Skull in the grassland](docs/images/beta3/titan-relics-beta3-sword-skull.png) | ![World Tree and its overgrown refuge](docs/images/beta3/titan-relics-beta3-world-tree.png) |
-| Titan skull at sunset | Small Colossus |
-| ![Weathered titan skull at sunset](docs/images/beta3/titan-relics-beta3-titan-skull.png) | ![Overgrown small Colossus](docs/images/beta3/titan-relics-beta3-small-colossus.png) |
+| ![Titan Skull in the grassland](docs/images/beta3/titan-relics-beta3-sword-skull.png) | ![World Tree and its overgrown refuge](docs/images/beta3/titan-relics-beta3-world-tree.png) |
+| Small Colossus at sunset | Colossus from the front |
+| ![Small Colossus at sunset](docs/images/beta3/titan-relics-beta3-titan-skull.png) | ![Overgrown great Colossus from the front](docs/images/beta3/titan-relics-beta3-small-colossus.png) |
 | Coastal Obelisk | Ruined Tower |
 | ![Obelisk across the coastal water](docs/images/beta3/titan-relics-beta3-obelisk.png) | ![Ruined Tower among autumn trees](docs/images/beta3/titan-relics-beta3-ruined-tower.png) |
 
