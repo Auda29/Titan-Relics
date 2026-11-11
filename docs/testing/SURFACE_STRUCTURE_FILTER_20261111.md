@@ -194,3 +194,13 @@ Entwicklungsstand von PR #2, nicht aus dem veröffentlichten Revision-2-Beta-3-J
   ]
 }
 ```
+
+## Ergänzender Test auf Vanilla-Gelände
+
+Der [Vanilla-Vergleich](VANILLA_DISTRIBUTION_20261111.md) prüft denselben Seed
+ohne Living-World- oder andere Terrain- und Strukturmods. Beide Builds sowie
+beide erneut geladenen Welten behalten dieselben Reliktstandorte, Modellproben
+und Fremdstrukturentscheidungen. Im geprüften Vanilla-Satz liegt kein positiver
+Kollisionsfall vor. Dabei wurde die Waldanwesen-Ziel-ID auf den nativen Namen
+`minecraft:mansion` korrigiert. Der Bericht trennt diese Ressourcenprüfung
+vom nativen Vergleich des bisherigen Spieler-Builds.
