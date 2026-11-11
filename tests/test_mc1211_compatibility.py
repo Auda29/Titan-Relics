@@ -69,6 +69,8 @@ class Minecraft1211CompatibilityTests(unittest.TestCase):
         self.assertIn('return RelicWorldgen.TERRAIN_SUPPORT;', text)
         self.assertIn('pending.size() == maxSupportDepth', text)
         self.assertIn('maxSupportDepth < 0 || substrate', text)
+        self.assertNotIn('de.relics.distribution.DistributionRuntime', text)
+        self.assertIn('boolean stableFallingGround = false;', text)
 
     def test_protection_and_reservations_use_real_legacy_api_names(self):
         protection = (self.output / 'java/de/relics/RelicProtection.java').read_text()

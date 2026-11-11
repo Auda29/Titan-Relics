@@ -1,0 +1,511 @@
+{
+  "date": "2026-11-11",
+  "minecraft": "1.21.1",
+  "loader": "Fabric 0.19.5",
+  "seed": -826638008258703270,
+  "scope": "Isolated Living World fixture; supplied player save never loaded or edited. randomTickSpeed=0 before target generation.",
+  "before": {
+    "artifact_sha256": "10b12bfe0f3ceea14d50f8ec0afc2feb2ce549d64522e6c071a0652681571dfe",
+    "passed": false,
+    "instances": [
+      {
+        "structure": "relics:titan_skull_2",
+        "template": "relics:titan_skull_2_side_v1_worldgen",
+        "origin": [
+          -975,
+          38,
+          -3585
+        ],
+        "rotation": "CLOCKWISE_90",
+        "bounding_box": [
+          -1089,
+          38,
+          -3585,
+          -975,
+          173,
+          -3471
+        ],
+        "expected_bounding_box": [
+          -1089,
+          38,
+          -3585,
+          -975,
+          173,
+          -3471
+        ],
+        "bounding_box_matches": true,
+        "checked_blocks": 25149,
+        "matched_blocks": 25149,
+        "checked_air": 0,
+        "nature_cells_skipped": 0,
+        "normalized_persistent_leaf_distance": 0,
+        "mismatch_count": 0,
+        "mismatch_kinds": {},
+        "chunks_spanned": 37,
+        "missing_chunks": [],
+        "incomplete_chunks": [],
+        "passed": false,
+        "foundation_contact": {
+          "columns": 2635,
+          "undersides_checked": 2693,
+          "mode": "embedded_art",
+          "unsupported_columns": 42,
+          "examples": [
+            [
+              -1008,
+              64,
+              -3562
+            ],
+            [
+              -1009,
+              65,
+              -3562
+            ],
+            [
+              -1010,
+              64,
+              -3561
+            ],
+            [
+              -1001,
+              65,
+              -3561
+            ],
+            [
+              -1011,
+              65,
+              -3561
+            ],
+            [
+              -999,
+              64,
+              -3560
+            ],
+            [
+              -1011,
+              64,
+              -3560
+            ],
+            [
+              -1012,
+              65,
+              -3560
+            ],
+            [
+              -998,
+              64,
+              -3559
+            ],
+            [
+              -1012,
+              64,
+              -3559
+            ],
+            [
+              -999,
+              65,
+              -3559
+            ],
+            [
+              -1013,
+              65,
+              -3559
+            ],
+            [
+              -997,
+              64,
+              -3558
+            ],
+            [
+              -1012,
+              64,
+              -3558
+            ],
+            [
+              -998,
+              65,
+              -3558
+            ],
+            [
+              -1013,
+              65,
+              -3558
+            ],
+            [
+              -997,
+              64,
+              -3557
+            ],
+            [
+              -1012,
+              64,
+              -3557
+            ],
+            [
+              -998,
+              65,
+              -3557
+            ],
+            [
+              -1013,
+              65,
+              -3557
+            ]
+          ],
+          "passed": false,
+          "intentional_clearances": 0,
+          "clearance_examples": [],
+          "contact_policy": "short-surface-gaps-only; preserve deep or longer native voids"
+        },
+        "feature_protection": {
+          "checked_cells": 25149,
+          "unprotected_cells": 0,
+          "examples": [],
+          "passed": true
+        },
+        "start_chunk": [
+          -65,
+          -221
+        ]
+      }
+    ],
+    "read_errors": [],
+    "verification_errors": []
+  },
+  "fixed_v6": {
+    "artifact_sha256": "ebe6fc86f44b4dcdd07610beb3d760cc62c54178f451e08d5d34e5865c2cc3e4",
+    "passed": true,
+    "instances": [
+      {
+        "structure": "relics:titan_skull_2",
+        "template": "relics:titan_skull_2_side_v1_worldgen",
+        "origin": [
+          -975,
+          38,
+          -3585
+        ],
+        "rotation": "CLOCKWISE_90",
+        "bounding_box": [
+          -1089,
+          38,
+          -3585,
+          -975,
+          173,
+          -3471
+        ],
+        "expected_bounding_box": [
+          -1089,
+          38,
+          -3585,
+          -975,
+          173,
+          -3471
+        ],
+        "bounding_box_matches": true,
+        "checked_blocks": 25149,
+        "matched_blocks": 25149,
+        "checked_air": 0,
+        "nature_cells_skipped": 0,
+        "normalized_persistent_leaf_distance": 0,
+        "mismatch_count": 0,
+        "mismatch_kinds": {},
+        "chunks_spanned": 37,
+        "missing_chunks": [],
+        "incomplete_chunks": [],
+        "passed": true,
+        "foundation_contact": {
+          "columns": 2635,
+          "undersides_checked": 2693,
+          "mode": "embedded_art",
+          "unsupported_columns": 0,
+          "examples": [],
+          "passed": true,
+          "intentional_clearances": 0,
+          "clearance_examples": [],
+          "contact_policy": "short-surface-gaps-only; preserve deep or longer native voids"
+        },
+        "feature_protection": {
+          "checked_cells": 25149,
+          "unprotected_cells": 0,
+          "examples": [],
+          "passed": true
+        },
+        "start_chunk": [
+          -65,
+          -221
+        ]
+      }
+    ],
+    "read_errors": [],
+    "verification_errors": []
+  },
+  "legacy_v5_reload": {
+    "artifact_sha256": "ebe6fc86f44b4dcdd07610beb3d760cc62c54178f451e08d5d34e5865c2cc3e4",
+    "passed": false,
+    "instances": [
+      {
+        "structure": "relics:titan_skull_2",
+        "template": "relics:titan_skull_2_side_v1_worldgen",
+        "origin": [
+          -975,
+          38,
+          -3585
+        ],
+        "rotation": "CLOCKWISE_90",
+        "bounding_box": [
+          -1089,
+          38,
+          -3585,
+          -975,
+          173,
+          -3471
+        ],
+        "expected_bounding_box": [
+          -1089,
+          38,
+          -3585,
+          -975,
+          173,
+          -3471
+        ],
+        "bounding_box_matches": true,
+        "checked_blocks": 25149,
+        "matched_blocks": 25149,
+        "checked_air": 0,
+        "nature_cells_skipped": 0,
+        "normalized_persistent_leaf_distance": 0,
+        "mismatch_count": 0,
+        "mismatch_kinds": {},
+        "chunks_spanned": 37,
+        "missing_chunks": [],
+        "incomplete_chunks": [],
+        "passed": false,
+        "foundation_contact": {
+          "columns": 2635,
+          "undersides_checked": 2693,
+          "mode": "embedded_art",
+          "unsupported_columns": 42,
+          "examples": [
+            [
+              -1008,
+              64,
+              -3562
+            ],
+            [
+              -1009,
+              65,
+              -3562
+            ],
+            [
+              -1010,
+              64,
+              -3561
+            ],
+            [
+              -1001,
+              65,
+              -3561
+            ],
+            [
+              -1011,
+              65,
+              -3561
+            ],
+            [
+              -999,
+              64,
+              -3560
+            ],
+            [
+              -1011,
+              64,
+              -3560
+            ],
+            [
+              -1012,
+              65,
+              -3560
+            ],
+            [
+              -998,
+              64,
+              -3559
+            ],
+            [
+              -1012,
+              64,
+              -3559
+            ],
+            [
+              -999,
+              65,
+              -3559
+            ],
+            [
+              -1013,
+              65,
+              -3559
+            ],
+            [
+              -997,
+              64,
+              -3558
+            ],
+            [
+              -1012,
+              64,
+              -3558
+            ],
+            [
+              -998,
+              65,
+              -3558
+            ],
+            [
+              -1013,
+              65,
+              -3558
+            ],
+            [
+              -997,
+              64,
+              -3557
+            ],
+            [
+              -1012,
+              64,
+              -3557
+            ],
+            [
+              -998,
+              65,
+              -3557
+            ],
+            [
+              -1013,
+              65,
+              -3557
+            ]
+          ],
+          "passed": false,
+          "intentional_clearances": 0,
+          "clearance_examples": [],
+          "contact_policy": "short-surface-gaps-only; preserve deep or longer native voids"
+        },
+        "feature_protection": {
+          "checked_cells": 25149,
+          "unprotected_cells": 0,
+          "examples": [],
+          "passed": true
+        },
+        "start_chunk": [
+          -65,
+          -221
+        ]
+      }
+    ],
+    "read_errors": [],
+    "verification_errors": []
+  },
+  "legacy_relic_journal_hashes_before": {
+    "relics_creation_settings.json": "6ba9d8de242d2c41feda0d20692a9ace9c5421ae45717985eef0dfbe8fff07a2",
+    "relics_planning_environment_v1.json": "c9b2f8fb28eceaa1ba348b0db87d7645696beb3e4c783543fcd93142ce2b78f2",
+    "relics_gameplay_v1.json": "df18c200e4c8a9469bc635b3f7a9b26f13211e797803f6af994478bdc1bcdd23",
+    "relics_distribution_v1.json": "9f34e9cae497ce4513b5cb97db898e3583c5f2f760a161b08b97dc3de1ec892f"
+  },
+  "legacy_relic_journal_hashes_after": {
+    "relics_creation_settings.json": "6ba9d8de242d2c41feda0d20692a9ace9c5421ae45717985eef0dfbe8fff07a2",
+    "relics_planning_environment_v1.json": "c9b2f8fb28eceaa1ba348b0db87d7645696beb3e4c783543fcd93142ce2b78f2",
+    "relics_gameplay_v1.json": "df18c200e4c8a9469bc635b3f7a9b26f13211e797803f6af994478bdc1bcdd23",
+    "relics_distribution_v1.json": "9f34e9cae497ce4513b5cb97db898e3583c5f2f760a161b08b97dc3de1ec892f"
+  },
+  "legacy_journals_identical": true,
+  "historical_resources": {
+    "checked": 57,
+    "changed": [],
+    "files": [
+      "data/relics/structure/",
+      "data/relics/structure/colossus.nbt",
+      "data/relics/structure/colossus_gameplay.nbt",
+      "data/relics/structure/colossus_gameplay_v7.nbt",
+      "data/relics/structure/colossus_gameplay_v7_worldgen.nbt",
+      "data/relics/structure/colossus_gameplay_worldgen.nbt",
+      "data/relics/structure/colossus_worldgen.nbt",
+      "data/relics/structure/obelisk.nbt",
+      "data/relics/structure/obelisk_gameplay.nbt",
+      "data/relics/structure/obelisk_gameplay_worldgen.nbt",
+      "data/relics/structure/obelisk_worldgen.nbt",
+      "data/relics/structure/ruined_tower.nbt",
+      "data/relics/structure/ruined_tower_gameplay.nbt",
+      "data/relics/structure/ruined_tower_gameplay_v10.nbt",
+      "data/relics/structure/ruined_tower_gameplay_v10_worldgen.nbt",
+      "data/relics/structure/ruined_tower_gameplay_worldgen.nbt",
+      "data/relics/structure/ruined_tower_worldgen.nbt",
+      "data/relics/structure/small_colossus.nbt",
+      "data/relics/structure/small_colossus_gameplay.nbt",
+      "data/relics/structure/small_colossus_gameplay_v10.nbt",
+      "data/relics/structure/small_colossus_gameplay_v10_worldgen.nbt",
+      "data/relics/structure/small_colossus_gameplay_v11.nbt",
+      "data/relics/structure/small_colossus_gameplay_v11_worldgen.nbt",
+      "data/relics/structure/small_colossus_gameplay_worldgen.nbt",
+      "data/relics/structure/small_colossus_worldgen.nbt",
+      "data/relics/structure/titan_skull.nbt",
+      "data/relics/structure/titan_skull_2.nbt",
+      "data/relics/structure/titan_skull_2_side_v1.nbt",
+      "data/relics/structure/titan_skull_2_side_v1_worldgen.nbt",
+      "data/relics/structure/titan_skull_2_worldgen.nbt",
+      "data/relics/structure/titan_skull_dry.nbt",
+      "data/relics/structure/titan_skull_dry_worldgen.nbt",
+      "data/relics/structure/titan_skull_rock.nbt",
+      "data/relics/structure/titan_skull_rock_worldgen.nbt",
+      "data/relics/structure/titan_skull_sand.nbt",
+      "data/relics/structure/titan_skull_sand_worldgen.nbt",
+      "data/relics/structure/titan_skull_worldgen.nbt",
+      "data/relics/structure/world_tree.nbt",
+      "data/relics/structure/world_tree_gameplay.nbt",
+      "data/relics/structure/world_tree_gameplay_worldgen.nbt",
+      "data/relics/structure/world_tree_worldgen.nbt",
+      "data/relics/worldgen/processor_list/",
+      "data/relics/worldgen/processor_list/colossus_terrain.json",
+      "data/relics/worldgen/processor_list/obelisk_terrain.json",
+      "data/relics/worldgen/processor_list/ruined_tower_terrain.json",
+      "data/relics/worldgen/processor_list/small_colossus_terrain.json",
+      "data/relics/worldgen/processor_list/titan_skull_2_terrain.json",
+      "data/relics/worldgen/processor_list/titan_skull_dry_terrain.json",
+      "data/relics/worldgen/processor_list/titan_skull_rock_terrain.json",
+      "data/relics/worldgen/processor_list/titan_skull_sand_terrain.json",
+      "data/relics/worldgen/processor_list/titan_skull_terrain.json",
+      "data/relics/worldgen/processor_list/world_tree_terrain.json",
+      "relics.gameplay.integration.json",
+      "relics.gameplay.landmarks.integration.json",
+      "relics.gameplay.short_entry_tower.integration.json",
+      "relics.gameplay.small_landmarks.integration.json",
+      "relics.gameplay.tree_skull.integration.json"
+    ]
+  },
+  "java_assertions": 776,
+  "native_runs": {
+    "native": {
+      "seconds": 260.06,
+      "java_exit_code": 0
+    },
+    "native-fixed": {
+      "seconds": 254.53,
+      "java_exit_code": 0
+    },
+    "native-legacy-preserved": {
+      "seconds": 156.94,
+      "java_exit_code": 0
+    }
+  },
+  "limits": [
+    "Single reproduced placement; no global or Survival acceptance.",
+    "Old V5 contacts remain intentionally unchanged; no retrogen.",
+    "V6 changes six interior contracts in the planning fingerprint; all other signature components match.",
+    "Private trace build was not published or committed."
+  ],
+  "pr4_resource_preservation": {
+    "checked": 60,
+    "changed": []
+  }
+}

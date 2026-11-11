@@ -47,6 +47,7 @@ def legacy_java(name: str, text: str) -> str:
     if name == 'RelicWorldgen.java':
         text = text.replace('    public void onInitialize() {', '    public void onInitialize() {\n' + ''.join(initializers))
     text = text.replace('.identifier()', '.location()')
+    text = text.replace('.registryOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FEATHER_FALLING)', '.registryOrThrow(Registries.ENCHANTMENT).getHolderOrThrow(Enchantments.FEATHER_FALLING)')
     text = text.replace('net.minecraft.world.entity.animal.golem.', 'net.minecraft.world.entity.animal.')
     text = text.replace('net.minecraft.world.entity.animal.pig.Pig', 'net.minecraft.world.entity.animal.Pig')
     text = text.replace('net.minecraft.world.entity.animal.chicken.Chicken', 'net.minecraft.world.entity.animal.Chicken')

@@ -62,7 +62,7 @@ public final class DistributionJournal {
     private static int format(State state){return state.surfaceStructures==null?1:2;}
     private void validate() {
         if(state!=null && state.surfaceStructures!=null)state.surfaceStructures.validate();
-        if (state==null || state.interiors==null || !Set.of("legacy","interiors-20261027-v1","interiors-20261028-v2","interiors-20261028-v3","interiors-20261028-v4","interiors-20261028-v5").contains(state.interiors)
+        if (state==null || state.interiors==null || !Set.of("legacy","interiors-20261027-v1","interiors-20261028-v2","interiors-20261028-v3","interiors-20261028-v4","interiors-20261028-v5","interiors-20261111-v6").contains(state.interiors)
                 || !Set.of(DistributionPlanner.POLICY,DistributionPlanner.LEGACY_POLICY,DistributionSettings.LEGACY_POLICY,DistributionSettings.DISCOVERIES_POLICY,DistributionSettings.POLICY).contains(state.policy) || state.fingerprint==null
                 || DistributionSettings.settingsPolicy(state.policy) != (state.settings!=null)
                 || state.settings!=null && DistributionSettings.settingsPolicy(state.policy) && !state.policy.equals(state.settings.policy())

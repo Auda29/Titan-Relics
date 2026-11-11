@@ -13,11 +13,14 @@ import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.*;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.*;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.*;
@@ -32,8 +35,8 @@ import java.util.*;
 
 /** Native chunk placement and server-thread, once-per-chunk gameplay initialization. */
 public final class NaturalInteriors {
-    public static final String REVISION="interiors-20261028-v5", SHORT_ENTRY="interiors-20261028-v4", SMALL_LANDMARKS="interiors-20261028-v3", LANDMARKS="interiors-20261028-v2", PREVIOUS="interiors-20261027-v1", LEGACY="legacy";
-    public static boolean supports(String revision){return REVISION.equals(revision) || SHORT_ENTRY.equals(revision) || SMALL_LANDMARKS.equals(revision) || LANDMARKS.equals(revision) || PREVIOUS.equals(revision);}
+    public static final String REVISION="interiors-20261111-v6", TREE_SKULL="interiors-20261028-v5", SHORT_ENTRY="interiors-20261028-v4", SMALL_LANDMARKS="interiors-20261028-v3", LANDMARKS="interiors-20261028-v2", PREVIOUS="interiors-20261027-v1", LEGACY="legacy";
+    public static boolean supports(String revision){return REVISION.equals(revision) || TREE_SKULL.equals(revision) || SHORT_ENTRY.equals(revision) || SMALL_LANDMARKS.equals(revision) || LANDMARKS.equals(revision) || PREVIOUS.equals(revision);}
     private static final Gson JSON=new Gson();
     private static final Map<ServerLevel,Set<ChunkPos>> PENDING=new HashMap<>();
     public record Certificate(String revision,String asset,String site,int x,int y,int z,int rotation) { }
@@ -45,7 +48,7 @@ public final class NaturalInteriors {
             Identifier.fromNamespaceAndPath("relics","natural_interiors"),b->b.initializer(ChunkData::new)
                     .persistent(Codec.STRING.xmap(s->JSON.fromJson(s,ChunkData.class),JSON::toJson)));
     private static final class Catalog {
-        static final Map<String,JsonObject> MANIFESTS=Map.of(REVISION,loadManifest(REVISION),SHORT_ENTRY,loadManifest(SHORT_ENTRY),SMALL_LANDMARKS,loadManifest(SMALL_LANDMARKS),LANDMARKS,loadManifest(LANDMARKS),PREVIOUS,loadManifest(PREVIOUS));
+        static final Map<String,JsonObject> MANIFESTS=Map.of(REVISION,loadManifest(REVISION),TREE_SKULL,loadManifest(TREE_SKULL),SHORT_ENTRY,loadManifest(SHORT_ENTRY),SMALL_LANDMARKS,loadManifest(SMALL_LANDMARKS),LANDMARKS,loadManifest(LANDMARKS),PREVIOUS,loadManifest(PREVIOUS));
         static final Map<String,Map<String,JsonObject>> ASSETS=new HashMap<>();
         static { for(var revision:MANIFESTS.entrySet()) {
             var assets=new HashMap<String,JsonObject>();
@@ -61,7 +64,8 @@ public final class NaturalInteriors {
             case LANDMARKS->"/relics.gameplay.landmarks.integration.json";
             case SMALL_LANDMARKS->"/relics.gameplay.small_landmarks.integration.json";
             case SHORT_ENTRY->"/relics.gameplay.short_entry_tower.integration.json";
-            case REVISION->"/relics.gameplay.tree_skull.integration.json";
+            case TREE_SKULL->"/relics.gameplay.tree_skull.integration.json";
+            case REVISION->"/relics.gameplay.tower_summit.integration.json";
             default->throw new IllegalStateException("Unknown interior revision");
         };
         try(var in=NaturalInteriors.class.getResourceAsStream(path)) {
@@ -196,7 +200,7 @@ public final class NaturalInteriors {
                 BlockEntity be=chunk.getBlockEntity(p);
                 if(role.endsWith("_chest")) {
                     if(!(be instanceof Container chest))throw new IllegalStateException("Natural chest unavailable at "+p);
-                    List<ItemStack> loot=chestLoot(cert.asset(),role,random);
+                    List<ItemStack> loot=chestLoot(level,cert.asset(),role,random);
                     for(int i=0;i<loot.size();i++)chest.setItem(i,loot.get(i));be.setChanged();
                 } else if(role.startsWith("archaeology_")) {
                     if(!(be instanceof BrushableBlockEntity brush))throw new IllegalStateException("Natural archaeology unavailable at "+p);
@@ -229,8 +233,17 @@ public final class NaturalInteriors {
         long h=0xcbf29ce484222325L;for(byte b:action.getBytes(StandardCharsets.UTF_8))h=(h^(b&255))*0x100000001b3L;
         return DistributionPlanner.mix(seed^h);
     }
-    private static List<ItemStack> chestLoot(String asset,String role,java.util.Random r) {
+    private static List<ItemStack> chestLoot(ServerLevel level,String asset,String role,java.util.Random r) {
         List<ItemStack> result=new ArrayList<>();
+        if(asset.equals("ruined_tower") && role.equals("tower_summit_chest")) {
+            var book=new ItemStack(Items.ENCHANTED_BOOK);
+            var featherFalling=level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FEATHER_FALLING);
+            EnchantmentHelper.updateEnchantments(book,enchantments->enchantments.set(featherFalling,4));
+            result.add(book);
+            result.add(new ItemStack(Items.DIAMOND,3+r.nextInt(4)));
+            result.add(new ItemStack(Items.IRON_INGOT,8+r.nextInt(9)));
+            return result;
+        }
         if(asset.equals("ruined_tower")) {result.add(new ItemStack(r.nextInt(20)==0?Items.ENDER_EYE:Items.ENDER_PEARL,1));
             if(result.getFirst().is(Items.ENDER_PEARL))result.getFirst().setCount(4+r.nextInt(3));return result;}
         boolean large=asset.equals("colossus");

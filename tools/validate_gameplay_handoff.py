@@ -19,7 +19,7 @@ REQUIRED={
 REGIONS={'colossus':{'cockpit_clearance','hatch_clearance','arm_clearance'},'small_colossus':{'small_interior_clearance'},
          'obelisk':set(),'ruined_tower':{'tower_route_clearance'},'world_tree':{'tree_lighting_scope'}}
 INJECT={'colossus_trial_spawner','colossus_vault','colossus_arm_magnet_chest','colossus_salvage_chest',
-        'small_magnet_chest','archaeology_common','archaeology_trim','archaeology_map','tower_ender_chest'}
+        'small_magnet_chest','archaeology_common','archaeology_trim','archaeology_map','tower_ender_chest','tower_summit_chest'}
 
 def require(value,message):
     if not value:raise ValueError(message)
@@ -54,7 +54,7 @@ def validate(sidecar,blocks,size,registry):
     def point(p):return len(p)==3 and all(type(v)==int and 0<=v<n for v,n in zip(p,size))
     for marker in sidecar['markers']:
         require(marker['id'] not in ids and re.fullmatch('[a-z0-9_-]+',marker['id']),'Duplicate/invalid id');ids.add(marker['id'])
-        role=marker['role'];require(role in REQUIRED[name] or (name in ('colossus','small_colossus') and role=='colossus_salvage_chest'),'Unknown role')
+        role=marker['role'];require(role in REQUIRED[name] or (name=='ruined_tower' and role=='tower_summit_chest' and sidecar['asset_version']=='ruined-tower-v11-upper-chest') or (name in ('colossus','small_colossus') and role=='colossus_salvage_chest'),'Unknown role')
         roles[role]+=1;p=tuple(marker['pos']);require(point(p),'Marker outside bounds')
         require(marker.get('facing','north') in ('north','east','south','west'),'Invalid facing')
         if role in INJECT:
@@ -67,6 +67,8 @@ def validate(sidecar,blocks,size,registry):
             require(all(q not in blocks for q in positions((p[0]-1,p[1],p[2]-1),(p[0]+1,p[1]+3,p[2]+1))),'Blocked entity clearance')
             require(all((x,p[1]-1,z) in blocks for x in range(p[0]-1,p[0]+2) for z in range(p[2]-1,p[2]+2)),'Unsafe entity floor')
     require(all(roles[role]==count for role,count in REQUIRED[name].items()),'Role cardinality mismatch')
+    if name=='ruined_tower' and sidecar['asset_version']=='ruined-tower-v11-upper-chest':
+        require(roles['tower_summit_chest']==1,'Upper-platform chest cardinality mismatch')
     region_roles=Counter()
     for region in sidecar['regions']:
         require(region['id'] not in ids,'Duplicate id');ids.add(region['id'])

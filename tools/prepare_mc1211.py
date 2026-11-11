@@ -117,6 +117,12 @@ def prepare(output: Path = OUTPUT) -> dict:
         path = output / 'java' / source.relative_to(ROOT / 'src/main/java')
         path.parent.mkdir(parents=True, exist_ok=True)
         content = port_java(source.name, source.read_text(encoding='utf-8'))
+        if source.name == 'TerrainSupportProcessor.java':
+            # This visual Alpha 4.9 profile predates the distribution runtime.
+            # Its foundation rules never opt into Beta 4's V6 contact behavior.
+            start = content.index('        // CONTACT_REVISION_BEGIN')
+            end = content.index('        // CONTACT_REVISION_END') + len('        // CONTACT_REVISION_END')
+            content = content[:start] + content[end:]
         if source.name == 'TerrainSupportProcessor.java' and 'public final class TerrainSupportProcessor extends StructureProcessor' not in content:
             raise ValueError('Processor source shape changed; review the legacy adapter before building')
         path.write_text(content, encoding='utf-8', newline='\n')

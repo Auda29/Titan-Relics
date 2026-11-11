@@ -9,6 +9,9 @@ import net.fabricmc.fabric.api.attachment.v1.*;
 import net.minecraft.commands.Commands;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Container;
@@ -71,15 +74,28 @@ public class NaturalInteriorChecks implements ModInitializer {
                         else {
                             if(!(chunk.getBlockEntity(p) instanceof Container chest))throw new AssertionError("Missing copper chest");
                             JsonArray loot=new JsonArray();boolean fullMagnet=false;
+                            int summitBooks=0,summitDiamonds=0,summitIron=0;
                             for(int i=0;i<chest.getContainerSize();i++)if(!chest.getItem(i).isEmpty()) {
                                 var stack=chest.getItem(i);JsonObject entry=new JsonObject();entry.addProperty("item",BuiltInRegistries.ITEM.getKey(stack.getItem()).toString());entry.addProperty("count",stack.getCount());loot.add(entry);
                                 if(stack.is(RelicItems.SALVAGE_MAGNET))fullMagnet=stack.get(RelicItems.MAGNET_WEAR).remaining()==1000;
+                                if(role.equals("tower_summit_chest")) {
+                                    if(stack.is(Items.ENCHANTED_BOOK)) {
+                                        var feather=level.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FEATHER_FALLING);
+                                        int enchantment=EnchantmentHelper.getEnchantmentsForCrafting(stack).getLevel(feather);
+                                        entry.addProperty("feather_falling",enchantment);
+                                        if(enchantment!=4)throw new AssertionError("Summit book is not Feather Falling IV");
+                                        summitBooks+=stack.getCount();
+                                    } else if(stack.is(Items.DIAMOND))summitDiamonds+=stack.getCount();
+                                    else if(stack.is(Items.IRON_INGOT))summitIron+=stack.getCount();
+                                    else throw new AssertionError("Unexpected summit loot");
+                                }
                             }
                             if(loot.isEmpty())throw new AssertionError("Uninitialized natural loot");
+                            if(role.equals("tower_summit_chest") && (summitBooks!=1 || summitDiamonds<3 || summitDiamonds>6 || summitIron<8 || summitIron>16))throw new AssertionError("Summit reward budget differs");
                             if(site.asset().equals("colossus") && !fullMagnet)throw new AssertionError("Missing full arm magnet");
                             if((site.asset().equals("colossus") && !revision.equals("interiors-20261027-v1")
-                                    || site.asset().equals("small_colossus") && Set.of("interiors-20261028-v3","interiors-20261028-v4","interiors-20261028-v5").contains(revision)
-                                    || site.asset().equals("ruined_tower") && Set.of("interiors-20261028-v4","interiors-20261028-v5").contains(revision))
+                                    || site.asset().equals("small_colossus") && Set.of("interiors-20261028-v3","interiors-20261028-v4","interiors-20261028-v5","interiors-20261111-v6").contains(revision)
+                                    || site.asset().equals("ruined_tower") && Set.of("interiors-20261028-v4","interiors-20261028-v5","interiors-20261111-v6").contains(revision))
                                     && !level.getBlockState(p.above()).isAir())throw new AssertionError("Terrain blocks chest lid");
                             rec.add("loot",loot);if(mutate)level.setBlock(p,Blocks.AIR.defaultBlockState(),3);
                         }

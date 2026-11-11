@@ -1,0 +1,330 @@
+{
+  "minecraft": "26.2",
+  "seed": -4443928181842649648,
+  "artifact_sha256": "7892a7c4309fa4b1030103d866aea7ecb17104ae094331949f0ed3abb5ec6478",
+  "passes": [
+    {
+      "iteration": 0,
+      "seconds": 157.71,
+      "java_exit_code": 0,
+      "journal_sha256": "15fb7d0682b64c83cb2ac34d768a84c9dbdf6ff022c076ae991dde5bd66736a5",
+      "proof": [
+        {
+          "asset": "ruined_tower",
+          "site_id": "natural:-4443928181842649648:ruined_tower:9:3",
+          "markers": [
+            {
+              "role": "tower_entry",
+              "x": 18858,
+              "y": 69,
+              "z": 6286,
+              "block": "minecraft:air"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18848,
+              "y": 69,
+              "z": 6300,
+              "block": "minecraft:air",
+              "uuid": "f1495ba7-ad50-3f94-bba8-2c4b96490b4d"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18866,
+              "y": 69,
+              "z": 6299,
+              "block": "minecraft:air",
+              "uuid": "a0086115-cb12-30d2-a7b6-fe91d1eed3f2"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18848,
+              "y": 69,
+              "z": 6311,
+              "block": "minecraft:air",
+              "uuid": "1d88bf40-f99d-3c3c-8366-87b1282433db"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18867,
+              "y": 69,
+              "z": 6314,
+              "block": "minecraft:air",
+              "uuid": "e2be735a-82d3-3a27-92b9-b9dd6785c01d"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18872,
+              "y": 69,
+              "z": 6306,
+              "block": "minecraft:air",
+              "uuid": "5d877732-3ff2-383a-bb6f-0ebca0b82046"
+            },
+            {
+              "role": "tower_ender_chest",
+              "x": 18859,
+              "y": 69,
+              "z": 6321,
+              "block": "minecraft:waxed_copper_chest",
+              "loot": [
+                {
+                  "item": "minecraft:ender_pearl",
+                  "count": 6
+                }
+              ]
+            },
+            {
+              "role": "tower_upper_destination",
+              "x": 18873,
+              "y": 228,
+              "z": 6323,
+              "block": "minecraft:air"
+            },
+            {
+              "role": "tower_summit_chest",
+              "x": 18874,
+              "y": 228,
+              "z": 6322,
+              "block": "minecraft:waxed_copper_chest",
+              "loot": [
+                {
+                  "item": "minecraft:enchanted_book",
+                  "count": 1,
+                  "feather_falling": 4
+                },
+                {
+                  "item": "minecraft:diamond",
+                  "count": 5
+                },
+                {
+                  "item": "minecraft:iron_ingot",
+                  "count": 13
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 1,
+      "seconds": 72.79,
+      "java_exit_code": 0,
+      "journal_sha256": "15fb7d0682b64c83cb2ac34d768a84c9dbdf6ff022c076ae991dde5bd66736a5",
+      "proof": [
+        {
+          "asset": "ruined_tower",
+          "site_id": "natural:-4443928181842649648:ruined_tower:9:3",
+          "markers": [
+            {
+              "role": "tower_entry",
+              "x": 18858,
+              "y": 69,
+              "z": 6286,
+              "block": "minecraft:air"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18848,
+              "y": 69,
+              "z": 6300,
+              "block": "minecraft:air",
+              "uuid": "f1495ba7-ad50-3f94-bba8-2c4b96490b4d"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18866,
+              "y": 69,
+              "z": 6299,
+              "block": "minecraft:air",
+              "uuid": "a0086115-cb12-30d2-a7b6-fe91d1eed3f2"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18848,
+              "y": 69,
+              "z": 6311,
+              "block": "minecraft:air",
+              "uuid": "1d88bf40-f99d-3c3c-8366-87b1282433db"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18867,
+              "y": 69,
+              "z": 6314,
+              "block": "minecraft:air",
+              "uuid": "e2be735a-82d3-3a27-92b9-b9dd6785c01d"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18872,
+              "y": 69,
+              "z": 6306,
+              "block": "minecraft:air",
+              "uuid": "5d877732-3ff2-383a-bb6f-0ebca0b82046"
+            },
+            {
+              "role": "tower_ender_chest",
+              "x": 18859,
+              "y": 69,
+              "z": 6321,
+              "block": "minecraft:waxed_copper_chest",
+              "loot": [
+                {
+                  "item": "minecraft:ender_pearl",
+                  "count": 6
+                }
+              ]
+            },
+            {
+              "role": "tower_upper_destination",
+              "x": 18873,
+              "y": 228,
+              "z": 6323,
+              "block": "minecraft:air"
+            },
+            {
+              "role": "tower_summit_chest",
+              "x": 18874,
+              "y": 228,
+              "z": 6322,
+              "block": "minecraft:waxed_copper_chest",
+              "loot": [
+                {
+                  "item": "minecraft:enchanted_book",
+                  "count": 1,
+                  "feather_falling": 4
+                },
+                {
+                  "item": "minecraft:diamond",
+                  "count": 5
+                },
+                {
+                  "item": "minecraft:iron_ingot",
+                  "count": 13
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 2,
+      "seconds": 68.1,
+      "java_exit_code": 0,
+      "journal_sha256": "15fb7d0682b64c83cb2ac34d768a84c9dbdf6ff022c076ae991dde5bd66736a5",
+      "proof": [
+        {
+          "asset": "ruined_tower",
+          "site_id": "natural:-4443928181842649648:ruined_tower:9:3",
+          "markers": [
+            {
+              "role": "tower_entry",
+              "x": 18858,
+              "y": 69,
+              "z": 6286,
+              "block": "minecraft:air"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18848,
+              "y": 69,
+              "z": 6300,
+              "block": "minecraft:air",
+              "uuid": "f1495ba7-ad50-3f94-bba8-2c4b96490b4d"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18866,
+              "y": 69,
+              "z": 6299,
+              "block": "minecraft:air",
+              "uuid": "a0086115-cb12-30d2-a7b6-fe91d1eed3f2"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18848,
+              "y": 69,
+              "z": 6311,
+              "block": "minecraft:air",
+              "uuid": "1d88bf40-f99d-3c3c-8366-87b1282433db"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18867,
+              "y": 69,
+              "z": 6314,
+              "block": "minecraft:air",
+              "uuid": "e2be735a-82d3-3a27-92b9-b9dd6785c01d"
+            },
+            {
+              "role": "tower_enderman_spawn",
+              "x": 18872,
+              "y": 69,
+              "z": 6306,
+              "block": "minecraft:air",
+              "uuid": "5d877732-3ff2-383a-bb6f-0ebca0b82046"
+            },
+            {
+              "role": "tower_ender_chest",
+              "x": 18859,
+              "y": 69,
+              "z": 6321,
+              "block": "minecraft:air"
+            },
+            {
+              "role": "tower_upper_destination",
+              "x": 18873,
+              "y": 228,
+              "z": 6323,
+              "block": "minecraft:air"
+            },
+            {
+              "role": "tower_summit_chest",
+              "x": 18874,
+              "y": 228,
+              "z": 6322,
+              "block": "minecraft:air"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "site": {
+    "candidate": {
+      "cell": {
+        "x": 9,
+        "z": 3
+      },
+      "x": 18856,
+      "z": 6312,
+      "ticket": 6151,
+      "priority": 4217054763696564578,
+      "rotation": 0,
+      "unique": false
+    },
+    "asset": "ruined_tower",
+    "x2": 37712,
+    "z2": 12624,
+    "surface": 66,
+    "originX": 18793,
+    "originY": 54,
+    "originZ": 6258,
+    "minX": 18793,
+    "minZ": 6258,
+    "maxX": 18919,
+    "maxZ": 6366
+  },
+  "assertions": [
+    "natural planned tower",
+    "two native chests with correct marker facing with free lids",
+    "guaranteed Feather Falling IV, 3-6 diamonds, 8-16 iron",
+    "lower Ender reward retained",
+    "untouched loot stable on reload",
+    "removed chests not recreated on second reload",
+    "frozen journal byte-identical",
+    "all Java exits zero without ERROR log entries"
+  ]
+}

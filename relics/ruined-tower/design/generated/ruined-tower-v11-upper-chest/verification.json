@@ -1,0 +1,27 @@
+{
+  "size": [
+    111,
+    232,
+    93
+  ],
+  "blocks": 271063,
+  "tiles": 69,
+  "markers": 9,
+  "regions": 324,
+  "checks": [
+    "source hash and revision binding",
+    "26.2 block/property report",
+    "roles/bounds/placeholder supports",
+    "entity footprints/headroom",
+    "schematic equality",
+    "lossless tile reconstruction",
+    "unchanged baseline hash",
+    "new architecture face-connected to surviving baseline",
+    "two-block player routes / continuous support"
+  ],
+  "nbt_sha256": "fd3a1c9c7cbef6f5c7665ecac3c49f9faef33540237a87907b7ac0d908029b39",
+  "in_game_tested": false,
+  "natural_rotation_and_chunk_injection_tested": false,
+  "actual_block_light_tested": false,
+  "visual_acceptance": "pending"
+}

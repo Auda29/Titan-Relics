@@ -43,7 +43,7 @@ def verify(path: Path,loader: str,minecraft: str) -> dict:
                 for field in ('single_template','worldgen_template'):
                     template='data/relics/structure/'+entry[field]['path'];templates.add(template)
                     if hashlib.sha256(archive.read(template)).hexdigest()!=entry[field]['sha256']:raise ValueError('Template binding mismatch: '+template)
-        if len(manifests)!=6 or len(templates)!=40:raise ValueError('Missing frozen interior revision/template')
+        if len(manifests)!=7 or len(templates)!=42:raise ValueError('Missing frozen interior revision/template')
         if {n for n in names if n.endswith('.nbt')}!=templates:raise ValueError('Extra or missing templates')
         classes=[n for n in names if n.endswith('.class')]
         if not classes:raise ValueError('No runtime code')
@@ -72,7 +72,7 @@ def verify(path: Path,loader: str,minecraft: str) -> dict:
             raise ValueError('Fabric menu mixins are not client-scoped')
         if loader=='neoforge' and {'config':'relics.client.mixins.json'} not in metadata['mixins']:
             raise ValueError('NeoForge menu mixins are not registered')
-        substitutions=json.loads(archive.read('relics.gameplay.tree_skull.integration.json')).get('block_substitutions',{})
+        substitutions=json.loads(archive.read('relics.gameplay.tower_summit.integration.json')).get('block_substitutions',{})
     return {'file':path.name,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'loader':loader,'minecraft':minecraft,
             'version':VERSION,'java_class_major':java+44,'templates':len(templates),'frozen_manifests':len(manifests),'runtime_classes':len(classes),'block_substitutions':substitutions,'passed':True}
 
