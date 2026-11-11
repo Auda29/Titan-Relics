@@ -42,9 +42,12 @@ public final class DistributionRuntime implements AutoCloseable {
     private final Map<Cell,CompletableFuture<Site>> selections=new LinkedHashMap<>(64,.75f,true);
     private volatile Site unique;
     private volatile boolean unavailable,closed;
+    private volatile boolean surfaceSpawnFrozen;
     private volatile Throwable failure;
     private List<Candidate> annulus;
     private long materialized;
+    public final java.util.concurrent.atomic.LongAdder surfaceSuppressed=new java.util.concurrent.atomic.LongAdder();
+    private final java.util.concurrent.atomic.LongAdder surfaceBootstrapSkipped=new java.util.concurrent.atomic.LongAdder(),surfaceOversizeSkipped=new java.util.concurrent.atomic.LongAdder();
 
     private DistributionRuntime(ServerLevel level,boolean fresh) {
         this.level=level;
@@ -68,6 +71,7 @@ public final class DistributionRuntime implements AutoCloseable {
         initial.fingerprint=validator.fingerprint;initial.fingerprintFormat=PlanningFingerprint.FORMAT;initial.enabled=Set.copyOf(validator.enabled);
         BlockPos approximate=level.getChunkSource().randomState().sampler().findSpawnPosition();
         initial.bootstrapX=Math.floorDiv(approximate.getX(),16)*16+8;initial.bootstrapZ=Math.floorDiv(approximate.getZ(),16)*16+8;
+        if(fresh)initial.surfaceStructures=SurfaceStructureFilter.snapshot(level);
         journal=new DistributionJournal(file,initial);
         var s=journal.state;
         boolean legacy=s.fingerprintFormat==0;
@@ -86,6 +90,8 @@ public final class DistributionRuntime implements AutoCloseable {
             LOG.info("Migrated {} legacy planning fingerprint to canonical JSON format; original journal backed up",
                     recovery?"explicitly approved":"exactly matching");
         }
+        surfaceSpawnFrozen=s.frozen;
+        if(s.surfaceStructures!=null)validator.prepareSurfaceGeometry();
         unique=s.unique;unavailable=s.unavailable;
         planner=new DistributionPlanner(s.policy,s.settings==null?DistributionSettings.LEGACY_EXPEDITION:s.settings,s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
         actor=Executors.newSingleThreadScheduledExecutor(r->{Thread t=new Thread(r,"Relic planning "+s.seed);t.setDaemon(true);return t;});
@@ -152,7 +158,7 @@ public final class DistributionRuntime implements AutoCloseable {
         var s=runtime.journal.state;
         if(Math.hypot((double)pos.getX()-s.bootstrapX,(double)pos.getZ()-s.bootstrapZ)>128)
             throw new IllegalStateException("Initial spawn exceeded vanilla's bounded spawn search; relic planning cannot safely continue");
-        s.spawnX=pos.getX();s.spawnZ=pos.getZ();s.frozen=true;runtime.journal.flush();runtime.startResolver();
+        s.spawnX=pos.getX();s.spawnZ=pos.getZ();s.frozen=true;runtime.journal.flush();runtime.surfaceSpawnFrozen=true;runtime.startResolver();
     }
     private void startResolver() {
         if(unique!=null || unavailable){ready.complete(null);return;}
@@ -266,6 +272,26 @@ public final class DistributionRuntime implements AutoCloseable {
             try{return original.get();}finally{GENERATING.remove();}
         },worldgenExecutor);
     }
+    public SurfaceStructurePolicy.State surfacePolicy(){return journal.state.surfaceStructures;}
+    public boolean surfaceBootstrap(int x,int z,List<SurfaceStructurePolicy.Box> pieces) {
+        boolean skip=SurfaceStructurePolicy.bootstrap(surfacePolicy(),journal.state.bootstrapX,journal.state.bootstrapZ,x,z,pieces);
+        if(skip)surfaceBootstrapSkipped.increment();return skip;
+    }
+    public CompletableFuture<Boolean> surfaceCollision(List<SurfaceStructurePolicy.Box> pieces) {
+        if(!surfaceSpawnFrozen)return CompletableFuture.failedFuture(new IllegalStateException(
+                "Worldgen requested a filtered structure outside the verified initial-spawn region before spawn was frozen"));
+        var cells=SurfaceStructurePolicy.cells(pieces,planner.cellSize(),validator.surfaceGeometryPadding());
+        if(cells.isEmpty()){surfaceOversizeSkipped.increment();return CompletableFuture.completedFuture(false);}
+        return ready.thenCompose(ignored->{
+            if(failure!=null || closed)return CompletableFuture.failedFuture(new IllegalStateException("Relic surface planning unavailable",failure));
+            List<CompletableFuture<Site>> queries=cells.get().stream().map(this::decision).toList();
+            return CompletableFuture.allOf(queries.toArray(CompletableFuture[]::new)).thenApply(done->{
+                if(unique!=null && validator.overlapsSurface(unique,pieces))return true;
+                for(var query:queries){Site site=query.getNow(null);if(site!=null && validator.overlapsSurface(site,pieces))return true;}
+                return false;
+            });
+        });
+    }
     /** null means this is not a managed relic placement. */
     public static Boolean placement(Object placement,ChunkGeneratorStructureState state,int chunkX,int chunkZ) {
         var runtime=STATES.get(state);if(runtime==null)return null;
@@ -348,6 +374,7 @@ public final class DistributionRuntime implements AutoCloseable {
         report.put("opportunityQueries",planner.opportunities);report.put("terrainChecks",planner.terrainChecks);report.put("terrainRejected",planner.terrainRejected);
         report.put("spacingRejected",planner.spacingRejected);report.put("acceptedQueries",planner.acceptedQueries);report.put("materializedStartEvents",materialized);
         report.put("locationAttempts",planner.locationAttempts);
+        report.put("surfaceFilter",Map.of("enabled",surfacePolicy()!=null,"suppressed",surfaceSuppressed.sum(),"bootstrapPreserved",surfaceBootstrapSkipped.sum(),"oversizePreserved",surfaceOversizeSkipped.sum()));
         report.put("diagnostics",diagnostics());
         return new GsonBuilder().create().toJson(report);
     }

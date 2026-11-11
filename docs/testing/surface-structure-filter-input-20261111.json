@@ -1,0 +1,82 @@
+{
+  "cells": [
+    [
+      -3,
+      1
+    ],
+    [
+      -5,
+      -9
+    ],
+    [
+      -6,
+      0
+    ],
+    [
+      -1,
+      1
+    ],
+    [
+      -19,
+      6
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "starts": [
+    {
+      "id": "minecraft:village_snowy",
+      "x": -543,
+      "z": -1098
+    },
+    {
+      "id": "minecraft:village_desert",
+      "x": -87,
+      "z": 149
+    },
+    {
+      "id": "nova_structures:shrine_combat_tier_4",
+      "x": -199,
+      "z": 211
+    },
+    {
+      "id": "nova_structures:wild_ruin",
+      "x": -290,
+      "z": 193
+    },
+    {
+      "id": "nova_structures:tavern_desert",
+      "x": -297,
+      "z": 208
+    },
+    {
+      "id": "minecraft:nether_fossil",
+      "x": -658,
+      "z": 46
+    },
+    {
+      "id": "minecraft:mineshaft",
+      "x": -205,
+      "z": 202
+    },
+    {
+      "id": "nova_structures:wild_ruin",
+      "x": -2290,
+      "z": 842
+    }
+  ],
+  "blocks": [
+    [
+      -1392,
+      71,
+      2391
+    ],
+    [
+      -8686,
+      70,
+      -17570
+    ]
+  ]
+}

@@ -246,7 +246,7 @@ def prepare(minecraft):
     if not legacy:test_paths+=list((ROOT/'compat/alpha5-fabric-1.21.1/src/test/adapters').rglob('*.java'))
     for path in sorted(test_paths):
         # Optional Fabric-only audit mod; it is not part of the shared port test suite.
-        if path.name=='ColossusSearchBootChecks.java':continue
+        if path.name in ('ColossusSearchBootChecks.java','SurfaceStructureBootChecks.java'):continue
         relative=path.relative_to(test_source) if path.is_relative_to(test_source) else path.relative_to(ROOT/'compat/alpha5-fabric-1.21.1/src/test/adapters')
         if relative.parts[:3]==('de','relics','testmixin'):relative=Path('de/relics/validation/mixin')/path.name
         text=path.read_text(encoding='utf-8')
