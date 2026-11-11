@@ -1,0 +1,1048 @@
+{
+  "schema": 1,
+  "minecraft": "1.21.1",
+  "ratio": "960:527",
+  "processing": "Existing approved crops retained byte-for-byte. Other legacy images: proportional HUD crop and Lanczos downsampling only. New HUD-free images: proportional downsampling only. No generative edits, inpainting, colour or exposure changes.",
+  "context": "TerraVista Living World and shaders contribute terrain, vegetation and lighting. Dates and release/development provenance are recorded per image.",
+  "images": [
+    {
+      "id": "2026-11-10_090824-colossus-approach",
+      "file": "2026-11-10_090824-colossus-approach.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_09.08.24.png",
+      "source_sha256": "73821cad345ef40d2068b9c36d31207455443620d2a0c5b3d29bd7967674ff30",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        200,
+        1536,
+        1043.2
+      ],
+      "sha256": "1bc05cec799db846f0a7958d650a5b5cba0322c8e4399d6dc4bf1779e0964810",
+      "bytes": 696806,
+      "subject": "colossus",
+      "capture": "beta-1-playtest",
+      "title_de": "Großer Koloss · Zwischen Blumen",
+      "title_en": "Great Colossus · Among flowers",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_090841-colossus-selected-front",
+      "file": "2026-11-10_090841-colossus-selected-front.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_09.08.41.png",
+      "source_sha256": "9d60d1488050e964d36b4e3046bb88852bdfe64d9f1753120a5c5c9c8f1142f7",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        160,
+        210,
+        1696,
+        1053.2
+      ],
+      "sha256": "ead158662ffacd018866ec8c4c21c70ec73bea90bc25f58b68114fd149075523",
+      "bytes": 591383,
+      "subject": "colossus",
+      "capture": "beta-1-playtest",
+      "title_de": "Großer Koloss · Ausgewählte Titelaufnahme",
+      "title_en": "Great Colossus · Selected title photograph",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_090901-colossus-stone-arm",
+      "file": "2026-11-10_090901-colossus-stone-arm.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_09.09.01.png",
+      "source_sha256": "c8a525cbc07f35f35d1d35543735bb9054ea0221d177bd4333cece7ce5d00b04",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        200,
+        1536,
+        1043.2
+      ],
+      "sha256": "3cb17c4f562210f98411b51e5dca9e6d50b7d6c2967d9e0ece8f7884e479818a",
+      "bytes": 625613,
+      "subject": "colossus",
+      "capture": "beta-1-playtest",
+      "title_de": "Großer Koloss · Auf dem steinernen Arm",
+      "title_en": "Great Colossus · On the stone arm",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_091037-colossus-corridor",
+      "file": "2026-11-10_091037-colossus-corridor.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_09.10.37.png",
+      "source_sha256": "ae1001d8b2bc6b062fdf9afcf01a7d9200db8e24d38c8bbe09460a40f638f193",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        200,
+        1536,
+        1043.2
+      ],
+      "sha256": "e8f5363a0e468e0967b8b62f9b7c5d020ddf3a2fbb8032c329ecc7ee5020b9ad",
+      "bytes": 460697,
+      "subject": "colossus",
+      "capture": "beta-1-playtest",
+      "title_de": "Großer Koloss · Blick in den Korridor",
+      "title_en": "Great Colossus · Corridor view",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_091358-colossus-sunset-rear",
+      "file": "2026-11-10_091358-colossus-sunset-rear.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_09.13.58.png",
+      "source_sha256": "d4e629e3ff07d214b72578945d3f36f73b496c7c2daf06da20a053788a309237",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        200,
+        1536,
+        1043.2
+      ],
+      "sha256": "9fb91e89236607a049ceb3a42376f0db334607ca63307833ccb66e548bb5d09b",
+      "bytes": 386633,
+      "subject": "colossus",
+      "capture": "beta-1-playtest",
+      "title_de": "Großer Koloss · Rückansicht im Abendlicht",
+      "title_en": "Great Colossus · Rear view at sunset",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_091809-colossus-arms-overview",
+      "file": "2026-11-10_091809-colossus-arms-overview.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_09.18.09.png",
+      "source_sha256": "e1ea323d4208ec98c9f90afe65630576be6735e7646dd2d1562c380e9b6ef020",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        200,
+        1536,
+        1043.2
+      ],
+      "sha256": "937bce8659373b3ea9e106c2584e908d2a56b3879d0bf80f210c49a0fd21efbd",
+      "bytes": 783639,
+      "subject": "colossus",
+      "capture": "beta-1-playtest",
+      "title_de": "Großer Koloss · Blick über die Arme",
+      "title_en": "Great Colossus · View across the arms",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_143354-obelisk-coast",
+      "file": "2026-11-10_143354-obelisk-coast.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.33.54.png",
+      "source_sha256": "da8ca7ab8d47cb38ebc96154325681d54504db2cbfd39fcf87d9972be9b93b03",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        110,
+        1536,
+        953.2
+      ],
+      "sha256": "38c547074039e72e7f4d758bafba1bf1f020271659c41ec9bf84fb65677dce46",
+      "bytes": 486408,
+      "subject": "obelisk",
+      "capture": "beta-3-playtest",
+      "title_de": "Obelisk · An der Küste",
+      "title_en": "Obelisk · On the coast",
+      "legacy_file": "docs/images/beta3/titan-relics-beta3-obelisk.png"
+    },
+    {
+      "id": "2026-11-10_143447-obelisk-close",
+      "file": "2026-11-10_143447-obelisk-close.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.34.47.png",
+      "source_sha256": "bbbfeb1a144d2add01a5ed3cbf5a248dc5959abb65253f1f83f3950eebee3159",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        0,
+        1536,
+        843.2
+      ],
+      "sha256": "2d41a45d792afd98d451bb7f115a4eb1f0ed7c0e93335806e084d5c06bd292c0",
+      "bytes": 431601,
+      "subject": "obelisk",
+      "capture": "beta-3-playtest",
+      "title_de": "Obelisk · Aus der Nähe",
+      "title_en": "Obelisk · Close view",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_143537-colossus-front",
+      "file": "2026-11-10_143537-colossus-front.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.35.37.png",
+      "source_sha256": "69cc6f87e240366c99565ded328b6f5c254438247d12ed61519b6c14fe7b0258",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        192,
+        210,
+        1728,
+        1053.2
+      ],
+      "sha256": "deb99e7019b4ff6d769c9029c62f71ac7e92be6e4af3ec32a6e1802177e29923",
+      "bytes": 675161,
+      "subject": "colossus",
+      "capture": "beta-3-playtest",
+      "title_de": "Großer Koloss · Vorderansicht",
+      "title_en": "Great Colossus · Front view",
+      "legacy_file": "docs/images/beta3/titan-relics-beta3-small-colossus.png"
+    },
+    {
+      "id": "2026-11-10_143625-colossus-forest-distance",
+      "file": "2026-11-10_143625-colossus-forest-distance.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.36.25.png",
+      "source_sha256": "0d72f2f5cf8db1ed965a487b7c3b1f566b74c21603ab3ee519f478e564d5db0c",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        200,
+        1536,
+        1043.2
+      ],
+      "sha256": "c813e46e774979c9abae0de97831a9ad296390408a483d75824fedb26ba6f6e5",
+      "bytes": 644441,
+      "subject": "colossus",
+      "capture": "beta-3-playtest",
+      "title_de": "Großer Koloss · Über dem Wald",
+      "title_en": "Great Colossus · Beyond the forest",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_143903-colossus-rear-water",
+      "file": "2026-11-10_143903-colossus-rear-water.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.39.03.png",
+      "source_sha256": "2cdd387c7b229a94141f625566d8d67fc655867dd002b73f682d304b1fa693a7",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        200,
+        1536,
+        1043.2
+      ],
+      "sha256": "8621194f9c0c4f4bf64229d58a0efcc5fa481a0a34c60bdd7ff57d18245ff8a3",
+      "bytes": 574179,
+      "subject": "colossus",
+      "capture": "beta-3-playtest",
+      "title_de": "Großer Koloss · Jenseits des Wassers",
+      "title_en": "Great Colossus · Across the water",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_143925-colossus-rear-river",
+      "file": "2026-11-10_143925-colossus-rear-river.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.39.25.png",
+      "source_sha256": "50107429d1058872821fd241c0cda6cc8d069df903a6b5719cc3ed3b76d060fa",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        220,
+        1440,
+        1010.5
+      ],
+      "sha256": "5c25d8a47968e01836dc00a9564316ed669aba99c3002ce9400123af226f6892",
+      "bytes": 570751,
+      "subject": "colossus",
+      "capture": "beta-3-playtest",
+      "title_de": "Großer Koloss · Rückansicht am Fluss",
+      "title_en": "Great Colossus · Rear view by the river",
+      "legacy_file": "docs/images/beta3/titan-relics-beta3-colossus.png"
+    },
+    {
+      "id": "2026-11-10_144000-ruined-tower-autumn",
+      "file": "2026-11-10_144000-ruined-tower-autumn.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.40.00.png",
+      "source_sha256": "75d4dcec417c13fc547f67a7e756f63061a328919f501d40e60cb46394d24599",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        80,
+        1536,
+        923.2
+      ],
+      "sha256": "5b15f8269d8247f5d18200b89250eeecbbcc3dc2f82703c82eb90755671dcfdc",
+      "bytes": 481245,
+      "subject": "ruined-tower",
+      "capture": "beta-3-playtest",
+      "title_de": "Turmruine · Zwischen Herbstbäumen",
+      "title_en": "Ruined Tower · Among autumn trees",
+      "legacy_file": "docs/images/beta3/titan-relics-beta3-ruined-tower.png"
+    },
+    {
+      "id": "2026-11-10_144049-ruined-tower-courtyard",
+      "file": "2026-11-10_144049-ruined-tower-courtyard.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.40.49.png",
+      "source_sha256": "e4cd349af6cb3e568374a976ec341298a6e2ebe6595eb61e3b1a9d016333eff5",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        200,
+        1536,
+        1043.2
+      ],
+      "sha256": "4ee4eb21ba2673c5cccc7ad1ce1f7f5857e80ea40b7d048b97b62da11ca03485",
+      "bytes": 548348,
+      "subject": "ruined-tower",
+      "capture": "beta-3-playtest",
+      "title_de": "Turmruine · Blick in die Ruine",
+      "title_en": "Ruined Tower · Inside the ruin",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_144130-small-colossus-sunset",
+      "file": "2026-11-10_144130-small-colossus-sunset.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.41.30.png",
+      "source_sha256": "0515ff84285fc5560ee32272611fdd0e203e144340a65126868c23e23935323f",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        384,
+        210,
+        1920,
+        1053.2
+      ],
+      "sha256": "585828d2da52730685f0d3e2b26cdb31157ee8109445be3c11cb6470634c5d01",
+      "bytes": 521360,
+      "subject": "small-colossus",
+      "capture": "beta-3-playtest",
+      "title_de": "Kleiner Koloss · Im Abendlicht",
+      "title_en": "Small Colossus · At sunset",
+      "legacy_file": "docs/images/beta3/titan-relics-beta3-titan-skull.png"
+    },
+    {
+      "id": "2026-11-10_144151-small-colossus-sunset-side",
+      "file": "2026-11-10_144151-small-colossus-sunset-side.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.41.51.png",
+      "source_sha256": "ae93d5e05e0f2d090da1073a1c3a4e426b6b1ea5f49e7150deca53d0ed499941",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        200,
+        1536,
+        1043.2
+      ],
+      "sha256": "b82ed1846309e5c8767c422ce277cc3c7acb96ffb1b0d38b4f41ac9f8a0fa1ec",
+      "bytes": 436631,
+      "subject": "small-colossus",
+      "capture": "beta-3-playtest",
+      "title_de": "Kleiner Koloss · Seitenansicht im Abendlicht",
+      "title_en": "Small Colossus · Side view at sunset",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_144314-sword-skull-night",
+      "file": "2026-11-10_144314-sword-skull-night.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.43.14.png",
+      "source_sha256": "4154849e93cb9dc65bbb023738dc613113f3f5cb3bbd453b5ef18c9771c68d79",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        150,
+        1536,
+        993.2
+      ],
+      "sha256": "83359927f01d0338524b8ad515c01caa47131b714ca1cb74a11f507df6de1040",
+      "bytes": 370268,
+      "subject": "sword-skull",
+      "capture": "beta-3-playtest",
+      "title_de": "Schwertschädel · Bei Nacht",
+      "title_en": "Sword Skull · At night",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_144428-titan-skull-grassland",
+      "file": "2026-11-10_144428-titan-skull-grassland.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.44.28.png",
+      "source_sha256": "8aec172ce21c0a3cf2c90a6a1245c0f3d20868f0a10f132f79254882d8818495",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        160,
+        210,
+        1696,
+        1053.2
+      ],
+      "sha256": "8b4d3ded66423d6460c5ca33d04e390f777263a13332222fafbaa1a1c7e9f33c",
+      "bytes": 507242,
+      "subject": "titan-skull",
+      "capture": "beta-3-playtest",
+      "title_de": "Titanenschädel · Im Grasland",
+      "title_en": "Titan Skull · In the grassland",
+      "legacy_file": "docs/images/beta3/titan-relics-beta3-sword-skull.png"
+    },
+    {
+      "id": "2026-11-10_144507-titan-skull-landscape",
+      "file": "2026-11-10_144507-titan-skull-landscape.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.45.07.png",
+      "source_sha256": "279d26e65d0f4f6e51b087c76895f7bab8025dbd29cbf3dd4baa1af5c48666d9",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        200,
+        1536,
+        1043.2
+      ],
+      "sha256": "c7535a2e6ff87722a890cd0567b01c01ae904765d7018840773027a28ab403d6",
+      "bytes": 695060,
+      "subject": "titan-skull",
+      "capture": "beta-3-playtest",
+      "title_de": "Titanenschädel · In der Landschaft",
+      "title_en": "Titan Skull · In the landscape",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_144555-world-tree-canopy",
+      "file": "2026-11-10_144555-world-tree-canopy.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.45.55.png",
+      "source_sha256": "cd265f6b078454ff873d6c2d41037acdb047db0ee478c6d66cef11624dec3c83",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        0,
+        1536,
+        843.2
+      ],
+      "sha256": "321a4da10e8bcae2ff315156580c5e190447dabd7d4ab9942f8c191f56f646d1",
+      "bytes": 621142,
+      "subject": "world-tree",
+      "capture": "beta-3-playtest",
+      "title_de": "Weltenbaum · Unter den Ästen",
+      "title_en": "World Tree · Beneath the branches",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-10_144617-world-tree-overgrown",
+      "file": "2026-11-10_144617-world-tree-overgrown.png",
+      "date": "2026-11-10",
+      "source": "2026-11-10_14.46.17.png",
+      "source_sha256": "5d673e09fc09311f1397a7db283286e9cfca87094289d18932428391a9ef4872",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": [
+        0,
+        0,
+        1536,
+        843.2
+      ],
+      "sha256": "26ac2ecd2734c97cfb69e9a4b33a41f530f5cbc7194b2ac1ad0db1fd70abe07c",
+      "bytes": 539384,
+      "subject": "world-tree",
+      "capture": "beta-3-playtest",
+      "title_de": "Weltenbaum · Überwachsene Zuflucht",
+      "title_en": "World Tree · Overgrown refuge",
+      "legacy_file": "docs/images/beta3/titan-relics-beta3-world-tree.png"
+    },
+    {
+      "id": "2026-11-11_071205-obelisk-low-view",
+      "file": "2026-11-11_071205-obelisk-low-view.png",
+      "date": "2026-11-11",
+      "source": "2026-11-11_07.12.05.png",
+      "source_sha256": "5c9bdf0efc0f78a259a0ef67ba551f1186e2b3d455a895b92b4116ac23851bd5",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": null,
+      "sha256": "2a9cae62522b247876033e6512f35eeba2d175a087f5ff52e8161063b3e903df",
+      "bytes": 476780,
+      "subject": "obelisk",
+      "capture": "development-playtest",
+      "title_de": "Obelisk · Blick nach oben",
+      "title_en": "Obelisk · Looking upward",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-11_071614-colossus-desert-wide",
+      "file": "2026-11-11_071614-colossus-desert-wide.png",
+      "date": "2026-11-11",
+      "source": "2026-11-11_07.16.14.png",
+      "source_sha256": "84b5cbc2218b326f33c45f8db27c732e9b8869b648e26a33c625493f93d464a7",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": null,
+      "sha256": "b0126b0974a6c2794849d3e83df528cd94c22654ba7d02f42e86bd3ba6b9ce5f",
+      "bytes": 531377,
+      "subject": "colossus",
+      "capture": "development-playtest",
+      "title_de": "Großer Koloss · In der Wüstenlandschaft",
+      "title_en": "Great Colossus · In the desert landscape",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-11_071641-colossus-desert-front",
+      "file": "2026-11-11_071641-colossus-desert-front.png",
+      "date": "2026-11-11",
+      "source": "2026-11-11_07.16.41.png",
+      "source_sha256": "12eb45c8ec0c507ec127fc8f3ded5912c435a8600182dcfaad06a4ead02560ab",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": null,
+      "sha256": "87c02806bdfae36d23478bf840b740454e09250a6708ee2cb03ac62477d55aaa",
+      "bytes": 555910,
+      "subject": "colossus",
+      "capture": "development-playtest",
+      "title_de": "Großer Koloss · Vorderansicht in der Wüste",
+      "title_en": "Great Colossus · Front view in the desert",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-11_071733-sword-skull-daylight",
+      "file": "2026-11-11_071733-sword-skull-daylight.png",
+      "date": "2026-11-11",
+      "source": "2026-11-11_07.17.33.png",
+      "source_sha256": "dbe015f1fe540347a3650c823b0f89e5f3e0a15f3b79f91596ce94f8f2941ff6",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": null,
+      "sha256": "2ad44ede9211c737874ba7ea204badde7401fad4375b30186e7d7c80146b71aa",
+      "bytes": 444672,
+      "subject": "sword-skull",
+      "capture": "development-playtest",
+      "title_de": "Schwertschädel · Bei Tageslicht",
+      "title_en": "Sword Skull · In daylight",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-11_071744-sword-skull-badlands",
+      "file": "2026-11-11_071744-sword-skull-badlands.png",
+      "date": "2026-11-11",
+      "source": "2026-11-11_07.17.44.png",
+      "source_sha256": "eb3a4b7b836bfacea967da86161727dd59e3e84f6e3f39a4f06ad3363d6f5df7",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": null,
+      "sha256": "962bad2356ed7b6376a1477083430991ac9ab87e7ac2fe27f91af8e83b9206bf",
+      "bytes": 575687,
+      "subject": "sword-skull",
+      "capture": "development-playtest",
+      "title_de": "Schwertschädel · Über den Badlands",
+      "title_en": "Sword Skull · Above the badlands",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-11_071851-titan-skull-village-context",
+      "file": "2026-11-11_071851-titan-skull-village-context.png",
+      "date": "2026-11-11",
+      "source": "2026-11-11_07.18.51.png",
+      "source_sha256": "cff5047fa91c08df61307a665bff875339f573a0fea9c0ecc65aad416bfa4eb2",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": null,
+      "sha256": "0dc7a68bde8bbee4bea1d0f96b154f63c826f3523c0254a3faa80071daa2be07",
+      "bytes": 614398,
+      "subject": "titan-skull",
+      "capture": "development-playtest",
+      "title_de": "Titanenschädel · Neben einem Modpack-Dorf",
+      "title_en": "Titan Skull · Beside a modpack village",
+      "legacy_file": null,
+      "placement_note": "The played save contains a village intersection here; this image is not proof of collision-free placement."
+    },
+    {
+      "id": "2026-11-11_072117-small-colossus-warm-sunset",
+      "file": "2026-11-11_072117-small-colossus-warm-sunset.png",
+      "date": "2026-11-11",
+      "source": "2026-11-11_07.21.17.png",
+      "source_sha256": "344bb83811cdc6914c15cccea11448c0c4c54e59f346ed570145ffa04ad92cad",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": null,
+      "sha256": "e9ad506a7686dbb96f6ff8290889227466aea076f27a32aa63dbeebf2b38a120",
+      "bytes": 482937,
+      "subject": "small-colossus",
+      "capture": "development-playtest",
+      "title_de": "Kleiner Koloss · Im warmen Abendlicht",
+      "title_en": "Small Colossus · In the warm sunset",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-11_072233-small-colossus-meadow",
+      "file": "2026-11-11_072233-small-colossus-meadow.png",
+      "date": "2026-11-11",
+      "source": "2026-11-11_07.22.33.png",
+      "source_sha256": "932ad7636136f8900055be629c4c654e0fa0e31fbaeae74870eb47218a46954e",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": null,
+      "sha256": "6da7e8260822145502afb7f9c686ffbcffe81703401c12ce36a1493ddb67e8a6",
+      "bytes": 574636,
+      "subject": "small-colossus",
+      "capture": "development-playtest",
+      "title_de": "Kleiner Koloss · Auf der Wiese",
+      "title_en": "Small Colossus · In the meadow",
+      "legacy_file": null
+    },
+    {
+      "id": "2026-11-11_072401-ruined-tower-snow",
+      "file": "2026-11-11_072401-ruined-tower-snow.png",
+      "date": "2026-11-11",
+      "source": "2026-11-11_07.24.01.png",
+      "source_sha256": "5defb1967aeec82242b08c563f88a47e5aaafaeffe9c21f9fa16ed3e15c8cf07",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": null,
+      "sha256": "ea3a2cb1315b246165c4a64790629ced573852f53162e02f95518a69e69ec932",
+      "bytes": 508323,
+      "subject": "ruined-tower",
+      "capture": "development-playtest",
+      "title_de": "Turmruine · Im Schnee",
+      "title_en": "Ruined Tower · In the snow",
+      "legacy_file": null,
+      "placement_note": "The played save contains a village intersection here; this image is not proof of collision-free placement."
+    },
+    {
+      "id": "2026-11-11_072616-world-tree-forest",
+      "file": "2026-11-11_072616-world-tree-forest.png",
+      "date": "2026-11-11",
+      "source": "2026-11-11_07.26.16.png",
+      "source_sha256": "5c17797cce4af22bd6a8a64f48d1a7b49ed211c4c1ce4a4b26a74781af0b091f",
+      "source_dimensions": [
+        1920,
+        1054
+      ],
+      "dimensions": [
+        960,
+        527
+      ],
+      "crop_box": null,
+      "sha256": "52bede8288f8340b5c2eeb86b027a84d6f6378ae912827168e6ba49a0b62d266",
+      "bytes": 591273,
+      "subject": "world-tree",
+      "capture": "development-playtest",
+      "title_de": "Weltenbaum · Über der Waldlichtung",
+      "title_en": "World Tree · Above the forest clearing",
+      "legacy_file": null,
+      "placement_note": "The author confirms mining wood at this site during the Creative tour."
+    }
+  ],
+  "selected_originals": [
+    {
+      "file": "originals/2026-11-10-colossus-selected-front.png",
+      "source": "2026-11-10_09.08.41.png",
+      "sha256": "9d60d1488050e964d36b4e3046bb88852bdfe64d9f1753120a5c5c9c8f1142f7",
+      "legacy_file": "docs/site-assets/colossus-front-playtest.png",
+      "purpose": "Author-selected unchanged original. HUD visible; website title uses existing CSS framing."
+    },
+    {
+      "file": "originals/2026-11-10-sword-skull-night.png",
+      "source": "2026-11-10_14.43.14.png",
+      "sha256": "4154849e93cb9dc65bbb023738dc613113f3f5cb3bbd453b5ef18c9771c68d79",
+      "legacy_file": "docs/site-assets/sword-skull-night-beta3.png",
+      "purpose": "Author-selected unchanged original. HUD visible; website title uses existing CSS framing."
+    }
+  ],
+  "excluded": [
+    {
+      "source": "2026-11-08_16.56.55.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-08_16.57.16.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-08_16.59.53.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-08_17.12.34.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-08_17.13.15.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-08_17.13.16.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.06.16.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.06.18.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.06.27.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.06.31.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.06.40.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.21.34.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.21.36.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.21.48.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.27.07.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.30.12.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.36.16.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.36.18.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_08.36.49.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.08.12.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.08.23.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.11.14.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.11.21.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.11.23.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.12.53.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.14.00.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.14.01.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.14.08.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.18.22.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.19.13.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.20.44.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.20.58.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.21.01.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_09.21.13.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.34.15.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.35.28.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.35.31.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.37.30.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.37.52.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.38.23.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.39.22.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.39.58.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.40.29.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.40.43.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.41.05.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.42.18.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.43.28.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.44.04.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.44.46.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    },
+    {
+      "source": "2026-11-10_14.45.48.png",
+      "reason": "Travel-only scenery, HUD/inventory obstruction, poor visibility or a near-duplicate of a selected view."
+    }
+  ]
+}

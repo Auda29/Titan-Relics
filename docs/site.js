@@ -54,7 +54,7 @@ function showImage(index) {
   document.querySelector('#lightbox-image').src = link.href;
   document.querySelector('#lightbox-image').alt = image.alt;
   document.querySelector('#lightbox-title').textContent = link.dataset.title;
-  document.querySelector('#lightbox-count').textContent = `${activeIndex + 1} / ${galleryLinks.length} · ${english ? 'Beta 3 with shaders' : 'Beta 3 mit Shadern'}`;
+  document.querySelector('#lightbox-count').textContent = `${activeIndex + 1} / ${galleryLinks.length} · ${link.dataset.capture || (english ? 'Playtest with shaders' : 'Spieltest mit Shadern')}`;
 }
 
 galleryLinks.forEach((link, index) => {

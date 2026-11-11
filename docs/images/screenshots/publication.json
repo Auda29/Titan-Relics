@@ -1,0 +1,347 @@
+{
+  "updated": "2026-11-11",
+  "modrinth": {
+    "project_id": "F6QDr5Vr",
+    "project_status": "processing",
+    "curated_images": 31,
+    "historical_images_retained": 3,
+    "images": {
+      "2026-11-10_090841-colossus-selected-front": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/1d421fabace4fc503179b04d2d8b902fb237572c_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/1d421fabace4fc503179b04d2d8b902fb237572c.png",
+        "title": "Great Colossus · Selected title photograph · 2026-11-10",
+        "featured": true,
+        "ordering": 0,
+        "public_sha256": "ead158662ffacd018866ec8c4c21c70ec73bea90bc25f58b68114fd149075523",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_09.08.41.png"
+      },
+      "2026-11-11_071614-colossus-desert-wide": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/bf4184f88a2b6182d3ed53f76be7145cc1114102_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/bf4184f88a2b6182d3ed53f76be7145cc1114102.png",
+        "title": "Great Colossus · In the desert landscape · 2026-11-11",
+        "featured": false,
+        "ordering": 1,
+        "public_sha256": "b0126b0974a6c2794849d3e83df528cd94c22654ba7d02f42e86bd3ba6b9ce5f",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-11_07.16.14.png"
+      },
+      "2026-11-11_071641-colossus-desert-front": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/49715b04905f26562343140dc479a4b9916c218a_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/49715b04905f26562343140dc479a4b9916c218a.png",
+        "title": "Great Colossus · Front view in the desert · 2026-11-11",
+        "featured": false,
+        "ordering": 2,
+        "public_sha256": "87c02806bdfae36d23478bf840b740454e09250a6708ee2cb03ac62477d55aaa",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-11_07.16.41.png"
+      },
+      "2026-11-11_071205-obelisk-low-view": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/5d677fc2b65ab6e32f70d79107b6aacaddeb29c0_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/5d677fc2b65ab6e32f70d79107b6aacaddeb29c0.png",
+        "title": "Obelisk · Looking upward · 2026-11-11",
+        "featured": false,
+        "ordering": 3,
+        "public_sha256": "2a9cae62522b247876033e6512f35eeba2d175a087f5ff52e8161063b3e903df",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-11_07.12.05.png"
+      },
+      "2026-11-11_072401-ruined-tower-snow": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/a376be628888f6970c2f199e3d91f6463447e0e9_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/a376be628888f6970c2f199e3d91f6463447e0e9.png",
+        "title": "Ruined Tower · In the snow · 2026-11-11",
+        "featured": false,
+        "ordering": 4,
+        "public_sha256": "ea3a2cb1315b246165c4a64790629ced573852f53162e02f95518a69e69ec932",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-11_07.24.01.png"
+      },
+      "2026-11-11_072117-small-colossus-warm-sunset": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/486f2a2cf99d5785335b68524f589928ea3b5caf_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/486f2a2cf99d5785335b68524f589928ea3b5caf.png",
+        "title": "Small Colossus · In the warm sunset · 2026-11-11",
+        "featured": false,
+        "ordering": 5,
+        "public_sha256": "e9ad506a7686dbb96f6ff8290889227466aea076f27a32aa63dbeebf2b38a120",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-11_07.21.17.png"
+      },
+      "2026-11-11_072233-small-colossus-meadow": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/284ea20da4e86717dfabcf4fe27423c885af7ac1_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/284ea20da4e86717dfabcf4fe27423c885af7ac1.png",
+        "title": "Small Colossus · In the meadow · 2026-11-11",
+        "featured": false,
+        "ordering": 6,
+        "public_sha256": "6da7e8260822145502afb7f9c686ffbcffe81703401c12ce36a1493ddb67e8a6",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-11_07.22.33.png"
+      },
+      "2026-11-11_071733-sword-skull-daylight": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/904d0fda19c29aed24df79a5db06a84f37523625_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/904d0fda19c29aed24df79a5db06a84f37523625.png",
+        "title": "Sword Skull · In daylight · 2026-11-11",
+        "featured": false,
+        "ordering": 7,
+        "public_sha256": "2ad44ede9211c737874ba7ea204badde7401fad4375b30186e7d7c80146b71aa",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-11_07.17.33.png"
+      },
+      "2026-11-11_071744-sword-skull-badlands": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/d1f90dc55b318d977c025f3ab040ca62f534db2a_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/d1f90dc55b318d977c025f3ab040ca62f534db2a.png",
+        "title": "Sword Skull · Above the badlands · 2026-11-11",
+        "featured": false,
+        "ordering": 8,
+        "public_sha256": "962bad2356ed7b6376a1477083430991ac9ab87e7ac2fe27f91af8e83b9206bf",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-11_07.17.44.png"
+      },
+      "2026-11-11_071851-titan-skull-village-context": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/133d24f6078ed00db2750dd300577e779f6d8fa2_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/133d24f6078ed00db2750dd300577e779f6d8fa2.png",
+        "title": "Titan Skull · Beside a modpack village · 2026-11-11",
+        "featured": false,
+        "ordering": 9,
+        "public_sha256": "0dc7a68bde8bbee4bea1d0f96b154f63c826f3523c0254a3faa80071daa2be07",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-11_07.18.51.png"
+      },
+      "2026-11-11_072616-world-tree-forest": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/f6a0b23106af0b3972b6a89e5ff951b4a83df969_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/f6a0b23106af0b3972b6a89e5ff951b4a83df969.png",
+        "title": "World Tree · Above the forest clearing · 2026-11-11",
+        "featured": false,
+        "ordering": 10,
+        "public_sha256": "52bede8288f8340b5c2eeb86b027a84d6f6378ae912827168e6ba49a0b62d266",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-11_07.26.16.png"
+      },
+      "2026-11-10_090824-colossus-approach": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/dc87f10e73e45d36862e4cab3d271fbda8f703b9_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/dc87f10e73e45d36862e4cab3d271fbda8f703b9.png",
+        "title": "Great Colossus · Among flowers · 2026-11-10",
+        "featured": false,
+        "ordering": 11,
+        "public_sha256": "1bc05cec799db846f0a7958d650a5b5cba0322c8e4399d6dc4bf1779e0964810",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_09.08.24.png"
+      },
+      "2026-11-10_090901-colossus-stone-arm": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/979b67c2e56929275e688db61a170e6b92d67a1a_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/979b67c2e56929275e688db61a170e6b92d67a1a.png",
+        "title": "Great Colossus · On the stone arm · 2026-11-10",
+        "featured": false,
+        "ordering": 12,
+        "public_sha256": "3cb17c4f562210f98411b51e5dca9e6d50b7d6c2967d9e0ece8f7884e479818a",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_09.09.01.png"
+      },
+      "2026-11-10_091037-colossus-corridor": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/63d504d0f04dca65fdbb61eaca01cb0b993ab30c_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/63d504d0f04dca65fdbb61eaca01cb0b993ab30c.png",
+        "title": "Great Colossus · Corridor view · 2026-11-10",
+        "featured": false,
+        "ordering": 13,
+        "public_sha256": "e8f5363a0e468e0967b8b62f9b7c5d020ddf3a2fbb8032c329ecc7ee5020b9ad",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_09.10.37.png"
+      },
+      "2026-11-10_091358-colossus-sunset-rear": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/0f40f750d5b01d4967bbf7a047cd4693f9dc45b9_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/0f40f750d5b01d4967bbf7a047cd4693f9dc45b9.png",
+        "title": "Great Colossus · Rear view at sunset · 2026-11-10",
+        "featured": false,
+        "ordering": 14,
+        "public_sha256": "9fb91e89236607a049ceb3a42376f0db334607ca63307833ccb66e548bb5d09b",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_09.13.58.png"
+      },
+      "2026-11-10_091809-colossus-arms-overview": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/663d2b3f3110d07ab9868f8712b0a5d14b3570b0_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/663d2b3f3110d07ab9868f8712b0a5d14b3570b0.png",
+        "title": "Great Colossus · View across the arms · 2026-11-10",
+        "featured": false,
+        "ordering": 15,
+        "public_sha256": "937bce8659373b3ea9e106c2584e908d2a56b3879d0bf80f210c49a0fd21efbd",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_09.18.09.png"
+      },
+      "2026-11-10_143537-colossus-front": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/1e548dced5e34e25f190fce147fb8e336a327d44_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/1e548dced5e34e25f190fce147fb8e336a327d44.png",
+        "title": "Great Colossus · Front view · 2026-11-10",
+        "featured": false,
+        "ordering": 16,
+        "public_sha256": "717ca1b4bda110daa3de24aa70263e625476f40febe2651691b705b7b13d62f1",
+        "verification": "Existing full-size upload hash retained; local canonical crop retained byte-for-byte.",
+        "source": "2026-11-10_14.35.37.png"
+      },
+      "2026-11-10_143625-colossus-forest-distance": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/152429819b11e1d645554009c0bd307ae6749a8c_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/152429819b11e1d645554009c0bd307ae6749a8c.png",
+        "title": "Great Colossus · Beyond the forest · 2026-11-10",
+        "featured": false,
+        "ordering": 17,
+        "public_sha256": "c813e46e774979c9abae0de97831a9ad296390408a483d75824fedb26ba6f6e5",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_14.36.25.png"
+      },
+      "2026-11-10_143903-colossus-rear-water": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/f63cbb7d855dd2c7d0b622e64b6475a5bae87f68_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/f63cbb7d855dd2c7d0b622e64b6475a5bae87f68.png",
+        "title": "Great Colossus · Across the water · 2026-11-10",
+        "featured": false,
+        "ordering": 18,
+        "public_sha256": "8621194f9c0c4f4bf64229d58a0efcc5fa481a0a34c60bdd7ff57d18245ff8a3",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_14.39.03.png"
+      },
+      "2026-11-10_143925-colossus-rear-river": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/085a4991e834930594558a58d534f4e1f6e03219_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/085a4991e834930594558a58d534f4e1f6e03219.png",
+        "title": "Great Colossus · Rear view by the river · 2026-11-10",
+        "featured": false,
+        "ordering": 19,
+        "public_sha256": "30756024d5230e9bf466010dde67a55ba37f5aba9989be2f6d2411b6a9d99f0f",
+        "verification": "Existing full-size upload hash retained; local canonical crop retained byte-for-byte.",
+        "source": "2026-11-10_14.39.25.png"
+      },
+      "2026-11-10_143354-obelisk-coast": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/794ccddedc7fc206a000479e1b27d79c7c324e11_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/794ccddedc7fc206a000479e1b27d79c7c324e11.png",
+        "title": "Obelisk · On the coast · 2026-11-10",
+        "featured": false,
+        "ordering": 20,
+        "public_sha256": "e4ec8e61b2f3ad1dd07fdf6e7038d41f52cd06e3bf3f8f6141e0070c1fdeea6a",
+        "verification": "Existing full-size upload hash retained; local canonical crop retained byte-for-byte.",
+        "source": "2026-11-10_14.33.54.png"
+      },
+      "2026-11-10_143447-obelisk-close": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/db43051c69f868600eb8e8c313ce98c7f73eb074_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/db43051c69f868600eb8e8c313ce98c7f73eb074.png",
+        "title": "Obelisk · Close view · 2026-11-10",
+        "featured": false,
+        "ordering": 21,
+        "public_sha256": "2d41a45d792afd98d451bb7f115a4eb1f0ed7c0e93335806e084d5c06bd292c0",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_14.34.47.png"
+      },
+      "2026-11-10_144000-ruined-tower-autumn": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/4903ebe547552cec1c2af755478632ab60e271eb_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/4903ebe547552cec1c2af755478632ab60e271eb.png",
+        "title": "Ruined Tower · Among autumn trees · 2026-11-10",
+        "featured": false,
+        "ordering": 22,
+        "public_sha256": "8757bce6701ceebf644a654a625aef8e178effd7f1cedb449b2d328e4d167c9f",
+        "verification": "Existing full-size upload hash retained; local canonical crop retained byte-for-byte.",
+        "source": "2026-11-10_14.40.00.png"
+      },
+      "2026-11-10_144049-ruined-tower-courtyard": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/b2d4a41b4256c980f1150ed6e930d635d70280d9_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/b2d4a41b4256c980f1150ed6e930d635d70280d9.png",
+        "title": "Ruined Tower · Inside the ruin · 2026-11-10",
+        "featured": false,
+        "ordering": 23,
+        "public_sha256": "4ee4eb21ba2673c5cccc7ad1ce1f7f5857e80ea40b7d048b97b62da11ca03485",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_14.40.49.png"
+      },
+      "2026-11-10_144130-small-colossus-sunset": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/66b6c10ef0d64fc9b0e1cc9ca250328b79375ba7_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/66b6c10ef0d64fc9b0e1cc9ca250328b79375ba7.png",
+        "title": "Small Colossus · At sunset · 2026-11-10",
+        "featured": false,
+        "ordering": 24,
+        "public_sha256": "2b461b88c58a92ef826780481c1503a6c984990245cd1403ada32b455e09e995",
+        "verification": "Existing full-size upload hash retained; local canonical crop retained byte-for-byte.",
+        "source": "2026-11-10_14.41.30.png"
+      },
+      "2026-11-10_144151-small-colossus-sunset-side": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/7ebafd5f18676726a76539678bd2ed3d32d15822_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/7ebafd5f18676726a76539678bd2ed3d32d15822.png",
+        "title": "Small Colossus · Side view at sunset · 2026-11-10",
+        "featured": false,
+        "ordering": 25,
+        "public_sha256": "b82ed1846309e5c8767c422ce277cc3c7acb96ffb1b0d38b4f41ac9f8a0fa1ec",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_14.41.51.png"
+      },
+      "2026-11-10_144314-sword-skull-night": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/b9340e049bce4ce34cd2cd1bf93a6f2fbbcc347f_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/b9340e049bce4ce34cd2cd1bf93a6f2fbbcc347f.png",
+        "title": "Sword Skull · At night · 2026-11-10",
+        "featured": false,
+        "ordering": 26,
+        "public_sha256": "83359927f01d0338524b8ad515c01caa47131b714ca1cb74a11f507df6de1040",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_14.43.14.png"
+      },
+      "2026-11-10_144428-titan-skull-grassland": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/bc3927dd36f92722ad7ce93a4a1f4bbae73d97fe_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/bc3927dd36f92722ad7ce93a4a1f4bbae73d97fe.png",
+        "title": "Titan Skull · In the grassland · 2026-11-10",
+        "featured": false,
+        "ordering": 27,
+        "public_sha256": "39c00f57a982c564560397ce08541e09780233e964ce3cc6dd227c62b4154402",
+        "verification": "Existing full-size upload hash retained; local canonical crop retained byte-for-byte.",
+        "source": "2026-11-10_14.44.28.png"
+      },
+      "2026-11-10_144507-titan-skull-landscape": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/b3fae36f4d4dbee6b47180a7bdfb92da1f1126de_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/b3fae36f4d4dbee6b47180a7bdfb92da1f1126de.png",
+        "title": "Titan Skull · In the landscape · 2026-11-10",
+        "featured": false,
+        "ordering": 28,
+        "public_sha256": "c7535a2e6ff87722a890cd0567b01c01ae904765d7018840773027a28ab403d6",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_14.45.07.png"
+      },
+      "2026-11-10_144555-world-tree-canopy": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/be9031ba3055da6a23ae578343a9da77dbca4191_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/be9031ba3055da6a23ae578343a9da77dbca4191.png",
+        "title": "World Tree · Beneath the branches · 2026-11-10",
+        "featured": false,
+        "ordering": 29,
+        "public_sha256": "321a4da10e8bcae2ff315156580c5e190447dabd7d4ab9942f8c191f56f646d1",
+        "verification": "Public pixels match canonical PNG.",
+        "source": "2026-11-10_14.45.55.png"
+      },
+      "2026-11-10_144617-world-tree-overgrown": {
+        "url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/d01f70974fe4e5033003d9239758c722bcdde2eb_350.webp",
+        "raw_url": "https://cdn.modrinth.com/data/F6QDr5Vr/images/d01f70974fe4e5033003d9239758c722bcdde2eb.png",
+        "title": "World Tree · Overgrown refuge · 2026-11-10",
+        "featured": false,
+        "ordering": 30,
+        "public_sha256": "4779e9fd5322e178bc537903be2e94b6fe3ee024d0908fa42bb97cbf95b307e9",
+        "verification": "Existing full-size upload hash retained; local canonical crop retained byte-for-byte.",
+        "source": "2026-11-10_14.46.17.png"
+      }
+    }
+  },
+  "curseforge": {
+    "project_id": 1785231,
+    "gallery_updated": false,
+    "reason": "Shared browser blocked by host AppArmor; alternate author dashboard remains at Performing security verification. Documented author Upload API has no gallery endpoint.",
+    "ready_upload_package": {
+      "asset_id": 734673488,
+      "name": "Titan-Relics-Screenshots-2026-11-11.zip",
+      "url": "https://github.com/Auda29/Titan-Relics/releases/download/v1.0.0-beta.3/Titan-Relics-Screenshots-2026-11-11.zip",
+      "sha256": "3bb2bd6e7d4d7d8a69e6281429b433113d017101b37c05f4bc5745b19cb13053",
+      "bytes": 17016532,
+      "download_verified": true,
+      "preexisting_release_asset_ids_preserved": [
+        731464525,
+        731455409,
+        731455407,
+        731455406,
+        731455408,
+        731455435,
+        731455446,
+        731455454,
+        731455455,
+        731455405,
+        731744571
+      ]
+    }
+  }
+}
