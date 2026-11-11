@@ -14,7 +14,7 @@ CONFIG = [
     ('titan-skull', 'Titan Skull', 'TITANENRESTE', 'TITAN REMAINS',
      'Ein gekröntes Haupt, zurückgelassen in der offenen Landschaft. Das Gras wächst längst zwischen den Überresten.',
      'A crowned head, left behind in the open landscape. Grass has long since grown between its remains.',
-     '2026-11-11_071851-titan-skull-village-context'),
+     ('2026-11-10_144428-titan-skull-grassland', '2026-11-11_071851-titan-skull-village-context')),
     ('world-tree', 'World Tree', 'ZUFLUCHT', 'REFUGE',
      'Unter den ausladenden Ästen liegt ein Ort zum Durchatmen. Die Aura des Baums stärkt dich in seiner Nähe.',
      'A place to catch your breath beneath its spreading branches. The tree\'s aura strengthens you nearby.',
@@ -22,7 +22,7 @@ CONFIG = [
     ('small-colossus', 'Small Colossus', 'VERLASSENE MASCHINEN', 'ABANDONED MACHINES',
      'Der kleinere der beiden Kolosse. Erkunde seine zugänglichen Öffnungen und halte nach brauchbaren Überbleibseln Ausschau.',
      'The smaller of the two colossi. Explore its accessible openings and keep an eye out for useful remains.',
-     '2026-11-11_072233-small-colossus-meadow'),
+     ('2026-11-11_072117-small-colossus-warm-sunset', '2026-11-11_072233-small-colossus-meadow')),
     ('colossus', 'Colossus', 'VERLASSENE MASCHINEN', 'ABANDONED MACHINES',
      'Der große Koloss in unterschiedlichen Landschaften, aus der Nähe und von innen. Folge einer Expeditionskarte zu diesem einzigartigen Ort deiner Welt.',
      'The great Colossus in different landscapes, up close and from inside. Follow an expedition map to this unique site in your world.',
@@ -38,7 +38,7 @@ CONFIG = [
     ('sword-skull', 'Sword Skull', 'TITANENRESTE', 'TITAN REMAINS',
      'Eine Klinge ragt aus dem verwitterten Schädel. Entdecke das zweite Schädeldesign bei Tageslicht, über den Badlands und unter dem Sternenhimmel.',
      'A blade rises from the weathered skull. Discover the second skull design in daylight, above the badlands and under a starry sky.',
-     '2026-11-11_071733-sword-skull-daylight'),
+     ('2026-11-11_071744-sword-skull-badlands', '2026-11-11_071733-sword-skull-daylight')),
 ]
 CAPTURES = {
     'de': {'beta-1-playtest': 'Beta-1-Spieltest', 'beta-3-playtest': 'Beta-3-Spieltest', 'development-playtest': 'Entwicklungsspieltest'},
@@ -51,8 +51,10 @@ def render_gallery(images, language):
     cards = []
     for number, (subject, name, category_de, category_en, text_de, text_en, first) in enumerate(CONFIG, 1):
         slides = [image for image in images if image['subject'] == subject]
-        slides.sort(key=lambda image: (image['id'] != first, image['id']))
-        if not slides or slides[0]['id'] != first:
+        preferred = (first,) if isinstance(first, str) else first
+        ranks = {image_id: index for index, image_id in enumerate(preferred)}
+        slides.sort(key=lambda image: (ranks.get(image['id'], len(ranks)), image['id']))
+        if not slides or slides[0]['id'] != preferred[0]:
             raise ValueError(f'Missing featured screenshot for {subject}')
         links = []
         for index, image in enumerate(slides):
