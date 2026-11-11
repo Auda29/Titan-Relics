@@ -1,8 +1,8 @@
 # Your first relic expedition
 
-This guide describes Beta 3. Its revision-2 generation settings apply when a new
-preset is selected for a new world. Existing Beta 1 and Beta 2 worlds keep
-their saved rules. Start with the [installation guide](INSTALLATION.md) for
+This guide describes Beta 4. Its revision-3 generation settings apply when a new
+preset is selected for a new world. Existing worlds keep their saved rules and
+interior revisions. Start with the [installation guide](INSTALLATION.md) for
 files and dependencies.
 
 ## Before creating the world

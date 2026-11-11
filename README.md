@@ -74,6 +74,8 @@ remains available as a historical release.
 
 ## Start playing
 
+Helping with the first stable release? Use the [Survival playtest and release acceptance checklist, in German](docs/testing/FULL_RELEASE_ACCEPTANCE.md).
+
 1. Follow the [installation and dependency table](docs/players/INSTALLATION.md)
    for your exact Minecraft version and loader. Install Titan Relics and its
    dependencies on the server and every player client for multiplayer.

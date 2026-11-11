@@ -1,7 +1,22 @@
 # Current status and roadmap
 
-Updated: November 8, 2026. This is the current implementation and work-status
-index. Dated concept studies, builder handoffs and test reports retain their
+## Current release and stable-release acceptance, November 11, 2026
+
+The current release is [1.0.0-beta.4](../releases/1.0.0-beta.4.md), with all eight
+Fabric/NeoForge targets for Minecraft 1.21.1, 1.21.11, 26.2 and 26.3 built and
+download-verified on GitHub and both mod platforms. PRs #2–#4 are merged.
+See the [publication record](../releases/BETA_4_PUBLICATION.md).
+
+The author will check the Sword Skull and start a genuine Survival playthrough.
+The [first stable-release acceptance checklist](../testing/FULL_RELEASE_ACCEPTANCE.md)
+defines player tasks, separate technical gates, blocking defects and the final
+release decision. It is the current guide for leaving Beta; no stable release
+has been authorized. Modrinth project approval remains separate from verified files.
+
+## Historical implementation and roadmap detail
+
+Detail updated November 8, 2026, retained below with its original release scope.
+Dated concept studies, builder handoffs and test reports retain their
 historical scope. Their old "not implemented" or "pending integration" wording
 does not create new work when a later release has completed it. Approved design
 rules remain specifications unless superseded by a later recorded decision.
