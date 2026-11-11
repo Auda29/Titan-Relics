@@ -54,6 +54,14 @@ public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockStat
             BlockPos reference, List<StructureBlockInfo> originals, List<StructureBlockInfo> processed,
             StructurePlaceSettings settings) {
         if (rootSupport) processed = groundTreeBushes(level, processed, settings);
+        boolean stableFallingGround = false;
+        // CONTACT_REVISION_BEGIN
+        if (supportArt && followArt && !rootSupport && maxSupportDepth >= 0
+                && level instanceof net.minecraft.server.level.WorldGenRegion region) {
+            var runtime = de.relics.distribution.DistributionRuntime.get(region.getLevel());
+            stableFallingGround = runtime != null && stableFallingGroundEnabled(runtime.interiorRevision());
+        }
+        // CONTACT_REVISION_END
         // Minecraft 26.2 supplies only this chunk's cells unless a processor asks
         // for the entire piece. Never read or write a neighbouring chunk here.
         var bottoms = new HashMap<Long, StructureBlockInfo>();
@@ -102,7 +110,9 @@ public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockStat
                     break;
                 }
                 BlockState existing = level.getBlockState(pos);
-                if (!replaceable(existing)) {
+                if (!replaceable(existing) || stableFallingGround
+                        && existing.getBlock() instanceof net.minecraft.world.level.block.FallingBlock
+                        && supportedFallingColumn(level, pos, settings)) {
                     substrate = true;
                     break;
                 }
@@ -122,6 +132,32 @@ public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockStat
             RelicProtection.record(level, result);
         }
         return result;
+    }
+
+    static boolean stableFallingGroundEnabled(String revision) {
+        // Released V1-V5 worlds retain their exact support behavior, including
+        // generation of unexplored chunks. V6 first ships with Beta 4.
+        return "interiors-20261111-v6".equals(revision);
+    }
+
+    /** A continuous falling-soil column is ground only if it reaches firm
+     * substrate. Air, fluids, plants, a chunk boundary or the bounded search
+     * limit disqualify it. Do not replace any of the native soil blocks.
+     */
+    static boolean supportedFallingColumn(ServerLevelAccessor level, BlockPos top,
+            StructurePlaceSettings settings) {
+        BlockPos pos = top;
+        for (int depth = 0; depth < 32; depth++, pos = pos.below()) {
+            if (pos.getY() < level.getMinY()
+                    || settings.getBoundingBox() != null && !settings.getBoundingBox().isInside(pos)) {
+                return false;
+            }
+            BlockState state = level.getBlockState(pos);
+            if (!(state.getBlock() instanceof net.minecraft.world.level.block.FallingBlock)) {
+                return !replaceable(state);
+            }
+        }
+        return false;
     }
 
     /** Plant the three authored bush/soil pairs flush with nearby native ground.

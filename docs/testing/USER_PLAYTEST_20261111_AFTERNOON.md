@@ -140,3 +140,13 @@ speichert und beendet die Sitzung sauber.
 
 Es wurden für diese Analyse weder Generierungsregeln geändert noch PRs
 gemergt, Releases erstellt oder Plattformdateien ersetzt.
+
+## Nachprüfung für Beta 4
+
+Der anschließende isolierte Vergleich reproduziert 42 kurze Kontakte bei
+unverändertem Modell. Die Ursache ist als fallend registrierter, tatsächlich
+gestützter Modpack-Boden. Der [V6-Fix](SWORD_SKULL_CONTACT_FIX_20261111.md) besteht
+an derselben Stelle die strikte Prüfung mit null Bodenlücken und null
+Modellabweichungen. Der V5-Bestandstest behält die alten 42 Kontakte und alle
+vier Relics-Journale bytegleich. Die oben beschriebenen Archivbefunde bleiben
+historisch korrekt; die Korrektur repariert keine bereits platzierten Relikte.

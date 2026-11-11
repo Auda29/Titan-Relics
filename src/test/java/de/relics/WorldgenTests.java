@@ -108,6 +108,32 @@ public final class WorldgenTests {
                 : pos.getY() <= 15 ? Blocks.STONE.defaultBlockState() : Blocks.AIR.defaultBlockState(), reads), box);
         check(result.size() == 5, "Native falling gravel over a cave must not become a false support");
 
+        check(TerrainSupportProcessor.stableFallingGroundEnabled("interiors-20261111-v6"),
+                "V6 recognizes supported falling terrain");
+        for (String revision : new String[]{"legacy", "interiors-20261028-v5", "unknown"}) {
+            check(!TerrainSupportProcessor.stableFallingGroundEnabled(revision),
+                    "Historical and unsupported revisions do not acquire new contact rules");
+        }
+        var fallingTop = new BlockPos(2, 20, 2);
+        var supportSettings = new StructurePlaceSettings().setBoundingBox(box);
+        check(TerrainSupportProcessor.supportedFallingColumn(world(-64, pos -> pos.getY() >= 12
+                ? Blocks.GRAVEL.defaultBlockState() : Blocks.STONE.defaultBlockState(), reads), fallingTop, supportSettings),
+                "A continuous gravel column resting on rock is supported terrain");
+        for (var gap : List.of(Blocks.AIR, Blocks.WATER, Blocks.OAK_LEAVES, Blocks.SHORT_GRASS)) {
+            check(!TerrainSupportProcessor.supportedFallingColumn(world(-64, pos -> pos.getY() >= 12
+                    ? Blocks.GRAVEL.defaultBlockState() : gap.defaultBlockState(), reads), fallingTop, supportSettings),
+                    "Falling terrain above void, fluid or vegetation is never firm ground");
+        }
+        check(!TerrainSupportProcessor.supportedFallingColumn(world(-64,
+                pos -> Blocks.GRAVEL.defaultBlockState(), reads), fallingTop, supportSettings),
+                "An unbounded falling column is not assumed stable");
+        check(!TerrainSupportProcessor.supportedFallingColumn(world(-64,
+                pos -> { throw new AssertionError("Out-of-chunk support probe"); }, reads),
+                new BlockPos(-1, 20, 0), supportSettings), "Falling terrain probes stay in the owning chunk");
+        check(!TerrainSupportProcessor.supportedFallingColumn(world(-64,
+                pos -> Blocks.GRAVEL.defaultBlockState(), reads), new BlockPos(2, -63, 2), supportSettings),
+                "Falling terrain probes stop at the dimension minimum");
+
         source = List.of(cell(2, 0, 2, Blocks.OAK_LOG.defaultBlockState()),
                 cell(3, 5, 3, Blocks.DEEPSLATE_BRICKS.defaultBlockState()),
                 cell(4, 9, 4, Blocks.TERRACOTTA.defaultBlockState()),
