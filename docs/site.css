@@ -32,7 +32,7 @@ a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visib
 .nav-links a:hover { color: var(--text); }
 .nav-links .nav-download { color: var(--gold); border: 1px solid #6c6851; padding: 9px 18px; }
 .hero { position: relative; overflow: hidden; min-height: 670px; display: grid; align-items: center; border-block: 1px solid #435348; background: #253c2e; }
-.hero-image { position: absolute; inset: 0 0 0 22%; width: 78%; height: 100%; object-fit: cover; object-position: 35% center; mask-image: linear-gradient(to right, transparent, #000 22%); }
+.hero-image { position: absolute; inset: -165px 0 0 15%; width: 85%; height: calc(100% + 165px); object-fit: cover; object-position: 50% center; mask-image: linear-gradient(to right, transparent, #000 22%); }
 .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, #0a1713ee 0%, #0d1a16b5 35%, #111b1620 70%), linear-gradient(0deg, #111b17c0, transparent 35%); }
 .hero-content { position: relative; z-index: 1; padding-block: 62px 80px; }
 .eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 2.5px; color: var(--gold); display: flex; align-items: center; gap: 12px; font-weight: 600; }
@@ -150,7 +150,7 @@ body.modal-open { overflow: hidden; }
   .nav-links .optional { display: none; }
   .nav-links .nav-download { padding: 7px 12px; }
   .hero { min-height: 740px; align-items: end; }
-  .hero-image { left: 0; width: 100%; object-position: 25% top; height: 430px; mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); }
+  .hero-image { top: -105px; left: 0; width: 100%; object-position: 50% top; height: 535px; mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); }
   .hero::after { background: linear-gradient(0deg, #121b17 7%, #121b17f0 34%, #121b1720 80%); }
   .hero-content { padding-block: 270px 70px; }
   h1 { font-size: 58px; letter-spacing: -2px; margin-block: 20px; }
