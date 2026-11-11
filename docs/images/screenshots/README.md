@@ -57,3 +57,10 @@ Exact source filenames, crop rectangles, dimensions and SHA-256 values are in [m
 ## Platform publication
 
 See [publication status and the CurseForge upload package](PUBLICATION.md).
+
+## Website slideshows
+
+Both website languages group all 31 images by the `subject` in `manifest.json`.
+After changing the library, run `python3 tools/update_website_gallery.py` from
+the repository root to refresh both static galleries. The generator uses the
+manifest's German/English titles and capture provenance; image files stay unchanged.
