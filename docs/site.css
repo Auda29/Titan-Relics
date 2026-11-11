@@ -202,3 +202,19 @@ body.modal-open { overflow: hidden; }
 .screenshot-archive { margin-top: 2rem; }
 .screenshot-archive summary { cursor: pointer; font-weight: 600; padding: .8rem 0; }
 .screenshot-archive .gallery { margin-top: 1.2rem; }
+
+/* Per-relic slideshows keep the full, unmodified image ratio. */
+.gallery-help { color: var(--muted); font-size: 12px; margin: 0 0 25px; max-width: 760px; }
+.slideshow { min-width: 0; }
+.slideshow-viewport { aspect-ratio: 960 / 527; background: var(--surface); touch-action: pan-y pinch-zoom; }
+.slide[hidden], .slideshow-controls[hidden] { display: none; }
+.slideshow-viewport .slide { width: 100%; height: 100%; }
+.slideshow-viewport .slide img { width: 100%; height: 100%; object-fit: contain; }
+.slideshow-controls { display: flex; gap: 10px; align-items: center; padding-top: 12px; }
+.slideshow-controls button { min-width: 44px; min-height: 44px; padding: 8px 12px; border: 1px solid var(--line); background: var(--surface); color: var(--text); cursor: pointer; }
+.slideshow-controls button:hover { border-color: var(--gold); color: var(--gold); }
+.slideshow-controls .slide-play { display: inline-flex; gap: 8px; align-items: center; font-size: 11px; }
+.slideshow-controls .slide-play[aria-pressed="true"] { border-color: var(--gold); color: var(--gold); }
+.slide-count { margin-right: auto; color: var(--gold); font: 12px Consolas, monospace; white-space: nowrap; }
+.relic .slide-caption { min-height: 3.6em; margin-top: 12px; font-size: 11px; color: var(--muted); }
+@media(max-width: 700px) { .slideshow-controls { gap: 8px; } .relic .slide-caption { min-height: 0; } }

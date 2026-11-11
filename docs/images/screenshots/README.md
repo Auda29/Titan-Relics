@@ -78,3 +78,10 @@ CurseForge upload limit. See the [original-file manifest](originals/manifest-202
 | [<img src="originals/tower-upper-chest-20261111/2026-11-11_150415-tower-niche-context.png" width="320" alt="Upper niche viewed from below">](originals/tower-upper-chest-20261111/2026-11-11_150415-tower-niche-context.png) | Upper niche viewed from below |
 | [<img src="originals/tower-upper-chest-20261111/2026-11-11_150421-tower-chest-access.png" width="320" alt="Chest and usable approach on the platform">](originals/tower-upper-chest-20261111/2026-11-11_150421-tower-chest-access.png) | Chest and usable approach on the platform |
 | [<img src="originals/tower-upper-chest-20261111/2026-11-11_150428-tower-niche-front.png" width="320" alt="Front view of the chest niche">](originals/tower-upper-chest-20261111/2026-11-11_150428-tower-niche-front.png) | Front view of the chest niche |
+
+## Website slideshows
+
+Both website languages group all 31 images by the `subject` in `manifest.json`.
+After changing the library, run `python3 tools/update_website_gallery.py` from
+the repository root to refresh both static galleries. The generator uses the
+manifest's German/English titles and capture provenance; image files stay unchanged.
