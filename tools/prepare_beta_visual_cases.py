@@ -24,7 +24,8 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--artifact',type=Path,required=True);ap.add_argument('--output',type=Path,required=True);ap.add_argument('--minecraft',required=True);a=ap.parse_args()
     scenes=[]
     with zipfile.ZipFile(a.artifact) as z:
-        manifest=json.loads(z.read('relics.gameplay.tree_skull.integration.json'))
+        from integrate_gameplay_interiors import MANIFESTS,REVISION
+        manifest=json.loads(z.read(MANIFESTS[REVISION]))
         for n,asset in enumerate(x for x in manifest['structures'] if x['id'] in ['colossus','obelisk','small_colossus','world_tree','ruined_tower','titan_skull','titan_skull_2']):
             name=asset['worldgen_template']['path'];d=read_nbt(gzip.decompress(z.read('data/relics/structure/'+name)));sx,sy,sz=d['size'];x=n*1024;y=80
             cx=x+sx/2;cy=y+sy/2;cz=sz/2;distance=max(sx,sy,sz)*0.65

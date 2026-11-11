@@ -1,0 +1,486 @@
+{
+  "name": "ruined-tower-v11-upper-chest",
+  "authoring": "block-exact architectural derivative; no global revoxelization",
+  "baseline": {
+    "source": "relics/ruined-tower/design/generated/ruined-tower-v7-ground-v3/ruined-tower-v7-ground-v3.nbt",
+    "version": "ruined-tower-v7-ground-v3",
+    "size": [
+      111,
+      232,
+      93
+    ],
+    "blocks": 272528,
+    "ground_y": 12,
+    "family": "ruined_tower",
+    "biomes": [
+      "minecraft:plains",
+      "minecraft:sunflower_plains",
+      "minecraft:meadow",
+      {
+        "id": "terralith:blooming_valley",
+        "required": false
+      },
+      {
+        "id": "terralith:blooming_plateau",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:prairie",
+        "required": false
+      },
+      "minecraft:savanna",
+      {
+        "id": "terralith:steppe",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:scrubland",
+        "required": false
+      },
+      "minecraft:desert",
+      {
+        "id": "terralith:desert_spires",
+        "required": false
+      },
+      {
+        "id": "terralith:desert_canyon",
+        "required": false
+      },
+      {
+        "id": "biomesoplenty:dryland",
+        "required": false
+      }
+    ],
+    "slope": 6,
+    "sha256": "faf9644ce0772f8b289c5c892016cdecbd94c65a45f3bde98fdca58c2adcc600",
+    "visually_accepted": false
+  },
+  "ground_level_nbt_approx": 12,
+  "size": [
+    111,
+    232,
+    93
+  ],
+  "data_version": 3105,
+  "in_game_tested": false,
+  "visual_acceptance": "review pending",
+  "evidence": {
+    "stair_gaps": [
+      [
+        31,
+        37
+      ],
+      [
+        90,
+        97
+      ],
+      [
+        157,
+        164
+      ],
+      [
+        229,
+        236
+      ],
+      [
+        289,
+        296
+      ]
+    ],
+    "stair_step_count": 281,
+    "stair_start": [
+      41,
+      15,
+      29
+    ],
+    "stair_end": [
+      72,
+      174,
+      57
+    ],
+    "views": [
+      {
+        "label": "Lower hall / five Enderman positions",
+        "lo": [
+          36,
+          11,
+          16
+        ],
+        "hi": [
+          82,
+          25,
+          67
+        ]
+      },
+      {
+        "label": "Unfinished wall-side ascent / player-built gaps",
+        "lo": [
+          38,
+          25,
+          26
+        ],
+        "hi": [
+          79,
+          179,
+          65
+        ]
+      }
+    ],
+    "feedback_revision": "Upper-platform chest requested by the author on 2026-11-11; native validation pending",
+    "v10_parent": {
+      "nbt": "relics/ruined-tower/design/generated/ruined-tower-v9-interiors/ruined-tower-v9-interiors.nbt",
+      "sha256": "4f5fd420eb1461b8e1b3f1c9f8f90ede3e801ea8d1e20972aab3d78d9a9fad8d",
+      "sidecar_sha256": "f260b75d46422599d24153f453ee2bb14a6a4b0d5795f3ba22b978c0ace2be13"
+    },
+    "terrain_clearance_contract": "Subtract all source solids from each tower_route_clearance volume; retain floor, partitions, stand and ascent. Root handles bounded ore allow-list.",
+    "v11_parent": {
+      "nbt": "relics/ruined-tower/design/generated/ruined-tower-v10-chest/ruined-tower-v10-chest.nbt",
+      "sha256": "d90f64ffe5f2ac273ea2b58852ef275cf2fd0169984baed8de98d5cc714a0c10",
+      "sidecar_sha256": "81ef9e7949a483532ef3603d2ac25f8254b9251a4db8da5e24c005691c62c3a1"
+    },
+    "upper_chest": {
+      "position": [
+        73,
+        174,
+        56
+      ],
+      "facing": "south",
+      "approach": [
+        73,
+        174,
+        57
+      ],
+      "existing_ascent_destination": [
+        72,
+        174,
+        57
+      ],
+      "source_changes": "additions only on existing Y173 platform",
+      "loot": "one Feather Falling IV book, 3-6 diamonds, 8-16 iron ingots; once per new tower"
+    }
+  },
+  "paths": [
+    {
+      "name": "tower-entry",
+      "feet": [
+        [
+          57,
+          15,
+          20
+        ],
+        [
+          57,
+          15,
+          21
+        ],
+        [
+          57,
+          15,
+          22
+        ],
+        [
+          57,
+          15,
+          23
+        ],
+        [
+          57,
+          15,
+          24
+        ],
+        [
+          57,
+          15,
+          25
+        ],
+        [
+          57,
+          15,
+          26
+        ],
+        [
+          57,
+          15,
+          27
+        ],
+        [
+          57,
+          15,
+          28
+        ],
+        [
+          57,
+          15,
+          29
+        ],
+        [
+          57,
+          15,
+          30
+        ],
+        [
+          57,
+          15,
+          31
+        ],
+        [
+          57,
+          15,
+          32
+        ],
+        [
+          57,
+          15,
+          33
+        ]
+      ],
+      "height": 3
+    },
+    {
+      "name": "tower-entry-to-rear-chest",
+      "feet": [
+        [
+          57,
+          15,
+          20
+        ],
+        [
+          57,
+          15,
+          21
+        ],
+        [
+          57,
+          15,
+          22
+        ],
+        [
+          57,
+          15,
+          23
+        ],
+        [
+          57,
+          15,
+          24
+        ],
+        [
+          57,
+          15,
+          25
+        ],
+        [
+          57,
+          15,
+          26
+        ],
+        [
+          57,
+          15,
+          27
+        ],
+        [
+          57,
+          15,
+          28
+        ],
+        [
+          57,
+          15,
+          29
+        ],
+        [
+          57,
+          15,
+          30
+        ],
+        [
+          57,
+          15,
+          31
+        ],
+        [
+          57,
+          15,
+          32
+        ],
+        [
+          57,
+          15,
+          33
+        ],
+        [
+          57,
+          15,
+          34
+        ],
+        [
+          57,
+          15,
+          35
+        ],
+        [
+          57,
+          15,
+          36
+        ],
+        [
+          57,
+          15,
+          37
+        ],
+        [
+          57,
+          15,
+          38
+        ],
+        [
+          57,
+          15,
+          39
+        ],
+        [
+          57,
+          15,
+          40
+        ],
+        [
+          57,
+          15,
+          41
+        ],
+        [
+          57,
+          15,
+          42
+        ],
+        [
+          57,
+          15,
+          43
+        ],
+        [
+          57,
+          15,
+          44
+        ],
+        [
+          57,
+          15,
+          45
+        ],
+        [
+          57,
+          15,
+          46
+        ],
+        [
+          57,
+          15,
+          47
+        ],
+        [
+          57,
+          15,
+          48
+        ],
+        [
+          58,
+          15,
+          48
+        ],
+        [
+          58,
+          15,
+          49
+        ],
+        [
+          58,
+          15,
+          50
+        ],
+        [
+          58,
+          15,
+          51
+        ],
+        [
+          58,
+          15,
+          52
+        ],
+        [
+          58,
+          15,
+          53
+        ],
+        [
+          58,
+          15,
+          54
+        ]
+      ],
+      "height": 3
+    },
+    {
+      "name": "tower-upper-landing-to-treasure",
+      "feet": [
+        [
+          72,
+          174,
+          57
+        ],
+        [
+          73,
+          174,
+          57
+        ]
+      ],
+      "height": 3
+    }
+  ],
+  "changes": {
+    "added": 21,
+    "removed": 0,
+    "remapped": 0
+  },
+  "changed_bounds": [
+    [
+      71,
+      174,
+      55
+    ],
+    [
+      75,
+      178,
+      56
+    ]
+  ],
+  "changed_groups": {
+    "upper-platform-treasure-niche": 21
+  },
+  "nbt_sha256": "fd3a1c9c7cbef6f5c7665ecac3c49f9faef33540237a87907b7ac0d908029b39",
+  "schematic_sha256": "3ba0b5e074a5f02c913e15b87c1d5f257c1782add54cf4587a8151d3e4ecba4c",
+  "tiles": 69,
+  "palette": {
+    "minecraft:deepslate_bricks": 4405,
+    "minecraft:cobbled_deepslate": 15064,
+    "minecraft:grass_block[snowy=false]": 2676,
+    "minecraft:rooted_dirt": 978,
+    "minecraft:deepslate_tiles": 219019,
+    "minecraft:dirt": 2255,
+    "minecraft:brown_terracotta": 167,
+    "minecraft:polished_deepslate": 16858,
+    "minecraft:polished_basalt": 1816,
+    "minecraft:cracked_deepslate_bricks": 4731,
+    "minecraft:cracked_deepslate_tiles": 2554,
+    "minecraft:deepslate_tile_stairs[facing=east,half=bottom,shape=straight,waterlogged=false]": 162,
+    "minecraft:deepslate_tile_stairs[facing=north,half=bottom,shape=straight,waterlogged=false]": 78,
+    "minecraft:polished_basalt[axis=y]": 88,
+    "minecraft:deepslate_tile_stairs[facing=west,half=bottom,shape=straight,waterlogged=false]": 93,
+    "minecraft:chiseled_deepslate": 5,
+    "minecraft:waxed_cut_copper": 2,
+    "minecraft:deepslate_tile_stairs[facing=south,half=bottom,shape=straight,waterlogged=false]": 111,
+    "minecraft:lantern[hanging=false,waterlogged=false]": 1
+  }
+}

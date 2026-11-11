@@ -10,7 +10,7 @@ import unittest
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'tools'))
 from inspect_ots_result import read_structure
-from integrate_gameplay_interiors import integrate,INDEX,REVISION,MANIFESTS,PREVIOUS_REVISION,LANDMARK_REVISION,SMALL_LANDMARK_REVISION,SHORT_ENTRY_REVISION,bound_files,source_path
+from integrate_gameplay_interiors import integrate,INDEX,REVISION,MANIFESTS,PREVIOUS_REVISION,LANDMARK_REVISION,SMALL_LANDMARK_REVISION,SHORT_ENTRY_REVISION,TREE_SKULL_REVISION,bound_files,source_path
 
 class NaturalInteriorTests(unittest.TestCase):
     @classmethod
@@ -137,7 +137,7 @@ class NaturalInteriorTests(unittest.TestCase):
         tower=active['ruined_tower'];contract=tower['gameplay']
         chest=next(m for m in contract['markers'] if m['role'].endswith('_chest'))
         self.assertEqual(chest['pos'],[58,15,55]);self.assertEqual(chest['facing'],'north')
-        self.assertEqual(contract['asset_version'],'ruined-tower-v10-chest')
+        self.assertEqual(contract['asset_version'],'ruined-tower-v11-upper-chest')
         p=tuple(v+o for v,o in zip(chest['pos'],contract['offset']))
         clear={(x,y,z) for x,y,z0,z1 in contract['clearance_runs'] for z in range(z0,z1+1)}
         self.assertIn((p[0],p[1]+1,p[2]),clear)
@@ -150,15 +150,16 @@ class NaturalInteriorTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(old_path.read_bytes()).hexdigest(),
             '9edf03417e27289a733730139130a846b3d36ddf637d5d35f4a18ac8d9713ecc')
         old=json.loads(old_path.read_text())
+        v5=json.loads((self.resources/MANIFESTS[TREE_SKULL_REVISION]).read_text())
         for prior in old['structures']:
-            current=next(a for a in self.new['structures'] if a['id']==prior['id'])
+            current=next(a for a in v5['structures'] if a['id']==prior['id'])
             if prior['id']=='titan_skull_2':
                 self.assertNotEqual(current['single_template'],prior['single_template'])
                 self.assertEqual(current['worldgen_template']['size'],prior['worldgen_template']['size'])
                 self.assertEqual(current['gameplay']['clearance_runs'],[])
             else:
                 expected=json.loads(json.dumps(prior))
-                if 'gameplay' in expected:expected['gameplay']['version']=REVISION
+                if 'gameplay' in expected:expected['gameplay']['version']=TREE_SKULL_REVISION
                 self.assertEqual(current,expected)
 
 if __name__=='__main__':unittest.main()

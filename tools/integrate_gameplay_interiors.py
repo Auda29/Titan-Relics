@@ -14,13 +14,15 @@ PREVIOUS_REVISION='interiors-20261027-v1'
 LANDMARK_REVISION='interiors-20261028-v2'
 SMALL_LANDMARK_REVISION='interiors-20261028-v3'
 SHORT_ENTRY_REVISION='interiors-20261028-v4'
-REVISION='interiors-20261028-v5'
+TREE_SKULL_REVISION='interiors-20261028-v5'
+REVISION='interiors-20261111-v6'
 PREVIOUS_INDEX=ROOT/'docs/project/reviews/gameplay-interiors-feedback-20261027-handoff.json'
 LANDMARK_INDEX=ROOT/'docs/project/reviews/colossus-landmarks-20261028-handoff.json'
 SMALL_LANDMARK_INDEX=ROOT/'docs/project/reviews/small-colossus-landmarks-20261028-handoff.json'
 SHORT_ENTRY_INDEX=ROOT/'docs/project/reviews/interiors-short-entry-tower-20261028-handoff.json'
-INDEX=ROOT/'docs/project/reviews/tree-skull-feedback-20261028-handoff.json'
-MANIFESTS={PREVIOUS_REVISION:'relics.gameplay.integration.json',LANDMARK_REVISION:'relics.gameplay.landmarks.integration.json',SMALL_LANDMARK_REVISION:'relics.gameplay.small_landmarks.integration.json',SHORT_ENTRY_REVISION:'relics.gameplay.short_entry_tower.integration.json',REVISION:'relics.gameplay.tree_skull.integration.json'}
+TREE_SKULL_INDEX=ROOT/'docs/project/reviews/tree-skull-feedback-20261028-handoff.json'
+INDEX=ROOT/'docs/project/reviews/tower-upper-chest-20261111-handoff.json'
+MANIFESTS={PREVIOUS_REVISION:'relics.gameplay.integration.json',LANDMARK_REVISION:'relics.gameplay.landmarks.integration.json',SMALL_LANDMARK_REVISION:'relics.gameplay.small_landmarks.integration.json',SHORT_ENTRY_REVISION:'relics.gameplay.short_entry_tower.integration.json',TREE_SKULL_REVISION:'relics.gameplay.tree_skull.integration.json',REVISION:'relics.gameplay.tower_summit.integration.json'}
 # Neighbouring chunk decoration can already have grown a tree before this piece
 # places. Restrict removal to omitted cells in the approved clearance regions.
 RUNTIME_NATIVE=sorted(set(NATIVE)|{'minecraft:'+wood+'_log' for wood in
@@ -85,12 +87,14 @@ def integrate_visual(entry,binding,resources,verify,revision):
 
 def integrate(resources=ROOT/'src/main/resources',verify=False,revision=REVISION):
     if revision not in MANIFESTS:raise ValueError('Unknown interior revision: '+revision)
-    index=json.loads({PREVIOUS_REVISION:PREVIOUS_INDEX,LANDMARK_REVISION:LANDMARK_INDEX,SMALL_LANDMARK_REVISION:SMALL_LANDMARK_INDEX,SHORT_ENTRY_REVISION:SHORT_ENTRY_INDEX,REVISION:INDEX}[revision].read_text(encoding='utf-8'))
+    index=json.loads({PREVIOUS_REVISION:PREVIOUS_INDEX,LANDMARK_REVISION:LANDMARK_INDEX,SMALL_LANDMARK_REVISION:SMALL_LANDMARK_INDEX,SHORT_ENTRY_REVISION:SHORT_ENTRY_INDEX,TREE_SKULL_REVISION:TREE_SKULL_INDEX,REVISION:INDEX}[revision].read_text(encoding='utf-8'))
     old=json.loads((resources/'relics.integration.json').read_text())
     manifest=copy.deepcopy(old)
     manifest.update(selection='alpha5-gameplay',revision=revision,air_policy='bounded native clearance; preserve authored solids')
     registry=json.loads((ROOT/'docs/project/reviews/gameplay-registry-26.2.json').read_text())['blocks']
     registry.update(json.loads((ROOT/'docs/project/reviews/gameplay-interiors-feedback-20261027-registry.json').read_text())['blocks'])
+    if revision==REVISION:
+        registry.update(json.loads((ROOT/'docs/project/reviews/tower-upper-chest-20261111-registry.json').read_text())['blocks'])
     for entry in manifest['structures']:
         name=entry['id']
         if name in index.get('visual_assets',{}):
@@ -103,10 +107,11 @@ def integrate(resources=ROOT/'src/main/resources',verify=False,revision=REVISION
         side=json.loads(source_path(files['.gameplay.json']['path']).read_text())
         validate(side,raw,root['size'],registry)
         if name in ('colossus','small_colossus','ruined_tower'):
-            assert sum(m['role'].endswith('_chest') for m in side['markers'])==1,'Loot budget requires exactly one chest per site'
+            expected_chests=2 if name=='ruined_tower' and revision==REVISION else 1
+            assert sum(m['role'].endswith('_chest') for m in side['markers'])==expected_chests,'Unexpected per-site chest budget'
         contract={**ASSETS[name],'source':files['.nbt']['path'],'sha256':files['.nbt']['sha256'],
                   'version':side['asset_version'],'blocks':len(raw),
-                  'visually_accepted':name not in ('small_colossus','ruined_tower') if revision in (SHORT_ENTRY_REVISION,REVISION) else
+                  'visually_accepted':name not in ('small_colossus','ruined_tower') if revision in (SHORT_ENTRY_REVISION,TREE_SKULL_REVISION,REVISION) else
                     not ((revision!=PREVIOUS_REVISION and name=='colossus') or (revision==SMALL_LANDMARK_REVISION and name=='small_colossus'))}
         blocks,size,foundation=supported_blocks(raw,contract)
         offset=[TOE_RADIUS,foundation['vertical_padding'],TOE_RADIUS]
@@ -138,9 +143,10 @@ def integrate(resources=ROOT/'src/main/resources',verify=False,revision=REVISION
               'pool':'minecraft:empty','joint':'rollable','final_state':final}.items()}
         nbt.update(selection_priority=(3,0),placement_priority=(3,0))
         natural=encode_structure(blocks,tuple(size),root['DataVersion'],{anchor:nbt})
-        suffix=('_v7' if revision!=PREVIOUS_REVISION and name=='colossus' else
-                '_v11' if revision in (SHORT_ENTRY_REVISION,REVISION) and name=='small_colossus' else
-                '_v10' if (revision==SMALL_LANDMARK_REVISION and name=='small_colossus') or (revision in (SHORT_ENTRY_REVISION,REVISION) and name=='ruined_tower') else '')
+        suffix=('_v11' if revision==REVISION and name=='ruined_tower' else
+                '_v7' if revision!=PREVIOUS_REVISION and name=='colossus' else
+                '_v11' if revision in (SHORT_ENTRY_REVISION,TREE_SKULL_REVISION,REVISION) and name=='small_colossus' else
+                '_v10' if (revision==SMALL_LANDMARK_REVISION and name=='small_colossus') or (revision in (SHORT_ENTRY_REVISION,TREE_SKULL_REVISION,REVISION) and name=='ruined_tower') else '')
         stem=f'{name}_gameplay'+suffix
         raw_name=f'{stem}.nbt';natural_name=f'{stem}_worldgen.nbt'
         destination=resources/'data/relics/structure';destination.mkdir(parents=True,exist_ok=True)
@@ -155,7 +161,7 @@ def integrate(resources=ROOT/'src/main/resources',verify=False,revision=REVISION
             'size':size,'anchor':list(anchor),'final_state':final,'foundation':foundation}
         entry['gameplay']={'version':revision,'sidecar_sha256':files['.gameplay.json']['sha256'],
             'asset_version':side['asset_version'],'offset':offset,'markers':side['markers'],
-            'clearance_runs':runs,'replaceable_blocks':V4_NATIVE if revision in (SHORT_ENTRY_REVISION,REVISION) and name in ('small_colossus','ruined_tower') else LANDMARK_NATIVE if (revision!=PREVIOUS_REVISION and name=='colossus') or (revision==SMALL_LANDMARK_REVISION and name=='small_colossus') else RUNTIME_NATIVE}
+            'clearance_runs':runs,'replaceable_blocks':V4_NATIVE if revision in (SHORT_ENTRY_REVISION,TREE_SKULL_REVISION,REVISION) and name in ('small_colossus','ruined_tower') else LANDMARK_NATIVE if (revision!=PREVIOUS_REVISION and name=='colossus') or (revision==SMALL_LANDMARK_REVISION and name=='small_colossus') else RUNTIME_NATIVE}
     target=resources/MANIFESTS[revision]
     if verify:
         if not target.is_file() or json.loads(target.read_text())!=manifest:raise ValueError('Stale approved gameplay manifest')

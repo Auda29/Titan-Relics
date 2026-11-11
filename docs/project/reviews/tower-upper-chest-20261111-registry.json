@@ -1,0 +1,24 @@
+{
+  "minecraft_version": "26.2",
+  "source": "native Bootstrap and BuiltInRegistries.BLOCK",
+  "server_jar_sha256": "183c0499c5f855570ee487dd38e141a53f0121f83a0b07a3bac2d8b6698823e8",
+  "query_sha256": "02cfa9d6d1d06a718bacea785027a8539602ce54798b400460c69e9956d764cb",
+  "blocks": {
+    "lantern": [
+      {
+        "hanging": [
+          "false",
+          "true"
+        ],
+        "waterlogged": [
+          "false",
+          "true"
+        ]
+      },
+      {
+        "hanging": "false",
+        "waterlogged": "false"
+      }
+    ]
+  }
+}
