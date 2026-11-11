@@ -21,7 +21,7 @@ def port_java(name, text, minecraft, test=False):
         text = text.replace('ChunkPos.pack(', 'ChunkPos.asLong(').replace('.isWithinWriteZone(', '.ensureCanWrite(')
         for receiver in ['getPos()', 'context.chunkPos()']:
             for axis in ['x','z']: text = text.replace(receiver+'.'+axis+'()',receiver+'.'+axis)
-        if name in ['NaturalInteriors.java','DistributionRuntime.java','SeparatedPlacementCondition.java']:
+        if name in ['NaturalInteriors.java','DistributionRuntime.java','SeparatedPlacementCondition.java','SurfaceStructureFilter.java']:
             for receiver in ['pos','chunk'] + (['candidate'] if name=='SeparatedPlacementCondition.java' else []):
                 for axis in ['x','z']: text=text.replace(receiver+'.'+axis+'()', receiver+'.'+axis)
         text = text.replace('EntityType.ENDERMAN.canSpawn(level)', '(level.getDifficulty()!=net.minecraft.world.Difficulty.PEACEFUL)')

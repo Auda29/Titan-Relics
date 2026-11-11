@@ -36,7 +36,8 @@
     "RewardHopperMixin",
     "TreeAnimalSpawnerAccess",
     "TreeAnimalCapAccess",
-    "TreeAnimalSpawnMixin"
+    "TreeAnimalSpawnMixin",
+    "StructureTemplateAccess"
   ],
   "injectors": {
     "defaultRequire": 1

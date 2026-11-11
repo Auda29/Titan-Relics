@@ -39,6 +39,8 @@ public final class TerrainValidator implements Validator {
     private final long seed;
     private final int minX,minZ,maxX,maxZ;
     private final Map<String,Profile> profiles=new LinkedHashMap<>();
+    private final Map<String,String> templatePaths=new LinkedHashMap<>();
+    private Map<String,TemplateOccupancy> occupancy=Map.of();
     private final Map<Structure,String> structureIds=new IdentityHashMap<>();
     private final Map<Object,Family> placements=new IdentityHashMap<>();
     public final Set<Family> enabled=EnumSet.noneOf(Family.class);
@@ -109,6 +111,7 @@ public final class TerrainValidator implements Validator {
             var pool=pools.getOptional(id(name)).orElseThrow();
             if(pool.size()!=1)throw new IllegalStateException("Relic pool must contain exactly one pinned template: "+name);
             StructurePoolElement element=pool.getRandomTemplate(RandomSource.create(0));
+            String geometryPath=name+"_worldgen";
             JsonArray size=a.getAsJsonObject("worldgen_template").getAsJsonArray("size");
             int ground=a.getAsJsonObject("worldgen_template").getAsJsonObject("foundation").get("ground_y").getAsInt();
             JsonObject delegate=signature.getAsJsonObject("structure/"+name).getAsJsonObject("delegate");
@@ -136,6 +139,7 @@ public final class TerrainValidator implements Validator {
                     if(item.getAsJsonObject().get("id").getAsString().equals(name))selected=item.getAsJsonObject();
                 if(selected==null)throw new IllegalStateException("Missing approved interior "+name);
                 String template=selected.getAsJsonObject("worldgen_template").get("path").getAsString();
+                geometryPath=template.substring(0,template.length()-4);
                 try(var stream=level.getServer().getResourceManager().getResource(id("structure/"+template)).orElseThrow().open()) {
                     if(!java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(stream.readAllBytes()))
                             .equals(selected.getAsJsonObject("worldgen_template").get("sha256").getAsString()))throw new IllegalStateException("Approved template differs");
@@ -146,6 +150,7 @@ public final class TerrainValidator implements Validator {
                 var chosen=element.getBoundingBox(templates,BlockPos.ZERO,Rotation.NONE);
                 if(chosen.getXSpan()!=box.getXSpan() || chosen.getYSpan()!=box.getYSpan() || chosen.getZSpan()!=box.getZSpan())throw new IllegalStateException("Approved interior transform changed");
             }
+            templatePaths.put(name,geometryPath);
             profiles.put(name,new Profile(name,family,ground,box.getXSpan(),box.getYSpan(),box.getZSpan(),holder,element,condition));
             if(generationRevision==1)terrainRules.put(name,new Terrain(condition.terrainCondition(),0,1,false));
             else {
@@ -160,6 +165,28 @@ public final class TerrainValidator implements Validator {
         }
         legacyFingerprint=DistributionJournal.hash(signature.toString());
         fingerprint=PlanningFingerprint.hash(signature);
+    }
+    /** Server-thread preload only. Worker queries use this immutable solid-cell index. */
+    public void prepareSurfaceGeometry() {
+        Map<String,TemplateOccupancy> result=new LinkedHashMap<>();
+        for(var p:profiles.values()) {
+            var template=templates.getOrCreate(id(templatePaths.get(p.id)));
+            var palettes=((de.relics.mixin.StructureTemplateAccess)(Object)template).relics$palettes();
+            if(palettes.size()!=1)throw new IllegalStateException("Relic collision geometry requires one pinned palette");
+            List<int[]> solid=new ArrayList<>();
+            for(var info:palettes.get(0).blocks())if(!info.state().isAir()
+                    && !info.state().is(net.minecraft.world.level.block.Blocks.STRUCTURE_VOID)
+                    && !info.state().is(net.minecraft.world.level.block.Blocks.STRUCTURE_BLOCK)
+                    && !info.state().is(net.minecraft.world.level.block.Blocks.JIGSAW))
+                solid.add(new int[]{info.pos().getX(),info.pos().getY(),info.pos().getZ()});
+            result.put(p.id,new TemplateOccupancy(p.sx,p.sy,p.sz,solid));
+        }
+        occupancy=Map.copyOf(result);
+    }
+    public int surfaceGeometryPadding(){return profiles.values().stream().mapToInt(p->(Math.max(p.sx,p.sz)+1)/2+2).max().orElseThrow();}
+    public boolean overlapsSurface(Site site,List<SurfaceStructurePolicy.Box> pieces) {
+        TemplateOccupancy shape=occupancy.get(site.asset());if(shape==null)throw new IllegalStateException("Surface geometry was not prepared");
+        return pieces.stream().anyMatch(b->shape.intersects(b,site.originX(),site.originY(),site.originZ(),site.candidate().rotation()));
     }
     private static int spacing(Family f) {return switch(f){case COLOSSUS,TOWER->80;case OBELISK,SKULL_2->64;case SKULL,SMALL->48;case TREE->96;default->throw new IllegalArgumentException();};}
     private static int salt(Family f) {return switch(f){case OBELISK->206091301;case COLOSSUS->206091302;case SKULL->206091303;case SMALL->206091304;case TREE->206091305;case TOWER->206091306;case SKULL_2->206091307;default->throw new IllegalArgumentException();};}

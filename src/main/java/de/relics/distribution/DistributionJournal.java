@@ -15,6 +15,7 @@ public final class DistributionJournal {
     public static final class State {
         public String policy = DistributionPlanner.POLICY;
         public DistributionSettings settings;
+        public SurfaceStructurePolicy.State surfaceStructures;
         public String interiors = "legacy";
         public long seed;
         public String fingerprint;
@@ -34,7 +35,7 @@ public final class DistributionJournal {
     public static String interiorRevision(Path file) {
         try {
             var envelope=JSON.fromJson(Files.readString(file),Envelope.class);
-            if(envelope==null || envelope.version()!=1 || !hash(envelope.payload()).equals(envelope.sha256()))throw new IllegalStateException("Invalid snapshot checksum");
+            if(envelope==null || !supported(envelope.version()) || !hash(envelope.payload()).equals(envelope.sha256()))throw new IllegalStateException("Invalid snapshot checksum");
             return JSON.fromJson(envelope.payload(),State.class).interiors;
         }catch(Exception error){throw new IllegalStateException("Preserve and inspect planning snapshot",error);}
     }
@@ -46,14 +47,21 @@ public final class DistributionJournal {
         try {
             if (Files.exists(file)) {
                 Envelope envelope = JSON.fromJson(Files.readString(file),Envelope.class);
-                if (envelope == null || envelope.version!=1 || !hash(envelope.payload).equals(envelope.sha256))
+                if (envelope == null || !supported(envelope.version) || !hash(envelope.payload).equals(envelope.sha256))
                     throw new IllegalStateException("Invalid planning journal checksum/schema");
                 state=JSON.fromJson(envelope.payload,State.class);
             } else state=Objects.requireNonNull(initial);
+            if(Files.exists(file)) {
+                Envelope e=JSON.fromJson(Files.readString(file),Envelope.class);
+                if(e.version()!=format(state))throw new IllegalStateException("Structure-policy envelope does not match its state");
+            }
             validate();
         } catch (Exception error) { throw new IllegalStateException("Preserve and inspect planning journal: "+file,error); }
     }
+    private static boolean supported(int version){return version==1 || version==2;}
+    private static int format(State state){return state.surfaceStructures==null?1:2;}
     private void validate() {
+        if(state!=null && state.surfaceStructures!=null)state.surfaceStructures.validate();
         if (state==null || state.interiors==null || !Set.of("legacy","interiors-20261027-v1","interiors-20261028-v2","interiors-20261028-v3","interiors-20261028-v4","interiors-20261028-v5").contains(state.interiors)
                 || !Set.of(DistributionPlanner.POLICY,DistributionPlanner.LEGACY_POLICY,DistributionSettings.LEGACY_POLICY,DistributionSettings.DISCOVERIES_POLICY,DistributionSettings.POLICY).contains(state.policy) || state.fingerprint==null
                 || DistributionSettings.settingsPolicy(state.policy) != (state.settings!=null)
@@ -94,7 +102,7 @@ public final class DistributionJournal {
         try {
             Files.createDirectories(file.getParent());
             String payload=JSON.toJson(state);
-            byte[] data=JSON.toJson(new Envelope(1,hash(payload),payload)).getBytes(StandardCharsets.UTF_8);
+            byte[] data=JSON.toJson(new Envelope(format(state),hash(payload),payload)).getBytes(StandardCharsets.UTF_8);
             Path temporary=Files.createTempFile(file.getParent(),"relics-plan-",".pending");
             try {
                 try (FileChannel channel=FileChannel.open(temporary,StandardOpenOption.WRITE)) {

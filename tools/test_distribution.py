@@ -18,11 +18,14 @@ def main():
         subprocess.run([str(compiler), '--release', '25', '-encoding', 'UTF-8', '-proc:none',
                         '-classpath', cp, '-d', directory,
                         str(ROOT / 'src/test/java/de/relics/DistributionTests.java'),
+                        str(ROOT / 'src/test/java/de/relics/SurfaceStructureTests.java'),
                         str(ROOT / 'src/test/java/de/relics/DistributionSettingsTests.java'),
                         str(ROOT / 'src/test/java/de/relics/ColossusSearchTests.java'),
                         str(ROOT / 'src/test/java/de/relics/WorldLoadCheckTests.java'),
                         str(ROOT / 'src/test/java/de/relics/LocationSearchTests.java'),
                         str(ROOT / 'src/test/java/de/relics/WorldgenGateTests.java')], check=True)
+        subprocess.run([str(compiler.with_name('java.exe' if os.name == 'nt' else 'java')),
+                        '-classpath', os.pathsep.join([directory, cp]), 'de.relics.SurfaceStructureTests',directory], cwd=directory, check=True)
         subprocess.run([str(compiler.with_name('java.exe' if os.name == 'nt' else 'java')),
                         '-classpath', os.pathsep.join([directory, cp]), 'de.relics.WorldLoadCheckTests',
                         directory], cwd=directory, check=True)
