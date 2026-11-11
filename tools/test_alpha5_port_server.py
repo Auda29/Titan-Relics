@@ -201,6 +201,7 @@ def main():
                     frozen=invariant;report['iterations'][-1]['frozen_distribution']=invariant
                     if not iteration and args.historical_journal:
                         snapshot['policy']='relics-distribution-v2-local64-r3072';snapshot.pop('settings')
+                        snapshot.pop('surfaceStructures',None)  # Deliberately construct a historical v1 fixture.
                         payload=json.dumps(snapshot,separators=(',',':'))
                         (run/'world/data/relics_distribution_v1.json').write_text(json.dumps(dict(version=1,payload=payload,sha256=hashlib.sha256(payload.encode()).hexdigest())),encoding='utf-8')
                         frozen={**invariant,'policy':snapshot['policy'],'settings':None}
@@ -235,7 +236,7 @@ def main():
                     elif name=='enabled':state['enabled']=state['enabled'][1:]
                     elif name=='unfinished':state['frozen']=False;state['unique']=None
                     payload=json.dumps(state,separators=(',',':'))
-                    envelope=dict(version=1,payload=payload,sha256='0'*64 if name=='checksum' else hashlib.sha256(payload.encode()).hexdigest())
+                    envelope=dict(version=original_envelope['version'],payload=payload,sha256='0'*64 if name=='checksum' else hashlib.sha256(payload.encode()).hexdigest())
                     if name=='saved-border':
                         import gzip,struct
                         raw=gzip.decompress(border_original);key=b'\x06\x00\x08center_x'

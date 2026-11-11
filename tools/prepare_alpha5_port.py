@@ -119,7 +119,7 @@ def legacy_java(name: str, text: str) -> str:
         text=text.replace('(level,chunk,generated)->', '(level,chunk)->')
         text=text.replace('BuiltInRegistries.BLOCK.getValue(id)', 'BuiltInRegistries.BLOCK.get(id)')
         text=text.replace('element.getTemplateLocation()', '((de.relics.mixin.LegacyPoolTemplateAccess)(Object)element).relics$template().left().orElseThrow()')
-    if name in ('TerrainValidator.java','PlanningSignature.java'):
+    if name in ('TerrainValidator.java','PlanningSignature.java','SurfaceStructureFilter.java'):
         text=text.replace('t.key().location()', 't.getFirst().location()').replace('tag.stream()', 'tag.getSecond().stream()').replace('tag.key().location()', 'tag.getFirst().location()')
         text=text.replace('structures.getOrThrow(ResourceKey.create(Registries.STRUCTURE,id(name)))', 'structures.getHolderOrThrow(ResourceKey.create(Registries.STRUCTURE,id(name)))')
     if name == 'TreeAnimals.java': text=text.replace('choice.get().type()', 'choice.get().type').replace('data.type()', 'data.type')
@@ -137,6 +137,9 @@ def legacy_java(name: str, text: str) -> str:
         text=text.replace('import net.minecraft.server.level.ChunkTaskDispatcher;', 'import net.minecraft.util.thread.ProcessorHandle;\nimport net.minecraft.server.level.ChunkTaskPriorityQueueSorter;')
         text=text.replace('@Accessor("worldgenTaskDispatcher")', '@Accessor("worldgenMailbox")')
         text=text.replace('ChunkTaskDispatcher relics$worldgenDispatcher()', 'ProcessorHandle<ChunkTaskPriorityQueueSorter.Message<Runnable>> relics$worldgenDispatcher()')
+    if name == 'SurfaceStructureFilter.java':
+        for receiver in ['pos']:
+            for axis in ['x','z']:text=text.replace(receiver+'.'+axis+'()',receiver+'.'+axis)
     if name == 'DistributionStartsMixin.java':
         text=text.replace('dispatcher.submit(task,', 'dispatcher.tell(net.minecraft.server.level.ChunkTaskPriorityQueueSorter.message(task,')
         text=text.replace('center::getQueueLevel);', 'center::getQueueLevel));')

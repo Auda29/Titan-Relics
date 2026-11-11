@@ -1,0 +1,529 @@
+{
+  "date": "2026-11-11",
+  "minecraft": "1.21.1",
+  "seed": -4443928181842649648,
+  "preset": "Discoveries",
+  "terrain": "unmodified Minecraft 1.21.1 DEFAULT",
+  "mods": [
+    "Titan Relics",
+    "Fabric API 0.116.17+1.21.1",
+    "Lithostitched 1.8.0"
+  ],
+  "diagnostic_helper_changes_worldgen": false,
+  "baseline_sha256": "27175f8df4f4063400a30c8b6595ceb9df555ec0cc144e025b7a6632d8fb4c26",
+  "candidate_sha256": "10b12bfe0f3ceea14d50f8ec0afc2feb2ce549d64522e6c071a0652681571dfe",
+  "regular_grid": {
+    "cells": 81,
+    "cell_size": 2000,
+    "bounds_xz": [
+      -8000,
+      -8000,
+      9999,
+      9999
+    ],
+    "ordinary_sites": [
+      {
+        "candidate": {
+          "cell": {
+            "x": -3,
+            "z": 1
+          },
+          "x": -5464,
+          "z": 3208,
+          "ticket": 5629,
+          "priority": 6533752499730366557,
+          "rotation": 1,
+          "unique": false
+        },
+        "asset": "titan_skull_2",
+        "x2": -10928,
+        "z2": 6416,
+        "surface": 63,
+        "originX": -5407,
+        "originY": 35,
+        "originZ": 3151,
+        "minX": -5521,
+        "minZ": 3151,
+        "maxX": -5407,
+        "maxZ": 3265
+      },
+      {
+        "candidate": {
+          "cell": {
+            "x": -3,
+            "z": 3
+          },
+          "x": -5240,
+          "z": 6840,
+          "ticket": 5634,
+          "priority": -7372034150727562161,
+          "rotation": 0,
+          "unique": false
+        },
+        "asset": "titan_skull_2",
+        "x2": -10480,
+        "z2": 13680,
+        "surface": 72,
+        "originX": -5297,
+        "originY": 44,
+        "originZ": 6783,
+        "minX": -5297,
+        "minZ": 6783,
+        "maxX": -5183,
+        "maxZ": 6897
+      },
+      {
+        "candidate": {
+          "cell": {
+            "x": 0,
+            "z": 0
+          },
+          "x": 872,
+          "z": 1288,
+          "ticket": 5183,
+          "priority": 2664458773540097753,
+          "rotation": 1,
+          "unique": false
+        },
+        "asset": "titan_skull_2",
+        "x2": 1744,
+        "z2": 2576,
+        "surface": 66,
+        "originX": 929,
+        "originY": 38,
+        "originZ": 1231,
+        "minX": 815,
+        "minZ": 1231,
+        "maxX": 929,
+        "maxZ": 1345
+      },
+      {
+        "candidate": {
+          "cell": {
+            "x": 0,
+            "z": 3
+          },
+          "x": 1512,
+          "z": 6568,
+          "ticket": 1346,
+          "priority": 4899306156809708640,
+          "rotation": 2,
+          "unique": false
+        },
+        "asset": "obelisk",
+        "x2": 3024,
+        "z2": 13137,
+        "surface": 71,
+        "originX": 1549,
+        "originY": 61,
+        "originZ": 6606,
+        "minX": 1475,
+        "minZ": 6531,
+        "maxX": 1549,
+        "maxZ": 6606
+      }
+    ],
+    "unique_colossus": {
+      "candidate": {
+        "cell": {
+          "x": 1,
+          "z": 4
+        },
+        "x": 1224,
+        "z": 4040,
+        "ticket": 8574,
+        "priority": 8770531554656661932,
+        "rotation": 2,
+        "unique": true
+      },
+      "asset": "colossus",
+      "x2": 2448,
+      "z2": 8080,
+      "surface": 72,
+      "originX": 1322,
+      "originY": -5,
+      "originZ": 4165,
+      "minX": 1126,
+      "minZ": 3915,
+      "maxX": 1322,
+      "maxZ": 4165
+    }
+  },
+  "extra_locate_cells": 4,
+  "sampled_start_candidates": 158,
+  "valid_foreign_starts": 59,
+  "valid_mineshaft_starts": 53,
+  "sampled_suppressed_starts": 0,
+  "positive_suppression_case_in_vanilla_sample": false,
+  "assertions": [
+    "identical ordinary relic plans",
+    "identical unique Colossus",
+    "all foreign changes are whole-start removals on the deterministic 50% branch",
+    "filtered reload stable",
+    "legacy reload has unchanged journal bytes and starts",
+    "all Java exits zero without ERROR log entries"
+  ],
+  "passes": [
+    {
+      "name": "baseline",
+      "java_exit_code": 0,
+      "seconds": 182.08,
+      "errors": []
+    },
+    {
+      "name": "filtered",
+      "java_exit_code": 0,
+      "seconds": 170.42,
+      "errors": []
+    },
+    {
+      "name": "filtered-reload",
+      "java_exit_code": 0,
+      "seconds": 96.99,
+      "errors": []
+    },
+    {
+      "name": "legacy-reload",
+      "java_exit_code": 0,
+      "seconds": 92.64,
+      "errors": []
+    }
+  ],
+  "natural_relic_samples": [
+    {
+      "id": "relics:obelisk",
+      "rotation": "CLOCKWISE_180",
+      "origin": [
+        1549,
+        61,
+        6606
+      ],
+      "samples": [
+        {
+          "expected": "minecraft:yellow_terracotta",
+          "actual": "minecraft:yellow_terracotta",
+          "position": [
+            1507,
+            123,
+            6571
+          ]
+        },
+        {
+          "expected": "minecraft:yellow_terracotta",
+          "actual": "minecraft:yellow_terracotta",
+          "position": [
+            1503,
+            157,
+            6563
+          ]
+        },
+        {
+          "expected": "minecraft:yellow_terracotta",
+          "actual": "minecraft:yellow_terracotta",
+          "position": [
+            1513,
+            196,
+            6564
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relics:colossus",
+      "rotation": "CLOCKWISE_180",
+      "origin": [
+        1322,
+        -5,
+        4165
+      ],
+      "samples": [
+        {
+          "expected": "minecraft:brown_terracotta",
+          "actual": "minecraft:brown_terracotta",
+          "position": [
+            1261,
+            119,
+            3946
+          ]
+        },
+        {
+          "expected": "minecraft:andesite",
+          "actual": "minecraft:andesite",
+          "position": [
+            1203,
+            136,
+            3980
+          ]
+        },
+        {
+          "expected": "minecraft:black_concrete",
+          "actual": "minecraft:black_concrete",
+          "position": [
+            1249,
+            155,
+            3983
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relics:titan_skull",
+      "rotation": "CLOCKWISE_180",
+      "origin": [
+        -18982,
+        47,
+        7145
+      ],
+      "samples": [
+        {
+          "expected": "minecraft:bone_block",
+          "actual": "minecraft:bone_block",
+          "position": [
+            -19021,
+            90,
+            7111
+          ]
+        },
+        {
+          "expected": "minecraft:bone_block",
+          "actual": "minecraft:bone_block",
+          "position": [
+            -19027,
+            98,
+            7102
+          ]
+        },
+        {
+          "expected": "minecraft:bone_block",
+          "actual": "minecraft:bone_block",
+          "position": [
+            -19056,
+            107,
+            7108
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relics:titan_skull_2",
+      "rotation": "CLOCKWISE_90",
+      "origin": [
+        929,
+        38,
+        1231
+      ],
+      "samples": [
+        {
+          "expected": "minecraft:moss_block",
+          "actual": "minecraft:moss_block",
+          "position": [
+            835,
+            93,
+            1276
+          ]
+        },
+        {
+          "expected": "minecraft:bone_block",
+          "actual": "minecraft:bone_block",
+          "position": [
+            862,
+            100,
+            1305
+          ]
+        },
+        {
+          "expected": "minecraft:moss_block",
+          "actual": "minecraft:moss_block",
+          "position": [
+            889,
+            107,
+            1272
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relics:small_colossus",
+      "rotation": "CLOCKWISE_90",
+      "origin": [
+        -984,
+        54,
+        30697
+      ],
+      "samples": [
+        {
+          "expected": "minecraft:terracotta",
+          "actual": "minecraft:terracotta",
+          "position": [
+            -1061,
+            95,
+            30764
+          ]
+        },
+        {
+          "expected": "minecraft:terracotta",
+          "actual": "minecraft:terracotta",
+          "position": [
+            -1062,
+            103,
+            30742
+          ]
+        },
+        {
+          "expected": "minecraft:terracotta",
+          "actual": "minecraft:terracotta",
+          "position": [
+            -1025,
+            113,
+            30785
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relics:ruined_tower",
+      "rotation": "NONE",
+      "origin": [
+        18793,
+        54,
+        6258
+      ],
+      "samples": [
+        {
+          "expected": "minecraft:deepslate_tiles",
+          "actual": "minecraft:deepslate_tiles",
+          "position": [
+            18835,
+            121,
+            6325
+          ]
+        },
+        {
+          "expected": "minecraft:deepslate_tiles",
+          "actual": "minecraft:deepslate_tiles",
+          "position": [
+            18841,
+            171,
+            6288
+          ]
+        },
+        {
+          "expected": "minecraft:deepslate_tiles",
+          "actual": "minecraft:deepslate_tiles",
+          "position": [
+            18880,
+            216,
+            6300
+          ]
+        }
+      ]
+    },
+    {
+      "id": "relics:world_tree",
+      "rotation": "CLOCKWISE_90",
+      "origin": [
+        84364,
+        43,
+        16531
+      ],
+      "samples": [
+        {
+          "expected": "minecraft:spruce_log",
+          "actual": "minecraft:spruce_log",
+          "position": [
+            84257,
+            137,
+            16618
+          ]
+        },
+        {
+          "expected": "minecraft:spruce_log",
+          "actual": "minecraft:spruce_log",
+          "position": [
+            84235,
+            183,
+            16678
+          ]
+        },
+        {
+          "expected": "minecraft:spruce_log",
+          "actual": "minecraft:spruce_log",
+          "position": [
+            84299,
+            212,
+            16630
+          ]
+        }
+      ]
+    }
+  ],
+  "locates": [
+    {
+      "structure": "relics:obelisk",
+      "x": 1512,
+      "z": 6568,
+      "command": "execute positioned 4 100 0 run locate structure relics:obelisk",
+      "response": "[11:40:13] [Server thread/INFO]: The nearest relics:obelisk is at [1512, ~, 6568] (6739 blocks away)"
+    },
+    {
+      "structure": "relics:colossus",
+      "x": 1224,
+      "z": 4040,
+      "command": "execute positioned 4 100 0 run locate structure relics:colossus",
+      "response": "[11:40:13] [Server thread/INFO]: The nearest relics:colossus is at [1224, ~, 4040] (4220 blocks away)"
+    },
+    {
+      "structure": "relics:titan_skull",
+      "x": -19048,
+      "z": 7048,
+      "command": "execute positioned 4 100 0 run locate structure relics:titan_skull",
+      "response": "[11:41:23] [Server thread/INFO]: The nearest relics:titan_skull is at [-19048, ~, 7048] (20314 blocks away)"
+    },
+    {
+      "structure": "relics:titan_skull_2",
+      "x": 872,
+      "z": 1288,
+      "command": "execute positioned 4 100 0 run locate structure relics:titan_skull_2",
+      "response": "[11:41:23] [Server thread/INFO]: The nearest relics:titan_skull_2 is at [872, ~, 1288] (1553 blocks away)"
+    },
+    {
+      "structure": "relics:small_colossus",
+      "x": -1048,
+      "z": 30760,
+      "command": "execute positioned 4 100 0 run locate structure relics:small_colossus",
+      "response": "[11:41:45] [Server thread/INFO]: The nearest relics:small_colossus is at [-1048, ~, 30760] (30778 blocks away)"
+    },
+    {
+      "structure": "relics:ruined_tower",
+      "x": 18856,
+      "z": 6312,
+      "command": "execute positioned 4 100 0 run locate structure relics:ruined_tower",
+      "response": "[11:41:47] [Server thread/INFO]: The nearest relics:ruined_tower is at [18856, ~, 6312] (19881 blocks away)"
+    },
+    {
+      "structure": "relics:world_tree",
+      "x": 84264,
+      "z": 16632,
+      "command": "execute positioned 4 100 0 run locate structure relics:world_tree",
+      "response": "[11:46:31] [Server thread/INFO]: The nearest relics:world_tree is at [84264, ~, 16632] (85886 blocks away)"
+    }
+  ],
+  "vanilla_pool_bounds_reconstructed_on_reload": 5,
+  "bounds_match_between_builds_at_each_phase": true,
+  "result_sha256": {
+    "vanilla-result.json": "502822f4c1d8356267035d82e6d4ac061315d14a0d41342a5034045ea07ad6ca",
+    "legacy-reload-result.json": "502822f4c1d8356267035d82e6d4ac061315d14a0d41342a5034045ea07ad6ca",
+    "baseline-result.json": "4ddbb40552ca62f89147e9791e217b51680e1ae0fc526b059186247ec7ef2159",
+    "filtered-result.json": "61f21a4d3a5557d7a40fe564b9088650772e29011acdd247fbbd5591f8df6aff",
+    "filtered-reload-result.json": "6bad181e2e6e80f8a8a9075badbbfe53f376fda438bde6a570cd4d827efb5a47"
+  },
+  "finding": {
+    "incorrect_target": "minecraft:woodland_mansion",
+    "correct_target": "minecraft:mansion",
+    "corrected_target_ids_verified_in_official_server_jars": [
+      "1.21.1",
+      "26.2"
+    ],
+    "runtime_sample_precedes_resource_id_correction": true
+  }
+}
