@@ -22,7 +22,7 @@ The original screenshots remain unchanged in the author's private archive.
 
 The same seven full-size crops are published in the Modrinth gallery. Historical
 V3 preview images are retained at the end of that gallery and are not featured.
-The README uses the versioned PNGs in this directory.
+These paths retain the initial published PNGs. The current README uses the shared screenshot library linked below.
 
 The CurseForge Upload API does not document project-gallery management. The
 available author dashboard browser is blocked by its security-verification page.
@@ -37,3 +37,5 @@ filenames do not all match their subjects: `sword-skull` shows Titan Skull,
 from the front, and `colossus` shows the great Colossus from behind. No Sword
 Skull photo is present in this set. Source pixels, hashes and filenames are
 unchanged; use the corrected captions rather than inferring subjects from paths.
+
+The shared current library is [Titan Relics screenshots](../screenshots/README.md). These paths are retained for existing links.

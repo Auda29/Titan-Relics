@@ -4,7 +4,7 @@
 
 *Colossal ruins of a forgotten age*
 
-![The great Colossus from the front in the Beta 3 playtest](docs/images/beta3/titan-relics-beta3-small-colossus.png)
+![The great Colossus from the front in the Beta 3 playtest](docs/images/screenshots/2026-11-10_143537-colossus-front.png)
 
 *Titan Relics Beta 3 in Minecraft Java 1.21.1, captured on 10 November 2026 with shaders.*
 
@@ -15,17 +15,25 @@ The landscape leaves much of its history for you to interpret.
 
 ## In-game screenshots
 
-Captured in TerraVista Living World with shaders. Terrain, surrounding vegetation
-and lighting also come from the modpack and shaders. All images retain the
-original aspect ratio; the HUD overlay has been cropped out.
+Captured in TerraVista Living World with shaders during the 10–11 November playtests. Terrain, surrounding vegetation and lighting also come from the modpack and shaders. Gallery images retain the original aspect ratio; older HUD overlays are cropped out. The latest captures come from a development playtest, not the published Beta 3 build.
 
-| Titan Skull | World Tree |
+[Browse all 31 selected screenshots and their sources](docs/images/screenshots/README.md).
+
+| Titan Skull · In the grassland | Sword Skull · In daylight |
 | --- | --- |
-| ![Titan Skull in the grassland](docs/images/beta3/titan-relics-beta3-sword-skull.png) | ![World Tree and its overgrown refuge](docs/images/beta3/titan-relics-beta3-world-tree.png) |
-| Small Colossus at sunset | Colossus from the front |
-| ![Small Colossus at sunset](docs/images/beta3/titan-relics-beta3-titan-skull.png) | ![Overgrown great Colossus from the front](docs/images/beta3/titan-relics-beta3-small-colossus.png) |
-| Coastal Obelisk | Ruined Tower |
-| ![Obelisk across the coastal water](docs/images/beta3/titan-relics-beta3-obelisk.png) | ![Ruined Tower among autumn trees](docs/images/beta3/titan-relics-beta3-ruined-tower.png) |
+| ![Titan Skull · In the grassland](docs/images/screenshots/2026-11-10_144428-titan-skull-grassland.png) | ![Sword Skull · In daylight](docs/images/screenshots/2026-11-11_071733-sword-skull-daylight.png) |
+
+| World Tree · Above the forest clearing | Ruined Tower · In the snow |
+| --- | --- |
+| ![World Tree · Above the forest clearing](docs/images/screenshots/2026-11-11_072616-world-tree-forest.png) | ![Ruined Tower · In the snow](docs/images/screenshots/2026-11-11_072401-ruined-tower-snow.png) |
+
+| Great Colossus · Front view | Small Colossus · In the meadow |
+| --- | --- |
+| ![Great Colossus · Front view](docs/images/screenshots/2026-11-10_143537-colossus-front.png) | ![Small Colossus · In the meadow](docs/images/screenshots/2026-11-11_072233-small-colossus-meadow.png) |
+
+| Obelisk · Looking upward | Sword Skull · At night |
+| --- | --- |
+| ![Obelisk · Looking upward](docs/images/screenshots/2026-11-11_071205-obelisk-low-view.png) | ![Sword Skull · At night](docs/images/screenshots/2026-11-10_144314-sword-skull-night.png) |
 
 ## Downloads and release status
 
