@@ -38,6 +38,8 @@ relics/colossus/design/generated/small-colossus-v10-landmarks/*.blend1
 !relics/colossus/design/generated/small-colossus-v11-short-entry/**
 relics/colossus/design/generated/small-colossus-v11-short-entry/*.blend1
 !relics/ruined-tower/design/generated/ruined-tower-v10-chest/**
+!relics/ruined-tower/design/generated/ruined-tower-v11-upper-chest/**
+relics/ruined-tower/design/generated/ruined-tower-v11-upper-chest/*.blend1
 relics/ruined-tower/design/generated/ruined-tower-v10-chest/*.blend1
 !relics/titan-skull/design/generated/titan-skull-2-v2-embedded-side-v1/**
 relics/titan-skull/design/generated/titan-skull-2-v2-embedded-side-v1/*.blend1

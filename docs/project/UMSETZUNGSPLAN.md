@@ -110,6 +110,11 @@ one-time group (**five**, as selected by the user), preserving vanilla neutralit
 despawning. This still needs safe marker/state/worldgen validation, not both methods
 at once. Loot is **shared finite chests, 5% eye otherwise 4–6 pearls**. The documented
 starting roll scope is one Ender reward per Tower, with one eye on the rare branch.
+The November 11 addition places a second, independent chest in a small masonry
+niche on an existing upper platform. It guarantees one Feather Falling IV book,
+3–6 diamonds and 8–16 iron ingots. Its finite shared reward does not change the
+lower Ender roll. The incomplete ascent stays intact. This is a new interior
+revision for new worlds; existing frozen tower revisions remain unchanged.
 The World Tree is a peaceful source of life with natural-looking lights and more
 **pigs, chickens, sheep and cows**, using a modest local natural-spawn adjustment
 with normal caps/conditions, **no animal spawners or timed replenishment**. Ordinary

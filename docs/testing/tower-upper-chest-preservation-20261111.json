@@ -1,0 +1,13 @@
+{
+  "base_commit": "3d2949b1150d630726d3d17ef357272cb415f7fb",
+  "captured_resources_and_v10_files": 230,
+  "feature_changes_to_existing_resources": 0,
+  "inherited_parent_changes": [
+    "src/main/resources/relics.mixins.json"
+  ],
+  "unchanged_distribution_algorithm_files": 6,
+  "artifacts": {
+    "relics-1.0.0-beta.3+mc1.21.1.jar": "b873538283d4cdcbeabcc386d094094d38c6f8bae73814216c153d3690924abe",
+    "relics-1.0.0-beta.3+mc26.2.jar": "7892a7c4309fa4b1030103d866aea7ecb17104ae094331949f0ed3abb5ec6478"
+  }
+}

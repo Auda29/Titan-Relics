@@ -107,7 +107,7 @@ def integrate(resources=ROOT/'src/main/resources',verify=False,revision=REVISION
         side=json.loads(source_path(files['.gameplay.json']['path']).read_text())
         validate(side,raw,root['size'],registry)
         if name in ('colossus','small_colossus','ruined_tower'):
-            expected_chests=2 if name=='ruined_tower' and revision==REVISION else 1
+            expected_chests=2 if name=='ruined_tower' and side['asset_version']=='ruined-tower-v11-upper-chest' else 1
             assert sum(m['role'].endswith('_chest') for m in side['markers'])==expected_chests,'Unexpected per-site chest budget'
         contract={**ASSETS[name],'source':files['.nbt']['path'],'sha256':files['.nbt']['sha256'],
                   'version':side['asset_version'],'blocks':len(raw),

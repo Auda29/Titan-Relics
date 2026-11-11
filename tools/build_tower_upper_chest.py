@@ -5,6 +5,7 @@ from inspect_ots_result import read_structure
 
 STEM='ruined-tower-v11-upper-chest'
 PARENT='ruined-tower-v10-chest'
+PARENT_SHA256='d90f64ffe5f2ac273ea2b58852ef275cf2fd0169984baed8de98d5cc714a0c10'
 BASE=(ROOT/ASSETS['ruined_tower']['source']).parent.parent
 OLD=BASE/PARENT
 OUT=BASE/STEM
@@ -12,7 +13,7 @@ OUT=BASE/STEM
 
 def build():
     source=OLD/(PARENT+'.nbt');side=json.loads(source.with_suffix('.gameplay.json').read_text())
-    assert digest(source)==side['source_sha256']
+    assert digest(source)==side['source_sha256']==PARENT_SHA256
     design=json.loads(source.with_suffix('.design.json').read_text())
     assert design['nbt_sha256']==side['source_sha256']
     b=Builder('ruined_tower');b.root,blocks=read_structure(source)
@@ -53,8 +54,10 @@ def write_handoff():
     index['assets']['ruined_tower']={'files':files,'size':side['size'],'ground_y':side['ground_y'],
         'blocks':sum(json.loads((OUT/(STEM+'.design.json')).read_text())['palette'].values()),'markers':len(side['markers']),'regions':len(side['regions'])}
     index['status']='Upper platform treasure niche requested 2026-11-11; native validation pending'
-    (ROOT/'docs/project/reviews/tower-upper-chest-20261111-handoff.json').write_text(json.dumps(index,indent=2)+'\n')
+    (ROOT/'docs/project/reviews/tower-upper-chest-20261111-handoff.json').write_text(json.dumps(index,indent=2)+'\n',encoding='utf-8',newline='\n')
 
 if __name__=='__main__':
     build().save()
+    for path in OUT.rglob('*.json'):
+        path.write_text(path.read_text(encoding='utf-8'),encoding='utf-8',newline='\n')
     write_handoff()

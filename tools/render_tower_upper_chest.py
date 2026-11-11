@@ -5,9 +5,9 @@ from inspect_ots_result import read_structure
 
 def render():
  _,all_blocks=read_structure(OUT/(STEM+'.nbt'))
- blocks={p:s for p,s in all_blocks.items() if 68<=p[0]<=76 and 171<=p[1]<=180 and 53<=p[2]<=60}
+ blocks={p:s for p,s in all_blocks.items() if 70<=p[0]<=75 and 173<=p[1]<=178 and 55<=p[2]<=58}
  image=Image.new('RGB',(1000,850),'#e4e8eb');draw=ImageDraw.Draw(image)
- def project(x,y,z):return (500+33*((x-72)-(z-56)),650+16*((x-72)+(z-56))-33*(y-173))
+ def project(x,y,z):return (500+33*((x-72)-(z-56)),600+16*((x-72)+(z-56))-33*(y-173))
  def color(state):
   if 'waxed_cut_copper' in state:return (190,112,62)
   if 'lantern' in state:return (244,190,70)
