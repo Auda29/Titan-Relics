@@ -66,6 +66,7 @@ saved generation and interior revisions. Create a new world to try these changes
 The reproduced Sword Skull contact issue is corrected for V6 worlds. Full
 Survival/long-session acceptance remains open; see the tested scope in the notes.
 See the [release notes](https://github.com/Auda29/Titan-Relics/blob/v1.0.0-beta.4/docs/releases/1.0.0-beta.4.md) for exact limits and test steps.
+The [Beta 4 publication record](docs/releases/BETA_4_PUBLICATION.md) contains verified platform file IDs and download evidence.
 The [Beta 1 publication record](docs/releases/BETA_1_0_0_PUBLICATION.md) is historical;
 new platform availability is recorded on each release's upload receipt.
 The earlier [Alpha 5.0.5](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.5)
