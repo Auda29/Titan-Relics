@@ -1,21 +1,31 @@
 # Your first relic expedition
 
-This guide describes the implemented Alpha 5 systems. Candidate-only defaults
-are identified below; the public beta is not released. Start with the
-[installation guide](INSTALLATION.md) for the correct files and dependencies.
+This guide describes Beta 3. Its revision-2 generation settings apply when a new
+preset is selected for a new world. Existing Beta 1 and Beta 2 worlds keep
+their saved rules. Start with the [installation guide](INSTALLATION.md) for
+files and dependencies.
 
 ## Before creating the world
 
-Open **Create World → World → Relic generation**. Expedition leaves more space
+Open **Create World → World → Relic generation**. Start with one of the three
+play styles. The simple view shows short descriptions and an illustrative
+distribution diagram. This is not a seed preview or a promise of fixed find
+locations. **Advanced settings** contains distances, family shares, biomes and
+diagnostics; **Back to simple settings** keeps unsaved edits.
+
+Expedition leaves more space
 between opportunities; Balanced and Discoveries offer progressively more.
-Discoveries is the factory default in the unpublished candidate when no saved
-choice exists. Existing installation defaults and world plans keep their values.
+Discoveries is the factory default when no saved choice exists. Existing installation defaults and world plans keep their values.
 
 The large Colossus has its own minimum distance from the original world spawn:
-30,000 blocks for Expedition, 15,000 for Balanced and 8,000 for Discoveries.
+15,000 blocks for Expedition, 8,000 for Balanced and 4,000 for Discoveries.
 These are lower bounds, not maximum travel distances. Terrain and biome checks
 can push a valid site much farther away. Search spacing does not mean a relic
 is guaranteed every few thousand blocks.
+
+New presets favor skulls: each skull family receives 15% of opportunities away
+from Obelisks and 25% near them. Matching landscapes includes suitable classified
+modpack biomes. These remain chances before terrain and spacing checks.
 
 Apply a preset or your own distances, family shares and biome selections before
 creating the world. The world keeps that selection, even for later unexplored

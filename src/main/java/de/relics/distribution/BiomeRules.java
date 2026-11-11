@@ -13,6 +13,12 @@ public record BiomeRules(Map<String,Rule> families) {
         }
     }
     public static final BiomeRules STANDARD=new BiomeRules(Map.of());
+    public static final BiomeRules LANDSCAPES=landscapes();
+    private static BiomeRules landscapes() {
+        var values=new TreeMap<String,Rule>();
+        for(Family family:Family.values())if(family!=Family.EMPTY)values.put(family.id,new Rule(Mode.LANDSCAPES,Set.of()));
+        return new BiomeRules(values);
+    }
     public BiomeRules {
         var copy=new TreeMap<String,Rule>();families.forEach((key,value)->{
             if(Arrays.stream(Family.values()).noneMatch(f->f!=Family.EMPTY && f.id.equals(key)))throw new IllegalArgumentException("Unknown biome family");

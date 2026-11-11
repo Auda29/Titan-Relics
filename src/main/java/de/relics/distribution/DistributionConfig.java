@@ -24,11 +24,12 @@ public final class DistributionConfig {
             if(!root.keySet().equals(Set.of("format","settings")) || integer(root.get("format"))!=1)
                 throw new IllegalArgumentException("Unsupported settings file format");
             JsonObject value=root.getAsJsonObject("settings");
-            var fields=new java.util.HashSet<>(value.keySet());fields.remove("biomes");fields.remove("colossusMinDistance");
+            var fields=new java.util.HashSet<>(value.keySet());fields.remove("biomes");fields.remove("colossusMinDistance");fields.remove("generationRevision");
             if(!fields.equals(Set.of("cellSize","minDistance","obeliskDistance","regionRadius","outside","inside")))
                 throw new IllegalArgumentException("Unknown or missing settings");
             for(String field:java.util.List.of("cellSize","minDistance","obeliskDistance","regionRadius"))integer(value.get(field));
             if(value.has("colossusMinDistance"))integer(value.get("colossusMinDistance"));
+            if(value.has("generationRevision"))integer(value.get("generationRevision"));
             for(String field:java.util.List.of("outside","inside"))for(JsonElement entry:value.getAsJsonArray(field))integer(entry);
             if(value.has("biomes")) {
                 var biome=value.getAsJsonObject("biomes");if(!biome.keySet().equals(Set.of("families")))throw new IllegalArgumentException("Unknown biome settings");

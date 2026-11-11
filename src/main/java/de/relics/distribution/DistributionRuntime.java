@@ -53,8 +53,10 @@ public final class DistributionRuntime implements AutoCloseable {
         DistributionJournal.State initial=new DistributionJournal.State();
         initial.interiors=fresh?de.relics.gameplay.NaturalInteriors.REVISION:DistributionJournal.interiorRevision(file);
         if(fresh){
-            initial.settings=DistributionConfig.forNewWorld(level.getServer().getWorldPath(LevelResource.ROOT));initial.policy=DistributionSettings.POLICY;
-            initial.lower=initial.settings.colossusMinDistance();initial.upper=Math.multiplyExact(initial.lower,2);
+            initial.settings=DistributionConfig.forNewWorld(level.getServer().getWorldPath(LevelResource.ROOT));initial.policy=initial.settings.policy();
+            initial.lower=initial.settings.colossusMinDistance();
+            initial.upper=initial.settings.generationRevision()==3?Math.addExact(initial.lower,ColossusSearch.BAND):Math.multiplyExact(initial.lower,2);
+            if(initial.settings.generationRevision()==3)initial.colossusSearch=new ColossusSearch.Progress();
         }
         DistributionSettings selectedSettings=fresh?initial.settings:new DistributionJournal(file,null).state.settings;
         BiomeRules rules=selectedSettings==null?BiomeRules.STANDARD:selectedSettings.biomes();
@@ -62,7 +64,7 @@ public final class DistributionRuntime implements AutoCloseable {
         int absolute=Math.min(29999984,level.getServer().getAbsoluteMaxWorldSize());
         initial.minX=(int)Math.ceil(Math.max(-absolute,border.getMinX())); initial.maxX=(int)Math.floor(Math.min(absolute,border.getMaxX()));
         initial.minZ=(int)Math.ceil(Math.max(-absolute,border.getMinZ())); initial.maxZ=(int)Math.floor(Math.min(absolute,border.getMaxZ()));
-        validator=new TerrainValidator(level,initial.minX,initial.minZ,initial.maxX,initial.maxZ,initial.interiors,rules);
+        validator=new TerrainValidator(level,initial.minX,initial.minZ,initial.maxX,initial.maxZ,initial.interiors,rules,selectedSettings==null?1:selectedSettings.generationRevision());
         initial.fingerprint=validator.fingerprint;initial.fingerprintFormat=PlanningFingerprint.FORMAT;initial.enabled=Set.copyOf(validator.enabled);
         BlockPos approximate=level.getChunkSource().randomState().sampler().findSpawnPosition();
         initial.bootstrapX=Math.floorDiv(approximate.getX(),16)*16+8;initial.bootstrapZ=Math.floorDiv(approximate.getZ(),16)*16+8;
@@ -85,7 +87,7 @@ public final class DistributionRuntime implements AutoCloseable {
                     recovery?"explicitly approved":"exactly matching");
         }
         unique=s.unique;unavailable=s.unavailable;
-        planner=new DistributionPlanner(s.policy,s.settings==null?DistributionSettings.EXPEDITION:s.settings,s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
+        planner=new DistributionPlanner(s.policy,s.settings==null?DistributionSettings.LEGACY_EXPEDITION:s.settings,s.seed,s.enabled,validator,()->unique,()->unavailable,s.bootstrapX,s.bootstrapZ,128);
         actor=Executors.newSingleThreadScheduledExecutor(r->{Thread t=new Thread(r,"Relic planning "+s.seed);t.setDaemon(true);return t;});
         if(fresh)journal.flush();
         PlanningProvenance.remember(file.getParent().getParent(),s,validator.signature);
@@ -99,7 +101,7 @@ public final class DistributionRuntime implements AutoCloseable {
             for(var runtime:LEVELS.values())if(runtime.level.getServer()==server) {
                 var s=runtime.journal.state;
                 try {
-                    var current=new TerrainValidator(runtime.level,s.minX,s.minZ,s.maxX,s.maxZ,s.interiors,s.settings==null?BiomeRules.STANDARD:s.settings.biomes());
+                    var current=new TerrainValidator(runtime.level,s.minX,s.minZ,s.maxX,s.maxZ,s.interiors,s.settings==null?BiomeRules.STANDARD:s.settings.biomes(),s.settings==null?1:s.settings.generationRevision());
                     if(PlanningProvenance.compare(server.getWorldPath(LevelResource.ROOT),s,current.signature)==PlanningProvenance.Match.DIFFERENT || !current.enabled.equals(s.enabled))
                         throw new IllegalStateException("Datapack reload changed frozen relic settings. Restore the original setup and restart; policy migration requires a fresh world.");
                     LOG.info("Relic distribution settings unchanged after datapack reload");
@@ -161,25 +163,30 @@ public final class DistributionRuntime implements AutoCloseable {
         var s=journal.state;
         if(!s.enabled.contains(Family.COLOSSUS)) {s.unavailable=true;s.unavailableReason="disabled before destination";commitResolution();return;}
         if(!validator.hasPossibleBiome(Family.COLOSSUS)){s.unavailable=true;s.unavailableReason="no allowed Colossus biomes in the frozen generator";commitResolution();return;}
+        boolean fine=s.settings!=null && s.settings.generationRevision()==3;
         long deadline=System.nanoTime()+2000000;
         for(int n=0;n<8;n++) {
             if(closed)return;
-            if(annulus==null)annulus=DistributionPlanner.annulus(s.seed,s.spawnX,s.spawnZ,s.lower,s.upper,s.minX,s.minZ,s.maxX,s.maxZ);
+            if(annulus==null)annulus=fine
+                    ?ColossusSearch.fineAnnulus(s.seed,s.spawnX,s.spawnZ,s.lower,s.upper,s.minX,s.minZ,s.maxX,s.maxZ,s.colossusSearch)
+                    :ColossusSearch.annulus(s.seed,s.spawnX,s.spawnZ,s.lower,s.upper,s.minX,s.minZ,s.maxX,s.maxZ,s.settings==null?1:s.settings.generationRevision());
             if(s.cursor>=annulus.size()) {
+                if(fine && s.colossusSearch.refine()){s.cursor=0;annulus=null;break;}
                 double farthest=Math.max(Math.max(Math.hypot((double)s.minX-s.spawnX,(double)s.minZ-s.spawnZ),Math.hypot((double)s.maxX-s.spawnX,(double)s.maxZ-s.spawnZ)),
                         Math.max(Math.hypot((double)s.minX-s.spawnX,(double)s.maxZ-s.spawnZ),Math.hypot((double)s.maxX-s.spawnX,(double)s.minZ-s.spawnZ)));
                 if(s.upper>farthest+2){s.unavailable=true;s.unavailableReason="finite frozen world border exhausted";commitResolution();return;}
-                int increment=s.settings==null || s.colossusMinDistance()==UNIQUE_MIN?20000:s.colossusMinDistance();
+                int increment=fine?ColossusSearch.BAND:s.settings==null || s.colossusMinDistance()==UNIQUE_MIN?20000:s.colossusMinDistance();
                 s.lower=s.upper;s.upper=Math.addExact(s.upper,increment);s.cursor=0;annulus=null;
+                if(fine)s.colossusSearch.nextBand();
                 break;
             }
             Candidate candidate=annulus.get(s.cursor);
-            long start=System.nanoTime();Site site=validator.validate(candidate,Family.COLOSSUS);
+            long start=System.nanoTime();var inspection=validator.inspect(candidate,Family.COLOSSUS);Site site=inspection.site();
             s.maxEvaluationNanos=Math.max(s.maxEvaluationNanos,System.nanoTime()-start);s.candidatesChecked++;
-            if(site!=null) {
-                long dx=(long)site.x2()-2L*s.spawnX,dz=(long)site.z2()-2L*s.spawnZ;
-                if(dx*dx+dz*dz>=4L*s.colossusMinDistance()*s.colossusMinDistance()){s.unique=site;commitResolution();return;}
-            }
+            long dx=site==null?0:(long)site.x2()-2L*s.spawnX,dz=site==null?0:(long)site.z2()-2L*s.spawnZ;
+            boolean accepted=site!=null && dx*dx+dz*dz>=4L*s.colossusMinDistance()*s.colossusMinDistance();
+            if(fine)s.colossusSearch.checked(candidate,accepted?null:site==null?inspection.rejection():ColossusSearch.Rejection.DISTANCE);
+            if(accepted){s.unique=site;commitResolution();return;}
             s.cursor++;
             if(System.nanoTime()>=deadline)break;
         }
@@ -189,6 +196,7 @@ public final class DistributionRuntime implements AutoCloseable {
         journal.flush();unique=journal.state.unique;unavailable=journal.state.unavailable;
         ready.complete(null);
         LOG.info("Relic destination {} after {} candidates; slowest terrain evaluation {} ms",unique==null?journal.state.unavailableReason:unique,journal.state.candidatesChecked,journal.state.maxEvaluationNanos/1000000.0);
+        if(journal.state.colossusSearch!=null)LOG.info("Colossus search diagnostics {}",new GsonBuilder().create().toJson(journal.state.colossusSearch));
     }
     private void guard(Runnable operation){try{operation.run();}catch(Throwable error){fail(error);}}
     private void fail(Throwable error) {
@@ -240,9 +248,14 @@ public final class DistributionRuntime implements AutoCloseable {
         CompletableFuture<Site> result;
         boolean ordinaryChunk=runtime.journal.state.policy.equals(LEGACY_POLICY)
                 ?pos.x()==ordinary.chunkX() && pos.z()==ordinary.chunkZ():LocationSearch.mayContain(ordinary,pos.x(),pos.z());
-        boolean possibleLarge=distance(large,runtime.journal.state.bootstrapX,runtime.journal.state.bootstrapZ)>=runtime.journal.state.colossusMinDistance()-182;
-        if(pos.x()==large.chunkX() && pos.z()==large.chunkZ() && possibleLarge) {
-            result=runtime.ready.thenCompose(ignored->runtime.unique!=null && runtime.unique.candidate().cell().equals(largeCell)
+        int revision=runtime.journal.state.settings==null?1:runtime.journal.state.settings.generationRevision();
+        // New local probes may start away from the nominal anchor. Test the actual
+        // chunk distance so spawn's bounded initial search never waits on itself.
+        boolean possibleLarge=(revision==1?distance(large,runtime.journal.state.bootstrapX,runtime.journal.state.bootstrapZ)
+                :Math.hypot((double)pos.getMinBlockX()+8-runtime.journal.state.bootstrapX,(double)pos.getMinBlockZ()+8-runtime.journal.state.bootstrapZ))>=runtime.journal.state.colossusMinDistance()-182;
+        if(ColossusSearch.mayContain(large,pos.x(),pos.z(),revision) && possibleLarge) {
+            result=runtime.ready.thenCompose(ignored->runtime.unique!=null
+                    && runtime.unique.candidate().chunkX()==pos.x() && runtime.unique.candidate().chunkZ()==pos.z()
                     ?CompletableFuture.completedFuture(runtime.unique):ordinaryChunk?runtime.ordinaryAt(cell,pos):CompletableFuture.completedFuture(null));
         } else if(ordinaryChunk)result=runtime.ordinaryAt(cell,pos);
         else result=CompletableFuture.completedFuture(null);

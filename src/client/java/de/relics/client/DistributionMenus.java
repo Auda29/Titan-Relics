@@ -26,7 +26,7 @@ public final class DistributionMenus {
             var server=client.getSingleplayerServer();DistributionSettings saved=null;Map<String,Long> diagnostic=Map.of();
             if(server!=null) {
                 Path file=server.getWorldPath(LevelResource.ROOT).resolve("data/relics_distribution_v1.json");
-                if(Files.exists(file)){var state=new DistributionJournal(file,null).state;saved=state.settings==null?DistributionSettings.EXPEDITION:state.settings;}
+                if(Files.exists(file)){var state=new DistributionJournal(file,null).state;saved=state.settings==null?DistributionSettings.LEGACY_EXPEDITION:state.settings;}
                 var runtime=DistributionRuntime.get(server.overworld());if(runtime!=null)diagnostic=runtime.diagnostics();
             }
             if(saved==null)return new UnavailableSettingsScreen(parent);
