@@ -1,7 +1,9 @@
 # Fremde Oberflächenstrukturen bei Relikten seltener zulassen
 
-Stand: 11. November 2026. Technische Machbarkeitsprüfung, kein implementierter
-oder zur Laufzeit freigegebener Filter.
+Ursprünglicher Prüfstand: 11. November 2026, vor der Implementierung.
+Der folgende Text hält die dabei ermittelten Anforderungen fest. Den inzwischen
+umgesetzten Entwurf und seine Prüfungen dokumentiert der
+[Implementierungsbericht](SURFACE_STRUCTURE_FILTER_20261111.md).
 
 ## Gewünschtes Verhalten
 

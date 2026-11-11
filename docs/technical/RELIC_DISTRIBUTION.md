@@ -249,3 +249,13 @@ See [Gameplay acceptance](../testing/GAMEPLAY_ACCEPTANCE_PLAN.md). Implementatio
 and runtime evidence for 26.2/Fabric are recorded in the dated implementation
 and correction reports above. Terrain-mod compatibility, wider performance
 coverage and survival balance still require separate acceptance evidence.
+
+## Independent surface-building overlap rule
+
+The implementation described in [the surface-structure report](../testing/SURFACE_STRUCTURE_FILTER_20261111.md)
+leaves the distribution algorithms, presets and saved generation revision intact.
+New worlds separately freeze a deterministic 50% whole-start suppression rule
+for supported surface buildings intersecting solid relic template cells. Old
+worlds remain disabled. The permanent 1,024-block bootstrap region, explicit
+structure exemptions and bounded planning are documented in that report. This
+is development-branch behavior; published Beta 3 files have not been replaced.
