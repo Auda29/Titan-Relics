@@ -15,9 +15,9 @@ The landscape leaves much of its history for you to interpret.
 
 ## In-game screenshots
 
-Captured in TerraVista Living World with shaders during the 10–11 November playtests. Terrain, surrounding vegetation and lighting also come from the modpack and shaders. Gallery images retain the original aspect ratio; older HUD overlays are cropped out. The latest captures come from a development playtest, not the published Beta 3 build.
+Captured in TerraVista Living World with shaders during the 10–11 November playtests. Terrain, surrounding vegetation and lighting also come from the modpack and shaders. Gallery images retain the original aspect ratio; older HUD overlays are cropped out. The latest captures show development builds of the changes included in Beta 4.
 
-[Browse all 31 selected screenshots and their sources](docs/images/screenshots/README.md).
+[Browse 31 selected gallery images, eight additional originals and their sources](docs/images/screenshots/README.md).
 
 | Titan Skull · In the grassland | Sword Skull · In daylight |
 | --- | --- |
@@ -37,9 +37,9 @@ Captured in TerraVista Living World with shaders during the 10–11 November pla
 
 ## Downloads and release status
 
-The current beta is **1.0.0-beta.3**, built for all eight targets by
+The current beta is **1.0.0-beta.4**, built for all eight targets by
 the [GitHub release workflow](https://github.com/Auda29/Titan-Relics/actions/workflows/release.yml).
-The [Beta 3 release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.3)
+The [Beta 4 release](https://github.com/Auda29/Titan-Relics/releases/tag/v1.0.0-beta.4)
 provides eight verified downloads. Choose one matching JAR and install its
 dependencies separately. Verify downloads against that release's `SHA256SUMS.txt`.
 
@@ -50,21 +50,22 @@ CurseForge spells `+mc` as `-mc` in download filenames.
 
 | Minecraft | Loader | Beta filename | Java |
 |---|---|---|---|
-| 1.21.1 | Fabric | `relics-1.0.0-beta.3+mc1.21.1.jar` | 21+ |
-| 1.21.1 | NeoForge | `relics-1.0.0-beta.3+mc1.21.1-neoforge.jar` | 21+ |
-| 1.21.11 | Fabric | `relics-1.0.0-beta.3+mc1.21.11.jar` | 21+ |
-| 1.21.11 | NeoForge | `relics-1.0.0-beta.3+mc1.21.11-neoforge.jar` | 21+ |
-| 26.2 | Fabric | `relics-1.0.0-beta.3+mc26.2.jar` | 25+ |
-| 26.2 | NeoForge | `relics-1.0.0-beta.3+mc26.2-neoforge.jar` | 25+ |
-| 26.3 | Fabric | `relics-1.0.0-beta.3+mc26.3.jar` | 25+ |
-| 26.3 | NeoForge | `relics-1.0.0-beta.3+mc26.3-neoforge.jar` | 25+ |
+| 1.21.1 | Fabric | `relics-1.0.0-beta.4+mc1.21.1.jar` | 21+ |
+| 1.21.1 | NeoForge | `relics-1.0.0-beta.4+mc1.21.1-neoforge.jar` | 21+ |
+| 1.21.11 | Fabric | `relics-1.0.0-beta.4+mc1.21.11.jar` | 21+ |
+| 1.21.11 | NeoForge | `relics-1.0.0-beta.4+mc1.21.11-neoforge.jar` | 21+ |
+| 26.2 | Fabric | `relics-1.0.0-beta.4+mc26.2.jar` | 25+ |
+| 26.2 | NeoForge | `relics-1.0.0-beta.4+mc26.2-neoforge.jar` | 25+ |
+| 26.3 | Fabric | `relics-1.0.0-beta.4+mc26.3.jar` | 25+ |
+| 26.3 | NeoForge | `relics-1.0.0-beta.4+mc26.3-neoforge.jar` | 25+ |
 
-Beta 3 redesigns the generation menu around simple play styles and an optional
-advanced view. New presets favor skulls and search for a closer Colossus. Existing
-worlds keep their saved rules; use a new world and explicitly select a preset to
-test the new distribution. This testing release includes unresolved Sword Skull
-ground-contact findings and has not completed visual menu or Survival acceptance.
-See the [release notes](https://github.com/Auda29/Titan-Relics/blob/v1.0.0-beta.3/docs/releases/1.0.0-beta.3.md) for exact limits and test steps.
+Beta 4 adds finer Colossus site searches, a deterministic 50% filter for
+colliding surface buildings, and an upper-platform tower chest with Feather
+Falling IV, 3–6 diamonds and 8–16 iron ingots. Existing worlds retain their
+saved generation and interior revisions. Create a new world to try these changes.
+The reproduced Sword Skull contact issue is corrected for V6 worlds. Full
+Survival/long-session acceptance remains open; see the tested scope in the notes.
+See the [release notes](https://github.com/Auda29/Titan-Relics/blob/v1.0.0-beta.4/docs/releases/1.0.0-beta.4.md) for exact limits and test steps.
 The [Beta 1 publication record](docs/releases/BETA_1_0_0_PUBLICATION.md) is historical;
 new platform availability is recorded on each release's upload receipt.
 The earlier [Alpha 5.0.5](https://github.com/Auda29/Titan-Relics/releases/tag/v0.1.0-alpha.5.0.5)
@@ -78,7 +79,7 @@ remains available as a historical release.
 2. Back up existing saves. Create a new Overworld with structure generation
    enabled for the complete current relic selection.
 3. Open **Create World → World → Relic generation** to choose a preset before
-   creating the world. The [short player guide](https://github.com/Auda29/Titan-Relics/blob/v1.0.0-beta.3/docs/players/PLAYER_GUIDE.md)
+   creating the world. The [short player guide](https://github.com/Auda29/Titan-Relics/blob/v1.0.0-beta.4/docs/players/PLAYER_GUIDE.md)
    explains the settings and basic systems without giving away every discovery.
 
 Relics can be far apart. Minimum distances and search spacing do not guarantee
