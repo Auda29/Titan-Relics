@@ -1,0 +1,111 @@
+{
+  "schema": 1,
+  "date": "2026-11-11",
+  "images": [
+    {
+      "path": "originals/creative-playtest-20261111-afternoon/2026-11-11_135456-sword-skull-coast.png",
+      "title_en": "Sword Skull · Coastal view",
+      "source_filename": "2026-11-11_13.54.56.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "sha256": "60a707f9bb8ecf23a678f262e9e4491a67bf2141faa17de1197ed0d79f6879eb",
+      "bytes": 3444360,
+      "transform": "none; original PNG bytes preserved",
+      "capture": "Creative locate/teleport test, Living World modpack with shaders; frozen V5 interiors."
+    },
+    {
+      "path": "originals/creative-playtest-20261111-afternoon/2026-11-11_135652-sword-skull-landscape.png",
+      "title_en": "Sword Skull · Wide landscape",
+      "source_filename": "2026-11-11_13.56.52.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "sha256": "efb583cade4ca76730be10e7e5f4632fc5308bfc9c3e420848c1f7f68a235321",
+      "bytes": 3872698,
+      "transform": "none; original PNG bytes preserved",
+      "capture": "Creative locate/teleport test, Living World modpack with shaders; frozen V5 interiors."
+    },
+    {
+      "path": "originals/creative-playtest-20261111-afternoon/2026-11-11_135846-world-tree-forest.png",
+      "title_en": "World Tree · At the forest edge",
+      "source_filename": "2026-11-11_13.58.46.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "sha256": "36f823375d2582be6d6cdb948cc518f619da1bc4802226e987ed1ad6480ef050",
+      "bytes": 3790689,
+      "transform": "none; original PNG bytes preserved",
+      "capture": "Creative locate/teleport test, Living World modpack with shaders; frozen V5 interiors."
+    },
+    {
+      "path": "originals/tower-upper-chest-20261111/2026-11-11_150345-tower-night-overview.png",
+      "title_en": "Tower overview with the upper lantern visible",
+      "source_filename": "2026-11-11_15.03.45.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "sha256": "edc9ebed3cc925d8fcc2dbd94d20499e1fc8b233ffd243c443c23966f3c16131",
+      "bytes": 2373834,
+      "transform": "none; original PNG bytes preserved",
+      "capture": "Author-accepted PR #4 tower upper chest with shaders; separate from archived V5 world."
+    },
+    {
+      "path": "originals/tower-upper-chest-20261111/2026-11-11_150410-tower-upper-platform.png",
+      "title_en": "Upper landing, niche, chest and lantern",
+      "source_filename": "2026-11-11_15.04.10.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "sha256": "6b629f97cd330fbf29b0100b6dfbf73dc061c0cdcd842d21ceaedbc13b2e5690",
+      "bytes": 2767834,
+      "transform": "none; original PNG bytes preserved",
+      "capture": "Author-accepted PR #4 tower upper chest with shaders; separate from archived V5 world."
+    },
+    {
+      "path": "originals/tower-upper-chest-20261111/2026-11-11_150415-tower-niche-context.png",
+      "title_en": "Upper niche viewed from below",
+      "source_filename": "2026-11-11_15.04.15.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "sha256": "fe3aacd6e472a15fde0bc9844c220ebec77302d28cfe92891d3b1c521d3da81e",
+      "bytes": 2600129,
+      "transform": "none; original PNG bytes preserved",
+      "capture": "Author-accepted PR #4 tower upper chest with shaders; separate from archived V5 world."
+    },
+    {
+      "path": "originals/tower-upper-chest-20261111/2026-11-11_150421-tower-chest-access.png",
+      "title_en": "Chest and usable approach on the platform",
+      "source_filename": "2026-11-11_15.04.21.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "sha256": "bcd0aba05d8d62ac39dcef5cf5dbe0d2f23542b71ab7f13598026c4ce0fc76a7",
+      "bytes": 2661341,
+      "transform": "none; original PNG bytes preserved",
+      "capture": "Author-accepted PR #4 tower upper chest with shaders; separate from archived V5 world."
+    },
+    {
+      "path": "originals/tower-upper-chest-20261111/2026-11-11_150428-tower-niche-front.png",
+      "title_en": "Front view of the chest niche",
+      "source_filename": "2026-11-11_15.04.28.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "sha256": "dd2aa2bbf8117c0fdcdb6b9cadc13febb2b05c7c3e91e198d65cb14927c65b00",
+      "bytes": 2838044,
+      "transform": "none; original PNG bytes preserved",
+      "capture": "Author-accepted PR #4 tower upper chest with shaders; separate from archived V5 world."
+    }
+  ],
+  "publication": "Repository gallery originals. Not added to the existing 31-file platform publication receipt. Some originals exceed the CurseForge 2 MB limit."
+}

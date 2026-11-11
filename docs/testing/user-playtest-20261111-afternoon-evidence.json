@@ -1,0 +1,803 @@
+{
+  "date": "2026-11-11",
+  "source_archive": {
+    "filename": "beta test.zip",
+    "bytes": 599178808,
+    "sha256": "9f787f9cd45de5da78fda9f31dede1441f851d0eb8526f5f6dc201db79b3f249"
+  },
+  "method": "Read-only ZIP, log, journal and Anvil analysis; player world was not launched in Minecraft.",
+  "minecraft": "1.21.1",
+  "loader": "Fabric 0.19.5",
+  "mod_version_string": "1.0.0-beta.3",
+  "exact_played_commit": "not established",
+  "seed": -826638008258703270,
+  "planning_environment_fingerprint": "65ea46667546c63df4145e5a606838b4fdacafbe6fed2efb47ab0515cff83830",
+  "policy": "relics-distribution-v5-colossus-search",
+  "interiors": "interiors-20261028-v5",
+  "generation_revision": 3,
+  "spawn": [
+    -64,
+    96
+  ],
+  "journal_integrity": {
+    "relics_distribution_v1.json": {
+      "sha256": "2e71ba9d75b044d31a38f776ac2a71694efa4074b241b81c5c4099b02de68ef6",
+      "verified": true
+    },
+    "relics_gameplay_v1.json": {
+      "sha256": "860a5cb6bee37e148526dae57c9748138435dbe3cbb3b1e3ff2e5ad83234cc8c",
+      "verified": true
+    }
+  },
+  "saved_chunks": 31687,
+  "statuses": {
+    "minecraft:structure_starts": 13521,
+    "minecraft:biomes": 1442,
+    "minecraft:carvers": 1379,
+    "minecraft:initialize_light": 1323,
+    "minecraft:full": 14012,
+    "minecraft:light": 1,
+    "minecraft:noise": 6,
+    "minecraft:features": 2,
+    "minecraft:structure_references": 1
+  },
+  "read_errors": 0,
+  "locate_targets": [
+    {
+      "family": "titan_skull",
+      "label": "Gekrönter Schädel",
+      "x": -568,
+      "z": 1224,
+      "distance_from_spawn_blocks": 1235,
+      "visited": true
+    },
+    {
+      "family": "titan_skull_2",
+      "label": "Schwertschädel",
+      "x": -1032,
+      "z": -3528,
+      "distance_from_spawn_blocks": 3751,
+      "visited": true
+    },
+    {
+      "family": "colossus",
+      "label": "Großer Koloss",
+      "x": -2952,
+      "z": -2808,
+      "distance_from_spawn_blocks": 4096,
+      "visited": true
+    },
+    {
+      "family": "obelisk",
+      "label": "Obelisk",
+      "x": 5352,
+      "z": -1240,
+      "distance_from_spawn_blocks": 5578,
+      "visited": false
+    },
+    {
+      "family": "small_colossus",
+      "label": "Kleiner Koloss",
+      "x": 2472,
+      "z": -10808,
+      "distance_from_spawn_blocks": 11195,
+      "visited": true
+    },
+    {
+      "family": "ruined_tower",
+      "label": "Turm",
+      "x": -4440,
+      "z": 13272,
+      "distance_from_spawn_blocks": 13884,
+      "visited": true
+    },
+    {
+      "family": "world_tree",
+      "label": "Weltenbaum",
+      "x": -16264,
+      "z": -6296,
+      "distance_from_spawn_blocks": 17415,
+      "visited": true
+    }
+  ],
+  "relic_instances": [
+    {
+      "structure": "relics:titan_skull",
+      "template": "relics:titan_skull_worldgen",
+      "origin": [
+        -471,
+        49,
+        1158
+      ],
+      "rotation": "CLOCKWISE_90",
+      "checked_blocks": 22130,
+      "matched_blocks": 22130,
+      "mismatch_count": 0,
+      "mismatch_kinds": {},
+      "missing_chunks": [],
+      "incomplete_chunks": [],
+      "passed": true,
+      "foundation_contact": {
+        "columns": 11172,
+        "undersides_checked": 11172,
+        "mode": "soil_columns",
+        "unsupported_columns": 0,
+        "examples": [],
+        "passed": true
+      },
+      "feature_protection": {
+        "checked_cells": 138293,
+        "unprotected_cells": 0,
+        "examples": [],
+        "passed": true
+      }
+    },
+    {
+      "structure": "relics:titan_skull_2",
+      "template": "relics:titan_skull_2_side_v1_worldgen",
+      "origin": [
+        -975,
+        38,
+        -3585
+      ],
+      "rotation": "CLOCKWISE_90",
+      "checked_blocks": 25149,
+      "matched_blocks": 25148,
+      "mismatch_count": 1,
+      "mismatch_kinds": {
+        "minecraft:moss_block -> minecraft:air": 1
+      },
+      "missing_chunks": [],
+      "incomplete_chunks": [],
+      "passed": false,
+      "foundation_contact": {
+        "columns": 2635,
+        "undersides_checked": 2693,
+        "mode": "embedded_art",
+        "unsupported_columns": 43,
+        "examples": [
+          [
+            -1008,
+            64,
+            -3562
+          ],
+          [
+            -1009,
+            65,
+            -3562
+          ],
+          [
+            -1010,
+            64,
+            -3561
+          ],
+          [
+            -1001,
+            65,
+            -3561
+          ],
+          [
+            -1011,
+            65,
+            -3561
+          ],
+          [
+            -999,
+            64,
+            -3560
+          ],
+          [
+            -1011,
+            64,
+            -3560
+          ],
+          [
+            -1012,
+            65,
+            -3560
+          ],
+          [
+            -998,
+            64,
+            -3559
+          ],
+          [
+            -1012,
+            64,
+            -3559
+          ],
+          [
+            -999,
+            65,
+            -3559
+          ],
+          [
+            -1013,
+            65,
+            -3559
+          ],
+          [
+            -997,
+            64,
+            -3558
+          ],
+          [
+            -1012,
+            64,
+            -3558
+          ],
+          [
+            -998,
+            65,
+            -3558
+          ],
+          [
+            -1013,
+            65,
+            -3558
+          ],
+          [
+            -997,
+            64,
+            -3557
+          ],
+          [
+            -1012,
+            64,
+            -3557
+          ],
+          [
+            -998,
+            65,
+            -3557
+          ],
+          [
+            -1013,
+            65,
+            -3557
+          ]
+        ],
+        "passed": false,
+        "intentional_clearances": 0,
+        "clearance_examples": [],
+        "contact_policy": "short-surface-gaps-only; preserve deep or longer native voids"
+      },
+      "feature_protection": {
+        "checked_cells": 25149,
+        "unprotected_cells": 0,
+        "examples": [],
+        "passed": true
+      }
+    },
+    {
+      "structure": "relics:world_tree",
+      "template": "relics:world_tree_gameplay_worldgen",
+      "origin": [
+        -16364,
+        40,
+        -6195
+      ],
+      "rotation": "COUNTERCLOCKWISE_90",
+      "checked_blocks": 288900,
+      "matched_blocks": 288810,
+      "mismatch_count": 90,
+      "mismatch_kinds": {
+        "minecraft:glow_lichen -> minecraft:glow_lichen": 67,
+        "minecraft:spruce_log -> minecraft:air": 13,
+        "minecraft:spruce_log -> immersive_weathering:charred_log": 2,
+        "minecraft:spruce_log -> minecraft:lava": 4,
+        "minecraft:rooted_dirt -> minecraft:dirt": 2,
+        "minecraft:fern -> minecraft:dirt": 1,
+        "minecraft:fern -> minecraft:rooted_dirt": 1
+      },
+      "missing_chunks": [],
+      "incomplete_chunks": [],
+      "passed": false,
+      "foundation_contact": {
+        "columns": 4175,
+        "undersides_checked": 4392,
+        "mode": "embedded_art",
+        "unsupported_columns": 0,
+        "examples": [],
+        "passed": true,
+        "intentional_clearances": 133,
+        "clearance_examples": [
+          {
+            "position": [
+              -16278,
+              55,
+              -6241
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16277,
+              55,
+              -6241
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16279,
+              56,
+              -6241
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16283,
+              54,
+              -6242
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16282,
+              55,
+              -6242
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16278,
+              55,
+              -6242
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16277,
+              55,
+              -6242
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16279,
+              56,
+              -6242
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16283,
+              54,
+              -6243
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16282,
+              55,
+              -6243
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16281,
+              56,
+              -6243
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16284,
+              55,
+              -6244
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16283,
+              55,
+              -6244
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16282,
+              56,
+              -6244
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16284,
+              55,
+              -6245
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16283,
+              55,
+              -6245
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16282,
+              55,
+              -6245
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16284,
+              55,
+              -6246
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16283,
+              55,
+              -6246
+            ],
+            "reason": "buried_root_underside"
+          },
+          {
+            "position": [
+              -16282,
+              55,
+              -6246
+            ],
+            "reason": "buried_root_underside"
+          }
+        ],
+        "contact_policy": "short-surface-gaps-only; preserve deep or longer native voids"
+      },
+      "feature_protection": {
+        "checked_cells": 288900,
+        "unprotected_cells": 3,
+        "examples": [
+          [
+            -16289,
+            63,
+            -6304
+          ],
+          [
+            -16289,
+            64,
+            -6304
+          ],
+          [
+            -16266,
+            63,
+            -6328
+          ]
+        ],
+        "passed": false
+      }
+    },
+    {
+      "structure": "relics:colossus",
+      "template": "relics:colossus_gameplay_v7_worldgen",
+      "origin": [
+        -2827,
+        4,
+        -2906
+      ],
+      "rotation": "CLOCKWISE_90",
+      "checked_blocks": 263977,
+      "matched_blocks": 263939,
+      "mismatch_count": 38,
+      "mismatch_kinds": {
+        "minecraft:exposed_cut_copper -> minecraft:weathered_cut_copper": 9,
+        "minecraft:weathered_copper -> minecraft:oxidized_copper": 2,
+        "minecraft:exposed_copper -> minecraft:weathered_copper": 22,
+        "minecraft:cut_copper -> minecraft:exposed_cut_copper": 2,
+        "minecraft:polished_blackstone -> minecraft:vault": 1,
+        "minecraft:chiseled_deepslate -> minecraft:trial_spawner": 1,
+        "minecraft:waxed_cut_copper -> minecraft:chest": 1
+      },
+      "missing_chunks": [],
+      "incomplete_chunks": [],
+      "passed": false,
+      "foundation_contact": {
+        "columns": 7053,
+        "undersides_checked": 7053,
+        "mode": "soil_columns",
+        "unsupported_columns": 0,
+        "examples": [],
+        "passed": true
+      },
+      "feature_protection": {
+        "checked_cells": 271443,
+        "unprotected_cells": 0,
+        "examples": [],
+        "passed": true
+      }
+    },
+    {
+      "structure": "relics:ruined_tower",
+      "template": "relics:ruined_tower_gameplay_v10_worldgen",
+      "origin": [
+        -4377,
+        53,
+        13326
+      ],
+      "rotation": "CLOCKWISE_180",
+      "checked_blocks": 266111,
+      "matched_blocks": 265959,
+      "mismatch_count": 152,
+      "mismatch_kinds": {
+        "minecraft:rooted_dirt -> immersive_weathering:rooted_grass_block": 70,
+        "minecraft:deepslate_tiles -> minecraft:cracked_deepslate_tiles": 81,
+        "minecraft:waxed_cut_copper -> minecraft:chest": 1
+      },
+      "missing_chunks": [],
+      "incomplete_chunks": [],
+      "passed": false,
+      "foundation_contact": {
+        "columns": 6226,
+        "undersides_checked": 6226,
+        "mode": "soil_columns",
+        "unsupported_columns": 0,
+        "examples": [],
+        "passed": true
+      },
+      "feature_protection": {
+        "checked_cells": 304183,
+        "unprotected_cells": 0,
+        "examples": [],
+        "passed": true
+      }
+    },
+    {
+      "structure": "relics:small_colossus",
+      "template": "relics:small_colossus_gameplay_v11_worldgen",
+      "origin": [
+        2536,
+        59,
+        -10871
+      ],
+      "rotation": "CLOCKWISE_90",
+      "checked_blocks": 188415,
+      "matched_blocks": 188399,
+      "mismatch_count": 16,
+      "mismatch_kinds": {
+        "minecraft:exposed_cut_copper -> minecraft:weathered_cut_copper": 6,
+        "minecraft:waxed_cut_copper -> minecraft:chest": 1,
+        "minecraft:rooted_dirt -> immersive_weathering:rooted_grass_block": 9
+      },
+      "missing_chunks": [],
+      "incomplete_chunks": [],
+      "passed": false,
+      "foundation_contact": {
+        "columns": 5504,
+        "undersides_checked": 5504,
+        "mode": "soil_columns",
+        "unsupported_columns": 0,
+        "examples": [],
+        "passed": true
+      },
+      "feature_protection": {
+        "checked_cells": 218292,
+        "unprotected_cells": 0,
+        "examples": [],
+        "passed": true
+      }
+    }
+  ],
+  "strict_verifier_passed": false,
+  "comparison_template_artifact_sha256": "10b12bfe0f3ceea14d50f8ec0afc2feb2ce549d64522e6c071a0652681571dfe",
+  "template_artifact_is_not_proof_of_played_binary": true,
+  "foreign_structure_intersections": [
+    {
+      "relic": "relics:colossus",
+      "foreign": "minecraft:village_savanna",
+      "start_chunk": [
+        -192,
+        -179
+      ],
+      "intersecting_piece_bounding_boxes": 66,
+      "selected_for_suppression": false,
+      "interpretation": "Keep branch; bounding-box intersection only, not a voxel-by-voxel collision proof."
+    }
+  ],
+  "user_modification_confirmation": {
+    "prompt_scope": [
+      "world_tree missing wood/lava/charred wood",
+      "titan_skull_2 missing moss block"
+    ],
+    "reply": "Ja, gezielt verändert",
+    "interpretation": "Exclude these changes as generation-failure evidence. Exact individual changes are not independently attributed."
+  },
+  "tree_bushes": [
+    {
+      "source": [
+        -16239,
+        64,
+        -6278
+      ],
+      "placed": [
+        {
+          "position": [
+            -16239,
+            64,
+            -6278
+          ],
+          "plant_protected": true,
+          "soil_protected": true,
+          "bed": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "source": [
+        -16289,
+        64,
+        -6304
+      ],
+      "placed": [
+        {
+          "position": [
+            -16289,
+            66,
+            -6304
+          ],
+          "plant_protected": true,
+          "soil_protected": true,
+          "bed": "minecraft:dirt"
+        }
+      ]
+    },
+    {
+      "source": [
+        -16266,
+        64,
+        -6328
+      ],
+      "placed": [
+        {
+          "position": [
+            -16266,
+            65,
+            -6328
+          ],
+          "plant_protected": true,
+          "soil_protected": true,
+          "bed": "minecraft:dirt"
+        }
+      ]
+    }
+  ],
+  "tree_glow_lichen_rotation_correct_cells": 67,
+  "observed_gameplay_markers": [
+    {
+      "structure": "relics:colossus",
+      "role": "colossus_trial_spawner",
+      "position": [
+        -3018,
+        173,
+        -2804
+      ],
+      "block": "minecraft:trial_spawner",
+      "block_entity": "minecraft:trial_spawner",
+      "loot_table": null,
+      "item_stacks": []
+    },
+    {
+      "structure": "relics:colossus",
+      "role": "colossus_vault",
+      "position": [
+        -2999,
+        173,
+        -2804
+      ],
+      "block": "minecraft:vault",
+      "block_entity": "minecraft:vault",
+      "loot_table": null,
+      "item_stacks": []
+    },
+    {
+      "structure": "relics:colossus",
+      "role": "colossus_arm_magnet_chest",
+      "position": [
+        -2905,
+        82,
+        -2788
+      ],
+      "block": "minecraft:chest",
+      "block_entity": "minecraft:chest",
+      "loot_table": null,
+      "item_stacks": [
+        {
+          "id": "minecraft:copper_ingot",
+          "count": 38
+        },
+        {
+          "id": "minecraft:iron_ingot",
+          "count": 13
+        },
+        {
+          "id": "minecraft:redstone",
+          "count": 4
+        },
+        {
+          "id": "minecraft:amethyst_shard",
+          "count": 1
+        },
+        {
+          "id": "relics:salvage_magnet",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "structure": "relics:ruined_tower",
+      "role": "tower_ender_chest",
+      "position": [
+        -4443,
+        68,
+        13263
+      ],
+      "block": "minecraft:chest",
+      "block_entity": "minecraft:chest",
+      "loot_table": null,
+      "item_stacks": [
+        {
+          "id": "minecraft:ender_pearl",
+          "count": 5
+        }
+      ]
+    },
+    {
+      "structure": "relics:small_colossus",
+      "role": "small_magnet_chest",
+      "position": [
+        2475,
+        103,
+        -10796
+      ],
+      "block": "minecraft:chest",
+      "block_entity": "minecraft:chest",
+      "loot_table": null,
+      "item_stacks": [
+        {
+          "id": "minecraft:copper_ingot",
+          "count": 16
+        },
+        {
+          "id": "minecraft:iron_ingot",
+          "count": 6
+        },
+        {
+          "id": "minecraft:redstone",
+          "count": 1
+        },
+        {
+          "id": "minecraft:amethyst_shard",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "pr4_archive_scope": "Frozen V5 interiors do not test the V6 upper tower chest. Separate author review and native test evidence apply.",
+  "limitations": [
+    "Locate/teleport visits, not Survival discovery.",
+    "One seed with a modpack, not unmodified Minecraft.",
+    "Saved chunk count and six selected visits are not an unbiased density sample.",
+    "No baseline/filter counterfactual or measured suppression rate in this archive.",
+    "Strict verifier remains failed; classification is recorded without weakening it."
+  ]
+}

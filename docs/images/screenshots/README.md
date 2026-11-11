@@ -1,11 +1,12 @@
 # Titan Relics screenshot library
 
 The shared source for the README, German/English website and platform galleries.
-All 31 selected views are here, including the previous published images and ten new captures.
+The library contains 31 resized selected views and eight additional Creative-test
+and upper tower chest originals, indexed below.
 
 Minecraft Java 1.21.1 with TerraVista Living World and shaders. The modpack adds terrain, vegetation and lighting. The filenames below name the actual subjects, including the author-corrected identifications.
 
-Gallery PNGs are 960 × 527 and below 2 MB each. The original 960:527 aspect ratio is preserved. Older HUD overlays are cropped in both dimensions. New HUD-free captures only receive proportional resizing. There are no generated, retouched, colour-graded or brightened image elements.
+The 31 resized gallery PNGs are 960 × 527 and below 2 MB each. The original 960:527 aspect ratio is preserved. Older HUD overlays are cropped in both dimensions. New HUD-free captures only receive proportional resizing. There are no generated, retouched, colour-graded or brightened image elements.
 
 The author-selected [Colossus title original](originals/2026-11-10-colossus-selected-front.png) and [Sword Skull night original](originals/2026-11-10-sword-skull-night.png) are retained byte-for-byte, with their original HUD. The website keeps its selected Colossus title photograph and CSS framing.
 
@@ -58,12 +59,22 @@ Exact source filenames, crop rectangles, dimensions and SHA-256 values are in [m
 
 See [publication status and the CurseForge upload package](PUBLICATION.md).
 
-## Upper tower chest acceptance captures
+## New Creative-test and upper tower chest captures
 
-The author approved the upper chest niche on 11 November 2026. Five original
-nighttime shader captures are retained [in the shared archive](originals/tower-upper-chest-20261111/),
-with original dimensions and bytes. They document the development version from
-PR #4. They are additional test evidence, outside the 31 resized gallery images
-and the previously verified platform publication set. Exact game/modpack details
-will be checked against the supplied test logs. See the
-[acceptance record](../../testing/tower-upper-chest-author-review-20261111.json).
+Eight additional original screenshots are indexed below. They retain their original
+bytes and dimensions. The three Creative-test views show the Living World modpack
+with shaders and frozen V5 interiors. The five later tower views document the
+author-accepted upper chest from PR #4. They are separate from the 31 resized
+images in the existing platform publication receipt. Some originals exceed the
+CurseForge upload limit. See the [original-file manifest](originals/manifest-20261111-afternoon.json).
+
+| Preview | Capture |
+|---|---|
+| [<img src="originals/creative-playtest-20261111-afternoon/2026-11-11_135456-sword-skull-coast.png" width="320" alt="Sword Skull · Coastal view">](originals/creative-playtest-20261111-afternoon/2026-11-11_135456-sword-skull-coast.png) | Sword Skull · Coastal view |
+| [<img src="originals/creative-playtest-20261111-afternoon/2026-11-11_135652-sword-skull-landscape.png" width="320" alt="Sword Skull · Wide landscape">](originals/creative-playtest-20261111-afternoon/2026-11-11_135652-sword-skull-landscape.png) | Sword Skull · Wide landscape |
+| [<img src="originals/creative-playtest-20261111-afternoon/2026-11-11_135846-world-tree-forest.png" width="320" alt="World Tree · At the forest edge">](originals/creative-playtest-20261111-afternoon/2026-11-11_135846-world-tree-forest.png) | World Tree · At the forest edge |
+| [<img src="originals/tower-upper-chest-20261111/2026-11-11_150345-tower-night-overview.png" width="320" alt="Tower overview with the upper lantern visible">](originals/tower-upper-chest-20261111/2026-11-11_150345-tower-night-overview.png) | Tower overview with the upper lantern visible |
+| [<img src="originals/tower-upper-chest-20261111/2026-11-11_150410-tower-upper-platform.png" width="320" alt="Upper landing, niche, chest and lantern">](originals/tower-upper-chest-20261111/2026-11-11_150410-tower-upper-platform.png) | Upper landing, niche, chest and lantern |
+| [<img src="originals/tower-upper-chest-20261111/2026-11-11_150415-tower-niche-context.png" width="320" alt="Upper niche viewed from below">](originals/tower-upper-chest-20261111/2026-11-11_150415-tower-niche-context.png) | Upper niche viewed from below |
+| [<img src="originals/tower-upper-chest-20261111/2026-11-11_150421-tower-chest-access.png" width="320" alt="Chest and usable approach on the platform">](originals/tower-upper-chest-20261111/2026-11-11_150421-tower-chest-access.png) | Chest and usable approach on the platform |
+| [<img src="originals/tower-upper-chest-20261111/2026-11-11_150428-tower-niche-front.png" width="320" alt="Front view of the chest niche">](originals/tower-upper-chest-20261111/2026-11-11_150428-tower-niche-front.png) | Front view of the chest niche |
