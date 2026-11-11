@@ -82,10 +82,27 @@ python3 tools/test_tower_upper_server.py --accept-eula \
 ```
 
 Der Test verwendet eine neue isolierte Welt und übernimmt keine Spielerprofile.
-Der Test für Survival-Balance und die grafische Abnahme im Spiel bleiben separat.
+Der Test für Survival-Balance bleibt separat. Die grafische Abnahme im Spiel
+ist durch den Autor am 11. November 2026 bestätigt, siehe unten.
 
 ![Voxelprüfung der Nische](../../relics/ruined-tower/design/generated/ruined-tower-v11-upper-chest/upper-niche-review.png)
 
 Das Bild ist ein NBT-Inspektionsausschnitt. Kupfer markiert den später durch die
 native Truhe ersetzten Platzhalter; der gelbe Würfel markiert die Laterne.
 Es ist keine Minecraft-Aufnahme und kein Nachweis nativer Beleuchtung.
+
+## Visuelle Abnahme durch den Autor
+
+Am 11. November 2026 bestätigt der Autor nach seinem Spieltest: „der turm passt
+übrigens“. Die fünf zugehörigen Shaderaufnahmen zeigen die obere Plattform,
+die eingebaute Truhe, den Zugang und die Laterne im tatsächlichen Turm. Damit
+ist die visuelle Integration der Truhennische abgenommen. Die Bilder zeigen
+kein Inventar und liefern keinen zusätzlichen Nachweis für Loot-Inhalte oder
+Survival-Balance.
+
+Die [Originalaufnahmen](../images/screenshots/originals/tower-upper-chest-20261111/)
+sind unverändert archiviert; der [Abnahmebeleg](../testing/tower-upper-chest-author-review-20261111.json)
+enthält Maße und SHA256-Werte. Laufzeitvorlagen und gespeicherte Auswahlverträge
+werden durch diese Dokumentation nicht geändert.
+
+![Truhe und Zugang auf der oberen Plattform](../images/screenshots/originals/tower-upper-chest-20261111/2026-11-11_150421-tower-chest-access.png)

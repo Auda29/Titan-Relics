@@ -57,3 +57,13 @@ Exact source filenames, crop rectangles, dimensions and SHA-256 values are in [m
 ## Platform publication
 
 See [publication status and the CurseForge upload package](PUBLICATION.md).
+
+## Upper tower chest acceptance captures
+
+The author approved the upper chest niche on 11 November 2026. Five original
+nighttime shader captures are retained [in the shared archive](originals/tower-upper-chest-20261111/),
+with original dimensions and bytes. They document the development version from
+PR #4. They are additional test evidence, outside the 31 resized gallery images
+and the previously verified platform publication set. Exact game/modpack details
+will be checked against the supplied test logs. See the
+[acceptance record](../../testing/tower-upper-chest-author-review-20261111.json).

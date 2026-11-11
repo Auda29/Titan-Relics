@@ -1,0 +1,69 @@
+{
+  "date": "2026-11-11",
+  "pull_request": "https://github.com/Auda29/Titan-Relics/pull/4",
+  "author_confirmation": "der turm passt übrigens",
+  "accepted_scope": "visual design and integration of the upper chest niche on the tower platform",
+  "evidence": "Author-provided in-game nighttime captures with shaders; chest contents and Survival balance are not established by these views.",
+  "images": [
+    {
+      "path": "docs/images/screenshots/originals/tower-upper-chest-20261111/2026-11-11_150345-tower-night-overview.png",
+      "caption": "Tower overview with the upper lantern visible",
+      "source_filename": "2026-11-11_15.03.45.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "bytes": 2373834,
+      "sha256": "edc9ebed3cc925d8fcc2dbd94d20499e1fc8b233ffd243c443c23966f3c16131",
+      "transform": "none; original PNG bytes preserved"
+    },
+    {
+      "path": "docs/images/screenshots/originals/tower-upper-chest-20261111/2026-11-11_150410-tower-upper-platform.png",
+      "caption": "Upper landing, niche, chest and lantern",
+      "source_filename": "2026-11-11_15.04.10.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "bytes": 2767834,
+      "sha256": "6b629f97cd330fbf29b0100b6dfbf73dc061c0cdcd842d21ceaedbc13b2e5690",
+      "transform": "none; original PNG bytes preserved"
+    },
+    {
+      "path": "docs/images/screenshots/originals/tower-upper-chest-20261111/2026-11-11_150415-tower-niche-context.png",
+      "caption": "Upper niche viewed from below",
+      "source_filename": "2026-11-11_15.04.15.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "bytes": 2600129,
+      "sha256": "fe3aacd6e472a15fde0bc9844c220ebec77302d28cfe92891d3b1c521d3da81e",
+      "transform": "none; original PNG bytes preserved"
+    },
+    {
+      "path": "docs/images/screenshots/originals/tower-upper-chest-20261111/2026-11-11_150421-tower-chest-access.png",
+      "caption": "Chest and usable approach on the platform",
+      "source_filename": "2026-11-11_15.04.21.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "bytes": 2661341,
+      "sha256": "bcd0aba05d8d62ac39dcef5cf5dbe0d2f23542b71ab7f13598026c4ce0fc76a7",
+      "transform": "none; original PNG bytes preserved"
+    },
+    {
+      "path": "docs/images/screenshots/originals/tower-upper-chest-20261111/2026-11-11_150428-tower-niche-front.png",
+      "caption": "Front view of the chest niche",
+      "source_filename": "2026-11-11_15.04.28.png",
+      "dimensions": [
+        1920,
+        1054
+      ],
+      "bytes": 2838044,
+      "sha256": "dd2aa2bbf8117c0fdcdb6b9cadc13febb2b05c7c3e91e198d65cb14927c65b00",
+      "transform": "none; original PNG bytes preserved"
+    }
+  ]
+}
