@@ -69,11 +69,17 @@ Colossus in a supported world, and expedition maps share that destination.
 
 ### Installation
 
-Choose the file for your exact game version and loader. Targets are Fabric and
-NeoForge on Minecraft 1.21.1 and 26.2. Java 21 is required for 1.21.1, Java 25 for
-26.2. Fabric also requires Fabric API. All targets require the matching
-Lithostitched 1.8.0 build. Install the mod and dependencies on both server and
-player clients. Start a new world with structures enabled for the full selection.
+Choose the file for your exact game version and loader. Both Fabric and NeoForge
+are supported on:
+
+- Minecraft 1.21.1 and 1.21.11 with Java 21 or newer.
+- Minecraft 26.2 and 26.3 with Java 25 or newer.
+
+Fabric also requires Fabric API for the selected Minecraft version. All targets
+require Lithostitched for the matching game version and loader: 1.8.0 for
+1.21.1 and 26.2, 1.7.2 for 1.21.11, or 2.0.6 for 26.3. Install the mod and
+dependencies on both server and player clients. Start a new world with structures
+enabled for the full selection.
 
 Read the [installation guide](https://github.com/Auda29/Titan-Relics/blob/main/docs/players/INSTALLATION.md)
 and [short player guide](https://github.com/Auda29/Titan-Relics/blob/main/docs/players/PLAYER_GUIDE.md).
