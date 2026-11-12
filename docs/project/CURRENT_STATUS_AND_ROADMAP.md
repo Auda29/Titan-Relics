@@ -13,6 +13,10 @@ defines player tasks, separate technical gates, blocking defects and the final
 release decision. It is the current guide for leaving Beta; no stable release
 has been authorized. Modrinth project approval remains separate from verified files.
 
+A [Minecraft 1.20.1 backport assessment](../technical/MC_1_20_1_FEASIBILITY.md)
+records the dependency/package checks and required gameplay adapters. This is a
+separate potential project, not announced support or a prerequisite for 1.0.0.
+
 ## Historical implementation and roadmap detail
 
 Detail updated November 8, 2026, retained below with its original release scope.
