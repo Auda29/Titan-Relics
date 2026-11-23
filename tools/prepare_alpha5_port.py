@@ -269,7 +269,7 @@ def prepare(loader='fabric', minecraft='1.21.1'):
         archive.extractall(resources)
     metadata = json.loads((resources/'fabric.mod.json').read_bytes())
     metadata['version'] = VERSION
-    metadata['depends'].update(minecraft='1.21.1', java='>=21')
+    metadata['depends'].update(minecraft='1.21.1', java='>=21', lithostitched='>=1.8.0 <1.9.0')
     metadata['depends'].pop('fabric-resource-loader-v1', None)
     metadata['depends']['fabric-resource-loader-v0'] = '*'
     metadata['depends'].pop('fabric-creative-tab-api-v1', None)

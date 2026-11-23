@@ -17,9 +17,9 @@ every newer version works. Dependencies are not bundled.
 
 | Game | Loader baseline | Java | Required dependencies |
 |---|---|---|---|
-| 1.21.1 | Fabric Loader 0.19.5 | 21+ | Fabric API 0.116.17+1.21.1; Lithostitched 1.8.0 Fabric 1.21/1.21.1 |
+| 1.21.1 | Fabric Loader 0.19.5 | 21+ | Fabric API 0.116.17+1.21.1; Lithostitched 1.8.0–1.8.1 (`1.8.x`) Fabric 1.21/1.21.1 |
 | 26.2 | Fabric Loader 0.19.5 | 25+ | Fabric API 0.161.0+26.2; Lithostitched 1.8.0 Fabric 26.2 |
-| 1.21.1 | NeoForge 21.1.256 | 21+ | Lithostitched 1.8.0 NeoForge 1.21/1.21.1 |
+| 1.21.1 | NeoForge 21.1.256 | 21+ | Lithostitched 1.8.0–1.8.1 (`1.8.x`) NeoForge 1.21/1.21.1 |
 | 26.2 | NeoForge 26.2.0.88 | 25+ | Lithostitched 1.8.0 NeoForge 26.2 |
 | 1.21.11 | Fabric Loader 0.19.5 | 21+ | Fabric API 0.141.6+1.21.11; Lithostitched 1.7.2 Fabric 21.11 |
 | 1.21.11 | NeoForge 21.11.48 | 21+ | Lithostitched 1.7.2 NeoForge 21.11 |

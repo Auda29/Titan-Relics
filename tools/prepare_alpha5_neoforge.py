@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 VERSION=release_version()
 LICENSE=json.loads((ROOT/'src/main/resources/fabric.mod.json').read_text(encoding='utf-8'))['license']
 COMMON=ROOT/'compat/alpha5-neoforge-common/src/main/adapters'
-TARGETS={'1.21.1':{'neo':'21.1.256','java':21,'litho':'21.1'},'26.2':{'neo':'26.2.0.88','java':25,'litho':'26.2'}}
+TARGETS={'1.21.1':{'neo':'21.1.256','java':21,'litho':'21.1','litho_range':'[1.8.0,1.9.0)'},'26.2':{'neo':'26.2.0.88','java':25,'litho':'26.2'}}
 
 for _mc,_target in json.loads((ROOT/'compat/additional-targets.json').read_text()).items():
     TARGETS[_mc]={'neo':_target['neoforge'],'java':_target['java'],'litho_version':_target['lithostitched']}
@@ -144,6 +144,7 @@ def modern_recipe_packet(text):
 
 def metadata(minecraft,mod='relics'):
     target=TARGETS[minecraft]
+    litho_range=target.get('litho_range',f"[{target.get('litho_version','1.8.0')}]")
     if mod=='relics':
         return f'''modLoader="javafml"
 loaderVersion="[1,)"
@@ -173,7 +174,7 @@ side="BOTH"
 [[dependencies.relics]]
 modId="lithostitched"
 type="required"
-versionRange="[{target.get('litho_version','1.8.0')}]"
+versionRange="{litho_range}"
 ordering="AFTER"
 side="BOTH"
 '''

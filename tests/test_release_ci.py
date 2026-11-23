@@ -225,6 +225,26 @@ class ReleaseTests(unittest.TestCase):
                 self.publish_fixture()
             self.assertFalse(any(call[1] in ('edit', 'create', 'upload') for call in events))
 
+    def test_mc1211_lithostitched_range_and_strict_other_pins(self):
+        import tomllib
+        import prepare_alpha5_neoforge as neo
+        import prepare_alpha5_port as fabric_port
+
+        fabric_port.prepare('fabric', '1.21.1')
+        fabric_meta = json.loads((release_ci.ROOT / 'compat/alpha5-fabric-1.21.1/build/generated/resources/fabric.mod.json').read_text())
+        self.assertEqual(fabric_meta['depends']['lithostitched'], '>=1.8.0 <1.9.0')
+
+        expected_neo = {
+            '1.21.1': '[1.8.0,1.9.0)',
+            '26.2': '[1.8.0]',
+            '1.21.11': '[1.7.2]',
+            '26.3': '[2.0.6]',
+        }
+        for mc, expected_range in expected_neo.items():
+            parsed = tomllib.loads(neo.metadata(mc))
+            deps = {d['modId']: d for d in parsed['dependencies']['relics']}
+            self.assertEqual(deps['lithostitched']['versionRange'], expected_range, mc)
+
 
 if __name__ == '__main__':
     unittest.main()

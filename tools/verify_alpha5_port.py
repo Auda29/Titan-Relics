@@ -19,7 +19,9 @@ def verify(path: Path,loader: str,minecraft: str) -> dict:
             if metadata['id']!='relics' or metadata['version']!=VERSION or metadata['depends']['minecraft']!=minecraft:
                 raise ValueError('Wrong version/loader/game target')
             if metadata['depends']['java']!='>='+str(java):raise ValueError('Wrong minimum Java version')
-            if minecraft in ('1.21.11','26.3'):
+            if minecraft=='1.21.1':
+                if metadata['depends'].get('lithostitched')!='>=1.8.0 <1.9.0':raise ValueError('Wrong Lithostitched target range')
+            elif minecraft in ('1.21.11','26.3'):
                 from prepare_additional_ports import TARGETS as additional
                 if metadata['depends'].get('lithostitched')!=additional[minecraft]['lithostitched']:raise ValueError('Wrong Lithostitched target pin')
         elif loader=='neoforge':
@@ -30,7 +32,8 @@ def verify(path: Path,loader: str,minecraft: str) -> dict:
             if len(metadata['mods'])!=1 or metadata['mods'][0]['modId']!='relics' or metadata['mods'][0]['version']!=VERSION:raise ValueError('Wrong native mod metadata')
             dependencies={d['modId']:d for d in metadata['dependencies']['relics']}
             if set(dependencies)!={'minecraft','neoforge','lithostitched'}:raise ValueError('Wrong native dependencies')
-            for mod,version in (('minecraft',f'[{minecraft}]'),('neoforge',f"[{target['neo']},)"),('lithostitched',f"[{target.get('litho_version','1.8.0')}]")):
+            litho_range=target.get('litho_range',f"[{target.get('litho_version','1.8.0')}]")
+            for mod,version in (('minecraft',f'[{minecraft}]'),('neoforge',f"[{target['neo']},)"),('lithostitched',litho_range)):
                 if dependencies[mod]['versionRange']!=version or dependencies[mod]['type']!='required':raise ValueError('Wrong native target pin')
         else:raise ValueError('Unknown loader')
         templates=set();manifests=[]
