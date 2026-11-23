@@ -1,6 +1,6 @@
 # Titan Relics Gameplay Walkthrough & Item Reference
 
-> **Spoiler notice:** This guide explains every gameplay mechanic, structure reward, crafting recipe, and exclusive item in Titan Relics (`1.0.0-beta.4`, V6 interiors). For a spoiler-light introduction, read the [short player guide](PLAYER_GUIDE.md).
+> **Spoiler notice:** This guide explains every gameplay mechanic, structure reward, crafting recipe, and exclusive item in Titan Relics (`1.0.0-beta.5`, V6 interiors). For a spoiler-light introduction, read the [short player guide](PLAYER_GUIDE.md).
 >
 > **Website edition:** [English Guide](https://auda29.github.io/Titan-Relics/guide-en.html) · [Deutscher Guide](https://auda29.github.io/Titan-Relics/guide.html)
 

@@ -1,9 +1,9 @@
 const versionSelect = document.querySelector('#minecraft-version');
 const loaderSelect = document.querySelector('#mod-loader');
-const release = '1.0.0-beta.4';
+const release = '1.0.0-beta.5';
 const english = document.documentElement.lang === 'en';
 const targets = {
-  '1.21.1': { java: '21+', fabricApi: '0.116.17+1.21.1', lithostitched: '1.8.0', neoForge: '21.1.256' },
+  '1.21.1': { java: '21+', fabricApi: '0.116.17+1.21.1', lithostitched: '1.8.0–1.8.1 (1.8.x)', neoForge: '21.1.256' },
   '1.21.11': { java: '21+', fabricApi: '0.141.6+1.21.11', lithostitched: '1.7.2', neoForge: '21.11.48' },
   '26.2': { java: '25+', fabricApi: '0.161.0+26.2', lithostitched: '1.8.0', neoForge: '26.2.0.88' },
   '26.3': { java: '25+', fabricApi: '0.165.2+26.3', lithostitched: '2.0.6', neoForge: '26.3.0.101' }

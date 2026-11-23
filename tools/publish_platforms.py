@@ -73,7 +73,8 @@ def dependency_specs(loader, game):
         result=[('lithostitched',target['dependencies'][loader+':lithostitched']['version'])]
         if loader=='fabric':result.append(('fabric-api',target['fabric_api']))
         return result
-    result = [('lithostitched', f'1.8.0-{loader}-' + ('21.1' if game == '1.21.1' else game))]
+    litho = f'1.8.1-{loader}-21.1' if game == '1.21.1' else f'1.8.0-{loader}-{game}'
+    result = [('lithostitched', litho)]
     if loader == 'fabric':
         result.append(('fabric-api', '0.116.17+1.21.1' if game == '1.21.1' else '0.161.0+26.2'))
     return result
