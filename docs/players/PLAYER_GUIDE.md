@@ -5,6 +5,10 @@ preset is selected for a new world. Existing worlds keep their saved rules and
 interior revisions. Start with the [installation guide](INSTALLATION.md) for
 files and dependencies.
 
+> **Looking for exact item locations, recipes, and Trial instructions (with spoilers)?**
+> Read the [full gameplay walkthrough and item reference](WALKTHROUGH.md) (also on the website in [English](https://auda29.github.io/Titan-Relics/guide-en.html) and [German](https://auda29.github.io/Titan-Relics/guide.html)).
+> **Testing in Creative mode:** switch to Survival (`/gamemode survival`) when testing the Colossus Trial Spawner, Vault, Salvage Magnet, or World Tree aura — those mechanics intentionally ignore Creative and Spectator players.
+
 ## Before creating the world
 
 Open **Create World → World → Relic generation**. Start with one of the three

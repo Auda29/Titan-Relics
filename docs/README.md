@@ -9,6 +9,7 @@ This directory contains only cross-project documentation and test evidence.
 
 - [Player installation, dependencies, existing worlds and bug reporting](players/INSTALLATION.md)
 - [Short player guide: presets, archaeology, maps, Core and Magnet](players/PLAYER_GUIDE.md)
+- [Full gameplay walkthrough and item reference (spoilers: Obelisk archaeology, Colossus Trial & Vault, all exclusive items and recipes)](players/WALKTHROUGH.md)
 - [Beta publication package: Modrinth/CurseForge drafts and outstanding decisions](releases/PUBLIC_BETA_PREPARATION.md)
 - [Titan Relics name decision and earlier collision checks](project/NAMING.md)
 

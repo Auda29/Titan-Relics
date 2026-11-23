@@ -1,6 +1,6 @@
 # Titan Relics
 
-[Website (DE)](https://auda29.github.io/Titan-Relics/) · [Website (EN)](https://auda29.github.io/Titan-Relics/en.html) · [Downloads](https://github.com/Auda29/Titan-Relics/releases/latest)
+[Website (DE)](https://auda29.github.io/Titan-Relics/) · [Website (EN)](https://auda29.github.io/Titan-Relics/en.html) · [Gameplay Guide (EN)](https://auda29.github.io/Titan-Relics/guide-en.html) · [Gameplay-Guide (DE)](https://auda29.github.io/Titan-Relics/guide.html) · [Downloads](https://github.com/Auda29/Titan-Relics/releases/latest)
 
 *Colossal ruins of a forgotten age*
 
@@ -82,8 +82,11 @@ Helping with the first stable release? Use the [Survival playtest and release ac
 2. Back up existing saves. Create a new Overworld with structure generation
    enabled for the complete current relic selection.
 3. Open **Create World → World → Relic generation** to choose a preset before
-   creating the world. The [short player guide](https://github.com/Auda29/Titan-Relics/blob/v1.0.0-beta.4/docs/players/PLAYER_GUIDE.md)
-   explains the settings and basic systems without giving away every discovery.
+   creating the world. The [short player guide](docs/players/PLAYER_GUIDE.md)
+   explains the settings and basic systems without giving away every discovery;
+   for exact item locations, Trial mechanics, and crafting recipes (with spoilers),
+   read the [full gameplay walkthrough](docs/players/WALKTHROUGH.md) or the
+   [website guide](https://auda29.github.io/Titan-Relics/guide-en.html).
 
 Relics can be far apart. Minimum distances and search spacing do not guarantee
 a nearby find. Each world's generation settings stay frozen, including for
