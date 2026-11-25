@@ -1,7 +1,7 @@
 # Your first relic expedition
 
-This guide describes Beta 4. Its revision-3 generation settings apply when a new
-preset is selected for a new world. Existing worlds keep their saved rules and
+The revision-4 generation settings apply to new worlds using the current
+presets. Existing worlds keep their saved rules and
 interior revisions. Start with the [installation guide](INSTALLATION.md) for
 files and dependencies.
 
@@ -29,7 +29,9 @@ is guaranteed every few thousand blocks.
 
 New presets favor skulls: each skull family receives 15% of opportunities away
 from Obelisks and 25% near them. Matching landscapes includes suitable classified
-modpack biomes. These remain chances before terrain and spacing checks.
+modpack biomes, including sites near dry biome borders. Ruined Tower, Small
+Colossus and World Tree each receive 4% of opportunities, up from 2% in earlier
+presets. Terrain and spacing checks still determine which sites generate.
 
 Apply a preset or your own distances, family shares and biome selections before
 creating the world. The world keeps that selection, even for later unexplored

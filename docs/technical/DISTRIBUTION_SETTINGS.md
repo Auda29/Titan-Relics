@@ -82,7 +82,7 @@ The same counters appear under `diagnostics` in `/relicsdistribution status`.
 | Balanced / Ausgewogen | 3,000 | 1,200 | 9,000 | 3,600 | 8,000 |
 | Discoveries / Entdeckungen | 2,000 | 800 | 6,000 | 2,400 | 4,000 |
 
-These are the revision-2 presets for newly created worlds. Existing installation
+These are the revision-4 presets for newly created worlds. Existing installation
 files keep their saved values until a preset is explicitly selected and saved.
 Presets also select Matching landscapes for all families. Applying a preset
 replaces its geometry, shares and biome modes together.
@@ -95,7 +95,7 @@ values are neither a guaranteed walking distance nor independent rolls for
 every relic. Dense settings also increase planning and locate-search work.
 
 Both skull families receive 15% each outside Obelisk regions and 25% each near
-Obelisks. Other family shares remain unchanged. Smaller grids provide more
+Obelisks. Tower, Small Colossus and Tree each receive 4% in both regions. Smaller grids provide more
 opportunities per area, while each preset still enforces its minimum separation.
 The ordinary minimum distance includes the reserved large-Colossus location.
 
@@ -107,7 +107,7 @@ distances. The search expands if no valid site exists. There is still one
 unique Colossus per supported enabled world, and no unsuitable terrain is forced
 to accept a model.
 
-New presets now select revision 3. Its Colossus search uses separate 1,000 × 1,000
+Revisions 3 and 4 share a Colossus search with separate 1,000 × 1,000
 block search cells and 1,000-block radial bands, starting at the chosen minimum.
 It checks 16 spread-out, seed-jittered chunk centers per cell in the current band.
 Cells with a compatible center biome and a valid model envelope receive up to
@@ -118,12 +118,11 @@ band; this is a bounded sample, not an exhaustive nearest-site proof.
 
 For Discoveries, the bands from 4,000 through 8,000 blocks are therefore searched
 before any more distant band. This is a preferred area, not a guaranteed maximum.
-No height, water, biome or model-fit requirements are relaxed. The ordinary
-relic grid, ticket shares and spacing algorithm are unchanged. A different
-Colossus destination can still change which nearby repeatable sites pass its
-reserved clearance.
+The search schedules the same candidates in both revisions. Revised terrain
+checks can select a different Colossus destination, which can affect
+clearance for nearby repeatable relics.
 
-Revision 3 journals include `colossusSearch`: the coarse/refinement pass,
+Revision 3 and 4 journals include `colossusSearch`: the coarse/refinement pass,
 refinement-cell set, checked-position totals, completed bands and first-failure
 counts for `BIOME_CENTER`, `BIOME_FOOTPRINT`, `BOUNDS`, `TERRAIN` and `DISTANCE`.
 The state is committed with the cursor and is exposed by
@@ -164,10 +163,10 @@ its own region. The menu accepts a comma or dot decimal separator.
 | Obelisk | 30% | 30% |
 | Crowned Skull | 15% | 25% |
 | Sword Skull | 15% | 25% |
-| Ruined Tower | 2% | 2% |
-| Small Colossus | 2% | 2% |
-| World Tree | 2% | 2% |
-| Empty | 34% | 14% |
+| Ruined Tower | 4% | 4% |
+| Small Colossus | 4% | 4% |
+| World Tree | 4% | 4% |
+| Empty | 28% | 8% |
 
 These are opportunity shares before rejection, not final realized frequencies.
 
@@ -187,9 +186,9 @@ distance combinations and totals above 100% fail validation.
     "obeliskDistance": 6000,
     "regionRadius": 2400,
     "colossusMinDistance": 4000,
-    "generationRevision": 3,
-    "outside": [3000, 1500, 1500, 200, 200, 200],
-    "inside": [3000, 2500, 2500, 200, 200, 200],
+    "generationRevision": 4,
+    "outside": [3000, 1500, 1500, 400, 400, 400],
+    "inside": [3000, 2500, 2500, 400, 400, 400],
     "biomes": {
       "families": {
         "colossus": {"mode": "LANDSCAPES", "selected": []},
@@ -214,7 +213,8 @@ keys are `colossus`, `obelisk`, `titan_skull`, `titan_skull_2`, `ruined_tower`,
 `selected` contains exact namespaced biome IDs for Custom. Old v3 journals
 without biome rules also retain Standard behavior.
 Do not edit the world journal to apply density changes. Its settings are frozen
-under `relics-distribution-v5-colossus-search`; old policies retain their historical
+under the policy for its generation revision. Revision 4 uses
+`relics-distribution-v6-modded-terrain`. Older policies retain their historical
 settings and fingerprint protection. Revision 1 preserves the released v2
 ticket layout and coordinates exactly. Generator, biome, asset and world-border
 changes remain subject to the existing fingerprint guard.
@@ -245,7 +245,7 @@ Revision 2 destinations and unfinished search cursors retain their previous
 candidate order and start gates. Older binaries reject the revision 3 policy.
 
 The settings screen preserves an existing revision when editing individual values;
-selecting a new preset opts future worlds into revision 3. Existing worlds remain
+selecting a preset opts future worlds into revision 4. Existing worlds remain
 read-only in that screen. There is no retrogen or automatic world migration.
 
 See the [balance verification report](../testing/SKULL_DISTRIBUTION_BALANCE_20261110.md)
@@ -253,6 +253,63 @@ for measured native-generator results and their limits. Ticket shares alone are
 not treated as evidence of actual discovery density.
 The [Colossus search report](../testing/COLOSSUS_SEARCH_20261110.md) records the
 separate revision-3 search checks and compatibility evidence.
+
+### Revision 4 terrain
+
+The center biome chooses the eligible family profile, including the single
+Crowned Skull palette. Compatible centers can border an unclassified or
+differently classified biome in any mode. Every point on the original 5×5 grid
+still requires dry land, a first-free floor at least Y 63, and a non-ocean,
+non-river biome. The ocean/river check uses both the center elevation and the
+sample's surface elevation. Matching landscapes also recognizes the coniferous,
+deciduous, taiga, Overworld dry, and mountain peak/slope tags observed in
+[Terralith](https://modrinth.com/datapack/terralith) and
+[Biomes O' Plenty](https://modrinth.com/mod/biomes-o-plenty).
+
+The highest allowed center is `dimensionMaxY - 8 + groundY - (templateHeight - 1)`.
+The same eight-block padding applies at the dimension bottom. The rotated
+template box determines actual placement bounds. Nearby ground can be higher
+than the center's model-height ceiling because it does not raise the model.
+
+| Family or palette | Natural template X×Y×Z | Ground Y in template | Deepest authored foundation, below ground datum | Highest center in a Y 319 Overworld |
+|---|---:|---:|---:|---:|
+| Colossus | 197×209×251 | 77 | 20 | 180 |
+| Obelisk | 75×187×76 | 10 | 10 | 135 |
+| Crowned Skull, standard/dry/sand | 133×79×195 | 16 | 16 | 249 |
+| Crowned Skull, rock | 133×79×195 | 22 | Embedded art | 255 |
+| Sword Skull | 115×136×115 | 28 | Embedded art | 204 |
+| Ruined Tower | 127×232×109 | 12 | 10 | 92 |
+| Small Colossus | 127×80×129 | 13 | 8 | 245 |
+| World Tree | 203×228×201 | 24 | Embedded roots | 108 |
+
+For uncapped support processors the original coarse slope limits still apply at
+samples inside the rotated template bounds. Measured as sample minus center they
+are ±16 for Colossus, ±12 for Crowned Skull, ±6 for Obelisk and Tower, and
+−4 to +12 for Small Colossus. Surrounding samples allow at most 16 blocks of
+rise or fall. That broader screen also applies around bounded-support models.
+Their actual low contacts are checked column by column against the base terrain,
+including between grid samples.
+
+For a low contact at local Y `b` and ground datum `g`, the lowest allowed
+substrate is `centerSurface + b - g - 1 - reach`. Reach is two blocks within
+the Tree's three-block and Sword Skull's six-block contact bands, and zero for
+deeper undersides. Authored solid runs can supply contact within that same reach.
+The base surface over those columns may rise up to six blocks for the Tree and
+eight for the Sword Skull. Higher intentional arches remain outside this
+contact check. Validation uses base terrain without loading chunks. Surface
+rules, carvers and later decorations can change the generated blocks, so the
+placement processor still checks real substrate and retains its original fill
+limits. All template bytes and the released revision 1–3 predicates stay pinned.
+
+The presets fund the higher rare-family shares from empty tickets. Skull and
+Obelisk shares, spacing, the number of probes per cell, and the one-family ticket
+rule stay the same.
+
+The headless geometry check in `tools/test_worldgen_java.py` uses the shipped
+World Tree and Sword Skull templates. Of nine World Tree fixtures, revision 3
+accepts two and revision 4 accepts five. Revision 4 rejects the fixture with
+an unsupported three-block drop between grid points, plus the wet, too-steep,
+and sky-clipping fixtures. These counts describe the test cases.
 
 ## Simple and advanced menu views
 

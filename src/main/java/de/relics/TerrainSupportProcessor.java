@@ -218,6 +218,17 @@ public record TerrainSupportProcessor(int groundY, boolean supportArt, BlockStat
                 || state.getBlock() instanceof net.minecraft.world.level.block.FallingBlock);
     }
 
+    /** The planner uses the same substrate rules as bounded support placement. */
+    public static boolean supportsTerrainContact(BlockState state) {
+        return !replaceable(state);
+    }
+
+    public static boolean isSupportSoil(BlockState state) {
+        return SOILS.contains(state.getBlock());
+    }
+
+    public static boolean isSupportArt(BlockState state) { return eligibleArt(state); }
+
     private static BlockState fillState(BlockState state) {
         Block block = state.getBlock();
         if (block == Blocks.SAND || block == Blocks.SANDSTONE || block == Blocks.SMOOTH_SANDSTONE) {

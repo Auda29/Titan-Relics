@@ -28,6 +28,9 @@ public record BiomeRules(Map<String,Rule> families) {
     public Rule rule(Family family){return families.getOrDefault(family.id,new Rule(Mode.STANDARD,Set.of()));}
     public BiomeRules with(Family family,Rule rule){var values=new TreeMap<>(families);values.put(family.id,rule);return new BiomeRules(values);}
     public static Set<String> groups(String id,Set<String> tags) {
+        return groups(id,tags,1);
+    }
+    public static Set<String> groups(String id,Set<String> tags,int revision) {
         var groups=new HashSet<String>();
         for(String group:List.of("desert","forest","open","dry","rocky")) {
             List<String> names=switch(group){
@@ -39,10 +42,27 @@ public record BiomeRules(Map<String,Rule> families) {
         if(Set.of("minecraft:plains","minecraft:sunflower_plains","minecraft:meadow","terralith:blooming_valley","terralith:blooming_plateau","biomesoplenty:prairie").contains(id))groups.add("open");
         if(Set.of("minecraft:savanna","minecraft:savanna_plateau","terralith:steppe","biomesoplenty:scrubland","biomesoplenty:dryland").contains(id))groups.add("dry");
         if(Set.of("minecraft:stony_shore","minecraft:stony_peaks","minecraft:windswept_hills","minecraft:windswept_gravelly_hills","terralith:rocky_mountains").contains(id))groups.add("rocky");
+        if(revision==DistributionSettings.TERRAIN_REVISION) {
+            if(tags.contains("c:is_tree/coniferous") || tags.contains("c:is_tree/deciduous")
+                    || tags.contains("minecraft:is_taiga") || tags.contains("c:is_taiga"))groups.add("forest");
+            if(tags.contains("c:is_dry/overworld"))groups.add("dry");
+            if(tags.contains("c:is_mountain/peak") || tags.contains("c:is_mountain/slope"))groups.add("rocky");
+        }
         return Set.copyOf(groups);
     }
+    static boolean waterTag(String tag) {
+        return switch(tag) {
+            case "minecraft:is_ocean","minecraft:is_deep_ocean","minecraft:is_river",
+                    "c:is_ocean","c:is_deep_ocean","c:is_river","forge:is_ocean","forge:is_river" -> true;
+            default -> false;
+        };
+    }
     public String profile(Family family,String biome,Set<String> tags,List<String> standard) {
-        Rule rule=rule(family);Set<String> groups=groups(biome,tags);
+        return profile(family,biome,tags,standard,1);
+    }
+    public String profile(Family family,String biome,Set<String> tags,List<String> standard,int revision) {
+        if(revision==DistributionSettings.TERRAIN_REVISION && tags.stream().anyMatch(BiomeRules::waterTag))return null;
+        Rule rule=rule(family);Set<String> groups=groups(biome,tags,revision);
         if(rule.mode==Mode.STANDARD)return standardProfile(standard);
         if(rule.mode==Mode.CUSTOM && !rule.selected.contains(biome))return null;
         if(rule.mode==Mode.LANDSCAPES && standard.isEmpty()) {

@@ -36,12 +36,12 @@ public final class ColossusSearch {
         return switch(revision){case 1->nominal.chunkX()==chunkX && nominal.chunkZ()==chunkZ;
             case 2->LocationSearch.mayContain(nominal,chunkX,chunkZ);
             // Fine-grid probes cover the entire cell rather than a radius around the old anchor.
-            case 3->true;default->throw new IllegalArgumentException("Unknown Colossus search revision");};
+            case 3,DistributionSettings.TERRAIN_REVISION->true;default->throw new IllegalArgumentException("Unknown Colossus search revision");};
     }
     public static List<Candidate> annulus(long seed,int spawnX,int spawnZ,int lower,int upper,
                                           int minX,int minZ,int maxX,int maxZ,int revision) {
         if(revision==1)return DistributionPlanner.annulus(seed,spawnX,spawnZ,lower,upper,minX,minZ,maxX,maxZ);
-        if(revision==3)return fineAnnulus(seed,spawnX,spawnZ,lower,upper,minX,minZ,maxX,maxZ,new Progress());
+        if(revision==3 || revision==DistributionSettings.TERRAIN_REVISION)return fineAnnulus(seed,spawnX,spawnZ,lower,upper,minX,minZ,maxX,maxZ,new Progress());
         if(revision!=2)throw new IllegalArgumentException("Unknown Colossus search revision");
         List<Candidate> result=new ArrayList<>();
         int firstX=Math.floorDiv(Math.max(minX,spawnX-upper),CELL),lastX=Math.floorDiv(Math.min(maxX,spawnX+upper),CELL);

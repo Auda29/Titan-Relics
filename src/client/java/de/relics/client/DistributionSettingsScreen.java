@@ -101,7 +101,7 @@ public final class DistributionSettingsScreen extends Screen {
             field.setTooltip(Tooltip.create(text(page==0?FIELDS[row]+".help":row==0 && page==3?"anchor.help":"chance.help")));
             addRenderableWidget(field);
         }
-        if(page==5)button(text("biomes"),x,84,w,()->minecraft.gui.setScreen(new BiomeSettingsScreen(this,catalog,biomes,value->biomes=value,saveAction==null)));
+        if(page==5)button(text("biomes"),x,84,w,()->minecraft.gui.setScreen(new BiomeSettingsScreen(this,catalog,biomes,value->biomes=value,saveAction==null,generationRevision)));
         save=null;
         if(saveAction==null){button(Component.translatable("gui.done"),x,height-28,w,this::onClose);validateDraft();return;}
         save=button(text(scope.equals("scope.world")?"apply":"save"),x,height-28,(w-4)/2,()->{
