@@ -12,10 +12,11 @@ import java.util.function.Consumer;
 /** Searchable registry-backed selection; all changes remain a cancellable draft. */
 public final class BiomeSettingsScreen extends Screen {
     private final Screen parent;private final ClientBiomeCatalog catalog;private final Consumer<BiomeRules> accept;private final boolean readOnly;
+    private final int generationRevision;
     private BiomeRules rules;private int family,page;private String query="";
     private static final Family[] FAMILIES=Arrays.stream(Family.values()).filter(f->f!=Family.EMPTY).toArray(Family[]::new);
-    public BiomeSettingsScreen(Screen parent,ClientBiomeCatalog catalog,BiomeRules rules,Consumer<BiomeRules> accept,boolean readOnly){
-        super(text("biomes"));this.parent=parent;this.catalog=catalog;this.rules=rules;this.accept=accept;this.readOnly=readOnly;
+    public BiomeSettingsScreen(Screen parent,ClientBiomeCatalog catalog,BiomeRules rules,Consumer<BiomeRules> accept,boolean readOnly,int generationRevision){
+        super(text("biomes"));this.parent=parent;this.catalog=catalog;this.rules=rules;this.accept=accept;this.readOnly=readOnly;this.generationRevision=generationRevision;
     }
     private static Component text(String key){return Component.translatable("relics.settings."+key);}
     private Family current(){return FAMILIES[family];}
@@ -31,7 +32,7 @@ public final class BiomeSettingsScreen extends Screen {
             Button b=button(text("mode."+mode.name().toLowerCase(Locale.ROOT)),x+mode.ordinal()*(third+4),58,third,()->{
                 Set<String> selected=rules.rule(current()).selected();
                 if(mode==BiomeRules.Mode.CUSTOM && rules.rule(current()).mode()!=mode && catalog!=null) {
-                    selected=new TreeSet<>();for(var entry:catalog.entries())if(entry.allowed(rules,current()))selected.add(entry.id());
+                    selected=new TreeSet<>();for(var entry:catalog.entries())if(entry.allowed(rules,current(),generationRevision))selected.add(entry.id());
                 }
                 rules=rules.with(current(),new BiomeRules.Rule(mode,selected));rebuildWidgets();
             });b.active=!readOnly && mode!=rules.rule(current()).mode();
@@ -49,12 +50,12 @@ public final class BiomeSettingsScreen extends Screen {
     private void addEntries(){
         entries.clear();int w=Math.min(560,width-16),x=(width-w)/2;List<ClientBiomeCatalog.Entry> list=filtered();
         for(int i=page*3;i<Math.min(page*3+3,list.size());i++) {
-            var entry=list.get(i);boolean allowed=entry.allowed(rules,current());
+            var entry=list.get(i);boolean allowed=entry.allowed(rules,current(),generationRevision);
             Button b=button(Component.literal((allowed?"[x] ":"[ ] ")+entry.id()),x,110+(i-page*3)*20,w,()->{
                 var selected=new TreeSet<>(rules.rule(current()).selected());if(!selected.remove(entry.id()))selected.add(entry.id());
                 rules=rules.with(current(),new BiomeRules.Rule(BiomeRules.Mode.CUSTOM,selected));rebuildWidgets();
             });b.active=!readOnly && rules.rule(current()).mode()==BiomeRules.Mode.CUSTOM;
-            String groups=BiomeRules.groups(entry.id(),entry.tags()).stream().sorted().map(g->text("group."+g).getString()).collect(java.util.stream.Collectors.joining(", "));
+            String groups=BiomeRules.groups(entry.id(),entry.tags(),generationRevision).stream().sorted().map(g->text("group."+g).getString()).collect(java.util.stream.Collectors.joining(", "));
             b.setTooltip(Tooltip.create(Component.literal(ClientModNames.name(entry.id().split(":")[0])+"\n"+entry.id()).append("\n").append(groups.isEmpty()?text("biome.unassigned"):Component.literal(groups))));entries.add(b);
         }
     }
@@ -62,7 +63,7 @@ public final class BiomeSettingsScreen extends Screen {
     @Override public void extractRenderState(GuiGraphicsExtractor graphics,int mouseX,int mouseY,float delta){
         super.extractRenderState(graphics,mouseX,mouseY,delta);int w=Math.min(560,width-16),x=(width-w)/2;
         graphics.centeredText(font,title,width/2,10,0xffffffff);
-        long count=catalog==null?0:catalog.entries().stream().filter(e->e.allowed(rules,current())).count();
+        long count=catalog==null?0:catalog.entries().stream().filter(e->e.allowed(rules,current(),generationRevision)).count();
         graphics.text(font,text("biome.allowed").copy().append(" "+count+" / "+(catalog==null?0:catalog.entries().size())),x,height-70,0xffcccccc);
         long missing=catalog==null?0:rules.rule(current()).selected().stream().filter(id->catalog.entries().stream().noneMatch(e->e.id().equals(id))).count();
         graphics.centeredText(font,missing>0?text("biome.missing").copy().append(" "+missing):Component.literal((page+1)+" / "+Math.max(1,(filtered().size()+2)/3)),width/2,height-48,missing>0?0xffff7777:0xffcccccc);

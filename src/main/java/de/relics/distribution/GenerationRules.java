@@ -6,6 +6,60 @@ import static de.relics.distribution.DistributionPlanner.Family;
 /** Effective predicates are revisioned in settings; pinned historical assets stay unchanged. */
 public final class GenerationRules {
     private GenerationRules() { }
+
+    static final int BUILD_PADDING=8;
+
+    static boolean fitsBuildHeight(int bottom,int top,int minY,int maxY) {
+        return bottom>=minY+BUILD_PADDING && top<=maxY-BUILD_PADDING;
+    }
+
+    /** The center envelope is checked against the rotated template box. These
+     * limits describe the surrounding land, where there is no template top. */
+    record LandscapeGrid(int radius,int step,int maxFall,int maxRise) {
+        boolean accepts(int center,int surface,int floor,boolean nearFoundation) {
+            int rise=surface-center;
+            return floor>=63 && surface==floor
+                    && rise>=-(nearFoundation?maxFall:Math.max(16,maxFall))
+                    && rise<=(nearFoundation?maxRise:Math.max(16,maxRise));
+        }
+    }
+
+    static LandscapeGrid landscapeGrid(JsonObject original,Family family) {
+        JsonObject grid=original.getAsJsonObject("condition");
+        if(!grid.get("type").getAsString().equals("relics:all_grid"))
+            throw new IllegalStateException("Unknown terrain grid");
+        int radius=grid.get("radius").getAsInt(),step=grid.get("distance_between_points").getAsInt();
+        if(step<=0 || radius!=2*step || grid.get("allowed_count").getAsInt()!=25)
+            throw new IllegalStateException("Revision 4 requires a 5 by 5 terrain grid");
+        return switch(family) {
+            case COLOSSUS -> new LandscapeGrid(radius,step,16,16);
+            case OBELISK,TOWER -> new LandscapeGrid(radius,step,6,6);
+            case SKULL -> {
+                // Lithostitched's relative value is center minus sample.
+                var conditions=grid.getAsJsonObject("condition").getAsJsonArray("conditions");
+                var range=conditions.asList().stream().map(JsonElement::getAsJsonObject)
+                        .filter(c->"lithostitched:height_filter".equals(c.get("type").getAsString())
+                                && "heightmap_relative".equals(c.get("range_type").getAsString()))
+                        .findFirst().orElseThrow().get("permitted_range");
+                // The live codec may encode the pinned object range as a pair.
+                if(range.isJsonArray()) {
+                    var bounds=range.getAsJsonArray();
+                    yield new LandscapeGrid(radius,step,bounds.get(1).getAsInt(),-bounds.get(0).getAsInt());
+                }
+                var bounds=range.getAsJsonObject();
+                yield new LandscapeGrid(radius,step,bounds.get("max_inclusive").getAsInt(),
+                        -bounds.get("min_inclusive").getAsInt());
+            }
+            // Lithostitched's legacy relative value is center minus sample.
+            case SMALL -> new LandscapeGrid(radius,step,4,12);
+            // The Tree's surface-contact band fits within 54 blocks of its center
+            // on each axis. Sample the rooted area inside the much wider canopy.
+            case TREE -> new LandscapeGrid(56,28,6,6);
+            case SKULL_2 -> new LandscapeGrid(radius,step,8,8);
+            default -> throw new IllegalArgumentException("No terrain grid for "+family);
+        };
+    }
+
     public static JsonObject terrain(JsonObject original,Family family,BiomeRules.Mode mode,int revision) {
         JsonObject result=original.deepCopy();
         if(revision==1)return result;

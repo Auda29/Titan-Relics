@@ -9,7 +9,7 @@ import static de.relics.distribution.DistributionPlanner.Family;
 /** Snapshot of the selected datapacks' real registry, never a guessed list. */
 public record ClientBiomeCatalog(List<Entry> entries) {
     public record Entry(String id,Set<String> tags,Map<String,List<String>> standard) {
-        public boolean allowed(BiomeRules rules,Family family){return rules.profile(family,id,tags,standard.getOrDefault(family.id,List.of()))!=null;}
+        public boolean allowed(BiomeRules rules,Family family,int revision){return rules.profile(family,id,tags,standard.getOrDefault(family.id,List.of()),revision)!=null;}
     }
     public static ClientBiomeCatalog from(RegistryAccess access) {
         var biomes=access.lookupOrThrow(Registries.BIOME);

@@ -158,7 +158,7 @@ Each supported Overworld has **one unique Great Colossus**. Every Expedition Map
   - **Discoveries** *(default)*: 2,000-block search spacing, 800-block min relic distance, 4,000-block min Great Colossus distance.
   - **Balanced**: 3,000-block spacing, 1,200-block min relic distance, 8,000-block min Great Colossus distance.
   - **Expedition**: 5,000-block spacing, 2,000-block min relic distance, 15,000-block min Great Colossus distance.
-  - All presets use *Matching landscapes* (including classified modpack biomes). Distances are lower bounds; terrain and biome checks can push valid sites farther away.
+  - All presets use *Matching landscapes*, including classified modpack biomes and suitable sites near dry biome borders. Ruined Tower, Small Colossus and World Tree each have a 4% ticket share. Terrain and spacing checks still decide which sites generate.
 - **Existing worlds:** each world freezes its generation settings and interior revision when created (even for unexplored chunks). Updating does not retrogen structures, add the Beta 4 upper tower chest to older worlds, or refill shared chests/archaeology.
 - **Minecraft 1.21.1 builds:** use ordinary Chests in place of Waxed Copper Chests and Ferns where newer 26.2+ blocks are unavailable. All gameplay mechanics, drops, and recipes are otherwise identical.
 - **Need setup help or hit a bug?** See the [installation & reporting guide](INSTALLATION.md).

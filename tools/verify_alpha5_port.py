@@ -14,9 +14,11 @@ def verify(path: Path,loader: str,minecraft: str) -> dict:
         names=archive.namelist()
         if len(names)!=len(set(names)):raise ValueError('Duplicate archive entries')
         java=21 if minecraft.startswith('1.') else 25
+        primary_fabric=loader=='fabric' and minecraft=='26.2'
         if loader=='fabric':
             metadata=json.loads(archive.read('fabric.mod.json'))
-            if metadata['id']!='relics' or metadata['version']!=VERSION or metadata['depends']['minecraft']!=minecraft:
+            game_target='~26.2' if primary_fabric else minecraft
+            if metadata['id']!='relics' or metadata['version']!=VERSION or metadata['depends']['minecraft']!=game_target:
                 raise ValueError('Wrong version/loader/game target')
             if metadata['depends']['java']!='>='+str(java):raise ValueError('Wrong minimum Java version')
             if minecraft=='1.21.1':
@@ -40,7 +42,11 @@ def verify(path: Path,loader: str,minecraft: str) -> dict:
         for name in names:
             if not(name.startswith('relics.') and name.endswith('integration.json')):continue
             manifest=json.loads(archive.read(name));manifests.append(name)
-            if manifest.get('compatibility_target')!=minecraft:raise ValueError('Missing compatibility contract: '+name)
+            manifest_target=manifest.get('compatibility_target')
+            # The primary Fabric build packages the frozen source manifests
+            # directly. Generated ports add the compatibility marker.
+            if manifest_target!=minecraft and not(primary_fabric and manifest_target is None):
+                raise ValueError('Missing compatibility contract: '+name)
             if loader=='neoforge' and manifest.get('loader')!='neoforge':raise ValueError('Wrong manifest loader')
             for entry in manifest['structures']:
                 for field in ('single_template','worldgen_template'):
@@ -71,6 +77,9 @@ def verify(path: Path,loader: str,minecraft: str) -> dict:
         if 'DedicatedWorldLoadCheckMixin' not in mixins['mixins']:raise ValueError('Missing dedicated world-load guard')
         if 'de/relics/client/DistributionSettingsScreen.class' not in classes or 'de/relics/client/mixin/WorldGenerationTabMixin.class' not in classes:
             raise ValueError('Missing distribution settings menu')
+        if ('de/relics/distribution/TerrainContacts.class' not in classes
+                or b'relics-distribution-v6-modded-terrain' not in archive.read('de/relics/distribution/DistributionSettings.class')):
+            raise ValueError('Missing revision-4 distribution policy or terrain contacts')
         if loader=='fabric' and {'config':'relics.client.mixins.json','environment':'client'} not in metadata['mixins']:
             raise ValueError('Fabric menu mixins are not client-scoped')
         if loader=='neoforge' and {'config':'relics.client.mixins.json'} not in metadata['mixins']:

@@ -50,9 +50,10 @@ public final class WorldgenTests {
                 source, source, new StructurePlaceSettings().setBoundingBox(box));
     }
 
-    public static void main(String[] arguments) {
+    public static void main(String[] arguments) throws java.io.IOException {
         SharedConstants.tryDetectVersion();
         Bootstrap.bootStrap();
+        de.relics.distribution.TerrainRevisionTests.run();
         var protectedCells = new ProtectedCells();
         var edge = new BlockPos(-1, -64, -1);
         protectedCells.add(edge);

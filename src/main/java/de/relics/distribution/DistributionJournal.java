@@ -63,10 +63,10 @@ public final class DistributionJournal {
     private void validate() {
         if(state!=null && state.surfaceStructures!=null)state.surfaceStructures.validate();
         if (state==null || state.interiors==null || !Set.of("legacy","interiors-20261027-v1","interiors-20261028-v2","interiors-20261028-v3","interiors-20261028-v4","interiors-20261028-v5","interiors-20261111-v6").contains(state.interiors)
-                || !Set.of(DistributionPlanner.POLICY,DistributionPlanner.LEGACY_POLICY,DistributionSettings.LEGACY_POLICY,DistributionSettings.DISCOVERIES_POLICY,DistributionSettings.POLICY).contains(state.policy) || state.fingerprint==null
+                || (!Set.of(DistributionPlanner.POLICY,DistributionPlanner.LEGACY_POLICY).contains(state.policy) && !DistributionSettings.settingsPolicy(state.policy)) || state.fingerprint==null
                 || DistributionSettings.settingsPolicy(state.policy) != (state.settings!=null)
                 || state.settings!=null && DistributionSettings.settingsPolicy(state.policy) && !state.policy.equals(state.settings.policy())
-                || state.settings!=null && state.settings.generationRevision()==3 && state.colossusSearch==null
+                || state.settings!=null && state.settings.fineColossusSearch() && state.colossusSearch==null
                 || !state.fingerprint.matches("[a-f0-9]{64}") || state.fingerprintFormat<0
                 || state.fingerprintFormat>PlanningFingerprint.FORMAT || state.enabled==null || state.cursor<0
                 || state.lower<state.colossusMinDistance() || state.upper<=state.lower || state.minX>=state.maxX || state.minZ>=state.maxZ

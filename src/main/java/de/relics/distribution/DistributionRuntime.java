@@ -58,8 +58,8 @@ public final class DistributionRuntime implements AutoCloseable {
         if(fresh){
             initial.settings=DistributionConfig.forNewWorld(level.getServer().getWorldPath(LevelResource.ROOT));initial.policy=initial.settings.policy();
             initial.lower=initial.settings.colossusMinDistance();
-            initial.upper=initial.settings.generationRevision()==3?Math.addExact(initial.lower,ColossusSearch.BAND):Math.multiplyExact(initial.lower,2);
-            if(initial.settings.generationRevision()==3)initial.colossusSearch=new ColossusSearch.Progress();
+            initial.upper=initial.settings.fineColossusSearch()?Math.addExact(initial.lower,ColossusSearch.BAND):Math.multiplyExact(initial.lower,2);
+            if(initial.settings.fineColossusSearch())initial.colossusSearch=new ColossusSearch.Progress();
         }
         DistributionSettings selectedSettings=fresh?initial.settings:new DistributionJournal(file,null).state.settings;
         BiomeRules rules=selectedSettings==null?BiomeRules.STANDARD:selectedSettings.biomes();
@@ -169,7 +169,7 @@ public final class DistributionRuntime implements AutoCloseable {
         var s=journal.state;
         if(!s.enabled.contains(Family.COLOSSUS)) {s.unavailable=true;s.unavailableReason="disabled before destination";commitResolution();return;}
         if(!validator.hasPossibleBiome(Family.COLOSSUS)){s.unavailable=true;s.unavailableReason="no allowed Colossus biomes in the frozen generator";commitResolution();return;}
-        boolean fine=s.settings!=null && s.settings.generationRevision()==3;
+        boolean fine=s.settings!=null && s.settings.fineColossusSearch();
         long deadline=System.nanoTime()+2000000;
         for(int n=0;n<8;n++) {
             if(closed)return;
