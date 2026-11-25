@@ -282,7 +282,10 @@ public final class TerrainValidator implements Validator {
                         || QuartPos.fromBlock(sample)!=QuartPos.fromBlock(surface) && wetBiome(x,sample,z))return false;
             }
         return landscape.contacts==null || landscape.contacts.fits(origin,rotation,surface+grid.maxRise(),
-                height.getMaxY(),height.getMinY(),(x,z)->generator.getBaseColumn(x,z,height,random));
+                height.getMinY(),
+                (x,z)->generator.getFirstFreeHeight(x,z,Heightmap.Types.WORLD_SURFACE_WG,height,random),
+                (x,z)->generator.getFirstFreeHeight(x,z,Heightmap.Types.OCEAN_FLOOR_WG,height,random),
+                (x,z)->generator.getBaseColumn(x,z,height,random));
     }
     private boolean wetBiome(int x,int y,int z) {
         var biome=generator.getBiomeSource().getNoiseBiome(QuartPos.fromBlock(x),QuartPos.fromBlock(y),QuartPos.fromBlock(z),random.sampler());

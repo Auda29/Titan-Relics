@@ -19,7 +19,8 @@ public final class GenerationRules {
         boolean accepts(int center,int surface,int floor,boolean nearFoundation) {
             int rise=surface-center;
             return floor>=63 && surface==floor
-                    && rise>=-(nearFoundation?maxFall:16) && rise<=(nearFoundation?maxRise:16);
+                    && rise>=-(nearFoundation?maxFall:Math.max(16,maxFall))
+                    && rise<=(nearFoundation?maxRise:Math.max(16,maxRise));
         }
     }
 
@@ -33,11 +34,27 @@ public final class GenerationRules {
         return switch(family) {
             case COLOSSUS -> new LandscapeGrid(radius,step,16,16);
             case OBELISK,TOWER -> new LandscapeGrid(radius,step,6,6);
-            case SKULL -> new LandscapeGrid(radius,step,12,12);
+            case SKULL -> {
+                // Lithostitched's relative value is center minus sample.
+                var conditions=grid.getAsJsonObject("condition").getAsJsonArray("conditions");
+                var range=conditions.asList().stream().map(JsonElement::getAsJsonObject)
+                        .filter(c->"lithostitched:height_filter".equals(c.get("type").getAsString())
+                                && "heightmap_relative".equals(c.get("range_type").getAsString()))
+                        .findFirst().orElseThrow().get("permitted_range");
+                // The live codec may encode the pinned object range as a pair.
+                if(range.isJsonArray()) {
+                    var bounds=range.getAsJsonArray();
+                    yield new LandscapeGrid(radius,step,bounds.get(1).getAsInt(),-bounds.get(0).getAsInt());
+                }
+                var bounds=range.getAsJsonObject();
+                yield new LandscapeGrid(radius,step,bounds.get("max_inclusive").getAsInt(),
+                        -bounds.get("min_inclusive").getAsInt());
+            }
             // Lithostitched's legacy relative value is center minus sample.
             case SMALL -> new LandscapeGrid(radius,step,4,12);
-            // Bounded models use these rises at actual low contact columns.
-            case TREE -> new LandscapeGrid(radius,step,6,6);
+            // The Tree's surface-contact band fits within 54 blocks of its center
+            // on each axis. Sample the rooted area inside the much wider canopy.
+            case TREE -> new LandscapeGrid(56,28,6,6);
             case SKULL_2 -> new LandscapeGrid(radius,step,8,8);
             default -> throw new IllegalArgumentException("No terrain grid for "+family);
         };

@@ -258,10 +258,12 @@ separate revision-3 search checks and compatibility evidence.
 
 The center biome chooses the eligible family profile, including the single
 Crowned Skull palette. Compatible centers can border an unclassified or
-differently classified biome in any mode. Every point on the original 5×5 grid
-still requires dry land, a first-free floor at least Y 63, and a non-ocean,
-non-river biome. The ocean/river check uses both the center elevation and the
-sample's surface elevation. Matching landscapes also recognizes the coniferous,
+differently classified biome in any mode. Every point on the 5×5 grid
+requires dry land, a first-free floor at least Y 63, and a non-ocean,
+non-river biome. The World Tree samples every 28 blocks out to 56 blocks on
+each axis, covering the surface-contact band beneath its wider canopy.
+Other families retain their original grid extents. The ocean/river check uses
+both the center elevation and the sample's surface elevation. Matching landscapes also recognizes the coniferous,
 deciduous, taiga, Overworld dry, and mountain peak/slope tags observed in
 [Terralith](https://modrinth.com/datapack/terralith) and
 [Biomes O' Plenty](https://modrinth.com/mod/biomes-o-plenty).
@@ -284,16 +286,21 @@ than the center's model-height ceiling because it does not raise the model.
 
 For uncapped support processors the original coarse slope limits still apply at
 samples inside the rotated template bounds. Measured as sample minus center they
-are ±16 for Colossus, ±12 for Crowned Skull, ±6 for Obelisk and Tower, and
-−4 to +12 for Small Colossus. Surrounding samples allow at most 16 blocks of
-rise or fall. That broader screen also applies around bounded-support models.
-Their actual low contacts are checked column by column against the base terrain,
-including between grid samples.
+are ±16 for Colossus, ±12 for the standard, dry and sand Crowned Skull palettes,
+−12 to +18 for the rock palette, ±6 for Obelisk and Tower, and −4 to +12 for
+Small Colossus. Surrounding samples allow 16 blocks of rise or fall, with
+up to 18 blocks of rise for the rock palette. Bounded-support models use
+the 16-block screen across the grid and check their surface contacts
+column by column between grid samples.
 
 For a low contact at local Y `b` and ground datum `g`, the lowest allowed
-substrate is `centerSurface + b - g - 1 - reach`. Reach is two blocks within
-the Tree's three-block and Sword Skull's six-block contact bands, and zero for
-deeper undersides. Authored solid runs can supply contact within that same reach.
+substrate is `centerSurface + b - g - 1 - reach`. Revision 4 checks undersides
+from `g - 3` through `g` for the World Tree and from `g - 6` through `g`
+for the Sword Skull. The placement processor skips deeper undersides as well,
+allowing buried roots to cross caves. Reach is two blocks where the processor
+can extend the contact, and zero otherwise. Authored solid runs can supply
+contact within that same reach. The surface and ocean-floor heightmaps screen
+for water, steep rises and drops before any full base-terrain column probes.
 The base surface over those columns may rise up to six blocks for the Tree and
 eight for the Sword Skull. Higher intentional arches remain outside this
 contact check. Validation uses base terrain without loading chunks. Surface

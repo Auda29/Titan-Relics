@@ -25,7 +25,22 @@ public final class TerrainRevisionTests {
     public static void run() throws IOException {
         checkBiomeRouting();
         checkFrozenGeometry();
+        checkRockSkullSlope();
         checkContactLimits();
+    }
+
+    private static void checkRockSkullSlope() throws IOException {
+        var rock=JsonParser.parseString(Files.readString(DATA.resolve("worldgen/structure/titan_skull_rock.json")))
+                .getAsJsonObject().getAsJsonObject("spawn_condition").getAsJsonObject("terrain_condition");
+        var grid=GenerationRules.landscapeGrid(rock,Family.SKULL);
+        var relativeFilter=rock.getAsJsonObject("condition").getAsJsonObject("condition")
+                .getAsJsonArray("conditions").get(0).getAsJsonObject();
+        relativeFilter.add("permitted_range",JsonParser.parseString("[-18,12]"));
+        check(grid.equals(GenerationRules.landscapeGrid(rock,Family.SKULL)),"codec array preserves rock skull slope");
+        for(boolean nearFoundation:new boolean[]{true,false}) {
+            check(grid.accepts(100,118,118,nearFoundation),"rock skull accepts +18 dry uphill");
+            check(!grid.accepts(100,119,119,nearFoundation),"rock skull rejects +19 uphill");
+        }
     }
 
     private static void checkBiomeRouting() {
@@ -68,28 +83,43 @@ public final class TerrainRevisionTests {
         var tree=JsonParser.parseString(Files.readString(DATA.resolve("worldgen/structure/world_tree.json")))
                 .getAsJsonObject().getAsJsonObject("spawn_condition").getAsJsonObject("terrain_condition");
         var grid=GenerationRules.landscapeGrid(tree,Family.TREE);
-        check(grid.radius()==102 && grid.step()==51,"original extent retains water screenings");
+        check(grid.radius()==56 && grid.step()==28,"five by five dry-land grid spans the rooted area");
         check(grid.accepts(106,117,117,false),"uphill margin above the template center cap");
         check(!grid.accepts(106,117,116,false),"even shallow water fails at the margin");
         check(!grid.accepts(106,123,123,false),"extreme variation fails at the margin");
         check(!grid.accepts(64,62,62,false),"minimum dry-floor height is preserved");
         check(TerrainContacts.reachesSubstrate(24,2,-64,y->y==21),"two missing blocks are supported");
         check(!TerrainContacts.reachesSubstrate(24,2,-64,y->y==20),"three missing blocks fail");
-        check(!TerrainContacts.reachesSubstrate(20,0,-64,y->y==18),"buried contact gets no extra extension");
+        var config=new TerrainSupportProcessor(24,true,Blocks.DIRT.defaultBlockState(),true,2,3,true);
+        var log=Blocks.OAK_LOG.defaultBlockState();
+        var roots=new TerrainContacts(List.of(new StructureBlockInfo(new BlockPos(0,21,0),log,null),
+                new StructureBlockInfo(new BlockPos(1,20,0),log,null)),config);
+        var cave=column(99,Blocks.STONE.defaultBlockState());
+        for(int y=93;y<=95;y++)cave.setBlock(y,Blocks.AIR.defaultBlockState());
+        var filled=column(99,Blocks.STONE.defaultBlockState());
+        var origin=new BlockPos(0,76,0);
+        check(roots.fits(origin,Rotation.NONE,106,-64,(x,z)->100,(x,z)->100,(x,z)->x==0?filled:cave),
+                "buried root can cross a cave");
+        for(int y=94;y<=96;y++)cave.setBlock(y,Blocks.AIR.defaultBlockState());
+        check(!roots.fits(origin,Rotation.NONE,106,-64,(x,z)->100,(x,z)->100,(x,z)->cave),
+                "a contact-band root still needs substrate within reach");
 
         for(String asset:List.of("world_tree_gameplay_worldgen","titan_skull_2_side_v1_worldgen")) {
             boolean root=asset.startsWith("world_tree");
             int ground=root?24:28;
-            var config=new TerrainSupportProcessor(ground,true,Blocks.DIRT.defaultBlockState(),root,2,root?3:6,true);
-            var contacts=new TerrainContacts(readBlocks(asset),config);
-            var filled=column(99,Blocks.STONE.defaultBlockState());
-            var dropped=column(96,Blocks.STONE.defaultBlockState());
-            var wet=column(96,Blocks.WATER.defaultBlockState());
-            var origin=new BlockPos(-391,100-ground,-257);
+            var processor=new TerrainSupportProcessor(ground,true,Blocks.DIRT.defaultBlockState(),root,2,root?3:6,true);
+            var contacts=new TerrainContacts(readBlocks(asset),processor);
+            var siteOrigin=new BlockPos(-391,100-ground,-257);
+            TerrainContacts.BaseTerrain unexpectedColumn=(x,z)->{throw new AssertionError("heightmap must reject first");};
             for(var rotation:Rotation.values()) {
-                check(contacts.fits(origin,rotation,106,319,-64,(x,z)->filled),asset+" flat ground passes in "+rotation);
-                check(!contacts.fits(origin,rotation,106,319,-64,(x,z)->dropped),asset+" unsupported slope fails in "+rotation);
-                check(!contacts.fits(origin,rotation,106,319,-64,(x,z)->wet),asset+" wet contact fails in "+rotation);
+                check(contacts.fits(siteOrigin,rotation,106,-64,(x,z)->100,(x,z)->100,(x,z)->filled),
+                        asset+" flat ground passes in "+rotation);
+                check(!contacts.fits(siteOrigin,rotation,106,-64,(x,z)->97,(x,z)->97,unexpectedColumn),
+                        asset+" unsupported slope fails in "+rotation);
+                check(!contacts.fits(siteOrigin,rotation,106,-64,(x,z)->100,(x,z)->99,unexpectedColumn),
+                        asset+" wet contact fails in "+rotation);
+                check(!contacts.fits(siteOrigin,rotation,106,-64,(x,z)->107,(x,z)->107,unexpectedColumn),
+                        asset+" excessive uphill fails in "+rotation);
             }
             if(root)compareTreeSites(grid,contacts,ground);
         }
@@ -119,7 +149,8 @@ public final class TerrainRevisionTests {
             var contactColumn=column(site.center-1-site.contactDrop,Blocks.STONE.defaultBlockState());
             if(withinCeiling && grid.accepts(site.center,site.edge,site.edge-(site.water?1:0),false)
                     && contacts.fits(new BlockPos(0,site.center-ground,0),Rotation.NONE,site.center+6,
-                    319,-64,(x,z)->contactColumn))revision4Accepted++;
+                    -64,(x,z)->site.center-site.contactDrop,(x,z)->site.center-site.contactDrop,
+                    (x,z)->contactColumn))revision4Accepted++;
         }
         check(legacyAccepted==2 && revision4Accepted==5,"fragmented and rolling Tree fixtures accept 2/9 then 5/9");
         System.out.printf("World Tree geometry fixtures: revision 3 accepted %d/%d, revision 4 accepted %d/%d%n",

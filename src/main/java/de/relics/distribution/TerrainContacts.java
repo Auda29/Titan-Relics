@@ -6,8 +6,8 @@ import java.util.function.IntPredicate;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.NoiseColumn;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
-import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate.StructureBlockInfo;
 
@@ -15,11 +15,13 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemp
 final class TerrainContacts {
     private record Contact(int y,int reach) { }
     private record Column(int x,int z,int minSubstrate,List<Contact> contacts) { }
+    @FunctionalInterface interface Height { int at(int x,int z); }
     @FunctionalInterface interface BaseTerrain { NoiseColumn column(int x,int z); }
     private final List<Column> columns;
 
     TerrainContacts(List<StructureBlockInfo> blocks,TerrainSupportProcessor processor) {
         int ground=processor.groundY();
+        int minContactY=processor.surfaceContactDepth()<0?Integer.MIN_VALUE:ground-processor.surfaceContactDepth();
         var authored=new HashSet<BlockPos>();
         var movedBushSoil=new HashSet<BlockPos>();
         for(var block:blocks) {
@@ -42,7 +44,8 @@ final class TerrainContacts {
         for(var block:blocks) {
             BlockPos p=block.pos();
             var state=block.state();
-            if(p.getY()>ground || state.is(Blocks.JIGSAW) || state.is(Blocks.STRUCTURE_BLOCK)
+            // Match the processor: buried roots may cross caves.
+            if(p.getY()<minContactY || p.getY()>ground || state.is(Blocks.JIGSAW) || state.is(Blocks.STRUCTURE_BLOCK)
                     || state.is(Blocks.ROOTED_DIRT) && movedBushSoil.contains(p))continue;
             boolean soil=TerrainSupportProcessor.isSupportSoil(state);
             if(!soil && !TerrainSupportProcessor.isSupportArt(state))continue;
@@ -50,10 +53,9 @@ final class TerrainContacts {
             BlockPos below=p.below();
             if(authored.contains(below) && !movedBushSoil.contains(below))continue;
             boolean canExtend=soil?p.getY()==soilBottoms.get(column):processor.supportArt();
-            boolean outsideContactBand=processor.surfaceContactDepth()>=0 && p.getY()<ground-processor.surfaceContactDepth();
-            int reach=canExtend && !outsideContactBand?processor.maxSupportDepth():0;
+            int reach=canExtend?processor.maxSupportDepth():0;
             // Another authored run within reach can end the extension earlier.
-            // Its own lowest contact is also tested if it needs support.
+            // The socket is tested separately if it lies in the contact band.
             boolean authoredSupport=false;
             for(int gap=1;gap<=reach;gap++) {
                 BlockPos socket=below.below(gap);
@@ -76,22 +78,30 @@ final class TerrainContacts {
                 .thenComparingInt(Column::x).thenComparingInt(Column::z)).toList();
     }
 
-    boolean fits(BlockPos origin,Rotation rotation,int maximumSurface,int maxY,int minY,BaseTerrain terrain) {
+    boolean fits(BlockPos origin,Rotation rotation,int maximumSurface,int minY,
+                 Height surfaceHeight,Height floorHeight,BaseTerrain terrain) {
+        var positions=new ArrayList<BlockPos>(columns.size());
         for(Column contactColumn:columns) {
             BlockPos offset=StructureTemplate.transform(new BlockPos(contactColumn.x,0,contactColumn.z),
-                    net.minecraft.world.level.block.Mirror.NONE,rotation,BlockPos.ZERO);
-            NoiseColumn column=terrain.column(origin.getX()+offset.getX(),origin.getZ()+offset.getZ());
+                    Mirror.NONE,rotation,BlockPos.ZERO);
+            BlockPos position=origin.offset(offset);
+            int x=position.getX(),z=position.getZ();
+            int surface=surfaceHeight.at(x,z);
+            int minSubstrate=Math.max(minY,origin.getY()+contactColumn.minSubstrate);
+            if(surface>maximumSurface || surface-1<minSubstrate || surface!=floorHeight.at(x,z))
+                return false;
+            positions.add(position);
+        }
+        // Heightmaps screen the whole footprint before any full column probes.
+        for(int i=0;i<columns.size();i++) {
+            Column contactColumn=columns.get(i);
+            BlockPos position=positions.get(i);
+            NoiseColumn column=terrain.column(position.getX(),position.getZ());
             for(Contact contact:contactColumn.contacts) {
                 int bottom=origin.getY()+contact.y;
                 if(!reachesSubstrate(bottom,contact.reach,minY,
                         y->TerrainSupportProcessor.supportsTerrainContact(column.getBlock(y))))return false;
             }
-            // Keep the old uphill allowance at real contacts and reject wet
-            // support columns even when they fall between coarse grid points.
-            int top=maxY;
-            while(top>=minY && column.getBlock(top).isAir())top--;
-            if(top+1>maximumSurface || top<minY
-                    || !Heightmap.Types.OCEAN_FLOOR_WG.isOpaque().test(column.getBlock(top)))return false;
         }
         return true;
     }
