@@ -1,6 +1,6 @@
 const versionSelect = document.querySelector('#minecraft-version');
 const loaderSelect = document.querySelector('#mod-loader');
-const release = '1.0.0-beta.5';
+const release = '1.0.0-beta.6';
 const english = document.documentElement.lang === 'en';
 const targets = {
   '1.21.1': { java: '21+', fabricApi: '0.116.17+1.21.1', lithostitched: '1.8.0–1.8.1 (1.8.x)', neoForge: '21.1.256' },
